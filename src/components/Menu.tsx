@@ -3,7 +3,7 @@ import {Button} from './Button';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faInstagram} from '@fortawesome/free-brands-svg-icons';
 
-export const Header = () => {
+export const Menu = () => {
   return (
     <div>
       <a href="https://google.com" target="_blank" rel="noreferrer">

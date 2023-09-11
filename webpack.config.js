@@ -54,7 +54,7 @@ module.exports = (env, argv) => ({
       //   loader: 'svg-inline-loader'
       // },
       {
-        test: /\.(woff|woff2|svg|png|mp4)$/,
+        test: /\.(woff|woff2|svg|png|mp4|jpg)$/,
         loader: 'file-loader',
         options: {
           esModule: false
