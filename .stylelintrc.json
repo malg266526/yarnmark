@@ -1,9 +1,0 @@
-{
-  "extends": "stylelint-config-standard",
-  "rules": {
-    "at-rule-empty-line-before": null,
-    "no-extra-semicolons": true,
-    "at-rule-no-unknown": false
-  }
-}
-
