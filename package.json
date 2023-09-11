@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "lint": "eslint src/**/*",
+    "lint": "eslint src/**/*.{ts,tsx}",
     "tsc": "tsc --noEmit --skipLibCheck",
     "prettier": "prettier src/**/*.{ts,tsx} --write",
     "test": "echo \"Error: no test specified\" && exit 1",
