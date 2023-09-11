@@ -12,14 +12,12 @@ on:
     types: [opened, reopened]
 
 jobs:
-  build:
-
+  install:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v3
@@ -27,10 +25,18 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+        cache: 'yarn'
     - name: Install dependencies
-      run: yarn ci
-    - name: Run typecheck
+      run: yarn install --frozen-dependencies
+  typecheck:
+    needs: [install]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Typecheck
       run: yarn tsc
-    - name: Lint code 
+  lint:
+    needs: [install]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Lint
       run: yarn lint
