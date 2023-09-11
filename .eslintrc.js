@@ -1,8 +1,8 @@
 module.exports = {
   extends: [
     'eslint:recommended',
+    "prettier",
     'plugin:react/recommended',
-    'plugin:prettier/recommended',
     'plugin:import/errors',
     'plugin:import/warnings'
   ],
@@ -38,10 +38,17 @@ module.exports = {
   rules: {
     'no-unused-vars': 0,
     'no-undef': 0,
+    'object-curly-spacing': ["error", "always"],
     'no-debugger': 1,
-
-    'prettier/prettier': 'error',
-    quotes: ['error', 'single'],
+    'prettier/prettier': ["error", {
+      "trailingComma": "none",
+      "tabWidth": 2,
+      "semi": true,
+      "singleQuote": true,
+      "bracketSpacing": true,
+      "jsxBracketSameLine": true,
+      "printWidth": 120
+    }],
     'react/no-unescaped-entities': 0,
     'react/jsx-tag-spacing': [
       2,
