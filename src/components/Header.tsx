@@ -1,9 +1,15 @@
 import React from 'react';
 import {Button} from './Button';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faInstagram} from '@fortawesome/free-brands-svg-icons';
 
 export const Header = () => {
   return (
     <div>
+      <a href="https://google.com" target="_blank" rel="noreferrer">
+        <Button> Warsztaty </Button>
+      </a>
+
       <a href="https://google.com" target="_blank" rel="noreferrer">
         <Button> Wystawcy </Button>
       </a>
@@ -16,8 +22,8 @@ export const Header = () => {
         <Button> Kontakt </Button>
       </a>
 
-      <a href="https://google.com" target="_blank" rel="noreferrer">
-        Logo instagrama
+      <a href="https://www.instagram.com/dziergamynapolu/" className="instagram social">
+        <FontAwesomeIcon icon={faInstagram} size="2x" />
       </a>
     </div>
   );
