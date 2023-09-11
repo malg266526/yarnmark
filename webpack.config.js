@@ -26,38 +26,20 @@ module.exports = (env, argv) => ({
       inject: true,
       meta: { viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no' }
     }),
-    // new CopyPlugin([
-    //   {
-    //     from: "./src/**/*",
-    //     to: "./build",
-    //     test: /\.(svg|txt|woff|woff2|jpg)$/
-    //   }
-    // ]),
   ],
   module: {
     rules: [
-      (argv.mode === 'production' ? {
-        test: /\.(js|tsx)$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-        options: {
-          quiet: true
-        }
-      } : {}),
       {
         test: /\.(tsx?|js)$/,
         exclude: /node_modules/,
         loader: 'ts-loader'
       },
-      // {
-      //   test: /\.svg$/,
-      //   loader: 'svg-inline-loader'
-      // },
       {
         test: /\.(woff|woff2|svg|png|mp4)$/,
         loader: 'file-loader',
         options: {
-          esModule: false
+          esModule: false,
+          emitFile: true,
         }
       },
     ]
