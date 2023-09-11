@@ -1,5 +1,4 @@
 import React from 'react';
+import {MainPage} from './MainPage';
 
-export const App = () => (
-    <div>test</div>
-);
+export const App = () => <MainPage />;
