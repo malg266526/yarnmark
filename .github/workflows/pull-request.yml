@@ -5,6 +5,8 @@ name: Pull Request
 
 on: 
   push:
+    branches-ignore:
+      - master
 
   pull_request:
     types: [opened, reopened]
