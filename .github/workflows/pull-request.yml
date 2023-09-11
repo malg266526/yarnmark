@@ -6,11 +6,9 @@ name: Pull Request
 on: 
   push:
     branches:
-      - '!master'
+      - '**'
   pull_request:
-    branches:
-      - '!master'
-  
+    types: [opened, reopened]
 
 jobs:
   build:
