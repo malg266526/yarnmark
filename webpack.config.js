@@ -1,10 +1,6 @@
 var path = require('path');
 
-var HtmlWebpackPlugin = require('html-webpack-plugin'),
-  MiniCssExtractPlugin = require('mini-css-extract-plugin'),
-  CopyPlugin = require('copy-webpack-plugin');
-
-
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env, argv) => ({
   devtool: false,
