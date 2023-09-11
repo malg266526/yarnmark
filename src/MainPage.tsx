@@ -1,6 +1,6 @@
 import React from 'react';
-import {Button} from './components/Button';
-import {Menu} from './components/Menu';
+import { Button } from './components/Button';
+import { Menu } from './components/Menu';
 import YarnmarkLogo from './assets/images/yarnmark_logo.jpg';
 import styled from 'styled-components';
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import {Button} from './Button';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faInstagram} from '@fortawesome/free-brands-svg-icons';
+import { Button } from './Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 export const Menu = () => {
   return (

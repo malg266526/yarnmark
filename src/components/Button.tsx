@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React, { ReactNode } from 'react';
 
 // TODO: add when styled components configured
 /* const Button = styled.button`
@@ -15,4 +15,4 @@ interface ButtonProps {
   children?: ReactNode;
 }
 
-export const Button = ({children}: ButtonProps) => <button> {children} </button>;
+export const Button = ({ children }: ButtonProps) => <button> {children} </button>;
