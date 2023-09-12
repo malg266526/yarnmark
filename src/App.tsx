@@ -1,8 +1,4 @@
 import React from 'react';
-import PNG from './22.png';
+import { MainPage } from './MainPage';
 
-export const App = () => <div>
-    test
-
-    <img src={PNG} />
-</div>;
+export const App = () => <MainPage />;
