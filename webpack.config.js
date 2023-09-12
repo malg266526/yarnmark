@@ -11,7 +11,7 @@ module.exports = (env, argv) => ({
     filename: '[name].js',
     chunkFilename: '[name].chunk.js',
     pathinfo: true,
-    path: path.join(__dirname, './build')
+    path: path.join(__dirname, './dist')
   },
   devServer: {
     port: 8090,
