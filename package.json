@@ -9,7 +9,7 @@
     "prettier": "prettier src/**/*.{ts,tsx} --write",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode=development --progress --open",
-    "build": "webpack --mode=production --progress"
+    "bundle": "webpack --mode=production --progress"
   },
   "author": "JM & MT",
   "license": "ISC",
