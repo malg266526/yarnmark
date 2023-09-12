@@ -11,7 +11,7 @@ import React, { ReactNode } from 'react';
   cursor: pointer;
 `; */
 
-interface ButtonProps {
+export interface ButtonProps {
   children?: ReactNode;
 }
 

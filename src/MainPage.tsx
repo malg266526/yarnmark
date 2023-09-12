@@ -4,7 +4,7 @@ import { Menu } from './components/Menu';
 import YarnmarkLogo from './assets/images/yarnmark_logo.jpg';
 import styled from 'styled-components';
 
-const Header = styled.div`
+const Header = styled.header`
   display: flex;
   flex-direction: row;
 `;
