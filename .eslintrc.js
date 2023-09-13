@@ -41,6 +41,7 @@ module.exports = {
     }
   },
   rules: {
+    'linebreak-style': ['error', 'unix'],
     'no-unused-vars': 0,
     'no-undef': 0,
     'object-curly-spacing': ["error", "always"],
