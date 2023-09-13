@@ -26,9 +26,28 @@ module.exports = (env, argv) => ({
   module: {
     rules: [
       {
-        test: /\.(tsx?|js)$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
-        loader: 'ts-loader'
+        loader: 'swc-loader',
+        options: {
+          module: {
+            "type": "es6",
+
+            // These are defaults.
+            "strict": true,
+            "strictMode": true,
+            "lazy": false,
+            "noInterop": false
+          },
+          jsc: {
+            target: 'es2019',
+            externalHelpers: true,
+            parser: {
+              syntax: 'typescript',
+              dynamicImport: true,
+            }
+          }
+        }
       },
       {
         test: /\.(woff|woff2|svg|png|mp4|jpg)$/,
