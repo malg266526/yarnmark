@@ -1,0 +1,17 @@
+name: Master metadata
+
+on:
+  workflow_dispatch: []
+
+  push:
+    branches: 
+      - master
+
+jobs:
+  master-metadata:
+    uses: ./.github/workflows/bundle-metadata.yml
+    with:
+      branch: refs/heads/master
+      output: master.json
+      retention: 5
+    secrets: inherit

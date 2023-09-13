@@ -1,0 +1,60 @@
+name: Pull request/master size comparison
+
+on: pull_request
+
+env:
+  node_version: 18
+
+jobs:
+  verify-master-metadata:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Check if master metadata exists
+      id: check
+      uses: xSAVIKx/artifact-exists-action@v0
+      with:
+        name: master.json
+
+    - name: Upload master metadata
+      if: ${{ steps.check.outputs.exists == false }}
+      uses: ./.github/workflows/master-metadata.yml
+
+    - name: Debug
+      run: echo "${{ steps.check.outputs.exists == false }} ${{ steps.check.outputs.exists }}"
+      
+    - name: Upload PR bundle size metadata
+      uses: ./.github/workflows/bundle-metadata.yml
+      with:
+        branch: ${{ github.ref_name }}
+        output: ${{ github.ref_name }}.json
+        retention: 1
+
+      
+    - name: Use Node.js ${{ env.node_version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ env.node_version }}
+        cache: 'yarn'
+
+    - name: Transpile workflow helpers
+      run: yarn transpile-workflow-files
+
+    - name: Download metadata files
+      uses: actions/download-artifact@v3
+      with:
+        name: 
+          master.json
+          ${{ github.ref_name }}.json        
+
+    - name: Generate metadata comparison
+      run: yarn compare-stats -- --baseMetadataFilepath=./master.json --branchMetadataFilepath=${{ github.ref_name }}.json --ghTableMarkdown --out=result.txt
+
+    - name: Create comment
+      uses: peter-evans/create-or-update-comment@v3
+      with:
+        issue-number: 1
+        body: ${{ cat ./result.txt }}
+
