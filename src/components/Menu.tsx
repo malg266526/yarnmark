@@ -1,30 +1,38 @@
 import React from 'react';
-import { Button } from './Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import styled from 'styled-components';
+import { Link } from './Link';
+
+const Root = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+const StyledLink = styled(Link)`
+  margin-left: 12px;
+`;
 
 export const Menu = () => {
   return (
-    <div>
-      <a href="https://google.com" target="_blank" rel="noreferrer">
-        <Button> Warsztaty </Button>
-      </a>
+    <Root>
+      <Link anchorProps={{ href: 'https://google.com', target: '_blank', rel: 'noreferrer' }}>Warsztaty</Link>
 
-      <a href="https://google.com" target="_blank" rel="noreferrer">
-        <Button> Wystawcy </Button>
-      </a>
+      <StyledLink anchorProps={{ href: 'https://google.com', target: '_blank', rel: 'noreferrer' }}>
+        Wystawcy
+      </StyledLink>
 
-      <a href="https://google.com" target="_blank" rel="noreferrer">
-        <Button> Organizatorzy </Button>
-      </a>
+      <StyledLink anchorProps={{ href: 'https://google.com', target: '_blank', rel: 'noreferrer' }}>
+        Organizatorzy
+      </StyledLink>
 
-      <a href="https://google.com" target="_blank" rel="noreferrer">
-        <Button> Kontakt </Button>
-      </a>
+      <StyledLink anchorProps={{ href: 'https://google.com', target: '_blank', rel: 'noreferrer' }}>Kontakt</StyledLink>
 
-      <a href="https://www.instagram.com/dziergamynapolu/" className="instagram social">
-        <FontAwesomeIcon icon={faInstagram} size="2x" />
-      </a>
-    </div>
+      <StyledLink anchorProps={{ href: 'https://www.instagram.com/dziergamynapolu/', className: 'instagram social' }}>
+        <FontAwesomeIcon icon={faInstagram} size="lg" />
+      </StyledLink>
+    </Root>
   );
 };

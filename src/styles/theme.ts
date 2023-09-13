@@ -4,5 +4,6 @@ export const Theme = {
   goldLight: '#c3a25d',
   goldStrong: '#ae8d4a',
 
-  primary: '#ae8d4a'
+  primary: '#ae8d4a',
+  secondary: '#095e41'
 };
