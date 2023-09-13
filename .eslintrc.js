@@ -6,7 +6,7 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings'
   ],
-  plugins: ['@typescript-eslint', 'prettier', 'import', 'react', 'typescript', 'react-hooks'],
+  plugins: ['@typescript-eslint', 'prettier', 'import', 'react', 'react-hooks'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
@@ -21,9 +21,14 @@ module.exports = {
     browser: true
   },
   settings: {
-    'import/resolver': {
-      webpack: {
-        config: './webpack.config.js'
+    'import/extensions': ['.tsx', '.ts'],
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".ts",
+          ".tsx",
+          ".js"
+        ]
       }
     },
     'import/ignore': ['node_modules'],
