@@ -2,6 +2,7 @@
   "name": "yarnmark",
   "version": "0.0.1",
   "description": "",
+  "sideEffects": false,
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint src/**/*.{ts,tsx}",
