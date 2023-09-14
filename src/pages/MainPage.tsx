@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { Theme } from '../styles/theme';
 import { Link } from '../components/Link';
 import { Spacings } from '../styles/spacings';
+import { useTranslation } from 'react-i18next';
 
 const Header = styled.header`
   display: flex;
@@ -39,39 +40,43 @@ const StyledH4 = styled.h4`
   font-weight: 300;
 `;
 
-export const MainPage = () => (
-  <div>
-    <Header>
-      <Menu>
-        <Link href="https://google.com" target="_blank" rel="noreferrer">
-          Warsztaty
-        </Link>
+export const MainPage = () => {
+  const { t } = useTranslation('common');
 
-        <Link href="https://google.com" target="_blank" rel="noreferrer">
-          Wystawcy
-        </Link>
+  return (
+    <div>
+      <Header>
+        <Menu>
+          <Link href="https://google.com" target="_blank" rel="noreferrer">
+            {t('menu.workshops')}
+          </Link>
 
-        <Link href="https://google.com" target="_blank" rel="noreferrer">
-          Organizatorzy
-        </Link>
+          <Link href="https://google.com" target="_blank" rel="noreferrer">
+            {t('menu.vendors')}
+          </Link>
 
-        <Link href="https://google.com" target="_blank" rel="noreferrer">
-          Kontakt
-        </Link>
-      </Menu>
+          <Link href="https://google.com" target="_blank" rel="noreferrer">
+            {t('menu.organizers')}
+          </Link>
 
-      <Logo width={300} src={YarnmarkLogoUrl} alt="logo" />
+          <Link href="https://google.com" target="_blank" rel="noreferrer">
+            {t('menu.contact')}
+          </Link>
+        </Menu>
 
-      <LinkButton href="https://google.com" target="_blank" rel="noreferrer">
-        <Button> Kup Bilet </Button>
-      </LinkButton>
-    </Header>
+        <Logo width={300} src={YarnmarkLogoUrl} alt="logo" />
 
-    <Details>
-      <h2> Kraków</h2>
-      <StyledH3> 27.04</StyledH3>
-      <StyledH3> Stara Zajezdnia</StyledH3>
-      <StyledH4>Świętego Wawrzyńca 12</StyledH4>
-    </Details>
-  </div>
-);
+        <LinkButton href="https://google.com" target="_blank" rel="noreferrer">
+          <Button> Kup Bilet </Button>
+        </LinkButton>
+      </Header>
+
+      <Details>
+        <h2> Kraków</h2>
+        <StyledH3> 27.04</StyledH3>
+        <StyledH3> Stara Zajezdnia</StyledH3>
+        <StyledH4>Świętego Wawrzyńca 12</StyledH4>
+      </Details>
+    </div>
+  );
+};
