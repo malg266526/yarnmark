@@ -15,6 +15,7 @@ jobs:
         id: deployment
         with:
           env: production
+          token: ${{ secrets.GITHUB_TOKEN }}
           step: start
 
       - name: Install
