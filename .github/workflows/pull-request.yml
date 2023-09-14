@@ -38,7 +38,7 @@ jobs:
     - name: Lint
       id: lint
       continue-on-error: true
-      run: yarn lint
+      run: yarn lint > lint-logs.txt
 
     - name: Bundle
       id: bundle

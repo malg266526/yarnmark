@@ -7,5 +7,7 @@ createServer(config,
         open: true,
         injectLiveReload: true,
         static: 'dist',
+        historyApiFallback: true,
+
     }
 ).start();
