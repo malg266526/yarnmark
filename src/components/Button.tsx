@@ -1,18 +1,21 @@
 import React, { ReactNode } from 'react';
+import { Theme } from '../styles/theme';
+import styled from 'styled-components';
 
-// TODO: add when styled components configured
-/* const Button = styled.button`
+const StyledButton = styled.button`
   background-color: ${Theme.primary};
   color: white;
   font-size: 20px;
-  padding: 10px 60px;
+  padding: 10px 40px;
   border-radius: 5px;
   margin: 10px 0px;
   cursor: pointer;
-`; */
+  font-family: 'Roboto';
+  font-weight: 400;
+`;
 
 export interface ButtonProps {
   children?: ReactNode;
 }
 
-export const Button = ({ children }: ButtonProps) => <button> {children} </button>;
+export const Button = ({ children }: ButtonProps) => <StyledButton>{children}</StyledButton>;

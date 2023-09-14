@@ -1,30 +1,29 @@
-import React from 'react';
-import { Button } from './Button';
+import React, { ReactNode } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import styled from 'styled-components';
+import { Link } from './Link';
 
-export const Menu = () => {
+const Root = styled.div`
+  display: inline-flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+export interface MenuProps {
+  children?: ReactNode;
+}
+
+export const Menu = ({ children }: MenuProps) => {
   return (
-    <div>
-      <a href="https://google.com" target="_blank" rel="noreferrer">
-        <Button> Warsztaty </Button>
-      </a>
+    <Root>
+      {children}
 
-      <a href="https://google.com" target="_blank" rel="noreferrer">
-        <Button> Wystawcy </Button>
-      </a>
-
-      <a href="https://google.com" target="_blank" rel="noreferrer">
-        <Button> Organizatorzy </Button>
-      </a>
-
-      <a href="https://google.com" target="_blank" rel="noreferrer">
-        <Button> Kontakt </Button>
-      </a>
-
-      <a href="https://www.instagram.com/dziergamynapolu/" className="instagram social">
-        <FontAwesomeIcon icon={faInstagram} size="2x" />
-      </a>
-    </div>
+      <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
+        <FontAwesomeIcon icon={faInstagram} size="lg" />
+      </Link>
+    </Root>
   );
 };
