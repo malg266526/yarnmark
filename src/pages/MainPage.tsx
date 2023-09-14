@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/Button';
 import { Menu } from '../components/Menu';
 import YarnmarkLogoUrl from './../assets/images/yarnmark_logo.jpg';
@@ -43,11 +44,13 @@ const StyledH4 = styled.h4`
 export const MainPage = () => {
   const { t } = useTranslation('common');
 
+  const navigate = useNavigate();
+
   return (
     <div>
       <Header>
         <Menu>
-          <Link href="https://google.com" target="_blank" rel="noreferrer">
+          <Link href="/contact" target="_blank" rel="noreferrer">
             {t('menu.workshops')}
           </Link>
 
@@ -58,9 +61,16 @@ export const MainPage = () => {
           <Link href="https://google.com" target="_blank" rel="noreferrer">
             {t('menu.organizers')}
           </Link>
-
-          <Link href="https://google.com" target="_blank" rel="noreferrer">
-            {t('menu.contact')}
+            
+          <Link
+            href="/contact"
+            anchorProps={{
+              onClick: (event) => {
+                navigate('/contact');
+                event.preventDefault();
+              }
+            }}>
+              {t('menu.contact')}
           </Link>
         </Menu>
 
