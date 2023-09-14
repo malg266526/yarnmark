@@ -14,7 +14,15 @@ const StyledLink = styled.a`
 
 export interface LinkProps {
   children?: ReactNode;
+  href: string;
+  target?: string;
+  rel?: string;
+  className?: string;
   anchorProps?: React.ComponentProps<'a'>;
 }
 
-export const Link = ({ children, anchorProps }: LinkProps) => <StyledLink {...anchorProps}>{children}</StyledLink>;
+export const Link = ({ children, href, target, rel, className, anchorProps }: LinkProps) => (
+  <StyledLink href={href} target={target} rel={rel} className={className} {...anchorProps}>
+    {children}
+  </StyledLink>
+);
