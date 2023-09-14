@@ -61,7 +61,7 @@ export const MainPage = () => {
           <Link href="https://google.com" target="_blank" rel="noreferrer">
             {t('menu.organizers')}
           </Link>
-            
+
           <Link
             href="/contact"
             anchorProps={{
@@ -70,7 +70,7 @@ export const MainPage = () => {
                 event.preventDefault();
               }
             }}>
-              {t('menu.contact')}
+            {t('menu.contact')}
           </Link>
         </Menu>
 
