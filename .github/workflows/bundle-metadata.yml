@@ -11,7 +11,7 @@ on:
         type: string
       retention:
         required: true
-        type: number
+        type: string
 
 jobs:  
   upload-metadata:
@@ -45,5 +45,5 @@ jobs:
       with:
         name: ${{ inputs.output }}
         path: ${{ inputs.output }}
-        retention-days: ${{ String(inputs.retention) }}
+        retention-days: ${{ inputs.retention }}
   
