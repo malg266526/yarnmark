@@ -10,7 +10,7 @@ on:
         required: true
         type: string
       retention:
-        require: true
+        required: true
         type: number
 
 jobs:  
@@ -45,5 +45,5 @@ jobs:
       with:
         name: ${{ inputs.output }}
         path: ${{ inputs.output }}
-        retention-days: ${{ inputs.retention }}
+        retention-days: ${{ String(inputs.retention) }}
   
