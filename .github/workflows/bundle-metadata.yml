@@ -1,0 +1,49 @@
+name: Bundle metadata
+
+on: 
+  workflow_call:
+    inputs:
+      branch:
+        required: true
+        type: string
+      output:
+        required: true
+        type: string
+      retention:
+        require: true
+        type: number
+
+jobs:  
+  upload-metadata:
+    name: Upload metadata
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ inputs.branch }}
+    - name: Use Node.js ${{ env.node_version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ env.node_version }}
+        cache: 'yarn'
+
+    - name: Install
+      run: yarn install --frozen-lockfile
+     
+    - name: Bundle
+      run: yarn bundle
+
+    - name: Transpile helper files
+      run: yarn transpile-workflow-files
+
+    - name: Create metadata file
+      run: yarn stats -- --out=${{ inputs.output }} --dir=dist --extensions=".js,.html,.css"
+
+    - name: Upload metadata
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ inputs.output }}
+        path: ${{ inputs.output }}
+        retention-days: ${{ inputs.retention }}
+  
