@@ -50,11 +50,12 @@ jobs:
           ${{ github.ref_name }}.json        
 
     - name: Generate metadata comparison
-      run: yarn compare-stats -- --baseMetadataFilepath=./master.json --branchMetadataFilepath=${{ github.ref_name }}.json --ghTableMarkdown --out=result.txt
+      run: |
+        yarn compare-stats -- --baseMetadataFilepath=./master.json --branchMetadataFilepath=${{ github.ref_name }}.json --ghTableMarkdown --out=result.txt
 
     - name: Create comment
       uses: peter-evans/create-or-update-comment@v3
       with:
         issue-number: 1
-        body: ${{ cat ./result.txt }}
+        body: $(cat ./result.txt)
 
