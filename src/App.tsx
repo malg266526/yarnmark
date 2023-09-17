@@ -4,7 +4,7 @@ import { MainPage } from './pages/MainPage';
 import { ContactPage } from './pages/ContactPage';
 
 export const App = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="/">
     <Routes>
       <Route path="/" element={<Navigate to="/home" />} />
 
