@@ -2,6 +2,9 @@ name: 'Deploy to Netlify'
 on: 
   workflow_dispatch:
 
+env:
+  node_version: 18
+  
 jobs:
   deploy:
     runs-on: ubuntu-latest
