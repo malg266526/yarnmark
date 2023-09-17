@@ -5,3 +5,6 @@ build
 dist
 yarn-error.log
 metadata.json
+
+# Local Netlify folder
+.netlify
