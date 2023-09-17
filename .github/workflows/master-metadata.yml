@@ -12,6 +12,6 @@ jobs:
     uses: ./.github/workflows/bundle-metadata.yml
     with:
       branch: refs/heads/master
-      output: master.json
+      output: master
       retention: 5
     secrets: inherit
