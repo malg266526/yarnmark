@@ -48,11 +48,16 @@ jobs:
   
       - name: Transpile workflow helpers
         run: yarn transpile-workflow-files
+
+      - name: Download metadata files
+        uses: actions/download-artifact@v3
+        with:
+          name: master.json
   
       - name: Download metadata files
         uses: actions/download-artifact@v3
         with:
-          name: 
+          name: |
             master.json
             ${{ github.head_ref }}.json        
   
