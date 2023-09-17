@@ -6,17 +6,25 @@ env:
   node_version: 18
 
 jobs:
-  pr-metadata:
+  master-metadata:
     uses: ./.github/workflows/bundle-metadata.yml
     with:
       branch: ${{ github.head_ref }}
       output: ${{ github.head_ref }}
       retention: 1
     secrets: inherit
+    
+  pr-metadata:
+    uses: ./.github/workflows/bundle-metadata.yml
+    with:
+      branch: refs/heads/master
+      output: master
+      retention: 1
+    secrets: inherit
 
   init:
     runs-on: ubuntu-latest
-    needs: [pr-metadata]
+    needs: [pr-metadata, master-metadata]
     
     steps:
       - name: Checkout
@@ -24,12 +32,6 @@ jobs:
         with:
           ref: ${{ inputs.branch }}
           
-      # - name: Check if master metadata exists
-      #   id: check
-      #   uses: xSAVIKx/artifact-exists-action@v0
-      #   with:
-      #     name: master.json
-  
       # - name: Upload master metadata
       #   if: ${{ steps.check.outputs.exists == false }}
       #   uses: ./.github/workflows/master-metadata.yml
@@ -61,10 +63,12 @@ jobs:
   
       - name: Generate metadata comparison
         run: |
-          yarn compare-stats -- --baseMetadataFilepath=./master.json --branchMetadataFilepath=${{ github.ref_name }}.json --ghTableMarkdown --out=result.txt
+          yarn compare-stats -- --baseMetadataFilepath=./master --branchMetadataFilepath=./${{ github.head_ref }} --ghTableMarkdown --out=result.txt
+          echo "$((cat "result.txt"))"
   
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v3
         with:
-          issue-number: 1
-          body: $(cat ./result.txt)
+          issue-number: ${{ github.event.number }}
+          body: $((cat result.txt))
+             
