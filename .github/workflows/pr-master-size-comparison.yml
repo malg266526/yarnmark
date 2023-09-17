@@ -10,7 +10,7 @@ jobs:
     uses: ./.github/workflows/bundle-metadata.yml
     with:
       branch: ${{ github.head_ref }}
-      output: ${{ github.head_ref }}.json
+      output: ${{ github.head_ref }}
       retention: 1
     secrets: inherit
 
@@ -52,14 +52,12 @@ jobs:
       - name: Download metadata files
         uses: actions/download-artifact@v3
         with:
-          name: master.json
+          name: ${{ github.head_ref }}
   
       - name: Download metadata files
         uses: actions/download-artifact@v3
         with:
-          name: |
-            master.json
-            ${{ github.head_ref }}.json        
+          name: master
   
       - name: Generate metadata comparison
         run: |
