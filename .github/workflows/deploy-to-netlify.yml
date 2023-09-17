@@ -21,20 +21,4 @@ jobs:
 
       - name: Deploy to Netlify
         run: npx netlify-cli deploy --prod --dir=./dist --site="${{ secrets.NETLIFY_SITE_ID }}" --auth="${{ secrets.NETLIFY_AUTH_TOKEN }}"
-        # uses: South-Paw/action-netlify-cli@v2
-        # id: netlify
-        # with:
-        #   args: 'deploy --json --prod --dir \"./dist\" draft [${{ github.sha }}]'
-        # env:
-        #   NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        #   NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-
-      # - name: Finish deployment
-      #   uses: bobheadxi/deployments@v1
-      #   if: always()
-      #   with:
-      #     env: ${{ steps.deployment.outputs.env }}
-      #     step: finish
-      #     status: ${{ job.status }}
-      #     deployment_id: ${{ steps.deployment.outputs.deployment_id }}
-      #     env_url: ${{ steps.netlify.outputs.NETLIFY_PROD_URL }}
+       
