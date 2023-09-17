@@ -56,5 +56,5 @@ jobs:
       uses: peter-evans/create-or-update-comment@v3
       with:
         issue-number: 1
-        body: ${{ cat ./result.txt }}
+        body: $(cat ./result.txt)
 
