@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
-const StyledLink = styled.a`
-  color: white;
+const StyledLink = styled.a<{ color?: string }>`
+  color: ${({ color }) => color || 'white'};
   font-size: 18px;
   padding: 10px 8px;
   border-radius: 5px;
