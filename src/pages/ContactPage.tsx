@@ -14,12 +14,7 @@ const Header = styled.div`
   justify-content: space-between;
 
   margin-bottom: ${Spacings.lg};
-
-  padding-right: ${Spacings.lg};
-  padding-left: ${Spacings.lg};
-  padding-top: ${Spacings.xs};
-  padding-bottom: ${Spacings.xs};
-
+  padding: ${Spacings.xs} ${Spacings.lg};
   border-bottom: 1px solid lightgray;
 
   box-shadow:
@@ -38,20 +33,14 @@ const StyledH3 = styled.h3`
 `;
 
 const Content = styled.div`
-  padding-right: ${Spacings.lg};
-  padding-left: ${Spacings.lg};
+  padding: 0 ${Spacings.lg};
 `;
 
 const Card = styled.div`
   display: flex;
   flex-direction: column;
-
   align-items: center;
-
-  padding-right: ${Spacings.md};
-  padding-left: ${Spacings.md};
-  padding-top: ${Spacings.md};
-  padding-bottom: ${Spacings.md};
+  padding: ${Spacings.md};
 `;
 
 const Image = styled.img`
@@ -65,8 +54,7 @@ const Row = styled.div`
   align-items: center;
   justify-content: space-evenly;
 
-  padding-right: ${Spacings.md};
-  padding-left: ${Spacings.md};
+  padding: 0 ${Spacings.md};
 `;
 
 const Column = styled.div`

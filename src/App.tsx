@@ -11,11 +11,14 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export const App = () => (
-  <BrowserRouter basename="/">
-    <Routes>
-      <Route path="/" element={<Navigate to="/home" />} />
-      <Route path="/home" element={<MainPage />} />
-      <Route path="/contact" element={<ContactPage />} />\{' '}
-    </Routes>
-  </BrowserRouter>
+  <>
+    <GlobalStyle />
+    <BrowserRouter basename="/">
+      <Routes>
+        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/home" element={<MainPage />} />
+        <Route path="/contact" element={<ContactPage />} />\{' '}
+      </Routes>
+    </BrowserRouter>
+  </>
 );
