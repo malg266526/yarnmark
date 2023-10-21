@@ -1,12 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../components/Button';
-import { Menu } from '../components/Menu';
-import YarnmarkLogoUrl from './../assets/images/yarnmark_logo.jpg';
 import styled from 'styled-components';
-import { Theme } from '../styles/theme';
+import { Button } from '../components/Button';
 import { Link } from '../components/Link';
+import { Menu } from '../components/Menu';
 import { Spacings } from '../styles/spacings';
+import { Theme } from '../styles/theme';
+import { useTypedTranslation } from '../translations/useTypedTranslation';
+import YarnmarkLogoUrl from './../assets/images/yarnmark_logo.jpg';
 
 const Header = styled.header`
   display: flex;
@@ -41,6 +42,8 @@ const StyledH4 = styled.h4`
 `;
 
 export const MainPage = () => {
+  const t = useTypedTranslation();
+
   const navigate = useNavigate();
 
   return (
@@ -48,15 +51,15 @@ export const MainPage = () => {
       <Header>
         <Menu>
           <Link href="/contact" target="_blank" rel="noreferrer">
-            Warsztaty
+            {t('menu.workshops')}
           </Link>
 
           <Link href="https://google.com" target="_blank" rel="noreferrer">
-            Wystawcy
+            {t('menu.vendors')}
           </Link>
 
           <Link href="https://google.com" target="_blank" rel="noreferrer">
-            Organizatorzy
+            {t('menu.organizers')}
           </Link>
 
           <Link
@@ -67,7 +70,7 @@ export const MainPage = () => {
                 event.preventDefault();
               }
             }}>
-            Kontakt
+            {t('menu.contact')}
           </Link>
         </Menu>
 
