@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export const App = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="/">
     <Routes>
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/home" element={<MainPage />} />

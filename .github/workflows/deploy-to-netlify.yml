@@ -1,44 +1,27 @@
 name: 'Deploy to Netlify'
 on: 
   workflow_dispatch:
-    print_tags:
-        description: 'True to print to STDOUT'
-        required: true
-        type: boolean
 
+env:
+  node_version: 18
+  
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Start deployment
-        uses: bobheadxi/deployments@v1
-        id: deployment
-        with:
-          env: production
-          token: ${{ secrets.GITHUB_TOKEN }}
-          step: start
-
+      - uses: actions/checkout@v3
       - name: Install
         run: yarn install --frozen-lockfile
+
+      - name: Use Node.js ${{ env.node_version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node_version }}
+          cache: 'yarn'
 
       - name: Bundle
         run: yarn bundle
 
       - name: Deploy to Netlify
-        uses: South-Paw/action-netlify-cli@1.0.1
-        id: netlify
-        with:
-          args: deploy --json --prod --dir './dist' --message 'production [${{ github.sha }}]'
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-
-      - name: Finish deployment
-        uses: bobheadxi/deployments@v1
-        if: always()
-        with:
-          env: ${{ steps.deployment.outputs.env }}
-          step: finish
-          status: ${{ job.status }}
-          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
-          env_url: ${{ steps.netlify.outputs.NETLIFY_PROD_URL }}
+        run: npx netlify-cli deploy --prod --dir=./dist --site="${{ secrets.NETLIFY_SITE_ID }}" --auth="${{ secrets.NETLIFY_AUTH_TOKEN }}"
+       
