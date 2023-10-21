@@ -12,6 +12,9 @@ export const pl = {
       writeToUs: 'Napisz do nas!',
       whoAreWe: 'Kim jesteśmy?',
       welcome: 'Cześć! Z tej strony'
+    },
+    vandorsPage: {
+      title: 'Wystawcy'
     }
   }
 };
