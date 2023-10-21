@@ -27,9 +27,10 @@ const TransparentButton = styled.button`
 
 export interface MenuProps {
   children?: ReactNode;
+  iconColor?: string;
 }
 
-export const Menu = ({ children }: MenuProps) => {
+export const Menu = ({ children, iconColor }: MenuProps) => {
   const [, i18n] = useTranslation('common');
 
   const { language, changeLanguage } = i18n;
@@ -39,7 +40,7 @@ export const Menu = ({ children }: MenuProps) => {
       {children}
 
       <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-        <FontAwesomeIcon icon={faInstagram} size="lg" />
+        <FontAwesomeIcon icon={faInstagram} size="lg" color={iconColor || 'white'} />
       </Link>
 
       <TransparentButton onClick={() => changeLanguage(language === 'pl' ? 'en' : 'pl')}>

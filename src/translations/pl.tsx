@@ -5,6 +5,9 @@ export const pl = {
       vendors: 'Wystawcy',
       organizers: 'Organizatorzy',
       contact: 'Kontakt'
+    },
+    contactPage: {
+      title: 'Kontakt'
     }
   }
 };

@@ -6,9 +6,8 @@ export const en = {
       organizers: 'Organizers',
       contact: 'Contact'
     },
-    kekw: 'kekw',
-    omegalul: {
-      test: 'name'
+    contactPage: {
+      title: 'Contact'
     }
   }
 };
