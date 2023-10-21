@@ -1,8 +1,10 @@
 export const pl = {
-  menu: {
-    workshops: 'Warsztaty',
-    vendors: 'Wystawcy',
-    organizers: 'Organizatorzy',
-    contact: 'Kontakt'
+  translation: {
+    menu: {
+      workshops: 'Warsztaty',
+      vendors: 'Wystawcy',
+      organizers: 'Organizatorzy',
+      contact: 'Kontakt'
+    }
   }
 };

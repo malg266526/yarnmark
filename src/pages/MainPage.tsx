@@ -1,13 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../components/Button';
-import { Menu } from '../components/Menu';
-import YarnmarkLogoUrl from './../assets/images/yarnmark_logo.jpg';
 import styled from 'styled-components';
-import { Theme } from '../styles/theme';
+import { Button } from '../components/Button';
 import { Link } from '../components/Link';
+import { Menu } from '../components/Menu';
 import { Spacings } from '../styles/spacings';
-import { useTranslation } from 'react-i18next';
+import { Theme } from '../styles/theme';
+import { useTypedTranslation } from '../translations/useTypedTranslation';
+import YarnmarkLogoUrl from './../assets/images/yarnmark_logo.jpg';
 
 const Header = styled.header`
   display: flex;
@@ -42,7 +42,7 @@ const StyledH4 = styled.h4`
 `;
 
 export const MainPage = () => {
-  const { t } = useTranslation('common');
+  const t = useTypedTranslation();
 
   const navigate = useNavigate();
 
