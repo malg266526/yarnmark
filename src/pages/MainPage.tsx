@@ -50,7 +50,7 @@ export const MainPage = () => {
     <div>
       <Header>
         <Menu>
-          <Link href="/contact" target="_blank" rel="noreferrer">
+          <Link href="/workshops" target="_blank" rel="noreferrer">
             {t('menu.workshops')}
           </Link>
 
