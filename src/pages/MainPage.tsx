@@ -24,8 +24,8 @@ export const Banner = styled.div`
 export const PhotoFrame = styled.div<{ size?: 'small' | 'large' }>`
   width: ${({ size }) => (size === 'large' ? '260px' : '200px')};
   height: ${({ size }) => (size === 'large' ? '260px' : '200px')};
-  border: 10px solid ${Colors.white};
-  border-bottom: 40px solid ${Colors.white};
+  border: 6px solid ${Colors.white};
+  border-bottom: 36px solid ${Colors.white};
   background-color: ${Colors.white};
   box-shadow:
     0 2px 2px 0 rgba(0, 0, 0, 0.2),
