@@ -87,7 +87,7 @@ export const ContactPage = () => {
               </Column>
 
               <Column>
-                <PhotoImage width={80} src={Monia2ImageUrl} alt="logo" />
+                <PhotoImage width={80} src={Monia3ImageUrl} alt="logo" />
 
                 <Link
                   href="https://www.instagram.com/by_ms.gomez/"
@@ -123,7 +123,7 @@ export const ContactPage = () => {
               </Column>
 
               <Column>
-                <PhotoImage width={80} src={Monia3ImageUrl} alt="logo" />
+                <PhotoImage width={80} src={Monia2ImageUrl} alt="logo" />
 
                 <Link
                   href="https://www.instagram.com/made_me_knit_it/"
@@ -147,11 +147,8 @@ export const ContactPage = () => {
               </Column>
             </RowLayout>
 
-            <Text>czyli DZIERGAMY NA POLU</Text>
-            <Text margin={Spacings.sm}>
-              Kochamy wełnę, druty i szydełka. Od kilkunastu miesięcy organizujemy krakowskie spotkania dziewiarskie, a
-              teraz przychodzimy do Was z targami! Mamy nadzieję, że będziecie się dobrze bawić :)
-            </Text>
+            <Text>{t('contactPage.thatIs')}</Text>
+            <Text margin={Spacings.sm}>{t('contactPage.description')}</Text>
           </Column>
 
           <Separator />

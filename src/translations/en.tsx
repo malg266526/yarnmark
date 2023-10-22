@@ -11,7 +11,10 @@ export const en = {
       title: 'Contact',
       writeToUs: 'Write to us!',
       whoAreWe: 'Who are we?',
-      welcome: "Hi! Here's"
+      welcome: "Hi! Here's",
+      thatIs: '- DZIERGAMY NA POLU',
+      description:
+        "We love wool, needles and crochets. We have been organizing coffee and knitting meetings in Kraków for couple months. Now we are inviting You to our Yarnmark fair and we hope you'll have fun! :)"
     },
     vandorsPage: {
       title: 'Vendors'
