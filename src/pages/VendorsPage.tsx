@@ -12,11 +12,6 @@ const LinkAnchorProps = {
   color: Theme.secondary
 };
 
-const Logo = styled.img`
-  // align-self: center;
-  // margin-top: ${Spacings.lg};
-`;
-
 export const Content = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -53,39 +48,39 @@ export const VendorsPage = () => {
 
       <Content>
         <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-          <Logo width={200} src={MockLogo} alt="wystawca1" />
+          <img width={200} src={MockLogo} alt="wystawca1" />
         </Link>
 
         <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-          <Logo width={200} src={MockLogo} alt="wystawca1" />
+          <img width={200} src={MockLogo} alt="wystawca1" />
         </Link>
 
         <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-          <Logo width={200} src={MockLogo} alt="wystawca1" />
+          <img width={200} src={MockLogo} alt="wystawca1" />
         </Link>
 
         <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-          <Logo width={200} src={MockLogo} alt="wystawca1" />
+          <img width={200} src={MockLogo} alt="wystawca1" />
         </Link>
 
         <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-          <Logo width={200} src={MockLogo} alt="wystawca1" />
+          <img width={200} src={MockLogo} alt="wystawca1" />
         </Link>
 
         <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-          <Logo width={200} src={MockLogo} alt="wystawca1" />
+          <img width={200} src={MockLogo} alt="wystawca1" />
         </Link>
 
         <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-          <Logo width={200} src={MockLogo} alt="wystawca1" />
+          <img width={200} src={MockLogo} alt="wystawca1" />
         </Link>
 
         <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-          <Logo width={200} src={MockLogo} alt="wystawca1" />
+          <img width={200} src={MockLogo} alt="wystawca1" />
         </Link>
 
         <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-          <Logo width={200} src={MockLogo} alt="wystawca1" />
+          <img width={200} src={MockLogo} alt="wystawca1" />
         </Link>
       </Content>
     </div>
