@@ -4,6 +4,7 @@ import { MainPage } from './pages/MainPage';
 import { ContactPage } from './pages/ContactPage';
 import { createGlobalStyle } from 'styled-components';
 import { VendorsPage } from './pages/VendorsPage';
+import { WorkshopsPage } from './pages/WorkshopsPage';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -20,6 +21,7 @@ export const App = () => (
         <Route path="/home" element={<MainPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/vendors" element={<VendorsPage />} />
+        <Route path="/workshops" element={<WorkshopsPage />} />
       </Routes>
     </BrowserRouter>
   </>

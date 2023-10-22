@@ -15,6 +15,9 @@ export const pl = {
     },
     vandorsPage: {
       title: 'Wystawcy'
+    },
+    workshopsPage: {
+      title: 'Workshops'
     }
   }
 };
