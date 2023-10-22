@@ -31,11 +31,18 @@ export const Content = styled.div`
   padding: 0 ${Spacings.lg};
 `;
 
-export const Card = styled.div`
+export const Card = styled.div<{ width?: string }>`
+  width: ${({ width }) => width};
+
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: ${Spacings.md};
+
+  border-radius: 15px;
+  box-shadow:
+    0 2px 2px 0 rgba(0, 0, 0, 0.2),
+    0 2px 5px 0 rgba(0, 0, 0, 0.19);
 `;
 
 export const Image = styled.img`
@@ -43,23 +50,22 @@ export const Image = styled.img`
   margin-top: ${Spacings.lg};
 `;
 
-export const Row = styled.div`
+export const RowLayout = styled.div<{ wide?: boolean }>`
+  width: ${({ wide }) => (wide ? '100%' : 'initial')};
+
   display: flex;
-  width: 100%;
   align-items: center;
   justify-content: space-evenly;
-
-  padding: 0 ${Spacings.md};
 `;
 
 export const Column = styled.div`
   display: flex;
-  min-width: 222px;
   flex-direction: column;
   align-items: center;
 `;
 
-export const Text = styled.p`
+export const Text = styled.p<{ margin?: string }>`
   font-family: 'Roboto';
   font-weight: 300;
+  margin: ${({ margin }) => margin || 0};
 `;
