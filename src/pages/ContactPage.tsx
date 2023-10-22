@@ -1,6 +1,5 @@
-import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { Card } from '../components/Card';
 import { Link } from '../components/Link';
 import { Menu } from '../components/Menu';
 import { Spacings } from '../styles/spacings';
@@ -8,7 +7,26 @@ import { Theme } from '../styles/theme';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import EmailImageUrl from './../assets/images/email.png';
 import InstagramImageUrl from './../assets/images/instagram.png';
-import { Card, Column, Content, Header, Image, RowLayout, StyledH2, StyledH3, Text } from './ContactPage.styled';
+import Monia1ImageUrl from './../assets/images/Monia1.jpg';
+import Monia2ImageUrl from './../assets/images/Monia2.jpg';
+import Monia3ImageUrl from './../assets/images/Monia3.jpg';
+import EwaImageUrl from './../assets/images/Ewa.jpg';
+import AniaImageUrl from './../assets/images/Ania.jpg';
+import AgataImageUrl from './../assets/images/Agata.jpg';
+import GosiaImageUrl from './../assets/images/Gosia.jpg';
+import {
+  Column,
+  Content,
+  Header,
+  Image,
+  Page,
+  PhotoImage,
+  RowLayout,
+  Separator,
+  StyledH2,
+  StyledH3,
+  Text
+} from './ContactPage.styled';
 
 const LinkAnchorProps = {
   color: Theme.secondary
@@ -18,7 +36,7 @@ export const ContactPage = () => {
   const t = useTypedTranslation();
 
   return (
-    <div>
+    <Page>
       <Header>
         <StyledH2>{t('contactPage.title')}</StyledH2>
 
@@ -38,8 +56,107 @@ export const ContactPage = () => {
       </Header>
 
       <Content>
-        <RowLayout wide>
-          <Card width="40%">
+        <Card>
+          <Column>
+            <StyledH3>{t('contactPage.whoAreWe')}</StyledH3>
+
+            <Text>{t('contactPage.welcome')}</Text>
+            <RowLayout wide>
+              <Column>
+                <PhotoImage width={80} src={EwaImageUrl} alt="logo" />
+
+                <Link
+                  href="https://www.instagram.com/evvoola/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="evvoola_instagram">
+                  <Text>Ewa</Text>
+                </Link>
+              </Column>
+
+              <Column>
+                <PhotoImage width={80} src={Monia1ImageUrl} alt="logo" />
+
+                <Link
+                  href="https://www.instagram.com/written_by_yarn/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="written_by_yarn_instagram">
+                  <Text>Monika</Text>
+                </Link>
+              </Column>
+
+              <Column>
+                <PhotoImage width={80} src={Monia2ImageUrl} alt="logo" />
+
+                <Link
+                  href="https://www.instagram.com/by_ms.gomez/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="by_ms.gomez_instagram">
+                  <Text>Monika</Text>
+                </Link>
+              </Column>
+
+              <Column>
+                <PhotoImage width={80} src={AniaImageUrl} alt="logo" />
+
+                <Link
+                  href="https://www.instagram.com/ania_knittingnurse/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ania_knittingnurse_instagram">
+                  <Text>Ania</Text>
+                </Link>
+              </Column>
+
+              <Column>
+                <PhotoImage width={80} src={GosiaImageUrl} alt="logo" />
+
+                <Link
+                  href="https://www.instagram.com/malgo_tylkoknit/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="/malgo_tylkoknit_instagram">
+                  <Text>Gosia</Text>
+                </Link>
+              </Column>
+
+              <Column>
+                <PhotoImage width={80} src={Monia3ImageUrl} alt="logo" />
+
+                <Link
+                  href="https://www.instagram.com/made_me_knit_it/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="/made_me_knit_it_instagram">
+                  <Text>Monia</Text>
+                </Link>
+              </Column>
+
+              <Column>
+                <PhotoImage width={80} src={AgataImageUrl} alt="logo" />
+
+                <Link
+                  href="https://www.instagram.com/sznurkami/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="/sznurkami_instagram">
+                  <Text>Agata</Text>
+                </Link>
+              </Column>
+            </RowLayout>
+
+            <Text>czyli DZIERGAMY NA POLU</Text>
+            <Text margin={Spacings.sm}>
+              Kochamy wełnę, druty i szydełka. Od kilkunastu miesięcy organizujemy krakowskie spotkania dziewiarskie, a
+              teraz przychodzimy do Was z targami! Mamy nadzieję, że będziecie się dobrze bawić :)
+            </Text>
+          </Column>
+
+          <Separator />
+
+          <Column>
             <StyledH3>{t('contactPage.writeToUs')}</StyledH3>
 
             <RowLayout wide>
@@ -58,71 +175,9 @@ export const ContactPage = () => {
                 {/* <a href="https://www.flaticon.com/free-icons/instagram" title="instagram icons">Instagram icons created by Freepik - Flaticon</a> */}
               </Column>
             </RowLayout>
-          </Card>
-          <Card width="40%">
-            <StyledH3>{t('contactPage.whoAreWe')}</StyledH3>
-
-            <Text>{t('contactPage.welcome')}</Text>
-
-            <RowLayout wide>
-              <RowLayout>
-                <Link href="https://www.instagram.com/evvoola/" className="written_by_yarn">
-                  <FontAwesomeIcon icon={faInstagram} size="1x" color={Theme.primary} />
-                </Link>
-                <Text>Ewa</Text>
-              </RowLayout>
-
-              <RowLayout>
-                <Link href="https://www.instagram.com/written_by_yarn/" className="written_by_yarn">
-                  <FontAwesomeIcon icon={faInstagram} size="1x" color={Theme.primary} />
-                </Link>
-                <Text>Monika</Text>
-              </RowLayout>
-
-              <RowLayout>
-                <Link href="https://www.instagram.com/by_ms.gomez/" className="written_by_yarn">
-                  <FontAwesomeIcon icon={faInstagram} size="1x" color={Theme.primary} />
-                </Link>
-                <Text>Monika</Text>
-              </RowLayout>
-
-              <RowLayout>
-                <Link href="https://www.instagram.com/ania_knittingnurse/" className="written_by_yarn">
-                  <FontAwesomeIcon icon={faInstagram} size="1x" color={Theme.primary} />
-                </Link>
-                <Text>Ania</Text>
-              </RowLayout>
-
-              <RowLayout>
-                <Link href="https://www.instagram.com/malgo_tylkoknit/" className="written_by_yarn">
-                  <FontAwesomeIcon icon={faInstagram} size="1x" color={Theme.primary} />
-                </Link>
-                <Text>Gosia</Text>
-              </RowLayout>
-
-              <RowLayout>
-                <Link href="https://www.instagram.com/made_me_knit_it/" className="written_by_yarn">
-                  <FontAwesomeIcon icon={faInstagram} size="1x" color={Theme.primary} />
-                </Link>
-                <Text>Monika</Text>
-              </RowLayout>
-
-              <RowLayout>
-                <Link href="https://www.instagram.com/sznurkami/" className="written_by_yarn">
-                  <FontAwesomeIcon icon={faInstagram} size="1x" color={Theme.primary} />
-                </Link>
-                <Text>Agata</Text>
-              </RowLayout>
-            </RowLayout>
-
-            <Text>czyli DZIERGAMY NA POLU. </Text>
-            <Text margin={Spacings.sm}>
-              Kochamy wełnę, druty i szydełka. Od kilkunastu miesięcy organizujemy krakowskie spotkania dziewiarskie, a
-              teraz przychodzimy do Was z targami! Mamy nadzieję, że będziecie się dobrze bawić :)
-            </Text>
-          </Card>
-        </RowLayout>
+          </Column>
+        </Card>
       </Content>
-    </div>
+    </Page>
   );
 };

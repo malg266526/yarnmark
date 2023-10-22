@@ -2,8 +2,12 @@ import styled from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { Theme } from '../styles/theme';
 
+export const Page = styled.div`
+  height: 100%;
+  background-color: ${Theme.goldStrong};
+`;
+
 export const Header = styled.div`
-  width: '100%';
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,6 +15,8 @@ export const Header = styled.div`
   margin-bottom: ${Spacings.lg};
   padding: ${Spacings.xs} ${Spacings.lg};
   border-bottom: 1px solid lightgray;
+
+  background-color: white;
 
   box-shadow:
     0 2px 2px 0 rgba(0, 0, 0, 0.2),
@@ -31,23 +37,18 @@ export const Content = styled.div`
   padding: 0 ${Spacings.lg};
 `;
 
-export const Card = styled.div<{ width?: string }>`
-  width: ${({ width }) => width};
+export const Image = styled.img`
+  align-self: center;
+  margin-top: ${Spacings.sm};
+`;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: ${Spacings.md};
-
-  border-radius: 15px;
+export const PhotoImage = styled.img`
+  align-self: center;
+  margin-top: ${Spacings.sm};
   box-shadow:
     0 2px 2px 0 rgba(0, 0, 0, 0.2),
     0 2px 5px 0 rgba(0, 0, 0, 0.19);
-`;
-
-export const Image = styled.img`
-  align-self: center;
-  margin-top: ${Spacings.lg};
+  border-radius: 10px;
 `;
 
 export const RowLayout = styled.div<{ wide?: boolean }>`
@@ -67,5 +68,12 @@ export const Column = styled.div`
 export const Text = styled.p<{ margin?: string }>`
   font-family: 'Roboto';
   font-weight: 300;
-  margin: ${({ margin }) => margin || 0};
+  margin: ${({ margin }) => margin || Spacings.xs};
+  color: ${Theme.secondary};
+`;
+
+export const Separator = styled.div`
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+  margin: ${Spacings.md} 0;
 `;

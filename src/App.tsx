@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
 import { MainPage } from './pages/MainPage';
 import { ContactPage } from './pages/ContactPage';
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { VendorsPage } from './pages/VendorsPage';
 
 const GlobalStyle = createGlobalStyle`
@@ -11,8 +11,13 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+export const Page = styled.div`
+  //  width: 100vw;
+  height: 100vh;
+`;
+
 export const App = () => (
-  <>
+  <Page>
     <GlobalStyle />
     <BrowserRouter basename="/">
       <Routes>
@@ -22,5 +27,5 @@ export const App = () => (
         <Route path="/vendors" element={<VendorsPage />} />
       </Routes>
     </BrowserRouter>
-  </>
+  </Page>
 );
