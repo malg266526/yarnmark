@@ -12,6 +12,9 @@ export const en = {
       writeToUs: 'Write to us!',
       whoAreWe: 'Who are we?',
       welcome: "Hi! Here's"
+    },
+    vandorsPage: {
+      title: 'Vendors'
     }
   }
 };

@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
 import { MainPage } from './pages/MainPage';
 import { ContactPage } from './pages/ContactPage';
 import { createGlobalStyle } from 'styled-components';
+import { VendorsPage } from './pages/VendorsPage';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -17,7 +18,8 @@ export const App = () => (
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<MainPage />} />
-        <Route path="/contact" element={<ContactPage />} />\{' '}
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/vendors" element={<VendorsPage />} />
       </Routes>
     </BrowserRouter>
   </>
