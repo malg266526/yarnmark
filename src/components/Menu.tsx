@@ -11,7 +11,7 @@ import { Spacings } from '../styles/spacings';
 const Root = styled.div`
   display: inline-flex;
   flex-direction: row;
-  gap: 12px;
+  gap: ${Spacings.sm};
   align-items: center;
   justify-content: flex-end;
 `;

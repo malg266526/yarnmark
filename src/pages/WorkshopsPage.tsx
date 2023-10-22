@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from '../components/Link';
 import { Menu } from '../components/Menu';
-import { Theme } from '../styles/theme';
+import { Colors } from '../styles/theme';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import { Header, StyledH2 } from './ContactPage.styled';
 import styled from 'styled-components';
 import { Spacings } from '../styles/spacings';
 
 const LinkAnchorProps = {
-  color: Theme.secondary
+  color: Colors.spruce
 };
 
 export const Content = styled.div`
@@ -17,8 +17,7 @@ export const Content = styled.div`
   align-content: space-around;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-
+  gap: ${Spacings.md};
   padding: ${Spacings.lg};
 `;
 
@@ -30,7 +29,7 @@ export const WorkshopsPage = () => {
       <Header>
         <StyledH2>{t('workshopsPage.title')}</StyledH2>
 
-        <Menu iconColor={Theme.secondary}>
+        <Menu iconColor={Colors.spruce}>
           <Link href="/home" anchorProps={LinkAnchorProps}>
             {t('menu.home')}
           </Link>
