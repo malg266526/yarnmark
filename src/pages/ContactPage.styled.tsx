@@ -50,17 +50,12 @@ export const Image = styled.img`
   margin-top: ${Spacings.lg};
 `;
 
-export const Row = styled.div`
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-evenly;
-`;
+export const RowLayout = styled.div<{ wide?: boolean }>`
+  width: ${({ wide }) => (wide ? '100%' : 'initial')};
 
-export const Pair = styled.div`
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
+  justify-content: space-evenly;
 `;
 
 export const Column = styled.div`
