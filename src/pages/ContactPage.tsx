@@ -12,6 +12,9 @@ import Monia1ImageUrl from './../assets/images/Monia1.jpg';
 import Monia2ImageUrl from './../assets/images/Monia2.jpg';
 import Monia3ImageUrl from './../assets/images/Monia3.jpg';
 import EmailImageUrl from './../assets/images/email.png';
+import Email3DImageUrl from './../assets/images/email_3d_icon.jpg';
+import Instagram3DImageUrl from './../assets/images/instagram_3d_icon.jpg';
+
 import InstagramImageUrl from './../assets/images/instagram.png';
 import {
   Avatar,
@@ -19,6 +22,7 @@ import {
   Content,
   Header,
   Image,
+  ImageBox,
   Page,
   RowLayout,
   Separator,
@@ -128,7 +132,9 @@ export const ContactPage = () => {
 
             <RowLayout wide>
               <Column>
-                <Image width={80} src={EmailImageUrl} alt="logo" />
+                <ImageBox>
+                  <Image width={80} src={Email3DImageUrl} alt="logo" />
+                </ImageBox>
                 <Text margin="sm">dziergamynapolu@gmail.com</Text>
                 {/* <a href="https://www.flaticon.com/free-icons/email" title="email icons">
             Email icons created by Smashicons - Flaticon
@@ -136,7 +142,10 @@ export const ContactPage = () => {
               </Column>
 
               <Column>
-                <Image width={80} src={InstagramImageUrl} alt="logo" />
+                <ImageBox>
+                  <Image width={60} src={InstagramImageUrl} alt="logo" />
+                </ImageBox>
+
                 <Text margin="sm">@dziergamynapolu</Text>
 
                 {/* <a href="https://www.flaticon.com/free-icons/instagram" title="instagram icons">Instagram icons created by Freepik - Flaticon</a> */}

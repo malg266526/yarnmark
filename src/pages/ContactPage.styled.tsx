@@ -78,3 +78,11 @@ export const Separator = styled.div`
   border-bottom: 1px solid ${Colors.pinball};
   margin: ${Spacings.md} 0;
 `;
+
+export const ImageBox = styled.div`
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
