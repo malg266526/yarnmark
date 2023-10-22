@@ -18,8 +18,7 @@ export const Content = styled.div`
   align-content: space-around;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-
+  gap: ${Spacings.md};
   padding: ${Spacings.lg};
 `;
 
