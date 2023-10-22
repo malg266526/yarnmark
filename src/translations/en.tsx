@@ -18,6 +18,9 @@ export const en = {
     },
     vandorsPage: {
       title: 'Vendors'
+    },
+    workshopsPage: {
+      title: 'Workshops'
     }
   }
 };
