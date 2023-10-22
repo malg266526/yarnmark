@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
-import { Theme } from '../styles/theme';
+import { Colors } from '../styles/theme';
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
-  background-color: ${Theme.primary};
+  background-color: ${Colors.honeyMustard};
   color: white;
   font-size: 20px;
   padding: 10px 40px;

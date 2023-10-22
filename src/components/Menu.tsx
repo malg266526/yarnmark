@@ -23,6 +23,7 @@ const Flag = styled.img`
 const TransparentButton = styled.button`
   all: unset;
   padding-top: ${Spacings.xs};
+  cursor: pointer;
 `;
 
 export interface MenuProps {
