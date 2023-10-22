@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 import { Spacings } from '../styles/spacings';
-import { Colors } from '../styles/theme';
 
 export const Header = styled.header`
   display: flex;
   flex-direction: column;
-  background-color: ${Colors.spruce};
   padding-right: ${Spacings.lg};
   padding-left: ${Spacings.lg};
   padding-top: ${Spacings.xs};
@@ -14,7 +12,6 @@ export const Header = styled.header`
 
 export const Logo = styled.img`
   align-self: center;
-  margin-top: ${Spacings.lg};
 `;
 
 export const LinkButton = styled.a`

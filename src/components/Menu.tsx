@@ -14,6 +14,7 @@ const Root = styled.div`
   gap: ${Spacings.sm};
   align-items: center;
   justify-content: flex-end;
+  max-width: 1000px;
 `;
 
 const Flag = styled.img`

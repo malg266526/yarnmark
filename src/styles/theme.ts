@@ -7,5 +7,6 @@ export const Colors = {
   honeyMustard: '#ae8d4a', //174,141,74
   spruce: '#095e41', // 9, 94, 65
 
-  pinball: '#d3d3d3'
+  pinball: '#d3d3d3',
+  white: 'white'
 };

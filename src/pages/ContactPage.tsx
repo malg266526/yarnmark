@@ -11,9 +11,7 @@ import GosiaImageUrl from './../assets/images/Gosia.jpg';
 import Monia1ImageUrl from './../assets/images/Monia1.jpg';
 import Monia2ImageUrl from './../assets/images/Monia2.jpg';
 import Monia3ImageUrl from './../assets/images/Monia3.jpg';
-import EmailImageUrl from './../assets/images/email.png';
 import Email3DImageUrl from './../assets/images/email_3d_icon.jpg';
-import Instagram3DImageUrl from './../assets/images/instagram_3d_icon.jpg';
 
 import InstagramImageUrl from './../assets/images/instagram.png';
 import {
