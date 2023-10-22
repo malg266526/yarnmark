@@ -30,6 +30,7 @@
     "bytes": "3.1.2",
     "esbuild": "0.19.2",
     "esbuild-server": "0.3.0",
+    "esbuild-plugin-copy": "2.1.1",
     "eslint": "8.49.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-import": "2.28.1",

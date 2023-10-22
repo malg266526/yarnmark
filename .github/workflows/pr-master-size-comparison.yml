@@ -62,13 +62,15 @@ jobs:
           name: master
   
       - name: Generate metadata comparison
+        id: comparison
         run: |
           yarn compare-stats -- --baseMetadataFilepath=./master --branchMetadataFilepath=./${{ github.head_ref }} --ghTableMarkdown --out=result.txt
-          echo "$((cat "result.txt"))"
+          echo "comparisonData=`cat ./path/to/package.json`" >> $GITHUB_ENV
+          echo "${{ steps.comparison.outputs.comparisonData }}"
   
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v3
         with:
           issue-number: ${{ github.event.number }}
-          body: $((cat result.txt))
+          body: ${{ steps.comparison.outputs.comparisonData }}
              
