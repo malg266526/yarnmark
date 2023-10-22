@@ -2,25 +2,24 @@ import React from 'react';
 import { Card } from '../components/Card';
 import { Link } from '../components/Link';
 import { Menu } from '../components/Menu';
-import { Spacings } from '../styles/spacings';
-import { Theme } from '../styles/theme';
+import { Colors } from '../styles/theme';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
-import EmailImageUrl from './../assets/images/email.png';
-import InstagramImageUrl from './../assets/images/instagram.png';
+import AgataImageUrl from './../assets/images/Agata.jpg';
+import AniaImageUrl from './../assets/images/Ania.jpg';
+import EwaImageUrl from './../assets/images/Ewa.jpg';
+import GosiaImageUrl from './../assets/images/Gosia.jpg';
 import Monia1ImageUrl from './../assets/images/Monia1.jpg';
 import Monia2ImageUrl from './../assets/images/Monia2.jpg';
 import Monia3ImageUrl from './../assets/images/Monia3.jpg';
-import EwaImageUrl from './../assets/images/Ewa.jpg';
-import AniaImageUrl from './../assets/images/Ania.jpg';
-import AgataImageUrl from './../assets/images/Agata.jpg';
-import GosiaImageUrl from './../assets/images/Gosia.jpg';
+import EmailImageUrl from './../assets/images/email.png';
+import InstagramImageUrl from './../assets/images/instagram.png';
 import {
+  Avatar,
   Column,
   Content,
   Header,
   Image,
   Page,
-  PhotoImage,
   RowLayout,
   Separator,
   StyledH2,
@@ -29,7 +28,7 @@ import {
 } from './ContactPage.styled';
 
 const LinkAnchorProps = {
-  color: Theme.secondary
+  color: Colors.spruce
 };
 
 export const ContactPage = () => {
@@ -40,7 +39,7 @@ export const ContactPage = () => {
       <Header>
         <StyledH2>{t('contactPage.title')}</StyledH2>
 
-        <Menu iconColor={Theme.secondary}>
+        <Menu iconColor={Colors.spruce}>
           <Link href="/" anchorProps={LinkAnchorProps}>
             {t('menu.home')}
           </Link>
@@ -62,92 +61,64 @@ export const ContactPage = () => {
 
             <Text>{t('contactPage.welcome')}</Text>
             <RowLayout wide>
-              <Link
-                href="https://www.instagram.com/evvoola/"
-                target="_blank"
-                rel="noreferrer"
-                className="evvoola_instagram">
+              <Link href="https://www.instagram.com/evvoola/" target="_blank" rel="noreferrer">
                 <Column>
-                  <PhotoImage width={80} src={EwaImageUrl} alt="logo" />
+                  <Avatar width={80} src={EwaImageUrl} alt="logo" />
 
                   <Text>Ewa</Text>
                 </Column>
               </Link>
 
-              <Link
-                href="https://www.instagram.com/written_by_yarn/"
-                target="_blank"
-                rel="noreferrer"
-                className="written_by_yarn_instagram">
+              <Link href="https://www.instagram.com/written_by_yarn/" target="_blank" rel="noreferrer">
                 <Column>
-                  <PhotoImage width={80} src={Monia1ImageUrl} alt="logo" />
+                  <Avatar width={80} src={Monia1ImageUrl} alt="logo" />
 
                   <Text>Monika</Text>
                 </Column>
               </Link>
 
-              <Link
-                href="https://www.instagram.com/by_ms.gomez/"
-                target="_blank"
-                rel="noreferrer"
-                className="by_ms.gomez_instagram">
+              <Link href="https://www.instagram.com/by_ms.gomez/" target="_blank" rel="noreferrer">
                 <Column>
-                  <PhotoImage width={80} src={Monia3ImageUrl} alt="logo" />
+                  <Avatar width={80} src={Monia3ImageUrl} alt="logo" />
 
                   <Text>Monika</Text>
                 </Column>
               </Link>
 
-              <Link
-                href="https://www.instagram.com/ania_knittingnurse/"
-                target="_blank"
-                rel="noreferrer"
-                className="ania_knittingnurse_instagram">
+              <Link href="https://www.instagram.com/ania_knittingnurse/" target="_blank" rel="noreferrer">
                 <Column>
-                  <PhotoImage width={80} src={AniaImageUrl} alt="logo" />
+                  <Avatar width={80} src={AniaImageUrl} alt="logo" />
 
                   <Text>Ania</Text>
                 </Column>
               </Link>
 
-              <Link
-                href="https://www.instagram.com/malgo_tylkoknit/"
-                target="_blank"
-                rel="noreferrer"
-                className="/malgo_tylkoknit_instagram">
+              <Link href="https://www.instagram.com/malgo_tylkoknit/" target="_blank" rel="noreferrer">
                 <Column>
-                  <PhotoImage width={80} src={GosiaImageUrl} alt="logo" />
+                  <Avatar width={80} src={GosiaImageUrl} alt="logo" />
 
                   <Text>Gosia</Text>
                 </Column>
               </Link>
 
-              <Link
-                href="https://www.instagram.com/made_me_knit_it/"
-                target="_blank"
-                rel="noreferrer"
-                className="/made_me_knit_it_instagram">
+              <Link href="https://www.instagram.com/made_me_knit_it/" target="_blank" rel="noreferrer">
                 <Column>
-                  <PhotoImage width={80} src={Monia2ImageUrl} alt="logo" />
+                  <Avatar width={80} src={Monia2ImageUrl} alt="logo" />
 
                   <Text>Monia</Text>
                 </Column>
               </Link>
 
-              <Link
-                href="https://www.instagram.com/sznurkami/"
-                target="_blank"
-                rel="noreferrer"
-                className="/sznurkami_instagram">
+              <Link href="https://www.instagram.com/sznurkami/" target="_blank" rel="noreferrer">
                 <Column>
-                  <PhotoImage width={80} src={AgataImageUrl} alt="logo" />
+                  <Avatar width={80} src={AgataImageUrl} alt="logo" />
                   <Text>Agata</Text>
                 </Column>
               </Link>
             </RowLayout>
 
             <Text>{t('contactPage.thatIs')}</Text>
-            <Text margin={Spacings.sm}>{t('contactPage.description')}</Text>
+            <Text margin="sm">{t('contactPage.description')}</Text>
           </Column>
 
           <Separator />
@@ -158,7 +129,7 @@ export const ContactPage = () => {
             <RowLayout wide>
               <Column>
                 <Image width={80} src={EmailImageUrl} alt="logo" />
-                <Text margin={Spacings.sm}>dziergamynapolu@gmail.com</Text>
+                <Text margin="sm">dziergamynapolu@gmail.com</Text>
                 {/* <a href="https://www.flaticon.com/free-icons/email" title="email icons">
             Email icons created by Smashicons - Flaticon
           </a> */}
@@ -166,7 +137,7 @@ export const ContactPage = () => {
 
               <Column>
                 <Image width={80} src={InstagramImageUrl} alt="logo" />
-                <Text margin={Spacings.sm}>@dziergamynapolu</Text>
+                <Text margin="sm">@dziergamynapolu</Text>
 
                 {/* <a href="https://www.flaticon.com/free-icons/instagram" title="instagram icons">Instagram icons created by Freepik - Flaticon</a> */}
               </Column>

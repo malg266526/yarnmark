@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { Spacings } from '../styles/spacings';
-import { Theme } from '../styles/theme';
+import { Colors } from '../styles/theme';
 
 export const Page = styled.div`
   height: 100%;
-  background-color: ${Theme.goldStrong};
+  background-color: ${Colors.goldStrong};
 `;
 
 export const Header = styled.div`
@@ -14,7 +14,7 @@ export const Header = styled.div`
 
   margin-bottom: ${Spacings.lg};
   padding: ${Spacings.xs} ${Spacings.lg};
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid ${Colors.pinball};
 
   background-color: white;
 
@@ -25,12 +25,12 @@ export const Header = styled.div`
 
 export const StyledH2 = styled.h2`
   font-weight: 700;
-  color: ${Theme.secondary};
+  color: ${Colors.spruce};
 `;
 
 export const StyledH3 = styled.h3`
   font-weight: 600;
-  color: ${Theme.secondary};
+  color: ${Colors.spruce};
 `;
 
 export const Content = styled.div`
@@ -42,7 +42,7 @@ export const Image = styled.img`
   margin-top: ${Spacings.sm};
 `;
 
-export const PhotoImage = styled.img`
+export const Avatar = styled.img`
   align-self: center;
   margin: ${Spacings.sm} 0;
   box-shadow:
@@ -66,15 +66,15 @@ export const Column = styled.div`
   align-items: center;
 `;
 
-export const Text = styled.p<{ margin?: string }>`
+export const Text = styled.p<{ margin?: keyof typeof Spacings }>`
   font-family: 'Roboto';
   font-weight: 300;
-  margin: ${({ margin }) => margin || Spacings.xs};
-  color: ${Theme.secondary};
+  margin: ${({ margin }) => Spacings[margin || 'xs']};
+  color: ${Colors.spruce};
 `;
 
 export const Separator = styled.div`
   width: 100%;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid ${Colors.pinball};
   margin: ${Spacings.md} 0;
 `;

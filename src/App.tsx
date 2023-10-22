@@ -12,7 +12,6 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export const Page = styled.div`
-  //  width: 100vw;
   height: 100vh;
 `;
 
