@@ -62,89 +62,88 @@ export const ContactPage = () => {
 
             <Text>{t('contactPage.welcome')}</Text>
             <RowLayout wide>
-              <Column>
-                <PhotoImage width={80} src={EwaImageUrl} alt="logo" />
+              <Link
+                href="https://www.instagram.com/evvoola/"
+                target="_blank"
+                rel="noreferrer"
+                className="evvoola_instagram">
+                <Column>
+                  <PhotoImage width={80} src={EwaImageUrl} alt="logo" />
 
-                <Link
-                  href="https://www.instagram.com/evvoola/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="evvoola_instagram">
                   <Text>Ewa</Text>
-                </Link>
-              </Column>
+                </Column>
+              </Link>
 
-              <Column>
-                <PhotoImage width={80} src={Monia1ImageUrl} alt="logo" />
+              <Link
+                href="https://www.instagram.com/written_by_yarn/"
+                target="_blank"
+                rel="noreferrer"
+                className="written_by_yarn_instagram">
+                <Column>
+                  <PhotoImage width={80} src={Monia1ImageUrl} alt="logo" />
 
-                <Link
-                  href="https://www.instagram.com/written_by_yarn/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="written_by_yarn_instagram">
                   <Text>Monika</Text>
-                </Link>
-              </Column>
+                </Column>
+              </Link>
 
-              <Column>
-                <PhotoImage width={80} src={Monia3ImageUrl} alt="logo" />
+              <Link
+                href="https://www.instagram.com/by_ms.gomez/"
+                target="_blank"
+                rel="noreferrer"
+                className="by_ms.gomez_instagram">
+                <Column>
+                  <PhotoImage width={80} src={Monia3ImageUrl} alt="logo" />
 
-                <Link
-                  href="https://www.instagram.com/by_ms.gomez/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="by_ms.gomez_instagram">
                   <Text>Monika</Text>
-                </Link>
-              </Column>
+                </Column>
+              </Link>
 
-              <Column>
-                <PhotoImage width={80} src={AniaImageUrl} alt="logo" />
+              <Link
+                href="https://www.instagram.com/ania_knittingnurse/"
+                target="_blank"
+                rel="noreferrer"
+                className="ania_knittingnurse_instagram">
+                <Column>
+                  <PhotoImage width={80} src={AniaImageUrl} alt="logo" />
 
-                <Link
-                  href="https://www.instagram.com/ania_knittingnurse/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="ania_knittingnurse_instagram">
                   <Text>Ania</Text>
-                </Link>
-              </Column>
+                </Column>
+              </Link>
 
-              <Column>
-                <PhotoImage width={80} src={GosiaImageUrl} alt="logo" />
+              <Link
+                href="https://www.instagram.com/malgo_tylkoknit/"
+                target="_blank"
+                rel="noreferrer"
+                className="/malgo_tylkoknit_instagram">
+                <Column>
+                  <PhotoImage width={80} src={GosiaImageUrl} alt="logo" />
 
-                <Link
-                  href="https://www.instagram.com/malgo_tylkoknit/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="/malgo_tylkoknit_instagram">
                   <Text>Gosia</Text>
-                </Link>
-              </Column>
+                </Column>
+              </Link>
 
-              <Column>
-                <PhotoImage width={80} src={Monia2ImageUrl} alt="logo" />
+              <Link
+                href="https://www.instagram.com/made_me_knit_it/"
+                target="_blank"
+                rel="noreferrer"
+                className="/made_me_knit_it_instagram">
+                <Column>
+                  <PhotoImage width={80} src={Monia2ImageUrl} alt="logo" />
 
-                <Link
-                  href="https://www.instagram.com/made_me_knit_it/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="/made_me_knit_it_instagram">
                   <Text>Monia</Text>
-                </Link>
-              </Column>
+                </Column>
+              </Link>
 
-              <Column>
-                <PhotoImage width={80} src={AgataImageUrl} alt="logo" />
-
-                <Link
-                  href="https://www.instagram.com/sznurkami/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="/sznurkami_instagram">
+              <Link
+                href="https://www.instagram.com/sznurkami/"
+                target="_blank"
+                rel="noreferrer"
+                className="/sznurkami_instagram">
+                <Column>
+                  <PhotoImage width={80} src={AgataImageUrl} alt="logo" />
                   <Text>Agata</Text>
-                </Link>
-              </Column>
+                </Column>
+              </Link>
             </RowLayout>
 
             <Text>{t('contactPage.thatIs')}</Text>

@@ -44,11 +44,12 @@ export const Image = styled.img`
 
 export const PhotoImage = styled.img`
   align-self: center;
-  margin-top: ${Spacings.sm};
+  margin: ${Spacings.sm} 0;
   box-shadow:
     0 2px 2px 0 rgba(0, 0, 0, 0.2),
     0 2px 5px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px;
+  cursor: pointer;
 `;
 
 export const RowLayout = styled.div<{ wide?: boolean }>`
