@@ -18,16 +18,16 @@ import {
   Avatar,
   Column,
   Content,
-  Header,
   Image,
   ImageBox,
-  Page,
   RowLayout,
   Separator,
   StyledH2,
   StyledH3,
   Text
 } from './ContactPage.styled';
+import { Page } from '../components/PageContent';
+import { Header } from '../components/Header';
 
 const LinkAnchorProps = {
   color: Colors.spruce

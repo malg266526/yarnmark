@@ -1,11 +1,12 @@
 import React from 'react';
+import styled from 'styled-components';
+import { Header } from '../components/Header';
 import { Link } from '../components/Link';
 import { Menu } from '../components/Menu';
+import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
-import { Header, StyledH2 } from './ContactPage.styled';
-import styled from 'styled-components';
-import { Spacings } from '../styles/spacings';
+import { StyledH2 } from './ContactPage.styled';
 
 const LinkAnchorProps = {
   color: Colors.spruce

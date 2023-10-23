@@ -4,7 +4,7 @@ export const PageContent = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: 1000px;
+  width: 900px;
   align-self: center;
   align-items: center;
 `;
