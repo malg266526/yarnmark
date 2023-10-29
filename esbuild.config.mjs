@@ -16,6 +16,7 @@ export const config = {
   ],
   loader: {
     '.png': 'file',
-    '.jpg': 'file'
+    '.jpg': 'file',
+    '.svg': 'file'
   }
 };

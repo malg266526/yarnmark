@@ -7,6 +7,7 @@ import FlagPoland from './../assets/images/poland.png';
 import FlagUk from './../assets/images/united-kingdom.png';
 import { useTranslation } from 'react-i18next';
 import { Spacings } from '../styles/spacings';
+import { Theme } from '../styles/theme';
 
 const Root = styled.div`
   display: inline-flex;
@@ -14,6 +15,7 @@ const Root = styled.div`
   gap: ${Spacings.sm};
   align-items: center;
   justify-content: flex-end;
+  max-width: ${Theme.menuMaxWidth};
 `;
 
 const Flag = styled.img`
