@@ -17,10 +17,11 @@ export const pl = {
         'Kochamy wełnę, druty i szydełka. Od kilkunastu miesięcy organizujemy krakowskie spotkania dziewiarskie, a teraz przychodzimy do Was z targami! Mamy nadzieję, że będziecie się dobrze bawić :)'
     },
     vandorsPage: {
-      title: 'Wystawcy'
+      title: 'Wystawcy',
+      infoForVendors: 'Informacje dla wystawców'
     },
     workshopsPage: {
-      title: 'Workshops'
+      title: 'Warsztaty'
     }
   }
 };

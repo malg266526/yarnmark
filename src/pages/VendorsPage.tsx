@@ -1,36 +1,47 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Card } from '../components/Card';
+import { Column } from '../components/Column';
 import { Header } from '../components/Header';
 import { Link } from '../components/Link';
 import { Menu } from '../components/Menu';
+import { Page, PageContent } from '../components/PageContent';
+import { PageTitle } from '../components/PageTitle';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import MockLogo from './../assets/images/logo_wystawcy.png';
-import { StyledH2 } from './ContactPage.styled';
+import { StyledH3 } from './ContactPage.styled';
 
 const LinkAnchorProps = {
   color: Colors.spruce
 };
 
-export const Content = styled.div`
+export const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-content: space-around;
   align-items: center;
   justify-content: center;
-  gap: ${Spacings.md};
-  padding: ${Spacings.lg};
+  gap: ${Spacings.sm};
+`;
+
+export const Separator = styled.div`
+  margin: ${Spacings.md} 0;
+  border-right: 1px solid ${Colors.pinball};
+`;
+
+export const InformationForVendors = styled.div`
+  width: 300px;
+  padding: ${Spacings.sm};
 `;
 
 export const VendorsPage = () => {
   const t = useTypedTranslation();
 
   return (
-    <div>
+    <Page>
       <Header>
-        <StyledH2>{t('vandorsPage.title')}</StyledH2>
-
         <Menu iconColor={Colors.spruce}>
           <Link href="/home" anchorProps={LinkAnchorProps}>
             {t('menu.home')}
@@ -46,43 +57,60 @@ export const VendorsPage = () => {
         </Menu>
       </Header>
 
-      <Content>
-        <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-          <img width={200} src={MockLogo} alt="wystawca1" />
-        </Link>
+      <PageTitle>{t('vandorsPage.title')}</PageTitle>
 
-        <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-          <img width={200} src={MockLogo} alt="wystawca1" />
-        </Link>
+      <PageContent>
+        <Card direction="row">
+          <Column>
+            <Grid>
+              <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
+                <img width={200} src={MockLogo} alt="wystawca1" />
+              </Link>
 
-        <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-          <img width={200} src={MockLogo} alt="wystawca1" />
-        </Link>
+              <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
+                <img width={200} src={MockLogo} alt="wystawca1" />
+              </Link>
 
-        <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-          <img width={200} src={MockLogo} alt="wystawca1" />
-        </Link>
+              <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
+                <img width={200} src={MockLogo} alt="wystawca1" />
+              </Link>
 
-        <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-          <img width={200} src={MockLogo} alt="wystawca1" />
-        </Link>
+              <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
+                <img width={200} src={MockLogo} alt="wystawca1" />
+              </Link>
 
-        <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-          <img width={200} src={MockLogo} alt="wystawca1" />
-        </Link>
+              <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
+                <img width={200} src={MockLogo} alt="wystawca1" />
+              </Link>
 
-        <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-          <img width={200} src={MockLogo} alt="wystawca1" />
-        </Link>
+              <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
+                <img width={200} src={MockLogo} alt="wystawca1" />
+              </Link>
 
-        <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-          <img width={200} src={MockLogo} alt="wystawca1" />
-        </Link>
+              <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
+                <img width={200} src={MockLogo} alt="wystawca1" />
+              </Link>
 
-        <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-          <img width={200} src={MockLogo} alt="wystawca1" />
-        </Link>
-      </Content>
-    </div>
+              <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
+                <img width={200} src={MockLogo} alt="wystawca1" />
+              </Link>
+
+              <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
+                <img width={200} src={MockLogo} alt="wystawca1" />
+              </Link>
+            </Grid>
+          </Column>
+
+          <Separator />
+
+          <Column>
+            <InformationForVendors>
+              <StyledH3>{t('vandorsPage.infoForVendors')}:</StyledH3>
+              <StyledH3> todo: przenieś do osobnej zakładki</StyledH3>
+            </InformationForVendors>
+          </Column>
+        </Card>
+      </PageContent>
+    </Page>
   );
 };

@@ -1,13 +1,15 @@
 import styled from 'styled-components';
-import { Spacings } from '../styles/spacings';
 
-export const Card = styled.div<{ width?: string }>`
+export const Card = styled.div<{
+  direction?: 'row' | 'column';
+  width?: `${number}%` | `${number}px`;
+  height?: `${number}%` | `${number}px`;
+}>`
   width: ${({ width }) => width};
+  height: ${({ height }) => height};
 
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: ${Spacings.md};
+  flex-direction: ${({ direction }) => direction || 'column'};
 
   background-color: white;
 
