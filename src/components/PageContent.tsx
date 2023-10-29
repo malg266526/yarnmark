@@ -5,13 +5,13 @@ export const PageContent = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: 900px;
+  width: ${Theme.pageContentWidth};
   align-self: center;
   align-items: center;
 `;
 
 export const Page = styled.div`
-  width: ${Theme.pageContentWidth};
+  width: '100%';
   display: flex;
   flex-direction: column;
   align-items: center;
