@@ -12,12 +12,19 @@ import { Button } from '../components/Button';
 import { Page, PageContent } from '../components/PageContent';
 import { Colors } from '../styles/theme';
 import { Banner, Header, LinkButton, Logo, PhotoFrame } from './MainPage.styled';
+import { Spacings } from '../styles/spacings';
+import { ScreenSize } from '../styles/screeen-size';
 
 export const RowLayout = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-evenly;
+
+  @media (max-width: ${ScreenSize.tablet}) {
+    flex-direction: column;
+    gap: ${Spacings.md};
+  }
 `;
 
 export const MainPage = () => {
