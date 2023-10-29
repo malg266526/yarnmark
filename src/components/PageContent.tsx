@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Theme } from '../styles/theme';
 
 export const PageContent = styled.div`
   display: flex;
@@ -10,7 +11,7 @@ export const PageContent = styled.div`
 `;
 
 export const Page = styled.div`
-  width: 100%;
+  width: ${Theme.pageContentWidth};
   display: flex;
   flex-direction: column;
   align-items: center;

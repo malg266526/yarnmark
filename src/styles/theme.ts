@@ -10,3 +10,9 @@ export const Colors = {
   pinball: '#d3d3d3',
   white: 'white'
 };
+
+export const Theme = {
+  headerWidth: '700px',
+  menuMaxWidth: '1000px',
+  pageContentWidth: '900px'
+};

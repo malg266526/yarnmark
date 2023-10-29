@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Spacings } from '../styles/spacings';
-import { Colors } from '../styles/theme';
+import { Colors, Theme } from '../styles/theme';
 import React, { ReactNode } from 'react';
 
 const FullWidthHeader = styled.div`
@@ -21,7 +21,7 @@ const FullWidthHeader = styled.div`
 `;
 
 const CenteredHeader = styled.div`
-  width: 700px;
+  width: ${Theme.headerWidth};
   display: flex;
   flex-direction: row;
   align-self: center;
