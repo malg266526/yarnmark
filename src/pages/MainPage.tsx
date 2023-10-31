@@ -29,10 +29,10 @@ export const RowLayout = styled.div`
   }
 `;
 
+
 export const MainPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
-  console.info('IPHONE', isPhone);
   const [burgerActive, setBurgerActive] = useState(false);
 
   return (
@@ -44,15 +44,11 @@ export const MainPage = () => {
 
       <Header>
         {isPhone && <BurgerMenu onClick={() => setBurgerActive((prevValue) => !prevValue)} active={burgerActive} />}
-        {!isPhone && (
-          <Menu>
-            <Link href="/workshops">{t('menu.workshops')}</Link>
-
-            <Link href="/vendors">{t('menu.vendors')}</Link>
-
-            <Link href="/contact">{t('menu.contact')}</Link>
-          </Menu>
-        )}
+        {!isPhone && <Menu>
+          <Link href="/workshops">{t('menu.workshops')}</Link>
+          <Link href="/vendors">{t('menu.vendors')}</Link>
+          <Link href="/contact">{t('menu.contact')}</Link>
+        </Menu>}
       </Header>
 
       <PageContent>
