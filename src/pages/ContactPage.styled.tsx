@@ -51,7 +51,6 @@ export const Column = styled.div`
 `;
 
 export const Text = styled.p<{ margin?: keyof typeof Spacings }>`
-  font-family: 'Roboto';
   font-weight: 300;
   margin: ${({ margin }) => Spacings[margin || 'xs']};
   color: ${Colors.spruce};

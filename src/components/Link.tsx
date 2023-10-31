@@ -8,7 +8,6 @@ const StyledLink = styled.a<{ color: string }>`
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
-  font-family: 'Roboto';
   font-weight: 300;
 `;
 

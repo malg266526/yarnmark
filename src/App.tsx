@@ -8,7 +8,8 @@ import { WorkshopsPage } from './pages/WorkshopsPage';
 
 const GlobalStyle = createGlobalStyle`
   body {
-    margin: 0
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif;
   }
 `;
 

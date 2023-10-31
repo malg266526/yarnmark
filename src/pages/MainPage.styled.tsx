@@ -20,7 +20,6 @@ export const LinkButton = styled.a`
 `;
 
 export const Details = styled.div`
-  font-family: 'Roboto';
   font-weight: 300;
 `;
 
