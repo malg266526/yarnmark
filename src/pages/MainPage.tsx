@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from '../components/Link';
 import { Menu } from '../components/Menu';
@@ -14,6 +14,8 @@ import { Colors } from '../styles/theme';
 import { Banner, Header, LinkButton, Logo, PhotoFrame } from './MainPage.styled';
 import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
+import { usePhone } from './usePhone';
+import { BurgerMenu } from '../components/BurgerMenu';
 
 export const RowLayout = styled.div`
   display: flex;
@@ -27,8 +29,12 @@ export const RowLayout = styled.div`
   }
 `;
 
+
 export const MainPage = () => {
   const t = useTypedTranslation();
+  const isPhone = usePhone();
+  console.info("IPHONE", isPhone);
+  const [burgerActive, setBurgerActive] = useState(false);
 
   return (
     <Page>
@@ -38,13 +44,14 @@ export const MainPage = () => {
       </Banner>
 
       <Header>
-        <Menu>
+        {isPhone && <BurgerMenu onClick={() => setBurgerActive((prevValue) => !prevValue)} active={burgerActive} />}
+        {!isPhone && <Menu>
           <Link href="/workshops">{t('menu.workshops')}</Link>
 
           <Link href="/vendors">{t('menu.vendors')}</Link>
 
           <Link href="/contact">{t('menu.contact')}</Link>
-        </Menu>
+        </Menu>}
       </Header>
 
       <PageContent>
