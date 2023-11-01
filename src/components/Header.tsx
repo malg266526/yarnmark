@@ -9,7 +9,6 @@ const FullWidthHeader = styled.div`
   align-items: center;
   justify-content: center;
 
-  margin-bottom: ${Spacings.lg};
   padding: ${Spacings.xs} ${Spacings.lg};
   border-bottom: 1px solid ${Colors.pinball};
 

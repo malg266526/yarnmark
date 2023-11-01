@@ -13,21 +13,11 @@ import Monia2ImageUrl from './../assets/images/Monia2.jpg';
 import Monia3ImageUrl from './../assets/images/Monia3.jpg';
 import Email3DImageUrl from './../assets/images/email_3d_icon.jpg';
 
-import InstagramImageUrl from './../assets/images/instagram.png';
-import {
-  Avatar,
-  Column,
-  Content,
-  Image,
-  ImageBox,
-  RowLayout,
-  Separator,
-  StyledH2,
-  StyledH3,
-  Text
-} from './ContactPage.styled';
-import { Page } from '../components/PageContent';
 import { Header } from '../components/Header';
+import { Page, PageContent } from '../components/PageContent';
+import { PageTitle } from '../components/PageTitle';
+import InstagramImageUrl from './../assets/images/instagram.png';
+import { Avatar, Column, Image, ImageBox, RowLayout, Separator, StyledH3, Text } from './ContactPage.styled';
 
 const LinkAnchorProps = {
   color: Colors.spruce
@@ -39,8 +29,6 @@ export const ContactPage = () => {
   return (
     <Page>
       <Header>
-        <StyledH2>{t('contactPage.title')}</StyledH2>
-
         <Menu iconColor={Colors.spruce}>
           <Link href="/" anchorProps={LinkAnchorProps}>
             {t('menu.home')}
@@ -56,7 +44,9 @@ export const ContactPage = () => {
         </Menu>
       </Header>
 
-      <Content>
+      <PageTitle>{t('contactPage.title')}</PageTitle>
+
+      <PageContent>
         <Card>
           <Column>
             <StyledH3>{t('contactPage.whoAreWe')}</StyledH3>
@@ -151,7 +141,7 @@ export const ContactPage = () => {
             </RowLayout>
           </Column>
         </Card>
-      </Content>
+      </PageContent>
     </Page>
   );
 };

@@ -12,12 +12,12 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const Page = styled.div`
+export const AppRoot = styled.div`
   height: 100vh;
 `;
 
 export const App = () => (
-  <Page>
+  <AppRoot>
     <GlobalStyle />
     <BrowserRouter basename="/">
       <Routes>
@@ -28,5 +28,5 @@ export const App = () => (
         <Route path="/workshops" element={<WorkshopsPage />} />
       </Routes>
     </BrowserRouter>
-  </Page>
+  </AppRoot>
 );

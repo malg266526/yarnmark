@@ -2,23 +2,9 @@ import styled from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 
-export const Page = styled.div`
-  height: 100%;
-  background-color: ${Colors.goldStrong};
-`;
-
-export const StyledH2 = styled.h2`
-  font-weight: 700;
-  color: ${Colors.spruce};
-`;
-
 export const StyledH3 = styled.h3`
   font-weight: 600;
   color: ${Colors.spruce};
-`;
-
-export const Content = styled.div`
-  padding: 0 ${Spacings.lg};
 `;
 
 export const Image = styled.img`
