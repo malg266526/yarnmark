@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Card } from '../components/Card';
-import { Column } from '../components/Column';
+import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { Header } from '../components/Header';
 import { Link } from '../components/Link';
 import { Menu } from '../components/Menu';
@@ -15,7 +15,7 @@ const LinkAnchorProps = {
   color: Colors.spruce
 };
 
-export const Grid = styled.div`
+export const FlexLayout = styled.div`
   display: flex;
   gap: ${Spacings.md};
 `;
@@ -44,19 +44,19 @@ export const WorkshopsPage = () => {
       <PageTitle>{t('workshopsPage.title')}</PageTitle>
 
       <PageContent>
-        <Grid>
-          <Column>
+        <FlexLayout>
+          <FlexColumnLayout>
             <Card>Pokaz pierwszej pomocy</Card>
             <Card>Żakard</Card>
             <Card>Szydełkowy koszyk</Card>
-          </Column>
+          </FlexColumnLayout>
 
-          <Column>
+          <FlexColumnLayout>
             <Card>Szydełko tunezyjskie</Card>
             <Card>Warsztat X</Card>
             <Card>Warsztat Y</Card>
-          </Column>
-        </Grid>
+          </FlexColumnLayout>
+        </FlexLayout>
       </PageContent>
     </Page>
   );

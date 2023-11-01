@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Spacings } from '../styles/spacings';
 
-export const Column = styled.div`
+export const FlexColumnLayout = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Card } from '../components/Card';
-import { Column } from '../components/Column';
+import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { Header } from '../components/Header';
 import { Link } from '../components/Link';
 import { Menu } from '../components/Menu';
@@ -60,8 +60,8 @@ export const VendorsPage = () => {
       <PageTitle>{t('vandorsPage.title')}</PageTitle>
 
       <PageContent>
-        <Card direction="row">
-          <Column>
+        <Card flexDirection="row">
+          <FlexColumnLayout>
             <Grid>
               <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
                 <img width={200} src={MockLogo} alt="wystawca1" />
@@ -99,16 +99,16 @@ export const VendorsPage = () => {
                 <img width={200} src={MockLogo} alt="wystawca1" />
               </Link>
             </Grid>
-          </Column>
+          </FlexColumnLayout>
 
           <Separator />
 
-          <Column>
+          <FlexColumnLayout>
             <InformationForVendors>
               <StyledH3>{t('vandorsPage.infoForVendors')}:</StyledH3>
               <StyledH3> todo: przenieś do osobnej zakładki</StyledH3>
             </InformationForVendors>
-          </Column>
+          </FlexColumnLayout>
         </Card>
       </PageContent>
     </Page>
