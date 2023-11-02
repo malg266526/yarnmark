@@ -27,15 +27,15 @@ jobs:
       
     - name: Typecheck
       id: typecheck
-      continue-on-error: true
+      if: always()
       run: yarn typecheck
       
     - name: Lint
       id: lint
-      continue-on-error: true
+      if: always()
       run: yarn lint
 
     - name: Bundle
       id: bundle
-      continue-on-error: true
+      if: always()
       run: yarn bundle
