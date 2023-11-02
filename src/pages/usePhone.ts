@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { ScreenSize } from "../styles/screeen-size";
+import { useCallback, useEffect, useState } from 'react';
+import { ScreenSize } from '../styles/screeen-size';
 
 const phoneScreenSize = Number(ScreenSize.phone.replace('px', ''));
 
 window.onresize = () => {
-  handlers.forEach(handler => handler(window.innerWidth));
+  handlers.forEach((handler) => handler(window.innerWidth));
 };
 
 const handlers: ((newWidth: number) => void)[] = [];
@@ -22,6 +22,7 @@ export const usePhone = () => {
         handlers.splice(handlerIndex, 1);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return isPhone;

@@ -11,14 +11,14 @@ const Root = styled.div`
   transition: background 150ms ease-in-out;
 
   &.active {
-    background: rgba(0, 0, 0, .2);
+    background: rgba(0, 0, 0, 0.2);
 
     > :first-child {
       transform: rotate(-45deg) translate(-6px, 5.5px);
     }
 
     > :nth-child(2) {
-      transform: rotate(-135deg) translate(-.5px, 0);
+      transform: rotate(-135deg) translate(-0.5px, 0);
     }
 
     > :last-child {
@@ -36,8 +36,8 @@ const Line = styled.span`
   width: 24px;
 `;
 
-export const BurgerMenu = ({ onClick, active }: { onClick?: () => void; active: boolean; }) => (
-  <Root onClick={onClick} className={active ? "active" : undefined} >
+export const BurgerMenu = ({ onClick, active }: { onClick?: () => void; active: boolean }) => (
+  <Root onClick={onClick} className={active ? 'active' : undefined}>
     <Line />
     <Line />
     <Line />
