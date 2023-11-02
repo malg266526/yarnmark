@@ -29,7 +29,6 @@ export const RowLayout = styled.div`
   }
 `;
 
-
 export const MainPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
