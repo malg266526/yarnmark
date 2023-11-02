@@ -16,6 +16,29 @@ import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
 import { usePhone } from './usePhone';
 import { BurgerMenu } from '../components/BurgerMenu';
+import { SideBar } from '../components/SideBar';
+
+const StyledPage = styled(Page)`
+  position: relative;
+
+  ${SideBar} {
+    left: 0;
+    top: ${Spacings.sm};
+    min-height: 80vh;
+    max-height: 100vh;
+    position: absolute;
+    min-width: 70%;
+    max-width: 80%;
+    transition: all 250ms ease-in-out;
+    transform: translate(-70%, 0);
+    opacity: 0;
+
+    &.visible {
+      opacity: 1;
+      transform: translate(0, 0)
+    }
+  }
+`;
 
 export const RowLayout = styled.div`
   display: flex;
@@ -35,19 +58,30 @@ export const MainPage = () => {
   const [burgerActive, setBurgerActive] = useState(false);
 
   return (
-    <Page>
+    <StyledPage>
       <Banner>
         <Box width="100%" height="300px" color={Colors.spruce} />
         <img width="100%" src={HeaderBanner} />
       </Banner>
 
       <Header>
-        {isPhone && <BurgerMenu onClick={() => setBurgerActive((prevValue) => !prevValue)} active={burgerActive} />}
-        {!isPhone && <Menu>
-          <Link href="/workshops">{t('menu.workshops')}</Link>
-          <Link href="/vendors">{t('menu.vendors')}</Link>
-          <Link href="/contact">{t('menu.contact')}</Link>
-        </Menu>}
+        {isPhone && (
+          <>
+            <SideBar className={burgerActive ? "visible" : undefined} >
+              <SideBar.Entry>Test</SideBar.Entry>
+            </SideBar>
+            <BurgerMenu onClick={() => setBurgerActive((prevValue) => !prevValue)} active={burgerActive} />
+          </>
+        )}
+        {!isPhone && (
+          <Menu>
+            <Link href="/workshops">{t('menu.workshops')}</Link>
+
+            <Link href="/vendors">{t('menu.vendors')}</Link>
+
+            <Link href="/contact">{t('menu.contact')}</Link>
+          </Menu>
+        )}
       </Header>
 
       <PageContent>
@@ -76,6 +110,6 @@ export const MainPage = () => {
         <StyledH3> Stara Zajezdnia</StyledH3>
         <StyledH4>Świętego Wawrzyńca 12</StyledH4>
       </Details> */}
-    </Page>
+    </StyledPage>
   );
 };

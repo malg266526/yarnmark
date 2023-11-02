@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ScreenSize } from '../styles/screeen-size';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 
@@ -9,6 +10,13 @@ export const Header = styled.header`
   padding-left: ${Spacings.lg};
   padding-top: ${Spacings.xs};
   padding-bottom: ${Spacings.md};
+  width: 100%;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    padding: ${Spacings.sm} ${Spacings.md};
+    flex-direction: row;
+    justify-content: flex-end;
+  }
 `;
 
 export const Logo = styled.img`

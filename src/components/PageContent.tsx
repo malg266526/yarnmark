@@ -6,12 +6,13 @@ export const PageContent = styled.div`
   flex-direction: column;
 
   width: ${Theme.pageContentWidth};
+  max-width: 100%;
   align-self: center;
   align-items: center;
 `;
 
 export const Page = styled.div`
-  width: '100%';
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
