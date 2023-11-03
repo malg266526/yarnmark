@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { Link } from '../components/Link';
 import { Menu } from '../components/Menu';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
@@ -68,7 +70,18 @@ export const MainPage = () => {
         {isPhone && (
           <>
             <SideBar className={burgerActive ? "visible" : undefined} >
-              <SideBar.Entry>Test</SideBar.Entry>
+              <SideBar.LinkEntry href="/workshops" >
+                <FontAwesomeIcon size="lg" icon="graduation-cap" color="white" />
+                {t('menu.workshops')}
+              </SideBar.LinkEntry>
+              <SideBar.LinkEntry href="/vendors" >
+                <FontAwesomeIcon icon="cart-shopping" color="white" />
+                {t('menu.vendors')}
+              </SideBar.LinkEntry>
+              <SideBar.LinkEntry href="/contact" >
+                <FontAwesomeIcon icon="envelope" color="white" />
+                {t('menu.contact')}
+              </SideBar.LinkEntry>
             </SideBar>
             <BurgerMenu onClick={() => setBurgerActive((prevValue) => !prevValue)} active={burgerActive} />
           </>
