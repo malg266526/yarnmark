@@ -1,10 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Colors } from '../styles/theme';
+
+const gapSize = 4;
+const lineSize = 4;
 
 const Root = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: ${gapSize}px;
   padding: 4px;
   border-radius: 2px;
   cursor: pointer;
@@ -14,24 +18,26 @@ const Root = styled.div`
     background: rgba(0, 0, 0, 0.2);
 
     > :first-child {
-      transform: rotate(-45deg) translate(-6px, 5.5px);
+      opacity: 0;
     }
 
     > :nth-child(2) {
-      transform: rotate(-135deg) translate(-0.5px, 0);
+      transform-origin: right;
+      transform: translate(-3px, ${gapSize + lineSize}px) rotate(45deg);
     }
 
     > :last-child {
-      opacity: 0;
+      transform-origin: left;
+      transform: translate(4px, 0) rotate(-45deg);
     }
   }
 `;
 
 const Line = styled.span`
   width: 100%;
-  height: 4px;
+  height: ${lineSize}px;
   transition: all 150ms ease-in-out;
-  background: black;
+  background: ${Colors.white};
   opacity: 1;
   width: 24px;
 `;

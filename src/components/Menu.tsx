@@ -14,7 +14,7 @@ const Root = styled.div`
   flex-direction: row;
   gap: ${Spacings.sm};
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   max-width: ${Theme.menuMaxWidth};
 `;
 

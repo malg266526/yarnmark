@@ -1,14 +1,22 @@
 import styled from 'styled-components';
+import { ScreenSize } from '../styles/screeen-size';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 
 export const Header = styled.header`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   padding-right: ${Spacings.lg};
   padding-left: ${Spacings.lg};
   padding-top: ${Spacings.xs};
   padding-bottom: ${Spacings.md};
+  width: 100%;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    padding: ${Spacings.sm} ${Spacings.md};
+    flex-direction: row;
+    justify-content: flex-end;
+  }
 `;
 
 export const Logo = styled.img`

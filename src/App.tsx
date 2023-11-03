@@ -10,6 +10,10 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0
   }
+
+  * {
+    box-sizing: border-box;
+  }
 `;
 
 export const AppRoot = styled.div`

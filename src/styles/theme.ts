@@ -8,7 +8,8 @@ export const Colors = {
   spruce: '#095e41', // 9, 94, 65
 
   pinball: '#d3d3d3',
-  white: 'white'
+  white: 'white',
+  ruinedSmores: '#0f0e17'
 };
 
 export const Theme = {

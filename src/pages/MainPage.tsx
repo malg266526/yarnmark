@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGraduationCap, faCartShopping, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+
 import { Link } from '../components/Link';
 import { Menu } from '../components/Menu';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
@@ -16,6 +19,55 @@ import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
 import { usePhone } from './usePhone';
 import { BurgerMenu } from '../components/BurgerMenu';
+import { SideBar } from '../components/SideBar';
+
+const Curtain = styled.div`
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+  opacity: 0;
+  transition:
+    opacity 250ms ease-in-out,
+    z-index 250ms ease-in-out;
+
+  &.active {
+    z-index: 1;
+    opacity: 1;
+  }
+`;
+
+const StyledPage = styled(Page)`
+  position: relative;
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
+
+  ${SideBar} {
+    left: 100%;
+    z-index: 1;
+    top: 60px;
+    min-height: 80vh;
+    max-height: 100vh;
+    position: absolute;
+    min-width: 70%;
+    max-width: 80%;
+    transition: all 250ms ease-in-out;
+    transform: translate(0, 0);
+    opacity: 0;
+
+    &.visible {
+      opacity: 1;
+      transform: translate(-100%, 0);
+    }
+  }
+
+  ${Header} {
+    position: relative;
+    z-index: 1;
+  }
+`;
 
 export const RowLayout = styled.div`
   display: flex;
@@ -32,18 +84,36 @@ export const RowLayout = styled.div`
 export const MainPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
-  console.info('IPHONE', isPhone);
   const [burgerActive, setBurgerActive] = useState(false);
 
   return (
-    <Page>
+    <StyledPage>
+      {isPhone && <Curtain onClick={() => setBurgerActive(false)} className={burgerActive ? 'active' : undefined} />}
       <Banner>
         <Box width="100%" height="300px" color={Colors.spruce} />
         <img width="100%" src={HeaderBanner} />
       </Banner>
 
       <Header>
-        {isPhone && <BurgerMenu onClick={() => setBurgerActive((prevValue) => !prevValue)} active={burgerActive} />}
+        {isPhone && (
+          <>
+            <SideBar roundedCorners="left" className={burgerActive ? 'visible' : undefined}>
+              <SideBar.LinkEntry href="/workshops">
+                <FontAwesomeIcon icon={faGraduationCap} size="lg" />
+                {t('menu.workshops')}
+              </SideBar.LinkEntry>
+              <SideBar.LinkEntry href="/vendors">
+                <FontAwesomeIcon icon={faCartShopping} size="lg" />
+                {t('menu.vendors')}
+              </SideBar.LinkEntry>
+              <SideBar.LinkEntry href="/contact">
+                <FontAwesomeIcon icon={faEnvelope} size="lg" />
+                {t('menu.contact')}
+              </SideBar.LinkEntry>
+            </SideBar>
+            <BurgerMenu onClick={() => setBurgerActive((prevValue) => !prevValue)} active={burgerActive} />
+          </>
+        )}
         {!isPhone && (
           <Menu>
             <Link href="/workshops">{t('menu.workshops')}</Link>
@@ -81,6 +151,6 @@ export const MainPage = () => {
         <StyledH3> Stara Zajezdnia</StyledH3>
         <StyledH4>Świętego Wawrzyńca 12</StyledH4>
       </Details> */}
-    </Page>
+    </StyledPage>
   );
 };
