@@ -42,10 +42,12 @@ const Line = styled.span`
   width: 24px;
 `;
 
-export const BurgerMenu = ({ onClick, active }: { onClick?: () => void; active: boolean }) => (
-  <Root onClick={onClick} className={active ? 'active' : undefined}>
-    <Line />
-    <Line />
-    <Line />
-  </Root>
-);
+export const BurgerMenu = styled(
+  ({ onClick, active, className }: { onClick?: () => void; active: boolean; className?: string }) => (
+    <Root onClick={onClick} className={active ? `${className} active` : className}>
+      <Line />
+      <Line />
+      <Line />
+    </Root>
+  )
+)``;
