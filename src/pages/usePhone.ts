@@ -2,10 +2,11 @@ import { useCallback, useLayoutEffect, useState } from 'react';
 import { ScreenSize } from '../styles/screeen-size';
 
 const phoneScreenSize = Number(ScreenSize.phone.replace('px', ''));
-let lastWindowInnerWidth = window.innerWidth;
+const getWindowWidth = () => (window.innerWidth < window.outerWidth ? window.innerWidth : window.outerWidth);
+let lastWindowInnerWidth = getWindowWidth();
 
 window.onresize = () => {
-  lastWindowInnerWidth = window.innerWidth;
+  lastWindowInnerWidth = getWindowWidth();
   handlers.forEach((handler) => handler(lastWindowInnerWidth));
 };
 
