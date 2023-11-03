@@ -5,7 +5,7 @@ const phoneScreenSize = Number(ScreenSize.phone.replace('px', ''));
 let lastWindowInnerWidth = window.innerWidth;
 
 window.onresize = () => {
-  lastWindowInnerWidth = window.innerWidth
+  lastWindowInnerWidth = window.innerWidth;
   handlers.forEach((handler) => handler(lastWindowInnerWidth));
 };
 

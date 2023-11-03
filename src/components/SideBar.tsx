@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 import { Colors } from '../styles/theme';
 
 const LinkEntry = styled.a`
@@ -15,7 +15,7 @@ const LinkEntry = styled.a`
 
   &:hover {
     cursor: pointer;
-    background: linear-gradient(90deg, rgba(44,82,155,1) 0%, rgba(255,255,255, 0) 80%); 
+    background: linear-gradient(90deg, rgba(44, 82, 155, 1) 0%, rgba(255, 255, 255, 0) 80%);
   }
 `;
 

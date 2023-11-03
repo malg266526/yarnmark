@@ -5,7 +5,7 @@ import { Colors } from '../styles/theme';
 
 export const Header = styled.header`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   padding-right: ${Spacings.lg};
   padding-left: ${Spacings.lg};
   padding-top: ${Spacings.xs};
