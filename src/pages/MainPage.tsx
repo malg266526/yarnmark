@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap, faCartShopping, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
@@ -12,74 +11,12 @@ import WoolIconUrl from './../assets/images/wool_basket.jpg';
 import YarnmarkLogoUrl from './../assets/images/yarnmark_logo.jpg';
 import { Box } from '../components/Box';
 import { Button } from '../components/Button';
-import { Page, PageContent } from '../components/PageContent';
+import { PageContent } from '../components/PageContent';
 import { Colors } from '../styles/theme';
-import { Banner, Header, LinkButton, Logo, PhotoFrame } from './MainPage.styled';
-import { Spacings } from '../styles/spacings';
-import { ScreenSize } from '../styles/screeen-size';
+import { Banner, Header, LinkButton, Logo, PhotoFrame, Curtain, StyledPage, RowLayout } from './MainPage.styled';
 import { usePhone } from './usePhone';
 import { BurgerMenu } from '../components/BurgerMenu';
 import { SideBar } from '../components/SideBar';
-
-const Curtain = styled.div`
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: -1;
-  opacity: 0;
-  transition:
-    opacity 250ms ease-in-out,
-    z-index 250ms ease-in-out;
-
-  &.active {
-    z-index: 1;
-    opacity: 1;
-  }
-`;
-
-const StyledPage = styled(Page)`
-  position: relative;
-  min-height: 100vh;
-  max-width: 100vw;
-  overflow-x: hidden;
-
-  ${SideBar} {
-    left: 100%;
-    z-index: 1;
-    top: 60px;
-    min-height: 80vh;
-    max-height: 100vh;
-    position: absolute;
-    min-width: 70%;
-    max-width: 80%;
-    transition: all 250ms ease-in-out;
-    transform: translate(0, 0);
-    opacity: 0;
-
-    &.visible {
-      opacity: 1;
-      transform: translate(-100%, 0);
-    }
-  }
-
-  ${Header} {
-    position: relative;
-    z-index: 1;
-  }
-`;
-
-export const RowLayout = styled.div`
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-evenly;
-
-  @media (max-width: ${ScreenSize.tablet}) {
-    flex-direction: column;
-    gap: ${Spacings.md};
-  }
-`;
 
 export const MainPage = () => {
   const t = useTypedTranslation();
