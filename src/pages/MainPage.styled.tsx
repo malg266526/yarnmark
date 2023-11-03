@@ -2,73 +2,6 @@ import styled from 'styled-components';
 import { ScreenSize } from '../styles/screeen-size';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
-import { Page } from '../components/PageContent';
-import { SideBar } from '../components/SideBar';
-import { BurgerMenu } from '../components/BurgerMenu';
-
-export const Curtain = styled.div`
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: -1;
-  opacity: 0;
-  transition:
-    opacity 250ms ease-in-out,
-    z-index 250ms ease-in-out;
-
-  &.active {
-    z-index: 1;
-    opacity: 1;
-  }
-`;
-
-export const Header = styled.header`
-  display: flex;
-  justify-content: center;
-  padding-right: ${Spacings.lg};
-  padding-left: ${Spacings.lg};
-  padding-top: ${Spacings.xs};
-  padding-bottom: ${Spacings.md};
-  width: 100%;
-
-  @media (max-width: ${ScreenSize.phone}) {
-    padding: ${Spacings.sm} ${Spacings.md};
-    flex-direction: row;
-    justify-content: flex-end;
-  }
-`;
-
-export const StyledPage = styled(Page)`
-  position: relative;
-  min-height: 100vh;
-  max-width: 100vw;
-  overflow-x: hidden;
-
-  ${SideBar} {
-    left: 100%;
-    z-index: 1;
-    top: 60px;
-    min-height: 80vh;
-    max-height: 100vh;
-    position: absolute;
-    min-width: 70%;
-    max-width: 80%;
-    transition: all 250ms ease-in-out;
-    transform: translate(0, 0);
-    opacity: 0;
-
-    &.visible {
-      opacity: 1;
-      transform: translate(-100%, 0);
-    }
-  }
-
-  ${BurgerMenu} {
-    position: relative;
-    z-index: 1;
-  }
-`;
 
 export const RowLayout = styled.div`
   display: flex;
@@ -84,6 +17,7 @@ export const RowLayout = styled.div`
 
 export const Logo = styled.img`
   align-self: center;
+  object-fit: cover;
   max-width: 100%;
   max-height: 100%;
 `;
@@ -103,13 +37,6 @@ export const StyledH3 = styled.h3`
 
 export const StyledH4 = styled.h4`
   font-weight: 300;
-`;
-
-export const Banner = styled.div`
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: -1;
 `;
 
 export const PhotoFrame = styled.div<{ size?: 'small' | 'large' }>`
