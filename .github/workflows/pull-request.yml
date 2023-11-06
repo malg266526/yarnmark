@@ -15,12 +15,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ env.node_version }}
-      uses: actions/setup-node@v3
+    
+    - uses: actions/setup-node@v3
       with:
         node-version: ${{ env.node_version }}
         cache: 'yarn'
-        
+
     - name: Install dependencies
       id: install
       run: yarn install --frozen-dependencies
@@ -39,3 +39,20 @@ jobs:
       id: bundle
       if: always()
       run: yarn bundle
+
+    - uses: actions/checkout@v3
+
+    - uses: ./.github/actions/generate-metadata
+      with: 
+        # branch: ${{ github.ref_name }}
+        output: branch-metadata
+
+    - uses: actions/checkout@v3
+      with:
+        ref: master
+
+    - uses: ./.github/actions/generate-metadata
+      with: 
+        # branch: master
+        output: master-metadata
+
