@@ -56,3 +56,4 @@ export const ImageBox = styled.div`
   align-items: center;
   justify-content: center;
 `;
+

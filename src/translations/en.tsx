@@ -22,6 +22,9 @@ export const en = {
     },
     workshopsPage: {
       title: 'Workshops'
+    },
+    mainPage: {
+      firstTime: 'The first time in the capital of Lesser Poland'
     }
   }
 };

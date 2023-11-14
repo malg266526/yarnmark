@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { Colors } from '../styles/theme';
 
 const StyledLink = styled.a<{ color: string }>`
   color: ${({ color }) => color};
@@ -9,7 +10,7 @@ const StyledLink = styled.a<{ color: string }>`
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
-  font-family: 'Roboto';
+  font-family: fantasy;
   font-weight: 300;
 `;
 
@@ -35,7 +36,7 @@ export const Link = ({ children, href, target, rel, className, anchorProps }: Li
       target={target}
       rel={rel}
       className={className}
-      color="white"
+      color={Colors.gold}
       {...anchorProps}>
       {children}
     </StyledLink>

@@ -22,6 +22,9 @@ export const pl = {
     },
     workshopsPage: {
       title: 'Warsztaty'
+    },
+    mainPage: {
+      firstTime: 'Pierwszy raz w stolicy małopolski!'
     }
   }
 };

@@ -13,6 +13,8 @@ export const Content = styled.div`
   max-width: 100%;
   align-self: center;
   align-items: center;
+
+  height: 100%;
 `;
 
 export const Curtain = styled.div`
@@ -48,11 +50,24 @@ export const Header = styled.header`
   }
 `;
 
-export const Banner = styled.div`
+export const Image = styled.img`
+  object-fit: fill;
+  z-index: -1;
+  height: 100vh;
   position: absolute;
   top: 0;
-  width: 100%;
+`;
+
+export const Overlay = styled.div`
+  height: 100vh;
+  width: 100vw;
+
+  position: absolute;
+  top: 0;
   z-index: -1;
+
+  overflow: hidden;
+  // background: rgba(0, 0, 0, 0.2);
 `;
 
 export const Root = styled.main`
@@ -61,9 +76,9 @@ export const Root = styled.main`
   flex-direction: column;
   align-items: center;
 
-  min-height: 100vh;
   position: relative;
   min-height: 100vh;
+  height: 100vh;
   max-width: 100vw;
   overflow-x: hidden;
 

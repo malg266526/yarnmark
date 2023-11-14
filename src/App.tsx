@@ -1,22 +1,20 @@
+import { faCartShopping, faEnvelope, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import { Navigate, Routes, Route } from 'react-router-dom';
-import { MainPage } from './pages/MainPage';
-import { ContactPage } from './pages/ContactPage';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
+import { Content, Curtain, Header, Image, Overlay, Root } from './App.styled';
+import KrakowUrl from './assets/images/krakow3.jpg';
+import { BurgerMenu } from './components/BurgerMenu';
+import { Link } from './components/Link';
+import { Menu } from './components/Menu';
+import { SideBar } from './components/SideBar';
+import { ContactPage } from './pages/ContactPage';
+import { MainPage } from './pages/MainPage';
 import { VendorsPage } from './pages/VendorsPage';
 import { WorkshopsPage } from './pages/WorkshopsPage';
-import { useTypedTranslation } from './translations/useTypedTranslation';
 import { usePhone } from './pages/usePhone';
-import { SideBar } from './components/SideBar';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping, faEnvelope, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
-import { BurgerMenu } from './components/BurgerMenu';
-import { Menu } from './components/Menu';
-import { Link } from './components/Link';
-import { Root, Curtain, Header, Content, Banner } from './App.styled';
-import { Box } from './components/Box';
-import HeaderBanner from './assets/images/spruce_green_wave.svg';
-import { Colors } from './styles/theme';
+import { useTypedTranslation } from './translations/useTypedTranslation';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -37,12 +35,10 @@ export const App = () => {
     <>
       <GlobalStyle />
 
-      <Banner>
-        <Box width="100%" height="300px" color={Colors.spruce} />
-        <img width="100%" src={HeaderBanner} />
-      </Banner>
+      <Image width="100%" src={KrakowUrl} />
+      <Overlay />
 
-      <Root>
+      <Root id="root">
         {isPhone && <Curtain onClick={() => setBurgerActive(false)} className={burgerActive ? 'active' : undefined} />}
 
         <Header>
@@ -67,7 +63,7 @@ export const App = () => {
           )}
           {!isPhone && (
             <Menu>
-              <Link href="/">Home</Link>
+              <Link href="/">Yarnmark</Link>
 
               <Link href="/workshops">{t('menu.workshops')}</Link>
 
