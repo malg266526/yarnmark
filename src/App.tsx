@@ -1,4 +1,4 @@
-import { faCartShopping, faEnvelope, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faEnvelope, faInfoCircle, faSailboat } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -10,9 +10,10 @@ import { Link } from './components/Link';
 import { Menu } from './components/Menu';
 import { SideBar } from './components/SideBar';
 import { ContactPage } from './pages/ContactPage';
+import { InfoForVendorsPage } from './pages/InfoForVendorsPage';
 import { MainPage } from './pages/MainPage';
 import { VendorsPage } from './pages/VendorsPage';
-import { WorkshopsPage } from './pages/WorkshopsPage';
+import { VipTicketsPage } from './pages/VipTicketsPage';
 import { usePhone } from './pages/usePhone';
 import { useTypedTranslation } from './translations/useTypedTranslation';
 
@@ -45,14 +46,26 @@ export const App = () => {
           {isPhone && (
             <>
               <SideBar roundedCorners="left" className={burgerActive ? 'visible' : undefined}>
-                <SideBar.LinkEntry href="/workshops">
-                  <FontAwesomeIcon icon={faGraduationCap} size="lg" />
-                  {t('menu.workshops')}
-                </SideBar.LinkEntry>
                 <SideBar.LinkEntry href="/vendors">
                   <FontAwesomeIcon icon={faCartShopping} size="lg" />
                   {t('menu.vendors')}
                 </SideBar.LinkEntry>
+
+                <SideBar.LinkEntry href="/info-for-vendors">
+                  <FontAwesomeIcon icon={faInfoCircle} size="lg" />
+                  {t('menu.infoForVendors')}
+                </SideBar.LinkEntry>
+
+                {/*                <SideBar.LinkEntry href="/workshops">
+                  <FontAwesomeIcon icon={faGraduationCap} size="lg" />
+                  {t('menu.workshops')}
+                </SideBar.LinkEntry> */}
+
+                <SideBar.LinkEntry href="/vip-tickets">
+                  <FontAwesomeIcon icon={faSailboat} size="lg" />
+                  {t('menu.vipTickets')}
+                </SideBar.LinkEntry>
+
                 <SideBar.LinkEntry href="/contact">
                   <FontAwesomeIcon icon={faEnvelope} size="lg" />
                   {t('menu.contact')}
@@ -65,10 +78,10 @@ export const App = () => {
             <Menu>
               <Link href="/">Yarnmark</Link>
 
-              <Link href="/workshops">{t('menu.workshops')}</Link>
-
               <Link href="/vendors">{t('menu.vendors')}</Link>
-
+              <Link href="/info-for-vendors">{t('menu.infoForVendors')}</Link>
+              {/* <Link href="/workshops">{t('menu.workshops')}</Link> */}
+              <Link href="/vip-tickets">{t('menu.vipTickets')}</Link>
               <Link href="/contact">{t('menu.contact')}</Link>
             </Menu>
           )}
@@ -78,9 +91,11 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Navigate to="/home" />} />
             <Route path="/home" element={<MainPage />} />
-            <Route path="/contact" element={<ContactPage />} />
             <Route path="/vendors" element={<VendorsPage />} />
-            <Route path="/workshops" element={<WorkshopsPage />} />
+            <Route path="/info-for-vendors" element={<InfoForVendorsPage />} />
+            {/*             <Route path="/workshops" element={<WorkshopsPage />} />*/}
+            <Route path="/vip-tickets" element={<VipTicketsPage />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </Content>
       </Root>
