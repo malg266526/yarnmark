@@ -24,7 +24,13 @@ export const en = {
       title: 'Workshops'
     },
     mainPage: {
-      firstTime: 'The first time in the capital of Lesser Poland'
+      firstTime: 'The first time in the capital of Lesser Poland',
+      fairName: 'Krakoski Yarnmark Wełny',
+      placeFirstName: 'Hala 100-lecia KS Cracovia',
+      placeLastName: 'Centrum Sportu Niepełnosprawnych',
+      city: 'Cracov',
+      buyTicket: 'Buy Ticket',
+      address: 'Aleja Marszałka Ferdynanda Focha 40'
     }
   }
 };

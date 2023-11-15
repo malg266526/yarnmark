@@ -42,6 +42,7 @@ export const Header = styled.header`
   padding-top: ${Spacings.xs};
   padding-bottom: ${Spacings.md};
   width: 100%;
+  font-family: fantasy;
 
   @media (max-width: ${ScreenSize.phone}) {
     padding: ${Spacings.sm} ${Spacings.md};
@@ -67,6 +68,7 @@ export const Overlay = styled.div`
   z-index: -1;
 
   overflow: hidden;
+  //FIXME: Try different version of background image and color/overlay of background image and cleanup when final decision is made
   // background: rgba(0, 0, 0, 0.2);
 `;
 

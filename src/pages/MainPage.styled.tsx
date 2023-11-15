@@ -27,7 +27,6 @@ export const LinkButton = styled.a`
 `;
 
 export const Details = styled.div`
-  font-family: 'Roboto';
   font-weight: 300;
 `;
 
@@ -49,7 +48,7 @@ export const Box = styled.div`
   height: 168px;
   color: white;
   background: rgba(0, 0, 0, 0.7);
-  border-radius: 100px;
+  border-radius: 50%;
   align-items: center;
   justify-content: center;
 `;

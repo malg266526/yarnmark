@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 import { Content, Curtain, Header, Image, Overlay, Root } from './App.styled';
-import KrakowUrl from './assets/images/krakow3.jpg';
+import KrakowImageUrl from './assets/images/krakow3.jpg';
 import { BurgerMenu } from './components/BurgerMenu';
 import { Link } from './components/Link';
 import { Menu } from './components/Menu';
@@ -35,7 +35,7 @@ export const App = () => {
     <>
       <GlobalStyle />
 
-      <Image width="100%" src={KrakowUrl} />
+      <Image width="100%" src={KrakowImageUrl} />
       <Overlay />
 
       <Root id="root">

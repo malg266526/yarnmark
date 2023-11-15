@@ -24,7 +24,13 @@ export const pl = {
       title: 'Warsztaty'
     },
     mainPage: {
-      firstTime: 'Pierwszy raz w stolicy małopolski!'
+      firstTime: 'Pierwszy raz w stolicy małopolski!',
+      fairName: 'Krakoski Yarnmark Wełny',
+      placeFirstName: 'Hala 100-lecia KS Cracovia',
+      placeLastName: 'Centrum Sportu Niepełnosprawnych',
+      city: 'Kraków',
+      buyTicket: 'Kup Bilet',
+      address: 'Aleja Marszałka Ferdynanda Focha 40'
     }
   }
 };

@@ -10,7 +10,6 @@ const StyledLink = styled.a<{ color: string }>`
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
-  font-family: fantasy;
   font-weight: 300;
 `;
 

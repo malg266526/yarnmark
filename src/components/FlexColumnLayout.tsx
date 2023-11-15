@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Spacings } from '../styles/spacings';
 
 export const FlexColumnLayout = styled.div<{
-  isFullHeight?: boolean;
+  fullHeight?: boolean;
   justifyContent?: string;
   gap?: keyof typeof Spacings;
 }>`
@@ -13,7 +13,7 @@ export const FlexColumnLayout = styled.div<{
   gap: ${({ gap }) => Spacings[gap || 'md']};
   padding: ${Spacings.sm};
 
-  height: ${({ isFullHeight }) => (isFullHeight ? '100%' : 'initial')};
+  height: ${({ fullHeight: isFullHeight }) => (isFullHeight ? '100%' : 'initial')};
   justify-content: ${({ justifyContent }) => (justifyContent ? justifyContent : 'initial')};
   align-items: center;
 `;
