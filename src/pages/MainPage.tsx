@@ -1,37 +1,43 @@
 import React from 'react';
-
-import WawelIconUrl from './../assets/images/wawel_flaticon.jpg';
-import WoolIconUrl from './../assets/images/wool_basket.jpg';
-import YarnmarkLogoUrl from './../assets/images/yarnmark_logo.jpg';
 import { Button } from '../components/Button';
-import { LinkButton, Logo, PhotoFrame, RowLayout } from './MainPage.styled';
+import { FlexColumnLayout } from '../components/FlexColumnLayout';
+import { LinkButton, RowLayout, StyledH1, StyledH2, Root, Box, Text } from './MainPage.styled';
+import { useTypedTranslation } from '../translations/useTypedTranslation';
 
 export const MainPage = () => {
+  const t = useTypedTranslation();
+
   return (
-    <>
-      <RowLayout>
-        <PhotoFrame>
-          <Logo width={200} src={WawelIconUrl} alt="logo" />
-        </PhotoFrame>
+    <Root>
+      <FlexColumnLayout fullHeight justifyContent="space-between">
+        <FlexColumnLayout gap="sm">
+          <StyledH2>{t('mainPage.firstTime')} </StyledH2>
+          <StyledH1>{t('mainPage.fairName')}</StyledH1>
+          <LinkButton href="https://google.com" target="_blank" rel="noreferrer">
+            <Button>{t('mainPage.buyTicket')}</Button>
+          </LinkButton>
+        </FlexColumnLayout>
 
-        <PhotoFrame size="large">
-          <Logo width={260} src={YarnmarkLogoUrl} alt="logo" />
-        </PhotoFrame>
+        <RowLayout>
+          <Box>
+            <FlexColumnLayout gap="sm">
+              <Text>{t('mainPage.placeFirstName')}</Text>
+              <Text>{t('mainPage.placeLastName')}</Text>
+            </FlexColumnLayout>
+          </Box>
 
-        <PhotoFrame>
-          <Logo width={200} src={WoolIconUrl} alt="logo" />
-        </PhotoFrame>
-      </RowLayout>
+          <Box>
+            <FlexColumnLayout gap="sm">
+              <Text>{t('mainPage.city')}</Text>
+              <Text>27.04.2024</Text>
+            </FlexColumnLayout>
+          </Box>
 
-      <LinkButton href="https://google.com" target="_blank" rel="noreferrer">
-        <Button> Kup Bilet </Button>
-      </LinkButton>
-      {/*   <Details>
-        <h2> Kraków</h2>
-        <StyledH3> 27.04</StyledH3>
-        <StyledH3> Stara Zajezdnia</StyledH3>
-        <StyledH4>Świętego Wawrzyńca 12</StyledH4>
-      </Details> */}
-    </>
+          <Box>
+            <Text>{t('mainPage.address')}</Text>
+          </Box>
+        </RowLayout>
+      </FlexColumnLayout>
+    </Root>
   );
 };

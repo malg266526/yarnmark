@@ -10,7 +10,6 @@ const StyledButton = styled.button`
   border-radius: 5px;
   margin: 10px 0px;
   cursor: pointer;
-  font-family: 'Roboto';
   font-weight: 400;
 `;
 
