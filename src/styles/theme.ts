@@ -12,7 +12,6 @@ export const Colors = {
 };
 
 export const Theme = {
-  headerWidth: '700px',
-  menuMaxWidth: '1000px',
-  pageContentWidth: '900px'
+  menuMaxWidth: '800px',
+  pageContentWidth: '800px'
 };

@@ -5,7 +5,9 @@ export const en = {
       workshops: 'Workshops',
       vendors: 'Vendors',
       organizers: 'Organizers',
-      contact: 'Contact'
+      contact: 'Contact',
+      infoForVendors: 'For Vendors',
+      vipTickets: 'VIP Tickets'
     },
     contactPage: {
       title: 'Contact',
@@ -19,6 +21,9 @@ export const en = {
     vandorsPage: {
       title: 'Vendors',
       infoForVendors: 'Information for vendors'
+    },
+    infoForVendorsPage: {
+      title: 'Information for vendors'
     },
     workshopsPage: {
       title: 'Workshops'

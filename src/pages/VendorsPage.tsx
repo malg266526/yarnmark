@@ -4,10 +4,14 @@ import { Card } from '../components/Card';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { Link } from '../components/Link';
 import { Spacings } from '../styles/spacings';
-import { Colors } from '../styles/theme';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
 import MockLogo from './../assets/images/logo_wystawcy.png';
-import { StyledH3 } from './ContactPage.styled';
+
+export const Root = styled.div`
+  display: flex;
+  flex: 1;
+  padding: ${Spacings.md} 0 ${Spacings.lg} 0;
+  width: 100%;
+`;
 
 export const Grid = styled.div`
   display: flex;
@@ -16,23 +20,12 @@ export const Grid = styled.div`
   align-items: center;
   justify-content: center;
   gap: ${Spacings.sm};
-`;
-
-export const Separator = styled.div`
-  margin: ${Spacings.md} 0;
-  border-right: 1px solid ${Colors.pinball};
-`;
-
-export const InformationForVendors = styled.div`
-  width: 300px;
-  padding: ${Spacings.sm};
+  overflow: scroll;
 `;
 
 export const VendorsPage = () => {
-  const t = useTypedTranslation();
-
   return (
-    <>
+    <Root>
       <Card flexDirection="row">
         <FlexColumnLayout>
           <Grid>
@@ -73,16 +66,7 @@ export const VendorsPage = () => {
             </Link>
           </Grid>
         </FlexColumnLayout>
-
-        <Separator />
-
-        <FlexColumnLayout>
-          <InformationForVendors>
-            <StyledH3>{t('vandorsPage.infoForVendors')}:</StyledH3>
-            <StyledH3> todo: przenieś do osobnej zakładki</StyledH3>
-          </InformationForVendors>
-        </FlexColumnLayout>
       </Card>
-    </>
+    </Root>
   );
 };
