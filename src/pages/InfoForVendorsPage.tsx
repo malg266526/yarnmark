@@ -4,6 +4,7 @@ import { Spacings } from '../styles/spacings';
 import { Card } from '../components/Card';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { Colors } from '../styles/theme';
+import { useTypedTranslation } from '../translations/useTypedTranslation';
 
 export const FlexLayout = styled.div`
   display: flex;
@@ -40,11 +41,13 @@ export const Value = styled.div`
 `;
 
 export const InfoForVendorsPage = () => {
+  const t = useTypedTranslation();
+
   return (
     <Root>
       <Card width="100%">
         <FlexColumnLayout gap="none">
-          <h3>Informacje dla wystawców:</h3>
+          <h3>{t('infoForVendorsPage.title')}</h3>
 
           <Row>
             <Title>Parking</Title>

@@ -22,6 +22,9 @@ export const pl = {
       title: 'Wystawcy',
       infoForVendors: 'Informacje dla wystawców'
     },
+    infoForVendorsPage: {
+      title: 'Informacje dla wystawców'
+    },
     workshopsPage: {
       title: 'Warsztaty'
     },

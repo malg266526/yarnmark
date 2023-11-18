@@ -22,6 +22,9 @@ export const en = {
       title: 'Vendors',
       infoForVendors: 'Information for vendors'
     },
+    infoForVendorsPage: {
+      title: 'Information for vendors'
+    },
     workshopsPage: {
       title: 'Workshops'
     },
