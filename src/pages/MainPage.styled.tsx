@@ -59,7 +59,6 @@ export const Root = styled.div`
 `;
 
 export const Text = styled.p<{ margin?: keyof typeof Spacings }>`
-  font-family: 'Roboto';
   font-weight: 400;
   margin: ${Spacings.xs};
   color: ${Colors.white};
