@@ -39,6 +39,7 @@ export const App = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
   const [burgerActive, setBurgerActive] = useState(false);
+  const closeSideBar = () => setBurgerActive(false);
 
   return (
     <>
@@ -54,27 +55,27 @@ export const App = () => {
           {isPhone && (
             <>
               <SideBar roundedCorners="left" className={burgerActive ? 'visible' : undefined}>
-                <SideBar.LinkEntry href="/vendors">
+                <SideBar.LinkEntry onClick={closeSideBar} href="/vendors">
                   <FontAwesomeIcon icon={faCartShopping} size="lg" />
                   {t('menu.vendors')}
                 </SideBar.LinkEntry>
 
-                <SideBar.LinkEntry href="/info-for-vendors">
+                <SideBar.LinkEntry onClick={closeSideBar} href="/info-for-vendors">
                   <FontAwesomeIcon icon={faInfoCircle} size="lg" />
                   {t('menu.infoForVendors')}
                 </SideBar.LinkEntry>
 
-                <SideBar.LinkEntry href="/workshops">
+                <SideBar.LinkEntry onClick={closeSideBar} href="/workshops">
                   <FontAwesomeIcon icon={faGraduationCap} size="lg" />
                   {t('menu.workshops')}
                 </SideBar.LinkEntry>
 
-                <SideBar.LinkEntry href="/vip-tickets">
+                <SideBar.LinkEntry onClick={closeSideBar} href="/vip-tickets">
                   <FontAwesomeIcon icon={faSailboat} size="lg" />
                   {t('menu.vipTickets')}
                 </SideBar.LinkEntry>
 
-                <SideBar.LinkEntry href="/contact">
+                <SideBar.LinkEntry onClick={closeSideBar} href="/contact">
                   <FontAwesomeIcon icon={faEnvelope} size="lg" />
                   {t('menu.contact')}
                 </SideBar.LinkEntry>

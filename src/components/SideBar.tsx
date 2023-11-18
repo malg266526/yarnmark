@@ -1,8 +1,10 @@
+import React, { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 
-const LinkEntry = styled.a`
+const Link = styled.a`
   text-decoration: none;
   padding: 8px 8px;
   color: ${Colors.white};
@@ -20,6 +22,28 @@ const LinkEntry = styled.a`
     /* background: linear-gradient(90deg, rgba(44, 82, 155, 1) 0%, rgba(255, 255, 255, 0) 80%); */
   }
 `;
+
+export interface LinkEntryProps {
+  children: ReactNode;
+  href: string;
+  onClick?: React.MouseEventHandler;
+}
+
+const LinkEntry = ({ href, onClick, ...rest }: LinkEntryProps) => {
+  const navigate = useNavigate();
+
+  return (
+    <Link
+      href={href}
+      onClick={(event: React.MouseEvent) => {
+        event.preventDefault();
+        navigate(href);
+        onClick?.(event);
+      }}
+      {...rest}
+    />
+  );
+};
 
 const roundedCornersSize = 12;
 
