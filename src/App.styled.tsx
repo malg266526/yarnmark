@@ -52,7 +52,7 @@ export const Header = styled.header`
 `;
 
 export const Image = styled.img`
-  object-fit: fill;
+  object-fit: cover;
   z-index: -1;
   height: 100vh;
   position: absolute;
