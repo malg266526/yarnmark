@@ -23,16 +23,25 @@ const Link = styled.a`
   }
 `;
 
+export interface LinkEntryProps {
+  children: ReactNode;
+  href: string;
+  onClick?: React.MouseEventHandler;
+}
 
-const LinkEntry = ({ href, onClick, ...rest }: { children: ReactNode; href: string; onClick?: React.MouseEventHandler }) => {
+const LinkEntry = ({ href, onClick, ...rest }: LinkEntryProps) => {
   const navigate = useNavigate();
 
   return (
-    <Link href={href} onClick={(event: React.MouseEvent) => {
-      event.preventDefault();
-      navigate(href);
-      onClick?.(event);
-    }} {...rest} />
+    <Link
+      href={href}
+      onClick={(event: React.MouseEvent) => {
+        event.preventDefault();
+        navigate(href);
+        onClick?.(event);
+      }}
+      {...rest}
+    />
   );
 };
 
