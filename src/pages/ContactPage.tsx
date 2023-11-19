@@ -1,30 +1,66 @@
 import React from 'react';
 import { Card } from '../components/Card';
-import { Link } from '../components/Link';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
-import AgataImageUrl from './../assets/images/Agata.jpg';
-import AniaImageUrl from './../assets/images/Ania.jpg';
-import EwaImageUrl from './../assets/images/Ewa.jpg';
-import GosiaImageUrl from './../assets/images/Gosia.jpg';
-import Monia1ImageUrl from './../assets/images/Monia1.jpg';
-import Monia2ImageUrl from './../assets/images/Monia2.jpg';
-import Monia3ImageUrl from './../assets/images/Monia3.jpg';
-import Email3DImageUrl from './../assets/images/email_3d_icon.jpg';
 
-import InstagramImageUrl from './../assets/images/instagram.png';
-import { Avatar, Column, Image, ImageBox, RowLayout, Separator, StyledH3, Text } from './ContactPage.styled';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import 'react-vertical-timeline-component/style.min.css';
+import WloczykijkiLogoUrl from '../assets/images/wloczykijki_logo.png';
+import { FlexColumnLayout } from '../components/FlexColumnLayout';
+import { Image, Root, RowLayout, Text } from './ContactPage.styled';
+import { Timeline } from '../components/Timeline';
 
 export const ContactPage = () => {
   const t = useTypedTranslation();
 
   return (
-    <>
-      <Card>
-        <Column>
-          <StyledH3>{t('contactPage.whoAreWe')}</StyledH3>
+    <Root>
+      <Card width="100%">
+        <FlexColumnLayout gap="none">
+          <h3>{t('contactPage.hi')}</h3>
+          <Text>{t('contactPage.hereIs')}</Text>
+          <RowLayout>
+            <Image width="200px" src={WloczykijkiLogoUrl} alt="wloczykijki" />
+            <h3>X</h3>
+          </RowLayout>
 
-          <Text>{t('contactPage.welcome')}</Text>
-          <RowLayout wide>
+          <Timeline
+            events={[
+              {
+                date: 2018,
+                icon: <FontAwesomeIcon icon={faCartShopping} size="lg" />,
+                content: <Text>{t('contactPage.aboutUsWloczykijki')}</Text>
+              },
+              {
+                date: 2022,
+                icon: <FontAwesomeIcon icon={faCartShopping} size="lg" />,
+                content: <Text>{t('contactPage.aboutUsDNP')}</Text>
+              },
+              {
+                date: 2023,
+                icon: <FontAwesomeIcon icon={faCartShopping} size="lg" />,
+                content: <Text>Powstaje Dziergamy na polu</Text>
+              },
+              {
+                date: 2023,
+                icon: <FontAwesomeIcon icon={faCartShopping} size="lg" />,
+                content: (
+                  <Text>
+                    Pierwsze spotkanie Włóczykijków i Dziergamy na polu przy okazji Światowego Dnia dziergania w
+                    miejscach publicznych
+                  </Text>
+                )
+              },
+              {
+                date: 2024,
+                icon: <FontAwesomeIcon icon={faCartShopping} size="lg" />,
+                content: <Text>Pierwsze targi w Krakowie!</Text>
+              }
+            ]}
+          />
+        </FlexColumnLayout>
+
+        {/* <RowLayout wide>
             <Link href="https://www.instagram.com/evvoola/" target="_blank" rel="noreferrer">
               <Column>
                 <Avatar width={80} src={EwaImageUrl} alt="logo" />
@@ -79,15 +115,11 @@ export const ContactPage = () => {
                 <Text>Agata</Text>
               </Column>
             </Link>
-          </RowLayout>
+          </RowLayout> */}
 
-          <Text>{t('contactPage.thatIs')}</Text>
-          <Text margin="sm">{t('contactPage.description')}</Text>
-        </Column>
+        {/*  <Separator /> */}
 
-        <Separator />
-
-        <Column>
+        {/* <Column>
           <StyledH3>{t('contactPage.writeToUs')}</StyledH3>
 
           <RowLayout wide>
@@ -99,7 +131,7 @@ export const ContactPage = () => {
               {/* <a href="https://www.flaticon.com/free-icons/email" title="email icons">
             Email icons created by Smashicons - Flaticon
           </a> */}
-            </Column>
+        {/*             </Column>
 
             <Column>
               <ImageBox>
@@ -109,10 +141,10 @@ export const ContactPage = () => {
               <Text margin="sm">@dziergamynapolu</Text>
 
               {/* <a href="https://www.flaticon.com/free-icons/instagram" title="instagram icons">Instagram icons created by Freepik - Flaticon</a> */}
-            </Column>
+        {/*     </Column>
           </RowLayout>
-        </Column>
+        </Column> */}
       </Card>
-    </>
+    </Root>
   );
 };

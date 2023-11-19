@@ -13,10 +13,12 @@ export const pl = {
       title: 'Kontakt',
       writeToUs: 'Napisz do nas!',
       whoAreWe: 'Kim jesteśmy?',
-      welcome: 'Cześć! Z tej strony',
-      thatIs: 'Czyli DZIERGAMY NA POLU',
-      description:
-        'Kochamy wełnę, druty i szydełka. Od kilkunastu miesięcy organizujemy krakowskie spotkania dziewiarskie, a teraz przychodzimy do Was z targami! Mamy nadzieję, że będziecie się dobrze bawić :)'
+      hi: 'Cześć!',
+      hereIs: 'Z tej strony załoga Yarnmark czyli',
+      aboutUsWloczykijki: 'W 2018 roku z miłości do wełny powstał sklep Włóczykijki.',
+      aboutUsDNP:
+        'W 2022 roku, trzy dziewczyny z Krakowa, połączone pasją do dziergania, pierwszy raz spotkały się na kawkę i wspólne robienie na drutach. Po kolejnych spotkaniach, na których pojawiało się coraz więcej dziewiarek, w 2023 roku powstało Dziergamy na Polu. ',
+      aboutUs: 'W 2024 roku Włóczykijki i Dziergamy na polu łączą siły i zapraszają Was na pierwsze krakowskie targi!'
     },
     vandorsPage: {
       title: 'Wystawcy',

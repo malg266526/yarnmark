@@ -2,14 +2,27 @@ import styled from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 
+export const Root = styled.div`
+  display: flex;
+  flex: 1;
+  padding: ${Spacings.md} 0 ${Spacings.lg} 0;
+  width: 100%;
+  padding: ${Spacings.sm};
+`;
+
 export const StyledH3 = styled.h3`
   font-weight: 600;
   color: ${Colors.spruce};
 `;
 
+export const Text = styled.p<{ margin?: keyof typeof Spacings }>`
+  font-weight: 300;
+  margin: ${({ margin }) => Spacings[margin || 'xs']};
+`;
+
 export const Image = styled.img`
-  align-self: center;
-  margin-top: ${Spacings.sm};
+  /*  align-self: center;
+  margin-top: ${Spacings.sm}; */
 `;
 
 export const Avatar = styled.img`
@@ -29,13 +42,7 @@ export const RowLayout = styled.div<{ wide?: boolean }>`
   align-items: center;
   justify-content: space-evenly;
 `;
-
-export const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
+/*
 export const Text = styled.p<{ margin?: keyof typeof Spacings }>`
   font-weight: 300;
   margin: ${({ margin }) => Spacings[margin || 'xs']};
@@ -54,4 +61,4 @@ export const ImageBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+`; */
