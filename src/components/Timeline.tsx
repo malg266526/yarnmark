@@ -8,6 +8,10 @@ const Root = styled.div`
   flex-direction: column;
 `;
 
+const StyledH2 = styled.h2`
+  margin: ${Spacings.xs};
+`;
+
 export const TimelineBox = styled.div`
   width: 43%;
 `;
@@ -19,6 +23,10 @@ export const TimelineRow = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+
+  & + & {
+    margin-top: -40px;
+  }
 `;
 
 export const TimelineEvent = styled.div`
@@ -60,7 +68,7 @@ export const Timeline = ({ events }: TimelineProps) => {
           {isEven(index) ? (
             <TimelineBox>
               <TimelineEvent>
-                <h2>{date}</h2>
+                <StyledH2>{date}</StyledH2>
                 {content}
               </TimelineEvent>
             </TimelineBox>
@@ -73,7 +81,7 @@ export const Timeline = ({ events }: TimelineProps) => {
           {!isEven(index) ? (
             <TimelineBox>
               <TimelineEvent>
-                <h2>{date}</h2>
+                <StyledH2>{date}</StyledH2>
                 {content}
               </TimelineEvent>
             </TimelineBox>

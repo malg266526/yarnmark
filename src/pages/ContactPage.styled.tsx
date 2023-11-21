@@ -1,18 +1,16 @@
 import styled from 'styled-components';
 import { Spacings } from '../styles/spacings';
-import { Colors } from '../styles/theme';
 
 export const Root = styled.div`
   display: flex;
   flex: 1;
   padding: ${Spacings.md} 0 ${Spacings.lg} 0;
   width: 100%;
-  padding: ${Spacings.sm};
 `;
 
 export const StyledH3 = styled.h3`
   font-weight: 600;
-  color: ${Colors.spruce};
+  margin: 0;
 `;
 
 export const Text = styled.p<{ margin?: keyof typeof Spacings }>`
@@ -20,9 +18,8 @@ export const Text = styled.p<{ margin?: keyof typeof Spacings }>`
   margin: ${({ margin }) => Spacings[margin || 'xs']};
 `;
 
-export const Image = styled.img`
-  /*  align-self: center;
-  margin-top: ${Spacings.sm}; */
+export const RoundedImage = styled.img`
+  border-radius: 50%;
 `;
 
 export const Avatar = styled.img`
@@ -41,18 +38,7 @@ export const RowLayout = styled.div<{ wide?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-`;
-/*
-export const Text = styled.p<{ margin?: keyof typeof Spacings }>`
-  font-weight: 300;
-  margin: ${({ margin }) => Spacings[margin || 'xs']};
-  color: ${Colors.spruce};
-`;
-
-export const Separator = styled.div`
-  width: 100%;
-  border-bottom: 1px solid ${Colors.pinball};
-  margin: ${Spacings.md} 0;
+  gap: ${Spacings.md};
 `;
 
 export const ImageBox = styled.div`
@@ -61,4 +47,4 @@ export const ImageBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`; */
+`;
