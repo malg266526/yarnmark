@@ -18,8 +18,7 @@
   "author": "JM & MT",
   "license": "ISC",
   "devDependencies": {
-    "@iconify/icons-mdi-light": "^1.2.5",
-    "@iconify/react": "^4.1.1",
+    "@iconify/react": "4.1.1",
     "@jgoz/esbuild-plugin-html": "1.0.5",
     "@types/argv": "0.0.5",
     "@types/bytes": "3.1.1",
@@ -48,13 +47,11 @@
     "@fortawesome/free-brands-svg-icons": "6.4.2",
     "@fortawesome/free-solid-svg-icons": "6.4.2",
     "@fortawesome/react-fontawesome": "0.2.0",
-    "@types/react-vertical-timeline-component": "^3.3.6",
     "dayjs": "1.11.9",
     "i18next": "23.5.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-i18next": "13.2.2",
-    "react-vertical-timeline-component": "^3.6.0",
     "styled-components": "6.0.7"
   }
 }
