@@ -3,6 +3,7 @@ import {
   faEnvelope,
   faGraduationCap,
   faInfoCircle,
+  faPersonDress,
   faSailboat
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -23,6 +24,7 @@ import { VipTicketsPage } from './pages/VipTicketsPage';
 import { usePhone } from './pages/usePhone';
 import { useTypedTranslation } from './translations/useTypedTranslation';
 import { WorkshopsPage } from './pages/WorkshopsPage';
+import { AboutUsPage } from './pages/AboutUsPage';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -79,6 +81,11 @@ export const App = () => {
                   <FontAwesomeIcon icon={faEnvelope} size="lg" />
                   {t('menu.contact')}
                 </SideBar.LinkEntry>
+
+                <SideBar.LinkEntry onClick={closeSideBar} href="/about-us">
+                  <FontAwesomeIcon icon={faPersonDress} size="lg" />
+                  {t('menu.aboutUs')}
+                </SideBar.LinkEntry>
               </SideBar>
               <BurgerMenu onClick={() => setBurgerActive((prevValue) => !prevValue)} active={burgerActive} />
             </>
@@ -92,6 +99,7 @@ export const App = () => {
               <Link href="/workshops">{t('menu.workshops')}</Link>
               <Link href="/vip-tickets">{t('menu.vipTickets')}</Link>
               <Link href="/contact">{t('menu.contact')}</Link>
+              <Link href="/about-us">{t('menu.aboutUs')}</Link>
             </Menu>
           )}
         </Header>
@@ -105,6 +113,7 @@ export const App = () => {
             <Route path="/workshops" element={<WorkshopsPage />} />
             <Route path="/vip-tickets" element={<VipTicketsPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/about-us" element={<AboutUsPage />} />
           </Routes>
         </Content>
       </Root>

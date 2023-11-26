@@ -18,6 +18,7 @@
   "author": "JM & MT",
   "license": "ISC",
   "devDependencies": {
+    "@iconify/react": "4.1.1",
     "@jgoz/esbuild-plugin-html": "1.0.5",
     "@types/argv": "0.0.5",
     "@types/bytes": "3.1.1",

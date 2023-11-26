@@ -7,16 +7,21 @@ export const pl = {
       organizers: 'Organizatorzy',
       contact: 'Kontakt',
       infoForVendors: 'Dla wystawców',
-      vipTickets: 'Bilety VIP'
+      vipTickets: 'Bilety VIP',
+      aboutUs: 'O nas'
+    },
+    aboutUsPage: {
+      hi: 'Cześć!',
+      hereIs: 'Z tej strony załoga Yarnmark czyli',
+      event2018: 'W 2018 roku z miłości do wełny powstał sklep Włóczykijki.',
+      event2022: 'TODO Pierwsze spotkanie w Krakowie, które w późniejszym czasie zaowocowalo DNP',
+      event2023:
+        'Pierwsze spotkanie Włóczykijków i Dziergamy na polu przy okazji Światowego Dnia dziergania w miejscach publicznych',
+      event2024: 'W 2024 roku Włóczykijki i Dziergamy na polu łączą siły i zapraszają Was na pierwsze krakowskie targi!'
     },
     contactPage: {
       title: 'Kontakt',
-      writeToUs: 'Napisz do nas!',
-      whoAreWe: 'Kim jesteśmy?',
-      welcome: 'Cześć! Z tej strony',
-      thatIs: 'Czyli DZIERGAMY NA POLU',
-      description:
-        'Kochamy wełnę, druty i szydełka. Od kilkunastu miesięcy organizujemy krakowskie spotkania dziewiarskie, a teraz przychodzimy do Was z targami! Mamy nadzieję, że będziecie się dobrze bawić :)'
+      writeToUs: 'Napisz do nas!'
     },
     vandorsPage: {
       title: 'Wystawcy',

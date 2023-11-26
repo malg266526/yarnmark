@@ -7,16 +7,22 @@ export const en = {
       organizers: 'Organizers',
       contact: 'Contact',
       infoForVendors: 'For Vendors',
-      vipTickets: 'VIP Tickets'
+      vipTickets: 'VIP Tickets',
+      aboutUs: 'About us'
+    },
+    // TODO: add translations when texts are ready
+    aboutUsPage: {
+      hi: 'Cześć!',
+      hereIs: 'Z tej strony załoga Yarnmark czyli',
+      event2018: 'W 2018 roku z miłości do wełny powstał sklep Włóczykijki.',
+      event2022: 'TODO Pierwsze spotkanie w Krakowie, które w późniejszym czasie zaowocowalo DNP',
+      event2023:
+        'Pierwsze spotkanie Włóczykijków i Dziergamy na polu przy okazji Światowego Dnia dziergania w miejscach publicznych',
+      event2024: 'W 2024 roku Włóczykijki i Dziergamy na polu łączą siły i zapraszają Was na pierwsze krakowskie targi!'
     },
     contactPage: {
       title: 'Contact',
-      writeToUs: 'Write to us!',
-      whoAreWe: 'Who are we?',
-      welcome: "Hi! Here's",
-      thatIs: '- DZIERGAMY NA POLU',
-      description:
-        "We love wool, needles and crochets. We have been organizing coffee and knitting meetings in Kraków for couple months. Now we are inviting You to our Yarnmark fair and we hope you'll have fun! :)"
+      writeToUs: 'Write to us!'
     },
     vandorsPage: {
       title: 'Vendors',
