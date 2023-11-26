@@ -4,12 +4,35 @@ import DNPLogoUrl from '../assets/images/dnp_logo.jpg';
 import WloczykijkiLogoUrl from '../assets/images/wloczykijki_logo.png';
 import { Card } from '../components/Card';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
-import { Timeline } from '../components/Timeline';
+import { Timeline, Event } from '../components/Timeline';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import { Root, RoundedImage, RowLayout, Text } from './ContactPage.styled';
 
 export const AboutUsPage = () => {
   const t = useTypedTranslation();
+
+  const events = [
+    {
+      date: 2018,
+      icon: <IconifyIcon icon="game-icons:converse-shoe" width="30" />,
+      content: <Text>{t('aboutUsPage.event2018')}</Text>
+    },
+    {
+      date: 2022,
+      icon: <IconifyIcon icon="tabler:coffee" width="30" />,
+      content: <Text>{t('aboutUsPage.event2022')}</Text>
+    },
+    {
+      date: 2023,
+      icon: <IconifyIcon icon="pepicons-pop:tree" width="30" />,
+      content: <Text>{t('aboutUsPage.event2023')}</Text>
+    },
+    {
+      date: 2023,
+      icon: <IconifyIcon icon="la:dragon" width="30" />,
+      content: <Text>{t('aboutUsPage.event2024')}</Text>
+    }
+  ];
 
   return (
     <Root>
@@ -26,30 +49,11 @@ export const AboutUsPage = () => {
             <RoundedImage width="160px" src={DNPLogoUrl} alt="dnp" />
           </RowLayout>
 
-          <Timeline
-            events={[
-              {
-                date: 2018,
-                icon: <IconifyIcon icon="game-icons:converse-shoe" width="30" />,
-                content: <Text>{t('aboutUsPage.event2018')}</Text>
-              },
-              {
-                date: 2022,
-                icon: <IconifyIcon icon="tabler:coffee" width="30" />,
-                content: <Text>{t('aboutUsPage.event2022')}</Text>
-              },
-              {
-                date: 2023,
-                icon: <IconifyIcon icon="pepicons-pop:tree" width="30" />,
-                content: <Text>{t('aboutUsPage.event2023')}</Text>
-              },
-              {
-                date: 2023,
-                icon: <IconifyIcon icon="la:dragon" width="30" />,
-                content: <Text>{t('aboutUsPage.event2024')}</Text>
-              }
-            ]}
-          />
+          <Timeline>
+            {events.map((event: Event, index: number) => (
+              <Timeline.Event key={index} event={event} index={index} />
+            ))}
+          </Timeline>
         </FlexColumnLayout>
 
         {/* <RowLayout wide>

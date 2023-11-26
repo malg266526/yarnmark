@@ -29,7 +29,7 @@ export const TimelineRow = styled.div`
   }
 `;
 
-export const TimelineEvent = styled.div`
+export const EventLayout = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -48,48 +48,53 @@ export const TimelineIcon = styled.div`
   padding: ${Spacings.sm};
 `;
 
-type Event = {
+export type Event = {
   date: number | string;
   icon: ReactNode;
   content: ReactNode;
 };
 
-export interface TimelineProps {
-  events: Event[];
-}
-
 const isEven = (index: number) => index % 2 === 0;
 
-export const Timeline = ({ events }: TimelineProps) => {
-  return (
-    <Root>
-      {events.map(({ date, icon, content }: Event, index) => (
-        <TimelineRow key={`${date}_${index}`}>
-          {isEven(index) ? (
-            <TimelineBox>
-              <TimelineEvent>
-                <StyledH2>{date}</StyledH2>
-                {content}
-              </TimelineEvent>
-            </TimelineBox>
-          ) : (
-            <TimelineBox />
-          )}
-
-          <TimelineIcon>{icon}</TimelineIcon>
-
-          {!isEven(index) ? (
-            <TimelineBox>
-              <TimelineEvent>
-                <StyledH2>{date}</StyledH2>
-                {content}
-              </TimelineEvent>
-            </TimelineBox>
-          ) : (
-            <TimelineBox />
-          )}
-        </TimelineRow>
-      ))}
-    </Root>
-  );
+export type TimelineEventProps = {
+  event: Event;
+  index: number;
 };
+
+const TimelineEvent = ({ event, index }: TimelineEventProps) => (
+  <TimelineRow key={`${event.date}_${index}`}>
+    {isEven(index) ? (
+      <TimelineBox>
+        <EventLayout>
+          <StyledH2>{event.date}</StyledH2>
+          {event.content}
+        </EventLayout>
+      </TimelineBox>
+    ) : (
+      <TimelineBox />
+    )}
+
+    <TimelineIcon>{event.icon}</TimelineIcon>
+
+    {!isEven(index) ? (
+      <TimelineBox>
+        <EventLayout>
+          <StyledH2>{event.date}</StyledH2>
+          {event.content}
+        </EventLayout>
+      </TimelineBox>
+    ) : (
+      <TimelineBox />
+    )}
+  </TimelineRow>
+);
+
+export interface TimelineProps {
+  children?: ReactNode;
+}
+
+export const Timeline = ({ children }: TimelineProps) => {
+  return <Root>{children}</Root>;
+};
+
+Timeline.Event = TimelineEvent;
