@@ -5,6 +5,7 @@ import React from 'react';
 import { Card } from '../components/Card';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { Link } from '../components/Link';
+import { PageContent } from '../components/PageContent';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import { Root, Text } from './ContactPage.styled';
 import { RowLayout } from '../components/RowLayout';
@@ -13,7 +14,7 @@ export const ContactPage = () => {
   const t = useTypedTranslation();
 
   return (
-    <Root>
+    <PageContent variant="narrow">
       <Card width="100%">
         <FlexColumnLayout gap="xs">
           <h3>{t('contactPage.writeToUs')}</h3>
@@ -46,6 +47,6 @@ export const ContactPage = () => {
           </RowLayout>
         </FlexColumnLayout>
       </Card>
-    </Root>
+    </PageContent>
   );
 };

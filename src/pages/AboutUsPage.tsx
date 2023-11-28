@@ -18,7 +18,9 @@ import EwaImageUrl from './../assets/images/Ewa.jpg';
 import GosiaImageUrl from './../assets/images/Gosia.jpg';
 import Monia1ImageUrl from './../assets/images/Monia1.jpg';
 import Monia2ImageUrl from './../assets/images/Monia3.jpg';
-import { Root, Text } from './ContactPage.styled';
+import { Root, Text, RoundedImage } from './ContactPage.styled';
+import { PageContent } from '../components/PageContent';
+import { Timeline, Event } from '../components/Timeline';
 
 export const RoundedImage = styled.img`
   border-radius: 50%;
@@ -36,6 +38,7 @@ export const Avatar = styled.img`
   border-radius: 10px;
   cursor: pointer;
 `;
+
 
 export const AboutUsPage = () => {
   const t = useTypedTranslation();
@@ -78,7 +81,7 @@ export const AboutUsPage = () => {
   ];
 
   return (
-    <Root>
+    <PageContent variant="narrow">
       <Card width="100%">
         <FlexColumnLayout gap="md">
           <FlexColumnLayout gap="xs" padding="none">
@@ -147,6 +150,6 @@ export const AboutUsPage = () => {
           </Timeline>
         </FlexColumnLayout>
       </Card>
-    </Root>
+    </PageContent>
   );
 };
