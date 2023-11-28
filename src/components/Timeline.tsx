@@ -76,6 +76,7 @@ const TimelineEvent = ({ event, index }: TimelineEventProps) => (
             {event.content}
             {event.rightSlot}
           </RowLayout>
+          {event.bottomSlot}
         </EventLayout>
       </TimelineBox>
     ) : (
