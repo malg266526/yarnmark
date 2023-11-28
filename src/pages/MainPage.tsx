@@ -16,17 +16,15 @@ import { FramedBox } from '../components/FramedBox';
 import { Spacings } from '../styles/spacings';
 
 
-const ContentSpacer = styled.div`
-  min-height: 150px;
-`;
-
 const Overlay = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(0deg, transparent 0%, rgba(255,255,255,1) 85%); 
+  background: linear-gradient(0deg, transparent 50%, rgba(255,255,255,1) 100%);
+  z-index: 1;
+  pointer-events: none;
 `;
 
 const CustomLayout = styled.div`
@@ -60,6 +58,10 @@ const TitleWrapper = styled.div`
   z-index: 2;
 `;
 
+const Text = styled.div`
+  margin-top: ${Spacings.md};
+`;
+
 const Title = styled.div`
   font-size: 40px;
   font-weight: 600;
@@ -69,21 +71,27 @@ type BandSize = 'xl' | 'md';
 
 const bandSizeToHeight: Record<BandSize, string> = {
   xl: '1000px',
-  md: '500px'
+  md: '600px'
 }
 
 const BandLayout = styled.div`
   display: flex;
   width: 100%;
+  height: 100%;
 `;
 
 const BandRoot = styled.div<BandProps>`
   position: relative;
-  min-height: ${({ size }) => bandSizeToHeight[size]};
+  ${({ size }) => css`
+    min-height: ${bandSizeToHeight[size]};
+    height: ${bandSizeToHeight[size]};
+    max-height: ${bandSizeToHeight[size]};
+  `};
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
   
   ${({ variant }) => variant === 'gold' && css`
     background: ${Colors.gold};
@@ -117,21 +125,34 @@ const Band = ({ children, title, ...props }: BandProps) => (
   </BandRoot>
 );
 
-const Image = styled.img`
+const ClippedImage = styled.img`
   width: 100%;
   max-width: 100%;
   height: 100%;
   max-height: 100%;
   object-fit: cover;
+  clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%);
 `;
 
-const BandSlot = styled.div<{ size: 'xl' | 'sm' }>`
+const BandSlot = styled.div<{ size: 'xl' | 'sm'; float?: 'left' | 'right' }>`
+  position: relative;
   width: ${({ size }) => size === 'xl' ? '70%' : '30%'};
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex: 1 1 0px;
+  flex: 1 1 auto;
+
+  ${({ float }) => float && (float === 'left' ? css`
+    > * {
+      margin-left: -500px; 
+    }
+  ` : css`
+    > * {
+      margin-right: -500px; 
+    }
+  `)};
 `;
 
 export const MainPage = () => {
@@ -139,19 +160,21 @@ export const MainPage = () => {
 
   return (
     <PageContent variant="wide">
-      <ContentSpacer />
-
       <Band size="md">
         <BandSlot size="xl" >
-          <CustomLayout>
-            <PhotoBox src={wawelImageSrc} width="450px" />
-            <PhotoBox src={rynekImageSrc} width="450px" />
-            <PhotoBox src={bazylikaImageSrc} width="450px" />
-          </CustomLayout>
+          <Overlay />
+          <ClippedImage src={rynekImageSrc} />
         </BandSlot>
 
-        <BandSlot size="sm" >
-          Test
+        <BandSlot size="sm" float='left' >
+          <FramedBox width='500px' padding="lg" >
+            <Title>
+              Witamy na stronie pierwszego krakowskiego zlotu drutowych spoceńców!
+            </Title>
+            <Text>
+              Przez ostatnie 6 miesiecy ciężko wszyscy pracowaliśmy zeby zaprezentować wam pierwszy takie wydarzenie w krakowie zorganizowne przez garstkę fanów dziergania. Bywaliśmy juz w na różnych zlotach i wiemy jaka jest frekwencje - liczymy ze i Ty przyjedziesz!
+            </Text>
+          </FramedBox>
         </BandSlot>
       </Band>
 
@@ -160,7 +183,7 @@ export const MainPage = () => {
         <BandSlot size="xl" />
 
         <BandSlot size="sm" >
-          <FramedBox width="500px" height="200px">
+          <FramedBox width="500px" height="200px" padding="lg">
             Odbędzie sie na Hali 100-lecia KS Cracovia
           </FramedBox>
         </BandSlot>
