@@ -16,7 +16,8 @@ export const en = {
       hereIs: 'Z tej strony załoga Yarnmark czyli',
       event2018: 'W 2018 roku z miłości do wełny powstał sklep Włóczykijki.',
       event2022: 'TODO Pierwsze spotkanie w Krakowie, które w późniejszym czasie zaowocowalo DNP',
-      event2023:
+      event2023_1: 'Powstaje instagramowy profil Dziergamy na polu',
+      event2023_2:
         'Pierwsze spotkanie Włóczykijków i Dziergamy na polu przy okazji Światowego Dnia dziergania w miejscach publicznych',
       event2024: 'W 2024 roku Włóczykijki i Dziergamy na polu łączą siły i zapraszają Was na pierwsze krakowskie targi!'
     },
