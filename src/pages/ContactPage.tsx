@@ -19,7 +19,7 @@ export const ContactPage = () => {
 
           <FlexColumnLayout>
             <FontAwesomeIcon icon={faEnvelope} size="3x" />
-            <Text>dziergamynapolu@gmail.com</Text>
+            <Text>krakoski.yarnmark.welny@gmail.com</Text>
           </FlexColumnLayout>
 
           <RowLayout wide>
