@@ -5,18 +5,12 @@ import { Card } from '../components/Card';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { Colors } from '../styles/theme';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
+import { PageContent } from '../components/PageContent';
 
 export const FlexLayout = styled.div`
   display: flex;
   gap: ${Spacings.md};
   padding: ${Spacings.md};
-`;
-
-export const Root = styled.div`
-  display: flex;
-  flex: 1;
-  padding: ${Spacings.md} 0 ${Spacings.lg} 0;
-  width: 100%;
 `;
 
 export const Row = styled.div`
@@ -44,7 +38,7 @@ export const InfoForVendorsPage = () => {
   const t = useTypedTranslation();
 
   return (
-    <Root>
+    <PageContent variant="narrow">
       <Card width="100%">
         <FlexColumnLayout gap="none">
           <h3>{t('infoForVendorsPage.title')}</h3>
@@ -71,6 +65,6 @@ export const InfoForVendorsPage = () => {
           </Row>
         </FlexColumnLayout>
       </Card>
-    </Root>
+    </PageContent>
   );
 };

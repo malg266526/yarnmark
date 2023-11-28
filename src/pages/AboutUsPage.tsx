@@ -4,9 +4,10 @@ import DNPLogoUrl from '../assets/images/dnp_logo.jpg';
 import WloczykijkiLogoUrl from '../assets/images/wloczykijki_logo.png';
 import { Card } from '../components/Card';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
+import { PageContent } from '../components/PageContent';
 import { Timeline, Event } from '../components/Timeline';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
-import { Root, RoundedImage, RowLayout, Text } from './ContactPage.styled';
+import { RoundedImage, RowLayout, Text } from './ContactPage.styled';
 
 export const AboutUsPage = () => {
   const t = useTypedTranslation();
@@ -35,7 +36,7 @@ export const AboutUsPage = () => {
   ];
 
   return (
-    <Root>
+    <PageContent variant="narrow">
       <Card width="100%">
         <FlexColumnLayout gap="md">
           <FlexColumnLayout gap="xs">
@@ -141,6 +142,6 @@ export const AboutUsPage = () => {
           </RowLayout>
         </Column> */}
       </Card>
-    </Root>
+    </PageContent>
   );
 };

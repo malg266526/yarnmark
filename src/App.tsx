@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
-import { Content, Curtain, Header, Image, Overlay, Root } from './App.styled';
+import { Curtain, Header, Image, Overlay, Root } from './App.styled';
 import KrakowImageUrl from './assets/images/krakow3.jpg';
 import { BurgerMenu } from './components/BurgerMenu';
 import { Link } from './components/Link';
@@ -104,18 +104,16 @@ export const App = () => {
           )}
         </Header>
 
-        <Content>
-          <Routes>
-            <Route path="/" element={<Navigate to="/home" />} />
-            <Route path="/home" element={<MainPage />} />
-            <Route path="/vendors" element={<VendorsPage />} />
-            <Route path="/info-for-vendors" element={<InfoForVendorsPage />} />
-            <Route path="/workshops" element={<WorkshopsPage />} />
-            <Route path="/vip-tickets" element={<VipTicketsPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/about-us" element={<AboutUsPage />} />
-          </Routes>
-        </Content>
+        <Routes>
+          <Route path="/" element={<Navigate to="/home" />} />
+          <Route path="/home" element={<MainPage />} />
+          <Route path="/vendors" element={<VendorsPage />} />
+          <Route path="/info-for-vendors" element={<InfoForVendorsPage />} />
+          <Route path="/workshops" element={<WorkshopsPage />} />
+          <Route path="/vip-tickets" element={<VipTicketsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/about-us" element={<AboutUsPage />} />
+        </Routes>
       </Root>
     </>
   );
