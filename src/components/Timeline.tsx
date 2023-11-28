@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Colors } from '../styles/theme';
 import { Spacings } from '../styles/spacings';
+import { RowLayout } from './RowLayout';
 
 const Root = styled.div`
   display: flex;
@@ -52,6 +53,9 @@ export type Event = {
   date: number | string;
   icon: ReactNode;
   content: ReactNode;
+  leftSlot?: ReactNode;
+  rightSlot?: ReactNode;
+  bottomSlot?: ReactNode;
 };
 
 const isEven = (index: number) => index % 2 === 0;
@@ -67,7 +71,11 @@ const TimelineEvent = ({ event, index }: TimelineEventProps) => (
       <TimelineBox>
         <EventLayout>
           <StyledH2>{event.date}</StyledH2>
-          {event.content}
+          <RowLayout>
+            {event.leftSlot}
+            {event.content}
+            {event.rightSlot}
+          </RowLayout>
         </EventLayout>
       </TimelineBox>
     ) : (
@@ -80,7 +88,12 @@ const TimelineEvent = ({ event, index }: TimelineEventProps) => (
       <TimelineBox>
         <EventLayout>
           <StyledH2>{event.date}</StyledH2>
-          {event.content}
+          <RowLayout>
+            {event.leftSlot}
+            {event.content}
+            {event.rightSlot}
+          </RowLayout>
+          {event.bottomSlot}
         </EventLayout>
       </TimelineBox>
     ) : (

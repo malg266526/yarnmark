@@ -6,7 +6,8 @@ import { Card } from '../components/Card';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { Link } from '../components/Link';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
-import { Root, RowLayout, Text } from './ContactPage.styled';
+import { Root, Text } from './ContactPage.styled';
+import { RowLayout } from '../components/RowLayout';
 
 export const ContactPage = () => {
   const t = useTypedTranslation();
