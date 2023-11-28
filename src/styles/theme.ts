@@ -8,10 +8,10 @@ export const Colors = {
   goldLight: '#c3a25d',
   pinball: '#d3d3d3',
   white: 'white',
-  ruinedSmores: '#0f0e17'
+  ruinedSmores: '#0f0e17',
+  yellow: '#ffbb2e'
 };
 
 export const Theme = {
-  menuMaxWidth: '800px',
-  pageContentWidth: '800px'
+  pageContentWidth: '900px'
 };

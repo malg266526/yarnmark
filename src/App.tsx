@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
-import { Curtain, Header, Image, Overlay, Root } from './App.styled';
+import { Curtain, Header, Image, Footer, Root } from './App.styled';
 import KrakowImageUrl from './assets/images/krakow3.jpg';
 import { BurgerMenu } from './components/BurgerMenu';
 import { Link } from './components/Link';
@@ -29,7 +29,8 @@ import { AboutUsPage } from './pages/AboutUsPage';
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif;
+    font-family: 'Lexend', sans-serif;
+    /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; */
   }
 
   * {
@@ -46,9 +47,6 @@ export const App = () => {
   return (
     <>
       <GlobalStyle />
-
-      <Image width="100%" src={KrakowImageUrl} />
-      <Overlay />
 
       <Root id="root">
         {isPhone && <Curtain onClick={() => setBurgerActive(false)} className={burgerActive ? 'active' : undefined} />}
@@ -114,6 +112,8 @@ export const App = () => {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
         </Routes>
+
+        <Footer />
       </Root>
     </>
   );

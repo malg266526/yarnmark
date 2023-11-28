@@ -3,6 +3,7 @@ import { BurgerMenu } from './components/BurgerMenu';
 import { SideBar } from './components/SideBar';
 import { ScreenSize } from './styles/screeen-size';
 import { Spacings } from './styles/spacings';
+import { Colors } from './styles/theme';
 
 export const Curtain = styled.div`
   position: fixed;
@@ -24,12 +25,9 @@ export const Curtain = styled.div`
 export const Header = styled.header`
   display: flex;
   justify-content: center;
-  padding-right: ${Spacings.lg};
-  padding-left: ${Spacings.lg};
-  padding-top: ${Spacings.xs};
-  padding-bottom: ${Spacings.md};
+  padding: ${Spacings.sm};
   width: 100%;
-  font-family: fantasy;
+  background: black;
 
   @media (max-width: ${ScreenSize.phone}) {
     padding: ${Spacings.sm} ${Spacings.md};
@@ -67,7 +65,6 @@ export const Root = styled.main`
 
   position: relative;
   min-height: 100vh;
-  height: 100vh;
   max-width: 100vw;
   overflow-x: hidden;
 
@@ -94,4 +91,10 @@ export const Root = styled.main`
     position: relative;
     z-index: 1;
   }
+`;
+
+export const Footer = styled.footer`
+  min-height: 400px;
+  width: 100%;
+  background: linear-gradient(45deg, ${Colors.yellow} 0%, rgb(251, 241, 210) 50%);
 `;

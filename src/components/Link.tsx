@@ -11,6 +11,26 @@ const StyledLink = styled.a<{ color: string }>`
   cursor: pointer;
   text-decoration: none;
   font-weight: 300;
+  position: relative;
+
+
+  &:hover:after {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translate(0, 10px);
+    height: 2px;
+    width: 100%;
+    background: ${Colors.yellow};
+    opacity: 0;
+    transition: all 150ms ease-in-out;
+  }
 `;
 
 export interface LinkProps {
