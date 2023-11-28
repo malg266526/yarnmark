@@ -8,7 +8,7 @@ export const MainPage = () => {
   const t = useTypedTranslation();
 
   return (
-    <Root>
+    <Root variant="narrow">
       <FlexColumnLayout fullHeight justifyContent="space-between">
         <FlexColumnLayout gap="sm">
           <StyledH2>{t('mainPage.firstTime')} </StyledH2>

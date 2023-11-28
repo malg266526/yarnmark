@@ -3,19 +3,6 @@ import { BurgerMenu } from './components/BurgerMenu';
 import { SideBar } from './components/SideBar';
 import { ScreenSize } from './styles/screeen-size';
 import { Spacings } from './styles/spacings';
-import { Theme } from './styles/theme';
-
-export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  width: ${Theme.pageContentWidth};
-  max-width: 100%;
-  align-self: center;
-  align-items: center;
-
-  height: 100%;
-`;
 
 export const Curtain = styled.div`
   position: fixed;

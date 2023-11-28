@@ -3,15 +3,9 @@ import styled from 'styled-components';
 import { Card } from '../components/Card';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { Link } from '../components/Link';
+import { PageContent } from '../components/PageContent';
 import { Spacings } from '../styles/spacings';
 import MockLogo from './../assets/images/logo_wystawcy.png';
-
-export const Root = styled.div`
-  display: flex;
-  flex: 1;
-  padding: ${Spacings.md} 0 ${Spacings.lg} 0;
-  width: 100%;
-`;
 
 export const Grid = styled.div`
   display: flex;
@@ -25,7 +19,7 @@ export const Grid = styled.div`
 
 export const VendorsPage = () => {
   return (
-    <Root>
+    <PageContent variant="narrow">
       <Card flexDirection="row">
         <FlexColumnLayout>
           <Grid>
@@ -67,6 +61,6 @@ export const VendorsPage = () => {
           </Grid>
         </FlexColumnLayout>
       </Card>
-    </Root>
+    </PageContent>
   );
 };

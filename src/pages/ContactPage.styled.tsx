@@ -1,13 +1,6 @@
 import styled from 'styled-components';
 import { Spacings } from '../styles/spacings';
 
-export const Root = styled.div`
-  display: flex;
-  flex: 1;
-  padding: ${Spacings.md} 0 ${Spacings.lg} 0;
-  width: 100%;
-`;
-
 export const StyledH3 = styled.h3`
   font-weight: 600;
   margin: 0;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { PageContent } from '../components/PageContent';
 import { ScreenSize } from '../styles/screeen-size';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
@@ -53,9 +54,8 @@ export const Box = styled.div`
   justify-content: center;
 `;
 
-export const Root = styled.div`
+export const Root = styled(PageContent)`
   padding-bottom: ${Spacings.xl};
-  height: 100%;
 `;
 
 export const Text = styled.p<{ margin?: keyof typeof Spacings }>`
