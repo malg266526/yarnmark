@@ -10,6 +10,7 @@ import MeetingImageUrl from '../assets/images/spotkanie.jpg';
 import { Card } from '../components/Card';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { Link } from '../components/Link';
+import { PageContent } from '../components/PageContent';
 import { RowLayout } from '../components/RowLayout';
 import { Event, Timeline } from '../components/Timeline';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
@@ -18,9 +19,7 @@ import EwaImageUrl from './../assets/images/Ewa.jpg';
 import GosiaImageUrl from './../assets/images/Gosia.jpg';
 import Monia1ImageUrl from './../assets/images/Monia1.jpg';
 import Monia2ImageUrl from './../assets/images/Monia3.jpg';
-import { Root, Text, RoundedImage } from './ContactPage.styled';
-import { PageContent } from '../components/PageContent';
-import { Timeline, Event } from '../components/Timeline';
+import { Text } from './ContactPage.styled';
 
 export const RoundedImage = styled.img`
   border-radius: 50%;
@@ -38,7 +37,6 @@ export const Avatar = styled.img`
   border-radius: 10px;
   cursor: pointer;
 `;
-
 
 export const AboutUsPage = () => {
   const t = useTypedTranslation();
