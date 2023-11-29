@@ -22,6 +22,8 @@ export interface LinkProps {
   anchorProps?: React.ComponentProps<'a'>;
 }
 
+const EXTERNAL_TARGET = '_blank';
+
 export const Link = ({ children, href, target, rel, className, anchorProps }: LinkProps) => {
   const navigate = useNavigate();
 
@@ -29,8 +31,10 @@ export const Link = ({ children, href, target, rel, className, anchorProps }: Li
     <StyledLink
       href={href}
       onClick={(event: React.MouseEvent) => {
-        event.preventDefault();
-        navigate(href);
+        if (target !== EXTERNAL_TARGET) {
+          event.preventDefault();
+          navigate(href);
+        }
       }}
       target={target}
       rel={rel}
