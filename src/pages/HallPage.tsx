@@ -4,7 +4,7 @@ import { Colors } from '../styles/theme';
 import styled from 'styled-components';
 import { Card } from '../components/Card';
 import { Spacings } from '../styles/spacings';
-import map from './hallmap.json';
+import hallMap from './hallmap.json';
 
 const HallColors = {
   premium: '#EC5800', //  Persimmon
@@ -12,23 +12,6 @@ const HallColors = {
   taken: Colors.pinball,
   empty: 'white'
 };
-
-type HallRow = {
-  height: number;
-  columns: HallColumn[];
-  width?: number;
-  color: keyof typeof HallColors;
-};
-
-type HallColumn = {
-  width: number;
-  color: keyof typeof HallColors;
-  logo?: string;
-  height?: number;
-  rows?: HallRow[];
-};
-
-type HallMap = HallRow[];
 
 const SIZE_MULTIPLIER = 20;
 
@@ -42,53 +25,76 @@ export const Container = styled.div`
   width: min-content;
 `;
 
-export const Row = styled.div<{ height: number; width?: number; color?: keyof typeof HallColors }>`
+type Stand = {
+  width: number;
+  height?: number;
+
+  color: keyof typeof HallColors;
+  logo?: string;
+  index?: number;
+};
+
+type Direction = 'row' | 'column';
+
+type Line = {
+  width?: number;
+  height: number;
+
+  stands: Stand[];
+  direction: Direction;
+};
+
+export const HallLine = styled.div<{
+  direction?: Direction;
+  height?: number;
+  width?: number;
+  alignItems?: 'flex-end' | 'flex-start';
+}>`
   display: flex;
   flex: 0;
-  height: ${({ height }) => `${height * SIZE_MULTIPLIER}px`};
-  width: ${({ width }) => (width ? `${width * SIZE_MULTIPLIER}px` : 'initial')};
-  background-color: ${({ color }) => HallColors[color || 'empty']};
+  flex-direction: ${({ direction }) => direction || 'row'};
 
-  align-items: flex-end;
+  height: ${({ height }) => (height ? `${height * SIZE_MULTIPLIER}px` : 'initial')};
+  width: ${({ width }) => (width ? `${width * SIZE_MULTIPLIER}px` : 'initial')};
+
+  align-items: ${({ alignItems }) => alignItems || 'flex-start'};
 `;
 
-export const Column = styled.div<{ width: number; height?: number; color?: keyof typeof HallColors }>`
-  width: ${({ width }) => `${width * SIZE_MULTIPLIER}px`};
+export const HallStand = styled.div<{ width?: number; height?: number; color?: keyof typeof HallColors }>`
+  width: ${({ width }) => (width ? `${width * SIZE_MULTIPLIER}px` : 'initial')};
   height: ${({ height }) => (height ? `${height * SIZE_MULTIPLIER}px` : 'initial')};
 
   background-color: ${({ color }) => HallColors[color || 'empty']};
   border-right: 1px solid ${Colors.pinball};
 `;
 
-console.log('map', map);
-
 export const HallPage = () => {
   return (
     <PageContent variant="narrow">
       <Card width="100%">
         <Container>
-          {(map.topRows as HallMap).map((row, index) => (
-            <Row height={row.height} key={index}>
-              {row.columns.map((column, index) => (
-                <Column key={index} width={column.width} height={row.height} color={column.color} />
+          {(hallMap.topRows as Line[]).map((row, index) => (
+            <HallLine height={row.height} key={index}>
+              {row.stands.map((column, index) => (
+                <HallStand key={index} width={column.width} height={row.height} color={column.color} />
               ))}
-            </Row>
+            </HallLine>
           ))}
 
-          {(map.middleColumns as HallColumn[]).map((column, index) => (
-            <Column width={column.width} key={index}>
-              {(column.rows as HallRow[]).map((row, index) => (
-                <Row key={index} width={row.width || column.width} height={row.height} color={row.color} />
+          {(hallMap.middleColumns as Line[]).map((column, index) => (
+            <HallLine width={column.width} key={index} direction="column">
+              {column.stands.map((stand, index) => (
+                <HallStand key={index} width={stand.width || column.width} height={stand.height} color={stand.color} />
               ))}
-            </Column>
+            </HallLine>
           ))}
 
-          {(map.bottomRows as HallMap).map((row, index) => (
-            <Row height={row.height} key={index}>
-              {row.columns.map((column, index) => (
-                <Column key={index} width={column.width} height={column.height || row.height} color={column.color} />
+          {(hallMap.bottomRows as Line[]).map((row, index) => (
+            <HallLine height={row.height} key={index} alignItems="flex-end">
+              {row.stands.map((column, index) => (
+                <HallStand key={index} width={column.width} height={column.height || row.height} color={column.color} />
               ))}
-            </Row>
+            </HallLine>
           ))}
         </Container>
       </Card>
