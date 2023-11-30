@@ -1,0 +1,132 @@
+{
+ "topRows": [
+  {
+   "height": 4,
+   "columns": [
+    {
+     "width": 3.5,
+     "color": "empty"
+    },
+    {
+     "width": 2.5,
+     "color": "normal"
+    },
+    {
+     "width": 2.5,
+     "color": "normal"
+    },
+    {
+     "width": 2.5,
+     "color": "normal"
+    },
+    {
+     "width": 2.5,
+     "color": "normal"
+    },
+    {
+     "width": 2.5,
+     "color": "normal"
+    },
+    {
+     "width": 2.5,
+     "color": "normal"
+    },
+    {
+     "width": 2.5,
+     "color": "normal"
+    },
+    {
+     "width": 2.5,
+     "color": "normal"
+    },
+    {
+     "width": 2.5,
+     "color": "normal"
+    }
+   ]
+  },
+  {
+   "height": 3,
+   "columns": [
+    {
+     "width": 26,
+     "color": "empty"
+    }
+   ]
+  }
+ ],
+ "middleColumns": [
+  {
+    "rows": [
+      {
+        "height": 29.5,
+        "color": "empty"
+      }
+    ]
+  }
+ ],
+ "bottomRows": [
+  {
+   "height": 2.5,
+   "columns": [
+    {
+     "width": 26,
+     "color": "empty"
+    }
+   ]
+  },
+  {
+   "height": 5,
+   "columns": [
+    {
+     "width": 3,
+     "color": "premium"
+    },
+    {
+     "width": 2.5,
+     "color": "normal",
+     "height": 4
+    },
+    {
+     "width": 2.5,
+     "color": "normal",
+     "height": 4
+    },
+    {
+     "width": 2.5,
+     "color": "normal",
+     "height": 4
+    },
+    {
+     "width": 2.5,
+     "color": "normal",
+     "height": 4
+    },
+    {
+     "width": 2.5,
+     "color": "normal",
+     "height": 4
+    },
+    {
+     "width": 2.5,
+     "color": "normal",
+     "height": 4
+    },
+    {
+     "width": 2.5,
+     "color": "normal",
+     "height": 4
+    },
+    {
+     "width": 2.5,
+     "color": "normal",
+     "height": 4
+    },
+    {
+     "width": 3,
+     "color": "premium"
+    }
+   ]
+  }
+ ]
+}
