@@ -20,6 +20,10 @@ import HankaLogoUrl from './../assets/images/hankamizrobila.png';
 import StyloveWloczkiLogoUrl from './../assets/images/stylovewloczki.jpg';
 import GaboWoolLogoUrl from './../assets/images/gabowool.png';
 import KokonkiLogoUrl from './../assets/images/kokonki.png';
+import SiedemOczekLogoUrl from './../assets/images/7oczek.svg';
+import KnitPlLogoUrl from './../assets/images/knitpl.png';
+import RencamiLogoUrl from './../assets/images/rencami.png';
+import WloczkomaniaczkaLogoUrl from './../assets/images/wloczkomaniaczka.png';
 
 export const Grid = styled.div`
   display: flex;
@@ -94,6 +98,26 @@ export const VendorsPage = () => {
 
             <Link href="https://www.gabowool.pl/" target="_blank" rel="noreferrer">
               <img width={140} src={GaboWoolLogoUrl} alt="gabowool" />
+            </Link>
+
+            {/*           <Link href="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
+              <img width={140} src={GaboWoolLogoUrl} alt="nasztukistudio" />
+            </Link> */}
+
+            <Link href="https://7oczek.pl/pl/" target="_blank" rel="noreferrer">
+              <img width={140} src={SiedemOczekLogoUrl} alt="7oczek" />
+            </Link>
+
+            <Link href="https://knitpl.com/" target="_blank" rel="noreferrer">
+              <img width={140} src={KnitPlLogoUrl} alt="knitpl" />
+            </Link>
+
+            <Link href="https://rencami.pl/" target="_blank" rel="noreferrer">
+              <img width={140} src={RencamiLogoUrl} alt="rencami" />
+            </Link>
+
+            <Link href="https://wloczkomaniaczka.pl" target="_blank" rel="noreferrer">
+              <img width={140} src={WloczkomaniaczkaLogoUrl} alt="wloczkomaniaczka" />
             </Link>
           </Grid>
         </FlexColumnLayout>
