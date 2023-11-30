@@ -10,11 +10,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
-import { Curtain, Header, Image, Footer, Root } from './App.styled';
-import KrakowImageUrl from './assets/images/krakow3.jpg';
+import { Curtain, Header, Footer, Root } from './App.styled';
 import { BurgerMenu } from './components/BurgerMenu';
-import { Link } from './components/Link';
-import { Menu } from './components/Menu';
 import { SideBar } from './components/SideBar';
 import { ContactPage } from './pages/ContactPage';
 import { InfoForVendorsPage } from './pages/InfoForVendorsPage';
@@ -51,8 +48,8 @@ export const App = () => {
       <Root id="root">
         {isPhone && <Curtain onClick={() => setBurgerActive(false)} className={burgerActive ? 'active' : undefined} />}
 
-        <Header>
-          {isPhone && (
+        {isPhone && (
+          <Header>
             <>
               <SideBar roundedCorners="left" className={burgerActive ? 'visible' : undefined}>
                 <SideBar.LinkEntry onClick={closeSideBar} href="/vendors">
@@ -87,20 +84,8 @@ export const App = () => {
               </SideBar>
               <BurgerMenu onClick={() => setBurgerActive((prevValue) => !prevValue)} active={burgerActive} />
             </>
-          )}
-          {!isPhone && (
-            <Menu>
-              <Link href="/">Yarnmark</Link>
-
-              <Link href="/vendors">{t('menu.vendors')}</Link>
-              <Link href="/info-for-vendors">{t('menu.infoForVendors')}</Link>
-              <Link href="/workshops">{t('menu.workshops')}</Link>
-              <Link href="/vip-tickets">{t('menu.vipTickets')}</Link>
-              <Link href="/contact">{t('menu.contact')}</Link>
-              <Link href="/about-us">{t('menu.aboutUs')}</Link>
-            </Menu>
-          )}
-        </Header>
+          </Header>
+        )}
 
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />

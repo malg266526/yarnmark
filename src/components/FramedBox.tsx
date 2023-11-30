@@ -1,8 +1,9 @@
 import React from 'react';
-import styled, { css } from "styled-components";
-import { rgba } from 'polished'
+import styled, { css } from 'styled-components';
+import { rgba } from 'polished';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
+import knittingSvgUrl from '../assets/knitting.svg';
 
 type FrameWidth = `${number}${'px' | '%'}`;
 
@@ -30,18 +31,22 @@ const Root = styled.div`
     width: calc(100% + 7px);
     z-index: 0;
     /* background: black; */
-    background: linear-gradient(45deg, ${Colors.yellow} 0%, rgb(251, 241, 210) 50%);
-    /* box-shadow: 3px 3px 3px 3px ${rgba(Colors.goldLight, 0.8)}; */
+    background: linear-gradient(45deg, ${Colors.green1} 0%, ${Colors.green2} 50%);
+    /* box-shadow: 3px 3px 3px 3px ${rgba(Colors.green2, 0.8)}; */
   }
 `;
 
 const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: keyof typeof Spacings }>`
-  ${({ width }) => width && css`
-    width: ${width};
-  `};
-  ${({ height }) => height && css`
-    height: ${height};
-  `}; 
+  ${({ width }) =>
+    width &&
+    css`
+      width: ${width};
+    `};
+  ${({ height }) =>
+    height &&
+    css`
+      height: ${height};
+    `};
   padding: ${({ padding }) => Spacings[padding]};
   background: white;
   position: relative;
@@ -52,6 +57,17 @@ const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: key
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  :before {
+    content: '';
+    position: absolute;
+    top: calc(${({ padding }) => Spacings[padding]} / 2);
+    left: calc(${({ padding }) => Spacings[padding]} / 2);
+    width: 30px;
+    height: 30px;
+    background: url(${knittingSvgUrl}) no-repeat center;
+    background-size: contain;
+  }
 `;
 
 export interface FramedBoxProps {
@@ -63,8 +79,6 @@ export interface FramedBoxProps {
 
 export const FramedBox = ({ children, ...rest }: FramedBoxProps) => (
   <Root>
-    <Frame {...rest} >
-      {children}
-    </Frame>
+    <Frame {...rest}>{children}</Frame>
   </Root>
 );

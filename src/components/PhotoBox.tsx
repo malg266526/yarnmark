@@ -1,8 +1,6 @@
 import React from 'react';
-import styled from "styled-components";
-import { rgba } from 'polished'
+import styled, { css } from 'styled-components';
 import { Spacings } from '../styles/spacings';
-import { Colors } from '../styles/theme';
 
 const Image = styled.img`
   width: 100%;
@@ -13,44 +11,89 @@ const Image = styled.img`
   object-fit: contain;
 `;
 
-type FrameWidth = `${number}${'px' | '%'}`;
+type Size = `${number}${'px' | '%'}`;
 
-const Root = styled.div`
-  position: relative;
-  z-index: 1;
+const Slot = styled.div<{ slotSize: Size }>`
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: inherit;
+  padding: ${Spacings.md};
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 300ms cubic-bezier(0.72, 2.04, 0.68, 0.87);
+  transform: translate(-50%) scale(0);
+  box-shadow: 3px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  transform-origin: left center;
 
-  &:after {
-    content: '';
-    position: absolute;
-    left: -20px;
-    top: 20px;
-    height: calc(100% + 7px);
-    width: calc(100% + 7px);
-    z-index: 0;
-    background: linear-gradient(45deg, ${Colors.yellow} 0%, rgb(251, 241, 210) 50%); 
-    /* background: ${rgba(Colors.goldLight, 1)}; */
-    /* box-shadow: 3px 3px 3px 3px ${rgba(Colors.goldLight, 0.8)}; */
-  }
+  ${({ slotSize }) => css`
+    min-width: ${slotSize};
+  `};
 `;
 
-const Frame = styled.div<{ width: FrameWidth }>`
-  width: ${({ width }) => width}; 
+const Root = styled.div<{ size: Size; slotSize?: Size }>`
+  ${({ size }) => css`
+    min-width: ${size};
+    width: ${size};
+    max-height: ${size};
+  `};
   padding: ${Spacings.md} ${Spacings.md} ${Spacings.lg};
   background: white;
   position: relative;
   z-index: 1;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  transition: all 300ms cubic-bezier(0.72, 2.04, 0.68, 0.87);
+
+  ${({ slotSize }) =>
+    slotSize &&
+    css`
+      cursor: pointer;
+
+      &:hover {
+        z-index: 2;
+        transform: scale(1.5);
+      }
+    `};
+
+  &:hover ${Slot} {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(0) scale(1);
+  }
 `;
 
-export interface PhotoBoxProps {
-  width: FrameWidth;
-  src: string;
-}
+const ImageWrapper = styled.div``;
 
-export const PhotoBox = ({ src, width }: PhotoBoxProps) => (
-  <Root>
-    <Frame width={width} >
-      <Image src={src} />
-    </Frame>
-  </Root>
+const Cursive = styled.div`
+  text-align: center;
+  font-size: 16px;
+  font-family: cursive;
+`;
+
+export type PhotoFrameProps = {
+  size: Size;
+  src: string;
+  children?: React.ReactNode;
+} & (
+  | { variant?: 'no-slot' }
+  | {
+      variant: 'slot';
+      slot: React.ReactNode;
+      slotSize: Size;
+    }
+);
+
+export const PhotoFrame = Object.assign(
+  ({ src, size, children, ...rest }: PhotoFrameProps) => (
+    <Root size={size} slotSize={rest.variant === 'slot' ? rest.slotSize : undefined}>
+      <ImageWrapper>
+        <Image src={src} />
+        {children}
+      </ImageWrapper>
+
+      {rest.variant === 'slot' && <Slot slotSize={rest.slotSize}>{rest.slot}</Slot>}
+    </Root>
+  ),
+  { Cursive }
 );

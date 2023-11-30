@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { Spacings } from '../styles/spacings';
 import { Theme } from '../styles/theme';
 
-export const PageContent = styled.div<{ variant: 'wide' | 'narrow' }>`
+export const PageContent = styled.div<{ variant: 'wide' | 'narrow'; padding?: 'none' }>`
   width: ${({ variant }) => (variant === 'narrow' ? Theme.pageContentWidth : '100%')};
   max-width: 100%;
 
@@ -10,4 +11,6 @@ export const PageContent = styled.div<{ variant: 'wide' | 'narrow' }>`
 
   align-self: center;
   align-items: center;
+
+  padding: ${({ padding }) => (padding === 'none' ? 0 : Spacings.lg)} 0;
 `;

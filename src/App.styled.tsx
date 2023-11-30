@@ -27,7 +27,7 @@ export const Header = styled.header`
   justify-content: center;
   padding: ${Spacings.sm};
   width: 100%;
-  background: black;
+  background: ${Colors.green3};
 
   @media (max-width: ${ScreenSize.phone}) {
     padding: ${Spacings.sm} ${Spacings.md};
@@ -85,6 +85,10 @@ export const Root = styled.main`
       opacity: 1;
       transform: translate(-100%, 0);
     }
+  }
+
+  > :nth-child(2) {
+    flex: 1 1 auto;
   }
 
   ${BurgerMenu} {

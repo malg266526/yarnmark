@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { Spacings } from "../styles/spacings";
-import { Colors } from "../styles/theme";
+import styled from 'styled-components';
+import { Spacings } from '../styles/spacings';
+import { Colors } from '../styles/theme';
 
 export const TextBox = styled.div`
   padding: ${Spacings.lg};
