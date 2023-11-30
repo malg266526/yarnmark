@@ -49,7 +49,7 @@ const rows: HallMap = [
   }
 ];
 
-export const Hall = () => {
+export const HallPage = () => {
   return (
     <PageContent variant="narrow">
       <Card width="100%">

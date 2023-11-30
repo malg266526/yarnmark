@@ -22,6 +22,7 @@ import { usePhone } from './pages/usePhone';
 import { useTypedTranslation } from './translations/useTypedTranslation';
 import { WorkshopsPage } from './pages/WorkshopsPage';
 import { AboutUsPage } from './pages/AboutUsPage';
+import { HallPage } from './pages/HallPage';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -96,8 +97,7 @@ export const App = () => {
           <Route path="/vip-tickets" element={<VipTicketsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
-          <Route path="/hall" element={<AboutUsPage />} />
-
+          <Route path="/hall" element={<HallPage />} />
         </Routes>
 
         <Footer />
