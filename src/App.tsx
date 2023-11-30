@@ -96,6 +96,8 @@ export const App = () => {
           <Route path="/vip-tickets" element={<VipTicketsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
+          <Route path="/hall" element={<AboutUsPage />} />
+
         </Routes>
 
         <Footer />
