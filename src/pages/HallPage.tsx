@@ -7,10 +7,13 @@ import { Spacings } from '../styles/spacings';
 import hallMap from './hallmap.json';
 
 const HallColors = {
-  premium: '#EC5800', //  Persimmon
-  normal: '#FFAA33', //Yellow Orange
+  premium: '#4CBB17', // Kelly Green
+  normal1: '#EC5800', // Persimmon
+  normal2: '#FFAA33', // Yellow Orange
+  small1: '#d8e1e8',
+  small2: '#b2cbde',
   taken: Colors.pinball,
-  empty: 'white'
+  empty: '#e8f4ea' //
 };
 
 const SIZE_MULTIPLIER = 20;
@@ -20,7 +23,7 @@ export const Container = styled.div`
   flex: 0;
   flex-direction: column;
   padding: ${Spacings.xs};
-  background-color: #eefdec;
+  background-color: ${HallColors.empty};
   align-self: center;
   width: min-content;
 `;
@@ -61,11 +64,15 @@ export const HallLine = styled.div<{
 `;
 
 export const HallStand = styled.div<{ width?: number; height?: number; color?: keyof typeof HallColors }>`
+  display: flex;
   width: ${({ width }) => (width ? `${width * SIZE_MULTIPLIER}px` : 'initial')};
   height: ${({ height }) => (height ? `${height * SIZE_MULTIPLIER}px` : 'initial')};
 
   background-color: ${({ color }) => HallColors[color || 'empty']};
-  border-right: 1px solid ${Colors.pinball};
+  align-items: center;
+  justify-content: center;
+
+  // border-right: 1px solid ${Colors.pinball};
 `;
 
 export const HallPage = () => {
@@ -75,24 +82,36 @@ export const HallPage = () => {
         <Container>
           {(hallMap.topRows as Line[]).map((row, index) => (
             <HallLine height={row.height} key={index}>
-              {row.stands.map((column, index) => (
-                <HallStand key={index} width={column.width} height={row.height} color={column.color} />
+              {row.stands.map((stand, index) => (
+                <HallStand key={index} width={stand.width} height={row.height} color={stand.color}>
+                  <h4>{stand.index}</h4>
+                </HallStand>
               ))}
             </HallLine>
           ))}
 
-          {(hallMap.middleColumns as Line[]).map((column, index) => (
-            <HallLine width={column.width} key={index} direction="column">
-              {column.stands.map((stand, index) => (
-                <HallStand key={index} width={stand.width || column.width} height={stand.height} color={stand.color} />
-              ))}
-            </HallLine>
-          ))}
+          <HallLine>
+            {(hallMap.middleColumns as Line[]).map((column, index) => (
+              <HallLine
+                width={column.width}
+                key={index}
+                direction="column"
+                alignItems={index === 4 ? 'flex-end' : 'flex-start'}>
+                {column.stands.map((stand, index) => (
+                  <HallStand key={index} width={stand.width || column.width} height={stand.height} color={stand.color}>
+                    <h4>{stand.index}</h4>
+                  </HallStand>
+                ))}
+              </HallLine>
+            ))}
+          </HallLine>
 
           {(hallMap.bottomRows as Line[]).map((row, index) => (
             <HallLine height={row.height} key={index} alignItems="flex-end">
-              {row.stands.map((column, index) => (
-                <HallStand key={index} width={column.width} height={column.height || row.height} color={column.color} />
+              {row.stands.map((stand, index) => (
+                <HallStand key={index} width={stand.width} height={stand.height || row.height} color={stand.color}>
+                  <h4>{stand.index}</h4>
+                </HallStand>
               ))}
             </HallLine>
           ))}
