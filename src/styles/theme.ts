@@ -20,7 +20,10 @@ export const Colors = {
   beige1: '#dac9bd',
   beige2: '#b9aa9d',
   red1: '#b77866',
-  red2: '#ff9a7e'
+  red2: '#ff9a7e',
+
+  pastelGray: '#d7c9c0',
+  isabelline: '#f7f0f0'
 };
 
 export const Theme = {

@@ -1,184 +1,41 @@
 import React from 'react';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
 import { PageContent } from '../components/PageContent';
-import styled, { css } from 'styled-components';
+import { useTypedTranslation } from '../translations/useTypedTranslation';
+
+import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
+import pizzaImageUrl from '../assets/iconify/pizza.svg';
+import shopImageUrl from '../assets/iconify/shop.svg';
+import ticketImageUrl from '../assets/iconify/ticket.svg';
+import knitting2ImageUrl from '../assets/knitting2.svg';
+import pinImageUrl from '../assets/pin.svg';
+import stadionImageSrc from '../assets/stadion.jpg';
 
 import wawelImageSrc from '../assets/wawel.jpg';
-import stadionImageSrc from '../assets/stadion.jpg';
-import { Spacings } from '../styles/spacings';
-import { Icon } from '../components/Icon';
-import ticketImageUrl from '../assets/ticket.svg';
-import infoImageUrl from '../assets/info.svg';
-import shopImageUrl from '../assets/shop.svg';
-import pinImageUrl from '../assets/pin.svg';
-import pinBlackImageUrl from '../assets/pinBlack.svg';
-import knitting2ImageUrl from '../assets/knitting2.svg';
-import touristImageUrl from '../assets/tourist.svg';
 import yarn2ImageUrl from '../assets/yarn2.jpg';
+import { Icon } from '../components/Icon';
 
+import { Band } from '../components/Band';
 import { FunnyButton } from '../components/FunnyButton';
 import { InfoSection } from '../components/InfoSection';
-import { Band } from '../components/Band';
+import { Link } from '../components/Link';
 import { NiceBox } from '../components/NiceBox';
 import { PhotoFrame } from '../components/PhotoBox';
-import { Link } from '../components/Link';
 import { usePhone } from './usePhone';
 
-const Text = styled.div`
-  margin-top: ${Spacings.md};
-`;
-
-const Title = styled.div`
-  font-size: 40px;
-  font-weight: 600;
-`;
-
-const ButtonsLayout = styled.div`
-  display: flex;
-  gap: ${Spacings.xl};
-  flex: 1 1 auto;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Image = styled.img<{ clipped?: boolean }>`
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
-  max-height: 100%;
-  object-fit: cover;
-  object-position: top;
-  ${({ clipped }) =>
-    clipped &&
-    css`
-      clip-path: polygon(0 0, 70% 0, 40% 100%, 0 100%);
-    `};
-`;
-
-const SectionWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  position: relative;
-  z-index: 1;
-`;
-
-const BackgroundImage = styled.img<{ src: string }>`
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
-  max-height: 100%;
-  opacity: 0.2;
-  padding: ${Spacings.xl};
-`;
-
-const TouristBackground = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  background: url(${touristImageUrl}) no-repeat center;
-  background-size: 400px;
-  background-position: 20%;
-`;
-
-const PhotosLayout = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: ${Spacings.md};
-`;
-
-const Menu = styled.div`
-  position: absolute;
-  width: 100%;
-  top: 100px;
-  left: 0;
-  padding-right: 200px;
-  z-index: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-`;
-
-const AnimatedIconWrapper = styled.div`
-  padding-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: 0px black;
-  border: 6px solid transparent;
-  transition: all 200ms ease-in-out;
-
-  &:hover {
-    box-shadow:
-      1px 1px 5px 1px #333,
-      inset 1px 1px 5px 1px #333;
-    border-color: white;
-  }
-
-  @keyframes jump {
-    0% {
-      transform: translate(0, 0);
-    }
-
-    5% {
-      transform: translate(0, -100px);
-    }
-
-    10% {
-      transform: translate(0, 0);
-    }
-
-    100% {
-      transform: translate(0, 0);
-    }
-  }
-
-  @keyframes jump2 {
-    0% {
-      transform: translate(0, 0);
-    }
-
-    40% {
-      transform: translate(0, 0);
-    }
-
-    100% {
-      transform: translate(0, -50px);
-    }
-  }
-
-  > ${Icon} {
-    /* cubic-bezier(.72,2.04,.68,.87) */
-    animation: 1s ease-in-out infinite alternate running jump2;
-    cursor: pointer;
-  }
-
-  > ${Icon}:hover {
-    animation-play-state: paused;
-  }
-`;
-
-const WhiteStuff = styled.div<{ width: `${number}${'px' | '%'}`; height: `${number}${'px' | '%'}` }>`
-  background: white;
-  border-radius: 50%;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, calc(-50% - 20px));
-  top: 100%;
-  box-shadow: 1px 1px 5px 1px #333;
-  z-index: 0;
-
-  ${({ height, width }) => css`
-    width: ${width};
-    height: ${height};
-  `};
-`;
+import { Colors } from '../styles/theme';
+import {
+  AnimatedIconWrapper,
+  BackgroundImage,
+  ButtonsLayout,
+  Image,
+  Menu,
+  PhotosLayout,
+  SectionWrapper,
+  Text,
+  Title,
+  TouristBackground,
+  WhiteStuff
+} from './MainPage.styled';
 
 export const MainPage = () => {
   const t = useTypedTranslation();
@@ -217,48 +74,68 @@ export const MainPage = () => {
         <Image src={yarn2ImageUrl} />
         <Band.Slot float="left" size="sm">
           <NiceBox overflowSize="10px" width="500px" padding="lg">
-            <Title>Witamy na stronie pierwszego krakowskiego zlotu drutowych spoceńców!</Title>
+            <Title>Krakoski Yarnmark Wełny</Title>
+            <Text>Serdecznie zapraszamy na I edycję targów wełny w stolicy małopolski!</Text>
+            <Text>Yarnmark odbędzie się 27/04/2024r. o godz. 10:30, w Hali 100-lecia KS Cracovia</Text>
             <Text>
-              Przez ostatnie 6 miesiecy ciężko wszyscy pracowaliśmy zeby zaprezentować wam pierwszy takie wydarzenie w
-              krakowie zorganizowne przez garstkę fanów dziergania. Bywaliśmy juz w na różnych zlotach i wiemy jaka jest
-              frekwencje - liczymy ze i Ty przyjedziesz!
+              Mamy nadzieję, że będzie to dla Was dzień nie tylko zakupowego szaleństwa i udanych łowów, ale również
+              wspólnego dziergania na trybunach i dobrej zabawy.
             </Text>
+            <Text>Do zobaczenia!</Text>
+            <Text>Włóczykijki x DziergamyNaPolu</Text>
           </NiceBox>
         </Band.Slot>
       </Band>
 
-      <Band size="md" variant="background" color="#d7c9c0" padding="xl" narrowContent>
+      <Band size="md" variant="background" color={Colors.pastelGray} padding="xl" narrowContent>
         <BackgroundImage src={knitting2ImageUrl} />
 
         <SectionWrapper>
           <InfoSection>
             <InfoSection.Title>Pierwsze takie wydarzenie w Krakowie!</InfoSection.Title>
             <InfoSection.Text>
-              Wiele jest takich wydarzeń: Knicenie we Wrocławiu, Zbieranie Bawełny w Poznaniu i Robienie na drtutach w
-              Łodziz. Teraz do tej listy dołącza Krakowski Yarnmark. Poniżej Garść linków do pomocy
+              Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na spotkanie Krakowie! Liczymy, że zaszczycicie
+              nasz targowy debiut Waszą obecnoscią.
+            </InfoSection.Text>
+            <InfoSection.Text>
+              Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.
             </InfoSection.Text>
           </InfoSection>
 
           <ButtonsLayout>
+            <FunnyButton icon={<Icon size="xl" src={ticketImageUrl} />} text="Tutaj kupisz bilet" />
+            <FunnyButton icon={<Icon size="xl" src={shopImageUrl} />} text="Sprawdź z jakimi wystawcami się spotkasz" />
             <FunnyButton
-              icon={<Icon size="xl" src={ticketImageUrl} />}
-              text="Ten link przekieruje Cie do zakupu biletow na stronie www.kupujemybilety.pl"
+              icon={<Icon size="xl" src={pinBlackImageUrl} />}
+              text="Zobacz gdzie jesteśmy i jak tam dojechać"
             />
-            <FunnyButton
-              icon={<Icon size="xl" src={shopImageUrl} />}
-              text="Zobacz jakie stoiska beda dostepne na Yarnmarku!"
-            />
-            <FunnyButton icon={<Icon size="xl" src={infoImageUrl} />} text="Zobacz jak dojechac do Yarnmarku" />
-            <FunnyButton icon={<Icon size="xl" src={pinBlackImageUrl} />} text="Zobacz jak dojechac do Yarnmarku" />
+            <FunnyButton icon={<Icon size="xl" src={pizzaImageUrl} />} text="Zobacz co zjesz w okolicy" />
           </ButtonsLayout>
         </SectionWrapper>
       </Band>
 
       <Band size="xl" variant="background-image" src={stadionImageSrc}>
+        <Band.Slot size="sm" float="left">
+          <NiceBox width="500px" height="440px" padding="lg">
+            <Title>Jak do nas dojechać?</Title>
+            <Text>Hala znajduje się przy przystanku "Cracovia Stadion". Z dworca głównego najprościej dojechać:</Text>
+            <Text>
+              - z przystanku <b>Dworzec Główny Tunel</b> (w przejściu pomiędzy dworcem PKP a Galerią Krakowską należy
+              zejść schodami ruchomymi w dół) autobusem <b>192</b>
+            </Text>
+            <Text>
+              - z przystanku <b>Teatr Słowackiego</b> (przed Galerią Krakowską, od strony ulicy Lubicz) autobusem{' '}
+              <b>152</b>
+            </Text>
+          </NiceBox>
+        </Band.Slot>
+
         <Band.Slot size="xl">
-          <AnimatedIconWrapper>
-            <Icon size="200px" src={pinImageUrl} dropShadow />
-          </AnimatedIconWrapper>
+          <a href="https://www.google.pl/maps/place/Hala+100-lecia+KS+Cracovia+wraz+z+Centrum+Sportu+Niepe%C5%82nosprawnych/@50.0570694,19.9078517,17z/data=!3m1!4b1!4m6!3m5!1s0x47165bdbabf291a1:0x3a0607d5947b7ef2!8m2!3d50.0570694!4d19.9104266!16s%2Fg%2F11f5t43046?entry=ttu">
+            <AnimatedIconWrapper>
+              <Icon size="200px" src={pinImageUrl} dropShadow />
+            </AnimatedIconWrapper>
+          </a>
 
           <WhiteStuff width="100px" height="10px" />
           {/* <MaskImage /> */}
@@ -270,27 +147,44 @@ export const MainPage = () => {
         <Band.Slot size="sm" float="right">
           <NiceBox width="500px" height="200px" padding="lg">
             <Title>Gdzie?</Title>
-            Odbędzie sie na Hali 100-lecia KS Cracovia
+            <Text>Hala 100-lecia KS Cracovia wraz z Centrum Sportu Niepełnosprawnych</Text>
+            <Text>Aleja Marszałka Ferdynanda Focha 40</Text>
           </NiceBox>
         </Band.Slot>
       </Band>
 
-      <Band size="md" variant="background" color="#f7f0f0" padding="xl">
+      <Band size="md" variant="background" color={Colors.isabelline} padding="xl">
         <Band.Slot size="sm">
           <PhotosLayout>
-            <PhotoFrame variant="slot" size="400px" src={wawelImageSrc} slotSize="200px" slot={'test'}>
-              <PhotoFrame.Cursive>Test</PhotoFrame.Cursive>
+            <PhotoFrame
+              variant="slot"
+              size="400px"
+              src={wawelImageSrc}
+              slotSize="200px"
+              slot={'TODO: foto i tekst od Ani'}>
+              <PhotoFrame.Cursive>Pierwsza pomoc</PhotoFrame.Cursive>
             </PhotoFrame>
-            <PhotoFrame size="400px" src={wawelImageSrc} />
-            <PhotoFrame size="400px" src={wawelImageSrc} />
-            <PhotoFrame size="400px" src={wawelImageSrc} />
+            <PhotoFrame size="400px" src={wawelImageSrc}>
+              <PhotoFrame.Cursive>TODO: Warsztaty 1</PhotoFrame.Cursive>
+            </PhotoFrame>
+            <PhotoFrame size="400px" src={wawelImageSrc}>
+              <PhotoFrame.Cursive>TODO: Warsztaty 2</PhotoFrame.Cursive>
+            </PhotoFrame>
+            <PhotoFrame size="400px" src={wawelImageSrc}>
+              <PhotoFrame.Cursive>TODO: Warsztaty 3</PhotoFrame.Cursive>
+            </PhotoFrame>
           </PhotosLayout>
         </Band.Slot>
 
         <Band.Slot size="xl" float="right">
           <NiceBox width="500px" padding="lg">
-            <Title>Wspolpracujemy z WloczkamiPL oraz Kieblasy na dutach</Title>
-            Jeżeli przy kupowaniu w wybranych sklepach podacie haslo otrzymacie rabat
+            <Title>Warsztaty</Title>
+            <Text>Yarnmark bawi, Yarnmark uczy</Text>
+            <Text>
+              Zapraszamy do wzięcia udziału w warsztatach dziewiarskich i szydełkowych oraz serdecznie zachęcamy do
+              skorzystania z profesjonalnych kursów pierwszej pomocy.
+            </Text>
+            <Text>Niech zdrowie i bezpieczeństwo będą z Wami!</Text>
           </NiceBox>
         </Band.Slot>
       </Band>
