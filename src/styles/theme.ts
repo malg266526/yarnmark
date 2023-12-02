@@ -1,8 +1,6 @@
 export const Colors = {
   gold: 'gold',
 
-  green: '#084929',
-
   honeyMustard: '#ae8d4a', //174,141,74
   spruce: '#095e41', // 9, 94, 65
   goldLight: '#c3a25d',
@@ -14,7 +12,6 @@ export const Colors = {
   green1: '#216f16',
   green2: 'rgb(197, 255, 201)',
   green3: '#084400',
-  gray: '#dfdfdf',
   grayLight: '#f9f9f9',
 
   beige1: '#dac9bd',
@@ -23,7 +20,9 @@ export const Colors = {
   red2: '#ff9a7e',
 
   pastelGray: '#d7c9c0',
-  isabelline: '#f7f0f0'
+  isabelline: '#f7f0f0',
+  snow: '#f9f9f9',
+  linen: '#faf0e6'
 };
 
 export const Theme = {

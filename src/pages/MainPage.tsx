@@ -6,6 +6,8 @@ import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
 import pizzaImageUrl from '../assets/iconify/pizza.svg';
 import shopImageUrl from '../assets/iconify/shop.svg';
 import ticketImageUrl from '../assets/iconify/ticket.svg';
+import bigPretzelImageUrl from '../assets/iconify/bigpretzel.svg';
+
 import knitting2ImageUrl from '../assets/knitting2.svg';
 import pinImageUrl from '../assets/pin.svg';
 import stadionImageSrc from '../assets/stadion.jpg';
@@ -153,6 +155,14 @@ export const MainPage = () => {
         </Band.Slot>
       </Band>
 
+      <Band size="md" variant="background" color={Colors.white} padding="xl" narrowContent>
+        <SectionWrapper>
+          <InfoSection>
+            <InfoSection.Title>Wystawcy</InfoSection.Title>
+          </InfoSection>
+        </SectionWrapper>
+      </Band>
+
       <Band size="md" variant="background" color={Colors.isabelline} padding="xl">
         <Band.Slot size="sm">
           <PhotosLayout>
@@ -185,6 +195,52 @@ export const MainPage = () => {
               skorzystania z profesjonalnych kursów pierwszej pomocy.
             </Text>
             <Text>Niech zdrowie i bezpieczeństwo będą z Wami!</Text>
+          </NiceBox>
+        </Band.Slot>
+      </Band>
+
+      <Band size="md" variant="background" color={Colors.snow} padding="xl" narrowContent>
+        <BackgroundImage src={bigPretzelImageUrl} />
+
+        <Band.Slot float="left" size="sm">
+          <NiceBox overflowSize="10px" width="500px" padding="lg">
+            <Title>Gdzie zjeść?</Title>
+            <Text>
+              150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów
+              (https://www.instagram.com/bezogrodek/?hl=pl).
+            </Text>
+            <Text>
+              Przy Błoniach znajduje się również kilka restauracji, najbliżej Pino Garden
+              (https://pinogarden.pl/kategoria/karta-menu/) czy Gospoda na Piastowskiej
+              (https://gospodapiastowska.pl/menu/) dla miłośników kuchni polskiej.
+            </Text>
+            <Text>
+              Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka, a na hali wypić pyszną kawkę od
+              Tarasa z Knitted Coffee
+            </Text>
+            <Text>Smacznego!</Text>
+          </NiceBox>
+        </Band.Slot>
+      </Band>
+
+      <Band variant="background" size="md" color={Colors.pastelGray} padding="xl" narrowContent>
+        <Title>Bilety VIP</Title>
+
+        <Band.Slot float="left" size="sm">
+          <NiceBox overflowSize="10px" width="200px" padding="lg">
+            <Title>Rejs dziergostatkiem</Title>
+          </NiceBox>
+        </Band.Slot>
+
+        <Band.Slot size="sm">
+          <NiceBox overflowSize="10px" width="200px" padding="lg">
+            <Title>Early entrance</Title>
+          </NiceBox>
+        </Band.Slot>
+
+        <Band.Slot float="right" size="sm">
+          <NiceBox overflowSize="10px" width="200px" padding="lg">
+            <Title>Goodie bag</Title>
           </NiceBox>
         </Band.Slot>
       </Band>
