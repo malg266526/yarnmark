@@ -25,6 +25,11 @@ import KnitPlLogoUrl from './../assets/images/knitpl.png';
 import RencamiLogoUrl from './../assets/images/rencami.png';
 import WloczkomaniaczkaLogoUrl from './../assets/images/wloczkomaniaczka.png';
 
+import LovieczkaLogoUrl from './../assets/images/lovieczka.png';
+import SamaSeUszyjLogoUrl from './../assets/images/samaseuszyj.png';
+import WooloveLogoUrl from './../assets/images/woolove.png';
+import MilaDruciarniaLogoUrl from './../assets/images/miladruciarnia.png';
+
 export const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -46,6 +51,14 @@ export const VendorsPage = () => {
 
             <Link href="https://biferno.pl/" target="_blank" rel="noreferrer">
               <img width={140} src={BifernoLogoUrl} alt="biferno" />
+            </Link>
+
+            <Link href="woolove.pl" target="_blank" rel="noreferrer">
+              <img width={120} src={WooloveLogoUrl} alt="woolove" />
+            </Link>
+
+            <Link href="https://lovieczka.pl/" target="_blank" rel="noreferrer">
+              <img width={100} src={LovieczkaLogoUrl} alt="lovieczka" />
             </Link>
 
             <Link href="https://madobo.pl" target="_blank" rel="noreferrer">
@@ -118,6 +131,14 @@ export const VendorsPage = () => {
 
             <Link href="https://wloczkomaniaczka.pl" target="_blank" rel="noreferrer">
               <img width={140} src={WloczkomaniaczkaLogoUrl} alt="wloczkomaniaczka" />
+            </Link>
+
+            <Link href="https://noiklawo.pl/" target="_blank" rel="noreferrer">
+              <img width={220} src={SamaSeUszyjLogoUrl} alt="samaseuszyj" />
+            </Link>
+
+            <Link href="https://miladruciarnia.pl/" target="_blank" rel="noreferrer">
+              <img width={160} src={MilaDruciarniaLogoUrl} alt="miladruciarnia" />
             </Link>
           </Grid>
         </FlexColumnLayout>
