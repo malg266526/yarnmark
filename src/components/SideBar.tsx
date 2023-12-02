@@ -15,6 +15,7 @@ const Link = styled.a`
   gap: ${Spacings.sm};
   background: rgba(0, 0, 0, 0);
   transition: all 150ms ease-in-out;
+  position: relative;
 
   &:hover {
     cursor: pointer;

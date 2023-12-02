@@ -1,16 +1,59 @@
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { Colors } from '../styles/theme';
+import yarnSvgUrl from '../assets/knitting.svg';
 
-const StyledLink = styled.a<{ color: string }>`
-  color: ${({ color }) => color};
-  font-size: 18px;
+const StyledLink = styled.a<{ color?: string }>`
+  ${({ color }) =>
+    color &&
+    css`
+      color: ${color};
+    `};
+  font-size: 22px;
   padding: 10px 8px;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
   font-weight: 300;
+  position: relative;
+
+  &:hover:after,
+  &:hover:before {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(0, 10px);
+    height: 20px;
+    width: 20px;
+    background: url(${yarnSvgUrl}) no-repeat center;
+    background-size: contain;
+    opacity: 0;
+    transition: all 150ms ease-in-out;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translate(0, 10px);
+    height: 2px;
+    width: 100%;
+    background: #000;
+    ${({ color }) =>
+      color &&
+      css`
+        background: ${color};
+      `};
+    opacity: 0;
+    transition: all 150ms ease-in-out;
+  }
 `;
 
 export interface LinkProps {
@@ -20,15 +63,17 @@ export interface LinkProps {
   rel?: string;
   className?: string;
   anchorProps?: React.ComponentProps<'a'>;
+  color?: string;
 }
 
 const EXTERNAL_TARGET = '_blank';
 
-export const Link = ({ children, href, target, rel, className, anchorProps }: LinkProps) => {
+export const Link = ({ children, href, target, rel, className, color, anchorProps }: LinkProps) => {
   const navigate = useNavigate();
 
   return (
     <StyledLink
+      color={color}
       href={href}
       onClick={(event: React.MouseEvent) => {
         if (target !== EXTERNAL_TARGET) {
@@ -39,7 +84,6 @@ export const Link = ({ children, href, target, rel, className, anchorProps }: Li
       target={target}
       rel={rel}
       className={className}
-      color={Colors.gold}
       {...anchorProps}>
       {children}
     </StyledLink>

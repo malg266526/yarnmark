@@ -15,7 +15,7 @@ const Root = styled.div`
   gap: ${Spacings.sm};
   align-items: center;
   justify-content: center;
-  max-width: ${Theme.menuMaxWidth};
+  max-width: ${Theme.pageContentWidth};
 `;
 
 const Flag = styled.img`
