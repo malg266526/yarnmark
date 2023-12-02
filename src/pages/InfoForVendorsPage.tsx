@@ -43,16 +43,24 @@ export const InfoForVendorsPage = () => {
         <FlexColumnLayout gap="none">
           <h3>{t('infoForVendorsPage.title')}</h3>
 
+          <h4>Serdecznie Was zapraszamy do wzięcia udziału w I edycji Krakoskiego Yarnmarku Wełny!</h4>
+          <h5>Poniżej kilka informacji organizacyjnych dla Was</h5>
+
           <Row>
             <Title>Parking</Title>
-            <Value>Każdemu wystawcy przysługuje darmowe miejsce parkingowe przy hali</Value>
+            <Value>Każdemu wystawcy przysługuje darmowe miejsce parkingowe przy hali, w dniu targów</Value>
           </Row>
 
           <Row>
             <Title>Hala</Title>
             <FlexColumnLayout padding="none">
-              <Value>Otwarcie hali o godz. </Value>
-              <Value>Każdy wystawca będzie miał do dyspozycji 2 krzesła oraz stół </Value>
+              <Value>Otwarcie hali o godz. 6:00 TODO: potwierdzic z cracovią </Value>
+              <Value>
+                Stoisko ma wymiary 3x4m i w ramach stoisko wystawca ma do dyspozycji stół o wymiarach 180x80cm oraz 2
+                krzesła
+              </Value>
+              <Value>Jest możliwość wykupienia stoiska podwójnego</Value>
+              <Value>Hala znajduje się na tym samym poziomie co parking</Value>
             </FlexColumnLayout>
           </Row>
 

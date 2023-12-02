@@ -20,6 +20,15 @@ import HankaLogoUrl from './../assets/images/hankamizrobila.png';
 import StyloveWloczkiLogoUrl from './../assets/images/stylovewloczki.jpg';
 import GaboWoolLogoUrl from './../assets/images/gabowool.png';
 import KokonkiLogoUrl from './../assets/images/kokonki.png';
+import SiedemOczekLogoUrl from './../assets/images/7oczek.svg';
+import KnitPlLogoUrl from './../assets/images/knitpl.png';
+import RencamiLogoUrl from './../assets/images/rencami.png';
+import WloczkomaniaczkaLogoUrl from './../assets/images/wloczkomaniaczka.png';
+
+import LovieczkaLogoUrl from './../assets/images/lovieczka.png';
+import SamaSeUszyjLogoUrl from './../assets/images/samaseuszyj.png';
+import WooloveLogoUrl from './../assets/images/woolove.png';
+import MilaDruciarniaLogoUrl from './../assets/images/miladruciarnia.png';
 
 export const Grid = styled.div`
   display: flex;
@@ -42,6 +51,14 @@ export const VendorsPage = () => {
 
             <Link href="https://biferno.pl/" target="_blank" rel="noreferrer">
               <img width={140} src={BifernoLogoUrl} alt="biferno" />
+            </Link>
+
+            <Link href="woolove.pl" target="_blank" rel="noreferrer">
+              <img width={120} src={WooloveLogoUrl} alt="woolove" />
+            </Link>
+
+            <Link href="https://lovieczka.pl/" target="_blank" rel="noreferrer">
+              <img width={100} src={LovieczkaLogoUrl} alt="lovieczka" />
             </Link>
 
             <Link href="https://madobo.pl" target="_blank" rel="noreferrer">
@@ -94,6 +111,34 @@ export const VendorsPage = () => {
 
             <Link href="https://www.gabowool.pl/" target="_blank" rel="noreferrer">
               <img width={140} src={GaboWoolLogoUrl} alt="gabowool" />
+            </Link>
+
+            {/*           <Link href="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
+              <img width={140} src={GaboWoolLogoUrl} alt="nasztukistudio" />
+            </Link> */}
+
+            <Link href="https://7oczek.pl/pl/" target="_blank" rel="noreferrer">
+              <img width={140} src={SiedemOczekLogoUrl} alt="7oczek" />
+            </Link>
+
+            <Link href="https://knitpl.com/" target="_blank" rel="noreferrer">
+              <img width={140} src={KnitPlLogoUrl} alt="knitpl" />
+            </Link>
+
+            <Link href="https://rencami.pl/" target="_blank" rel="noreferrer">
+              <img width={140} src={RencamiLogoUrl} alt="rencami" />
+            </Link>
+
+            <Link href="https://wloczkomaniaczka.pl" target="_blank" rel="noreferrer">
+              <img width={140} src={WloczkomaniaczkaLogoUrl} alt="wloczkomaniaczka" />
+            </Link>
+
+            <Link href="https://noiklawo.pl/" target="_blank" rel="noreferrer">
+              <img width={220} src={SamaSeUszyjLogoUrl} alt="samaseuszyj" />
+            </Link>
+
+            <Link href="https://miladruciarnia.pl/" target="_blank" rel="noreferrer">
+              <img width={160} src={MilaDruciarniaLogoUrl} alt="miladruciarnia" />
             </Link>
           </Grid>
         </FlexColumnLayout>
