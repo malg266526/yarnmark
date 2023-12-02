@@ -1,61 +1,160 @@
-import styled from 'styled-components';
-import { ScreenSize } from '../styles/screeen-size';
+import styled, { css } from 'styled-components';
 import { Spacings } from '../styles/spacings';
-import { Colors } from '../styles/theme';
+import touristImageUrl from '../assets/tourist.svg';
+import { Icon } from '../components/Icon';
 
-export const RowLayout = styled.div`
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-evenly;
-
-  @media (max-width: ${ScreenSize.tablet}) {
-    flex-direction: column;
-    gap: ${Spacings.md};
-  }
+export const Text = styled.div`
+  margin-top: ${Spacings.md};
 `;
 
-export const Logo = styled.img`
-  align-self: center;
-  object-fit: cover;
-  max-width: 100%;
-  max-height: 100%;
-`;
-
-export const LinkButton = styled.a`
-  align-self: center;
-`;
-
-export const Details = styled.div`
-  font-weight: 300;
-`;
-
-export const StyledH1 = styled.h1`
+export const Title = styled.div`
+  font-size: 40px;
   font-weight: 600;
-  color: white;
-  margin: 0;
 `;
 
-export const StyledH2 = styled.h2`
-  font-weight: 500;
-  color: ${Colors.white};
-  margin: 0;
-`;
-
-export const Box = styled.div`
+export const ButtonsLayout = styled.div`
   display: flex;
-  width: 168px;
-  height: 168px;
-  color: white;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 50%;
+  gap: ${Spacings.xl};
+  flex: 1 1 auto;
   align-items: center;
   justify-content: center;
 `;
 
-export const Text = styled.p<{ margin?: keyof typeof Spacings }>`
-  font-weight: 400;
-  margin: ${Spacings.xs};
-  color: ${Colors.white};
-  text-align: center;
+export const Image = styled.img<{ clipped?: boolean }>`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: top;
+  ${({ clipped }) =>
+    clipped &&
+    css`
+      clip-path: polygon(0 0, 70% 0, 40% 100%, 0 100%);
+    `};
+`;
+
+export const SectionWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+`;
+
+export const BackgroundImage = styled.img<{ src: string }>`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  opacity: 0.2;
+  padding: ${Spacings.xl};
+`;
+
+export const TouristBackground = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background: url(${touristImageUrl}) no-repeat center;
+  background-size: 400px;
+  background-position: 20%;
+`;
+
+export const PhotosLayout = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: ${Spacings.md};
+`;
+
+export const Menu = styled.div`
+  position: absolute;
+  width: 100%;
+  top: 100px;
+  left: 0;
+  padding-right: 200px;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+export const AnimatedIconWrapper = styled.div`
+  padding-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0px black;
+  border: 6px solid transparent;
+  transition: all 200ms ease-in-out;
+
+  &:hover {
+    box-shadow:
+      1px 1px 5px 1px #333,
+      inset 1px 1px 5px 1px #333;
+    border-color: white;
+  }
+
+  @keyframes jump {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    5% {
+      transform: translate(0, -100px);
+    }
+
+    10% {
+      transform: translate(0, 0);
+    }
+
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+
+  @keyframes jump2 {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    40% {
+      transform: translate(0, 0);
+    }
+
+    100% {
+      transform: translate(0, -50px);
+    }
+  }
+
+  > ${Icon} {
+    /* cubic-bezier(.72,2.04,.68,.87) */
+    animation: 1s ease-in-out infinite alternate running jump2;
+    cursor: pointer;
+  }
+
+  > ${Icon}:hover {
+    animation-play-state: paused;
+  }
+`;
+
+export const WhiteStuff = styled.div<{ width: `${number}${'px' | '%'}`; height: `${number}${'px' | '%'}` }>`
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 20px));
+  top: 100%;
+  box-shadow: 1px 1px 5px 1px #333;
+  z-index: 0;
+
+  ${({ height, width }) => css`
+    width: ${width};
+    height: ${height};
+  `};
 `;
