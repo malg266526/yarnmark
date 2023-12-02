@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { Card } from '../components/Card';
 import { Spacings } from '../styles/spacings';
 import hallMap from './hallmap.json';
+import { RowLayout } from '../components/RowLayout';
 
 const HallColors = {
   premium: '#4CBB17', // Kelly Green
@@ -71,14 +72,12 @@ export const HallStand = styled.div<{ width?: number; height?: number; color?: k
   background-color: ${({ color }) => HallColors[color || 'empty']};
   align-items: center;
   justify-content: center;
-
-  // border-right: 1px solid ${Colors.pinball};
 `;
 
 export const HallPage = () => {
   return (
     <PageContent variant="narrow">
-      <Card width="100%">
+      <Card width="100%" flexDirection="row">
         <Container>
           {(hallMap.topRows as Line[]).map((row, index) => (
             <HallLine height={row.height} key={index}>
@@ -116,7 +115,41 @@ export const HallPage = () => {
             </HallLine>
           ))}
         </Container>
+
+        <Legend />
       </Card>
     </PageContent>
+  );
+};
+
+const LegendRoot = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ColorSample = styled.div<{ color?: keyof typeof HallColors }>`
+  width: 50px;
+  height: 50px;
+  background-color: ${({ color }) => HallColors[color || 'empty']};
+`;
+
+const Legend = () => {
+  return (
+    <LegendRoot>
+      <RowLayout gap="xs">
+        <ColorSample color="premium" />
+        <p>Miejsce Premium 5x3m</p>
+      </RowLayout>
+
+      <RowLayout gap="xs">
+        <ColorSample color="normal1" />
+        <p>Miejsce Normal 4x2,5m</p>
+      </RowLayout>
+
+      <RowLayout gap="xs">
+        <ColorSample color="normal2" />
+        <p>Miejsce Normal 4x2,5m</p>
+      </RowLayout>
+    </LegendRoot>
   );
 };
