@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { PageContent } from '../components/PageContent';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
@@ -6,7 +6,9 @@ import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
 import pizzaImageUrl from '../assets/iconify/pizza.svg';
 import shopImageUrl from '../assets/iconify/shop.svg';
 import ticketImageUrl from '../assets/iconify/ticket.svg';
+import ferryImageUrl from '../assets/iconify/ferry.svg';
 import bigPretzelImageUrl from '../assets/iconify/bigpretzel.svg';
+import bigShopImageUrl from '../assets/iconify/bigshop.svg';
 
 import knitting2ImageUrl from '../assets/knitting2.svg';
 import pinImageUrl from '../assets/pin.svg';
@@ -38,10 +40,13 @@ import {
   TouristBackground,
   WhiteStuff
 } from './MainPage.styled';
+import { VendorsList } from '../components/VendorsList';
 
 export const MainPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
+
+  const vendorsBandRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <PageContent variant="wide" padding="none">
@@ -51,7 +56,11 @@ export const MainPage = () => {
             Yarnmark
           </Link>
 
-          <Link color="black" href="/vendors">
+          <Link
+            color="black"
+            anchorProps={{
+              onClick: () => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
+            }}>
             {t('menu.vendors')}
           </Link>
           <Link color="black" href="/info-for-vendors">
@@ -106,12 +115,17 @@ export const MainPage = () => {
 
           <ButtonsLayout>
             <FunnyButton icon={<Icon size="xl" src={ticketImageUrl} />} text="Tutaj kupisz bilet" />
-            <FunnyButton icon={<Icon size="xl" src={shopImageUrl} />} text="Sprawdź z jakimi wystawcami się spotkasz" />
+            <FunnyButton
+              icon={<Icon size="xl" src={shopImageUrl} />}
+              text="Sprawdź z jakimi wystawcami się spotkasz"
+              onClick={() => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
+            />
             <FunnyButton
               icon={<Icon size="xl" src={pinBlackImageUrl} />}
               text="Zobacz gdzie jesteśmy i jak tam dojechać"
             />
             <FunnyButton icon={<Icon size="xl" src={pizzaImageUrl} />} text="Zobacz co zjesz w okolicy" />
+            <FunnyButton icon={<Icon size="xl" src={ferryImageUrl} />} text="Sprawdź nasz VIP pakiet" />
           </ButtonsLayout>
         </SectionWrapper>
       </Band>
@@ -155,12 +169,12 @@ export const MainPage = () => {
         </Band.Slot>
       </Band>
 
-      <Band size="md" variant="background" color={Colors.white} padding="xl" narrowContent>
-        <SectionWrapper>
-          <InfoSection>
-            <InfoSection.Title>Wystawcy</InfoSection.Title>
-          </InfoSection>
-        </SectionWrapper>
+      <Band ref={vendorsBandRef} size="md" variant="background" color={Colors.snow} padding="xl">
+        <BackgroundImage src={bigShopImageUrl} />
+
+        <Band.Slot size="sm">
+          <VendorsList />
+        </Band.Slot>
       </Band>
 
       <Band size="md" variant="background" color={Colors.isabelline} padding="xl">

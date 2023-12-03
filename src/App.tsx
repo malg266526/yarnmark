@@ -1,5 +1,4 @@
 import {
-  faCartShopping,
   faEnvelope,
   faGraduationCap,
   faInfoCircle,
@@ -10,19 +9,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
-import { Curtain, Header, Footer, Root } from './App.styled';
+import { Curtain, Footer, Header, Root } from './App.styled';
 import { BurgerMenu } from './components/BurgerMenu';
 import { SideBar } from './components/SideBar';
+import { AboutUsPage } from './pages/AboutUsPage';
 import { ContactPage } from './pages/ContactPage';
+import { HallPage } from './pages/HallPage';
 import { InfoForVendorsPage } from './pages/InfoForVendorsPage';
 import { MainPage } from './pages/MainPage';
-import { VendorsPage } from './pages/VendorsPage';
 import { VipTicketsPage } from './pages/VipTicketsPage';
+import { WorkshopsPage } from './pages/WorkshopsPage';
 import { usePhone } from './pages/usePhone';
 import { useTypedTranslation } from './translations/useTypedTranslation';
-import { WorkshopsPage } from './pages/WorkshopsPage';
-import { AboutUsPage } from './pages/AboutUsPage';
-import { HallPage } from './pages/HallPage';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -53,11 +51,6 @@ export const App = () => {
           <Header>
             <>
               <SideBar roundedCorners="left" className={burgerActive ? 'visible' : undefined}>
-                <SideBar.LinkEntry onClick={closeSideBar} href="/vendors">
-                  <FontAwesomeIcon icon={faCartShopping} size="lg" />
-                  {t('menu.vendors')}
-                </SideBar.LinkEntry>
-
                 <SideBar.LinkEntry onClick={closeSideBar} href="/info-for-vendors">
                   <FontAwesomeIcon icon={faInfoCircle} size="lg" />
                   {t('menu.infoForVendors')}
@@ -91,7 +84,6 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<MainPage />} />
-          <Route path="/vendors" element={<VendorsPage />} />
           <Route path="/info-for-vendors" element={<InfoForVendorsPage />} />
           <Route path="/workshops" element={<WorkshopsPage />} />
           <Route path="/vip-tickets" element={<VipTicketsPage />} />
