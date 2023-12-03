@@ -2,13 +2,16 @@ import React, { useRef } from 'react';
 import { PageContent } from '../components/PageContent';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
+import bigPretzelImageUrl from '../assets/iconify/bigpretzel.svg';
+import bigShopImageUrl from '../assets/iconify/bigshop.svg';
+import burgerImageUrl from '../assets/iconify/burger.svg';
+import ferryImageUrl from '../assets/iconify/ferry.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
 import pizzaImageUrl from '../assets/iconify/pizza.svg';
 import shopImageUrl from '../assets/iconify/shop.svg';
+import shrimpImageUrl from '../assets/iconify/shrimp.svg';
+import soupImageUrl from '../assets/iconify/soup.svg';
 import ticketImageUrl from '../assets/iconify/ticket.svg';
-import ferryImageUrl from '../assets/iconify/ferry.svg';
-import bigPretzelImageUrl from '../assets/iconify/bigpretzel.svg';
-import bigShopImageUrl from '../assets/iconify/bigshop.svg';
 
 import knitting2ImageUrl from '../assets/knitting2.svg';
 import pinImageUrl from '../assets/pin.svg';
@@ -26,6 +29,7 @@ import { NiceBox } from '../components/NiceBox';
 import { PhotoFrame } from '../components/PhotoBox';
 import { usePhone } from './usePhone';
 
+import { VendorsList } from '../components/VendorsList';
 import { Colors } from '../styles/theme';
 import {
   AnimatedIconWrapper,
@@ -40,13 +44,16 @@ import {
   TouristBackground,
   WhiteStuff
 } from './MainPage.styled';
-import { VendorsList } from '../components/VendorsList';
 
 export const MainPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
 
   const vendorsBandRef = useRef<HTMLDivElement | null>(null);
+  const spotBandRef = useRef<HTMLDivElement | null>(null);
+  const workshopsBandRef = useRef<HTMLDivElement | null>(null);
+  const vipTicketsBandRef = useRef<HTMLDivElement | null>(null);
+  const foodBandRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <PageContent variant="wide" padding="none">
@@ -66,10 +73,18 @@ export const MainPage = () => {
           <Link color="black" href="/info-for-vendors">
             {t('menu.infoForVendors')}
           </Link>
-          <Link color="black" href="/workshops">
+          <Link
+            color="black"
+            anchorProps={{
+              onClick: () => workshopsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
+            }}>
             {t('menu.workshops')}
           </Link>
-          <Link color="black" href="/vip-tickets">
+          <Link
+            color="black"
+            anchorProps={{
+              onClick: () => vipTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
+            }}>
             {t('menu.vipTickets')}
           </Link>
           <Link color="black" href="/contact">
@@ -123,14 +138,23 @@ export const MainPage = () => {
             <FunnyButton
               icon={<Icon size="xl" src={pinBlackImageUrl} />}
               text="Zobacz gdzie jesteśmy i jak tam dojechać"
+              onClick={() => spotBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
             />
-            <FunnyButton icon={<Icon size="xl" src={pizzaImageUrl} />} text="Zobacz co zjesz w okolicy" />
-            <FunnyButton icon={<Icon size="xl" src={ferryImageUrl} />} text="Sprawdź nasz VIP pakiet" />
+            <FunnyButton
+              icon={<Icon size="xl" src={pizzaImageUrl} />}
+              text="Zobacz co zjesz w okolicy"
+              onClick={() => foodBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
+            />
+            <FunnyButton
+              icon={<Icon size="xl" src={ferryImageUrl} />}
+              text="Sprawdź nasz VIP pakiet"
+              onClick={() => vipTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
+            />
           </ButtonsLayout>
         </SectionWrapper>
       </Band>
 
-      <Band size="xl" variant="background-image" src={stadionImageSrc}>
+      <Band ref={spotBandRef} size="xl" variant="background-image" src={stadionImageSrc}>
         <Band.Slot size="sm" float="left">
           <NiceBox width="500px" height="440px" padding="lg">
             <Title>Jak do nas dojechać?</Title>
@@ -173,11 +197,12 @@ export const MainPage = () => {
         <BackgroundImage src={bigShopImageUrl} />
 
         <Band.Slot size="sm">
+          <Title>Wystawcy</Title>
           <VendorsList />
         </Band.Slot>
       </Band>
 
-      <Band size="md" variant="background" color={Colors.isabelline} padding="xl">
+      <Band ref={workshopsBandRef} size="md" variant="background" color={Colors.isabelline} padding="xl">
         <Band.Slot size="sm">
           <PhotosLayout>
             <PhotoFrame
@@ -213,31 +238,57 @@ export const MainPage = () => {
         </Band.Slot>
       </Band>
 
-      <Band size="md" variant="background" color={Colors.snow} padding="xl" narrowContent>
+      <Band ref={foodBandRef} size="md" variant="background" color={Colors.snow} padding="xl" narrowContent>
         <BackgroundImage src={bigPretzelImageUrl} />
 
-        <Band.Slot float="left" size="sm">
-          <NiceBox overflowSize="10px" width="500px" padding="lg">
-            <Title>Gdzie zjeść?</Title>
-            <Text>
-              150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów
-              (https://www.instagram.com/bezogrodek/?hl=pl).
-            </Text>
-            <Text>
-              Przy Błoniach znajduje się również kilka restauracji, najbliżej Pino Garden
-              (https://pinogarden.pl/kategoria/karta-menu/) czy Gospoda na Piastowskiej
-              (https://gospodapiastowska.pl/menu/) dla miłośników kuchni polskiej.
-            </Text>
-            <Text>
-              Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka, a na hali wypić pyszną kawkę od
-              Tarasa z Knitted Coffee
-            </Text>
-            <Text>Smacznego!</Text>
-          </NiceBox>
-        </Band.Slot>
+        <SectionWrapper>
+          <InfoSection>
+            <InfoSection.Title>Gdzie zjeść?</InfoSection.Title>
+            <InfoSection.Text>
+              Przy Błoniach znajduje się kilka restauracji. Ze swojej stony możemy zasugerować:
+            </InfoSection.Text>
+          </InfoSection>
+
+          <ButtonsLayout>
+            <a href="https://www.instagram.com/bezogrodek/?hl=pl">
+              <FunnyButton
+                icon={<Icon size="xl" src={burgerImageUrl} />}
+                text="150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów"
+              />
+            </a>
+
+            <a href="https://pinogarden.pl/kategoria/karta-menu">
+              <FunnyButton
+                icon={<Icon size="xl" src={shrimpImageUrl} />}
+                text="Fani włoskiej kuchni i owoców morza naprzeciwko hali znajdą Pino Garden"
+              />
+            </a>
+
+            <a href="https://gospodapiastowska.pl/menu/">
+              <FunnyButton
+                icon={<Icon size="xl" src={soupImageUrl} />}
+                text="Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej"
+              />
+            </a>
+          </ButtonsLayout>
+          {/*             <FunnyButton
+              icon={<Icon size="xl" src={pretzelImageUrl} />}
+              text="Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka"
+            />
+
+            <FunnyButton
+              icon={<Icon size="xl" src={coffeeImageUrl} />}
+              text="Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee"
+            /> */}
+
+          <InfoSection.Text>
+            Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka, a w środu wypić pyszną kawę od
+            Tarasa z Knitted Coffee
+          </InfoSection.Text>
+        </SectionWrapper>
       </Band>
 
-      <Band variant="background" size="md" color={Colors.pastelGray} padding="xl" narrowContent>
+      <Band ref={vipTicketsBandRef} variant="background" size="md" color={Colors.pastelGray} padding="xl" narrowContent>
         <Title>Bilety VIP</Title>
 
         <Band.Slot float="left" size="sm">
