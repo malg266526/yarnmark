@@ -88,10 +88,11 @@ const KnittingIconWrapper = styled.div`
 export interface FunnyButtonProps {
   icon: React.ReactNode;
   text?: React.ReactNode;
+  onClick?: () => void;
 }
 
-export const FunnyButton = ({ icon, text }: FunnyButtonProps) => (
-  <Root>
+export const FunnyButton = ({ icon, text, onClick }: FunnyButtonProps) => (
+  <Root onClick={onClick}>
     <IconWrapper2>
       <IconWrapper>{icon}</IconWrapper>
     </IconWrapper2>

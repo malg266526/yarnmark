@@ -58,7 +58,7 @@ const StyledLink = styled.a<{ color?: string }>`
 
 export interface LinkProps {
   children?: ReactNode;
-  href: string;
+  href?: string;
   target?: string;
   rel?: string;
   className?: string;
@@ -76,7 +76,7 @@ export const Link = ({ children, href, target, rel, className, color, anchorProp
       color={color}
       href={href}
       onClick={(event: React.MouseEvent) => {
-        if (target !== EXTERNAL_TARGET) {
+        if (target !== EXTERNAL_TARGET && href) {
           event.preventDefault();
           navigate(href);
         }

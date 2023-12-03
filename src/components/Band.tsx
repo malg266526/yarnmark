@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { Theme } from '../styles/theme';
-import React from 'react';
+import React, { ForwardedRef, forwardRef } from 'react';
 
 export type BandProps = InnerWrapperProps & {
   size: 'xl' | 'md';
@@ -127,15 +127,18 @@ const TitleWrapper = styled.div`
 `;
 
 export const Band = Object.assign(
-  ({ children, title, ...props }: BandProps) => (
-    <BandRoot {...props}>
+  // eslint-disable-next-line react/display-name
+  forwardRef(({ children, title, ...props }: BandProps, ref: ForwardedRef<HTMLDivElement>) => (
+    <BandRoot ref={ref} {...props}>
       <InnerWrapper {...props}>
         <TitleWrapper>{title}</TitleWrapper>
         <BandLayout>{children}</BandLayout>
       </InnerWrapper>
     </BandRoot>
-  ),
+  )),
   {
     Slot
   }
 );
+
+Band.displayName = 'Band';
