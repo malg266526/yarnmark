@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import { PageContent } from '../components/PageContent';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
-import bigPretzelImageUrl from '../assets/iconify/bigpretzel.svg';
 import bigShopImageUrl from '../assets/iconify/bigshop.svg';
 import burgerImageUrl from '../assets/iconify/burger.svg';
 import coffeeImageUrl from '../assets/iconify/coffee.svg';
@@ -31,6 +30,8 @@ import { NiceBox } from '../components/NiceBox';
 import { PhotoFrame } from '../components/PhotoBox';
 import { usePhone } from './usePhone';
 
+import { FlexColumnLayout } from '../components/FlexColumnLayout';
+import { ImageButton, ShowOnClickLayout } from '../components/ShowOnClickLayout';
 import { VendorsList } from '../components/VendorsList';
 import { Colors } from '../styles/theme';
 import {
@@ -46,7 +47,6 @@ import {
   TouristBackground,
   WhiteStuff
 } from './MainPage.styled';
-import { ImageButton, ShowOnClickLayout } from '../components/ImageButton';
 
 export const MainPage = () => {
   const t = useTypedTranslation();
@@ -236,64 +236,77 @@ export const MainPage = () => {
           </NiceBox>
         </Band.Slot>
       </Band>
-      <Band ref={foodBandRef} size="md" variant="background" color={Colors.beige1} padding="xl">
+
+      <Band ref={foodBandRef} size="md" variant="background" color={Colors.pastelGray} padding="xl">
+        <Title>Gdzie zjeść?</Title>
         <ShowOnClickLayout>
           <ImageButton
             icon={<Icon size="xl" src={burgerImageUrl} />}
             photo={wawelImageSrc}
             text={
-              '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów'
+              <FlexColumnLayout gap="sm" padding="none">
+                150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów
+                <a href="https://www.instagram.com/bezogrodek/?hl=pl" target="_blank" rel="noreferrer">
+                  Zobacz tutaj
+                </a>
+              </FlexColumnLayout>
             }>
             Food Truck Park Bezogródek
           </ImageButton>
 
-          <ImageButton icon={<Icon size="xl" src={shrimpImageUrl} />} photo={wawelImageSrc}>
+          <ImageButton
+            icon={<Icon size="xl" src={shrimpImageUrl} />}
+            photo={wawelImageSrc}
+            text={
+              <FlexColumnLayout gap="sm" padding="none">
+                Fani włoskiej kuchni i owoców morza naprzeciwko hali znajdą Pino Garden
+                <a href="https://pinogarden.pl/kategoria/karta-menu" target="_blank" rel="noreferrer">
+                  Zobacz menu tutaj
+                </a>
+              </FlexColumnLayout>
+            }>
             Pino Garden
           </ImageButton>
 
-          <ImageButton icon={<Icon size="xl" src={soupImageUrl} />} photo={wawelImageSrc}>
+          <ImageButton
+            icon={<Icon size="xl" src={soupImageUrl} />}
+            photo={wawelImageSrc}
+            text={
+              <FlexColumnLayout gap="sm" padding="none">
+                Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej
+                <a href="https://gospodapiastowska.pl/menu/" target="_blank" rel="noreferrer">
+                  Zobacz menu tutaj
+                </a>
+              </FlexColumnLayout>
+            }>
             Gospoda na Piastowskiej
           </ImageButton>
 
-          <ImageButton icon={<Icon size="xl" src={pretzelImageUrl} />} photo={wawelImageSrc}>
+          <ImageButton
+            icon={<Icon size="xl" src={pretzelImageUrl} />}
+            photo={wawelImageSrc}
+            text={
+              <FlexColumnLayout gap="sm" padding="none">
+                Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka
+              </FlexColumnLayout>
+            }>
             Krakowskie obwarzanki
           </ImageButton>
 
-          <ImageButton icon={<Icon size="xl" src={coffeeImageUrl} />} photo={wawelImageSrc}>
+          <ImageButton
+            icon={<Icon size="xl" src={coffeeImageUrl} />}
+            photo={wawelImageSrc}
+            text={
+              <FlexColumnLayout gap="sm" padding="none">
+                Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee
+              </FlexColumnLayout>
+            }>
             Knitted Coffee
           </ImageButton>
         </ShowOnClickLayout>
       </Band>
-      {/* <a href="https://www.instagram.com/bezogrodek/?hl=pl">
-              <FunnyButton
-                icon={<Icon size="xl" src={burgerImageUrl} />}
-                text="150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów"
-              />
-            </a> */}
-      {/*             <a href="https://pinogarden.pl/kategoria/karta-menu">
-              <FunnyButton
-                icon={<Icon size="xl" src={shrimpImageUrl} />}
-                text="Fani włoskiej kuchni i owoców morza naprzeciwko hali znajdą Pino Garden"
-              />
-            </a>
- */}
-      {/*             <a href="https://gospodapiastowska.pl/menu/">
-              <FunnyButton
-                icon={<Icon size="xl" src={soupImageUrl} />}
-                text="Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej"
-              />
-            </a> */}
-      {/*             <FunnyButton
-              icon={<Icon size="xl" src={pretzelImageUrl} />}
-              text="Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka"
-            />
 
-            <FunnyButton
-              icon={<Icon size="xl" src={coffeeImageUrl} />}
-              text="Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee"
-            /> */}
-
-      <Band ref={vipTicketsBandRef} variant="background" size="md" color={Colors.pastelGray} padding="xl" narrowContent>
+      <Band ref={vipTicketsBandRef} variant="background" size="md" color={Colors.snow} padding="xl" narrowContent>
         <Title>Bilety VIP</Title>
 
         <Band.Slot float="left" size="sm">

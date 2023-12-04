@@ -33,6 +33,7 @@ export const Grid = styled.div`
   align-items: center;
   justify-content: center;
   gap: ${Spacings.sm};
+  padding: ${Spacings.md};
 `;
 
 export const VendorsList = () => {

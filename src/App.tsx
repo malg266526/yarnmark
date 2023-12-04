@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
-import { Curtain, Footer, Header, Root } from './App.styled';
+import { Curtain, Header, Root } from './App.styled';
 import { BurgerMenu } from './components/BurgerMenu';
 import { SideBar } from './components/SideBar';
 import { AboutUsPage } from './pages/AboutUsPage';
@@ -91,8 +91,6 @@ export const App = () => {
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/hall" element={<HallPage />} />
         </Routes>
-
-        <Footer />
       </Root>
     </>
   );
