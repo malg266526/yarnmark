@@ -26,6 +26,7 @@ interface InnerWrapperProps {
 }
 
 const InnerWrapper = styled.div<InnerWrapperProps>`
+  flex: 1 1 auto;
   ${({ narrowContent }) =>
     narrowContent &&
     css`
@@ -40,9 +41,13 @@ const InnerWrapper = styled.div<InnerWrapperProps>`
     `};
 `;
 
-const Slot = styled.div<{ size: 'xl' | 'sm'; float?: 'left' | 'right' }>`
+const Slot = styled.div<{ size?: 'xl' | 'sm'; float?: 'left' | 'right' }>`
   position: relative;
-  width: ${({ size }) => (size === 'xl' ? '70%' : '30%')};
+  ${({ size }) =>
+    size &&
+    css`
+      width: ${size === 'xl' ? '70%' : '30%'};
+    `};
 
   display: flex;
   flex-direction: column;
