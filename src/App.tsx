@@ -1,10 +1,4 @@
-import {
-  faEnvelope,
-  faGraduationCap,
-  faInfoCircle,
-  faPersonDress,
-  faSailboat
-} from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faGraduationCap, faInfoCircle, faSailboat } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -12,13 +6,10 @@ import { createGlobalStyle } from 'styled-components';
 import { Curtain, Header, Root } from './App.styled';
 import { BurgerMenu } from './components/BurgerMenu';
 import { SideBar } from './components/SideBar';
-import { AboutUsPage } from './pages/AboutUsPage';
 import { ContactPage } from './pages/ContactPage';
 import { HallPage } from './pages/HallPage';
 import { InfoForVendorsPage } from './pages/InfoForVendorsPage';
 import { MainPage } from './pages/MainPage';
-import { VipTicketsPage } from './pages/VipTicketsPage';
-import { WorkshopsPage } from './pages/WorkshopsPage';
 import { usePhone } from './pages/usePhone';
 import { useTypedTranslation } from './translations/useTypedTranslation';
 
@@ -70,11 +61,6 @@ export const App = () => {
                   <FontAwesomeIcon icon={faEnvelope} size="lg" />
                   {t('menu.contact')}
                 </SideBar.LinkEntry>
-
-                <SideBar.LinkEntry onClick={closeSideBar} href="/about-us">
-                  <FontAwesomeIcon icon={faPersonDress} size="lg" />
-                  {t('menu.aboutUs')}
-                </SideBar.LinkEntry>
               </SideBar>
               <BurgerMenu onClick={() => setBurgerActive((prevValue) => !prevValue)} active={burgerActive} />
             </>
@@ -85,10 +71,7 @@ export const App = () => {
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<MainPage />} />
           <Route path="/info-for-vendors" element={<InfoForVendorsPage />} />
-          <Route path="/workshops" element={<WorkshopsPage />} />
-          <Route path="/vip-tickets" element={<VipTicketsPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/hall" element={<HallPage />} />
         </Routes>
       </Root>

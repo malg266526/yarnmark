@@ -13,6 +13,7 @@ import shopImageUrl from '../assets/iconify/shop.svg';
 import shrimpImageUrl from '../assets/iconify/shrimp.svg';
 import soupImageUrl from '../assets/iconify/soup.svg';
 import ticketImageUrl from '../assets/iconify/ticket.svg';
+import talkImageUrl from '../assets/iconify/talk.svg';
 
 import knitting2ImageUrl from '../assets/knitting2.svg';
 import pinImageUrl from '../assets/pin.svg';
@@ -30,7 +31,11 @@ import { NiceBox } from '../components/NiceBox';
 import { PhotoFrame } from '../components/PhotoBox';
 import { usePhone } from './usePhone';
 
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
+import { RowLayout } from '../components/RowLayout';
 import { ImageButton, ShowOnClickLayout } from '../components/ShowOnClickLayout';
 import { VendorsList } from '../components/VendorsList';
 import { Colors } from '../styles/theme';
@@ -41,12 +46,13 @@ import {
   Image,
   Menu,
   PhotosLayout,
+  RightBackgroundImage,
   SectionWrapper,
   Text,
   Title,
-  TouristBackground,
   WhiteStuff
 } from './MainPage.styled';
+import { MinimalistLayout } from '../components/MinimalistLayout';
 
 export const MainPage = () => {
   const t = useTypedTranslation();
@@ -57,6 +63,7 @@ export const MainPage = () => {
   const workshopsBandRef = useRef<HTMLDivElement | null>(null);
   const vipTicketsBandRef = useRef<HTMLDivElement | null>(null);
   const foodBandRef = useRef<HTMLDivElement | null>(null);
+  const contactBandRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <PageContent variant="wide" padding="none">
@@ -90,14 +97,16 @@ export const MainPage = () => {
             }}>
             {t('menu.vipTickets')}
           </Link>
-          <Link color="black" href="/contact">
+          <Link
+            color="black"
+            anchorProps={{
+              onClick: () => contactBandRef.current?.scrollIntoView({ behavior: 'smooth' })
+            }}>
             {t('menu.contact')}
-          </Link>
-          <Link color="black" href="/about-us">
-            {t('menu.aboutUs')}
           </Link>
         </Menu>
       )}
+
       <Band size="xl" narrowContent justify="end">
         <Image src={yarn2ImageUrl} />
         <Band.Slot float="left" size="sm">
@@ -114,6 +123,7 @@ export const MainPage = () => {
           </NiceBox>
         </Band.Slot>
       </Band>
+
       <Band size="md" variant="background" color={Colors.pastelGray} padding="xl" narrowContent>
         <BackgroundImage src={knitting2ImageUrl} />
 
@@ -154,6 +164,7 @@ export const MainPage = () => {
           </ButtonsLayout>
         </SectionWrapper>
       </Band>
+
       <Band ref={spotBandRef} size="xl" variant="background-image" src={stadionImageSrc}>
         <Band.Slot size="sm">
           <NiceBox width="500px" height="440px" padding="lg">
@@ -192,6 +203,7 @@ export const MainPage = () => {
           </NiceBox>
         </Band.Slot>
       </Band>
+
       <Band ref={vendorsBandRef} size="md" variant="background" color={Colors.snow} padding="xl">
         <BackgroundImage src={bigShopImageUrl} />
 
@@ -327,21 +339,32 @@ export const MainPage = () => {
           </NiceBox>
         </Band.Slot>
       </Band>
-      <Band size="md">
-        <TouristBackground />
 
-        <Band.Slot size="sm">
-          <PhotosLayout>
-            <PhotoFrame variant="no-slot" size="200px" src={wawelImageSrc} />
-          </PhotosLayout>
-        </Band.Slot>
+      <Band ref={contactBandRef} size="md" variant="background" color={Colors.isabelline}>
+        <MinimalistLayout>
+          <Title>Kontakt</Title>
 
-        <Band.Slot size="xl">
-          <NiceBox width="500px" height="200px" padding="lg">
-            <Title>Zwiedzanie Krakowa</Title>
-            Wizyta w Krakowie to rowniez okazja do
-          </NiceBox>
-        </Band.Slot>
+          <RowLayout>
+            <FontAwesomeIcon icon={faEnvelope} size="3x" />
+            krakoski.yarnmark.welny@gmail.com
+          </RowLayout>
+
+          <a href="https://www.instagram.com/dziergamynapolu/" target="_blank" rel="noreferrer">
+            <RowLayout>
+              <FontAwesomeIcon icon={faInstagram} size="3x" />
+              @dziergamynapolu
+            </RowLayout>
+          </a>
+
+          <a href="https://www.instagram.com/wloczykijki_sklep/" target="_blank" rel="noreferrer">
+            <RowLayout>
+              <FontAwesomeIcon icon={faInstagram} size="3x" />
+              @wloczykijki_sklep
+            </RowLayout>
+          </a>
+
+          <RightBackgroundImage src={talkImageUrl} />
+        </MinimalistLayout>
       </Band>
     </PageContent>
   );

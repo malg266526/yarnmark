@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
-import { Spacings } from '../styles/spacings';
-import touristImageUrl from '../assets/tourist.svg';
 import { Icon } from '../components/Icon';
+import { Spacings } from '../styles/spacings';
 
 export const Text = styled.div`
   margin-top: ${Spacings.md};
@@ -57,7 +56,18 @@ export const BackgroundImage = styled.img<{ src: string }>`
   padding: ${Spacings.xl};
 `;
 
-export const TouristBackground = styled.div`
+export const RightBackgroundImage = styled.img<{ src: string }>`
+  position: absolute;
+  right: 0;
+  top: 0;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  opacity: 0.2;
+  padding: ${Spacings.xl};
+`;
+
+/* export const TouristBackground = styled.div`
   position: absolute;
   top: 0;
   right: 0;
@@ -66,7 +76,7 @@ export const TouristBackground = styled.div`
   background: url(${touristImageUrl}) no-repeat center;
   background-size: 400px;
   background-position: 20%;
-`;
+`; */
 
 export const PhotosLayout = styled.div`
   display: grid;
