@@ -25,7 +25,7 @@ const TextWrapper = styled.div`
   transform: scale(0.5) ${wrapperTranslation};
 `;
 
-const IconWrapper = styled.div`
+export const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,7 +34,7 @@ const IconWrapper = styled.div`
   border-radius: 50%;
 `;
 
-const IconWrapper2 = styled.div`
+export const IconWrapper2 = styled.div`
   padding: ${Spacings.sm};
   border-radius: 50%;
   box-shadow: none;

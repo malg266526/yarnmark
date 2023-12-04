@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { Spacings } from '../styles/spacings';
 
-const Image = styled.img`
+export const Image = styled.img`
   width: 100%;
   max-width: 100%;
   height: 100%;

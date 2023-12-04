@@ -5,9 +5,11 @@ import { useTypedTranslation } from '../translations/useTypedTranslation';
 import bigPretzelImageUrl from '../assets/iconify/bigpretzel.svg';
 import bigShopImageUrl from '../assets/iconify/bigshop.svg';
 import burgerImageUrl from '../assets/iconify/burger.svg';
+import coffeeImageUrl from '../assets/iconify/coffee.svg';
 import ferryImageUrl from '../assets/iconify/ferry.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
 import pizzaImageUrl from '../assets/iconify/pizza.svg';
+import pretzelImageUrl from '../assets/iconify/pretzel.svg';
 import shopImageUrl from '../assets/iconify/shop.svg';
 import shrimpImageUrl from '../assets/iconify/shrimp.svg';
 import soupImageUrl from '../assets/iconify/soup.svg';
@@ -44,6 +46,7 @@ import {
   TouristBackground,
   WhiteStuff
 } from './MainPage.styled';
+import { ImageButton, ShowOnClickLayout } from '../components/ImageButton';
 
 export const MainPage = () => {
   const t = useTypedTranslation();
@@ -95,7 +98,6 @@ export const MainPage = () => {
           </Link>
         </Menu>
       )}
-
       <Band size="xl" narrowContent justify="end">
         <Image src={yarn2ImageUrl} />
         <Band.Slot float="left" size="sm">
@@ -112,7 +114,6 @@ export const MainPage = () => {
           </NiceBox>
         </Band.Slot>
       </Band>
-
       <Band size="md" variant="background" color={Colors.pastelGray} padding="xl" narrowContent>
         <BackgroundImage src={knitting2ImageUrl} />
 
@@ -153,9 +154,8 @@ export const MainPage = () => {
           </ButtonsLayout>
         </SectionWrapper>
       </Band>
-
       <Band ref={spotBandRef} size="xl" variant="background-image" src={stadionImageSrc}>
-        <Band.Slot size="sm" float="left">
+        <Band.Slot size="sm">
           <NiceBox width="500px" height="440px" padding="lg">
             <Title>Jak do nas dojechać?</Title>
             <Text>Hala znajduje się przy przystanku "Cracovia Stadion". Z dworca głównego najprościej dojechać:</Text>
@@ -170,7 +170,7 @@ export const MainPage = () => {
           </NiceBox>
         </Band.Slot>
 
-        <Band.Slot size="xl">
+        <Band.Slot>
           <a href="https://www.google.pl/maps/place/Hala+100-lecia+KS+Cracovia+wraz+z+Centrum+Sportu+Niepe%C5%82nosprawnych/@50.0570694,19.9078517,17z/data=!3m1!4b1!4m6!3m5!1s0x47165bdbabf291a1:0x3a0607d5947b7ef2!8m2!3d50.0570694!4d19.9104266!16s%2Fg%2F11f5t43046?entry=ttu">
             <AnimatedIconWrapper>
               <Icon size="200px" src={pinImageUrl} dropShadow />
@@ -184,7 +184,7 @@ export const MainPage = () => {
           </MapIconWrapper> */}
         </Band.Slot>
 
-        <Band.Slot size="sm" float="right">
+        <Band.Slot size="sm">
           <NiceBox width="500px" height="200px" padding="lg">
             <Title>Gdzie?</Title>
             <Text>Hala 100-lecia KS Cracovia wraz z Centrum Sportu Niepełnosprawnych</Text>
@@ -192,7 +192,6 @@ export const MainPage = () => {
           </NiceBox>
         </Band.Slot>
       </Band>
-
       <Band ref={vendorsBandRef} size="md" variant="background" color={Colors.snow} padding="xl">
         <BackgroundImage src={bigShopImageUrl} />
 
@@ -203,7 +202,7 @@ export const MainPage = () => {
       </Band>
 
       <Band ref={workshopsBandRef} size="md" variant="background" color={Colors.isabelline} padding="xl">
-        <Band.Slot size="sm">
+        <Band.Slot>
           <PhotosLayout>
             <PhotoFrame
               variant="slot"
@@ -225,7 +224,7 @@ export const MainPage = () => {
           </PhotosLayout>
         </Band.Slot>
 
-        <Band.Slot size="xl" float="right">
+        <Band.Slot>
           <NiceBox width="500px" padding="lg">
             <Title>Warsztaty</Title>
             <Text>Yarnmark bawi, Yarnmark uczy</Text>
@@ -237,41 +236,54 @@ export const MainPage = () => {
           </NiceBox>
         </Band.Slot>
       </Band>
+      <Band ref={foodBandRef} size="md" variant="background" color={Colors.beige1} padding="xl">
+        <ShowOnClickLayout>
+          <ImageButton
+            icon={<Icon size="xl" src={burgerImageUrl} />}
+            photo={wawelImageSrc}
+            text={
+              '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów'
+            }>
+            Food Truck Park Bezogródek
+          </ImageButton>
 
-      <Band ref={foodBandRef} size="md" variant="background" color={Colors.snow} padding="xl" narrowContent>
-        <BackgroundImage src={bigPretzelImageUrl} />
+          <ImageButton icon={<Icon size="xl" src={shrimpImageUrl} />} photo={wawelImageSrc}>
+            Pino Garden
+          </ImageButton>
 
-        <SectionWrapper>
-          <InfoSection>
-            <InfoSection.Title>Gdzie zjeść?</InfoSection.Title>
-            <InfoSection.Text>
-              Przy Błoniach znajduje się kilka restauracji. Ze swojej stony możemy zasugerować:
-            </InfoSection.Text>
-          </InfoSection>
+          <ImageButton icon={<Icon size="xl" src={soupImageUrl} />} photo={wawelImageSrc}>
+            Gospoda na Piastowskiej
+          </ImageButton>
 
-          <ButtonsLayout>
-            <a href="https://www.instagram.com/bezogrodek/?hl=pl">
+          <ImageButton icon={<Icon size="xl" src={pretzelImageUrl} />} photo={wawelImageSrc}>
+            Krakowskie obwarzanki
+          </ImageButton>
+
+          <ImageButton icon={<Icon size="xl" src={coffeeImageUrl} />} photo={wawelImageSrc}>
+            Knitted Coffee
+          </ImageButton>
+        </ShowOnClickLayout>
+      </Band>
+      {/* <a href="https://www.instagram.com/bezogrodek/?hl=pl">
               <FunnyButton
                 icon={<Icon size="xl" src={burgerImageUrl} />}
                 text="150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów"
               />
-            </a>
-
-            <a href="https://pinogarden.pl/kategoria/karta-menu">
+            </a> */}
+      {/*             <a href="https://pinogarden.pl/kategoria/karta-menu">
               <FunnyButton
                 icon={<Icon size="xl" src={shrimpImageUrl} />}
                 text="Fani włoskiej kuchni i owoców morza naprzeciwko hali znajdą Pino Garden"
               />
             </a>
-
-            <a href="https://gospodapiastowska.pl/menu/">
+ */}
+      {/*             <a href="https://gospodapiastowska.pl/menu/">
               <FunnyButton
                 icon={<Icon size="xl" src={soupImageUrl} />}
                 text="Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej"
               />
-            </a>
-          </ButtonsLayout>
-          {/*             <FunnyButton
+            </a> */}
+      {/*             <FunnyButton
               icon={<Icon size="xl" src={pretzelImageUrl} />}
               text="Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka"
             />
@@ -280,13 +292,6 @@ export const MainPage = () => {
               icon={<Icon size="xl" src={coffeeImageUrl} />}
               text="Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee"
             /> */}
-
-          <InfoSection.Text>
-            Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka, a w środu wypić pyszną kawę od
-            Tarasa z Knitted Coffee
-          </InfoSection.Text>
-        </SectionWrapper>
-      </Band>
 
       <Band ref={vipTicketsBandRef} variant="background" size="md" color={Colors.pastelGray} padding="xl" narrowContent>
         <Title>Bilety VIP</Title>
@@ -309,7 +314,6 @@ export const MainPage = () => {
           </NiceBox>
         </Band.Slot>
       </Band>
-
       <Band size="md">
         <TouristBackground />
 
