@@ -5,15 +5,17 @@ import { useTypedTranslation } from '../translations/useTypedTranslation';
 import bigShopImageUrl from '../assets/iconify/bigshop.svg';
 import burgerImageUrl from '../assets/iconify/burger.svg';
 import coffeeImageUrl from '../assets/iconify/coffee.svg';
+import emailImageUrl from '../assets/iconify/email.svg';
 import ferryImageUrl from '../assets/iconify/ferry.svg';
+import instagramImageUrl from '../assets/iconify/instagram.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
 import pizzaImageUrl from '../assets/iconify/pizza.svg';
 import pretzelImageUrl from '../assets/iconify/pretzel.svg';
 import shopImageUrl from '../assets/iconify/shop.svg';
 import shrimpImageUrl from '../assets/iconify/shrimp.svg';
 import soupImageUrl from '../assets/iconify/soup.svg';
-import ticketImageUrl from '../assets/iconify/ticket.svg';
 import talkImageUrl from '../assets/iconify/talk.svg';
+import ticketImageUrl from '../assets/iconify/ticket.svg';
 
 import knitting2ImageUrl from '../assets/knitting2.svg';
 import pinImageUrl from '../assets/pin.svg';
@@ -31,10 +33,8 @@ import { NiceBox } from '../components/NiceBox';
 import { PhotoFrame } from '../components/PhotoBox';
 import { usePhone } from './usePhone';
 
-import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
+import { MinimalistLayout } from '../components/MinimalistLayout';
 import { RowLayout } from '../components/RowLayout';
 import { ImageButton, ShowOnClickLayout } from '../components/ShowOnClickLayout';
 import { VendorsList } from '../components/VendorsList';
@@ -52,7 +52,6 @@ import {
   Title,
   WhiteStuff
 } from './MainPage.styled';
-import { MinimalistLayout } from '../components/MinimalistLayout';
 
 export const MainPage = () => {
   const t = useTypedTranslation();
@@ -345,20 +344,20 @@ export const MainPage = () => {
           <Title>Kontakt</Title>
 
           <RowLayout>
-            <FontAwesomeIcon icon={faEnvelope} size="3x" />
+            <Icon size="xl" src={emailImageUrl} />
             krakoski.yarnmark.welny@gmail.com
           </RowLayout>
 
           <a href="https://www.instagram.com/dziergamynapolu/" target="_blank" rel="noreferrer">
             <RowLayout>
-              <FontAwesomeIcon icon={faInstagram} size="3x" />
+              <Icon size="xl" src={instagramImageUrl} />
               @dziergamynapolu
             </RowLayout>
           </a>
 
           <a href="https://www.instagram.com/wloczykijki_sklep/" target="_blank" rel="noreferrer">
             <RowLayout>
-              <FontAwesomeIcon icon={faInstagram} size="3x" />
+              <Icon size="xl" src={instagramImageUrl} />
               @wloczykijki_sklep
             </RowLayout>
           </a>
