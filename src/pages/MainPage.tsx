@@ -5,13 +5,16 @@ import { useTypedTranslation } from '../translations/useTypedTranslation';
 import bigShopImageUrl from '../assets/iconify/bigshop.svg';
 import burgerImageUrl from '../assets/iconify/burger.svg';
 import coffeeImageUrl from '../assets/iconify/coffee.svg';
+import emailImageUrl from '../assets/iconify/email.svg';
 import ferryImageUrl from '../assets/iconify/ferry.svg';
+import instagramImageUrl from '../assets/iconify/instagram.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
 import pizzaImageUrl from '../assets/iconify/pizza.svg';
 import pretzelImageUrl from '../assets/iconify/pretzel.svg';
 import shopImageUrl from '../assets/iconify/shop.svg';
 import shrimpImageUrl from '../assets/iconify/shrimp.svg';
 import soupImageUrl from '../assets/iconify/soup.svg';
+import talkImageUrl from '../assets/iconify/talk.svg';
 import ticketImageUrl from '../assets/iconify/ticket.svg';
 
 import knitting2ImageUrl from '../assets/knitting2.svg';
@@ -31,6 +34,8 @@ import { PhotoFrame } from '../components/PhotoBox';
 import { usePhone } from './usePhone';
 
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
+import { MinimalistLayout } from '../components/MinimalistLayout';
+import { RowLayout } from '../components/RowLayout';
 import { ImageButton, ShowOnClickLayout } from '../components/ShowOnClickLayout';
 import { VendorsList } from '../components/VendorsList';
 import { Colors } from '../styles/theme';
@@ -41,10 +46,10 @@ import {
   Image,
   Menu,
   PhotosLayout,
+  RightBackgroundImage,
   SectionWrapper,
   Text,
   Title,
-  TouristBackground,
   WhiteStuff
 } from './MainPage.styled';
 
@@ -57,6 +62,7 @@ export const MainPage = () => {
   const workshopsBandRef = useRef<HTMLDivElement | null>(null);
   const vipTicketsBandRef = useRef<HTMLDivElement | null>(null);
   const foodBandRef = useRef<HTMLDivElement | null>(null);
+  const contactBandRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <PageContent variant="wide" padding="none">
@@ -90,14 +96,16 @@ export const MainPage = () => {
             }}>
             {t('menu.vipTickets')}
           </Link>
-          <Link color="black" href="/contact">
+          <Link
+            color="black"
+            anchorProps={{
+              onClick: () => contactBandRef.current?.scrollIntoView({ behavior: 'smooth' })
+            }}>
             {t('menu.contact')}
-          </Link>
-          <Link color="black" href="/about-us">
-            {t('menu.aboutUs')}
           </Link>
         </Menu>
       )}
+
       <Band size="xl" narrowContent justify="end">
         <Image src={yarn2ImageUrl} />
         <Band.Slot float="left" size="sm">
@@ -114,6 +122,7 @@ export const MainPage = () => {
           </NiceBox>
         </Band.Slot>
       </Band>
+
       <Band size="md" variant="background" color={Colors.pastelGray} padding="xl" narrowContent>
         <BackgroundImage src={knitting2ImageUrl} />
 
@@ -154,6 +163,7 @@ export const MainPage = () => {
           </ButtonsLayout>
         </SectionWrapper>
       </Band>
+
       <Band ref={spotBandRef} size="xl" variant="background-image" src={stadionImageSrc}>
         <Band.Slot size="sm">
           <NiceBox width="500px" height="440px" padding="lg">
@@ -192,6 +202,7 @@ export const MainPage = () => {
           </NiceBox>
         </Band.Slot>
       </Band>
+
       <Band ref={vendorsBandRef} size="md" variant="background" color={Colors.snow} padding="xl">
         <BackgroundImage src={bigShopImageUrl} />
 
@@ -327,21 +338,32 @@ export const MainPage = () => {
           </NiceBox>
         </Band.Slot>
       </Band>
-      <Band size="md">
-        <TouristBackground />
 
-        <Band.Slot size="sm">
-          <PhotosLayout>
-            <PhotoFrame variant="no-slot" size="200px" src={wawelImageSrc} />
-          </PhotosLayout>
-        </Band.Slot>
+      <Band ref={contactBandRef} size="md" variant="background" color={Colors.isabelline}>
+        <MinimalistLayout>
+          <Title>Kontakt</Title>
 
-        <Band.Slot size="xl">
-          <NiceBox width="500px" height="200px" padding="lg">
-            <Title>Zwiedzanie Krakowa</Title>
-            Wizyta w Krakowie to rowniez okazja do
-          </NiceBox>
-        </Band.Slot>
+          <RowLayout>
+            <Icon size="xl" src={emailImageUrl} />
+            krakoski.yarnmark.welny@gmail.com
+          </RowLayout>
+
+          <a href="https://www.instagram.com/dziergamynapolu/" target="_blank" rel="noreferrer">
+            <RowLayout>
+              <Icon size="xl" src={instagramImageUrl} />
+              @dziergamynapolu
+            </RowLayout>
+          </a>
+
+          <a href="https://www.instagram.com/wloczykijki_sklep/" target="_blank" rel="noreferrer">
+            <RowLayout>
+              <Icon size="xl" src={instagramImageUrl} />
+              @wloczykijki_sklep
+            </RowLayout>
+          </a>
+
+          <RightBackgroundImage src={talkImageUrl} />
+        </MinimalistLayout>
       </Band>
     </PageContent>
   );
