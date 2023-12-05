@@ -6,7 +6,6 @@ import { createGlobalStyle } from 'styled-components';
 import { Curtain, Header, Root } from './App.styled';
 import { BurgerMenu } from './components/BurgerMenu';
 import { SideBar } from './components/SideBar';
-import { ContactPage } from './pages/ContactPage';
 import { HallPage } from './pages/HallPage';
 import { InfoForVendorsPage } from './pages/InfoForVendorsPage';
 import { MainPage } from './pages/MainPage';
@@ -71,7 +70,6 @@ export const App = () => {
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<MainPage />} />
           <Route path="/info-for-vendors" element={<InfoForVendorsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
           <Route path="/hall" element={<HallPage />} />
         </Routes>
       </Root>
