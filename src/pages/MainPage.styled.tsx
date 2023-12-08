@@ -11,6 +11,12 @@ export const Title = styled.div`
   font-weight: 600;
 `;
 
+export const CenteredTitle = styled.div`
+  font-size: 40px;
+  font-weight: 600;
+  align-self: center;
+`;
+
 export const ButtonsLayout = styled.div`
   display: flex;
   gap: ${Spacings.xl};
