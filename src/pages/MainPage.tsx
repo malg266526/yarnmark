@@ -202,7 +202,7 @@ export const MainPage = () => {
         </Band.Slot>
       </Band>
 
-      <Band ref={workshopsBandRef} size="md" variant="background" color={Colors.isabelline} padding="xl">
+      <Band ref={workshopsBandRef} size="md" variant="background" justify='space-around' color={Colors.isabelline} padding="xl">
         <Band.Slot>
           <PhotosLayout>
             <PhotoFrame
@@ -226,7 +226,7 @@ export const MainPage = () => {
         </Band.Slot>
 
         <Band.Slot>
-          <NiceBox width="500px" padding="lg">
+          <NiceBox padding="lg">
             <Title>Warsztaty</Title>
             <Text>Yarnmark bawi, Yarnmark uczy</Text>
             <Text>
