@@ -6,9 +6,13 @@ export const Text = styled.div`
   margin-top: ${Spacings.md};
 `;
 
-export const Title = styled.div`
+export const Title = styled.div<{ align?: 'center' | 'left' | 'center' }>`
   font-size: 40px;
   font-weight: 600;
+
+  ${({ align }) => align && css`
+    text-align: ${align};
+  `}
 `;
 
 export const CenteredTitle = styled.div`

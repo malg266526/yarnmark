@@ -173,11 +173,11 @@ export const MainPage = () => {
 
         <Band.Slot size="sm">
           <NiceBox width="500px" padding="lg">
-            <Title>Gdzie?</Title>
+            <Title align="center" >Gdzie?</Title>
             <Text>Hala 100-lecia KS Cracovia wraz z Centrum Sportu Niepełnosprawnych</Text>
             <Text>Aleja Marszałka Ferdynanda Focha 40</Text>
 
-            <Title>Jak do nas dojechać?</Title>
+            <Title align='center' >Jak do nas dojechać?</Title>
             <Text>Hala znajduje się przy przystanku "Cracovia Stadion". Z dworca głównego najprościej dojechać:</Text>
             <Text>
               - z przystanku <b>Dworzec Główny Tunel</b> (w przejściu pomiędzy dworcem PKP a Galerią Krakowską należy
