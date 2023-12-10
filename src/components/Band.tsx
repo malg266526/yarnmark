@@ -47,11 +47,24 @@ const slotSizeToCss: Record<SlotSize, RuleSet<object>> = {
   `
 };
 
+type FlexType = 'auto-shrink' | 'auto-grow' | 'auto';
+const flexTypeToCss: Record<FlexType, RuleSet<object>> = {
+  'auto': css`
+    flex: 1 1 auto;
+  `,
+  'auto-grow': css`
+    flex: 1 0 auto;
+  `,
+  'auto-shrink': css`
+    flex: 0.5 1 0px;
+  `
+}
+
 interface SlotProps {
   size?: SlotSize;
   float?: 'left' | 'right';
   justify?: 'center';
-  flexAuto?: boolean;
+  flex?: FlexType;
 }
 const Slot = styled.div<SlotProps>`
   position: relative;
@@ -63,9 +76,7 @@ const Slot = styled.div<SlotProps>`
   justify-content: center;
   align-items: center;
 
-  ${({ flexAuto }) => flexAuto && css`
-    flex: 1 1 auto;
-  `};
+  ${({ flex }) => flex && flexTypeToCss[flex]};
 
   ${({ float }) =>
     float &&

@@ -203,7 +203,7 @@ export const MainPage = () => {
       </Band>
 
       <Band ref={workshopsBandRef} gap="xl" size="md" variant="background" justify='space-around' color={Colors.isabelline} padding="xl">
-        <Band.Slot>
+        <Band.Slot flex='auto-grow' >
           <PhotosLayout>
             <PhotoFrame
               variant="slot"
@@ -225,7 +225,7 @@ export const MainPage = () => {
           </PhotosLayout>
         </Band.Slot>
 
-        <Band.Slot flexAuto >
+        <Band.Slot flex='auto-shrink' >
           <NiceBox padding="lg">
             <Title>Warsztaty</Title>
             <Text>Yarnmark bawi, Yarnmark uczy</Text>

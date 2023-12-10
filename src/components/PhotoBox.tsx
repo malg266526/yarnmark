@@ -35,7 +35,7 @@ const Slot = styled.div<{ slotSize: Size }>`
 const Root = styled.div<{ maxSize: Size; slotSize?: Size }>`
   ${({ maxSize }) => css`
     min-width: 200px;
-    max-height: ${maxSize};
+    max-width: ${maxSize};
   `};
   padding: ${Spacings.md} ${Spacings.md} ${Spacings.lg};
   background: white;

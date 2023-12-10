@@ -37,6 +37,7 @@ export const IconWrapper = styled.div`
 `;
 
 export const IconWrapper2 = styled.div`
+  flex-shrink: 0;
   padding: ${Spacings.sm};
   border-radius: 50%;
   box-shadow: none;

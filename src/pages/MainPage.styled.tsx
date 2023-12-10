@@ -86,6 +86,7 @@ export const RightBackgroundImage = styled.img<{ src: string }>`
 `;
 
 export const PhotosLayout = styled.div`
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: ${Spacings.md};
