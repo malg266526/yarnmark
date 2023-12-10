@@ -4,7 +4,7 @@ import { Theme } from '../styles/theme';
 import React, { ForwardedRef, forwardRef } from 'react';
 
 export type BandProps = InnerWrapperProps & {
-  size: 'xl' | 'md';
+  size: 'xl' | 'md' | 'sm';
   padding?: 'none' | keyof typeof Spacings;
   title?: React.ReactNode;
   children?: React.ReactNode;
@@ -70,11 +70,12 @@ const Slot = styled.div<{ size?: 'xl' | 'sm'; float?: 'left' | 'right' }>`
         `)};
 `;
 
-type BandSize = 'xl' | 'md';
+type BandSize = 'xl' | 'md' | 'sm';
 
 const bandSizeToHeight: Record<BandSize, string> = {
   xl: '1000px',
-  md: '600px'
+  md: '600px',
+  sm: '300px'
 };
 
 const BandLayout = styled.div`
@@ -94,8 +95,6 @@ const BandRoot = styled.div<BandProps>`
 
   ${({ size }) => css`
     min-height: ${bandSizeToHeight[size]};
-    /* height: ${bandSizeToHeight[size]}; */
-    /* max-height: ${bandSizeToHeight[size]}; */
   `};
   width: 100%;
   display: flex;

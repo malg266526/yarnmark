@@ -28,3 +28,13 @@ export const Colors = {
 export const Theme = {
   pageContentWidth: '900px'
 };
+
+export const HallColors = {
+  premium: '#4CBB17', // Kelly Green
+  normal1: '#EC5800', // Persimmon
+  normal2: '#FFAA33', // Yellow Orange
+  small1: '#d8e1e8',
+  small2: '#b2cbde',
+  taken: Colors.pinball,
+  empty: '#e8f4ea' //
+};

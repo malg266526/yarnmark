@@ -96,9 +96,3 @@ export const Root = styled.main`
     z-index: 1;
   }
 `;
-
-export const Footer = styled.footer`
-  min-height: 400px;
-  width: 100%;
-  background: linear-gradient(45deg, ${Colors.yellow} 0%, rgb(251, 241, 210) 50%);
-`;

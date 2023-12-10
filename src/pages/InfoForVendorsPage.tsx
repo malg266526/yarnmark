@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
+import yarn2ImageUrl from '../assets/yarn2.jpg';
+import { Band } from '../components/Band';
+import { NiceBox } from '../components/NiceBox';
+import { PageContent } from '../components/PageContent';
 import { Spacings } from '../styles/spacings';
-import { Card } from '../components/Card';
-import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { Colors } from '../styles/theme';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
-import { PageContent } from '../components/PageContent';
+import { CenteredTitle, Image, Text, Title, Menu } from './MainPage.styled';
+import { Link } from '../components/Link';
+import { usePhone } from './usePhone';
+import { Hall } from '../components/Hall';
+import { HallLegend } from '../components/HallLegend';
 
 export const FlexLayout = styled.div`
   display: flex;
@@ -21,58 +27,121 @@ export const Row = styled.div`
   border-bottom: 1px solid ${Colors.pinball};
 `;
 
-export const Title = styled.div`
+export const PlainInfo = styled.div`
   display: flex;
-  width: 30%;
-  font-weight: 700;
+  flex-direction: column;
+  background-color: ${Colors.white};
+  padding: 0 ${Spacings.md} ${Spacings.md} ${Spacings.md};
+  max-width: 50%;
+  width: 50%;
+  min-height: 100px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
 `;
-export const Value = styled.div`
-  display: flex;
-  flex: 1;
 
-  align-items: flex-start;
-  align-self: flex-start;
+export const TitleWrapper = styled.div`
+  width: 30%;
+`;
+
+export const HallWrapper = styled.div`
+  min-width: 45%;
+  justify-content: space-between;
+  display: flex;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  background-color: ${Colors.white};
+  padding: ${Spacings.md};
 `;
 
 export const InfoForVendorsPage = () => {
   const t = useTypedTranslation();
+  const isPhone = usePhone();
+
+  const standsBandRef = useRef<HTMLDivElement | null>(null);
 
   return (
-    <PageContent variant="narrow">
-      <Card width="100%">
-        <FlexColumnLayout gap="none">
-          <h3>{t('infoForVendorsPage.title')}</h3>
+    <PageContent variant="wide" padding="none">
+      {!isPhone && (
+        <Menu>
+          <Link color="black" href="/">
+            Yarnmark
+          </Link>
 
-          <h4>Serdecznie Was zapraszamy do wzięcia udziału w I edycji Krakoskiego Yarnmarku Wełny!</h4>
-          <h5>Poniżej kilka informacji organizacyjnych dla Was</h5>
+          <Link
+            color="black"
+            anchorProps={{
+              onClick: () => standsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
+            }}>
+            Stoiska
+          </Link>
 
-          <Row>
-            <Title>Parking</Title>
-            <Value>Każdemu wystawcy przysługuje darmowe miejsce parkingowe przy hali, w dniu targów</Value>
-          </Row>
+          <Link
+            color="black"
+            anchorProps={{
+              onClick: () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+            }}>
+            {t('menu.contact')}
+          </Link>
+        </Menu>
+      )}
 
-          <Row>
-            <Title>Hala</Title>
-            <FlexColumnLayout padding="none">
-              <Value>Otwarcie hali o godz. 6:00 TODO: potwierdzic z cracovią </Value>
-              <Value>
-                Stoisko ma wymiary 3x4m i w ramach stoisko wystawca ma do dyspozycji stół o wymiarach 180x80cm oraz 2
-                krzesła
-              </Value>
-              <Value>Jest możliwość wykupienia stoiska podwójnego</Value>
-              <Value>Hala znajduje się na tym samym poziomie co parking</Value>
-            </FlexColumnLayout>
-          </Row>
+      <Band size="md" narrowContent justify="end">
+        <Image src={yarn2ImageUrl} />
+        <Band.Slot float="left" size="sm">
+          <NiceBox overflowSize="10px" width="500px" padding="lg">
+            <Title>{t('infoForVendorsPage.title')}</Title>
+            <Text>Serdecznie Was zapraszamy do wzięcia udziału w I edycji Krakoskiego Yarnmarku Wełny!</Text>
+            <Text>Poniżej kilka informacji organizacyjnych dla Was</Text>
+          </NiceBox>
+        </Band.Slot>
+      </Band>
 
-          <Row>
-            <Title>Marketing</Title>
-            <Value>
-              Zachęcamy do przesłania swojego na logo na adres email strona.dziergamynapolu@gmail.com, umieścimy je w
-              zakładce "Wystawcy" i w ten sposób poinformujemy dziewiarki i dziewiarzy, że z nami będziecie
-            </Value>
-          </Row>
-        </FlexColumnLayout>
-      </Card>
+      <Band size="sm" variant="background" color={Colors.isabelline} padding="xl">
+        <TitleWrapper>
+          <CenteredTitle>Hala</CenteredTitle>
+        </TitleWrapper>
+
+        <PlainInfo>
+          <Text>Hala zostanie otwarta o godz. ?? .</Text>
+          <Text>Hala znajduje się na tym samym poziomie co parking.</Text>
+          <Text>TODO: dodać opis do stoisk - wybór z mapki, zapisy na stoiska</Text>
+          <Text>Istnieje możliwość wykupienia stoiska podwójnego.</Text>
+          <Text>TODO: Jakieś info o stołach i krzesłach??</Text>
+          <Text>TODO: Wymiary hali to: ??</Text>
+        </PlainInfo>
+      </Band>
+
+      <Band size="sm" variant="background" color={Colors.snow} padding="xl">
+        <TitleWrapper>
+          <CenteredTitle>Parking</CenteredTitle>
+        </TitleWrapper>
+
+        <PlainInfo>
+          <Text>Każdemu wystawcy na dzień targów przysługuje darmowe miejsce parkingowe przy hali</Text>
+        </PlainInfo>
+      </Band>
+
+      <Band size="sm" variant="background" color={Colors.beige1} padding="xl">
+        <TitleWrapper>
+          <CenteredTitle>Marketing</CenteredTitle>
+        </TitleWrapper>
+
+        <PlainInfo>
+          <Text>
+            Zachęcamy do przesłania swojego na logo na adres email <b>strona.dziergamynapolu@gmail.com</b>, umieścimy je
+            w zakładce "Wystawcy" i w ten sposób poinformujemy dziewiarki i dziewiarzy, że z nami będziecie
+          </Text>
+        </PlainInfo>
+      </Band>
+
+      <Band ref={standsBandRef} size="sm" variant="background" color={Colors.linen} padding="xl">
+        <TitleWrapper>
+          <CenteredTitle>Stoiska</CenteredTitle>
+        </TitleWrapper>
+
+        <HallWrapper>
+          <Hall />
+          <HallLegend />
+        </HallWrapper>
+      </Band>
     </PageContent>
   );
 };
