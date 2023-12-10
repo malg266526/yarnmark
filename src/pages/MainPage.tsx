@@ -104,9 +104,9 @@ export const MainPage = () => {
         </Menu>
       )}
 
-      <Band size="xl" narrowContent>
+      <Band size="xl" padding="xl" justify="flex-start">
         <Image src={yarn2ImageUrl} />
-        <Band.Slot float="left" size="sm">
+        <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
             <Title>Krakoski Yarnmark Wełny</Title>
             <Text>Serdecznie zapraszamy na I edycję targów wełny w stolicy małopolski!</Text>
@@ -196,7 +196,7 @@ export const MainPage = () => {
       <Band ref={vendorsBandRef} size="md" variant="background" color={Colors.snow} padding="xl">
         <BackgroundImage src={bigShopImageUrl} />
 
-        <Band.Slot size="sm">
+        <Band.Slot flex="auto-grow" size="sm">
           <Title>Wystawcy</Title>
           <VendorsList />
         </Band.Slot>

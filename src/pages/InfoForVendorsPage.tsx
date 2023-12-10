@@ -83,9 +83,9 @@ export const InfoForVendorsPage = () => {
         </Menu>
       )}
 
-      <Band size="md" narrowContent>
+      <Band size="md" justify="flex-start" narrowContent>
         <Image src={yarn2ImageUrl} />
-        <Band.Slot float="left" size="sm">
+        <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
             <Title>{t('infoForVendorsPage.title')}</Title>
             <Text>Serdecznie Was zapraszamy do wzięcia udziału w I edycji Krakoskiego Yarnmarku Wełny!</Text>

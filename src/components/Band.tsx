@@ -38,12 +38,10 @@ const InnerWrapper = styled.div<InnerWrapperProps>`
 type SlotSize = 'xl' | 'sm';
 const slotSizeToCss: Record<SlotSize, RuleSet<object>> = {
   xl: css`
-    flex: 1 1 auto;
-    width: '70%';
+    width: 70%;
   `,
   sm: css`
-    flex: 1 1 auto;
-    width: '30%';
+    width: 30%;
   `
 };
 
@@ -62,7 +60,6 @@ const flexTypeToCss: Record<FlexType, RuleSet<object>> = {
 
 interface SlotProps {
   size?: SlotSize;
-  float?: 'left' | 'right';
   justify?: 'center';
   flex?: FlexType;
 }
@@ -77,20 +74,6 @@ const Slot = styled.div<SlotProps>`
   align-items: center;
 
   ${({ flex }) => flex && flexTypeToCss[flex]};
-
-  ${({ float }) =>
-    float &&
-    (float === 'left'
-      ? css`
-          > * {
-            margin-left: -800px;
-          }
-        `
-      : css`
-          > * {
-            margin-right: -800px;
-          }
-        `)};
 `;
 
 type BandSize = 'xl' | 'md' | 'sm';
@@ -102,7 +85,7 @@ const bandSizeToHeight: Record<BandSize, string> = {
 };
 
 interface BandLayoutProps {
-  justify?: 'center' | 'space-around' | 'space-between';
+  justify?: 'center' | 'space-around' | 'space-between' | 'flex-start';
   align?: 'center';
   flexAuto?: boolean;
   gap?: keyof typeof Spacings;
