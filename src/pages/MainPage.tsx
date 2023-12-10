@@ -16,6 +16,8 @@ import shrimpImageUrl from '../assets/iconify/shrimp.svg';
 import soupImageUrl from '../assets/iconify/soup.svg';
 import talkImageUrl from '../assets/iconify/talk.svg';
 import ticketImageUrl from '../assets/iconify/ticket.svg';
+import clockImageUrl from '../assets/iconify/clock.svg';
+import goodieBagImageUrl from '../assets/iconify/goodiebag.svg';
 
 import knitting2ImageUrl from '../assets/knitting2.svg';
 import pinImageUrl from '../assets/pin.svg';
@@ -36,13 +38,15 @@ import { usePhone } from './usePhone';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { MinimalistLayout } from '../components/MinimalistLayout';
 import { RowLayout } from '../components/RowLayout';
-import { ImageButton, ShowOnClickLayout } from '../components/ShowOnClickLayout';
+import { ShowOnClickLayout } from '../components/ShowOnClickLayout';
+import { ImageButton } from '../components/ImageButton';
 import { VendorsList } from '../components/VendorsList';
 import { Colors } from '../styles/theme';
 import {
   AnimatedIconWrapper,
   BackgroundImage,
   ButtonsLayout,
+  CenteredTitle,
   Image,
   Menu,
   PhotosLayout,
@@ -52,6 +56,8 @@ import {
   Title,
   WhiteStuff
 } from './MainPage.styled';
+import { ShowOnHoverLayout } from '../components/ShowOnHoverLayout';
+import { ShowOnHoverButton } from '../components/ShowOnHoverButton';
 
 export const MainPage = () => {
   const t = useTypedTranslation();
@@ -249,7 +255,7 @@ export const MainPage = () => {
       </Band>
 
       <Band ref={foodBandRef} size="md" variant="background" color={Colors.pastelGray} padding="xl">
-        <Title>Gdzie zjeść?</Title>
+        <CenteredTitle>Gdzie zjeść?</CenteredTitle>
         <ShowOnClickLayout>
           <ImageButton
             icon={<Icon size="xl" src={burgerImageUrl} />}
@@ -317,29 +323,52 @@ export const MainPage = () => {
         </ShowOnClickLayout>
       </Band>
 
-      <Band ref={vipTicketsBandRef} variant="background" size="md" color={Colors.snow} padding="xl" narrowContent>
-        <Title>Bilety VIP</Title>
-
-        <Band.Slot float="left" size="sm">
-          <NiceBox overflowSize="10px" width="200px" padding="lg">
-            <Title>Rejs dziergostatkiem</Title>
+      <Band ref={vipTicketsBandRef} size="md" variant="background" color={Colors.isabelline} padding="xl">
+        <Band.Slot>
+          <NiceBox width="500px" padding="lg">
+            <Title>Bilety VIP</Title>
+            <Text>Oferujemy możliwość zakupu biletów zwykłych oraz biletów VIP.</Text>
+            <Text>Bilety VIP oprócz wejściowki na targi obejmują:</Text>
           </NiceBox>
         </Band.Slot>
 
-        <Band.Slot size="sm">
-          <NiceBox overflowSize="10px" width="200px" padding="lg">
-            <Title>Early entrance</Title>
-          </NiceBox>
-        </Band.Slot>
+        <Band.Slot>
+          <ShowOnHoverLayout>
+            <ShowOnHoverButton
+              icon={<Icon size="xl" src={ferryImageUrl} />}
+              text={
+                <FlexColumnLayout gap="sm" padding="none">
+                  Opis...
+                </FlexColumnLayout>
+              }>
+              Rejs Dziergostatkiem
+            </ShowOnHoverButton>
 
-        <Band.Slot float="right" size="sm">
-          <NiceBox overflowSize="10px" width="200px" padding="lg">
-            <Title>Goodie bag</Title>
-          </NiceBox>
+            <ShowOnHoverButton
+              icon={<Icon size="xl" src={clockImageUrl} />}
+              text={
+                <FlexColumnLayout gap="sm" padding="none">
+                  Oficjalne otwarcie bram targów jest o godz. 10:30, natomiast posiadacze biletów VIP mają
+                  zagwarantowane wcześniejsze wejście na halę - o godz. 10:00
+                </FlexColumnLayout>
+              }>
+              Early entrance
+            </ShowOnHoverButton>
+
+            <ShowOnHoverButton
+              icon={<Icon size="xl" src={goodieBagImageUrl} />}
+              text={
+                <FlexColumnLayout gap="sm" padding="none">
+                  Info...
+                </FlexColumnLayout>
+              }>
+              Pamiątkowa torba targowa
+            </ShowOnHoverButton>
+          </ShowOnHoverLayout>
         </Band.Slot>
       </Band>
 
-      <Band ref={contactBandRef} size="md" variant="background" color={Colors.isabelline}>
+      <Band ref={contactBandRef} size="md" variant="background" color={Colors.snow}>
         <MinimalistLayout>
           <Title>Kontakt</Title>
 
