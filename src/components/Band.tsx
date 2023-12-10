@@ -12,13 +12,13 @@ export type BandProps = InnerWrapperProps &
   } & (
     | { variant?: 'default' }
     | {
-      variant: 'background-image';
-      src: string;
-    }
+        variant: 'background-image';
+        src: string;
+      }
     | {
-      variant: 'background';
-      color: string;
-    }
+        variant: 'background';
+        color: string;
+      }
   );
 
 interface InnerWrapperProps {
@@ -49,7 +49,7 @@ const slotSizeToCss: Record<SlotSize, RuleSet<object>> = {
 
 type FlexType = 'auto-shrink' | 'auto-grow' | 'auto';
 const flexTypeToCss: Record<FlexType, RuleSet<object>> = {
-  'auto': css`
+  auto: css`
     flex: 1 1 auto;
   `,
   'auto-grow': css`
@@ -58,7 +58,7 @@ const flexTypeToCss: Record<FlexType, RuleSet<object>> = {
   'auto-shrink': css`
     flex: 0.5 1 0px;
   `
-}
+};
 
 interface SlotProps {
   size?: SlotSize;

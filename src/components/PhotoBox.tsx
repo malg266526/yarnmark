@@ -75,13 +75,13 @@ export type PhotoFrameProps = {
   src: string;
   children?: React.ReactNode;
 } & (
-    | { variant?: 'no-slot' }
-    | {
+  | { variant?: 'no-slot' }
+  | {
       variant: 'slot';
       slot: React.ReactNode;
       slotSize: Size;
     }
-  );
+);
 
 export const PhotoFrame = Object.assign(
   ({ src, maxSize, children, ...rest }: PhotoFrameProps) => (
