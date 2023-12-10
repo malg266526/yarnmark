@@ -177,7 +177,7 @@ export const MainPage = () => {
             <Text>Hala 100-lecia KS Cracovia wraz z Centrum Sportu Niepełnosprawnych</Text>
             <Text>Aleja Marszałka Ferdynanda Focha 40</Text>
 
-            <Title align='center' >Jak do nas dojechać?</Title>
+            <Title marginTop='md' align='center' >Jak do nas dojechać?</Title>
             <Text>Hala znajduje się przy przystanku "Cracovia Stadion". Z dworca głównego najprościej dojechać:</Text>
             <Text>
               - z przystanku <b>Dworzec Główny Tunel</b> (w przejściu pomiędzy dworcem PKP a Galerią Krakowską należy
