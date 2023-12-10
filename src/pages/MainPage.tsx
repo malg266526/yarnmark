@@ -57,6 +57,7 @@ import {
   WhiteStuff
 } from './MainPage.styled';
 import { ShowOnHoverLayout } from '../components/ShowOnHoverLayout';
+import { ShowOnHoverButton } from '../components/ShowOnHoverButton';
 
 export const MainPage = () => {
   const t = useTypedTranslation();
@@ -333,20 +334,18 @@ export const MainPage = () => {
 
         <Band.Slot>
           <ShowOnHoverLayout>
-            <ImageButton
+            <ShowOnHoverButton
               icon={<Icon size="xl" src={ferryImageUrl} />}
-              photo={wawelImageSrc}
               text={
                 <FlexColumnLayout gap="sm" padding="none">
-                  Opis rejsu...
+                  Opis...
                 </FlexColumnLayout>
               }>
-              Rejst Dziergostatkiem
-            </ImageButton>
+              Rejs Dziergostatkiem
+            </ShowOnHoverButton>
 
-            <ImageButton
+            <ShowOnHoverButton
               icon={<Icon size="xl" src={clockImageUrl} />}
-              photo={wawelImageSrc}
               text={
                 <FlexColumnLayout gap="sm" padding="none">
                   Oficjalne otwarcie bram targów jest o godz. 10:30, natomiast posiadacze biletów VIP mają
@@ -354,19 +353,17 @@ export const MainPage = () => {
                 </FlexColumnLayout>
               }>
               Early entrance
-            </ImageButton>
+            </ShowOnHoverButton>
 
-            <ImageButton
+            <ShowOnHoverButton
               icon={<Icon size="xl" src={goodieBagImageUrl} />}
-              photo={wawelImageSrc}
               text={
                 <FlexColumnLayout gap="sm" padding="none">
-                  Oficjalne otwarcie bram targów jest o godz. 10:30, natomiast posiadacze biletów VIP mają
-                  zagwarantowane wcześniejsze wejście na halę - o godz. 10:00
+                  Info...
                 </FlexColumnLayout>
               }>
-              Goodie bag
-            </ImageButton>
+              Pamiątkowa torba targowa
+            </ShowOnHoverButton>
           </ShowOnHoverLayout>
         </Band.Slot>
       </Band>
