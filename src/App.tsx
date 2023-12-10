@@ -6,11 +6,11 @@ import { createGlobalStyle } from 'styled-components';
 import { Curtain, Header, Root } from './App.styled';
 import { BurgerMenu } from './components/BurgerMenu';
 import { SideBar } from './components/SideBar';
-import { HallPage } from './pages/HallPage';
 import { InfoForVendorsPage } from './pages/InfoForVendorsPage';
 import { MainPage } from './pages/MainPage';
 import { usePhone } from './pages/usePhone';
 import { useTypedTranslation } from './translations/useTypedTranslation';
+import { Footer } from './components/Footer';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -70,8 +70,9 @@ export const App = () => {
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<MainPage />} />
           <Route path="/info-for-vendors" element={<InfoForVendorsPage />} />
-          <Route path="/hall" element={<HallPage />} />
         </Routes>
+
+        <Footer />
       </Root>
     </>
   );
