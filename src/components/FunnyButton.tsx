@@ -5,12 +5,14 @@ import { Colors } from '../styles/theme';
 import knittingImageUrl from '../assets/knitting.svg';
 import { Icon } from './Icon';
 
-const wrapperTranslation = 'translate(-50%, 100%)';
+const positionTopOffset = 100;
+const translationYOffset = 30;
+const wrapperTranslation = `translate(-50%, ${positionTopOffset + translationYOffset}px)`;
 
 const TextWrapper = styled.div`
   pointer-events: none;
   position: absolute;
-  top: 0;
+  top: calc(100% - ${positionTopOffset}px);
   left: 50%;
   transform-origin: left;
   transition: all 300ms cubic-bezier(0.72, 2.04, 0.68, 0.87);

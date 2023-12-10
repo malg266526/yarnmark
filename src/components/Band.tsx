@@ -41,7 +41,7 @@ const InnerWrapper = styled.div<InnerWrapperProps>`
     `};
 `;
 
-const Slot = styled.div<{ size?: 'xl' | 'sm'; float?: 'left' | 'right' }>`
+const Slot = styled.div<{ size?: 'xl' | 'sm'; float?: 'left' | 'right'; justify?: 'center' }>`
   position: relative;
   ${({ size }) =>
     size &&
