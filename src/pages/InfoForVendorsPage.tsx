@@ -83,7 +83,7 @@ export const InfoForVendorsPage = () => {
         </Menu>
       )}
 
-      <Band size="md" narrowContent justify="end">
+      <Band size="md" narrowContent>
         <Image src={yarn2ImageUrl} />
         <Band.Slot float="left" size="sm">
           <NiceBox overflowSize="10px" width="500px" padding="lg">

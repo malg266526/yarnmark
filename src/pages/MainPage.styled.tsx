@@ -10,13 +10,17 @@ export const Title = styled.div<{ align?: 'center' | 'left' | 'center'; marginTo
   font-size: 40px;
   font-weight: 600;
 
-  ${({ align }) => align && css`
-    text-align: ${align};
-  `};
+  ${({ align }) =>
+    align &&
+    css`
+      text-align: ${align};
+    `};
 
-  ${({ marginTop }) => marginTop && css`
-    margin-top: ${Spacings[marginTop]};
-  `};
+  ${({ marginTop }) =>
+    marginTop &&
+    css`
+      margin-top: ${Spacings[marginTop]};
+    `};
 `;
 
 export const CenteredTitle = styled.div`

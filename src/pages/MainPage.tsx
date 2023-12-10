@@ -104,7 +104,7 @@ export const MainPage = () => {
         </Menu>
       )}
 
-      <Band size="xl" narrowContent justify="end">
+      <Band size="xl" narrowContent>
         <Image src={yarn2ImageUrl} />
         <Band.Slot float="left" size="sm">
           <NiceBox overflowSize="10px" width="500px" padding="lg">
@@ -162,7 +162,7 @@ export const MainPage = () => {
         </SectionWrapper>
       </Band>
 
-      <Band ref={spotBandRef} size="xl" variant="background-image" src={stadionImageSrc}>
+      <Band justify="space-around" ref={spotBandRef} size="xl" variant="background-image" src={stadionImageSrc}>
         <Band.Slot>
           <a href="https://www.google.pl/maps/place/Hala+100-lecia+KS+Cracovia+wraz+z+Centrum+Sportu+Niepe%C5%82nosprawnych/@50.0570694,19.9078517,17z/data=!3m1!4b1!4m6!3m5!1s0x47165bdbabf291a1:0x3a0607d5947b7ef2!8m2!3d50.0570694!4d19.9104266!16s%2Fg%2F11f5t43046?entry=ttu">
             <AnimatedIconWrapper>
@@ -171,13 +171,15 @@ export const MainPage = () => {
           </a>
         </Band.Slot>
 
-        <Band.Slot size="sm">
+        <Band.Slot>
           <NiceBox width="500px" padding="lg">
-            <Title align="center" >Gdzie?</Title>
+            <Title align="center">Gdzie?</Title>
             <Text>Hala 100-lecia KS Cracovia wraz z Centrum Sportu Niepełnosprawnych</Text>
             <Text>Aleja Marszałka Ferdynanda Focha 40</Text>
 
-            <Title marginTop='md' align='center' >Jak do nas dojechać?</Title>
+            <Title marginTop="md" align="center">
+              Jak do nas dojechać?
+            </Title>
             <Text>Hala znajduje się przy przystanku "Cracovia Stadion". Z dworca głównego najprościej dojechać:</Text>
             <Text>
               - z przystanku <b>Dworzec Główny Tunel</b> (w przejściu pomiędzy dworcem PKP a Galerią Krakowską należy
@@ -305,7 +307,7 @@ export const MainPage = () => {
         </ShowOnClickLayout>
       </Band>
 
-      <Band ref={vipTicketsBandRef} size="md" variant="background" color={Colors.isabelline} padding="xl">
+      <Band ref={vipTicketsBandRef} size="md" variant="background" justify='space-around' color={Colors.isabelline} padding="xl">
         <Band.Slot>
           <NiceBox width="500px" padding="lg">
             <Title>Bilety VIP</Title>
