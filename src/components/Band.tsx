@@ -47,7 +47,13 @@ const slotSizeToCss: Record<SlotSize, RuleSet<object>> = {
   `
 };
 
-const Slot = styled.div<{ size?: SlotSize; float?: 'left' | 'right'; justify?: 'center' }>`
+interface SlotProps {
+  size?: SlotSize;
+  float?: 'left' | 'right';
+  justify?: 'center';
+  flexAuto?: boolean;
+}
+const Slot = styled.div<SlotProps>`
   position: relative;
 
   ${({ size }) => size && slotSizeToCss[size]};
@@ -56,6 +62,10 @@ const Slot = styled.div<{ size?: SlotSize; float?: 'left' | 'right'; justify?: '
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  ${({ flexAuto }) => flexAuto && css`
+    flex: 1 1 auto;
+  `};
 
   ${({ float }) =>
     float &&
@@ -95,14 +105,6 @@ const BandLayout = styled.div<BandLayoutProps>`
     justify &&
     css`
       justify-content: ${justify};
-    `};
-
-  ${({ flexAuto }) =>
-    flexAuto &&
-    css`
-      > * {
-        flex: 1 1 auto;
-      }
     `};
 
   ${({ align }) =>

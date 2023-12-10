@@ -202,30 +202,30 @@ export const MainPage = () => {
         </Band.Slot>
       </Band>
 
-      <Band ref={workshopsBandRef} size="md" variant="background" justify='space-around' color={Colors.isabelline} padding="xl">
+      <Band ref={workshopsBandRef} gap="xl" size="md" variant="background" justify='space-around' color={Colors.isabelline} padding="xl">
         <Band.Slot>
           <PhotosLayout>
             <PhotoFrame
               variant="slot"
-              size="400px"
+              maxSize="400px"
               src={wawelImageSrc}
               slotSize="200px"
               slot={'TODO: foto i tekst od Ani'}>
               <PhotoFrame.Cursive>Pierwsza pomoc</PhotoFrame.Cursive>
             </PhotoFrame>
-            <PhotoFrame size="400px" src={wawelImageSrc}>
+            <PhotoFrame maxSize="400px" src={wawelImageSrc}>
               <PhotoFrame.Cursive>TODO: Warsztaty 1</PhotoFrame.Cursive>
             </PhotoFrame>
-            <PhotoFrame size="400px" src={wawelImageSrc}>
+            <PhotoFrame maxSize="400px" src={wawelImageSrc}>
               <PhotoFrame.Cursive>TODO: Warsztaty 2</PhotoFrame.Cursive>
             </PhotoFrame>
-            <PhotoFrame size="400px" src={wawelImageSrc}>
+            <PhotoFrame maxSize="400px" src={wawelImageSrc}>
               <PhotoFrame.Cursive>TODO: Warsztaty 3</PhotoFrame.Cursive>
             </PhotoFrame>
           </PhotosLayout>
         </Band.Slot>
 
-        <Band.Slot>
+        <Band.Slot flexAuto >
           <NiceBox padding="lg">
             <Title>Warsztaty</Title>
             <Text>Yarnmark bawi, Yarnmark uczy</Text>
