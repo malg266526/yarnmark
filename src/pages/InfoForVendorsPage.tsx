@@ -94,7 +94,7 @@ export const InfoForVendorsPage = () => {
         </Band.Slot>
       </Band>
 
-      <Band size="sm" variant="background" justify="center" color={Colors.isabelline} padding="xl">
+      <Band size="sm" variant="background" justify="center" align="center" color={Colors.isabelline} padding="xl">
         <TitleWrapper>
           <CenteredTitle>Hala</CenteredTitle>
         </TitleWrapper>
@@ -109,7 +109,7 @@ export const InfoForVendorsPage = () => {
         </PlainInfo>
       </Band>
 
-      <Band size="sm" variant="background" justify="center" color={Colors.snow} padding="xl">
+      <Band size="sm" variant="background" justify="center" align='center' color={Colors.snow} padding="xl">
         <TitleWrapper>
           <CenteredTitle>Parking</CenteredTitle>
         </TitleWrapper>
@@ -119,7 +119,7 @@ export const InfoForVendorsPage = () => {
         </PlainInfo>
       </Band>
 
-      <Band size="sm" variant="background" justify="center" color={Colors.beige1} padding="xl">
+      <Band size="sm" variant="background" justify="center" align="center" color={Colors.beige1} padding="xl">
         <TitleWrapper>
           <CenteredTitle>Marketing</CenteredTitle>
         </TitleWrapper>
