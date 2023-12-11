@@ -83,9 +83,9 @@ export const InfoForVendorsPage = () => {
         </Menu>
       )}
 
-      <Band size="md" narrowContent justify="end">
+      <Band size="md" justify="flex-start" narrowContent>
         <Image src={yarn2ImageUrl} />
-        <Band.Slot float="left" size="sm">
+        <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
             <Title>{t('infoForVendorsPage.title')}</Title>
             <Text>Serdecznie Was zapraszamy do wzięcia udziału w I edycji Krakoskiego Yarnmarku Wełny!</Text>
@@ -94,7 +94,7 @@ export const InfoForVendorsPage = () => {
         </Band.Slot>
       </Band>
 
-      <Band size="sm" variant="background" color={Colors.isabelline} padding="xl">
+      <Band size="sm" variant="background" justify="center" align="center" color={Colors.isabelline} padding="xl">
         <TitleWrapper>
           <CenteredTitle>Hala</CenteredTitle>
         </TitleWrapper>
@@ -109,7 +109,7 @@ export const InfoForVendorsPage = () => {
         </PlainInfo>
       </Band>
 
-      <Band size="sm" variant="background" color={Colors.snow} padding="xl">
+      <Band size="sm" variant="background" justify="center" align="center" color={Colors.snow} padding="xl">
         <TitleWrapper>
           <CenteredTitle>Parking</CenteredTitle>
         </TitleWrapper>
@@ -119,7 +119,7 @@ export const InfoForVendorsPage = () => {
         </PlainInfo>
       </Band>
 
-      <Band size="sm" variant="background" color={Colors.beige1} padding="xl">
+      <Band size="sm" variant="background" justify="center" align="center" color={Colors.beige1} padding="xl">
         <TitleWrapper>
           <CenteredTitle>Marketing</CenteredTitle>
         </TitleWrapper>
@@ -132,7 +132,7 @@ export const InfoForVendorsPage = () => {
         </PlainInfo>
       </Band>
 
-      <Band ref={standsBandRef} size="sm" variant="background" color={Colors.linen} padding="xl">
+      <Band ref={standsBandRef} size="sm" justify="center" variant="background" color={Colors.linen} padding="xl">
         <TitleWrapper>
           <CenteredTitle>Stoiska</CenteredTitle>
         </TitleWrapper>

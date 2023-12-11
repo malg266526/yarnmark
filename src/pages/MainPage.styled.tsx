@@ -6,9 +6,21 @@ export const Text = styled.div`
   margin-top: ${Spacings.md};
 `;
 
-export const Title = styled.div`
+export const Title = styled.div<{ align?: 'center' | 'left' | 'center'; marginTop?: keyof typeof Spacings }>`
   font-size: 40px;
   font-weight: 600;
+
+  ${({ align }) =>
+    align &&
+    css`
+      text-align: ${align};
+    `};
+
+  ${({ marginTop }) =>
+    marginTop &&
+    css`
+      margin-top: ${Spacings[marginTop]};
+    `};
 `;
 
 export const CenteredTitle = styled.div`
@@ -73,20 +85,10 @@ export const RightBackgroundImage = styled.img<{ src: string }>`
   padding: ${Spacings.xl};
 `;
 
-/* export const TouristBackground = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  background: url(${touristImageUrl}) no-repeat center;
-  background-size: 400px;
-  background-position: 20%;
-`; */
-
 export const PhotosLayout = styled.div`
+  width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: ${Spacings.md};
 `;
 
@@ -157,20 +159,4 @@ export const AnimatedIconWrapper = styled.div`
   > ${Icon}:hover {
     animation-play-state: paused;
   }
-`;
-
-export const WhiteStuff = styled.div<{ width: `${number}${'px' | '%'}`; height: `${number}${'px' | '%'}` }>`
-  background: white;
-  border-radius: 50%;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, calc(-50% - 20px));
-  top: 100%;
-  box-shadow: 1px 1px 5px 1px #333;
-  z-index: 0;
-
-  ${({ height, width }) => css`
-    width: ${width};
-    height: ${height};
-  `};
 `;

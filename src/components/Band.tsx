@@ -1,14 +1,15 @@
-import styled, { css } from 'styled-components';
+import styled, { css, RuleSet } from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { Theme } from '../styles/theme';
 import React, { ForwardedRef, forwardRef } from 'react';
 
-export type BandProps = InnerWrapperProps & {
-  size: 'xl' | 'md' | 'sm';
-  padding?: 'none' | keyof typeof Spacings;
-  title?: React.ReactNode;
-  children?: React.ReactNode;
-} & (
+export type BandProps = InnerWrapperProps &
+  BandLayoutProps & {
+    size: 'xl' | 'md' | 'sm';
+    padding?: 'none' | keyof typeof Spacings;
+    title?: React.ReactNode;
+    children?: React.ReactNode;
+  } & (
     | { variant?: 'default' }
     | {
         variant: 'background-image';
@@ -22,7 +23,6 @@ export type BandProps = InnerWrapperProps & {
 
 interface InnerWrapperProps {
   narrowContent?: boolean;
-  justify?: 'start' | 'center' | 'end';
 }
 
 const InnerWrapper = styled.div<InnerWrapperProps>`
@@ -33,41 +33,47 @@ const InnerWrapper = styled.div<InnerWrapperProps>`
       max-width: ${Theme.pageContentWidth};
       margin: auto;
     `};
-
-  ${({ justify }) =>
-    justify &&
-    css`
-      justify-content: ${justify};
-    `};
 `;
 
-const Slot = styled.div<{ size?: 'xl' | 'sm'; float?: 'left' | 'right' }>`
+type SlotSize = 'xl' | 'sm';
+const slotSizeToCss: Record<SlotSize, RuleSet<object>> = {
+  xl: css`
+    width: 70%;
+  `,
+  sm: css`
+    width: 30%;
+  `
+};
+
+type FlexType = 'auto-shrink' | 'auto-grow' | 'auto';
+const flexTypeToCss: Record<FlexType, RuleSet<object>> = {
+  auto: css`
+    flex: 1 1 auto;
+  `,
+  'auto-grow': css`
+    flex: 1 0 auto;
+  `,
+  'auto-shrink': css`
+    flex: 0.5 1 0px;
+  `
+};
+
+interface SlotProps {
+  size?: SlotSize;
+  justify?: 'center';
+  flex?: FlexType;
+}
+const Slot = styled.div<SlotProps>`
   position: relative;
-  ${({ size }) =>
-    size &&
-    css`
-      width: ${size === 'xl' ? '70%' : '30%'};
-    `};
+
+  ${({ size }) => size && slotSizeToCss[size]};
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex: 1 1 auto;
 
-  ${({ float }) =>
-    float &&
-    (float === 'left'
-      ? css`
-          > * {
-            margin-left: -800px;
-          }
-        `
-      : css`
-          > * {
-            margin-right: -800px;
-          }
-        `)};
+  ${({ flex }) => flex && flexTypeToCss[flex]};
 `;
 
 type BandSize = 'xl' | 'md' | 'sm';
@@ -78,10 +84,34 @@ const bandSizeToHeight: Record<BandSize, string> = {
   sm: '300px'
 };
 
-const BandLayout = styled.div`
+interface BandLayoutProps {
+  justify?: 'center' | 'space-around' | 'space-between' | 'flex-start';
+  align?: 'center';
+  flexAuto?: boolean;
+  gap?: keyof typeof Spacings;
+}
+const BandLayout = styled.div<BandLayoutProps>`
   display: flex;
   width: 100%;
   height: 100%;
+
+  ${({ justify }) =>
+    justify &&
+    css`
+      justify-content: ${justify};
+    `};
+
+  ${({ align }) =>
+    align &&
+    css`
+      align-items: ${align};
+    `};
+
+  ${({ gap }) =>
+    gap &&
+    css`
+      gap: ${Spacings[gap]};
+    `};
 `;
 
 const BandRoot = styled.div<BandProps>`
@@ -100,7 +130,6 @@ const BandRoot = styled.div<BandProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 
   ${(props) =>
     props.variant &&
@@ -132,11 +161,11 @@ const TitleWrapper = styled.div`
 
 export const Band = Object.assign(
   // eslint-disable-next-line react/display-name
-  forwardRef(({ children, title, ...props }: BandProps, ref: ForwardedRef<HTMLDivElement>) => (
+  forwardRef(({ children, title, narrowContent, ...props }: BandProps, ref: ForwardedRef<HTMLDivElement>) => (
     <BandRoot ref={ref} {...props}>
-      <InnerWrapper {...props}>
+      <InnerWrapper narrowContent={narrowContent}>
         <TitleWrapper>{title}</TitleWrapper>
-        <BandLayout>{children}</BandLayout>
+        <BandLayout {...props}>{children}</BandLayout>
       </InnerWrapper>
     </BandRoot>
   )),

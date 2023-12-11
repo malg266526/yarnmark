@@ -32,11 +32,10 @@ const Slot = styled.div<{ slotSize: Size }>`
   `};
 `;
 
-const Root = styled.div<{ size: Size; slotSize?: Size }>`
-  ${({ size }) => css`
-    min-width: ${size};
-    width: ${size};
-    max-height: ${size};
+const Root = styled.div<{ maxSize: Size; slotSize?: Size }>`
+  ${({ maxSize }) => css`
+    min-width: 200px;
+    max-width: ${maxSize};
   `};
   padding: ${Spacings.md} ${Spacings.md} ${Spacings.lg};
   background: white;
@@ -72,7 +71,7 @@ const Cursive = styled.div`
 `;
 
 export type PhotoFrameProps = {
-  size: Size;
+  maxSize: Size;
   src: string;
   children?: React.ReactNode;
 } & (
@@ -85,8 +84,8 @@ export type PhotoFrameProps = {
 );
 
 export const PhotoFrame = Object.assign(
-  ({ src, size, children, ...rest }: PhotoFrameProps) => (
-    <Root size={size} slotSize={rest.variant === 'slot' ? rest.slotSize : undefined}>
+  ({ src, maxSize, children, ...rest }: PhotoFrameProps) => (
+    <Root maxSize={maxSize} slotSize={rest.variant === 'slot' ? rest.slotSize : undefined}>
       <ImageWrapper>
         <Image src={src} />
         {children}

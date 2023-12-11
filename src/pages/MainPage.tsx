@@ -49,8 +49,7 @@ import {
   PhotosLayout,
   SectionWrapper,
   Text,
-  Title,
-  WhiteStuff
+  Title
 } from './MainPage.styled';
 
 export const MainPage = () => {
@@ -105,9 +104,9 @@ export const MainPage = () => {
         </Menu>
       )}
 
-      <Band size="xl" narrowContent justify="end">
+      <Band size="xl" padding="xl" justify="flex-start">
         <Image src={yarn2ImageUrl} />
-        <Band.Slot float="left" size="sm">
+        <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
             <Title>Krakoski Yarnmark Wełny</Title>
             <Text>Serdecznie zapraszamy na I edycję targów wełny w stolicy małopolski!</Text>
@@ -163,10 +162,24 @@ export const MainPage = () => {
         </SectionWrapper>
       </Band>
 
-      <Band ref={spotBandRef} size="xl" variant="background-image" src={stadionImageSrc}>
-        <Band.Slot size="sm">
-          <NiceBox width="500px" height="440px" padding="lg">
-            <Title>Jak do nas dojechać?</Title>
+      <Band justify="space-around" ref={spotBandRef} size="xl" variant="background-image" src={stadionImageSrc}>
+        <Band.Slot>
+          <a href="https://www.google.pl/maps/place/Hala+100-lecia+KS+Cracovia+wraz+z+Centrum+Sportu+Niepe%C5%82nosprawnych/@50.0570694,19.9078517,17z/data=!3m1!4b1!4m6!3m5!1s0x47165bdbabf291a1:0x3a0607d5947b7ef2!8m2!3d50.0570694!4d19.9104266!16s%2Fg%2F11f5t43046?entry=ttu">
+            <AnimatedIconWrapper>
+              <Icon size="200px" src={pinImageUrl} dropShadow />
+            </AnimatedIconWrapper>
+          </a>
+        </Band.Slot>
+
+        <Band.Slot>
+          <NiceBox width="500px" padding="lg">
+            <Title align="center">Gdzie?</Title>
+            <Text>Hala 100-lecia KS Cracovia wraz z Centrum Sportu Niepełnosprawnych</Text>
+            <Text>Aleja Marszałka Ferdynanda Focha 40</Text>
+
+            <Title marginTop="md" align="center">
+              Jak do nas dojechać?
+            </Title>
             <Text>Hala znajduje się przy przystanku "Cracovia Stadion". Z dworca głównego najprościej dojechać:</Text>
             <Text>
               - z przystanku <b>Dworzec Główny Tunel</b> (w przejściu pomiędzy dworcem PKP a Galerią Krakowską należy
@@ -178,64 +191,49 @@ export const MainPage = () => {
             </Text>
           </NiceBox>
         </Band.Slot>
-
-        <Band.Slot>
-          <a href="https://www.google.pl/maps/place/Hala+100-lecia+KS+Cracovia+wraz+z+Centrum+Sportu+Niepe%C5%82nosprawnych/@50.0570694,19.9078517,17z/data=!3m1!4b1!4m6!3m5!1s0x47165bdbabf291a1:0x3a0607d5947b7ef2!8m2!3d50.0570694!4d19.9104266!16s%2Fg%2F11f5t43046?entry=ttu">
-            <AnimatedIconWrapper>
-              <Icon size="200px" src={pinImageUrl} dropShadow />
-            </AnimatedIconWrapper>
-          </a>
-
-          <WhiteStuff width="100px" height="10px" />
-          {/* <MaskImage /> */}
-          {/* <MapIconWrapper>
-            <Icon size="xl" src={pinImageUrl} />
-          </MapIconWrapper> */}
-        </Band.Slot>
-
-        <Band.Slot size="sm">
-          <NiceBox width="500px" height="200px" padding="lg">
-            <Title>Gdzie?</Title>
-            <Text>Hala 100-lecia KS Cracovia wraz z Centrum Sportu Niepełnosprawnych</Text>
-            <Text>Aleja Marszałka Ferdynanda Focha 40</Text>
-          </NiceBox>
-        </Band.Slot>
       </Band>
 
       <Band ref={vendorsBandRef} size="md" variant="background" color={Colors.snow} padding="xl">
         <BackgroundImage src={bigShopImageUrl} />
 
-        <Band.Slot size="sm">
+        <Band.Slot flex="auto-grow" size="sm">
           <Title>Wystawcy</Title>
           <VendorsList />
         </Band.Slot>
       </Band>
 
-      <Band ref={workshopsBandRef} size="md" variant="background" color={Colors.isabelline} padding="xl">
-        <Band.Slot>
+      <Band
+        ref={workshopsBandRef}
+        gap="xl"
+        size="md"
+        variant="background"
+        justify="space-around"
+        color={Colors.isabelline}
+        padding="xl">
+        <Band.Slot flex="auto-grow">
           <PhotosLayout>
             <PhotoFrame
               variant="slot"
-              size="400px"
+              maxSize="400px"
               src={wawelImageSrc}
               slotSize="200px"
               slot={'TODO: foto i tekst od Ani'}>
               <PhotoFrame.Cursive>Pierwsza pomoc</PhotoFrame.Cursive>
             </PhotoFrame>
-            <PhotoFrame size="400px" src={wawelImageSrc}>
+            <PhotoFrame maxSize="400px" src={wawelImageSrc}>
               <PhotoFrame.Cursive>TODO: Warsztaty 1</PhotoFrame.Cursive>
             </PhotoFrame>
-            <PhotoFrame size="400px" src={wawelImageSrc}>
+            <PhotoFrame maxSize="400px" src={wawelImageSrc}>
               <PhotoFrame.Cursive>TODO: Warsztaty 2</PhotoFrame.Cursive>
             </PhotoFrame>
-            <PhotoFrame size="400px" src={wawelImageSrc}>
+            <PhotoFrame maxSize="400px" src={wawelImageSrc}>
               <PhotoFrame.Cursive>TODO: Warsztaty 3</PhotoFrame.Cursive>
             </PhotoFrame>
           </PhotosLayout>
         </Band.Slot>
 
-        <Band.Slot>
-          <NiceBox width="500px" padding="lg">
+        <Band.Slot flex="auto-shrink">
+          <NiceBox padding="lg">
             <Title>Warsztaty</Title>
             <Text>Yarnmark bawi, Yarnmark uczy</Text>
             <Text>
@@ -316,7 +314,13 @@ export const MainPage = () => {
         </ShowOnClickLayout>
       </Band>
 
-      <Band ref={vipTicketsBandRef} size="md" variant="background" color={Colors.isabelline} padding="xl">
+      <Band
+        ref={vipTicketsBandRef}
+        size="md"
+        variant="background"
+        justify="space-around"
+        color={Colors.isabelline}
+        padding="xl">
         <Band.Slot>
           <NiceBox width="500px" padding="lg">
             <Title>Bilety VIP</Title>

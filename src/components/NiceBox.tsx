@@ -131,7 +131,7 @@ const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: key
   justify-content: center;
   align-items: center;
 
-  :before {
+  &:before {
     content: '';
     position: absolute;
     top: calc(${({ padding }) => Spacings[padding]} / 2);
