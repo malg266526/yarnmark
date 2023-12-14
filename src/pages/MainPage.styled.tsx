@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Icon } from '../components/Icon';
 import { Spacings } from '../styles/spacings';
+import { ScreenSize } from '../styles/screeen-size';
 
 export const Text = styled.div`
   margin-top: ${Spacings.md};
@@ -102,6 +103,10 @@ export const Menu = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  @media (max-width: ${ScreenSize.tablet}) {
+    padding-right: 0;
+  }
 `;
 
 export const AnimatedIconWrapper = styled.div`

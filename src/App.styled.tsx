@@ -28,11 +28,13 @@ export const Header = styled.header`
   padding: ${Spacings.sm};
   width: 100%;
   background: ${Colors.green3};
+  z-index: 100;
 
   @media (max-width: ${ScreenSize.phone}) {
     padding: ${Spacings.sm} ${Spacings.md};
     flex-direction: row;
     justify-content: flex-end;
+    background: ${Colors.beige2};
   }
 `;
 

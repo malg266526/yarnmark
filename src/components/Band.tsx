@@ -2,6 +2,7 @@ import styled, { css, RuleSet } from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { Theme } from '../styles/theme';
 import React, { ForwardedRef, forwardRef } from 'react';
+import { ScreenSize } from '../styles/screeen-size';
 
 export type BandProps = InnerWrapperProps &
   BandLayoutProps & {
@@ -74,6 +75,10 @@ const Slot = styled.div<SlotProps>`
   align-items: center;
 
   ${({ flex }) => flex && flexTypeToCss[flex]};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    margin: auto;
+  }
 `;
 
 type BandSize = 'xl' | 'md' | 'sm';
