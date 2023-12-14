@@ -28,11 +28,17 @@ interface InnerWrapperProps {
 
 const InnerWrapper = styled.div<InnerWrapperProps>`
   flex: 1 1 auto;
+  display: flex;
+
   ${({ narrowContent }) =>
     narrowContent &&
     css`
       max-width: ${Theme.pageContentWidth};
       margin: auto;
+
+      @media (max-width: ${ScreenSize.phone}) {
+        max-width: 100%;
+      }
     `};
 `;
 
@@ -100,6 +106,10 @@ const BandLayout = styled.div<BandLayoutProps>`
   width: 100%;
   height: 100%;
 
+  @media (max-width: ${ScreenSize.phone}) {
+    flex-direction: column;
+  }
+
   ${({ justify }) =>
     justify &&
     css`
@@ -126,6 +136,10 @@ const BandRoot = styled.div<BandProps>`
     padding !== 'none' &&
     css`
       padding: ${Spacings[padding]};
+
+      @media (max-width: ${ScreenSize.phone}) {
+        padding: ${Spacings.xs};
+      }
     `};
 
   ${({ size }) => css`
