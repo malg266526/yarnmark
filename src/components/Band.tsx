@@ -84,6 +84,7 @@ const Slot = styled.div<SlotProps>`
 
   @media (max-width: ${ScreenSize.phone}) {
     margin: auto;
+    width: 100%;
   }
 `;
 
@@ -100,6 +101,7 @@ interface BandLayoutProps {
   align?: 'center';
   flexAuto?: boolean;
   gap?: keyof typeof Spacings;
+  reverseOnMobile?: boolean;
 }
 const BandLayout = styled.div<BandLayoutProps>`
   display: flex;
@@ -107,7 +109,7 @@ const BandLayout = styled.div<BandLayoutProps>`
   height: 100%;
 
   @media (max-width: ${ScreenSize.phone}) {
-    flex-direction: column;
+    flex-direction: ${({ reverseOnMobile }) => (reverseOnMobile ? 'column-reverse' : 'column')};
   }
 
   ${({ justify }) =>
@@ -126,6 +128,10 @@ const BandLayout = styled.div<BandLayoutProps>`
     gap &&
     css`
       gap: ${Spacings[gap]};
+
+      @media (max-width: ${ScreenSize.phone}) {
+        gap: ${Spacings.lg};
+      }
     `};
 `;
 
@@ -138,7 +144,7 @@ const BandRoot = styled.div<BandProps>`
       padding: ${Spacings[padding]};
 
       @media (max-width: ${ScreenSize.phone}) {
-        padding: ${Spacings.xs};
+        padding: ${Spacings.md} ${Spacings.sm};
       }
     `};
 

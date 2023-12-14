@@ -36,6 +36,11 @@ export const ButtonsLayout = styled.div`
   flex: 1 1 auto;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    gap: ${Spacings.md};
+    flex-wrap: wrap;
+  }
 `;
 
 export const Image = styled.img<{ clipped?: boolean }>`
@@ -90,7 +95,12 @@ export const PhotosLayout = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
   gap: ${Spacings.md};
+
+  @media (max-width: ${ScreenSize.tablet}) {
+    width: initial;
+  }
 `;
 
 export const Menu = styled.div`

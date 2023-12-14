@@ -275,7 +275,8 @@ export const MainPage = () => {
         variant="background"
         justify="space-around"
         color={Colors.isabelline}
-        padding="xl">
+        padding="xl"
+        reverseOnMobile>
         <Band.Slot flex="auto-grow">
           <PhotosLayout>
             <PhotoFrame
