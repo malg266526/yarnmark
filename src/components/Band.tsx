@@ -2,6 +2,7 @@ import styled, { css, RuleSet } from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { Theme } from '../styles/theme';
 import React, { ForwardedRef, forwardRef } from 'react';
+import { ScreenSize } from '../styles/screeen-size';
 
 export type BandProps = InnerWrapperProps &
   BandLayoutProps & {
@@ -27,11 +28,17 @@ interface InnerWrapperProps {
 
 const InnerWrapper = styled.div<InnerWrapperProps>`
   flex: 1 1 auto;
+  display: flex;
+
   ${({ narrowContent }) =>
     narrowContent &&
     css`
       max-width: ${Theme.pageContentWidth};
       margin: auto;
+
+      @media (max-width: ${ScreenSize.phone}) {
+        max-width: 100%;
+      }
     `};
 `;
 
@@ -74,6 +81,11 @@ const Slot = styled.div<SlotProps>`
   align-items: center;
 
   ${({ flex }) => flex && flexTypeToCss[flex]};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    margin: auto;
+    width: 100%;
+  }
 `;
 
 type BandSize = 'xl' | 'md' | 'sm';
@@ -89,11 +101,16 @@ interface BandLayoutProps {
   align?: 'center';
   flexAuto?: boolean;
   gap?: keyof typeof Spacings;
+  reverseOnMobile?: boolean;
 }
 const BandLayout = styled.div<BandLayoutProps>`
   display: flex;
   width: 100%;
   height: 100%;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    flex-direction: ${({ reverseOnMobile }) => (reverseOnMobile ? 'column-reverse' : 'column')};
+  }
 
   ${({ justify }) =>
     justify &&
@@ -111,6 +128,10 @@ const BandLayout = styled.div<BandLayoutProps>`
     gap &&
     css`
       gap: ${Spacings[gap]};
+
+      @media (max-width: ${ScreenSize.phone}) {
+        gap: ${Spacings.lg};
+      }
     `};
 `;
 
@@ -121,6 +142,10 @@ const BandRoot = styled.div<BandProps>`
     padding !== 'none' &&
     css`
       padding: ${Spacings[padding]};
+
+      @media (max-width: ${ScreenSize.phone}) {
+        padding: ${Spacings.md} ${Spacings.sm};
+      }
     `};
 
   ${({ size }) => css`

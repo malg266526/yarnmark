@@ -26,7 +26,7 @@ const Link = styled.a`
 
 export interface LinkEntryProps {
   children: ReactNode;
-  href: string;
+  href?: string;
   onClick?: React.MouseEventHandler;
 }
 
@@ -38,7 +38,11 @@ const LinkEntry = ({ href, onClick, ...rest }: LinkEntryProps) => {
       href={href}
       onClick={(event: React.MouseEvent) => {
         event.preventDefault();
-        navigate(href);
+
+        if (href) {
+          navigate(href);
+        }
+
         onClick?.(event);
       }}
       {...rest}

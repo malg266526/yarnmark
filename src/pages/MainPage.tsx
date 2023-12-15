@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { PageContent } from '../components/PageContent';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
@@ -51,10 +51,15 @@ import {
   Text,
   Title
 } from './MainPage.styled';
+import { Header } from '../App.styled';
+import { SideBar } from '../components/SideBar';
+import { BurgerMenu } from '../components/BurgerMenu';
+import { Icon as IconifyIcon } from '@iconify/react';
 
 export const MainPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
+  const [burgerActive, setBurgerActive] = useState(false);
 
   const vendorsBandRef = useRef<HTMLDivElement | null>(null);
   const spotBandRef = useRef<HTMLDivElement | null>(null);
@@ -62,8 +67,69 @@ export const MainPage = () => {
   const vipTicketsBandRef = useRef<HTMLDivElement | null>(null);
   const foodBandRef = useRef<HTMLDivElement | null>(null);
 
+  const closeSideBar = () => setBurgerActive(false);
+
   return (
     <PageContent variant="wide" padding="none">
+      {isPhone && (
+        <Header>
+          <>
+            <SideBar roundedCorners="left" className={burgerActive ? 'visible' : undefined}>
+              <SideBar.LinkEntry
+                onClick={() => {
+                  closeSideBar();
+                  () => window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}>
+                <IconifyIcon icon="game-icons:wool" width="24" />
+                Yarnmark
+              </SideBar.LinkEntry>
+
+              <SideBar.LinkEntry
+                onClick={() => {
+                  () => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
+                  closeSideBar();
+                }}>
+                <IconifyIcon icon="bi:shop" width="24" />
+                {t('menu.vendors')}
+              </SideBar.LinkEntry>
+
+              <SideBar.LinkEntry onClick={closeSideBar} href="/info-for-vendors">
+                <IconifyIcon icon="material-symbols:info-outline" width="24" />
+                {t('menu.infoForVendors')}
+              </SideBar.LinkEntry>
+
+              <SideBar.LinkEntry
+                onClick={() => {
+                  closeSideBar();
+                  () => workshopsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
+                }}>
+                <IconifyIcon icon="icons8:student" width="24" />
+                {t('menu.workshops')}
+              </SideBar.LinkEntry>
+
+              <SideBar.LinkEntry
+                onClick={() => {
+                  closeSideBar();
+                  () => vipTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
+                }}>
+                <IconifyIcon icon="clarity:ferry-solid" width="24" />
+                {t('menu.vipTickets')}
+              </SideBar.LinkEntry>
+
+              <SideBar.LinkEntry
+                onClick={() => {
+                  closeSideBar();
+                  () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                }}>
+                <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
+                {t('menu.contact')}
+              </SideBar.LinkEntry>
+            </SideBar>
+            <BurgerMenu onClick={() => setBurgerActive((prevValue) => !prevValue)} active={burgerActive} />
+          </>
+        </Header>
+      )}
+
       {!isPhone && (
         <Menu>
           <Link color="black" href="/">
@@ -116,7 +182,7 @@ export const MainPage = () => {
               wspólnego dziergania na trybunach i dobrej zabawy.
             </Text>
             <Text>Do zobaczenia!</Text>
-            <Text>Włóczykijki x DziergamyNaPolu</Text>
+            <Text>DziergamyNaPolu x Włóczykijki</Text>
           </NiceBox>
         </Band.Slot>
       </Band>
@@ -128,8 +194,8 @@ export const MainPage = () => {
           <InfoSection>
             <InfoSection.Title>Pierwsze takie wydarzenie w Krakowie!</InfoSection.Title>
             <InfoSection.Text>
-              Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na spotkanie Krakowie! Liczymy, że zaszczycicie
-              nasz targowy debiut Waszą obecnoscią.
+              Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na spotkanie w Krakowie! Liczymy, że
+              zaszczycicie nasz targowy debiut Waszą obecnoscią.
             </InfoSection.Text>
             <InfoSection.Text>
               Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.
@@ -209,7 +275,8 @@ export const MainPage = () => {
         variant="background"
         justify="space-around"
         color={Colors.isabelline}
-        padding="xl">
+        padding="xl"
+        reverseOnMobile>
         <Band.Slot flex="auto-grow">
           <PhotosLayout>
             <PhotoFrame
