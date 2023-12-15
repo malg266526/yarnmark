@@ -194,8 +194,8 @@ export const MainPage = () => {
           <InfoSection>
             <InfoSection.Title>Pierwsze takie wydarzenie w Krakowie!</InfoSection.Title>
             <InfoSection.Text>
-              Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na spotkanie Krakowie! Liczymy, że zaszczycicie
-              nasz targowy debiut Waszą obecnoscią.
+              Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na spotkanie w Krakowie! Liczymy, że
+              zaszczycicie nasz targowy debiut Waszą obecnoscią.
             </InfoSection.Text>
             <InfoSection.Text>
               Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.
