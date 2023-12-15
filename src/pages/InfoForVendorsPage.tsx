@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import yarn2ImageUrl from '../assets/yarn2.jpg';
 import { Band } from '../components/Band';
@@ -12,6 +12,11 @@ import { Link } from '../components/Link';
 import { usePhone } from './usePhone';
 import { Hall } from '../components/Hall';
 import { HallLegend } from '../components/HallLegend';
+import { BurgerMenu } from '../components/BurgerMenu';
+import { Header } from '../App.styled';
+import { SideBar } from '../components/SideBar';
+import { Icon as IconifyIcon } from '@iconify/react';
+import { ScreenSize } from '../styles/screeen-size';
 
 export const FlexLayout = styled.div`
   display: flex;
@@ -36,10 +41,21 @@ export const PlainInfo = styled.div`
   width: 50%;
   min-height: 100px;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: ${ScreenSize.tablet}) {
+    max-width: 90%;
+    width: 90%;
+  }
 `;
 
 export const TitleWrapper = styled.div`
   width: 30%;
+
+  @media (max-width: ${ScreenSize.tablet}) {
+    width: 90%;
+    margin-bottom: ${Spacings.md};
+    text-align: center;
+  }
 `;
 
 export const HallWrapper = styled.div`
@@ -49,16 +65,62 @@ export const HallWrapper = styled.div`
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
   background-color: ${Colors.white};
   padding: ${Spacings.md};
+
+  @media (max-width: ${ScreenSize.tablet}) {
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+  }
 `;
 
 export const InfoForVendorsPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
+  const [burgerActive, setBurgerActive] = useState(false);
+
+  const closeSideBar = () => setBurgerActive(false);
 
   const standsBandRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <PageContent variant="wide" padding="none">
+      {isPhone && (
+        <Header>
+          <>
+            <SideBar roundedCorners="left" className={burgerActive ? 'visible' : undefined}>
+              <SideBar.LinkEntry
+                href="/"
+                onClick={() => {
+                  closeSideBar();
+                }}>
+                <IconifyIcon icon="game-icons:wool" width="24" />
+                Yarnmark
+              </SideBar.LinkEntry>
+
+              <SideBar.LinkEntry
+                onClick={() => {
+                  () => standsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
+                  closeSideBar();
+                }}>
+                <IconifyIcon icon="bi:shop" width="24" />
+                Stoiska
+              </SideBar.LinkEntry>
+
+              <SideBar.LinkEntry
+                onClick={() => {
+                  closeSideBar();
+                  () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                }}>
+                <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
+                {t('menu.contact')}
+              </SideBar.LinkEntry>
+            </SideBar>
+            <BurgerMenu onClick={() => setBurgerActive((prevValue) => !prevValue)} active={burgerActive} />
+          </>
+        </Header>
+      )}
+
       {!isPhone && (
         <Menu>
           <Link color="black" href="/">

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { Spacings } from '../styles/spacings';
+import { ScreenSize } from '../styles/screeen-size';
+import { usePhone } from '../pages/usePhone';
 
 export const Image = styled.img`
   width: 100%;
@@ -30,6 +32,11 @@ const Slot = styled.div<{ slotSize: Size }>`
   ${({ slotSize }) => css`
     min-width: ${slotSize};
   `};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    top: 100%;
+    left: 0;
+  }
 `;
 
 const Root = styled.div<{ maxSize: Size; slotSize?: Size }>`
@@ -52,7 +59,10 @@ const Root = styled.div<{ maxSize: Size; slotSize?: Size }>`
 
       &:hover {
         z-index: 2;
-        transform: scale(1.5);
+
+        @media (min-width: ${ScreenSize.phone}) {
+          transform: scale(1.5);
+        }
       }
     `};
 
@@ -85,15 +95,20 @@ export type PhotoFrameProps = {
 );
 
 export const PhotoFrame = Object.assign(
-  ({ src, maxSize, children, ...rest }: PhotoFrameProps) => (
-    <Root maxSize={maxSize} slotSize={rest.variant === 'slot' ? rest.slotSize : undefined}>
-      <ImageWrapper>
-        <Image src={src} />
-        {children}
-      </ImageWrapper>
+  ({ src, maxSize, children, ...rest }: PhotoFrameProps) => {
+    const isPhone = usePhone();
 
-      {rest.variant === 'slot' && <Slot slotSize={rest.slotSize}>{rest.slot}</Slot>}
-    </Root>
-  ),
+    return (
+      <Root maxSize={maxSize} slotSize={rest.variant === 'slot' ? rest.slotSize : undefined}>
+        <ImageWrapper>
+          <Image src={src} />
+          {children}
+          {rest.variant === 'slot' && isPhone && <>rest.slot</>}
+        </ImageWrapper>
+
+        {rest.variant === 'slot' && !isPhone && <Slot slotSize={rest.slotSize}>{rest.slot}</Slot>}
+      </Root>
+    );
+  },
   { Cursive }
 );

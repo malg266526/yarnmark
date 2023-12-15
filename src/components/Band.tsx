@@ -108,7 +108,7 @@ const BandLayout = styled.div<BandLayoutProps>`
   width: 100%;
   height: 100%;
 
-  @media (max-width: ${ScreenSize.phone}) {
+  @media (max-width: ${ScreenSize.tablet}) {
     flex-direction: ${({ reverseOnMobile }) => (reverseOnMobile ? 'column-reverse' : 'column')};
   }
 
@@ -129,7 +129,7 @@ const BandLayout = styled.div<BandLayoutProps>`
     css`
       gap: ${Spacings[gap]};
 
-      @media (max-width: ${ScreenSize.phone}) {
+      @media (max-width: ${ScreenSize.tablet}) {
         gap: ${Spacings.lg};
       }
     `};
@@ -143,7 +143,7 @@ const BandRoot = styled.div<BandProps>`
     css`
       padding: ${Spacings[padding]};
 
-      @media (max-width: ${ScreenSize.phone}) {
+      @media (max-width: ${ScreenSize.tablet}) {
         padding: ${Spacings.md} ${Spacings.sm};
       }
     `};
