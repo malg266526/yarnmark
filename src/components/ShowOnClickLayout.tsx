@@ -32,7 +32,7 @@ const ImageContentLayout = styled.div`
   @media (max-width: ${ScreenSize.phone}) {
     flex-direction: column;
     flex-wrap: wrap;
-    max-width: 70%;
+    max-width: 80%;
     align-items: center;
   }
 `;
@@ -56,8 +56,6 @@ export const ButtonsWrapper = styled.div`
 
 const TextWrapper = styled.div`
   @media (max-width: ${ScreenSize.phone}) {
-    // width: 70%;
-    // max-width: 70%;
     flex-wrap: wrap;
   }
 `;

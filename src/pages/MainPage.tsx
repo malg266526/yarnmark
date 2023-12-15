@@ -69,8 +69,6 @@ export const MainPage = () => {
 
   const closeSideBar = () => setBurgerActive(false);
 
-  const width = window.innerWidth;
-
   return (
     <PageContent variant="wide" padding="none">
       {isPhone && (
@@ -194,12 +192,6 @@ export const MainPage = () => {
 
         <SectionWrapper>
           <InfoSection>
-            <InfoSection.Title>{width}</InfoSection.Title>
-            <InfoSection.Title>{window.outerWidth}</InfoSection.Title>
-            <InfoSection.Title>
-              {window.screen.width} {window.screen.availWidth}
-            </InfoSection.Title>
-
             <InfoSection.Title>Pierwsze takie wydarzenie w Krakowie!</InfoSection.Title>
             <InfoSection.Text>
               Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na spotkanie w Krakowie! Liczymy, że
