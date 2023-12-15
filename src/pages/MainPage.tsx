@@ -196,6 +196,9 @@ export const MainPage = () => {
           <InfoSection>
             <InfoSection.Title>{width}</InfoSection.Title>
             <InfoSection.Title>{window.outerWidth}</InfoSection.Title>
+            <InfoSection.Title>
+              {window.screen.width} {window.screen.availWidth}
+            </InfoSection.Title>
 
             <InfoSection.Title>Pierwsze takie wydarzenie w Krakowie!</InfoSection.Title>
             <InfoSection.Text>
