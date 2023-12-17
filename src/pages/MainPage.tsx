@@ -48,9 +48,9 @@ import {
   Menu,
   PhotosLayout,
   SectionWrapper,
-  Text,
-  Title
+  Text
 } from './MainPage.styled';
+import { Title } from '../components/Title';
 import { Header } from '../App.styled';
 import { SideBar } from '../components/SideBar';
 import { BurgerMenu } from '../components/BurgerMenu';

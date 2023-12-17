@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
-import { Curtain, Root } from './App.styled';
-import { Footer } from './components/Footer';
+import emailImageUrl from './assets/iconify/email.svg';
+import instagramImageUrl from './assets/iconify/instagram.svg';
+import talkImageUrl from './assets/iconify/talk.svg';
+import { Title } from './components/Title';
+import { Icon } from './components/Icon';
+import { MinimalistLayout } from './components/MinimalistLayout';
+import { RowLayout } from './components/RowLayout';
+
+import { Curtain, Root, Footer, RightBackgroundImage } from './App.styled';
 import { InfoForVendorsPage } from './pages/InfoForVendorsPage';
 import { MainPage } from './pages/MainPage';
 import { usePhone } from './pages/usePhone';
@@ -36,7 +43,32 @@ export const App = () => {
           <Route path="/info-for-vendors" element={<InfoForVendorsPage />} />
         </Routes>
 
-        <Footer />
+        <Footer>
+          <MinimalistLayout>
+            <Title>Kontakt</Title>
+
+            <RowLayout>
+              <Icon size="xl" src={emailImageUrl} />
+              krakoski.yarnmark.welny@gmail.com
+            </RowLayout>
+
+            <a href="https://www.instagram.com/dziergamynapolu/" target="_blank" rel="noreferrer">
+              <RowLayout>
+                <Icon size="xl" src={instagramImageUrl} />
+                @dziergamynapolu
+              </RowLayout>
+            </a>
+
+            <a href="https://www.instagram.com/wloczykijki_sklep/" target="_blank" rel="noreferrer">
+              <RowLayout>
+                <Icon size="xl" src={instagramImageUrl} />
+                @wloczykijki_sklep
+              </RowLayout>
+            </a>
+
+            <RightBackgroundImage src={talkImageUrl} />
+          </MinimalistLayout>
+        </Footer>
       </Root>
     </>
   );

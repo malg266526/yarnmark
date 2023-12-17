@@ -7,23 +7,6 @@ export const Text = styled.div`
   margin-top: ${Spacings.md};
 `;
 
-export const Title = styled.div<{ align?: 'center' | 'left' | 'center'; marginTop?: keyof typeof Spacings }>`
-  font-size: 40px;
-  font-weight: 600;
-
-  ${({ align }) =>
-    align &&
-    css`
-      text-align: ${align};
-    `};
-
-  ${({ marginTop }) =>
-    marginTop &&
-    css`
-      margin-top: ${Spacings[marginTop]};
-    `};
-`;
-
 export const CenteredTitle = styled.div`
   font-size: 40px;
   font-weight: 600;
@@ -73,17 +56,6 @@ export const BackgroundImage = styled.img<{ src: string }>`
   left: 0;
   top: 0;
   width: 100%;
-  max-width: 100%;
-  height: 100%;
-  max-height: 100%;
-  opacity: 0.2;
-  padding: ${Spacings.xl};
-`;
-
-export const RightBackgroundImage = styled.img<{ src: string }>`
-  position: absolute;
-  right: 0;
-  top: 0;
   max-width: 100%;
   height: 100%;
   max-height: 100%;

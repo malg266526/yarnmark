@@ -3,11 +3,13 @@ import styled from 'styled-components';
 import yarn2ImageUrl from '../assets/yarn2.jpg';
 import { Band } from '../components/Band';
 import { NiceBox } from '../components/NiceBox';
+import { Title } from '../components/Title';
 import { PageContent } from '../components/PageContent';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
-import { CenteredTitle, Image, Text, Title, Menu } from './MainPage.styled';
+
+import { CenteredTitle, Image, Text, Menu } from './MainPage.styled';
 import { Link } from '../components/Link';
 import { usePhone } from './usePhone';
 import { Hall } from '../components/Hall';
