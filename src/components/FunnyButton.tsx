@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 import knittingImageUrl from '../assets/knitting.svg';
@@ -62,22 +62,28 @@ export const IconWrapper2 = styled.div`
   }
 `;
 
-const Root = styled.div`
-  position: relative;
-
-  &:hover {
-    ${IconWrapper2} {
-      box-shadow: 1px 1px 3px 0px black;
-    }
-
-    ${IconWrapper2}:after {
-      opacity: 1;
-    }
+const hoverStyles = css`
+  ${IconWrapper2} {
+    box-shadow: 1px 1px 3px 0px black;
   }
 
-  &:hover ${TextWrapper} {
+  ${IconWrapper2}:after {
+    opacity: 1;
+  }
+
+  ${TextWrapper} {
     transform: scale(1) ${wrapperTranslation};
     opacity: 1;
+  }
+`;
+
+const Root = styled.div<{ active?: boolean }>`
+  position: relative;
+
+  ${({ active }) => active && hoverStyles};
+
+  &:hover {
+    ${hoverStyles};
   }
 `;
 
@@ -92,10 +98,11 @@ export interface FunnyButtonProps {
   icon: React.ReactNode;
   text?: React.ReactNode;
   onClick?: () => void;
+  active?: boolean;
 }
 
-export const FunnyButton = ({ icon, text, onClick }: FunnyButtonProps) => (
-  <Root onClick={onClick}>
+export const FunnyButton = ({ icon, text, onClick, active }: FunnyButtonProps) => (
+  <Root onClick={onClick} active={active}>
     <IconWrapper2>
       <IconWrapper>{icon}</IconWrapper>
     </IconWrapper2>
