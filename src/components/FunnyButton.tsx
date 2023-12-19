@@ -101,19 +101,21 @@ export interface FunnyButtonProps {
   active?: boolean;
 }
 
-export const FunnyButton = React.forwardRef<HTMLDivElement, FunnyButtonProps>(({ icon, text, onClick, active }, ref) => (
-  <Root onClick={onClick} active={active} ref={ref}>
-    <IconWrapper2>
-      <IconWrapper>{icon}</IconWrapper>
-    </IconWrapper2>
+export const FunnyButton = React.forwardRef<HTMLDivElement, FunnyButtonProps>(
+  ({ icon, text, onClick, active }, ref) => (
+    <Root onClick={onClick} active={active} ref={ref}>
+      <IconWrapper2>
+        <IconWrapper>{icon}</IconWrapper>
+      </IconWrapper2>
 
-    {text && (
-      <TextWrapper>
-        <KnittingIconWrapper>
-          <Icon size="xl" src={knittingImageUrl} />
-        </KnittingIconWrapper>
-        {text}
-      </TextWrapper>
-    )}
-  </Root>
-));
+      {text && (
+        <TextWrapper>
+          <KnittingIconWrapper>
+            <Icon size="xl" src={knittingImageUrl} />
+          </KnittingIconWrapper>
+          {text}
+        </TextWrapper>
+      )}
+    </Root>
+  )
+);
