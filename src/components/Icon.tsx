@@ -19,7 +19,7 @@ const isCustomValue = (value: IconProps['size']): value is `${number}${'px' | '%
 
 export const Icon = styled.span<IconProps>`
   position: relative;
-  z-index: ${({ zIndex }) => typeof zIndex === 'number' ? zIndex : 1};
+  z-index: ${({ zIndex }) => (typeof zIndex === 'number' ? zIndex : 1)};
   display: inline-block;
   ${({ size }) =>
     isCustomValue(size)

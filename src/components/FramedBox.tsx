@@ -7,33 +7,32 @@ import knittingSvgUrl from '../assets/knitting.svg';
 
 type FrameWidth = `${number}${'px' | '%'}`;
 
+const backgroundOffset = 20;
+
 const Root = styled.div`
   position: relative;
   z-index: 1;
+  max-width: 100%;
 
-  /* &:before {
+  &:before {
     content: '';
     position: absolute;
-    left: -10px;
-    top: 10px;
-    height: calc(100% + 7px);
-    width: calc(100% + 7px);
-    z-index: 1;
-    background: black;
-  } */
-
-  &:after {
-    content: '';
-    position: absolute;
-    left: -20px;
-    top: 20px;
+    left: -${backgroundOffset}px;
+    top: ${backgroundOffset}px;
     height: calc(100% + 7px);
     width: calc(100% + 7px);
     z-index: 0;
-    /* background: black; */
-    background: linear-gradient(45deg, ${Colors.green1} 0%, ${Colors.green2} 50%);
+    background: black;
+    background: linear-gradient(15deg, #a48a78 0%, ${Colors.beige1} 40%);
     /* box-shadow: 3px 3px 3px 3px ${rgba(Colors.green2, 0.8)}; */
+    /* background: radial-gradient(circle at 100%, #d7c9c0, #a48a78 90%, #a48a78 100%); */
   }
+`;
+
+const OuterRoot = styled.div`
+  max-width: 100%;
+  padding-left: ${backgroundOffset};
+  padding-bottom: ${backgroundOffset};
 `;
 
 const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: keyof typeof Spacings }>`
@@ -59,10 +58,11 @@ const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: key
   align-items: center;
 
   :before {
+    pointer-events: none;
     content: '';
     position: absolute;
-    top: calc(${({ padding }) => Spacings[padding]} / 2);
-    left: calc(${({ padding }) => Spacings[padding]} / 2);
+    top: 4px;
+    left: 4px;
     width: 30px;
     height: 30px;
     background: url(${knittingSvgUrl}) no-repeat center;
@@ -78,7 +78,9 @@ export interface FramedBoxProps {
 }
 
 export const FramedBox = ({ children, ...rest }: FramedBoxProps) => (
-  <Root>
-    <Frame {...rest}>{children}</Frame>
-  </Root>
+  <OuterRoot>
+    <Root>
+      <Frame {...rest}>{children}</Frame>
+    </Root>
+  </OuterRoot>
 );

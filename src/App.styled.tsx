@@ -110,6 +110,7 @@ export const Footer = styled.div`
   overflow: hidden;
 
   background: ${Colors.snow};
+  word-break: break-all;
 `;
 
 export const RightBackgroundImage = styled.img<{ src: string }>`

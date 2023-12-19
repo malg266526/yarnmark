@@ -83,7 +83,7 @@ const Slot = styled.div<SlotProps>`
 
   ${({ flex }) => flex && flexTypeToCss[flex]};
 
-  @media (max-width: ${ScreenSize.phone}) {
+  @media (max-width: ${ScreenSize.tablet}) {
     margin: auto;
     width: 100%;
   }

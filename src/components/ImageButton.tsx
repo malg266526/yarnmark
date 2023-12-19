@@ -26,6 +26,7 @@ const ImageButtonLayout = styled.div<{ active?: boolean }>`
   border-radius: 10px;
   box-shadow: 0px black;
   cursor: pointer;
+  word-break: break-word;
 
   transition: all 300ms cubic-bezier(0.72, 2.04, 0.68, 0.87);
 

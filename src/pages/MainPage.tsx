@@ -60,6 +60,8 @@ import { SideBar } from '../components/SideBar';
 import { BurgerMenu } from '../components/BurgerMenu';
 import { Icon as IconifyIcon } from '@iconify/react';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
+import { FramedBox } from '../components/FramedBox';
+import styled from 'styled-components';
 
 const activeButtonToImage: Record<
   ActiveButtonType,
@@ -119,6 +121,10 @@ const activeButtonToImage: Record<
   }
 };
 
+const FF = styled.div`
+  margin: auto;
+`;
+
 type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
 export const MainPage = () => {
@@ -142,7 +148,7 @@ export const MainPage = () => {
 
   const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
 
-  const observerCallback = useCallback(() => { }, []);
+  const observerCallback = useCallback(() => {}, []);
 
   useRootIntersectionObserver({
     rootRef: pageContentRef,
@@ -360,8 +366,10 @@ export const MainPage = () => {
         <BackgroundImage src={bigShopImageUrl} />
 
         <Band.Slot flex="auto-grow" size="sm">
-          <Title>Wystawcy</Title>
-          <VendorsList />
+          <FF>
+            <Title align="center">Wystawcy</Title>
+            <VendorsList />
+          </FF>
         </Band.Slot>
       </Band>
 
@@ -447,10 +455,12 @@ export const MainPage = () => {
             </ImageButton>
           </ButtonsWrapper>
 
-          <ImageContentLayout>
-            <ActiveImage src={activeButtonToImage[activeButton].image} />
-            <TextWrapper>{activeButtonToImage[activeButton].text}</TextWrapper>
-          </ImageContentLayout>
+          <FramedBox padding="md">
+            <ImageContentLayout>
+              <ActiveImage src={activeButtonToImage[activeButton].image} />
+              <TextWrapper>{activeButtonToImage[activeButton].text}</TextWrapper>
+            </ImageContentLayout>
+          </FramedBox>
         </LayoutWithActiveButton>
       </Band>
 
