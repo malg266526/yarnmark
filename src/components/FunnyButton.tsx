@@ -101,6 +101,7 @@ export interface FunnyButtonProps {
   active?: boolean;
 }
 
+// eslint-disable-next-line react/display-name
 export const FunnyButton = React.forwardRef<HTMLDivElement, FunnyButtonProps>(
   ({ icon, text, onClick, active }, ref) => (
     <Root onClick={onClick} active={active} ref={ref}>

@@ -11,11 +11,15 @@ export const useRootIntersectionObserver = ({
   elementToObserveRef,
   callback
 }: UseRootIntersectionObserverParams) => {
-  const observerCallback = useCallback((entries: IntersectionObserverEntry[]) => {
-    if (entries[0].isIntersecting) {
-      callback();
-    }
-  }, []);
+  const observerCallback = useCallback(
+    (entries: IntersectionObserverEntry[]) => {
+      if (entries[0].isIntersecting) {
+        callback();
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
 
   const observer = useMemo(
     () =>
@@ -24,12 +28,12 @@ export const useRootIntersectionObserver = ({
         rootMargin: '0px',
         threshold: 1
       }),
-    [rootRef.current]
+    [rootRef, observerCallback]
   );
 
   useEffect(() => {
     if (elementToObserveRef.current && rootRef.current) {
       observer.observe(elementToObserveRef.current);
     }
-  }, [elementToObserveRef.current]);
+  }, [elementToObserveRef, observer, rootRef]);
 };

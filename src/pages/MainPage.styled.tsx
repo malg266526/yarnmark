@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { Icon } from '../components/Icon';
 import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
+import { Colors } from '../styles/theme';
 
 export const Text = styled.div`
   margin-top: ${Spacings.md};
@@ -145,5 +146,75 @@ export const AnimatedIconWrapper = styled.div`
 
   > ${Icon}:hover {
     animation-play-state: paused;
+  }
+`;
+
+export const ActiveImage = styled.img`
+  width: 70%;
+  max-width: 70%;
+  height: 100%;
+  max-height: 100%;
+
+  object-fit: contain;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    width: 100%;
+    max-width: 100%;
+  }
+`;
+
+export const ImageContentLayout = styled.div`
+  display: flex;
+  width: 600px;
+  flex-direction: row-reverse;
+  border: 2px solid ${Colors.pinball};
+  padding: ${Spacings.md};
+  background-color: ${Colors.white};
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  gap: ${Spacings.md};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 80%;
+    align-items: center;
+  }
+`;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: ${Spacings.md};
+
+    > * {
+      flex: 1 1 auto;
+    }
+  }
+`;
+
+export const TextWrapper = styled.div`
+  @media (max-width: ${ScreenSize.phone}) {
+    flex-wrap: wrap;
+  }
+`;
+
+export const LayoutWithActiveButton = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: ${Spacings.xs};
+  max-width: 100%;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    flex-direction: column;
+    max-width: 100vw;
   }
 `;

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { ReactNode, useCallback, useRef, useState } from 'react';
 import { PageContent } from '../components/PageContent';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
@@ -34,21 +34,25 @@ import { usePhone } from './usePhone';
 
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { ImageButton } from '../components/ImageButton';
-import { ShowOnClickLayout } from '../components/ShowOnClickLayout';
 import { ShowOnHoverButton } from '../components/ShowOnHoverButton';
 import { ShowOnHoverLayout } from '../components/ShowOnHoverLayout';
 import { VendorsList } from '../components/VendorsList';
 import { Colors } from '../styles/theme';
 import {
+  ActiveImage,
   AnimatedIconWrapper,
   BackgroundImage,
   ButtonsLayout,
+  ButtonsWrapper,
   CenteredTitle,
   Image,
+  ImageContentLayout,
+  LayoutWithActiveButton,
   Menu,
   PhotosLayout,
   SectionWrapper,
-  Text
+  Text,
+  TextWrapper
 } from './MainPage.styled';
 import { Title } from '../components/Title';
 import { Header } from '../App.styled';
@@ -56,6 +60,66 @@ import { SideBar } from '../components/SideBar';
 import { BurgerMenu } from '../components/BurgerMenu';
 import { Icon as IconifyIcon } from '@iconify/react';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
+
+const activeButtonToImage: Record<
+  ActiveButtonType,
+  {
+    image: string;
+    text: ReactNode;
+  }
+> = {
+  foodtruckBezogródek: {
+    image: wawelImageSrc,
+    text: (
+      <FlexColumnLayout gap="sm" padding="none">
+        150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów
+        <a href="https://www.instagram.com/bezogrodek/?hl=pl" target="_blank" rel="noreferrer">
+          Zobacz tutaj
+        </a>
+      </FlexColumnLayout>
+    )
+  },
+  pinoGarden: {
+    image: wawelImageSrc,
+    text: (
+      <FlexColumnLayout gap="sm" padding="none">
+        Fani włoskiej kuchni i owoców morza naprzeciwko hali znajdą Pino Garden
+        <a href="https://pinogarden.pl/kategoria/karta-menu" target="_blank" rel="noreferrer">
+          Zobacz menu tutaj
+        </a>
+      </FlexColumnLayout>
+    )
+  },
+  precel: {
+    image: wawelImageSrc,
+    text: (
+      <FlexColumnLayout gap="sm" padding="none">
+        Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka
+      </FlexColumnLayout>
+    )
+  },
+  gospodaNaPiastowskiej: {
+    image: wawelImageSrc,
+    text: (
+      <FlexColumnLayout gap="sm" padding="none">
+        Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej
+        <a href="https://gospodapiastowska.pl/menu/" target="_blank" rel="noreferrer">
+          Zobacz menu tutaj
+        </a>
+      </FlexColumnLayout>
+    )
+  },
+  knittedCoffee: {
+    image: wawelImageSrc,
+    text: (
+      <FlexColumnLayout gap="sm" padding="none">
+        Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee
+      </FlexColumnLayout>
+    )
+  }
+};
+
+type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
 export const MainPage = () => {
   const t = useTypedTranslation();
@@ -76,8 +140,9 @@ export const MainPage = () => {
   const foodFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
 
-  const observerCallback = useCallback(() => {
-  }, []);
+  const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
+
+  const observerCallback = useCallback(() => {}, []);
 
   useRootIntersectionObserver({
     rootRef: pageContentRef,
@@ -346,71 +411,47 @@ export const MainPage = () => {
 
       <Band ref={foodBandRef} size="md" variant="background" color={Colors.pastelGray} padding="xl">
         <CenteredTitle>Gdzie zjeść?</CenteredTitle>
-        <ShowOnClickLayout>
-          <ImageButton
-            icon={<Icon size="xl" src={burgerImageUrl} />}
-            photo={wawelImageSrc}
-            text={
-              <FlexColumnLayout gap="sm" padding="none">
-                150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów
-                <a href="https://www.instagram.com/bezogrodek/?hl=pl" target="_blank" rel="noreferrer">
-                  Zobacz tutaj
-                </a>
-              </FlexColumnLayout>
-            }>
-            Food Truck Park Bezogródek
-          </ImageButton>
 
-          <ImageButton
-            icon={<Icon size="xl" src={shrimpImageUrl} />}
-            photo={wawelImageSrc}
-            text={
-              <FlexColumnLayout gap="sm" padding="none">
-                Fani włoskiej kuchni i owoców morza naprzeciwko hali znajdą Pino Garden
-                <a href="https://pinogarden.pl/kategoria/karta-menu" target="_blank" rel="noreferrer">
-                  Zobacz menu tutaj
-                </a>
-              </FlexColumnLayout>
-            }>
-            Pino Garden
-          </ImageButton>
+        <LayoutWithActiveButton>
+          <ButtonsWrapper>
+            <ImageButton
+              active={activeButton === 'foodtruckBezogródek'}
+              onClick={() => setActiveButton('foodtruckBezogródek')}
+              icon={<Icon size="xl" src={burgerImageUrl} />}>
+              Food Truck Park Bezogródek
+            </ImageButton>
 
-          <ImageButton
-            icon={<Icon size="xl" src={soupImageUrl} />}
-            photo={wawelImageSrc}
-            text={
-              <FlexColumnLayout gap="sm" padding="none">
-                Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej
-                <a href="https://gospodapiastowska.pl/menu/" target="_blank" rel="noreferrer">
-                  Zobacz menu tutaj
-                </a>
-              </FlexColumnLayout>
-            }>
-            Gospoda na Piastowskiej
-          </ImageButton>
+            <ImageButton
+              active={activeButton === 'pinoGarden'}
+              onClick={() => setActiveButton('pinoGarden')}
+              icon={<Icon size="xl" src={shrimpImageUrl} />}>
+              Pino Garden
+            </ImageButton>
 
-          <ImageButton
-            icon={<Icon size="xl" src={pretzelImageUrl} />}
-            photo={wawelImageSrc}
-            text={
-              <FlexColumnLayout gap="sm" padding="none">
-                Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka
-              </FlexColumnLayout>
-            }>
-            Krakowskie obwarzanki
-          </ImageButton>
+            <ImageButton
+              active={activeButton === 'gospodaNaPiastowskiej'}
+              onClick={() => setActiveButton('gospodaNaPiastowskiej')}
+              icon={<Icon size="xl" src={soupImageUrl} />}>
+              Gospoda na Piastowskiej
+            </ImageButton>
 
-          <ImageButton
-            icon={<Icon size="xl" src={coffeeImageUrl} />}
-            photo={wawelImageSrc}
-            text={
-              <FlexColumnLayout gap="sm" padding="none">
-                Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee
-              </FlexColumnLayout>
-            }>
-            Knitted Coffee
-          </ImageButton>
-        </ShowOnClickLayout>
+            <ImageButton onClick={() => setActiveButton('precel')} icon={<Icon size="xl" src={pretzelImageUrl} />}>
+              Krakowskie obwarzanki
+            </ImageButton>
+
+            <ImageButton
+              active={activeButton === 'knittedCoffee'}
+              icon={<Icon size="xl" src={coffeeImageUrl} />}
+              onClick={() => setActiveButton('knittedCoffee')}>
+              Knitted Coffee
+            </ImageButton>
+          </ButtonsWrapper>
+
+          <ImageContentLayout>
+            <ActiveImage src={activeButtonToImage[activeButton].image} />
+            <TextWrapper>{activeButtonToImage[activeButton].text}</TextWrapper>
+          </ImageContentLayout>
+        </LayoutWithActiveButton>
       </Band>
 
       <Band
