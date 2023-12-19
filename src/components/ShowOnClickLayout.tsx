@@ -66,6 +66,7 @@ const Root = styled.div`
   align-items: center;
   justify-content: space-evenly;
   padding: ${Spacings.xs};
+  max-width: 100%;
 
   @media (max-width: ${ScreenSize.phone}) {
     flex-direction: column;

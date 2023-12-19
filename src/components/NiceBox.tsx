@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 import knittingSvgUrl from '../assets/knitting.svg';
+import { ScreenSize } from '../styles/screeen-size';
 
 type FrameWidth = `${number}${'px' | '%'}`;
 
@@ -120,6 +121,11 @@ const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: key
     css`
       height: ${height};
     `};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    width: 100%;
+  }
+
   padding: ${({ padding }) => Spacings[padding]};
   background: white;
   position: relative;

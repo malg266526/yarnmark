@@ -121,4 +121,5 @@ export const RightBackgroundImage = styled.img<{ src: string }>`
   max-height: 100%;
   opacity: 0.2;
   padding: ${Spacings.xl};
+  pointer-events: none;
 `;

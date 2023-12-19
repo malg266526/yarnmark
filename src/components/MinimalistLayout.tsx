@@ -1,9 +1,11 @@
 import styled from 'styled-components';
+import { ScreenSize } from '../styles/screeen-size';
 import { Spacings } from '../styles/spacings';
 
 export const MinimalistLayout = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   gap: ${Spacings.md};
   padding: ${Spacings.md};
@@ -12,4 +14,8 @@ export const MinimalistLayout = styled.div`
   align-items: flex-start;
 
   margin-left: ${Spacings.lg};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    margin-left: auto;
+  }
 `;

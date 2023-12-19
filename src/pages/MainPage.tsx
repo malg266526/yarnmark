@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { PageContent } from '../components/PageContent';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
@@ -55,11 +55,15 @@ import { Header } from '../App.styled';
 import { SideBar } from '../components/SideBar';
 import { BurgerMenu } from '../components/BurgerMenu';
 import { Icon as IconifyIcon } from '@iconify/react';
+import { useEffectQueue } from './useEffectQueue';
+import { useRootIntersectionObserver } from './useRootIntersectionObserver';
 
 export const MainPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
   const [burgerActive, setBurgerActive] = useState(false);
+
+  const pageContentRef = useRef<HTMLDivElement | null>(null);
 
   const vendorsBandRef = useRef<HTMLDivElement | null>(null);
   const spotBandRef = useRef<HTMLDivElement | null>(null);
@@ -67,10 +71,26 @@ export const MainPage = () => {
   const vipTicketsBandRef = useRef<HTMLDivElement | null>(null);
   const foodBandRef = useRef<HTMLDivElement | null>(null);
 
+  const ticketsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
+  const vendorsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
+  const geoFunnyButtonRef = useRef<HTMLDivElement | null>(null);
+  const foodFunnyButtonRef = useRef<HTMLDivElement | null>(null);
+  const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
+
+  // const observerCallback = useCallback(() => {
+  //   console.info('observerInfo222');
+  // }, []);
+
+  // useRootIntersectionObserver({
+  //   rootRef: pageContentRef,
+  //   elementToObserveRef: ticketsFunnyButtonRef,
+  //   callback: observerCallback,
+  // });
+
   const closeSideBar = () => setBurgerActive(false);
 
   return (
-    <PageContent variant="wide" padding="none">
+    <PageContent ref={pageContentRef} variant="wide" padding="none">
       {isPhone && (
         <Header>
           <>
@@ -203,23 +223,27 @@ export const MainPage = () => {
           </InfoSection>
 
           <ButtonsLayout>
-            <FunnyButton icon={<Icon size="xl" src={ticketImageUrl} />} text="Tutaj kupisz bilet" />
+            <FunnyButton ref={ticketsFunnyButtonRef} icon={<Icon size="xl" src={ticketImageUrl} />} text="Tutaj kupisz bilet" />
             <FunnyButton
+              ref={vendorsFunnyButtonRef}
               icon={<Icon size="xl" src={shopImageUrl} />}
               text="Sprawdź z jakimi wystawcami się spotkasz"
               onClick={() => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
             />
             <FunnyButton
+              ref={geoFunnyButtonRef}
               icon={<Icon size="xl" src={pinBlackImageUrl} />}
               text="Zobacz gdzie jesteśmy i jak tam dojechać"
               onClick={() => spotBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
             />
             <FunnyButton
+              ref={foodFunnyButtonRef}
               icon={<Icon size="xl" src={pizzaImageUrl} />}
               text="Zobacz co zjesz w okolicy"
               onClick={() => foodBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
             />
             <FunnyButton
+              ref={shipFunnyButtonRef}
               icon={<Icon size="xl" src={ferryImageUrl} />}
               text="Sprawdź nasz VIP pakiet"
               onClick={() => vipTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
@@ -228,7 +252,7 @@ export const MainPage = () => {
         </SectionWrapper>
       </Band>
 
-      <Band justify="space-around" ref={spotBandRef} size="xl" variant="background-image" src={stadionImageSrc}>
+      <Band justify="space-around" ref={spotBandRef} size="xl" padding="sm" variant="background-image" src={stadionImageSrc}>
         <Band.Slot>
           <a href="https://www.google.pl/maps/place/Hala+100-lecia+KS+Cracovia+wraz+z+Centrum+Sportu+Niepe%C5%82nosprawnych/@50.0570694,19.9078517,17z/data=!3m1!4b1!4m6!3m5!1s0x47165bdbabf291a1:0x3a0607d5947b7ef2!8m2!3d50.0570694!4d19.9104266!16s%2Fg%2F11f5t43046?entry=ttu">
             <AnimatedIconWrapper>

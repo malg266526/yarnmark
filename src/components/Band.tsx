@@ -13,13 +13,13 @@ export type BandProps = InnerWrapperProps &
   } & (
     | { variant?: 'default' }
     | {
-        variant: 'background-image';
-        src: string;
-      }
+      variant: 'background-image';
+      src: string;
+    }
     | {
-        variant: 'background';
-        color: string;
-      }
+      variant: 'background';
+      color: string;
+    }
   );
 
 interface InnerWrapperProps {
@@ -29,6 +29,7 @@ interface InnerWrapperProps {
 const InnerWrapper = styled.div<InnerWrapperProps>`
   flex: 1 1 auto;
   display: flex;
+  max-width: 100%;
 
   ${({ narrowContent }) =>
     narrowContent &&
@@ -144,7 +145,7 @@ const BandRoot = styled.div<BandProps>`
       padding: ${Spacings[padding]};
 
       @media (max-width: ${ScreenSize.tablet}) {
-        padding: ${Spacings.md} ${Spacings.sm};
+        padding: ${Spacings.md} ${Spacings.md};
       }
     `};
 

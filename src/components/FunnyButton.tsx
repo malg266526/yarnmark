@@ -101,8 +101,8 @@ export interface FunnyButtonProps {
   active?: boolean;
 }
 
-export const FunnyButton = ({ icon, text, onClick, active }: FunnyButtonProps) => (
-  <Root onClick={onClick} active={active}>
+export const FunnyButton = React.forwardRef<HTMLDivElement, FunnyButtonProps>(({ icon, text, onClick, active }, ref) => (
+  <Root onClick={onClick} active={active} ref={ref}>
     <IconWrapper2>
       <IconWrapper>{icon}</IconWrapper>
     </IconWrapper2>
@@ -116,4 +116,4 @@ export const FunnyButton = ({ icon, text, onClick, active }: FunnyButtonProps) =
       </TextWrapper>
     )}
   </Root>
-);
+));
