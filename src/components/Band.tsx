@@ -13,13 +13,13 @@ export type BandProps = InnerWrapperProps &
   } & (
     | { variant?: 'default' }
     | {
-      variant: 'background-image';
-      src: string;
-    }
+        variant: 'background-image';
+        src: string;
+      }
     | {
-      variant: 'background';
-      color: string;
-    }
+        variant: 'background';
+        color: string;
+      }
   );
 
 interface InnerWrapperProps {
