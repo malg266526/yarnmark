@@ -34,8 +34,6 @@ import { usePhone } from './usePhone';
 
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { ImageButton } from '../components/ImageButton';
-import { ShowOnHoverButton } from '../components/ShowOnHoverButton';
-import { ShowOnHoverLayout } from '../components/ShowOnHoverLayout';
 import { VendorsList } from '../components/VendorsList';
 import { Colors } from '../styles/theme';
 import {
@@ -61,8 +59,9 @@ import { BurgerMenu } from '../components/BurgerMenu';
 import { Icon as IconifyIcon } from '@iconify/react';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
 import { FramedBox } from '../components/FramedBox';
-import styled from 'styled-components';
+import { Tabs } from '../components/Tabs';
 
+type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 const activeButtonToImage: Record<
   ActiveButtonType,
   {
@@ -121,11 +120,25 @@ const activeButtonToImage: Record<
   }
 };
 
-const FF = styled.div`
-  margin: auto;
-`;
-
-type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
+type ActiveTab = 'ship' | 'earlyEntrance' | 'bag';
+const activeTabToContent: Record<ActiveTab, ReactNode> = {
+  earlyEntrance: (
+    <FlexColumnLayout gap="sm" padding="none">
+      Oficjalne otwarcie bram targów jest o godz. 10:30, natomiast posiadacze biletów VIP mają zagwarantowane
+      wcześniejsze wejście na halę - o godz. 10:00
+    </FlexColumnLayout>
+  ),
+  bag: (
+    <FlexColumnLayout gap="sm" padding="none">
+      Info...
+    </FlexColumnLayout>
+  ),
+  ship: (
+    <FlexColumnLayout gap="sm" padding="none">
+      Info...
+    </FlexColumnLayout>
+  )
+};
 
 export const MainPage = () => {
   const t = useTypedTranslation();
@@ -147,6 +160,7 @@ export const MainPage = () => {
   const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
 
   const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
+  const [activeTab, setActiveTab] = useState<ActiveTab>('ship');
 
   const observerCallback = useCallback(() => {}, []);
 
@@ -366,10 +380,8 @@ export const MainPage = () => {
         <BackgroundImage src={bigShopImageUrl} />
 
         <Band.Slot flex="auto-grow" size="sm">
-          <FF>
-            <Title align="center">Wystawcy</Title>
-            <VendorsList />
-          </FF>
+          <Title align="center">Wystawcy</Title>
+          <VendorsList />
         </Band.Slot>
       </Band>
 
@@ -465,54 +477,38 @@ export const MainPage = () => {
       </Band>
 
       <Band
-        ref={vipTicketsBandRef}
         size="md"
+        ref={vipTicketsBandRef}
         variant="background"
         justify="space-around"
         color={Colors.isabelline}
-        padding="xl">
-        <Band.Slot>
-          <NiceBox width="500px" padding="lg">
-            <Title>Bilety VIP</Title>
-            <Text>Oferujemy możliwość zakupu biletów zwykłych oraz biletów VIP.</Text>
-            <Text>Bilety VIP oprócz wejściowki na targi obejmują:</Text>
-          </NiceBox>
-        </Band.Slot>
+        padding="xl"
+        align="initial"
+        direction="column">
+        <Title align="center">Bilety VIP</Title>
 
-        <Band.Slot>
-          <ShowOnHoverLayout>
-            <ShowOnHoverButton
-              icon={<Icon size="xl" src={ferryImageUrl} />}
-              text={
-                <FlexColumnLayout gap="sm" padding="none">
-                  Opis...
-                </FlexColumnLayout>
-              }>
-              Rejs Dziergostatkiem
-            </ShowOnHoverButton>
+        <Text align="center" marginBottom="md">
+          Oferujemy możliwość zakupu biletów zwykłych oraz biletów VIP. Bilety VIP oprócz wejściowki na targi obejmują
+        </Text>
 
-            <ShowOnHoverButton
-              icon={<Icon size="xl" src={clockImageUrl} />}
-              text={
-                <FlexColumnLayout gap="sm" padding="none">
-                  Oficjalne otwarcie bram targów jest o godz. 10:30, natomiast posiadacze biletów VIP mają
-                  zagwarantowane wcześniejsze wejście na halę - o godz. 10:00
-                </FlexColumnLayout>
-              }>
-              Early entrance
-            </ShowOnHoverButton>
+        <Tabs>
+          <Tabs.Tab onClick={() => setActiveTab('ship')} active={activeTab === 'ship'}>
+            <Icon size="xl" src={ferryImageUrl} />
+            Rejs Dziergostatkiem
+          </Tabs.Tab>
 
-            <ShowOnHoverButton
-              icon={<Icon size="xl" src={goodieBagImageUrl} />}
-              text={
-                <FlexColumnLayout gap="sm" padding="none">
-                  Info...
-                </FlexColumnLayout>
-              }>
-              Pamiątkowa torba targowa
-            </ShowOnHoverButton>
-          </ShowOnHoverLayout>
-        </Band.Slot>
+          <Tabs.Tab onClick={() => setActiveTab('earlyEntrance')} active={activeTab === 'earlyEntrance'}>
+            <Icon size="xl" src={clockImageUrl} />
+            Early entrance
+          </Tabs.Tab>
+
+          <Tabs.Tab onClick={() => setActiveTab('bag')} active={activeTab === 'bag'}>
+            <Icon size="xl" src={goodieBagImageUrl} />
+            Pamiątkowa torba targowa
+          </Tabs.Tab>
+        </Tabs>
+
+        <Tabs.Content>{activeTabToContent[activeTab]}</Tabs.Content>
       </Band>
     </PageContent>
   );

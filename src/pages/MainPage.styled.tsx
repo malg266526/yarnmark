@@ -3,8 +3,20 @@ import { Icon } from '../components/Icon';
 import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
 
-export const Text = styled.div`
+export const Text = styled.div<{ marginBottom?: keyof typeof Spacings; align?: 'center' }>`
   margin-top: ${Spacings.md};
+
+  ${({ align }) =>
+    align &&
+    css`
+      text-align: ${align};
+    `};
+
+  ${({ marginBottom }) =>
+    marginBottom &&
+    css`
+      margin-bottom: ${Spacings[marginBottom]};
+    `};
 `;
 
 export const CenteredTitle = styled.div`
