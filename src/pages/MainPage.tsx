@@ -55,7 +55,6 @@ import { Header } from '../App.styled';
 import { SideBar } from '../components/SideBar';
 import { BurgerMenu } from '../components/BurgerMenu';
 import { Icon as IconifyIcon } from '@iconify/react';
-import { useEffectQueue } from './useEffectQueue';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
 
 export const MainPage = () => {
@@ -77,15 +76,14 @@ export const MainPage = () => {
   const foodFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
 
-  // const observerCallback = useCallback(() => {
-  //   console.info('observerInfo222');
-  // }, []);
+  const observerCallback = useCallback(() => {
+  }, []);
 
-  // useRootIntersectionObserver({
-  //   rootRef: pageContentRef,
-  //   elementToObserveRef: ticketsFunnyButtonRef,
-  //   callback: observerCallback,
-  // });
+  useRootIntersectionObserver({
+    rootRef: pageContentRef,
+    elementToObserveRef: ticketsFunnyButtonRef,
+    callback: observerCallback
+  });
 
   const closeSideBar = () => setBurgerActive(false);
 
@@ -223,7 +221,11 @@ export const MainPage = () => {
           </InfoSection>
 
           <ButtonsLayout>
-            <FunnyButton ref={ticketsFunnyButtonRef} icon={<Icon size="xl" src={ticketImageUrl} />} text="Tutaj kupisz bilet" />
+            <FunnyButton
+              ref={ticketsFunnyButtonRef}
+              icon={<Icon size="xl" src={ticketImageUrl} />}
+              text="Tutaj kupisz bilet"
+            />
             <FunnyButton
               ref={vendorsFunnyButtonRef}
               icon={<Icon size="xl" src={shopImageUrl} />}
@@ -252,7 +254,13 @@ export const MainPage = () => {
         </SectionWrapper>
       </Band>
 
-      <Band justify="space-around" ref={spotBandRef} size="xl" padding="sm" variant="background-image" src={stadionImageSrc}>
+      <Band
+        justify="space-around"
+        ref={spotBandRef}
+        size="xl"
+        padding="sm"
+        variant="background-image"
+        src={stadionImageSrc}>
         <Band.Slot>
           <a href="https://www.google.pl/maps/place/Hala+100-lecia+KS+Cracovia+wraz+z+Centrum+Sportu+Niepe%C5%82nosprawnych/@50.0570694,19.9078517,17z/data=!3m1!4b1!4m6!3m5!1s0x47165bdbabf291a1:0x3a0607d5947b7ef2!8m2!3d50.0570694!4d19.9104266!16s%2Fg%2F11f5t43046?entry=ttu">
             <AnimatedIconWrapper>
