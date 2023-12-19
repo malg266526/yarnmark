@@ -72,6 +72,7 @@ const hoverStyles = css`
   }
 
   ${TextWrapper} {
+    z-index: 1;
     transform: scale(1) ${wrapperTranslation};
     opacity: 1;
   }

@@ -142,7 +142,7 @@ export const MainPage = () => {
 
   const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
 
-  const observerCallback = useCallback(() => {}, []);
+  const observerCallback = useCallback(() => { }, []);
 
   useRootIntersectionObserver({
     rootRef: pageContentRef,
@@ -288,30 +288,30 @@ export const MainPage = () => {
           <ButtonsLayout>
             <FunnyButton
               ref={ticketsFunnyButtonRef}
-              icon={<Icon size="xl" src={ticketImageUrl} />}
+              icon={<Icon size="xl" zIndex={0} src={ticketImageUrl} />}
               text="Tutaj kupisz bilet"
             />
             <FunnyButton
               ref={vendorsFunnyButtonRef}
-              icon={<Icon size="xl" src={shopImageUrl} />}
+              icon={<Icon size="xl" zIndex={0} src={shopImageUrl} />}
               text="Sprawdź z jakimi wystawcami się spotkasz"
               onClick={() => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
             />
             <FunnyButton
               ref={geoFunnyButtonRef}
-              icon={<Icon size="xl" src={pinBlackImageUrl} />}
+              icon={<Icon size="xl" zIndex={0} src={pinBlackImageUrl} />}
               text="Zobacz gdzie jesteśmy i jak tam dojechać"
               onClick={() => spotBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
             />
             <FunnyButton
               ref={foodFunnyButtonRef}
-              icon={<Icon size="xl" src={pizzaImageUrl} />}
+              icon={<Icon size="xl" zIndex={0} src={pizzaImageUrl} />}
               text="Zobacz co zjesz w okolicy"
               onClick={() => foodBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
             />
             <FunnyButton
               ref={shipFunnyButtonRef}
-              icon={<Icon size="xl" src={ferryImageUrl} />}
+              icon={<Icon size="xl" zIndex={0} src={ferryImageUrl} />}
               text="Sprawdź nasz VIP pakiet"
               onClick={() => vipTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
             />
