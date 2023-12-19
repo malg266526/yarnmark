@@ -13,13 +13,13 @@ export type BandProps = InnerWrapperProps &
   } & (
     | { variant?: 'default' }
     | {
-        variant: 'background-image';
-        src: string;
-      }
+      variant: 'background-image';
+      src: string;
+    }
     | {
-        variant: 'background';
-        color: string;
-      }
+      variant: 'background';
+      color: string;
+    }
   );
 
 interface InnerWrapperProps {
@@ -151,6 +151,10 @@ const BandRoot = styled.div<BandProps>`
 
   ${({ size }) => css`
     min-height: ${bandSizeToHeight[size]};
+
+    @media (max-width: ${ScreenSize.phone}) {
+      min-height: initial;
+    }
   `};
   width: 100%;
   display: flex;
