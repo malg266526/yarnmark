@@ -33,23 +33,23 @@ const TabRoot = styled.div<{ active?: boolean }>`
     `};
 `;
 
-export type TabProps = React.HTMLProps<HTMLDivElement> & TabRootProps;
+export type TabProps = React.HTMLProps<HTMLDivElement> &
+  TabRootProps & {
+    onClick?: () => void;
+  };
 
-const Tab = (props: TabProps) => {
+const Tab = ({ onClick, ...rest }: TabProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
-  const onClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    ref.current?.scrollIntoView({ behavior: 'smooth' });
-    props?.onClick?.(e)
-  }, [props, ref]);
-
-  return (
-    <TabRoot
-      {...props}
-      ref={ref}
-      onClick={onClick}
-    />
+  const proxyOnClick = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      ref.current?.scrollIntoView({ behavior: 'smooth' });
+      onClick?.(e);
+    },
+    [onClick, ref]
   );
+
+  return <TabRoot {...rest} ref={ref} onClick={proxyOnClick} />;
 };
 
 const Content = styled.div`
