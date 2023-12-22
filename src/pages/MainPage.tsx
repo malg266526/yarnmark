@@ -388,6 +388,8 @@ export const MainPage = () => {
                   {t('spotBand.accessibleByCar')}
                 </SubTitle>
                 <Text>{t('spotBand.byCar')}</Text>
+
+                <p>fot: https://halacracovii.pl/ </p>
               </>
             )}
           </NiceBox>

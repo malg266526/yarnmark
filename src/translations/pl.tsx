@@ -48,7 +48,9 @@ export const pl = {
       howToGetToUs: 'Jak do nas dojechać?',
       accessibleByCar: 'Dojazd samochodem'
     },
-
+    vendorsPage: {
+      title: 'Wystawcy'
+    },
     aboutUsPage: {
       hi: 'Cześć!',
       hereIs: 'Z tej strony załoga Yarnmark czyli',
@@ -64,10 +66,7 @@ export const pl = {
       title: 'Kontakt',
       writeToUs: 'Napisz do nas!'
     },
-    vandorsPage: {
-      title: 'Wystawcy',
-      infoForVendors: 'Informacje dla wystawców'
-    },
+
     infoForVendorsPage: {
       title: 'Informacje dla wystawców'
     },

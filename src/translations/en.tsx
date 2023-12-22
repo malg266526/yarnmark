@@ -48,6 +48,9 @@ export const en = {
       howToGetToUs: 'How to get to us?',
       accessibleByCar: 'Accessible by car'
     },
+    vendorsPage: {
+      title: 'Vendors'
+    },
 
     // TODO: add translations when texts are ready
     aboutUsPage: {
@@ -63,10 +66,6 @@ export const en = {
     contactPage: {
       title: 'Contact',
       writeToUs: 'Write to us!'
-    },
-    vandorsPage: {
-      title: 'Vendors',
-      infoForVendors: 'Information for vendors'
     },
     infoForVendorsPage: {
       title: 'Information for vendors'
