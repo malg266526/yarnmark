@@ -9,7 +9,7 @@ import coffeeImageUrl from '../assets/iconify/coffee.svg';
 import ferryImageUrl from '../assets/iconify/ferry.svg';
 import goodieBagImageUrl from '../assets/iconify/goodiebag.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
-import pizzaImageUrl from '../assets/iconify/pizza.svg';
+// import pizzaImageUrl from '../assets/iconify/pizza.svg';
 import pretzelImageUrl from '../assets/iconify/pretzel.svg';
 import shopImageUrl from '../assets/iconify/shop.svg';
 import shrimpImageUrl from '../assets/iconify/shrimp.svg';
@@ -156,8 +156,8 @@ export const MainPage = () => {
   const ticketsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const vendorsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const geoFunnyButtonRef = useRef<HTMLDivElement | null>(null);
-  const foodFunnyButtonRef = useRef<HTMLDivElement | null>(null);
-  const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
+  // const foodFunnyButtonRef = useRef<HTMLDivElement | null>(null);
+  // const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
 
   const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
   const [activeTab, setActiveTab] = useState<ActiveTab>('ship');
@@ -292,46 +292,41 @@ export const MainPage = () => {
 
         <SectionWrapper>
           <InfoSection>
-            <InfoSection.Title>Pierwsze takie wydarzenie w Krakowie!</InfoSection.Title>
-            <InfoSection.Text>
-              Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na spotkanie w Krakowie! Liczymy, że
-              zaszczycicie nasz targowy debiut Waszą obecnoscią.
-            </InfoSection.Text>
-            <InfoSection.Text>
-              Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.
-            </InfoSection.Text>
+            <InfoSection.Title>{t('buttonsBand.firstEvent')}</InfoSection.Title>
+            <InfoSection.Text>{t('buttonsBand.otherCities')}</InfoSection.Text>
+            <InfoSection.Text>{t('buttonsBand.linksBelow')}</InfoSection.Text>
           </InfoSection>
 
           <ButtonsLayout>
             <FunnyButton
               ref={ticketsFunnyButtonRef}
               icon={<Icon size="xl" zIndex={0} src={ticketImageUrl} />}
-              text="Tutaj kupisz bilet"
+              text={t('buttonsBand.ticketButton')}
             />
             <FunnyButton
               ref={vendorsFunnyButtonRef}
               icon={<Icon size="xl" zIndex={0} src={shopImageUrl} />}
-              text="Sprawdź z jakimi wystawcami się spotkasz"
+              text={t('buttonsBand.vendorsButton')}
               onClick={() => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
             />
             <FunnyButton
               ref={geoFunnyButtonRef}
               icon={<Icon size="xl" zIndex={0} src={pinBlackImageUrl} />}
-              text="Zobacz gdzie jesteśmy i jak tam dojechać"
+              text={t('buttonsBand.spotButton')}
               onClick={() => spotBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
             />
-            <FunnyButton
+            {/*             <FunnyButton
               ref={foodFunnyButtonRef}
               icon={<Icon size="xl" zIndex={0} src={pizzaImageUrl} />}
-              text="Zobacz co zjesz w okolicy"
+              text={t('buttonsBand.foodButton')}
               onClick={() => foodBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
-            />
-            <FunnyButton
+            /> */}
+            {/*             <FunnyButton
               ref={shipFunnyButtonRef}
               icon={<Icon size="xl" zIndex={0} src={ferryImageUrl} />}
-              text="Sprawdź nasz VIP pakiet"
+              text={t('buttonsBand.cashmereButton')}
               onClick={() => vipTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
-            />
+            /> */}
           </ButtonsLayout>
         </SectionWrapper>
       </Band>

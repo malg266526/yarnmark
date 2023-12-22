@@ -36,7 +36,6 @@ export const ButtonsLayout = styled.div`
   @media (max-width: ${ScreenSize.phone}) {
     gap: ${Spacings.md};
   }
-}
 `;
 
 export const Image = styled.img<{ clipped?: boolean }>`

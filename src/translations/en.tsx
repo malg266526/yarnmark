@@ -17,6 +17,16 @@ export const en = {
         'Mamy nadzieję, że będzie to dla Was dzień nie tylko zakupowego szaleństwa i udanych łowów, ale również wspólnego dziergania na trybunach i dobrej zabawy.',
       seeYou: 'Do zobaczenia!'
     },
+    buttonsBand: {
+      firstEvent: 'Pierwsze takie wydarzenie w Krakowie!',
+      otherCities: 'Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na spotkanie w Krakowie!',
+      linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
+      ticketButton: 'Bilety już wkrótce',
+      vendorsButton: 'Sprawdź z jakimi wystawcami się spotkasz',
+      spotButton: 'Gdzie jesteśmy i jak tam dojechać',
+      foodButton: 'Gdzie zjeść?',
+      cashmereButton: 'Sprawdź nasz pakiet kaszmirowy'
+    },
     // TODO: add translations when texts are ready
     aboutUsPage: {
       hi: 'Cześć!',
