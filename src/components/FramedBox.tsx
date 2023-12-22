@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
-import knittingSvgUrl from '../assets/knitting.svg';
+import knittingSvgUrl from '../assets/images/skein3.svg';
 
 type FrameWidth = `${number}${'px' | '%'}`;
 
@@ -63,8 +63,8 @@ const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: key
     position: absolute;
     top: 4px;
     left: 4px;
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
     background: url(${knittingSvgUrl}) no-repeat center;
     background-size: contain;
   }

@@ -2,8 +2,8 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
-import knittingImageUrl from '../assets/knitting.svg';
 import { Icon } from './Icon';
+import knittingImageUrl from '../assets/images/skein3.svg';
 
 const positionTopOffset = 100;
 const translationYOffset = 30;

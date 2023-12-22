@@ -278,13 +278,10 @@ export const MainPage = () => {
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
             <Title>Krakoski Yarnmark Wełny</Title>
-            <Text>Serdecznie zapraszamy na I edycję targów wełny w stolicy małopolski!</Text>
-            <Text>Yarnmark odbędzie się 27/04/2024r. o godz. 10:30, w Hali 100-lecia KS Cracovia</Text>
-            <Text>
-              Mamy nadzieję, że będzie to dla Was dzień nie tylko zakupowego szaleństwa i udanych łowów, ale również
-              wspólnego dziergania na trybunach i dobrej zabawy.
-            </Text>
-            <Text>Do zobaczenia!</Text>
+            <Text>{t('welcomeBand.invitation')}</Text>
+            <Text>{t('welcomeBand.where')}</Text>
+            <Text>{t('welcomeBand.haveFun')}</Text>
+            <Text>{t('welcomeBand.seeYou')}</Text>
             <Text>DziergamyNaPolu x Włóczykijki</Text>
           </NiceBox>
         </Band.Slot>

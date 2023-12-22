@@ -10,6 +10,13 @@ export const pl = {
       vipTickets: 'Bilety VIP',
       aboutUs: 'O nas'
     },
+    welcomeBand: {
+      invitation: 'Serdecznie zapraszamy na I edycję targów wełny w stolicy małopolski!',
+      where: 'Yarnmark odbędzie się 27/04/2024r. o godz. 10:00, w Hali 100-lecia KS Cracovia',
+      haveFun:
+        'Mamy nadzieję, że będzie to dla Was dzień nie tylko zakupowego szaleństwa i udanych łowów, ale również wspólnego dziergania na trybunach i dobrej zabawy.',
+      seeYou: 'Do zobaczenia!'
+    },
     aboutUsPage: {
       hi: 'Cześć!',
       hereIs: 'Z tej strony załoga Yarnmark czyli',
