@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { ReactNode, useCallback, useRef, useState } from 'react';
 import { PageContent } from '../components/PageContent';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
@@ -34,32 +34,118 @@ import { usePhone } from './usePhone';
 
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { ImageButton } from '../components/ImageButton';
-import { ShowOnClickLayout } from '../components/ShowOnClickLayout';
-import { ShowOnHoverButton } from '../components/ShowOnHoverButton';
-import { ShowOnHoverLayout } from '../components/ShowOnHoverLayout';
 import { VendorsList } from '../components/VendorsList';
 import { Colors } from '../styles/theme';
 import {
+  ActiveImage,
   AnimatedIconWrapper,
   BackgroundImage,
   ButtonsLayout,
+  ButtonsWrapper,
   CenteredTitle,
   Image,
+  ImageContentLayout,
+  LayoutWithActiveButton,
   Menu,
   PhotosLayout,
   SectionWrapper,
   Text,
-  Title
+  TextWrapper
 } from './MainPage.styled';
+import { Title } from '../components/Title';
 import { Header } from '../App.styled';
 import { SideBar } from '../components/SideBar';
 import { BurgerMenu } from '../components/BurgerMenu';
 import { Icon as IconifyIcon } from '@iconify/react';
+import { useRootIntersectionObserver } from './useRootIntersectionObserver';
+import { FramedBox } from '../components/FramedBox';
+import { Tabs } from '../components/Tabs';
+
+type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
+const activeButtonToImage: Record<
+  ActiveButtonType,
+  {
+    image: string;
+    text: ReactNode;
+  }
+> = {
+  foodtruckBezogródek: {
+    image: wawelImageSrc,
+    text: (
+      <FlexColumnLayout gap="sm" padding="none">
+        150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów
+        <a href="https://www.instagram.com/bezogrodek/?hl=pl" target="_blank" rel="noreferrer">
+          Zobacz tutaj
+        </a>
+      </FlexColumnLayout>
+    )
+  },
+  pinoGarden: {
+    image: wawelImageSrc,
+    text: (
+      <FlexColumnLayout gap="sm" padding="none">
+        Fani włoskiej kuchni i owoców morza naprzeciwko hali znajdą Pino Garden
+        <a href="https://pinogarden.pl/kategoria/karta-menu" target="_blank" rel="noreferrer">
+          Zobacz menu tutaj
+        </a>
+      </FlexColumnLayout>
+    )
+  },
+  precel: {
+    image: wawelImageSrc,
+    text: (
+      <FlexColumnLayout gap="sm" padding="none">
+        Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka
+      </FlexColumnLayout>
+    )
+  },
+  gospodaNaPiastowskiej: {
+    image: wawelImageSrc,
+    text: (
+      <FlexColumnLayout gap="sm" padding="none">
+        Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej
+        <a href="https://gospodapiastowska.pl/menu/" target="_blank" rel="noreferrer">
+          Zobacz menu tutaj
+        </a>
+      </FlexColumnLayout>
+    )
+  },
+  knittedCoffee: {
+    image: wawelImageSrc,
+    text: (
+      <FlexColumnLayout gap="sm" padding="none">
+        Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee
+      </FlexColumnLayout>
+    )
+  }
+};
+
+type ActiveTab = 'ship' | 'earlyEntrance' | 'bag';
+const activeTabToContent: Record<ActiveTab, ReactNode> = {
+  earlyEntrance: (
+    <FlexColumnLayout gap="sm" padding="none">
+      Oficjalne otwarcie bram targów jest o godz. 10:30, natomiast posiadacze biletów VIP mają zagwarantowane
+      wcześniejsze wejście na halę - o godz. 10:00
+    </FlexColumnLayout>
+  ),
+  bag: (
+    <FlexColumnLayout gap="sm" padding="none">
+      Info...
+    </FlexColumnLayout>
+  ),
+  ship: (
+    <FlexColumnLayout gap="sm" padding="none">
+      Info...
+    </FlexColumnLayout>
+  )
+};
 
 export const MainPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
   const [burgerActive, setBurgerActive] = useState(false);
+
+  const pageContentRef = useRef<HTMLDivElement | null>(null);
 
   const vendorsBandRef = useRef<HTMLDivElement | null>(null);
   const spotBandRef = useRef<HTMLDivElement | null>(null);
@@ -67,10 +153,27 @@ export const MainPage = () => {
   const vipTicketsBandRef = useRef<HTMLDivElement | null>(null);
   const foodBandRef = useRef<HTMLDivElement | null>(null);
 
+  const ticketsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
+  const vendorsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
+  const geoFunnyButtonRef = useRef<HTMLDivElement | null>(null);
+  const foodFunnyButtonRef = useRef<HTMLDivElement | null>(null);
+  const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
+
+  const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
+  const [activeTab, setActiveTab] = useState<ActiveTab>('ship');
+
+  const observerCallback = useCallback(() => {}, []);
+
+  useRootIntersectionObserver({
+    rootRef: pageContentRef,
+    elementToObserveRef: ticketsFunnyButtonRef,
+    callback: observerCallback
+  });
+
   const closeSideBar = () => setBurgerActive(false);
 
   return (
-    <PageContent variant="wide" padding="none">
+    <PageContent ref={pageContentRef} variant="wide" padding="none">
       {isPhone && (
         <Header>
           <>
@@ -203,24 +306,32 @@ export const MainPage = () => {
           </InfoSection>
 
           <ButtonsLayout>
-            <FunnyButton icon={<Icon size="xl" src={ticketImageUrl} />} text="Tutaj kupisz bilet" />
             <FunnyButton
-              icon={<Icon size="xl" src={shopImageUrl} />}
+              ref={ticketsFunnyButtonRef}
+              icon={<Icon size="xl" zIndex={0} src={ticketImageUrl} />}
+              text="Tutaj kupisz bilet"
+            />
+            <FunnyButton
+              ref={vendorsFunnyButtonRef}
+              icon={<Icon size="xl" zIndex={0} src={shopImageUrl} />}
               text="Sprawdź z jakimi wystawcami się spotkasz"
               onClick={() => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
             />
             <FunnyButton
-              icon={<Icon size="xl" src={pinBlackImageUrl} />}
+              ref={geoFunnyButtonRef}
+              icon={<Icon size="xl" zIndex={0} src={pinBlackImageUrl} />}
               text="Zobacz gdzie jesteśmy i jak tam dojechać"
               onClick={() => spotBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
             />
             <FunnyButton
-              icon={<Icon size="xl" src={pizzaImageUrl} />}
+              ref={foodFunnyButtonRef}
+              icon={<Icon size="xl" zIndex={0} src={pizzaImageUrl} />}
               text="Zobacz co zjesz w okolicy"
               onClick={() => foodBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
             />
             <FunnyButton
-              icon={<Icon size="xl" src={ferryImageUrl} />}
+              ref={shipFunnyButtonRef}
+              icon={<Icon size="xl" zIndex={0} src={ferryImageUrl} />}
               text="Sprawdź nasz VIP pakiet"
               onClick={() => vipTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
             />
@@ -228,7 +339,13 @@ export const MainPage = () => {
         </SectionWrapper>
       </Band>
 
-      <Band justify="space-around" ref={spotBandRef} size="xl" variant="background-image" src={stadionImageSrc}>
+      <Band
+        justify="space-around"
+        ref={spotBandRef}
+        size="xl"
+        padding="sm"
+        variant="background-image"
+        src={stadionImageSrc}>
         <Band.Slot>
           <a href="https://www.google.pl/maps/place/Hala+100-lecia+KS+Cracovia+wraz+z+Centrum+Sportu+Niepe%C5%82nosprawnych/@50.0570694,19.9078517,17z/data=!3m1!4b1!4m6!3m5!1s0x47165bdbabf291a1:0x3a0607d5947b7ef2!8m2!3d50.0570694!4d19.9104266!16s%2Fg%2F11f5t43046?entry=ttu">
             <AnimatedIconWrapper>
@@ -263,7 +380,7 @@ export const MainPage = () => {
         <BackgroundImage src={bigShopImageUrl} />
 
         <Band.Slot flex="auto-grow" size="sm">
-          <Title>Wystawcy</Title>
+          <Title align="center">Wystawcy</Title>
           <VendorsList />
         </Band.Slot>
       </Band>
@@ -314,122 +431,84 @@ export const MainPage = () => {
 
       <Band ref={foodBandRef} size="md" variant="background" color={Colors.pastelGray} padding="xl">
         <CenteredTitle>Gdzie zjeść?</CenteredTitle>
-        <ShowOnClickLayout>
-          <ImageButton
-            icon={<Icon size="xl" src={burgerImageUrl} />}
-            photo={wawelImageSrc}
-            text={
-              <FlexColumnLayout gap="sm" padding="none">
-                150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów
-                <a href="https://www.instagram.com/bezogrodek/?hl=pl" target="_blank" rel="noreferrer">
-                  Zobacz tutaj
-                </a>
-              </FlexColumnLayout>
-            }>
-            Food Truck Park Bezogródek
-          </ImageButton>
 
-          <ImageButton
-            icon={<Icon size="xl" src={shrimpImageUrl} />}
-            photo={wawelImageSrc}
-            text={
-              <FlexColumnLayout gap="sm" padding="none">
-                Fani włoskiej kuchni i owoców morza naprzeciwko hali znajdą Pino Garden
-                <a href="https://pinogarden.pl/kategoria/karta-menu" target="_blank" rel="noreferrer">
-                  Zobacz menu tutaj
-                </a>
-              </FlexColumnLayout>
-            }>
-            Pino Garden
-          </ImageButton>
+        <LayoutWithActiveButton>
+          <ButtonsWrapper>
+            <ImageButton
+              active={activeButton === 'foodtruckBezogródek'}
+              onClick={() => setActiveButton('foodtruckBezogródek')}
+              icon={<Icon size="xl" src={burgerImageUrl} />}>
+              Food Truck Park Bezogródek
+            </ImageButton>
 
-          <ImageButton
-            icon={<Icon size="xl" src={soupImageUrl} />}
-            photo={wawelImageSrc}
-            text={
-              <FlexColumnLayout gap="sm" padding="none">
-                Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej
-                <a href="https://gospodapiastowska.pl/menu/" target="_blank" rel="noreferrer">
-                  Zobacz menu tutaj
-                </a>
-              </FlexColumnLayout>
-            }>
-            Gospoda na Piastowskiej
-          </ImageButton>
+            <ImageButton
+              active={activeButton === 'pinoGarden'}
+              onClick={() => setActiveButton('pinoGarden')}
+              icon={<Icon size="xl" src={shrimpImageUrl} />}>
+              Pino Garden
+            </ImageButton>
 
-          <ImageButton
-            icon={<Icon size="xl" src={pretzelImageUrl} />}
-            photo={wawelImageSrc}
-            text={
-              <FlexColumnLayout gap="sm" padding="none">
-                Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka
-              </FlexColumnLayout>
-            }>
-            Krakowskie obwarzanki
-          </ImageButton>
+            <ImageButton
+              active={activeButton === 'gospodaNaPiastowskiej'}
+              onClick={() => setActiveButton('gospodaNaPiastowskiej')}
+              icon={<Icon size="xl" src={soupImageUrl} />}>
+              Gospoda na Piastowskiej
+            </ImageButton>
 
-          <ImageButton
-            icon={<Icon size="xl" src={coffeeImageUrl} />}
-            photo={wawelImageSrc}
-            text={
-              <FlexColumnLayout gap="sm" padding="none">
-                Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee
-              </FlexColumnLayout>
-            }>
-            Knitted Coffee
-          </ImageButton>
-        </ShowOnClickLayout>
+            <ImageButton onClick={() => setActiveButton('precel')} icon={<Icon size="xl" src={pretzelImageUrl} />}>
+              Krakowskie obwarzanki
+            </ImageButton>
+
+            <ImageButton
+              active={activeButton === 'knittedCoffee'}
+              icon={<Icon size="xl" src={coffeeImageUrl} />}
+              onClick={() => setActiveButton('knittedCoffee')}>
+              Knitted Coffee
+            </ImageButton>
+          </ButtonsWrapper>
+
+          <FramedBox padding="md">
+            <ImageContentLayout>
+              <ActiveImage src={activeButtonToImage[activeButton].image} />
+              <TextWrapper>{activeButtonToImage[activeButton].text}</TextWrapper>
+            </ImageContentLayout>
+          </FramedBox>
+        </LayoutWithActiveButton>
       </Band>
 
       <Band
-        ref={vipTicketsBandRef}
         size="md"
+        ref={vipTicketsBandRef}
         variant="background"
         justify="space-around"
         color={Colors.isabelline}
-        padding="xl">
-        <Band.Slot>
-          <NiceBox width="500px" padding="lg">
-            <Title>Bilety VIP</Title>
-            <Text>Oferujemy możliwość zakupu biletów zwykłych oraz biletów VIP.</Text>
-            <Text>Bilety VIP oprócz wejściowki na targi obejmują:</Text>
-          </NiceBox>
-        </Band.Slot>
+        padding="xl"
+        align="initial"
+        direction="column">
+        <Title align="center">Bilety VIP</Title>
 
-        <Band.Slot>
-          <ShowOnHoverLayout>
-            <ShowOnHoverButton
-              icon={<Icon size="xl" src={ferryImageUrl} />}
-              text={
-                <FlexColumnLayout gap="sm" padding="none">
-                  Opis...
-                </FlexColumnLayout>
-              }>
-              Rejs Dziergostatkiem
-            </ShowOnHoverButton>
+        <Text align="center" marginBottom="md">
+          Oferujemy możliwość zakupu biletów zwykłych oraz biletów VIP. Bilety VIP oprócz wejściowki na targi obejmują
+        </Text>
 
-            <ShowOnHoverButton
-              icon={<Icon size="xl" src={clockImageUrl} />}
-              text={
-                <FlexColumnLayout gap="sm" padding="none">
-                  Oficjalne otwarcie bram targów jest o godz. 10:30, natomiast posiadacze biletów VIP mają
-                  zagwarantowane wcześniejsze wejście na halę - o godz. 10:00
-                </FlexColumnLayout>
-              }>
-              Early entrance
-            </ShowOnHoverButton>
+        <Tabs>
+          <Tabs.Tab onClick={() => setActiveTab('ship')} active={activeTab === 'ship'}>
+            <Icon size="xl" src={ferryImageUrl} />
+            Rejs Dziergostatkiem
+          </Tabs.Tab>
 
-            <ShowOnHoverButton
-              icon={<Icon size="xl" src={goodieBagImageUrl} />}
-              text={
-                <FlexColumnLayout gap="sm" padding="none">
-                  Info...
-                </FlexColumnLayout>
-              }>
-              Pamiątkowa torba targowa
-            </ShowOnHoverButton>
-          </ShowOnHoverLayout>
-        </Band.Slot>
+          <Tabs.Tab onClick={() => setActiveTab('earlyEntrance')} active={activeTab === 'earlyEntrance'}>
+            <Icon size="xl" src={clockImageUrl} />
+            Early entrance
+          </Tabs.Tab>
+
+          <Tabs.Tab onClick={() => setActiveTab('bag')} active={activeTab === 'bag'}>
+            <Icon size="xl" src={goodieBagImageUrl} />
+            Pamiątkowa torba targowa
+          </Tabs.Tab>
+        </Tabs>
+
+        <Tabs.Content>{activeTabToContent[activeTab]}</Tabs.Content>
       </Band>
     </PageContent>
   );

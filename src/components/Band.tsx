@@ -6,10 +6,11 @@ import { ScreenSize } from '../styles/screeen-size';
 
 export type BandProps = InnerWrapperProps &
   BandLayoutProps & {
-    size: 'xl' | 'md' | 'sm';
+    size?: BandSize;
     padding?: 'none' | keyof typeof Spacings;
     title?: React.ReactNode;
     children?: React.ReactNode;
+    align?: 'center' | 'flex-start' | 'initial';
   } & (
     | { variant?: 'default' }
     | {
@@ -29,6 +30,7 @@ interface InnerWrapperProps {
 const InnerWrapper = styled.div<InnerWrapperProps>`
   flex: 1 1 auto;
   display: flex;
+  max-width: 100%;
 
   ${({ narrowContent }) =>
     narrowContent &&
@@ -67,39 +69,48 @@ const flexTypeToCss: Record<FlexType, RuleSet<object>> = {
 
 interface SlotProps {
   size?: SlotSize;
-  justify?: 'center';
+  justify?: 'center' | 'flex-start';
   flex?: FlexType;
+  width?: `${number}${'px' | '%'}`;
 }
+
 const Slot = styled.div<SlotProps>`
   position: relative;
 
   ${({ size }) => size && slotSizeToCss[size]};
 
+  ${({ width }) =>
+    width &&
+    css`
+      width: ${width};
+    `};
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: ${({ justify }) => justify || 'center'};
   align-items: center;
 
   ${({ flex }) => flex && flexTypeToCss[flex]};
 
-  @media (max-width: ${ScreenSize.phone}) {
+  @media (max-width: ${ScreenSize.tablet}) {
     margin: auto;
     width: 100%;
   }
 `;
 
-type BandSize = 'xl' | 'md' | 'sm';
+type BandSize = 'xl' | 'md' | 'sm' | 'xs';
 
 const bandSizeToHeight: Record<BandSize, string> = {
   xl: '1000px',
   md: '600px',
-  sm: '300px'
+  sm: '450px',
+  xs: '300px'
 };
 
 interface BandLayoutProps {
   justify?: 'center' | 'space-around' | 'space-between' | 'flex-start';
-  align?: 'center';
   flexAuto?: boolean;
+  direction?: 'column';
   gap?: keyof typeof Spacings;
   reverseOnMobile?: boolean;
 }
@@ -107,6 +118,12 @@ const BandLayout = styled.div<BandLayoutProps>`
   display: flex;
   width: 100%;
   height: 100%;
+
+  ${({ direction }) =>
+    direction &&
+    css`
+      flex-direction: ${direction};
+    `}
 
   @media (max-width: ${ScreenSize.tablet}) {
     flex-direction: ${({ reverseOnMobile }) => (reverseOnMobile ? 'column-reverse' : 'column')};
@@ -116,12 +133,6 @@ const BandLayout = styled.div<BandLayoutProps>`
     justify &&
     css`
       justify-content: ${justify};
-    `};
-
-  ${({ align }) =>
-    align &&
-    css`
-      align-items: ${align};
     `};
 
   ${({ gap }) =>
@@ -144,17 +155,26 @@ const BandRoot = styled.div<BandProps>`
       padding: ${Spacings[padding]};
 
       @media (max-width: ${ScreenSize.tablet}) {
-        padding: ${Spacings.md} ${Spacings.sm};
+        padding: ${Spacings.md} ${Spacings.md};
       }
     `};
 
-  ${({ size }) => css`
-    min-height: ${bandSizeToHeight[size]};
+  ${({ align }) => css`
+    align-items: ${align || 'center'};
   `};
+
+  ${({ size }) =>
+    size &&
+    css`
+      min-height: ${bandSizeToHeight[size]};
+
+      @media (max-width: ${ScreenSize.phone}) {
+        min-height: initial;
+      }
+    `};
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
 
   ${(props) =>
     props.variant &&

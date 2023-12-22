@@ -3,13 +3,8 @@ import { Icon } from '../components/Icon';
 import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
 
-export const Text = styled.div`
+export const Text = styled.div<{ marginBottom?: keyof typeof Spacings; align?: 'center' }>`
   margin-top: ${Spacings.md};
-`;
-
-export const Title = styled.div<{ align?: 'center' | 'left' | 'center'; marginTop?: keyof typeof Spacings }>`
-  font-size: 40px;
-  font-weight: 600;
 
   ${({ align }) =>
     align &&
@@ -17,10 +12,10 @@ export const Title = styled.div<{ align?: 'center' | 'left' | 'center'; marginTo
       text-align: ${align};
     `};
 
-  ${({ marginTop }) =>
-    marginTop &&
+  ${({ marginBottom }) =>
+    marginBottom &&
     css`
-      margin-top: ${Spacings[marginTop]};
+      margin-bottom: ${Spacings[marginBottom]};
     `};
 `;
 
@@ -36,11 +31,12 @@ export const ButtonsLayout = styled.div`
   flex: 1 1 auto;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 
   @media (max-width: ${ScreenSize.phone}) {
     gap: ${Spacings.md};
-    flex-wrap: wrap;
   }
+}
 `;
 
 export const Image = styled.img<{ clipped?: boolean }>`
@@ -73,17 +69,6 @@ export const BackgroundImage = styled.img<{ src: string }>`
   left: 0;
   top: 0;
   width: 100%;
-  max-width: 100%;
-  height: 100%;
-  max-height: 100%;
-  opacity: 0.2;
-  padding: ${Spacings.xl};
-`;
-
-export const RightBackgroundImage = styled.img<{ src: string }>`
-  position: absolute;
-  right: 0;
-  top: 0;
   max-width: 100%;
   height: 100%;
   max-height: 100%;
@@ -173,5 +158,76 @@ export const AnimatedIconWrapper = styled.div`
 
   > ${Icon}:hover {
     animation-play-state: paused;
+  }
+`;
+
+export const ActiveImage = styled.img`
+  max-height: 300px;
+  max-width: 50%;
+  object-fit: contain;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    width: 100%;
+    max-width: 100%;
+  }
+`;
+
+export const ImageContentLayout = styled.div`
+  max-width: 700px;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: ${Spacings.md};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 80%;
+    align-items: center;
+  }
+`;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+  min-width: 250px;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: ${Spacings.md};
+
+    > * {
+      flex: 1 1 auto;
+    }
+  }
+`;
+
+export const TextWrapper = styled.div`
+  @media (max-width: ${ScreenSize.phone}) {
+    flex-wrap: wrap;
+  }
+`;
+
+export const LayoutWithActiveButton = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: ${Spacings.xs};
+  max-width: 100%;
+  gap: ${Spacings.lg};
+  flex-wrap: wrap;
+
+  > ${ButtonsWrapper} {
+    /* flex: 1 0 auto; */
+  }
+
+  @media (max-width: ${ScreenSize.tablet}) {
+    margin-top: ${Spacings.md};
+    flex-direction: column;
+    max-width: 100vw;
   }
 `;

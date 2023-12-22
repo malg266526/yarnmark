@@ -11,6 +11,7 @@ export interface IconProps {
   size: SizeKey | `${number}${'px' | '%'}`;
   src: string;
   dropShadow?: boolean;
+  zIndex?: number;
 }
 
 const isCustomValue = (value: IconProps['size']): value is `${number}${'px' | '%'}` =>
@@ -18,7 +19,7 @@ const isCustomValue = (value: IconProps['size']): value is `${number}${'px' | '%
 
 export const Icon = styled.span<IconProps>`
   position: relative;
-  z-index: 1;
+  z-index: ${({ zIndex }) => (typeof zIndex === 'number' ? zIndex : 1)};
   display: inline-block;
   ${({ size }) =>
     isCustomValue(size)

@@ -98,3 +98,29 @@ export const Root = styled.main`
     z-index: 1;
   }
 `;
+
+export const Footer = styled.div`
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  padding: ${Spacings.lg};
+
+  align-items: center;
+  overflow: hidden;
+
+  background: ${Colors.snow};
+  word-break: break-all;
+`;
+
+export const RightBackgroundImage = styled.img<{ src: string }>`
+  position: absolute;
+  right: 0;
+  top: 0;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  opacity: 0.2;
+  padding: ${Spacings.xl};
+  pointer-events: none;
+`;
