@@ -2,7 +2,8 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
-import knittingSvgUrl from '../assets/knitting.svg';
+import knittingSvgUrl from '../assets/images/skein3.svg';
+
 import { ScreenSize } from '../styles/screeen-size';
 
 type FrameWidth = `${number}${'px' | '%'}`;
@@ -142,8 +143,8 @@ const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: key
     position: absolute;
     top: calc(${({ padding }) => Spacings[padding]} / 2);
     left: calc(${({ padding }) => Spacings[padding]} / 2);
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
     background: url(${knittingSvgUrl}) no-repeat center;
     background-size: contain;
   }

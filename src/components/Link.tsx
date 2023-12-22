@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import yarnSvgUrl from '../assets/knitting.svg';
+import yarnSvgUrl from '../assets/images/skein3.svg';
 
 const StyledLink = styled.a<{ color?: string }>`
   ${({ color }) =>
