@@ -18,7 +18,7 @@ import ticketImageUrl from '../assets/iconify/ticket.svg';
 
 import knitting2ImageUrl from '../assets/knitting2.svg';
 import pinImageUrl from '../assets/pin.svg';
-import stadionImageSrc from '../assets/stadion.jpg';
+import stadionImageSrc from '../assets/hala.jpg';
 
 import wawelImageSrc from '../assets/wawel.jpg';
 import yarn2ImageUrl from '../assets/yarn2.jpg';
