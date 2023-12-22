@@ -52,7 +52,7 @@ import {
   Text,
   TextWrapper
 } from './MainPage.styled';
-import { Title } from '../components/Title';
+import { SubTitle, Title } from '../components/Title';
 import { Header } from '../App.styled';
 import { SideBar } from '../components/SideBar';
 import { BurgerMenu } from '../components/BurgerMenu';
@@ -60,6 +60,7 @@ import { Icon as IconifyIcon } from '@iconify/react';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
 import { FramedBox } from '../components/FramedBox';
 import { Tabs } from '../components/Tabs';
+import { Trans } from 'react-i18next';
 
 type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 const activeButtonToImage: Record<
@@ -339,7 +340,10 @@ export const MainPage = () => {
         variant="background-image"
         src={stadionImageSrc}>
         <Band.Slot>
-          <a href="https://www.google.pl/maps/place/Hala+100-lecia+KS+Cracovia+wraz+z+Centrum+Sportu+Niepe%C5%82nosprawnych/@50.0570694,19.9078517,17z/data=!3m1!4b1!4m6!3m5!1s0x47165bdbabf291a1:0x3a0607d5947b7ef2!8m2!3d50.0570694!4d19.9104266!16s%2Fg%2F11f5t43046?entry=ttu">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.google.pl/maps/@50.0572998,19.9107716,3a,75y,214.48h,88.44t/data=!3m6!1e1!3m4!1sVVYRGhxvt5uE6gsr_G7cwA!2e0!7i16384!8i8192?entry=ttu">
             <AnimatedIconWrapper>
               <Icon size="200px" src={pinImageUrl} dropShadow />
             </AnimatedIconWrapper>
@@ -349,21 +353,32 @@ export const MainPage = () => {
         <Band.Slot>
           <NiceBox width="500px" padding="lg">
             <Title align="center">Gdzie?</Title>
-            <Text>Hala 100-lecia KS Cracovia wraz z Centrum Sportu Niepełnosprawnych</Text>
             <Text>Aleja Marszałka Ferdynanda Focha 40</Text>
+            <Text>{t('spotBand.neighbourhood1')}</Text>
+            <Text>{t('spotBand.neighbourhood2')}</Text>
 
             <Title marginTop="md" align="center">
-              Jak do nas dojechać?
+              {t('spotBand.howToGetToUs')}
             </Title>
-            <Text>Hala znajduje się przy przystanku "Cracovia Stadion". Z dworca głównego najprościej dojechać:</Text>
+            <Text>{t('spotBand.publicTransport')}</Text>
+            <Text>{t('spotBand.list')}</Text>
             <Text>
-              - z przystanku <b>Dworzec Główny Tunel</b> (w przejściu pomiędzy dworcem PKP a Galerią Krakowską należy
-              zejść schodami ruchomymi w dół) autobusem <b>192</b>
+              <Trans i18nKey="spotBand.option1" />
             </Text>
             <Text>
-              - z przystanku <b>Teatr Słowackiego</b> (przed Galerią Krakowską, od strony ulicy Lubicz) autobusem{' '}
-              <b>152</b>
+              <Trans i18nKey="spotBand.option2" />
             </Text>
+            <Text>
+              <Trans i18nKey="spotBand.option3" />
+            </Text>
+            <Text>
+              <Trans i18nKey="spotBand.option4" />
+            </Text>
+
+            <SubTitle align="center" marginTop="md">
+              {t('spotBand.accessibleByCar')}
+            </SubTitle>
+            <Text>{t('spotBand.byCar')}</Text>
           </NiceBox>
         </Band.Slot>
       </Band>

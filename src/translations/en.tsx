@@ -27,6 +27,28 @@ export const en = {
       foodButton: 'Gdzie zjeść?',
       cashmereButton: 'Sprawdź nasz pakiet kaszmirowy'
     },
+    spotBand: {
+      neighbourhood1:
+        'Hala 100-lecia KS Cracovia 1906 znajduje się w zielonym sercu Krakowa. W sąsiedztwie rekreacyjnej okolicy Błoń zaraz przy alei Marszałka Ferdynanda Focha.',
+      neighbourhood2:
+        'Dużą zaletą tej lokalizacji jest łatwa dostępność komunikacyjna – dotarcie z każdego miejsca transportem publicznym jak i własnym.',
+      publicTransport:
+        'Osoby korzystające z komunikacji publicznej mogą skorzystać z linii autobusowej (bezpośredni dojazd) jak i z linii tramwajowej (nie obędzie się bez krótkiego spacerku przez błonia). ',
+      list: 'Poniższa lista przedstawia możliwość dojazdu z Krakowskiego Dworca Głównego:',
+      option1:
+        '- linia autobusowa <strong>152</strong>, początek przystanek <strong>TEATR SŁOWACKIEGO</strong> (6 min pieszo z dworca PKP) → kierunek Cmentarz Olszanica → przystanek <strong>INSTYTUT REUMATOLOGII</strong>',
+      option2:
+        '- linia autobusowa <strong>192</strong>, początek przystanek <strong>POLITECHNIKA</strong> (7 min pieszo z dworca PKP) → kierunek Olszanica Bory → przystanek <strong>INSTYTUT REUMATOLOGII</strong>',
+      option3:
+        '- linia tramwajowa <strong>20</strong> (trasa z pętli Mały Płaszów), początek przystanek <strong>TEATR SŁOWACKIEGO</strong> (6 min pieszo z dworca PKP) → kierunek Cichy Kącik → przystanek <strong>PARK JORDANA</strong> (10 min pieszo z przystanku przez błonia do HALA Cracovia)',
+      option4:
+        '- linia tramwajowa <strong>1</strong>, (trasa z pętli Wańkowicza) przystanki najbliżej centrum: <strong>POCZTA GŁÓWNA</strong>, <strong>PLAC WSZYSTKICH ŚWIĘTYCH</strong>,  → kierunek Cichy Kącik → przystanek <strong>PARK JORDANA</strong> (10 min pieszo z przystanku przed błonia do HALA Cracovia)',
+      byCar:
+        'Przy budynku znajduje się niewielki parking, który w dniu wydarzenia będzie bezpłatny dla odwiedzających nasze targi. Jeżeli ten parking okaże się nie wystarczający, to w niewielkiej odległości znajduje parking publiczny (przy Bezogródek Tropical Spot Food) czynny całą dobę (płatny). ',
+      howToGetToUs: 'How to get to us?',
+      accessibleByCar: 'Accessible by car'
+    },
+
     // TODO: add translations when texts are ready
     aboutUsPage: {
       hi: 'Cześć!',
