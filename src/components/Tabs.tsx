@@ -1,7 +1,12 @@
+import React, { useCallback, useRef } from 'react';
 import styled, { css } from 'styled-components';
 import { Spacings } from '../styles/spacings';
 
-const Tab = styled.div<{ active?: boolean }>`
+export interface TabRootProps {
+  active?: boolean;
+}
+
+const TabRoot = styled.div<{ active?: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,6 +33,25 @@ const Tab = styled.div<{ active?: boolean }>`
     `};
 `;
 
+export type TabProps = React.HTMLProps<HTMLDivElement> & TabRootProps;
+
+const Tab = (props: TabProps) => {
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  const onClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
+    props?.onClick?.(e)
+  }, [props, ref]);
+
+  return (
+    <TabRoot
+      {...props}
+      ref={ref}
+      onClick={onClick}
+    />
+  );
+};
+
 const Content = styled.div`
   background: white;
   border-radius: 4px;
@@ -42,8 +66,9 @@ export const Tabs = Object.assign(
   styled.div`
     width: 100%;
     display: flex;
-    justify-content: center;
     gap: 2px;
+
+    overflow: auto;
   `,
   {
     Tab,
