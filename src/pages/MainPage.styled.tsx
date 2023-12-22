@@ -25,6 +25,15 @@ export const CenteredTitle = styled.div`
   align-self: center;
 `;
 
+export const SecondaryButton = styled.button`
+  font-size: 24px;
+  font-weight: 600;
+  text-decoration: underline;
+  margin-top: ${Spacings.md};
+  background-color: transparent;
+  border: none;
+`;
+
 export const ButtonsLayout = styled.div`
   display: flex;
   gap: ${Spacings.xl};

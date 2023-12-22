@@ -32,8 +32,16 @@ import { NiceBox } from '../components/NiceBox';
 import { PhotoFrame } from '../components/PhotoBox';
 import { usePhone } from './usePhone';
 
+import { Icon as IconifyIcon } from '@iconify/react';
+import { Trans } from 'react-i18next';
+import { Header } from '../App.styled';
+import { BurgerMenu } from '../components/BurgerMenu';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
+import { FramedBox } from '../components/FramedBox';
 import { ImageButton } from '../components/ImageButton';
+import { SideBar } from '../components/SideBar';
+import { Tabs } from '../components/Tabs';
+import { SubTitle, Title } from '../components/Title';
 import { VendorsList } from '../components/VendorsList';
 import { Colors } from '../styles/theme';
 import {
@@ -48,19 +56,12 @@ import {
   LayoutWithActiveButton,
   Menu,
   PhotosLayout,
+  SecondaryButton,
   SectionWrapper,
   Text,
   TextWrapper
 } from './MainPage.styled';
-import { SubTitle, Title } from '../components/Title';
-import { Header } from '../App.styled';
-import { SideBar } from '../components/SideBar';
-import { BurgerMenu } from '../components/BurgerMenu';
-import { Icon as IconifyIcon } from '@iconify/react';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
-import { FramedBox } from '../components/FramedBox';
-import { Tabs } from '../components/Tabs';
-import { Trans } from 'react-i18next';
 
 type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 const activeButtonToImage: Record<
@@ -162,6 +163,8 @@ export const MainPage = () => {
 
   const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
   const [activeTab, setActiveTab] = useState<ActiveTab>('ship');
+
+  const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
 
   const observerCallback = useCallback(() => {}, []);
 
@@ -357,28 +360,36 @@ export const MainPage = () => {
             <Text>{t('spotBand.neighbourhood1')}</Text>
             <Text>{t('spotBand.neighbourhood2')}</Text>
 
-            <Title marginTop="md" align="center">
-              {t('spotBand.howToGetToUs')}
-            </Title>
-            <Text>{t('spotBand.publicTransport')}</Text>
-            <Text>{t('spotBand.list')}</Text>
-            <Text>
-              <Trans i18nKey="spotBand.option1" />
-            </Text>
-            <Text>
-              <Trans i18nKey="spotBand.option2" />
-            </Text>
-            <Text>
-              <Trans i18nKey="spotBand.option3" />
-            </Text>
-            <Text>
-              <Trans i18nKey="spotBand.option4" />
-            </Text>
+            {!isSpotOpened && (
+              <SecondaryButton onClick={() => setIsSpotOpened(true)}>{t('spotBand.howToGetToUs')}</SecondaryButton>
+            )}
 
-            <SubTitle align="center" marginTop="md">
-              {t('spotBand.accessibleByCar')}
-            </SubTitle>
-            <Text>{t('spotBand.byCar')}</Text>
+            {isSpotOpened && (
+              <>
+                <Title align="center" marginTop="md">
+                  {t('spotBand.howToGetToUs')}
+                </Title>
+                <Text>{t('spotBand.publicTransport')}</Text>
+                <Text>{t('spotBand.list')}</Text>
+                <Text>
+                  <Trans i18nKey="spotBand.option1" />
+                </Text>
+                <Text>
+                  <Trans i18nKey="spotBand.option2" />
+                </Text>
+                <Text>
+                  <Trans i18nKey="spotBand.option3" />
+                </Text>
+                <Text>
+                  <Trans i18nKey="spotBand.option4" />
+                </Text>
+
+                <SubTitle align="center" marginTop="md">
+                  {t('spotBand.accessibleByCar')}
+                </SubTitle>
+                <Text>{t('spotBand.byCar')}</Text>
+              </>
+            )}
           </NiceBox>
         </Band.Slot>
       </Band>
