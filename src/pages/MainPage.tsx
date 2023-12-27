@@ -1,26 +1,26 @@
-import React, { ReactNode, useCallback, useRef, useState } from 'react';
+import React, { /* ReactNode */ useCallback, useRef, useState } from 'react';
 import { PageContent } from '../components/PageContent';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
 import bigShopImageUrl from '../assets/iconify/bigshop.svg';
-import burgerImageUrl from '../assets/iconify/burger.svg';
+/* import burgerImageUrl from '../assets/iconify/burger.svg';
 import clockImageUrl from '../assets/iconify/clock.svg';
 import coffeeImageUrl from '../assets/iconify/coffee.svg';
 import ferryImageUrl from '../assets/iconify/ferry.svg';
-import goodieBagImageUrl from '../assets/iconify/goodiebag.svg';
+import goodieBagImageUrl from '../assets/iconify/goodiebag.svg'; */
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
 // import pizzaImageUrl from '../assets/iconify/pizza.svg';
-import pretzelImageUrl from '../assets/iconify/pretzel.svg';
+// import pretzelImageUrl from '../assets/iconify/pretzel.svg';
 import shopImageUrl from '../assets/iconify/shop.svg';
-import shrimpImageUrl from '../assets/iconify/shrimp.svg';
-import soupImageUrl from '../assets/iconify/soup.svg';
+/* import shrimpImageUrl from '../assets/iconify/shrimp.svg';
+import soupImageUrl from '../assets/iconify/soup.svg'; */
 import ticketImageUrl from '../assets/iconify/ticket.svg';
 
 import knitting2ImageUrl from '../assets/knitting2.svg';
 import pinImageUrl from '../assets/pin.svg';
 import stadionImageSrc from '../assets/hala.jpg';
 
-import wawelImageSrc from '../assets/wawel.jpg';
+// import wawelImageSrc from '../assets/wawel.jpg';
 import yarn2ImageUrl from '../assets/yarn2.jpg';
 import { Icon } from '../components/Icon';
 
@@ -29,41 +29,41 @@ import { FunnyButton } from '../components/FunnyButton';
 import { InfoSection } from '../components/InfoSection';
 import { Link } from '../components/Link';
 import { NiceBox } from '../components/NiceBox';
-import { PhotoFrame } from '../components/PhotoBox';
+// import { PhotoFrame } from '../components/PhotoBox';
 import { usePhone } from './usePhone';
 
 import { Icon as IconifyIcon } from '@iconify/react';
 import { Trans } from 'react-i18next';
 import { Header } from '../App.styled';
 import { BurgerMenu } from '../components/BurgerMenu';
-import { FlexColumnLayout } from '../components/FlexColumnLayout';
+/* import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { FramedBox } from '../components/FramedBox';
-import { ImageButton } from '../components/ImageButton';
+import { ImageButton } from '../components/ImageButton'; */
 import { SideBar } from '../components/SideBar';
-import { Tabs } from '../components/Tabs';
+// import { Tabs } from '../components/Tabs';
 import { SubTitle, Title } from '../components/Title';
 import { VendorsList } from '../components/VendorsList';
 import { Colors } from '../styles/theme';
 import {
-  ActiveImage,
+  // ActiveImage,
   AnimatedIconWrapper,
   BackgroundImage,
   ButtonsLayout,
-  ButtonsWrapper,
-  CenteredTitle,
+  // ButtonsWrapper,
+  // CenteredTitle,
   Image,
-  ImageContentLayout,
-  LayoutWithActiveButton,
+  // ImageContentLayout,
+  // LayoutWithActiveButton,
   Menu,
-  PhotosLayout,
+  // PhotosLayout,
   SecondaryButton,
   SectionWrapper,
-  Text,
-  TextWrapper
+  Text
+  // TextWrapper
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
 
-type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
+/* type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 const activeButtonToImage: Record<
   ActiveButtonType,
   {
@@ -120,16 +120,10 @@ const activeButtonToImage: Record<
       </FlexColumnLayout>
     )
   }
-};
+}; */
 
-type ActiveTab = 'ship' | 'earlyEntrance' | 'bag';
-const activeTabToContent: Record<ActiveTab, ReactNode> = {
-  earlyEntrance: (
-    <FlexColumnLayout gap="sm" padding="none">
-      Oficjalne otwarcie bram targów jest o godz. 10:30, natomiast posiadacze biletów VIP mają zagwarantowane
-      wcześniejsze wejście na halę - o godz. 10:00
-    </FlexColumnLayout>
-  ),
+// type ActiveTab = 'ship' | 'earlyEntrance' | 'bag';
+/* const activeTabToContent: Record<ActiveTab, ReactNode> = {
   bag: (
     <FlexColumnLayout gap="sm" padding="none">
       Info...
@@ -140,7 +134,7 @@ const activeTabToContent: Record<ActiveTab, ReactNode> = {
       Info...
     </FlexColumnLayout>
   )
-};
+}; */
 
 export const MainPage = () => {
   const t = useTypedTranslation();
@@ -151,9 +145,9 @@ export const MainPage = () => {
 
   const vendorsBandRef = useRef<HTMLDivElement | null>(null);
   const spotBandRef = useRef<HTMLDivElement | null>(null);
-  const workshopsBandRef = useRef<HTMLDivElement | null>(null);
+  // const workshopsBandRef = useRef<HTMLDivElement | null>(null);
   const vipTicketsBandRef = useRef<HTMLDivElement | null>(null);
-  const foodBandRef = useRef<HTMLDivElement | null>(null);
+  // const foodBandRef = useRef<HTMLDivElement | null>(null);
 
   const ticketsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const vendorsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
@@ -161,8 +155,8 @@ export const MainPage = () => {
   // const foodFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   // const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
 
-  const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
-  const [activeTab, setActiveTab] = useState<ActiveTab>('ship');
+  // const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
+  // const [activeTab, setActiveTab] = useState<ActiveTab>('ship');
 
   const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
 
@@ -205,14 +199,14 @@ export const MainPage = () => {
                 {t('menu.infoForVendors')}
               </SideBar.LinkEntry>
 
-              <SideBar.LinkEntry
+              {/*               <SideBar.LinkEntry
                 onClick={() => {
                   closeSideBar();
                   () => workshopsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
                 }}>
                 <IconifyIcon icon="icons8:student" width="24" />
                 {t('menu.workshops')}
-              </SideBar.LinkEntry>
+              </SideBar.LinkEntry> */}
 
               <SideBar.LinkEntry
                 onClick={() => {
@@ -253,13 +247,13 @@ export const MainPage = () => {
           <Link color="black" href="/info-for-vendors">
             {t('menu.infoForVendors')}
           </Link>
-          <Link
+          {/*         <Link
             color="black"
             anchorProps={{
               onClick: () => workshopsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
             }}>
             {t('menu.workshops')}
-          </Link>
+          </Link> */}
           <Link
             color="black"
             anchorProps={{
@@ -396,7 +390,8 @@ export const MainPage = () => {
         </Band.Slot>
       </Band>
 
-      <Band ref={vendorsBandRef} size="md" variant="background" color={Colors.snow} padding="xl">
+      {/* TODO: change color to snow when all bands revealed */}
+      <Band ref={vendorsBandRef} size="md" variant="background" color={Colors.isabelline} padding="xl">
         <BackgroundImage src={bigShopImageUrl} />
 
         <Band.Slot flex="auto-grow" size="sm">
@@ -405,7 +400,7 @@ export const MainPage = () => {
         </Band.Slot>
       </Band>
 
-      <Band
+      {/*       <Band
         ref={workshopsBandRef}
         gap="xl"
         size="md"
@@ -448,8 +443,8 @@ export const MainPage = () => {
           </NiceBox>
         </Band.Slot>
       </Band>
-
-      <Band ref={foodBandRef} size="md" variant="background" color={Colors.pastelGray} padding="xl">
+ */}
+      {/*       <Band ref={foodBandRef} size="md" variant="background" color={Colors.pastelGray} padding="xl">
         <CenteredTitle>Gdzie zjeść?</CenteredTitle>
 
         <LayoutWithActiveButton>
@@ -494,9 +489,9 @@ export const MainPage = () => {
             </ImageContentLayout>
           </FramedBox>
         </LayoutWithActiveButton>
-      </Band>
+      </Band> */}
 
-      <Band
+      {/*       <Band
         size="md"
         ref={vipTicketsBandRef}
         variant="background"
@@ -508,18 +503,14 @@ export const MainPage = () => {
         <Title align="center">Bilety VIP</Title>
 
         <Text align="center" marginBottom="md">
-          Oferujemy możliwość zakupu biletów zwykłych oraz biletów VIP. Bilety VIP oprócz wejściowki na targi obejmują
+          Oferujemy możliwość zakupu biletów zwykłych oraz biletów w pakiecie kaszmirowym. Bilety kaszmirowe oprócz
+          wejściowki na targi obejmują także:
         </Text>
 
         <Tabs>
           <Tabs.Tab onClick={() => setActiveTab('ship')} active={activeTab === 'ship'}>
             <Icon size="xl" src={ferryImageUrl} />
             Rejs Dziergostatkiem
-          </Tabs.Tab>
-
-          <Tabs.Tab onClick={() => setActiveTab('earlyEntrance')} active={activeTab === 'earlyEntrance'}>
-            <Icon size="xl" src={clockImageUrl} />
-            Early entrance
           </Tabs.Tab>
 
           <Tabs.Tab onClick={() => setActiveTab('bag')} active={activeTab === 'bag'}>
@@ -529,7 +520,7 @@ export const MainPage = () => {
         </Tabs>
 
         <Tabs.Content>{activeTabToContent[activeTab]}</Tabs.Content>
-      </Band>
+      </Band> */}
     </PageContent>
   );
 };

@@ -158,7 +158,7 @@ export const InfoForVendorsPage = () => {
         </Band.Slot>
       </Band>
 
-      <Band size="sm" variant="background" justify="center" align="center" color={Colors.isabelline} padding="xl">
+      {/*       <Band size="sm" variant="background" justify="center" align="center" color={Colors.isabelline} padding="xl">
         <TitleWrapper>
           <CenteredTitle>Hala</CenteredTitle>
         </TitleWrapper>
@@ -171,7 +171,7 @@ export const InfoForVendorsPage = () => {
           <Text>TODO: Jakieś info o stołach i krzesłach??</Text>
           <Text>TODO: Wymiary hali to: ??</Text>
         </PlainInfo>
-      </Band>
+      </Band> */}
 
       <Band size="sm" variant="background" justify="center" align="center" color={Colors.snow} padding="xl">
         <TitleWrapper>
