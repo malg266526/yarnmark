@@ -179,17 +179,7 @@ export const hallMapConfig: HallMap = {
       stands: [
         {
           width: 4,
-          height: 2,
-          color: 'small1'
-        },
-        {
-          width: 4,
-          height: 2,
-          color: 'small2'
-        },
-        {
-          width: 4,
-          height: 2,
+          height: 6,
           color: 'empty'
         },
         {
@@ -236,16 +226,6 @@ export const hallMapConfig: HallMap = {
           width: 4,
           height: 2,
           color: 'empty'
-        },
-        {
-          width: 4,
-          height: 2,
-          color: 'small1'
-        },
-        {
-          width: 4,
-          height: 2,
-          color: 'small2'
         }
       ]
     },

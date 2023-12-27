@@ -16,12 +16,12 @@ import shopImageUrl from '../assets/iconify/shop.svg';
 import soupImageUrl from '../assets/iconify/soup.svg'; */
 import ticketImageUrl from '../assets/iconify/ticket.svg';
 
-import knitting2ImageUrl from '../assets/knitting2.svg';
-import pinImageUrl from '../assets/pin.svg';
-import stadionImageSrc from '../assets/hala.jpg';
+import knitting2ImageUrl from '../assets/images/knitting2.svg';
+import pinImageUrl from '../assets/images/pin.svg';
+import stadionImageSrc from '../assets/images/hala.jpg';
 
 // import wawelImageSrc from '../assets/wawel.jpg';
-import yarn2ImageUrl from '../assets/yarn2.jpg';
+import yarn2ImageUrl from '../assets/images/yarn2.jpg';
 import { Icon } from '../components/Icon';
 
 import { Band } from '../components/Band';
