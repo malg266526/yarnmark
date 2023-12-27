@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { HallColors } from '../styles/theme';
-import hallMap from './hallmap.json';
+import { HallMapConfig, HallStand } from './HallMapConfig';
 import { usePhone } from '../pages/usePhone';
+import { HallLogo } from './HallLogo';
 
 const Container = styled.div`
   display: flex;
@@ -17,20 +18,11 @@ const Container = styled.div`
 
 type Direction = 'row' | 'column';
 
-type Stand = {
-  width: number;
-  height?: number;
-
-  color: keyof typeof HallColors;
-  logo?: string;
-  index?: number;
-};
-
 type Line = {
   width?: number;
   height: number;
 
-  stands: Stand[];
+  stands: HallStand[];
   direction: Direction;
 };
 
@@ -51,14 +43,32 @@ const HallLine = styled.div<{
   align-items: ${({ alignItems }) => alignItems || 'flex-start'};
 `;
 
-const HallStand = styled.div<{ width?: number; height?: number; color?: keyof typeof HallColors; multiplier: number }>`
+const HallStandLayout = styled.div<{
+  width?: number;
+  height?: number;
+  color?: keyof typeof HallColors;
+  multiplier: number;
+}>`
   display: flex;
   width: ${({ width, multiplier }) => (width ? `${width * multiplier}px` : 'initial')};
   height: ${({ height, multiplier }) => (height ? `${height * multiplier}px` : 'initial')};
 
   background-color: ${({ color }) => HallColors[color || 'empty']};
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+
+  position: relative;
+`;
+
+const HallStandOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #ddd;
+  opacity: 0.3;
+  z-index: 9999999;
 `;
 
 export const Hall = () => {
@@ -67,18 +77,25 @@ export const Hall = () => {
 
   return (
     <Container>
-      {(hallMap.topRows as Line[]).map((row, index) => (
+      {(HallMapConfig.topRows as Line[]).map((row, index) => (
         <HallLine height={row.height} key={index} multiplier={multiplier}>
           {row.stands.map((stand, index) => (
-            <HallStand key={index} width={stand.width} height={row.height} color={stand.color} multiplier={multiplier}>
+            <HallStandLayout
+              key={index}
+              width={stand.width}
+              height={row.height}
+              color={stand.color}
+              multiplier={multiplier}>
+              {stand.taken && <HallStandOverlay />}
               <h4>{stand.index}</h4>
-            </HallStand>
+              <HallLogo src={stand.logoSrc} />
+            </HallStandLayout>
           ))}
         </HallLine>
       ))}
 
       <HallLine multiplier={multiplier}>
-        {(hallMap.middleColumns as Line[]).map((column, index) => (
+        {(HallMapConfig.middleColumns as Line[]).map((column, index) => (
           <HallLine
             width={column.width}
             key={index}
@@ -86,30 +103,34 @@ export const Hall = () => {
             alignItems={index === 4 ? 'flex-end' : 'flex-start'}
             multiplier={multiplier}>
             {column.stands.map((stand, index) => (
-              <HallStand
+              <HallStandLayout
                 key={index}
                 width={stand.width || column.width}
                 height={stand.height}
                 color={stand.color}
                 multiplier={multiplier}>
+                {stand.taken && <HallStandOverlay />}
+
                 <h4>{stand.index}</h4>
-              </HallStand>
+                <HallLogo src={stand.logoSrc} />
+              </HallStandLayout>
             ))}
           </HallLine>
         ))}
       </HallLine>
 
-      {(hallMap.bottomRows as Line[]).map((row, index) => (
+      {(HallMapConfig.bottomRows as Line[]).map((row, index) => (
         <HallLine height={row.height} key={index} alignItems="flex-end" multiplier={multiplier}>
           {row.stands.map((stand, index) => (
-            <HallStand
+            <HallStandLayout
               key={index}
               width={stand.width}
               height={stand.height || row.height}
               color={stand.color}
               multiplier={multiplier}>
-              <h4>{stand.index}</h4>
-            </HallStand>
+              {stand.taken && <HallStandOverlay />} <h4>{stand.index}</h4>
+              <HallLogo src={stand.logoSrc} />
+            </HallStandLayout>
           ))}
         </HallLine>
       ))}

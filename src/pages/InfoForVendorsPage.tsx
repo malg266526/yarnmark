@@ -158,20 +158,23 @@ export const InfoForVendorsPage = () => {
         </Band.Slot>
       </Band>
 
-      {/*       <Band size="sm" variant="background" justify="center" align="center" color={Colors.isabelline} padding="xl">
+      <Band size="sm" variant="background" justify="center" align="center" color={Colors.isabelline} padding="xl">
         <TitleWrapper>
           <CenteredTitle>Hala</CenteredTitle>
         </TitleWrapper>
 
         <PlainInfo>
-          <Text>Hala zostanie otwarta o godz. ?? .</Text>
+          <Text>Mamy do dyspozycji powierzchnię 1142m2.</Text>
+          <Text>Hala będzie dostępna od północy, na miejscu będą panowie portierzy.</Text>
+
+          {/*  <Text>Hala zostanie otwarta o godz. ?? .</Text>
           <Text>Hala znajduje się na tym samym poziomie co parking.</Text>
           <Text>TODO: dodać opis do stoisk - wybór z mapki, zapisy na stoiska</Text>
           <Text>Istnieje możliwość wykupienia stoiska podwójnego.</Text>
           <Text>TODO: Jakieś info o stołach i krzesłach??</Text>
-          <Text>TODO: Wymiary hali to: ??</Text>
+          <Text>TODO: Wymiary hali to: ??</Text> */}
         </PlainInfo>
-      </Band> */}
+      </Band>
 
       <Band size="sm" variant="background" justify="center" align="center" color={Colors.snow} padding="xl">
         <TitleWrapper>
