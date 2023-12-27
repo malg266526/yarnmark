@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
-import yarn2ImageUrl from '../assets/yarn2.jpg';
+import yarn2ImageUrl from '../assets/images/yarn2.jpg';
 import { Band } from '../components/Band';
 import { NiceBox } from '../components/NiceBox';
 import { Title } from '../components/Title';
@@ -164,12 +164,15 @@ export const InfoForVendorsPage = () => {
         </TitleWrapper>
 
         <PlainInfo>
-          <Text>Hala zostanie otwarta o godz. ?? .</Text>
+          <Text>Mamy do dyspozycji powierzchnię 1142m2.</Text>
+          <Text>Hala będzie dostępna od północy, na miejscu będą panowie portierzy.</Text>
+
+          {/*  <Text>Hala zostanie otwarta o godz. ?? .</Text>
           <Text>Hala znajduje się na tym samym poziomie co parking.</Text>
           <Text>TODO: dodać opis do stoisk - wybór z mapki, zapisy na stoiska</Text>
           <Text>Istnieje możliwość wykupienia stoiska podwójnego.</Text>
           <Text>TODO: Jakieś info o stołach i krzesłach??</Text>
-          <Text>TODO: Wymiary hali to: ??</Text>
+          <Text>TODO: Wymiary hali to: ??</Text> */}
         </PlainInfo>
       </Band>
 

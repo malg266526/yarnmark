@@ -31,6 +31,27 @@ export const HallLegend = () => {
         <ColorSample color="normal2" />
         <p>Miejsce Normal 4x2,5m</p>
       </RowLayout>
+
+      <RowLayout gap="xs">
+        <ColorSample color="taken" />
+        <p>Miejsce zarezerwowane</p>
+      </RowLayout>
+
+      <RowLayout gap="xs">
+        <ColorSample color="small1" />
+        <p>
+          Miejsce Small, <br />
+          mniejsze 4x2m
+        </p>
+      </RowLayout>
+
+      <RowLayout gap="xs">
+        <ColorSample color="small2" />
+        <p>
+          Miejsce Small, <br />
+          mniejsze 4x2m
+        </p>
+      </RowLayout>
     </LegendRoot>
   );
 };
