@@ -27,7 +27,7 @@ type HallMap = {
   bottomRows: HallLine[];
 };
 
-export const HallMapConfig: HallMap = {
+export const hallMapConfig: HallMap = {
   topRows: [
     {
       height: 4,

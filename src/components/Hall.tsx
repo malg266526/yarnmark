@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { HallColors } from '../styles/theme';
-import { HallMapConfig, HallStand } from './HallMapConfig';
+import { hallMapConfig, HallStand } from '../assets/hallMapConfig';
 import { usePhone } from '../pages/usePhone';
 import { HallLogo } from './HallLogo';
 
@@ -77,7 +77,7 @@ export const Hall = () => {
 
   return (
     <Container>
-      {(HallMapConfig.topRows as Line[]).map((row, index) => (
+      {(hallMapConfig.topRows as Line[]).map((row, index) => (
         <HallLine height={row.height} key={index} multiplier={multiplier}>
           {row.stands.map((stand, index) => (
             <HallStandLayout
@@ -95,7 +95,7 @@ export const Hall = () => {
       ))}
 
       <HallLine multiplier={multiplier}>
-        {(HallMapConfig.middleColumns as Line[]).map((column, index) => (
+        {(hallMapConfig.middleColumns as Line[]).map((column, index) => (
           <HallLine
             width={column.width}
             key={index}
@@ -119,7 +119,7 @@ export const Hall = () => {
         ))}
       </HallLine>
 
-      {(HallMapConfig.bottomRows as Line[]).map((row, index) => (
+      {(hallMapConfig.bottomRows as Line[]).map((row, index) => (
         <HallLine height={row.height} key={index} alignItems="flex-end" multiplier={multiplier}>
           {row.stands.map((stand, index) => (
             <HallStandLayout
