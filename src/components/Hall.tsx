@@ -87,7 +87,12 @@ export const Hall = () => {
               color={stand.color}
               multiplier={multiplier}>
               {stand.taken && <HallStandOverlay />}
-              <h4>{stand.index}</h4>
+
+              <div>
+                <h4>{stand.index}</h4>
+                <h5>{stand.text}</h5>
+              </div>
+
               <HallLogo src={stand.logoSrc} />
             </HallStandLayout>
           ))}
@@ -112,6 +117,8 @@ export const Hall = () => {
                 {stand.taken && <HallStandOverlay />}
 
                 <h4>{stand.index}</h4>
+                <h5>{stand.text}</h5>
+
                 <HallLogo src={stand.logoSrc} />
               </HallStandLayout>
             ))}

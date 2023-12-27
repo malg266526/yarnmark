@@ -33,11 +33,6 @@ export const hallMapConfig: HallMap = {
       height: 4,
       stands: [
         {
-          width: 3.5,
-          color: 'empty',
-          text: 'entrance'
-        },
-        {
           width: 2.5,
           color: 'normal1',
           index: 1
@@ -57,6 +52,13 @@ export const hallMapConfig: HallMap = {
           color: 'normal2',
           index: 4
         },
+
+        {
+          width: 3.5,
+          color: 'empty',
+          text: 'Wejście'
+        },
+
         {
           width: 2.5,
           color: 'normal1',
@@ -73,14 +75,9 @@ export const hallMapConfig: HallMap = {
           index: 7
         },
         {
-          width: 2.5,
-          color: 'normal2',
-          index: 8
-        },
-        {
-          width: 2.5,
-          color: 'normal1',
-          index: 9
+          width: 5,
+          color: 'empty',
+          text: 'Strefa organizatora'
         }
       ]
     },
@@ -106,9 +103,21 @@ export const hallMapConfig: HallMap = {
           width: 5,
           height: 3,
           color: 'taken',
-          index: 10,
+          index: 8,
           logoSrc: WloczykijkiLogoUrl,
           taken: true
+        },
+        {
+          width: 4,
+          height: 2.5,
+          color: 'normal2',
+          index: 9
+        },
+        {
+          width: 4,
+          height: 2.5,
+          color: 'normal1',
+          index: 10
         },
         {
           width: 4,
@@ -147,22 +156,10 @@ export const hallMapConfig: HallMap = {
           index: 16
         },
         {
-          width: 4,
-          height: 2.5,
-          color: 'normal2',
-          index: 17
-        },
-        {
-          width: 4,
-          height: 2.5,
-          color: 'normal1',
-          index: 18
-        },
-        {
           width: 5,
           height: 3,
           color: 'premium',
-          index: 19
+          index: 17
         }
       ]
     },
@@ -249,6 +246,18 @@ export const hallMapConfig: HallMap = {
           width: 5,
           height: 3,
           color: 'premium',
+          index: 18
+        },
+        {
+          width: 4,
+          height: 2.5,
+          color: 'normal2',
+          index: 19
+        },
+        {
+          width: 4,
+          height: 2.5,
+          color: 'normal1',
           index: 20
         },
         {
@@ -288,22 +297,10 @@ export const hallMapConfig: HallMap = {
           index: 26
         },
         {
-          width: 4,
-          height: 2.5,
-          color: 'normal2',
-          index: 27
-        },
-        {
-          width: 4,
-          height: 2.5,
-          color: 'normal1',
-          index: 28
-        },
-        {
           width: 5,
           height: 3,
           color: 'premium',
-          index: 29
+          index: 27
         }
       ]
     }
@@ -324,6 +321,18 @@ export const hallMapConfig: HallMap = {
         {
           width: 3,
           color: 'premium',
+          index: 28
+        },
+        {
+          width: 2.5,
+          color: 'normal2',
+          height: 4,
+          index: 29
+        },
+        {
+          width: 2.5,
+          color: 'normal1',
+          height: 4,
           index: 30
         },
         {
@@ -363,21 +372,9 @@ export const hallMapConfig: HallMap = {
           index: 36
         },
         {
-          width: 2.5,
-          color: 'normal2',
-          height: 4,
-          index: 37
-        },
-        {
-          width: 2.5,
-          color: 'normal1',
-          height: 4,
-          index: 38
-        },
-        {
           width: 3,
           color: 'premium',
-          index: 39
+          index: 37
         }
       ]
     }
