@@ -21,7 +21,7 @@ import pinImageUrl from '../assets/images/pin.svg';
 import stadionImageSrc from '../assets/images/hala.jpg';
 
 // import wawelImageSrc from '../assets/wawel.jpg';
-import yarn2ImageUrl from '../assets/images/yarn2.jpg';
+import yarn2ImageUrl from '../assets/images/wools2.jpeg';
 import { Icon } from '../components/Icon';
 
 import { Band } from '../components/Band';
