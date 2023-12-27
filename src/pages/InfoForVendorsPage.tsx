@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
-import yarn2ImageUrl from '../assets/images/yarn2.jpg';
+import yarn2ImageUrl from '../assets/images/wools2.jpeg';
 import { Band } from '../components/Band';
 import { NiceBox } from '../components/NiceBox';
 import { Title } from '../components/Title';
