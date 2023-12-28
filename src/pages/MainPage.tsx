@@ -146,7 +146,7 @@ export const MainPage = () => {
   const vendorsBandRef = useRef<HTMLDivElement | null>(null);
   const spotBandRef = useRef<HTMLDivElement | null>(null);
   // const workshopsBandRef = useRef<HTMLDivElement | null>(null);
-  const vipTicketsBandRef = useRef<HTMLDivElement | null>(null);
+  // const vipTicketsBandRef = useRef<HTMLDivElement | null>(null);
   // const foodBandRef = useRef<HTMLDivElement | null>(null);
 
   const ticketsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
@@ -208,14 +208,14 @@ export const MainPage = () => {
                 {t('menu.workshops')}
               </SideBar.LinkEntry> */}
 
-              <SideBar.LinkEntry
+              {/*           <SideBar.LinkEntry
                 onClick={() => {
                   closeSideBar();
                   () => vipTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
                 }}>
                 <IconifyIcon icon="clarity:ferry-solid" width="24" />
                 {t('menu.vipTickets')}
-              </SideBar.LinkEntry>
+              </SideBar.LinkEntry> */}
 
               <SideBar.LinkEntry
                 onClick={() => {
@@ -254,13 +254,13 @@ export const MainPage = () => {
             }}>
             {t('menu.workshops')}
           </Link> */}
-          <Link
+          {/*           <Link
             color="black"
             anchorProps={{
               onClick: () => vipTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
             }}>
             {t('menu.vipTickets')}
-          </Link>
+          </Link> */}
           <Link
             color="black"
             anchorProps={{
