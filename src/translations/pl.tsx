@@ -61,17 +61,20 @@ export const pl = {
     vendorsPage: {
       title: 'Wystawcy'
     },
-
     contactPage: {
-      title: 'Kontakt',
-      writeToUs: 'Napisz do nas!'
+      title: 'Kontakt'
+    },
+    workshopsBand: {
+      title: 'Warsztaty',
+      firstAid: 'Pierwsza pomoc',
+      entertainsAndTeaches: 'Yarnmark bawi, Yarnmark uczy',
+      invitation:
+        'Zapraszamy do wzięcia udziału w warsztatach dziewiarskich i szydełkowych oraz serdecznie zachęcamy do skorzystania z profesjonalnych kursów pierwszej pomocy.',
+      mayTheHealthBeWithYou: 'Niech zdrowie i bezpieczeństwo będą z Wami!'
     },
 
     infoForVendorsPage: {
       title: 'Informacje dla wystawców'
-    },
-    workshopsPage: {
-      title: 'Warsztaty'
     },
     mainPage: {
       firstTime: 'Pierwszy raz w stolicy małopolski!',

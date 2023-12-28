@@ -61,16 +61,20 @@ export const en = {
     vendorsPage: {
       title: 'Vendors'
     },
-
     contactPage: {
-      title: 'Contact',
-      writeToUs: 'Write to us!'
+      title: 'Contact'
     },
+    workshopsBand: {
+      title: 'Workshops',
+      firstAid: 'First Aid',
+      entertainsAndTeaches: 'Yarnmark entertains and teaches',
+      invitation:
+        'Zapraszamy do wzięcia udziału w warsztatach dziewiarskich i szydełkowych oraz serdecznie zachęcamy do skorzystania z profesjonalnych kursów pierwszej pomocy.',
+      mayTheHealthBeWithYou: 'May the health and safety be with you!'
+    },
+
     infoForVendorsPage: {
       title: 'Information for vendors'
-    },
-    workshopsPage: {
-      title: 'Workshops'
     },
     mainPage: {
       firstTime: 'The first time in the capital of Lesser Poland',
