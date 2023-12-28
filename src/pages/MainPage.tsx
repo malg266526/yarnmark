@@ -1,13 +1,13 @@
-import React, { /* ReactNode */ useCallback, useRef, useState } from 'react';
+import React, { ReactNode, useCallback, useRef, useState } from 'react';
 import { PageContent } from '../components/PageContent';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
 import bigShopImageUrl from '../assets/iconify/bigshop.svg';
 /* import burgerImageUrl from '../assets/iconify/burger.svg';
 import clockImageUrl from '../assets/iconify/clock.svg';
-import coffeeImageUrl from '../assets/iconify/coffee.svg';
+import coffeeImageUrl from '../assets/iconify/coffee.svg'; */
 import ferryImageUrl from '../assets/iconify/ferry.svg';
-import goodieBagImageUrl from '../assets/iconify/goodiebag.svg'; */
+import goodieBagImageUrl from '../assets/iconify/goodiebag.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
 // import pizzaImageUrl from '../assets/iconify/pizza.svg';
 // import pretzelImageUrl from '../assets/iconify/pretzel.svg';
@@ -36,11 +36,11 @@ import { Icon as IconifyIcon } from '@iconify/react';
 import { Trans } from 'react-i18next';
 import { Header } from '../App.styled';
 import { BurgerMenu } from '../components/BurgerMenu';
-/* import { FlexColumnLayout } from '../components/FlexColumnLayout';
-import { FramedBox } from '../components/FramedBox';
-import { ImageButton } from '../components/ImageButton'; */
+import { FlexColumnLayout } from '../components/FlexColumnLayout';
+// import { FramedBox } from '../components/FramedBox';
+// import { ImageButton } from '../components/ImageButton';
 import { SideBar } from '../components/SideBar';
-// import { Tabs } from '../components/Tabs';
+import { Tabs } from '../components/Tabs';
 import { SubTitle, Title } from '../components/Title';
 import { VendorsList } from '../components/VendorsList';
 import { Colors } from '../styles/theme';
@@ -63,8 +63,9 @@ import {
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
 
-/* type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
-const activeButtonToImage: Record<
+// type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
+
+/* const activeButtonToImage: Record<
   ActiveButtonType,
   {
     image: string;
@@ -122,19 +123,7 @@ const activeButtonToImage: Record<
   }
 }; */
 
-// type ActiveTab = 'ship' | 'earlyEntrance' | 'bag';
-/* const activeTabToContent: Record<ActiveTab, ReactNode> = {
-  bag: (
-    <FlexColumnLayout gap="sm" padding="none">
-      Info...
-    </FlexColumnLayout>
-  ),
-  ship: (
-    <FlexColumnLayout gap="sm" padding="none">
-      Info...
-    </FlexColumnLayout>
-  )
-}; */
+type ActiveTab = 'ship' | 'bag';
 
 export const MainPage = () => {
   const t = useTypedTranslation();
@@ -146,7 +135,7 @@ export const MainPage = () => {
   const vendorsBandRef = useRef<HTMLDivElement | null>(null);
   const spotBandRef = useRef<HTMLDivElement | null>(null);
   // const workshopsBandRef = useRef<HTMLDivElement | null>(null);
-  const vipTicketsBandRef = useRef<HTMLDivElement | null>(null);
+  const cashmereTicketsBandRef = useRef<HTMLDivElement | null>(null);
   // const foodBandRef = useRef<HTMLDivElement | null>(null);
 
   const ticketsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
@@ -156,7 +145,7 @@ export const MainPage = () => {
   // const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
 
   // const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
-  // const [activeTab, setActiveTab] = useState<ActiveTab>('ship');
+  const [activeTab, setActiveTab] = useState<ActiveTab>('ship');
 
   const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
 
@@ -169,6 +158,20 @@ export const MainPage = () => {
   });
 
   const closeSideBar = () => setBurgerActive(false);
+
+  const activeTabToContent: Record<ActiveTab, ReactNode> = {
+    bag: (
+      <FlexColumnLayout gap="sm" padding="none">
+        Info...
+      </FlexColumnLayout>
+    ),
+    ship: (
+      <FlexColumnLayout gap="sm" padding="none">
+        <Text>{t('cashmereTicketsBand.beautifulCruise')}</Text>
+        <Text>{t('cashmereTicketsBand.invitations')}</Text>
+      </FlexColumnLayout>
+    )
+  };
 
   return (
     <PageContent ref={pageContentRef} variant="wide" padding="none">
@@ -211,10 +214,10 @@ export const MainPage = () => {
               <SideBar.LinkEntry
                 onClick={() => {
                   closeSideBar();
-                  () => vipTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
+                  () => cashmereTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
                 }}>
                 <IconifyIcon icon="clarity:ferry-solid" width="24" />
-                {t('menu.vipTickets')}
+                {t('menu.cashmereTickets')}
               </SideBar.LinkEntry>
 
               <SideBar.LinkEntry
@@ -257,9 +260,9 @@ export const MainPage = () => {
           <Link
             color="black"
             anchorProps={{
-              onClick: () => vipTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
+              onClick: () => cashmereTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
             }}>
-            {t('menu.vipTickets')}
+            {t('menu.cashmereTickets')}
           </Link>
           <Link
             color="black"
@@ -323,7 +326,7 @@ export const MainPage = () => {
               ref={shipFunnyButtonRef}
               icon={<Icon size="xl" zIndex={0} src={ferryImageUrl} />}
               text={t('buttonsBand.cashmereButton')}
-              onClick={() => vipTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => cashmereTickets.current?.scrollIntoView({ behavior: 'smooth' })}
             /> */}
           </ButtonsLayout>
         </SectionWrapper>
@@ -395,7 +398,7 @@ export const MainPage = () => {
         <BackgroundImage src={bigShopImageUrl} />
 
         <Band.Slot flex="auto-grow" size="sm">
-          <Title align="center">Wystawcy</Title>
+          <Title align="center">{t('vendorsPage.title')}</Title>
           <VendorsList />
         </Band.Slot>
       </Band>
@@ -491,36 +494,35 @@ export const MainPage = () => {
         </LayoutWithActiveButton>
       </Band> */}
 
-      {/*       <Band
+      <Band
         size="md"
-        ref={vipTicketsBandRef}
+        ref={cashmereTicketsBandRef}
         variant="background"
         justify="space-around"
         color={Colors.isabelline}
         padding="xl"
         align="initial"
         direction="column">
-        <Title align="center">Bilety VIP</Title>
+        <Title align="center">{t('cashmereTicketsBand.title')}</Title>
 
         <Text align="center" marginBottom="md">
-          Oferujemy możliwość zakupu biletów zwykłych oraz biletów w pakiecie kaszmirowym. Bilety kaszmirowe oprócz
-          wejściowki na targi obejmują także:
+          {t('cashmereTicketsBand.ticketDescription')}
         </Text>
 
         <Tabs>
           <Tabs.Tab onClick={() => setActiveTab('ship')} active={activeTab === 'ship'}>
             <Icon size="xl" src={ferryImageUrl} />
-            Rejs Dziergostatkiem
+            {t('cashmereTicketsBand.cruise')}
           </Tabs.Tab>
 
           <Tabs.Tab onClick={() => setActiveTab('bag')} active={activeTab === 'bag'}>
             <Icon size="xl" src={goodieBagImageUrl} />
-            Pamiątkowa torba targowa
+            {t('cashmereTicketsBand.souverirBag')}
           </Tabs.Tab>
         </Tabs>
 
         <Tabs.Content>{activeTabToContent[activeTab]}</Tabs.Content>
-      </Band> */}
+      </Band>
     </PageContent>
   );
 };
