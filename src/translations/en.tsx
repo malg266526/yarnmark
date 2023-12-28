@@ -72,18 +72,18 @@ export const en = {
         'Zapraszamy do wzięcia udziału w warsztatach dziewiarskich i szydełkowych oraz serdecznie zachęcamy do skorzystania z profesjonalnych kursów pierwszej pomocy.',
       mayTheHealthBeWithYou: 'May the health and safety be with you!'
     },
-
     infoForVendorsPage: {
       title: 'Information for vendors'
     },
-    mainPage: {
-      firstTime: 'The first time in the capital of Lesser Poland',
-      fairName: 'Krakoski Yarnmark Wełny',
-      placeFirstName: 'Hala 100-lecia KS Cracovia',
-      placeLastName: 'Centrum Sportu Niepełnosprawnych',
-      city: 'Cracov',
-      buyTicket: 'Buy Ticket',
-      address: 'Aleja Marszałka Ferdynanda Focha 40'
+    foodBand: {
+      bezogrodekDescription:
+        '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów',
+      lookHere: 'Zobacz tutaj',
+      checkMenu: 'Zobacz menu tutaj',
+      pinoGardenDescription: 'Fani włoskiej kuchni i owoców morza naprzeciwko hali znajdą Pino Garden',
+      pretzelDescription: 'Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka',
+      piastowskaDescription: 'Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej',
+      knittedCoffeeDescription: 'Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee'
     }
   }
 };

@@ -1,6 +1,6 @@
 import React, { ReactNode, useCallback, useRef, useState } from 'react';
 import { PageContent } from '../components/PageContent';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
+import { UnprefixedTranslationKeys, useTypedTranslation } from '../translations/useTypedTranslation';
 
 import bigShopImageUrl from '../assets/iconify/bigshop.svg';
 import burgerImageUrl from '../assets/iconify/burger.svg';
@@ -64,20 +64,24 @@ import { useRootIntersectionObserver } from './useRootIntersectionObserver';
 
 type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
-const activeButtonToImage: Record<
+type ActiveButtonToImageConfig = Record<
   ActiveButtonType,
   {
     image: string;
     text: ReactNode;
   }
-> = {
+>;
+
+type ActiveButtonToImageFunction = (t: (key: UnprefixedTranslationKeys) => string) => ActiveButtonToImageConfig;
+
+const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
   foodtruckBezogródek: {
     image: wawelImageSrc,
     text: (
       <FlexColumnLayout gap="sm" padding="none">
-        150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów
+        {t('foodBand.bezogrodekDescription')}
         <a href="https://www.instagram.com/bezogrodek/?hl=pl" target="_blank" rel="noreferrer">
-          Zobacz tutaj
+          {t('foodBand.lookHere')}
         </a>
       </FlexColumnLayout>
     )
@@ -86,9 +90,9 @@ const activeButtonToImage: Record<
     image: wawelImageSrc,
     text: (
       <FlexColumnLayout gap="sm" padding="none">
-        Fani włoskiej kuchni i owoców morza naprzeciwko hali znajdą Pino Garden
+        {t('foodBand.pinoGardenDescription')}
         <a href="https://pinogarden.pl/kategoria/karta-menu" target="_blank" rel="noreferrer">
-          Zobacz menu tutaj
+          {t('foodBand.checkMenu')}
         </a>
       </FlexColumnLayout>
     )
@@ -97,7 +101,7 @@ const activeButtonToImage: Record<
     image: wawelImageSrc,
     text: (
       <FlexColumnLayout gap="sm" padding="none">
-        Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka
+        {t('foodBand.pretzelDescription')}
       </FlexColumnLayout>
     )
   },
@@ -105,9 +109,9 @@ const activeButtonToImage: Record<
     image: wawelImageSrc,
     text: (
       <FlexColumnLayout gap="sm" padding="none">
-        Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej
+        {t('foodBand.piastowskaDescription')}
         <a href="https://gospodapiastowska.pl/menu/" target="_blank" rel="noreferrer">
-          Zobacz menu tutaj
+          {t('foodBand.checkMenu')}
         </a>
       </FlexColumnLayout>
     )
@@ -116,11 +120,11 @@ const activeButtonToImage: Record<
     image: wawelImageSrc,
     text: (
       <FlexColumnLayout gap="sm" padding="none">
-        Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee
+        {t('foodBand.knittedCoffeeDescription')}
       </FlexColumnLayout>
     )
   }
-};
+});
 
 type ActiveTab = 'ship' | 'bag';
 
@@ -147,6 +151,8 @@ export const MainPage = () => {
   const [activeTab, setActiveTab] = useState<ActiveTab>('ship');
 
   const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
+
+  const activeButtonToImage = getActiveButtonToImage(t);
 
   const observerCallback = useCallback(() => {}, []);
 
