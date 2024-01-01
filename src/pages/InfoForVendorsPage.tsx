@@ -74,6 +74,10 @@ export const HallWrapper = styled.div`
     align-items: center;
     align-self: center;
   }
+
+  @media (max-width: ${ScreenSize.phone}) {
+    width: 96%;
+  }
 `;
 
 export const InfoForVendorsPage = () => {
@@ -199,13 +203,7 @@ export const InfoForVendorsPage = () => {
         </PlainInfo>
       </Band>
 
-      <Band
-        ref={standsBandRef}
-        size="sm"
-        justify="center"
-        variant="background"
-        color={Colors.linen}
-        padding={isPhone ? 'none' : 'xl'}>
+      <Band ref={standsBandRef} size="sm" justify="center" variant="background" color={Colors.linen} padding="xl">
         <TitleWrapper>
           <CenteredTitle>Stoiska</CenteredTitle>
         </TitleWrapper>
