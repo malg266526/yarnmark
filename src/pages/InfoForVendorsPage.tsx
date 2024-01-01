@@ -38,15 +38,15 @@ export const PlainInfo = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${Colors.white};
-  padding: 0 ${Spacings.md} ${Spacings.md} ${Spacings.md};
+  padding: 0 ${Spacings.sm} ${Spacings.md} ${Spacings.sm};
   max-width: 50%;
   width: 50%;
   min-height: 100px;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
 
   @media (max-width: ${ScreenSize.tablet}) {
-    max-width: 90%;
-    width: 90%;
+    max-width: 92%;
+    width: 92%;
   }
 `;
 
@@ -73,6 +73,10 @@ export const HallWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     align-self: center;
+  }
+
+  @media (max-width: ${ScreenSize.phone}) {
+    width: 96%;
   }
 `;
 
@@ -199,13 +203,7 @@ export const InfoForVendorsPage = () => {
         </PlainInfo>
       </Band>
 
-      <Band
-        ref={standsBandRef}
-        size="sm"
-        justify="center"
-        variant="background"
-        color={Colors.linen}
-        padding={isPhone ? 'none' : 'xl'}>
+      <Band ref={standsBandRef} size="sm" justify="center" variant="background" color={Colors.linen} padding="xl">
         <TitleWrapper>
           <CenteredTitle>Stoiska</CenteredTitle>
         </TitleWrapper>
