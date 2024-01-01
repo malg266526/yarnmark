@@ -102,7 +102,7 @@ export const InfoForVendorsPage = () => {
 
               <SideBar.LinkEntry
                 onClick={() => {
-                  () => standsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
+                  standsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
                   closeSideBar();
                 }}>
                 <IconifyIcon icon="bi:shop" width="24" />
@@ -112,7 +112,7 @@ export const InfoForVendorsPage = () => {
               <SideBar.LinkEntry
                 onClick={() => {
                   closeSideBar();
-                  () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                 }}>
                 <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
                 {t('menu.contact')}
@@ -147,7 +147,7 @@ export const InfoForVendorsPage = () => {
         </Menu>
       )}
 
-      <Band size="md" justify="flex-start" narrowContent>
+      <Band size="md" justify="flex-start" narrowContent padding="md">
         <Image src={yarn2ImageUrl} />
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
@@ -199,7 +199,13 @@ export const InfoForVendorsPage = () => {
         </PlainInfo>
       </Band>
 
-      <Band ref={standsBandRef} size="sm" justify="center" variant="background" color={Colors.linen} padding="xl">
+      <Band
+        ref={standsBandRef}
+        size="sm"
+        justify="center"
+        variant="background"
+        color={Colors.linen}
+        padding={isPhone ? 'none' : 'xl'}>
         <TitleWrapper>
           <CenteredTitle>Stoiska</CenteredTitle>
         </TitleWrapper>
