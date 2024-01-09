@@ -7,7 +7,7 @@ export const pl = {
       organizers: 'Organizatorzy',
       contact: 'Kontakt',
       infoForVendors: 'Dla wystawców',
-      vipTickets: 'Bilety VIP',
+      cashmereTickets: 'Bilety kaszmirowe',
       aboutUs: 'O nas'
     },
     welcomeBand: {
@@ -48,39 +48,42 @@ export const pl = {
       howToGetToUs: 'Jak do nas dojechać?',
       accessibleByCar: 'Dojazd samochodem'
     },
+    cashmereTicketsBand: {
+      title: 'Bilety kaszmirowe',
+      ticketDescription:
+        'Oferujemy możliwość zakupu biletów zwykłych oraz biletów w pakiecie kaszmirowym. Bilety kaszmirowe oprócz wejściowki na targi obejmują także:',
+      cruise: 'Rejs Dziergostatkiem',
+      beautifulCruise: 'Dzieeergostatkiem w piękny rejs!',
+      invitations:
+        'Zapraszamy Was serdecznie na godzinny rejs po Wiśle, podczas którego wspólnie podziergamy i porozmawiamy, przy kieliszku prosecco i w otoczeniu krakowskich krajobrazów',
+      souverirBag: 'Pamiątkowa torba targowa'
+    },
     vendorsPage: {
       title: 'Wystawcy'
     },
-    aboutUsPage: {
-      hi: 'Cześć!',
-      hereIs: 'Z tej strony załoga Yarnmark czyli',
-      event2018: 'W 2018 roku, z miłości do wełny Justyna i Dagmara zakładają sklep Włóczykijki.',
-      event2022:
-        'Po godzinach internetowych rozmów o włóczce, 3 dziewczyny z Krakowa, pierwszy raz spotykają się przy kawie. Dzierganych spotkań pojawia się coraz więcej i przyciągają coraz więcej dziewiarek.',
-      event2023_1: 'Powstaje instagramowy profil Dziergamy na polu',
-      event2023_2:
-        'Pierwsze spotkanie Włóczykijków i Dziergamy na polu przy okazji Światowego Dnia dziergania w miejscach publicznych',
-      event2024: 'W 2024 roku Włóczykijki i Dziergamy na polu łączą siły i zapraszają Was na pierwsze krakowskie targi!'
-    },
     contactPage: {
-      title: 'Kontakt',
-      writeToUs: 'Napisz do nas!'
+      title: 'Kontakt'
     },
-
+    workshopsBand: {
+      title: 'Warsztaty',
+      firstAid: 'Pierwsza pomoc',
+      entertainsAndTeaches: 'Yarnmark bawi, Yarnmark uczy',
+      invitation:
+        'Zapraszamy do wzięcia udziału w warsztatach dziewiarskich i szydełkowych oraz serdecznie zachęcamy do skorzystania z profesjonalnych kursów pierwszej pomocy.',
+      mayTheHealthBeWithYou: 'Niech zdrowie i bezpieczeństwo będą z Wami!'
+    },
     infoForVendorsPage: {
       title: 'Informacje dla wystawców'
     },
-    workshopsPage: {
-      title: 'Warsztaty'
-    },
-    mainPage: {
-      firstTime: 'Pierwszy raz w stolicy małopolski!',
-      fairName: 'Krakoski Yarnmark Wełny',
-      placeFirstName: 'Hala 100-lecia KS Cracovia',
-      placeLastName: 'Centrum Sportu Niepełnosprawnych',
-      city: 'Kraków',
-      buyTicket: 'Kup Bilet',
-      address: 'Aleja Marszałka Ferdynanda Focha 40'
+    foodBand: {
+      bezogrodekDescription:
+        '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów',
+      lookHere: 'Zobacz tutaj',
+      checkMenu: 'Zobacz menu tutaj',
+      pinoGardenDescription: 'Fani włoskiej kuchni i owoców morza naprzeciwko hali znajdą Pino Garden',
+      pretzelDescription: 'Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka',
+      piastowskaDescription: 'Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej',
+      knittedCoffeeDescription: 'Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee'
     }
   }
 };
