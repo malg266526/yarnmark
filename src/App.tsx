@@ -13,6 +13,7 @@ import { Curtain, Root, Footer, RightBackgroundImage } from './App.styled';
 import { InfoForVendorsPage } from './pages/InfoForVendorsPage';
 import { MainPage } from './pages/MainPage';
 import { usePhone } from './pages/usePhone';
+import { useTypedTranslation } from './translations/useTypedTranslation';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -29,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
 export const App = () => {
   const isPhone = usePhone();
   const [burgerActive, setBurgerActive] = useState(false);
+  const t = useTypedTranslation();
 
   return (
     <>
@@ -45,7 +47,7 @@ export const App = () => {
 
         <Footer>
           <MinimalistLayout>
-            <Title>Kontakt</Title>
+            <Title>{t('contactPage.title')}</Title>
 
             <RowLayout>
               <Icon size="xl" src={emailImageUrl} />

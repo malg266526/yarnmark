@@ -40,7 +40,7 @@ type ReplaceString<
 > = Str extends `${StringToReplace}${infer Rest extends string}` ? `${NewString}${Rest}` : never;
 
 type TranslationKeys = ExtractTranslationKeys<typeof en>;
-type UnprefixedTranslationKeys = ReplaceString<TranslationKeys, 'translation.', ''>;
+export type UnprefixedTranslationKeys = ReplaceString<TranslationKeys, 'translation.', ''>;
 
 export const useTypedTranslation = () => {
   const { t } = useTranslation();
