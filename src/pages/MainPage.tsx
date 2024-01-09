@@ -164,7 +164,6 @@ export const MainPage = () => {
 
   const closeSideBar = () => setBurgerActive(false);
 
-
   /*  const activeTabToContent: Record<ActiveTab, ReactNode> = {
     bag: (
       <FlexColumnLayout gap="sm" padding="none">
@@ -178,7 +177,6 @@ export const MainPage = () => {
       </FlexColumnLayout>
     )
   }; */
-
 
   return (
     <PageContent ref={pageContentRef} variant="wide" padding="none">
