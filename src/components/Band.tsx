@@ -133,6 +133,9 @@ const BandLayout = styled.div<BandLayoutProps>`
     justify &&
     css`
       justify-content: ${justify};
+      @media (max-width: ${ScreenSize.tablet}) {
+        align-items: ${justify};
+      }
     `};
 
   ${({ gap }) =>
@@ -156,6 +159,10 @@ const BandRoot = styled.div<BandProps>`
 
       @media (max-width: ${ScreenSize.tablet}) {
         padding: ${Spacings.md} ${Spacings.md};
+      }
+
+      @media (max-width: ${ScreenSize.phone}) {
+        padding: ${Spacings.md} 0;
       }
     `};
 

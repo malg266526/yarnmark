@@ -73,7 +73,7 @@ const HallStandOverlay = styled.div`
 
 export const Hall = () => {
   const isPhone = usePhone();
-  const multiplier = isPhone ? 14 : 20;
+  const multiplier = isPhone ? 13 : 20;
 
   return (
     <Container>

@@ -6,6 +6,7 @@ import { HallColors } from '../styles/theme';
 const LegendRoot = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 `;
 
 const ColorSample = styled.div<{ color?: keyof typeof HallColors }>`

@@ -101,7 +101,7 @@ export const Menu = styled.div`
   width: 100%;
   top: 100px;
   left: 0;
-  padding-right: 200px;
+  padding-right: 160px;
   z-index: 1;
   display: flex;
   justify-content: flex-end;

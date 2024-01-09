@@ -77,7 +77,7 @@ export const hallMapConfig: HallMap = {
         {
           width: 5,
           color: 'empty',
-          text: 'Strefa organizatora'
+          text: 'Przejście tech.'
         }
       ]
     },

@@ -19,8 +19,8 @@ import knitting2ImageUrl from '../assets/images/knitting2.svg';
 import pinImageUrl from '../assets/images/pin.svg';
 import stadionImageSrc from '../assets/images/hala.jpg';
 
-// import wawelImageSrc from '../assets/images/wawel.jpg';
-import yarn2ImageUrl from '../assets/images/wools2.jpeg';
+// import wawelImageSrc from '../assets/wawel.jpg';
+import yarn2ImageUrl from '../assets/images/wools2_landscape.webp';
 import { Icon } from '../components/Icon';
 
 import { Band } from '../components/Band';
@@ -164,6 +164,7 @@ export const MainPage = () => {
 
   const closeSideBar = () => setBurgerActive(false);
 
+
   /*  const activeTabToContent: Record<ActiveTab, ReactNode> = {
     bag: (
       <FlexColumnLayout gap="sm" padding="none">
@@ -178,6 +179,7 @@ export const MainPage = () => {
     )
   }; */
 
+
   return (
     <PageContent ref={pageContentRef} variant="wide" padding="none">
       {isPhone && (
@@ -187,7 +189,7 @@ export const MainPage = () => {
               <SideBar.LinkEntry
                 onClick={() => {
                   closeSideBar();
-                  () => window.scrollTo({ top: 0, behavior: 'smooth' });
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}>
                 <IconifyIcon icon="game-icons:wool" width="24" />
                 Yarnmark
@@ -195,8 +197,8 @@ export const MainPage = () => {
 
               <SideBar.LinkEntry
                 onClick={() => {
-                  () => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
                   closeSideBar();
+                  vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
                 }}>
                 <IconifyIcon icon="bi:shop" width="24" />
                 {t('menu.vendors')}
@@ -216,19 +218,20 @@ export const MainPage = () => {
                 {t('menu.workshops')}
               </SideBar.LinkEntry> */}
 
-              {/*               <SideBar.LinkEntry
+              {/*           <SideBar.LinkEntry
                 onClick={() => {
                   closeSideBar();
                   () => cashmereTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
                 }}>
                 <IconifyIcon icon="clarity:ferry-solid" width="24" />
                 {t('menu.cashmereTickets')}
+
               </SideBar.LinkEntry> */}
 
               <SideBar.LinkEntry
                 onClick={() => {
                   closeSideBar();
-                  () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                 }}>
                 <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
                 {t('menu.contact')}
@@ -312,13 +315,13 @@ export const MainPage = () => {
             <FunnyButton
               ref={vendorsFunnyButtonRef}
               icon={<Icon size="xl" zIndex={0} src={shopImageUrl} />}
-              text={t('buttonsBand.vendorsButton')}
+              text={isPhone ? undefined : t('buttonsBand.vendorsButton')}
               onClick={() => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
             />
             <FunnyButton
               ref={geoFunnyButtonRef}
               icon={<Icon size="xl" zIndex={0} src={pinBlackImageUrl} />}
-              text={t('buttonsBand.spotButton')}
+              text={isPhone ? undefined : t('buttonsBand.spotButton')}
               onClick={() => spotBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
             />
             {/*             <FunnyButton
