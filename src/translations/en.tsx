@@ -8,7 +8,8 @@ export const en = {
       contact: 'Contact',
       infoForVendors: 'For Vendors',
       cashmereTickets: 'Cashmere Tickets',
-      aboutUs: 'About us'
+      aboutUs: 'About us',
+      stands: 'Stands'
     },
     welcomeBand: {
       invitation: 'Serdecznie zapraszamy na I edycję targów wełny w stolicy małopolski!',
@@ -73,7 +74,9 @@ export const en = {
       mayTheHealthBeWithYou: 'May the health and safety be with you!'
     },
     infoForVendorsPage: {
-      title: 'Information for vendors'
+      title: 'Information for vendors',
+      invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w I edycji Krakoskiego Yarnmarku Wełny!',
+      organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was'
     },
     foodBand: {
       bezogrodekDescription:

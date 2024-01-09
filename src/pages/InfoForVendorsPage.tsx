@@ -110,7 +110,7 @@ export const InfoForVendorsPage = () => {
                   closeSideBar();
                 }}>
                 <IconifyIcon icon="bi:shop" width="24" />
-                Stoiska
+                {t('menu.stands')}
               </SideBar.LinkEntry>
 
               <SideBar.LinkEntry
@@ -138,7 +138,7 @@ export const InfoForVendorsPage = () => {
             anchorProps={{
               onClick: () => standsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
             }}>
-            Stoiska
+            {t('menu.stands')}
           </Link>
 
           <Link
@@ -156,7 +156,7 @@ export const InfoForVendorsPage = () => {
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
             <Title>{t('infoForVendorsPage.title')}</Title>
-            <Text>Serdecznie Was zapraszamy do wzięcia udziału w I edycji Krakoskiego Yarnmarku Wełny!</Text>
+            <Text> {t('infoForVendorsPage.invitation')}</Text>
             <Text>Poniżej kilka informacji organizacyjnych dla Was</Text>
           </NiceBox>
         </Band.Slot>
