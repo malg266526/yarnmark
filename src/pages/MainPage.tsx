@@ -1,25 +1,25 @@
-import React, { ReactNode, useCallback, useRef, useState } from 'react';
+import React, { /* ReactNode, */ useCallback, useRef, useState } from 'react';
 import { PageContent } from '../components/PageContent';
-import { UnprefixedTranslationKeys, useTypedTranslation } from '../translations/useTypedTranslation';
+import { /* UnprefixedTranslationKeys, */ useTypedTranslation } from '../translations/useTypedTranslation';
 
 import bigShopImageUrl from '../assets/iconify/bigshop.svg';
-import burgerImageUrl from '../assets/iconify/burger.svg';
-import coffeeImageUrl from '../assets/iconify/coffee.svg';
-import ferryImageUrl from '../assets/iconify/ferry.svg';
-import goodieBagImageUrl from '../assets/iconify/goodiebag.svg';
+// import burgerImageUrl from '../assets/iconify/burger.svg';
+// import coffeeImageUrl from '../assets/iconify/coffee.svg';
+// import ferryImageUrl from '../assets/iconify/ferry.svg';
+// import goodieBagImageUrl from '../assets/iconify/goodiebag.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
 // import pizzaImageUrl from '../assets/iconify/pizza.svg';
-import pretzelImageUrl from '../assets/iconify/pretzel.svg';
+// import pretzelImageUrl from '../assets/iconify/pretzel.svg';
 import shopImageUrl from '../assets/iconify/shop.svg';
-import shrimpImageUrl from '../assets/iconify/shrimp.svg';
-import soupImageUrl from '../assets/iconify/soup.svg';
+// import shrimpImageUrl from '../assets/iconify/shrimp.svg';
+// import soupImageUrl from '../assets/iconify/soup.svg';
 import ticketImageUrl from '../assets/iconify/ticket.svg';
 
 import knitting2ImageUrl from '../assets/images/knitting2.svg';
 import pinImageUrl from '../assets/images/pin.svg';
 import stadionImageSrc from '../assets/images/hala.jpg';
 
-import wawelImageSrc from '../assets/images/wawel.jpg';
+// import wawelImageSrc from '../assets/images/wawel.jpg';
 import yarn2ImageUrl from '../assets/images/wools2.jpeg';
 import { Icon } from '../components/Icon';
 
@@ -28,53 +28,53 @@ import { FunnyButton } from '../components/FunnyButton';
 import { InfoSection } from '../components/InfoSection';
 import { Link } from '../components/Link';
 import { NiceBox } from '../components/NiceBox';
-import { PhotoFrame } from '../components/PhotoBox';
+// import { PhotoFrame } from '../components/PhotoBox';
 import { usePhone } from './usePhone';
 
 import { Icon as IconifyIcon } from '@iconify/react';
 import { Trans } from 'react-i18next';
 import { Header } from '../App.styled';
 import { BurgerMenu } from '../components/BurgerMenu';
-import { FlexColumnLayout } from '../components/FlexColumnLayout';
-import { FramedBox } from '../components/FramedBox';
-import { ImageButton } from '../components/ImageButton';
+// import { FlexColumnLayout } from '../components/FlexColumnLayout';
+// import { FramedBox } from '../components/FramedBox';
+// import { ImageButton } from '../components/ImageButton';
 import { SideBar } from '../components/SideBar';
-import { Tabs } from '../components/Tabs';
+// import { Tabs } from '../components/Tabs';
 import { SubTitle, Title } from '../components/Title';
 import { VendorsList } from '../components/VendorsList';
 import { Colors } from '../styles/theme';
 import {
-  ActiveImage,
+  // ActiveImage,
   AnimatedIconWrapper,
   BackgroundImage,
   ButtonsLayout,
-  ButtonsWrapper,
-  CenteredTitle,
+  // ButtonsWrapper,
+  // CenteredTitle,
   Image,
-  ImageContentLayout,
-  LayoutWithActiveButton,
+  // ImageContentLayout,
+  // LayoutWithActiveButton,
   Menu,
-  PhotosLayout,
+  // PhotosLayout,
   SecondaryButton,
   SectionWrapper,
-  Text,
-  TextWrapper
+  Text
+  // TextWrapper
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
 
-type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
+// type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
-type ActiveButtonToImageConfig = Record<
+/* type ActiveButtonToImageConfig = Record<
   ActiveButtonType,
   {
     image: string;
     text: ReactNode;
   }
->;
+>; */
 
-type ActiveButtonToImageFunction = (t: (key: UnprefixedTranslationKeys) => string) => ActiveButtonToImageConfig;
+// type ActiveButtonToImageFunction = (t: (key: UnprefixedTranslationKeys) => string) => ActiveButtonToImageConfig;
 
-const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
+/* const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
   foodtruckBezogródek: {
     image: wawelImageSrc,
     text: (
@@ -124,9 +124,9 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
       </FlexColumnLayout>
     )
   }
-});
+}); */
 
-type ActiveTab = 'ship' | 'bag';
+// type ActiveTab = 'ship' | 'bag';
 
 export const MainPage = () => {
   const t = useTypedTranslation();
@@ -137,9 +137,9 @@ export const MainPage = () => {
 
   const vendorsBandRef = useRef<HTMLDivElement | null>(null);
   const spotBandRef = useRef<HTMLDivElement | null>(null);
-  const workshopsBandRef = useRef<HTMLDivElement | null>(null);
-  const cashmereTicketsBandRef = useRef<HTMLDivElement | null>(null);
-  const foodBandRef = useRef<HTMLDivElement | null>(null);
+  // const workshopsBandRef = useRef<HTMLDivElement | null>(null);
+  // const cashmereTicketsBandRef = useRef<HTMLDivElement | null>(null);
+  //const foodBandRef = useRef<HTMLDivElement | null>(null);
 
   const ticketsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const vendorsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
@@ -147,12 +147,12 @@ export const MainPage = () => {
   // const foodFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   // const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
 
-  const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
-  const [activeTab, setActiveTab] = useState<ActiveTab>('ship');
+  // const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
+  // const [activeTab, setActiveTab] = useState<ActiveTab>('ship');
 
   const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
 
-  const activeButtonToImage = getActiveButtonToImage(t);
+  // const activeButtonToImage = getActiveButtonToImage(t);
 
   const observerCallback = useCallback(() => {}, []);
 
@@ -164,7 +164,7 @@ export const MainPage = () => {
 
   const closeSideBar = () => setBurgerActive(false);
 
-  const activeTabToContent: Record<ActiveTab, ReactNode> = {
+  /*  const activeTabToContent: Record<ActiveTab, ReactNode> = {
     bag: (
       <FlexColumnLayout gap="sm" padding="none">
         Info...
@@ -176,7 +176,7 @@ export const MainPage = () => {
         <Text>{t('cashmereTicketsBand.invitations')}</Text>
       </FlexColumnLayout>
     )
-  };
+  }; */
 
   return (
     <PageContent ref={pageContentRef} variant="wide" padding="none">
@@ -216,14 +216,14 @@ export const MainPage = () => {
                 {t('menu.workshops')}
               </SideBar.LinkEntry> */}
 
-              <SideBar.LinkEntry
+              {/*               <SideBar.LinkEntry
                 onClick={() => {
                   closeSideBar();
                   () => cashmereTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
                 }}>
                 <IconifyIcon icon="clarity:ferry-solid" width="24" />
                 {t('menu.cashmereTickets')}
-              </SideBar.LinkEntry>
+              </SideBar.LinkEntry> */}
 
               <SideBar.LinkEntry
                 onClick={() => {
@@ -262,13 +262,13 @@ export const MainPage = () => {
             }}>
             {t('menu.workshops')}
           </Link> */}
-          <Link
+          {/*           <Link
             color="black"
             anchorProps={{
               onClick: () => cashmereTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
             }}>
             {t('menu.cashmereTickets')}
-          </Link>
+          </Link> */}
           <Link
             color="black"
             anchorProps={{
@@ -407,7 +407,7 @@ export const MainPage = () => {
           <VendorsList />
         </Band.Slot>
       </Band>
-
+      {/* 
       <Band
         ref={workshopsBandRef}
         gap="xl"
@@ -447,9 +447,9 @@ export const MainPage = () => {
             <Text>{t('workshopsBand.mayTheHealthBeWithYou')}</Text>
           </NiceBox>
         </Band.Slot>
-      </Band>
+      </Band> */}
 
-      <Band ref={foodBandRef} size="md" variant="background" color={Colors.pastelGray} padding="xl">
+      {/*    <Band ref={foodBandRef} size="md" variant="background" color={Colors.pastelGray} padding="xl">
         <CenteredTitle>Gdzie zjeść?</CenteredTitle>
 
         <LayoutWithActiveButton>
@@ -494,9 +494,9 @@ export const MainPage = () => {
             </ImageContentLayout>
           </FramedBox>
         </LayoutWithActiveButton>
-      </Band>
+      </Band> */}
 
-      <Band
+      {/*       <Band
         size="md"
         ref={cashmereTicketsBandRef}
         variant="background"
@@ -524,7 +524,7 @@ export const MainPage = () => {
         </Tabs>
 
         <Tabs.Content>{activeTabToContent[activeTab]}</Tabs.Content>
-      </Band>
+      </Band> */}
     </PageContent>
   );
 };
