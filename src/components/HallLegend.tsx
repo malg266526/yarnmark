@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { RowLayout } from './RowLayout';
 import { HallColors } from '../styles/theme';
+import { useTypedTranslation } from '../translations/useTypedTranslation';
 
 const LegendRoot = styled.div`
   display: flex;
@@ -16,42 +17,38 @@ const ColorSample = styled.div<{ color?: keyof typeof HallColors }>`
 `;
 
 export const HallLegend = () => {
+  const t = useTypedTranslation();
+
   return (
     <LegendRoot>
       <RowLayout gap="xs">
         <ColorSample color="premium" />
-        <p>Miejsce Premium 5x3m</p>
+        <p>{t('hallMap.premiumStand')}</p>
       </RowLayout>
 
       <RowLayout gap="xs">
         <ColorSample color="normal1" />
-        <p>Miejsce Normal 4x2,5m</p>
+        <p>{t('hallMap.standardStand')}</p>
       </RowLayout>
 
       <RowLayout gap="xs">
         <ColorSample color="normal2" />
-        <p>Miejsce Normal 4x2,5m</p>
-      </RowLayout>
-
-      <RowLayout gap="xs">
-        <ColorSample color="taken" />
-        <p>Miejsce zarezerwowane</p>
+        <p>{t('hallMap.standardStand')}</p>
       </RowLayout>
 
       <RowLayout gap="xs">
         <ColorSample color="small1" />
-        <p>
-          Miejsce Small, <br />
-          mniejsze 4x2m
-        </p>
+        <p>{t('hallMap.miniStand')}</p>
       </RowLayout>
 
       <RowLayout gap="xs">
         <ColorSample color="small2" />
-        <p>
-          Miejsce Small, <br />
-          mniejsze 4x2m
-        </p>
+        <p>{t('hallMap.miniStand')}</p>
+      </RowLayout>
+
+      <RowLayout gap="xs">
+        <ColorSample color="taken" />
+        <p>{t('hallMap.taken')}</p>
       </RowLayout>
     </LegendRoot>
   );

@@ -87,11 +87,12 @@ export const pl = {
         stands: 'Na hali będą trzy rodzaje stoisk: Premium 5x3m, Standard 4x2,5m oraz Mini 4x2m',
         tables:
           'Stoisko premium posiada 2 krzesła oraz 3 stoły 160x80cm. Stoiska standard oraz mini posiadają 2 krzesła oraz  2 stoły 140x70cm.',
-        extensionCords: 'W skład stoiska NIE wchodzą przedłużacze, prosimy o posiadanie własnych.'
+        extensionCords: 'W skład stoiska NIE wchodzą przedłużacze, prosimy o posiadanie własnych.',
+        socialRoom: 'Wystawcy będą mieli do dyspozycji pokój socjalny, gdzie będzie można napić się kawy i herbaty.wyc'
       },
       parking: {
-        title: 'parking',
-        parkingSpace: 'Każdemu wystawcy na dzień targów przysługuje darmowe miejsce parkingowe przy hali'
+        title: 'Parking',
+        parkingSpace: 'Każdemu wystawcy na dzień targów przysługuje darmowe miejsce parkingowe przy hali.'
       },
       marketing: {
         title: 'Marketing',
@@ -111,6 +112,12 @@ export const pl = {
       pretzelDescription: 'Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka',
       piastowskaDescription: 'Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej',
       knittedCoffeeDescription: 'Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee'
+    },
+    hallMap: {
+      premiumStand: 'Miejsce Premium 5x3m',
+      standardStand: 'Miejsce Standard 4x2,5m',
+      miniStand: 'Miejsce Mini 4x2m',
+      taken: 'Miejsce zarezerwowane'
     }
   }
 };

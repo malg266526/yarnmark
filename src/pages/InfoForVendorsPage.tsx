@@ -183,6 +183,7 @@ export const InfoForVendorsPage = () => {
           <Text>{t('infoForVendorsPage.hallInfo.stands')}</Text>
           <Text>{t('infoForVendorsPage.hallInfo.tables')}</Text>
           <Text>{t('infoForVendorsPage.hallInfo.extensionCords')}</Text>
+          <Text>{t('infoForVendorsPage.hallInfo.socialRoom')}</Text>
         </PlainInfo>
       </Band>
 
