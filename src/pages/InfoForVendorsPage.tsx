@@ -19,6 +19,7 @@ import { Header } from '../App.styled';
 import { SideBar } from '../components/SideBar';
 import { Icon as IconifyIcon } from '@iconify/react';
 import { ScreenSize } from '../styles/screeen-size';
+import { Trans } from 'react-i18next';
 
 export const FlexLayout = styled.div`
   display: flex;
@@ -116,7 +117,10 @@ export const InfoForVendorsPage = () => {
               <SideBar.LinkEntry
                 onClick={() => {
                   closeSideBar();
-                  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                  window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                  });
                 }}>
                 <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
                 {t('menu.contact')}
@@ -144,7 +148,11 @@ export const InfoForVendorsPage = () => {
           <Link
             color="black"
             anchorProps={{
-              onClick: () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+              onClick: () =>
+                window.scrollTo({
+                  top: document.body.scrollHeight,
+                  behavior: 'smooth'
+                })
             }}>
             {t('menu.contact')}
           </Link>
@@ -156,8 +164,8 @@ export const InfoForVendorsPage = () => {
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
             <Title>{t('infoForVendorsPage.title')}</Title>
-            <Text> {t('infoForVendorsPage.invitation')}</Text>
-            <Text>Poniżej kilka informacji organizacyjnych dla Was</Text>
+            <Text>{t('infoForVendorsPage.invitation')}</Text>
+            <Text>{t('infoForVendorsPage.organisationInfo')}</Text>
           </NiceBox>
         </Band.Slot>
       </Band>
@@ -168,44 +176,41 @@ export const InfoForVendorsPage = () => {
         </TitleWrapper>
 
         <PlainInfo>
-          <Text>Mamy do dyspozycji powierzchnię 1142m2.</Text>
-          <Text>Hala będzie dostępna od północy, na miejscu będą panowie portierzy.</Text>
-
-          {/*  <Text>Hala zostanie otwarta o godz. ?? .</Text>
-          <Text>Hala znajduje się na tym samym poziomie co parking.</Text>
-          <Text>TODO: dodać opis do stoisk - wybór z mapki, zapisy na stoiska</Text>
-          <Text>Istnieje możliwość wykupienia stoiska podwójnego.</Text>
-          <Text>TODO: Jakieś info o stołach i krzesłach??</Text>
-          <Text>TODO: Wymiary hali to: ??</Text> */}
+          <Text>{t('infoForVendorsPage.hallInfo.area')}</Text>
+          <Text>{t('infoForVendorsPage.hallInfo.openHours')}</Text>
+          <Text>{t('infoForVendorsPage.hallInfo.ramp')}</Text>
+          <Text>{t('infoForVendorsPage.hallInfo.participants')}</Text>
+          <Text>{t('infoForVendorsPage.hallInfo.stands')}</Text>
+          <Text>{t('infoForVendorsPage.hallInfo.tables')}</Text>
+          <Text>{t('infoForVendorsPage.hallInfo.extensionCords')}</Text>
         </PlainInfo>
       </Band>
 
       <Band size="sm" variant="background" justify="center" align="center" color={Colors.snow} padding="xl">
         <TitleWrapper>
-          <CenteredTitle>Parking</CenteredTitle>
+          <CenteredTitle>{t('infoForVendorsPage.parking.title')}</CenteredTitle>
         </TitleWrapper>
 
         <PlainInfo>
-          <Text>Każdemu wystawcy na dzień targów przysługuje darmowe miejsce parkingowe przy hali</Text>
+          <Text>{t('infoForVendorsPage.parking.parkingSpace')}</Text>
         </PlainInfo>
       </Band>
 
       <Band size="sm" variant="background" justify="center" align="center" color={Colors.beige1} padding="xl">
         <TitleWrapper>
-          <CenteredTitle>Marketing</CenteredTitle>
+          <CenteredTitle>{t('infoForVendorsPage.marketing.title')}</CenteredTitle>
         </TitleWrapper>
 
         <PlainInfo>
           <Text>
-            Zachęcamy do przesłania swojego na logo na adres email <b>strona.dziergamynapolu@gmail.com</b>, umieścimy je
-            w zakładce "Wystawcy" i w ten sposób poinformujemy dziewiarki i dziewiarzy, że z nami będziecie
+            <Trans i18nKey="infoForVendorsPage.marketing.sendLogos" />
           </Text>
         </PlainInfo>
       </Band>
 
       <Band ref={standsBandRef} size="sm" justify="center" variant="background" color={Colors.linen} padding="xl">
         <TitleWrapper>
-          <CenteredTitle>Stoiska</CenteredTitle>
+          <CenteredTitle>{t('infoForVendorsPage.stands.title')}</CenteredTitle>
         </TitleWrapper>
 
         <HallWrapper>

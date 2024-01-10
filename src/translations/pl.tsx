@@ -76,7 +76,31 @@ export const pl = {
     infoForVendorsPage: {
       title: 'Informacje dla wystawców',
       invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w I edycji Krakoskiego Yarnmarku Wełny!',
-      organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was'
+      organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was',
+      hallInfo: {
+        area: 'Mamy do dyspozycji powierzchnię 1142m2.',
+        openHours:
+          'Wejście na halę w celu rozłożenia stoiska będzie możliwe od godz. 5:00. Na miejscu będą panowie portierzy.',
+        ramp: 'Z parkingu prosto na halę prowadzi rampa, bez potrzeby korzystania ze schodów czy wind.',
+        participants:
+          'Wejście dla odwiedzających targi będzie znajdować się od ulicy Focha, gdzie do hali głównej udadzą się efektownym zejściem z którego będzie widać całą halę wystawienniczą.',
+        stands: 'Na hali będą trzy rodzaje stoisk: Premium 5x3m, Standard 4x2,5m oraz Mini 4x2m',
+        tables:
+          'Stoisko premium posiada 2 krzesła oraz 3 stoły 160x80cm. Stoiska standard oraz mini posiadają 2 krzesła oraz  2 stoły 140x70cm.',
+        extensionCords: 'W skład stoiska NIE wchodzą przedłużacze, prosimy o posiadanie własnych.'
+      },
+      parking: {
+        title: 'parking',
+        parkingSpace: 'Każdemu wystawcy na dzień targów przysługuje darmowe miejsce parkingowe przy hali'
+      },
+      marketing: {
+        title: 'Marketing',
+        sendLogos:
+          'Zachęcamy do przesłania swojego na logo na adres email <strong>strona.dziergamynapolu@gmail.com</strong>, umieścimy jew zakładce "Wystawcy" i w ten sposób poinformujemy dziewiarki i dziewiarzy, że z nami będziecie'
+      },
+      stands: {
+        title: 'Stoiska'
+      }
     },
     foodBand: {
       bezogrodekDescription:
