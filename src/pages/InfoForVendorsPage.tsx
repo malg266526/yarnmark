@@ -189,6 +189,16 @@ export const InfoForVendorsPage = () => {
 
       <Band size="sm" variant="background" justify="center" align="center" color={Colors.snow} padding="xl">
         <TitleWrapper>
+          <CenteredTitle>{t('infoForVendorsPage.registration.title')}</CenteredTitle>
+        </TitleWrapper>
+
+        <PlainInfo>
+          <Text>{t('infoForVendorsPage.registration.start')}</Text>
+        </PlainInfo>
+      </Band>
+
+      <Band size="sm" variant="background" justify="center" align="center" color={Colors.linen} padding="xl">
+        <TitleWrapper>
           <CenteredTitle>{t('infoForVendorsPage.parking.title')}</CenteredTitle>
         </TitleWrapper>
 

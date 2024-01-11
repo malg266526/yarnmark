@@ -101,6 +101,10 @@ export const pl = {
       },
       stands: {
         title: 'Stoiska'
+      },
+      registration: {
+        title: 'Zapisy',
+        start: 'Mozliwosc zakupu stoiska startuje '
       }
     },
     foodBand: {
