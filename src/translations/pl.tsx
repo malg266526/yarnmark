@@ -84,11 +84,12 @@ export const pl = {
         ramp: 'Z parkingu prosto na halę prowadzi rampa, bez potrzeby korzystania ze schodów czy wind.',
         participants:
           'Wejście dla odwiedzających targi będzie znajdować się od ulicy Focha, gdzie do hali głównej udadzą się efektownym zejściem z którego będzie widać całą halę wystawienniczą.',
-        stands: 'Na hali będą trzy rodzaje stoisk: Premium 5x3m, Standard 4x2,5m oraz Mini 4x2m',
+        stands: 'Na hali będą trzy rodzaje stoisk: Premium 5x3m, Standard 4x2,5m oraz Mini 3x2m',
         tables:
-          'Stoisko premium posiada 2 krzesła oraz 3 stoły 160x80cm. Stoiska standard oraz mini posiadają 2 krzesła oraz  2 stoły 140x70cm.',
+          'Stoisko premium posiada 2 krzesła oraz 3 stoły 160x80cm. Stoisko standard posiadaja 2 krzesła oraz 2 stoły 140x70cm, a stoisko Mini 2 krzesła oraz 1 stół 140x70cm',
         extensionCords: 'W skład stoiska NIE wchodzą przedłużacze, prosimy o posiadanie własnych.',
-        socialRoom: 'Wystawcy będą mieli do dyspozycji pokój socjalny, gdzie będzie można napić się kawy i herbaty.wyc'
+        socialRoom:
+          'Wystawcy będą mieli do dyspozycji pomieszczenie socjalne, gdzie będzie można napić się kawy i herbaty oraz osobną toaletę.'
       },
       parking: {
         title: 'Parking',
@@ -120,7 +121,7 @@ export const pl = {
     hallMap: {
       premiumStand: 'Miejsce Premium 5x3m',
       standardStand: 'Miejsce Standard 4x2,5m',
-      miniStand: 'Miejsce Mini 4x2m',
+      miniStand: 'Miejsce Mini 3x2m',
       taken: 'Miejsce zarezerwowane'
     }
   }

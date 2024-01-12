@@ -10,7 +10,7 @@ export type HallStand = {
   color: keyof typeof HallColors;
   logo?: ReactNode;
   logoSrc?: string;
-  index?: number;
+  index?: number | string;
   taken?: boolean;
 };
 
@@ -30,59 +30,72 @@ type HallMap = {
 export const hallMapConfig: HallMap = {
   topRows: [
     {
-      height: 4,
+      height: 5,
       stands: [
         {
+          width: 2,
+          color: 'empty',
+          text: 'Wejście'
+        },
+        {
+          width: 3,
+          color: 'premium',
+          index: 'P1',
+          height: 5
+        },
+        {
           width: 2.5,
           color: 'normal1',
-          index: 1
+          index: 'S1',
+          height: 4
         },
         {
           width: 2.5,
           color: 'normal2',
-          index: 2
-        },
-        {
-          width: 2.5,
-          color: 'normal1',
-          index: 3
-        },
-        {
-          width: 2.5,
-          color: 'normal2',
-          index: 4
+          index: 'S2',
+          height: 4
         },
 
         {
           width: 3.5,
           color: 'empty',
-          text: 'Wejście'
+          text: 'Przejście do toalet',
+          height: 4
         },
-
         {
           width: 2.5,
           color: 'normal1',
-          index: 5
+          index: 'S3',
+          height: 4
         },
         {
           width: 2.5,
           color: 'normal2',
-          index: 6
+          index: 'S4',
+          height: 4
         },
         {
           width: 2.5,
           color: 'normal1',
-          index: 7
+          index: 'S5',
+          height: 4
         },
         {
-          width: 5,
-          color: 'empty',
-          text: 'Przejście tech.'
+          width: 2.5,
+          color: 'normal2',
+          index: 'S6',
+          height: 4
+        },
+        {
+          width: 2.5,
+          color: 'normal1',
+          index: 'S7',
+          height: 4
         }
       ]
     },
     {
-      height: 3,
+      height: 4,
       stands: [
         {
           width: 26,
@@ -95,15 +108,19 @@ export const hallMapConfig: HallMap = {
     {
       stands: [
         {
-          width: 5,
-          height: 1.5,
+          width: 0.5,
+          height: 26,
           color: 'empty'
-        },
+        }
+      ]
+    },
+    {
+      stands: [
         {
           width: 5,
           height: 3,
           color: 'taken',
-          index: 8,
+          index: 'P2',
           logoSrc: WloczykijkiLogoUrl,
           taken: true
         },
@@ -111,117 +128,63 @@ export const hallMapConfig: HallMap = {
           width: 4,
           height: 2.5,
           color: 'normal2',
-          index: 9
+          index: 'S8'
         },
         {
           width: 4,
           height: 2.5,
           color: 'normal1',
-          index: 10
+          index: 'S9'
         },
         {
           width: 4,
           height: 2.5,
           color: 'normal2',
-          index: 11
+          index: 'S10'
         },
         {
           width: 4,
           height: 2.5,
           color: 'normal1',
-          index: 12
+          index: 'S11'
         },
         {
           width: 4,
           height: 2.5,
           color: 'normal2',
-          index: 13
+          index: 'S12'
         },
         {
           width: 4,
           height: 2.5,
           color: 'normal1',
-          index: 14
+          index: 'S13'
         },
         {
           width: 4,
           height: 2.5,
           color: 'normal2',
-          index: 15
+          index: 'S14'
         },
         {
           width: 4,
           height: 2.5,
           color: 'normal1',
-          index: 16
+          index: 'S15'
         },
         {
           width: 5,
           height: 3,
           color: 'premium',
-          index: 17
+          index: 'P3'
         }
       ]
     },
     {
       stands: [
         {
-          width: 6,
-          height: 29.5,
-          color: 'empty'
-        }
-      ]
-    },
-    {
-      stands: [
-        {
-          width: 4,
-          height: 6,
-          color: 'empty'
-        },
-        {
-          width: 4,
-          height: 2,
-          color: 'small1'
-        },
-        {
-          width: 4,
-          height: 2,
-          color: 'small2'
-        },
-        {
-          width: 4,
-          height: 2,
-          color: 'empty'
-        },
-        {
-          width: 4,
-          height: 2,
-          color: 'small1'
-        },
-        {
-          width: 4,
-          height: 2,
-          color: 'small2'
-        },
-        {
-          width: 4,
-          height: 2,
-          color: 'empty'
-        },
-        {
-          width: 4,
-          height: 2,
-          color: 'small1'
-        },
-        {
-          width: 4,
-          height: 2,
-          color: 'small2'
-        },
-        {
-          width: 4,
-          height: 2,
+          width: 5,
+          height: 26,
           color: 'empty'
         }
       ]
@@ -229,8 +192,68 @@ export const hallMapConfig: HallMap = {
     {
       stands: [
         {
-          width: 6,
-          height: 29.5,
+          width: 4,
+          height: 5,
+          color: 'empty'
+        },
+        {
+          width: 3,
+          height: 2,
+          color: 'small1',
+          index: 'M1'
+        },
+        {
+          width: 3,
+          height: 2,
+          color: 'small2',
+          index: 'M2'
+        },
+        {
+          width: 3,
+          height: 2,
+          color: 'empty'
+        },
+        {
+          width: 3,
+          height: 2,
+          color: 'small1',
+          index: 'M3'
+        },
+        {
+          width: 3,
+          height: 2,
+          color: 'small2',
+          index: 'M4'
+        },
+        {
+          width: 3,
+          height: 2,
+          color: 'empty'
+        },
+        {
+          width: 3,
+          height: 2,
+          color: 'small1',
+          index: 'M5'
+        },
+        {
+          width: 3,
+          height: 2,
+          color: 'small2',
+          index: 'M6'
+        },
+        {
+          width: 4,
+          height: 2,
+          color: 'empty'
+        }
+      ]
+    },
+    {
+      stands: [
+        {
+          width: 5.5,
+          height: 26,
           color: 'empty'
         }
       ]
@@ -239,75 +262,79 @@ export const hallMapConfig: HallMap = {
       stands: [
         {
           width: 5,
-          height: 1.5,
-          color: 'empty'
+          height: 3,
+          color: 'premium',
+          index: 'P4'
+        },
+        {
+          width: 4,
+          height: 2.5,
+          color: 'normal2',
+          index: 'S16'
+        },
+        {
+          width: 4,
+          height: 2.5,
+          color: 'normal1',
+          index: 'S17'
+        },
+        {
+          width: 4,
+          height: 2.5,
+          color: 'normal2',
+          index: 'S18'
+        },
+        {
+          width: 4,
+          height: 2.5,
+          color: 'normal1',
+          index: 'S19'
+        },
+        {
+          width: 4,
+          height: 2.5,
+          color: 'normal2',
+          index: 'S20'
+        },
+        {
+          width: 4,
+          height: 2.5,
+          color: 'normal1',
+          index: 'S21'
+        },
+        {
+          width: 4,
+          height: 2.5,
+          color: 'normal2',
+          index: 'S22'
+        },
+        {
+          width: 4,
+          height: 2.5,
+          color: 'normal1',
+          index: 'S23'
         },
         {
           width: 5,
           height: 3,
           color: 'premium',
-          index: 18
-        },
+          index: 'P5'
+        }
+      ]
+    },
+    {
+      stands: [
         {
-          width: 4,
-          height: 2.5,
-          color: 'normal2',
-          index: 19
-        },
-        {
-          width: 4,
-          height: 2.5,
-          color: 'normal1',
-          index: 20
-        },
-        {
-          width: 4,
-          height: 2.5,
-          color: 'normal2',
-          index: 21
-        },
-        {
-          width: 4,
-          height: 2.5,
-          color: 'normal1',
-          index: 22
-        },
-        {
-          width: 4,
-          height: 2.5,
-          color: 'normal2',
-          index: 23
-        },
-        {
-          width: 4,
-          height: 2.5,
-          color: 'normal1',
-          index: 24
-        },
-        {
-          width: 4,
-          height: 2.5,
-          color: 'normal2',
-          index: 25
-        },
-        {
-          width: 4,
-          height: 2.5,
-          color: 'normal1',
-          index: 26
-        },
-        {
-          width: 5,
-          height: 3,
-          color: 'premium',
-          index: 27
+          width: 1,
+          height: 26,
+          color: 'empty'
         }
       ]
     }
   ],
   bottomRows: [
     {
-      height: 2.5,
+      height: 4,
       stands: [
         {
           width: 26,
@@ -321,60 +348,62 @@ export const hallMapConfig: HallMap = {
         {
           width: 3,
           color: 'premium',
-          index: 28
+          index: 'P6'
         },
         {
           width: 2.5,
           color: 'normal2',
           height: 4,
-          index: 29
+          index: 'S24'
         },
         {
           width: 2.5,
           color: 'normal1',
           height: 4,
-          index: 30
+          index: 'S25'
         },
         {
           width: 2.5,
           color: 'normal2',
           height: 4,
-          index: 31
+          index: 'S26'
         },
         {
           width: 2.5,
           color: 'normal1',
           height: 4,
-          index: 32
+          index: 'S27'
         },
         {
           width: 2.5,
           color: 'normal2',
           height: 4,
-          index: 33
+          index: 'S28'
         },
         {
           width: 2.5,
           color: 'normal1',
           height: 4,
-          index: 34
-        },
-        {
-          width: 2.5,
-          color: 'normal2',
-          height: 4,
-          index: 35
-        },
-        {
-          width: 2.5,
-          color: 'normal1',
-          height: 4,
-          index: 36
+          index: 'S29'
         },
         {
           width: 3,
           color: 'premium',
-          index: 37
+          index: 'P7'
+        },
+        {
+          width: 5,
+          color: 'empty',
+          text: 'Wejście dla wystawców'
+        }
+      ]
+    },
+    {
+      height: 0.5,
+      stands: [
+        {
+          width: 26,
+          color: 'empty'
         }
       ]
     }
