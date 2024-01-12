@@ -23,6 +23,14 @@ const metafileData = await esbuild.build({
       },
       watch: true,
     }),
+    copy({
+      resolveFrom: 'cwd',
+      assets: {
+        from: ['./public/*'],
+        to: ['./dist'],
+      },
+      watch: true,
+    }),
   ]
 });
 
