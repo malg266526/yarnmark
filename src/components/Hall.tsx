@@ -16,6 +16,15 @@ const Container = styled.div`
   width: min-content;
 `;
 
+const StandText = styled.h5`
+  font-size: 10px;
+  text-align: center;
+`;
+
+const StandIndex = styled.h4`
+  text-align: center;
+`;
+
 type Direction = 'row' | 'column';
 
 type Line = {
@@ -83,14 +92,14 @@ export const Hall = () => {
             <HallStandLayout
               key={index}
               width={stand.width}
-              height={row.height}
+              height={stand.height || row.height}
               color={stand.color}
               multiplier={multiplier}>
               {stand.taken && <HallStandOverlay />}
 
               <div>
-                <h4>{stand.index}</h4>
-                <h5>{stand.text}</h5>
+                <StandIndex>{stand.index}</StandIndex>
+                <StandText>{stand.text}</StandText>
               </div>
 
               <HallLogo src={stand.logoSrc} />
@@ -116,8 +125,8 @@ export const Hall = () => {
                 multiplier={multiplier}>
                 {stand.taken && <HallStandOverlay />}
 
-                <h4>{stand.index}</h4>
-                <h5>{stand.text}</h5>
+                <StandIndex>{stand.index}</StandIndex>
+                <StandText>{stand.text}</StandText>
 
                 <HallLogo src={stand.logoSrc} />
               </HallStandLayout>
@@ -135,7 +144,11 @@ export const Hall = () => {
               height={stand.height || row.height}
               color={stand.color}
               multiplier={multiplier}>
-              {stand.taken && <HallStandOverlay />} <h4>{stand.index}</h4>
+              {stand.taken && <HallStandOverlay />}
+
+              <StandIndex>{stand.index}</StandIndex>
+              <StandText>{stand.text}</StandText>
+
               <HallLogo src={stand.logoSrc} />
             </HallStandLayout>
           ))}
