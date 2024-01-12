@@ -30,15 +30,6 @@ type HallMap = {
 export const hallMapConfig: HallMap = {
   topRows: [
     {
-      height: 0.5,
-      stands: [
-        {
-          width: 26,
-          color: 'empty'
-        }
-      ]
-    },
-    {
       height: 5,
       stands: [
         {
@@ -117,6 +108,15 @@ export const hallMapConfig: HallMap = {
     {
       stands: [
         {
+          width: 0.5,
+          height: 26,
+          color: 'empty'
+        }
+      ]
+    },
+    {
+      stands: [
+        {
           width: 5,
           height: 3,
           color: 'taken',
@@ -183,7 +183,7 @@ export const hallMapConfig: HallMap = {
     {
       stands: [
         {
-          width: 5.5,
+          width: 5,
           height: 26,
           color: 'empty'
         }
@@ -389,12 +389,21 @@ export const hallMapConfig: HallMap = {
         {
           width: 3,
           color: 'premium',
-          index: 'P6'
+          index: 'P7'
         },
         {
           width: 5,
           color: 'empty',
           text: 'Wejście dla wystawców'
+        }
+      ]
+    },
+    {
+      height: 0.5,
+      stands: [
+        {
+          width: 26,
+          color: 'empty'
         }
       ]
     }

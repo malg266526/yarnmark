@@ -114,7 +114,7 @@ export const Hall = () => {
             width={column.width}
             key={index}
             direction="column"
-            alignItems={index === 4 ? 'flex-end' : 'flex-start'}
+            alignItems={index === 5 ? 'flex-end' : 'flex-start'}
             multiplier={multiplier}>
             {column.stands.map((stand, index) => (
               <HallStandLayout
