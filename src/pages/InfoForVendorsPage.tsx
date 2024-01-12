@@ -187,7 +187,7 @@ export const InfoForVendorsPage = () => {
         </PlainInfo>
       </Band>
 
- {/*      <Band size="sm" variant="background" justify="center" align="center" color={Colors.snow} padding="xl">
+      {/*      <Band size="sm" variant="background" justify="center" align="center" color={Colors.snow} padding="xl">
         <TitleWrapper>
           <CenteredTitle>{t('infoForVendorsPage.registration.title')}</CenteredTitle>
         </TitleWrapper>
