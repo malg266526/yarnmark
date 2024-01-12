@@ -86,7 +86,7 @@ export const pl = {
           'Wejście dla odwiedzających targi będzie znajdować się od ulicy Focha, gdzie do hali głównej udadzą się efektownym zejściem z którego będzie widać całą halę wystawienniczą.',
         stands: 'Na hali będą trzy rodzaje stoisk: Premium 5x3m, Standard 4x2,5m oraz Mini 3x2m',
         tables:
-          'Stoisko premium posiada 2 krzesła oraz 3 stoły 160x80cm. Stoisko standard posiadaja 2 krzesła oraz 2 stoły 140x70cm, a stoisko Mini 2 krzesła oraz 1 stół 140x70cm',
+          'Stoisko premium posiada 2 krzesła oraz 3 stoły 160x80cm. Stoisko standard posiada 2 krzesła oraz 2 stoły 140x70cm, a stoisko Mini 2 krzesła oraz 1 stół 140x70cm',
         extensionCords: 'W skład stoiska NIE wchodzą przedłużacze, prosimy o posiadanie własnych.',
         socialRoom:
           'Wystawcy będą mieli do dyspozycji pomieszczenie socjalne, gdzie będzie można napić się kawy i herbaty oraz osobną toaletę.'
