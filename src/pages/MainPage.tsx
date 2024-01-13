@@ -54,6 +54,7 @@ import {
   // ImageContentLayout,
   // LayoutWithActiveButton,
   Menu,
+  MenuBackground,
   // PhotosLayout,
   SecondaryButton,
   SectionWrapper,
@@ -242,41 +243,43 @@ export const MainPage = () => {
 
       {!isPhone && (
         <Menu>
-          <Link color="black" href="/">
-            Yarnmark
-          </Link>
+          <MenuBackground>
+            <Link color="black" href="/">
+              Yarnmark
+            </Link>
 
-          <Link
-            color="black"
-            anchorProps={{
-              onClick: () => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
-            }}>
-            {t('menu.vendors')}
-          </Link>
-          <Link color="black" href="/info-for-vendors">
-            {t('menu.infoForVendors')}
-          </Link>
-          {/*         <Link
-            color="black"
-            anchorProps={{
-              onClick: () => workshopsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
-            }}>
-            {t('menu.workshops')}
-          </Link> */}
-          {/*           <Link
-            color="black"
-            anchorProps={{
-              onClick: () => cashmereTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
-            }}>
-            {t('menu.cashmereTickets')}
-          </Link> */}
-          <Link
-            color="black"
-            anchorProps={{
-              onClick: () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
-            }}>
-            {t('menu.contact')}
-          </Link>
+            <Link
+              color="black"
+              anchorProps={{
+                onClick: () => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
+              }}>
+              {t('menu.vendors')}
+            </Link>
+            <Link color="black" href="/info-for-vendors">
+              {t('menu.infoForVendors')}
+            </Link>
+            {/*         <Link
+              color="black"
+              anchorProps={{
+                onClick: () => workshopsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
+              }}>
+              {t('menu.workshops')}
+            </Link> */}
+            {/*           <Link
+              color="black"
+              anchorProps={{
+                onClick: () => cashmereTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
+              }}>
+              {t('menu.cashmereTickets')}
+            </Link> */}
+            <Link
+              color="black"
+              anchorProps={{
+                onClick: () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+              }}>
+              {t('menu.contact')}
+            </Link>
+          </MenuBackground>
         </Menu>
       )}
 
