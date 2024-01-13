@@ -119,10 +119,8 @@ export const hallMapConfig: HallMap = {
         {
           width: 5,
           height: 3,
-          color: 'taken',
-          index: 'P2',
-          logoSrc: WloczykijkiLogoUrl,
-          taken: true
+          color: 'premium',
+          index: 'P2'
         },
         {
           width: 4,
@@ -263,8 +261,10 @@ export const hallMapConfig: HallMap = {
         {
           width: 5,
           height: 3,
-          color: 'premium',
-          index: 'P4'
+          color: 'taken',
+          index: 'P4',
+          logoSrc: WloczykijkiLogoUrl,
+          taken: true
         },
         {
           width: 4,
