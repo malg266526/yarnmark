@@ -102,7 +102,7 @@ export const Hall = () => {
                 <StandText>{stand.text}</StandText>
               </div>
 
-              <HallLogo src={stand.logoSrc} />
+              <HallLogo src={stand.logoSrc} alt={stand.who} />
             </HallStandLayout>
           ))}
         </HallLine>
@@ -128,7 +128,7 @@ export const Hall = () => {
                 <StandIndex>{stand.index}</StandIndex>
                 <StandText>{stand.text}</StandText>
 
-                <HallLogo src={stand.logoSrc} />
+                <HallLogo src={stand.logoSrc} alt={stand.who} />
               </HallStandLayout>
             ))}
           </HallLine>
@@ -149,7 +149,7 @@ export const Hall = () => {
               <StandIndex>{stand.index}</StandIndex>
               <StandText>{stand.text}</StandText>
 
-              <HallLogo src={stand.logoSrc} />
+              <HallLogo src={stand.logoSrc} alt={stand.who} />
             </HallStandLayout>
           ))}
         </HallLine>

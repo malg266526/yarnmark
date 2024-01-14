@@ -9,7 +9,7 @@ import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
-import { CenteredTitle, Image, Text, Menu } from './MainPage.styled';
+import { CenteredTitle, Image, Text, Menu, MenuBackground } from './MainPage.styled';
 import { Link } from '../components/Link';
 import { usePhone } from './usePhone';
 import { Hall } from '../components/Hall';
@@ -130,22 +130,24 @@ export const InfoForVendorsPage = () => {
 
       {!isPhone && (
         <Menu>
-          <Link color="black" to="/">
-            Yarnmark
-          </Link>
+          <MenuBackground>
+            <Link color="black" to="/">
+              Yarnmark
+            </Link>
 
-          <Link color="black" to="#stands">
-            {t('menu.stands')}
-          </Link>
+            <Link color="black" to="#stands">
+              {t('menu.stands')}
+            </Link>
 
-          <Link color="black" to="#footer">
-            {t('menu.contact')}
-          </Link>
+            <Link color="black" to="#footer">
+              {t('menu.contact')}
+            </Link>
+          </MenuBackground>
         </Menu>
       )}
 
       <Band size="md" justify="flex-start" narrowContent padding="md">
-        <Image src={yarn2ImageUrl} />
+        <Image src={yarn2ImageUrl} alt="wool_skein_sketch" />
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
             <Title>{t('infoForVendorsPage.title')}</Title>

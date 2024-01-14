@@ -17,6 +17,7 @@ export type BandProps = InnerWrapperProps &
     | {
         variant: 'background-image';
         src: string;
+        alt: string;
       }
     | {
         variant: 'background';
