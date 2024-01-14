@@ -53,7 +53,6 @@ import {
   Image,
   // ImageContentLayout,
   // LayoutWithActiveButton,
-  Menu,
   MenuBackground,
   // PhotosLayout,
   SecondaryButton,
@@ -271,8 +270,7 @@ export const MainPage = () => {
           <Link color="black" to="#footer">
             {t('menu.contact')}
           </Link>
-         
-          </MenuBackground>
+        </MenuBackground>
       )}
 
       <Band size="xl" padding="xl" justify="flex-start">
