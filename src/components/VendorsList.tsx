@@ -39,7 +39,7 @@ export const Grid = styled.div`
 export const VendorsList = () => {
   return (
     <Grid>
-      <Link href="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
+      <Link to="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
         <img width={160} src={WloczykijkiLogoUrl} alt="wloczykijki" />
       </Link>
 

@@ -45,7 +45,7 @@ export const App = () => {
           <Route path="/info-for-vendors" element={<InfoForVendorsPage />} />
         </Routes>
 
-        <Footer>
+        <Footer id="footer">
           <MinimalistLayout>
             <Title>{t('contactPage.title')}</Title>
 

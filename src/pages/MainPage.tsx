@@ -53,7 +53,6 @@ import {
   Image,
   // ImageContentLayout,
   // LayoutWithActiveButton,
-  Menu,
   MenuBackground,
   // PhotosLayout,
   SecondaryButton,
@@ -186,24 +185,24 @@ export const MainPage = () => {
           <>
             <SideBar roundedCorners="left" className={burgerActive ? 'visible' : undefined}>
               <SideBar.LinkEntry
+                to="/"
                 onClick={() => {
                   closeSideBar();
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}>
                 <IconifyIcon icon="game-icons:wool" width="24" />
                 Yarnmark
               </SideBar.LinkEntry>
 
               <SideBar.LinkEntry
+                to="#vendors"
                 onClick={() => {
                   closeSideBar();
-                  vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
                 }}>
                 <IconifyIcon icon="bi:shop" width="24" />
                 {t('menu.vendors')}
               </SideBar.LinkEntry>
 
-              <SideBar.LinkEntry onClick={closeSideBar} href="/info-for-vendors">
+              <SideBar.LinkEntry onClick={closeSideBar} to="/info-for-vendors">
                 <IconifyIcon icon="material-symbols:info-outline" width="24" />
                 {t('menu.infoForVendors')}
               </SideBar.LinkEntry>
@@ -228,9 +227,9 @@ export const MainPage = () => {
               </SideBar.LinkEntry> */}
 
               <SideBar.LinkEntry
+                to="#footer"
                 onClick={() => {
                   closeSideBar();
-                  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                 }}>
                 <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
                 {t('menu.contact')}
@@ -242,45 +241,36 @@ export const MainPage = () => {
       )}
 
       {!isPhone && (
-        <Menu>
-          <MenuBackground>
-            <Link color="black" href="/">
-              Yarnmark
-            </Link>
+        <MenuBackground>
+          <Link color="black" to="/">
+            Yarnmark
+          </Link>
 
-            <Link
-              color="black"
-              anchorProps={{
-                onClick: () => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
-              }}>
-              {t('menu.vendors')}
-            </Link>
-            <Link color="black" href="/info-for-vendors">
-              {t('menu.infoForVendors')}
-            </Link>
-            {/*         <Link
-              color="black"
-              anchorProps={{
-                onClick: () => workshopsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
-              }}>
-              {t('menu.workshops')}
-            </Link> */}
-            {/*           <Link
-              color="black"
-              anchorProps={{
-                onClick: () => cashmereTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
-              }}>
-              {t('menu.cashmereTickets')}
-            </Link> */}
-            <Link
-              color="black"
-              anchorProps={{
-                onClick: () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
-              }}>
-              {t('menu.contact')}
-            </Link>
-          </MenuBackground>
-        </Menu>
+          <Link color="black" to="#vendors">
+            {t('menu.vendors')}
+          </Link>
+
+          <Link color="black" to="/info-for-vendors">
+            {t('menu.infoForVendors')}
+          </Link>
+          {/*         <Link
+            color="black"
+            anchorProps={{
+              onClick: () => workshopsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
+            }}>
+            {t('menu.workshops')}
+          </Link> */}
+          {/*           <Link
+            color="black"
+            anchorProps={{
+              onClick: () => cashmereTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
+            }}>
+            {t('menu.cashmereTickets')}
+          </Link> */}
+          <Link color="black" to="#footer">
+            {t('menu.contact')}
+          </Link>
+        </MenuBackground>
       )}
 
       <Band size="xl" padding="xl" justify="flex-start">
@@ -403,7 +393,7 @@ export const MainPage = () => {
       </Band>
 
       {/* TODO: change color to snow when all bands revealed */}
-      <Band ref={vendorsBandRef} size="md" variant="background" color={Colors.isabelline} padding="xl">
+      <Band id="vendors" ref={vendorsBandRef} size="md" variant="background" color={Colors.isabelline} padding="xl">
         <BackgroundImage src={bigShopImageUrl} />
 
         <Band.Slot flex="auto-grow" size="sm">

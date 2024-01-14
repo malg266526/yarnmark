@@ -6,6 +6,7 @@ import { ScreenSize } from '../styles/screeen-size';
 
 export type BandProps = InnerWrapperProps &
   BandLayoutProps & {
+    id?: string;
     size?: BandSize;
     padding?: 'none' | keyof typeof Spacings;
     title?: React.ReactNode;

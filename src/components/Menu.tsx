@@ -1,13 +1,10 @@
 import React, { ReactNode } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import styled from 'styled-components';
-import { Link } from './Link';
-import FlagPoland from './../assets/images/poland.png';
-import FlagUk from './../assets/images/united-kingdom.png';
 import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { Theme } from '../styles/theme';
+import FlagPoland from './../assets/images/poland.png';
+import FlagUk from './../assets/images/united-kingdom.png';
 
 const Root = styled.div`
   display: inline-flex;
@@ -33,7 +30,7 @@ export interface MenuProps {
   iconColor?: string;
 }
 
-export const Menu = ({ children, iconColor }: MenuProps) => {
+export const Menu = ({ children }: MenuProps) => {
   const [, i18n] = useTranslation('common');
 
   const { language, changeLanguage } = i18n;
@@ -41,10 +38,6 @@ export const Menu = ({ children, iconColor }: MenuProps) => {
   return (
     <Root>
       {children}
-
-      <Link href="https://www.instagram.com/dziergamynapolu/" className="instagram_social">
-        <FontAwesomeIcon icon={faInstagram} size="lg" color={iconColor || 'white'} />
-      </Link>
 
       <TransparentButton onClick={() => changeLanguage(language === 'pl' ? 'en' : 'pl')}>
         {language === 'pl' ? (
