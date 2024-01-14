@@ -117,7 +117,7 @@ export const MenuBackground = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background: linear-gradient(90deg, rgba(44,82,155,0) 100px, rgb(255, 255, 255) 50%);
+  background: linear-gradient(90deg, rgba(44, 82, 155, 0) 100px, rgb(255, 255, 255) 50%);
 
   &:after {
     content: '';
