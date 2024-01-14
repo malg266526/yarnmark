@@ -68,7 +68,7 @@ export const App = () => {
               </RowLayout>
             </a>
 
-            <RightBackgroundImage src={talkImageUrl} />
+            <RightBackgroundImage src={talkImageUrl} alt="talk_icon" />
           </MinimalistLayout>
         </Footer>
       </Root>

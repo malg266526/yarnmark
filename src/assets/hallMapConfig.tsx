@@ -12,6 +12,7 @@ export type HallStand = {
   logoSrc?: string;
   index?: number | string;
   taken?: boolean;
+  who?: string;
 };
 
 type HallLine = {
@@ -264,7 +265,8 @@ export const hallMapConfig: HallMap = {
           color: 'taken',
           index: 'P4',
           logoSrc: WloczykijkiLogoUrl,
-          taken: true
+          taken: true,
+          who: 'Wloczykijki'
         },
         {
           width: 4,
