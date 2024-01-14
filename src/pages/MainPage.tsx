@@ -51,6 +51,7 @@ import {
   // ButtonsWrapper,
   // CenteredTitle,
   Image,
+  Menu,
   // ImageContentLayout,
   // LayoutWithActiveButton,
   MenuBackground,
@@ -154,7 +155,7 @@ export const MainPage = () => {
 
   // const activeButtonToImage = getActiveButtonToImage(t);
 
-  const observerCallback = useCallback(() => {}, []);
+  const observerCallback = useCallback(() => { }, []);
 
   useRootIntersectionObserver({
     rootRef: pageContentRef,
@@ -241,36 +242,38 @@ export const MainPage = () => {
       )}
 
       {!isPhone && (
-        <MenuBackground>
-          <Link color="black" to="/">
-            Yarnmark
-          </Link>
+        <Menu>
+          <MenuBackground>
+            <Link color="black" to="/">
+              Yarnmark
+            </Link>
 
-          <Link color="black" to="#vendors">
-            {t('menu.vendors')}
-          </Link>
+            <Link color="black" to="#vendors">
+              {t('menu.vendors')}
+            </Link>
 
-          <Link color="black" to="/info-for-vendors">
-            {t('menu.infoForVendors')}
-          </Link>
-          {/*         <Link
-            color="black"
-            anchorProps={{
-              onClick: () => workshopsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
-            }}>
-            {t('menu.workshops')}
-          </Link> */}
-          {/*           <Link
-            color="black"
-            anchorProps={{
-              onClick: () => cashmereTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
-            }}>
-            {t('menu.cashmereTickets')}
-          </Link> */}
-          <Link color="black" to="#footer">
-            {t('menu.contact')}
-          </Link>
-        </MenuBackground>
+            <Link color="black" to="/info-for-vendors">
+              {t('menu.infoForVendors')}
+            </Link>
+            {/*         <Link
+              color="black"
+              anchorProps={{
+                onClick: () => workshopsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
+              }}>
+              {t('menu.workshops')}
+            </Link> */}
+            {/*           <Link
+              color="black"
+              anchorProps={{
+                onClick: () => cashmereTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
+              }}>
+              {t('menu.cashmereTickets')}
+            </Link> */}
+            <Link color="black" to="#footer">
+              {t('menu.contact')}
+            </Link>
+          </MenuBackground>
+        </Menu>
       )}
 
       <Band size="xl" padding="xl" justify="flex-start">
