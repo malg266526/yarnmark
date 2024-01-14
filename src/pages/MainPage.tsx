@@ -277,7 +277,7 @@ export const MainPage = () => {
       )}
 
       <Band size="xl" padding="xl" justify="flex-start">
-        <Image src={yarn2ImageUrl} />
+        <Image src={yarn2ImageUrl} alt="wool_skein_sketch" />
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
             <Title>Krakoski Yarnmark Wełny</Title>
@@ -291,7 +291,7 @@ export const MainPage = () => {
       </Band>
 
       <Band size="md" variant="background" color={Colors.pastelGray} padding="xl" narrowContent>
-        <BackgroundImage src={knitting2ImageUrl} />
+        <BackgroundImage src={knitting2ImageUrl} alt="wool_skeins_background" />
 
         <SectionWrapper>
           <InfoSection>
@@ -340,7 +340,8 @@ export const MainPage = () => {
         size="xl"
         padding="sm"
         variant="background-image"
-        src={stadionImageSrc}>
+        src={stadionImageSrc}
+        alt="cracovia_hall_image">
         <Band.Slot>
           <a
             target="_blank"
@@ -397,7 +398,7 @@ export const MainPage = () => {
 
       {/* TODO: change color to snow when all bands revealed */}
       <Band id="vendors" ref={vendorsBandRef} size="md" variant="background" color={Colors.isabelline} padding="xl">
-        <BackgroundImage src={bigShopImageUrl} />
+        <BackgroundImage src={bigShopImageUrl} alt="shop_icon_background" />
 
         <Band.Slot flex="auto-grow" size="sm">
           <Title align="center">{t('vendorsPage.title')}</Title>

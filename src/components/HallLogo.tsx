@@ -18,16 +18,17 @@ export const Image = styled.img`
 
 type HallLogoProps = {
   src?: string;
+  alt?: string;
 };
 
-export const HallLogo = ({ src }: HallLogoProps) => {
+export const HallLogo = ({ src, alt }: HallLogoProps) => {
   if (!src) {
     return;
   }
 
   return (
     <LogoWrapper>
-      <Image src={src} />
+      <Image src={src} alt={alt} />
     </LogoWrapper>
   );
 };
