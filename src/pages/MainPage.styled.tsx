@@ -112,6 +112,25 @@ export const Menu = styled.div`
   }
 `;
 
+export const MenuBackground = styled.div`
+  padding-left: 200px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(44, 82, 155, 0) 100px, rgb(255, 255, 255) 50%);
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 300px;
+    background: white;
+    z-index: -1;
+  }
+`;
+
 export const AnimatedIconWrapper = styled.div`
   padding-bottom: 20px;
   border-radius: 10px;

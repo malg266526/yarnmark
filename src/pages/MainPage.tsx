@@ -54,6 +54,7 @@ import {
   // ImageContentLayout,
   // LayoutWithActiveButton,
   Menu,
+  MenuBackground,
   // PhotosLayout,
   SecondaryButton,
   SectionWrapper,
@@ -241,7 +242,7 @@ export const MainPage = () => {
       )}
 
       {!isPhone && (
-        <Menu>
+        <MenuBackground>
           <Link color="black" to="/">
             Yarnmark
           </Link>
@@ -270,7 +271,8 @@ export const MainPage = () => {
           <Link color="black" to="#footer">
             {t('menu.contact')}
           </Link>
-        </Menu>
+         
+          </MenuBackground>
       )}
 
       <Band size="xl" padding="xl" justify="flex-start">
