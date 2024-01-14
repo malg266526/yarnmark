@@ -1,9 +1,10 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import yarnSvgUrl from '../assets/images/skein3.svg';
+import { HashLink, HashLinkProps } from 'react-router-hash-link';
 
-const StyledLink = styled.a<{ color?: string }>`
+const StyledLink = styled(HashLink)<{ color?: string }>`
   ${({ color }) =>
     color &&
     css`
@@ -56,35 +57,25 @@ const StyledLink = styled.a<{ color?: string }>`
   }
 `;
 
-export interface LinkProps {
-  children?: ReactNode;
-  href?: string;
-  target?: string;
-  rel?: string;
-  className?: string;
-  anchorProps?: React.ComponentProps<'a'>;
-  color?: string;
-}
-
 const EXTERNAL_TARGET = '_blank';
+const SCROLL_URL = '#';
 
-export const Link = ({ children, href, target, rel, className, color, anchorProps }: LinkProps) => {
+export const Link = ({ children, to, target, rel, color }: HashLinkProps) => {
   const navigate = useNavigate();
 
   return (
     <StyledLink
       color={color}
-      href={href}
+      smooth
+      to={to}
       onClick={(event: React.MouseEvent) => {
-        if (target !== EXTERNAL_TARGET && href) {
+        if (target !== EXTERNAL_TARGET && to && !to.toString().includes(SCROLL_URL)) {
           event.preventDefault();
-          navigate(href);
+          navigate(to);
         }
       }}
       target={target}
-      rel={rel}
-      className={className}
-      {...anchorProps}>
+      rel={rel}>
       {children}
     </StyledLink>
   );

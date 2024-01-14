@@ -97,7 +97,7 @@ export const InfoForVendorsPage = () => {
           <>
             <SideBar roundedCorners="left" className={burgerActive ? 'visible' : undefined}>
               <SideBar.LinkEntry
-                href="/"
+                to="/"
                 onClick={() => {
                   closeSideBar();
                 }}>
@@ -106,8 +106,8 @@ export const InfoForVendorsPage = () => {
               </SideBar.LinkEntry>
 
               <SideBar.LinkEntry
+                to="#stands"
                 onClick={() => {
-                  standsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
                   closeSideBar();
                 }}>
                 <IconifyIcon icon="bi:shop" width="24" />
@@ -115,12 +115,9 @@ export const InfoForVendorsPage = () => {
               </SideBar.LinkEntry>
 
               <SideBar.LinkEntry
+                to="#footer"
                 onClick={() => {
                   closeSideBar();
-                  window.scrollTo({
-                    top: document.body.scrollHeight,
-                    behavior: 'smooth'
-                  });
                 }}>
                 <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
                 {t('menu.contact')}
@@ -133,27 +130,15 @@ export const InfoForVendorsPage = () => {
 
       {!isPhone && (
         <Menu>
-          <Link color="black" href="/">
+          <Link color="black" to="/">
             Yarnmark
           </Link>
 
-          <Link
-            color="black"
-            anchorProps={{
-              onClick: () => standsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
-            }}>
+          <Link color="black" to="#stands">
             {t('menu.stands')}
           </Link>
 
-          <Link
-            color="black"
-            anchorProps={{
-              onClick: () =>
-                window.scrollTo({
-                  top: document.body.scrollHeight,
-                  behavior: 'smooth'
-                })
-            }}>
+          <Link color="black" to="#footer">
             {t('menu.contact')}
           </Link>
         </Menu>
@@ -170,7 +155,14 @@ export const InfoForVendorsPage = () => {
         </Band.Slot>
       </Band>
 
-      <Band size="sm" variant="background" justify="center" align="center" color={Colors.isabelline} padding="xl">
+      <Band
+        id="hall"
+        size="sm"
+        variant="background"
+        justify="center"
+        align="center"
+        color={Colors.isabelline}
+        padding="xl">
         <TitleWrapper>
           <CenteredTitle>Hala</CenteredTitle>
         </TitleWrapper>
@@ -197,7 +189,14 @@ export const InfoForVendorsPage = () => {
         </PlainInfo>
       </Band> */}
 
-      <Band size="sm" variant="background" justify="center" align="center" color={Colors.linen} padding="xl">
+      <Band
+        id="parking"
+        size="sm"
+        variant="background"
+        justify="center"
+        align="center"
+        color={Colors.linen}
+        padding="xl">
         <TitleWrapper>
           <CenteredTitle>{t('infoForVendorsPage.parking.title')}</CenteredTitle>
         </TitleWrapper>
@@ -207,7 +206,14 @@ export const InfoForVendorsPage = () => {
         </PlainInfo>
       </Band>
 
-      <Band size="sm" variant="background" justify="center" align="center" color={Colors.beige1} padding="xl">
+      <Band
+        id="marketing"
+        size="sm"
+        variant="background"
+        justify="center"
+        align="center"
+        color={Colors.beige1}
+        padding="xl">
         <TitleWrapper>
           <CenteredTitle>{t('infoForVendorsPage.marketing.title')}</CenteredTitle>
         </TitleWrapper>
@@ -219,7 +225,14 @@ export const InfoForVendorsPage = () => {
         </PlainInfo>
       </Band>
 
-      <Band ref={standsBandRef} size="sm" justify="center" variant="background" color={Colors.linen} padding="xl">
+      <Band
+        id="stands"
+        ref={standsBandRef}
+        size="sm"
+        justify="center"
+        variant="background"
+        color={Colors.linen}
+        padding="xl">
         <TitleWrapper>
           <CenteredTitle>{t('infoForVendorsPage.stands.title')}</CenteredTitle>
         </TitleWrapper>

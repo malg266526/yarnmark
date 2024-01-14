@@ -3,8 +3,9 @@ import styled, { css } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
+import { HashLink } from 'react-router-hash-link';
 
-const Link = styled.a`
+const Link = styled(HashLink)`
   text-decoration: none;
   padding: 8px 8px;
   color: ${Colors.white};
@@ -24,23 +25,25 @@ const Link = styled.a`
   }
 `;
 
+const SCROLL_URL = '#';
+
 export interface LinkEntryProps {
   children: ReactNode;
-  href?: string;
+  to: string;
   onClick?: React.MouseEventHandler;
 }
 
-const LinkEntry = ({ href, onClick, ...rest }: LinkEntryProps) => {
+const LinkEntry = ({ to, onClick, ...rest }: LinkEntryProps) => {
   const navigate = useNavigate();
 
   return (
     <Link
-      href={href}
+      to={to}
       onClick={(event: React.MouseEvent) => {
         event.preventDefault();
 
-        if (href) {
-          navigate(href);
+        if (to && !to.toString().includes(SCROLL_URL)) {
+          navigate(to);
         }
 
         onClick?.(event);
