@@ -20,7 +20,11 @@ import pinImageUrl from '../assets/images/pin.svg';
 
 import halaAvifImageSrc from '../assets/images/hala.avif';
 import halaJfifImageSrc from '../assets/images/hala.jfif';
+<<<<<<< HEAD
 import halaJpgImageSrc from '../assets/images/hala_quality.jpg';
+=======
+import halaImageSrc from '../assets/images/hala_quality.jpg';
+>>>>>>> f01e1ae (feat: better compression and variants for hala image)
 
 // import wawelImageSrc from '../assets/wawel.jpg';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
