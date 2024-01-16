@@ -8,5 +8,6 @@ createServer(config,
     injectLiveReload: true,
     static: 'dist',
     historyApiFallback: true,
+    sourcemap: 'inline'
   }
 ).start();
