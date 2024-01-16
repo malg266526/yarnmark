@@ -100,10 +100,11 @@ const Slot = styled.div<SlotProps>`
   }
 `;
 
-type BandSize = 'xl' | 'md' | 'sm' | 'xs';
+type BandSize = 'xl' | 'md' | 'sm' | 'xs' | 'lg';
 
 const bandSizeToHeight: Record<BandSize, string> = {
   xl: '1000px',
+  lg: '750px',
   md: '600px',
   sm: '450px',
   xs: '300px'

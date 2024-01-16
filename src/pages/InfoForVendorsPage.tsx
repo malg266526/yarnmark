@@ -39,7 +39,7 @@ export const PlainInfo = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${Colors.white};
-  padding: 0 ${Spacings.sm} ${Spacings.md} ${Spacings.sm};
+  padding: 0 ${Spacings.md} ${Spacings.md} ${Spacings.md};
   max-width: 50%;
   width: 50%;
   min-height: 100px;
@@ -146,7 +146,7 @@ export const InfoForVendorsPage = () => {
         </Menu>
       )}
 
-      <Band size="md" justify="flex-start" narrowContent padding="md">
+      <Band size="lg" justify="flex-start" narrowContent padding="md">
         <Image src={yarn2ImageUrl} alt="wool_skein_sketch" />
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">

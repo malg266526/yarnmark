@@ -25,7 +25,7 @@ export const pl = {
       linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
       ticketButton: 'Bilety już wkrótce',
       vendorsButton: 'Sprawdź z jakimi wystawcami się spotkasz',
-      spotButton: 'Gdzie jesteśmy i jak tam dojechać',
+      spotButton: 'Gdzie jesteśmy i jak tam dojechać?',
       foodButton: 'Gdzie zjeść?',
       cashmereButton: 'Sprawdź nasz pakiet kaszmirowy'
     },
@@ -84,7 +84,7 @@ export const pl = {
           'Wejście na halę w celu rozłożenia stoiska będzie możliwe od godz. 5:00. Na miejscu będą panowie portierzy.',
         ramp: 'Z parkingu prosto na halę prowadzi rampa, bez potrzeby korzystania ze schodów czy wind.',
         participants:
-          'Wejście dla odwiedzających targi będzie znajdować się od ulicy Focha, gdzie do hali głównej udadzą się efektownym zejściem z którego będzie widać całą halę wystawienniczą.',
+          'Wejście dla odwiedzających targi będzie znajdować się od ulicy Focha, gdzie do hali głównej udadzą się efektownym zejściem, z którego będzie widać całą halę wystawienniczą.',
         stands: 'Na hali będą trzy rodzaje stoisk: Premium 5x3m, Standard 4x2,5m oraz Mini 3x2m',
         tables:
           'Stoisko premium posiada 2 krzesła oraz 3 stoły 160x80cm. Stoisko standard posiada 2 krzesła oraz 2 stoły 140x70cm, a stoisko Mini 2 krzesła oraz 1 stół 140x70cm',
