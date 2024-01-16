@@ -283,7 +283,7 @@ export const MainPage = () => {
             <Title>Krakoski Yarnmark Wełny</Title>
             <Text>{t('welcomeBand.invitation')}</Text>
             <Text>{t('welcomeBand.where')}</Text>
-            <Text>{t('welcomeBand.haveFun')}</Text>
+            <Text align="justify">{t('welcomeBand.haveFun')}</Text>
             <Text>{t('welcomeBand.seeYou')}</Text>
             <Text>DziergamyNaPolu x Włóczykijki</Text>
           </NiceBox>
