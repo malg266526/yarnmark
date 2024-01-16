@@ -19,6 +19,8 @@ export const config = {
     '.jpg': 'file',
     '.svg': 'file',
     '.jpeg': 'file',
-    '.webp': 'file'
+    '.webp': 'file',
+    '.avif': 'file',
+    '.jfif': 'file'
   }
 };

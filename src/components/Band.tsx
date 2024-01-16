@@ -3,6 +3,7 @@ import { Spacings } from '../styles/spacings';
 import { Theme } from '../styles/theme';
 import React, { ForwardedRef, forwardRef } from 'react';
 import { ScreenSize } from '../styles/screeen-size';
+import { getBackgroundCssWithFallback } from '../styles/getBackgroundCssWithFallback';
 
 export type BandProps = InnerWrapperProps &
   BandLayoutProps & {
@@ -16,7 +17,7 @@ export type BandProps = InnerWrapperProps &
     | { variant?: 'default' }
     | {
         variant: 'background-image';
-        src: string;
+        src: string[];
         alt: string;
       }
     | {
@@ -190,7 +191,7 @@ const BandRoot = styled.div<BandProps>`
     props.variant &&
     props.variant === 'background-image' &&
     css`
-      background: url(${props.src});
+      ${getBackgroundCssWithFallback(props.src)}
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;

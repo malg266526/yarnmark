@@ -47,7 +47,7 @@ export const ButtonsLayout = styled.div`
   }
 `;
 
-export const Image = styled.img<{ clipped?: boolean }>`
+export const Picture = styled.picture<{ clipped?: boolean }>`
   position: absolute;
   left: 0;
   top: 0;

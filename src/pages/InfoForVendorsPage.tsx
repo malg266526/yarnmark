@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
-import yarn2ImageUrl from '../assets/images/wools2.jpeg';
+import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
+import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import { Band } from '../components/Band';
 import { NiceBox } from '../components/NiceBox';
 import { Title } from '../components/Title';
@@ -9,7 +10,7 @@ import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
-import { CenteredTitle, Image, Text, Menu, MenuBackground } from './MainPage.styled';
+import { CenteredTitle, Picture, Text, Menu, MenuBackground } from './MainPage.styled';
 import { Link } from '../components/Link';
 import { usePhone } from './usePhone';
 import { Hall } from '../components/Hall';
@@ -147,7 +148,11 @@ export const InfoForVendorsPage = () => {
       )}
 
       <Band size="lg" justify="flex-start" narrowContent padding="md">
-        <Image src={yarn2ImageUrl} alt="wool_skein_sketch" />
+        <Picture>
+          <source src={woolsAvifLandscape} type="image/avif" />
+          <source src={woolsWebpLandscape} type="image/webp" />
+        </Picture>
+
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
             <Title>{t('infoForVendorsPage.title')}</Title>
