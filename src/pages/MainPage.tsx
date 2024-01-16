@@ -23,7 +23,7 @@ import halaJfifImageSrc from '../assets/images/hala.jfif';
 import halaJpgImageSrc from '../assets/images/hala_quality.jpg';
 
 // import wawelImageSrc from '../assets/wawel.jpg';
-import woolsAvifLandscape from '../assets/images/wools2_landscape.webp';
+import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import { Icon } from '../components/Icon';
 
@@ -159,7 +159,7 @@ export const MainPage = () => {
 
   // const activeButtonToImage = getActiveButtonToImage(t);
 
-  const observerCallback = useCallback(() => { }, []);
+  const observerCallback = useCallback(() => {}, []);
 
   useRootIntersectionObserver({
     rootRef: pageContentRef,
@@ -282,8 +282,8 @@ export const MainPage = () => {
 
       <Band size="xl" padding="xl" justify="flex-start">
         <Picture>
-          <source srcSet={woolsAvifLandscape} media="(min-width: 600px)" type="image/avif" />
-          <source srcSet={woolsWebpLandscape} type="image/jpeg" />
+          <source srcSet={woolsAvifLandscape} type="image/avif" />
+          <img src={woolsWebpLandscape} alt="wool" />
         </Picture>
 
         <Band.Slot>
