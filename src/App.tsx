@@ -9,7 +9,7 @@ import { Icon } from './components/Icon';
 import { MinimalistLayout } from './components/MinimalistLayout';
 import { RowLayout } from './components/RowLayout';
 
-import { Curtain, Root, Footer, RightBackgroundImage } from './App.styled';
+import { Curtain, Root, Footer, RightBackgroundImage, TransparentText } from './App.styled';
 import { InfoForVendorsPage } from './pages/InfoForVendorsPage';
 import { MainPage } from './pages/MainPage';
 import { usePhone } from './pages/usePhone';
@@ -69,6 +69,7 @@ export const App = () => {
             </a>
 
             <RightBackgroundImage src={talkImageUrl} alt="talk_icon" />
+            <TransparentText>Dziewiarskie targi welny krakow 2024</TransparentText>
           </MinimalistLayout>
         </Footer>
       </Root>

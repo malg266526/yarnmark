@@ -124,3 +124,8 @@ export const RightBackgroundImage = styled.img<{ src: string }>`
   padding: ${Spacings.xl};
   pointer-events: none;
 `;
+
+export const TransparentText = styled.div`
+  font-size: 8px;
+  color: transparent;
+`;
