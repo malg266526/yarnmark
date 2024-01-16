@@ -1,8 +1,4 @@
 /*
-<<<<<<< HEAD
   Content-Security-Policy: default-src 'self' 'unsafe-inline' fonts.googleapis.com fonts.gstatic.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; script-src 'self' 'unsafe-inline' fonts.gstatic.com
-=======
-  Content-Security-Policy: default-src 'self'; script-src: 'self' 'unsafe-inline';
->>>>>>> de7c68c (fixes)
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
