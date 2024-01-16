@@ -15,12 +15,13 @@ export const pl = {
       invitation: 'Serdecznie zapraszamy na I edycję targów wełny w stolicy małopolski!',
       where: 'Yarnmark odbędzie się 27/04/2024r. o godz. 10:00, w Hali 100-lecia KS Cracovia',
       haveFun:
-        'Mamy nadzieję, że będzie to dla Was dzień nie tylko zakupowego szaleństwa i udanych łowów, ale również wspólnego dziergania na trybunach i dobrej zabawy.',
+        'Mamy nadzieję, że będzie to dla Was dzień nie tylko zakupowego szaleństwa i udanych łowów, ale również integracji, wspólnego dziergania na trybunach i dobrej zabawy.',
       seeYou: 'Do zobaczenia!'
     },
     buttonsBand: {
       firstEvent: 'Pierwsze takie wydarzenie w Krakowie!',
-      otherCities: 'Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na spotkanie w Krakowie!',
+      otherCities:
+        'Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na targi wełny pod Wawelem. Kraków wchodzi w 2024 rok dziewiarskim krokiem. Chodźże z nami!',
       linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
       ticketButton: 'Bilety już wkrótce',
       vendorsButton: 'Sprawdź z jakimi wystawcami się spotkasz',

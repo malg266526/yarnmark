@@ -3,7 +3,7 @@ import { Icon } from '../components/Icon';
 import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
 
-export const Text = styled.div<{ marginBottom?: keyof typeof Spacings; align?: 'center' }>`
+export const Text = styled.div<{ marginBottom?: keyof typeof Spacings; align?: 'center' | 'justify' }>`
   margin-top: ${Spacings.md};
 
   ${({ align }) =>
