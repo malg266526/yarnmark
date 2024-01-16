@@ -13,6 +13,7 @@ const args = argv.option([
 
 const metafileData = await esbuild.build({
   ...config,
+  minify: true,
   plugins: [
     ...config.plugins,
     copy({
