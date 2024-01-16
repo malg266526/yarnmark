@@ -19,14 +19,15 @@ export const en = {
       seeYou: 'Do zobaczenia!'
     },
     buttonsBand: {
-      firstEvent: 'Pierwsze takie wydarzenie w Krakowie!',
-      otherCities: 'Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na spotkanie w Krakowie!',
-      linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
-      ticketButton: 'Bilety już wkrótce',
-      vendorsButton: 'Sprawdź z jakimi wystawcami się spotkasz',
-      spotButton: 'Gdzie jesteśmy i jak tam dojechać',
-      foodButton: 'Gdzie zjeść?',
-      cashmereButton: 'Sprawdź nasz pakiet kaszmirowy'
+      firstEvent: 'The first such event in Krakow!',
+      otherCities:
+        'Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na targi wełny pod Wawelem. Kraków wchodzi w 2024 rok dziewiarskim krokiem. Chodźże z nami!',
+      linksBelow: 'You will find some links that will help you plan your time in our beautiful city below.',
+      ticketButton: 'Tickets coming soon...',
+      vendorsButton: 'Check which vendors you will meet',
+      spotButton: 'Where are we and how to get there?',
+      foodButton: 'Where to eat?',
+      cashmereButton: 'Check out our cashmere package'
     },
     spotBand: {
       neighbourhood1:
@@ -50,11 +51,11 @@ export const en = {
       accessibleByCar: 'Accessible by car'
     },
     cashmereTicketsBand: {
-      title: 'Bilety kaszmirowe',
+      title: 'Cashmere tickets',
       ticketDescription:
         'Oferujemy możliwość zakupu biletów zwykłych oraz biletów w pakiecie kaszmirowym. Bilety kaszmirowe oprócz wejściowki na targi obejmują także:',
-      cruise: 'Rejs Dziergostatkiem',
-      beautifulCruise: 'Dzieeergostatkiem w piękny rejs!',
+      cruise: 'Cruise on the Dziergoship',
+      beautifulCruise: 'Dzieeergostatkiem on a beautyful cruise!',
       invitations:
         'Zapraszamy Was serdecznie na godzinny rejs po Wiśle, podczas którego wspólnie podziergamy i porozmawiamy, przy kieliszku prosecco i w otoczeniu krakowskich krajobrazów',
       souverirBag: 'Pamiątkowa torba targowa'
@@ -78,7 +79,7 @@ export const en = {
       invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w I edycji Krakoskiego Yarnmarku Wełny!',
       organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was',
       hallInfo: {
-        area: 'Mamy do dyspozycji powierzchnię 1142m2.',
+        area: 'We have an area of ​​1142 m2 at our disposal.',
         openHours:
           'Wejście na halę w celu rozłożenia stoiska będzie możliwe od godz. 5:00. Na miejscu będą panowie portierzy',
         ramp: 'Z parkingu prosto na halę prowadzi rampa, bez potrzeby korzystania ze schodów czy wind.',
@@ -93,7 +94,7 @@ export const en = {
       },
       parking: {
         title: 'Parking',
-        parkingSpace: 'Każdemu wystawcy na dzień targów przysługuje darmowe miejsce parkingowe przy hali'
+        parkingSpace: 'Each exhibitor is entitled to a free parking space at the hall on the day of the fair'
       },
       marketing: {
         title: 'Marketing',
