@@ -20,10 +20,11 @@ import pinImageUrl from '../assets/images/pin.svg';
 
 import halaAvifImageSrc from '../assets/images/hala.avif';
 import halaJfifImageSrc from '../assets/images/hala.jfif';
-import halaImageSrc from '../assets/images/hala_quality.jpg';
+import halaJpgImageSrc from '../assets/images/hala_quality.jpg';
 
 // import wawelImageSrc from '../assets/wawel.jpg';
-import yarn2ImageUrl from '../assets/images/wools2_landscape.webp';
+import woolsAvifLandscape from '../assets/images/wools2_landscape.webp';
+import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import { Icon } from '../components/Icon';
 
 import { Band } from '../components/Band';
@@ -53,11 +54,11 @@ import {
   ButtonsLayout,
   // ButtonsWrapper,
   // CenteredTitle,
-  Image,
   Menu,
   // ImageContentLayout,
   // LayoutWithActiveButton,
   MenuBackground,
+  Picture,
   // PhotosLayout,
   SecondaryButton,
   SectionWrapper,
@@ -158,7 +159,7 @@ export const MainPage = () => {
 
   // const activeButtonToImage = getActiveButtonToImage(t);
 
-  const observerCallback = useCallback(() => {}, []);
+  const observerCallback = useCallback(() => { }, []);
 
   useRootIntersectionObserver({
     rootRef: pageContentRef,
@@ -280,7 +281,11 @@ export const MainPage = () => {
       )}
 
       <Band size="xl" padding="xl" justify="flex-start">
-        <Image src={yarn2ImageUrl} alt="wool_skein_sketch" />
+        <Picture>
+          <source srcSet={woolsAvifLandscape} media="(min-width: 600px)" type="image/avif" />
+          <source srcSet={woolsWebpLandscape} type="image/jpeg" />
+        </Picture>
+
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
             <Title>Krakoski Yarnmark Wełny</Title>
@@ -343,7 +348,7 @@ export const MainPage = () => {
         size="xl"
         padding="sm"
         variant="background-image"
-        src={[halaImageSrc, halaJfifImageSrc, halaAvifImageSrc]}
+        src={[halaJpgImageSrc, halaJfifImageSrc, halaAvifImageSrc]}
         alt="cracovia_hall_image">
         <Band.Slot>
           <a
