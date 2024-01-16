@@ -17,7 +17,10 @@ import ticketImageUrl from '../assets/iconify/ticket.svg';
 
 import knitting2ImageUrl from '../assets/images/knitting2.svg';
 import pinImageUrl from '../assets/images/pin.svg';
-import stadionImageSrc from '../assets/images/hala.jpg';
+
+import halaAvifImageSrc from '../assets/images/hala.avif';
+import halaJfifImageSrc from '../assets/images/hala.jfif';
+import halaImageSrc from '../assets/images/hala_quality.jpg';
 
 // import wawelImageSrc from '../assets/wawel.jpg';
 import yarn2ImageUrl from '../assets/images/wools2_landscape.webp';
@@ -340,7 +343,7 @@ export const MainPage = () => {
         size="xl"
         padding="sm"
         variant="background-image"
-        src={stadionImageSrc}
+        src={[halaImageSrc, halaJfifImageSrc, halaAvifImageSrc]}
         alt="cracovia_hall_image">
         <Band.Slot>
           <a
