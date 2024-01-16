@@ -44,6 +44,7 @@
     "typescript": "5.2.2"
   },
   "dependencies": {
+    "@emotion/is-prop-valid": "1.2.1",
     "@fortawesome/fontawesome-svg-core": "6.4.2",
     "@fortawesome/free-brands-svg-icons": "6.4.2",
     "@fortawesome/free-solid-svg-icons": "6.4.2",

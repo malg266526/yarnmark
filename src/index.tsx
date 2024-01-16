@@ -2,10 +2,13 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from './App';
 import { I18nextProvider } from 'react-i18next';
+import { BrowserRouter } from 'react-router-dom';
+import { StyleSheetManager } from 'styled-components';  
 import i18next from 'i18next';
+import isPropValid from '@emotion/is-prop-valid';
 import { en } from './translations/en';
 import { pl } from './translations/pl';
-import { BrowserRouter } from 'react-router-dom';
+
 
 i18next.init({
   interpolation: { escapeValue: false }, // React already does escaping
@@ -18,10 +21,22 @@ i18next.init({
 
 const root = createRoot(document.querySelector('#app')!);
 
+// This implements the default behavior from styled-components v5
+function shouldForwardProp(propName: string, target: unknown) {
+  if (typeof target === "string") {
+      // For HTML elements, forward the prop if it is a valid HTML attribute
+      return isPropValid(propName);
+  }
+  // For other elements, forward all props
+  return true;
+}
+
 root.render(
-  <I18nextProvider i18n={i18next}>
-    <BrowserRouter basename="/">
-      <App />
-    </BrowserRouter>
-  </I18nextProvider>
+  <StyleSheetManager shouldForwardProp={shouldForwardProp}>
+    <I18nextProvider i18n={i18next}>
+      <BrowserRouter basename="/">
+        <App />
+      </BrowserRouter>
+    </I18nextProvider>
+  </StyleSheetManager>
 );
