@@ -149,10 +149,10 @@ export const InfoForVendorsPage = () => {
 
       <Band size="lg" justify="flex-start" narrowContent padding="md">
         <Picture>
-          <source src={woolsAvifLandscape} type="image/avif" />
-          <source src={woolsWebpLandscape} type="image/webp" />
+          <source srcSet={woolsAvifLandscape} type="image/avif" />
+          <img src={woolsWebpLandscape} />
         </Picture>
-
+        git
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
             <Title>{t('infoForVendorsPage.title')}</Title>
