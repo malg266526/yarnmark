@@ -1,4 +1,4 @@
-import React, { /* ReactNode, */ useCallback, useRef, useState } from 'react';
+import React, { /* ReactNode, */ useCallback, useMemo, useRef, useState } from 'react';
 import { PageContent } from '../components/PageContent';
 import { /* UnprefixedTranslationKeys, */ useTypedTranslation } from '../translations/useTypedTranslation';
 
@@ -58,12 +58,16 @@ import {
   // ImageContentLayout,
   // LayoutWithActiveButton,
   MenuBackground,
+  MobileBasicInfoSection,
+  MobileLocationButtonWrapper,
+  MobilePicture,
   Picture,
   // PhotosLayout,
   SecondaryButton,
   SectionWrapper,
   Text,
-  TextH3
+  TextH3,
+  Typography
   // TextWrapper
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
@@ -160,7 +164,7 @@ export const MainPage = () => {
 
   // const activeButtonToImage = getActiveButtonToImage(t);
 
-  const observerCallback = useCallback(() => {}, []);
+  const observerCallback = useCallback(() => { }, []);
 
   useRootIntersectionObserver({
     rootRef: pageContentRef,
@@ -184,12 +188,95 @@ export const MainPage = () => {
     )
   }; */
 
+  const eventLocationCard = useMemo(() => (
+    <NiceBox width="500px" padding="lg">
+      <TextWrapper align="center">
+        <Title>Gdzie?</Title>
+      </TextWrapper>
+      <Text>Aleja Marszałka Ferdynanda Focha 40</Text>
+      <Text>{t('spotBand.neighbourhood1')}</Text>
+      <Text>{t('spotBand.neighbourhood2')}</Text>
+
+      {!isSpotOpened && (
+        <SecondaryButton onClick={() => setIsSpotOpened(true)}>{t('spotBand.howToGetToUs')}</SecondaryButton>
+      )}
+
+      {isSpotOpened && (
+        <>
+          <TextWrapper align="center" marginTop="md">
+            <SubTitle>{t('spotBand.howToGetToUs')}</SubTitle>
+          </TextWrapper>
+          <Text>{t('spotBand.publicTransport')}</Text>
+          <Text>{t('spotBand.list')}</Text>
+          <Text>
+            <Trans i18nKey="spotBand.option1" />
+          </Text>
+          <Text>
+            <Trans i18nKey="spotBand.option2" />
+          </Text>
+          <Text>
+            <Trans i18nKey="spotBand.option3" />
+          </Text>
+          <Text>
+            <Trans i18nKey="spotBand.option4" />
+          </Text>
+
+          <TextWrapper align="center" marginTop="md">
+            <SubTitle>{t('spotBand.accessibleByCar')}</SubTitle>
+          </TextWrapper>
+          <Text>{t('spotBand.byCar')}</Text>
+
+          <p>fot: <a href="https://halacracovii.pl/">https://halacracovii.pl/</a> </p>
+        </>
+      )}
+    </NiceBox>
+  ), [isSpotOpened, setIsSpotOpened]);
+
+  const eventLocationButton = useMemo(() => (
+    <a
+      target="_blank"
+      rel="noreferrer"
+      aria-label="jak dotrzeć na targi z google maps"
+      href="https://www.google.pl/maps/@50.0572998,19.9107716,3a,75y,214.48h,88.44t/data=!3m6!1e1!3m4!1sVVYRGhxvt5uE6gsr_G7cwA!2e0!7i16384!8i8192?entry=ttu"
+    >
+      <AnimatedIconWrapper>
+        <Icon size="200px" src={pinImageUrl} dropShadow />
+      </AnimatedIconWrapper>
+    </a>
+  ), []);
+
+  const infoSection = useMemo(() => (
+    <div>
+      <Typography size="20px" weight="bold" paddingBottom='md' >{t('buttonsBand.firstEvent')}</Typography>
+      <Typography size="16px" weight="regular" paddingBottom='sm' >{t('buttonsBand.otherCities')}</Typography>
+      <Typography size="16px" weight="regular">{t('buttonsBand.linksBelow')}</Typography>
+    </div>
+  ), []);
+
+  const mobileEventLocationBand = useMemo(() => (
+    <>
+      <MobilePicture>
+        <source srcSet={halaAvifImageSrc} />
+        <source srcSet={halaJfifImageSrc} />
+        <img src={halaJpgImageSrc} alt="hala 100-lecia" />
+        <MobileLocationButtonWrapper>
+          {eventLocationButton}
+        </MobileLocationButtonWrapper>
+      </MobilePicture>
+
+      {eventLocationCard}
+    </>
+  ), [eventLocationCard]);
+
   return (
     <PageContent ref={pageContentRef} variant="wide" padding="none">
       {isPhone && (
-        <Header>
-          <>
-            <SideBar roundedCorners="left" className={burgerActive ? 'visible' : undefined}>
+        <>
+          <Header>
+            <BurgerMenu onClick={() => setBurgerActive((prevValue) => !prevValue)} active={burgerActive} />
+          </Header>
+
+          <SideBar roundedCorners="left" active={burgerActive}>
               <SideBar.LinkEntry
                 to="/"
                 onClick={() => {
@@ -241,9 +328,7 @@ export const MainPage = () => {
                 {t('menu.contact')}
               </SideBar.LinkEntry>
             </SideBar>
-            <BurgerMenu onClick={() => setBurgerActive((prevValue) => !prevValue)} active={burgerActive} />
-          </>
-        </Header>
+        </>
       )}
 
       {!isPhone && (
@@ -302,116 +387,66 @@ export const MainPage = () => {
         </Band.Slot>
       </Band>
 
-      <Band size="md" variant="background" color={Colors.pastelGray} padding="xl" narrowContent>
-        <BackgroundImage src={knitting2ImageUrl} alt="wool_skeins_background" />
+      {isPhone ? (
+        <MobileBasicInfoSection background={[knitting2ImageUrl]}>
+          {infoSection}
+        </MobileBasicInfoSection>
+      ) : (
+        <Band size="md" variant="background" color={Colors.pastelGray} padding="xl" narrowContent>
+          <BackgroundImage src={knitting2ImageUrl} alt="wool_skeins_background" />
 
-        <SectionWrapper>
-          <InfoSection>
-            <InfoSection.Title>{t('buttonsBand.firstEvent')}</InfoSection.Title>
-            <InfoSection.Text>{t('buttonsBand.otherCities')}</InfoSection.Text>
-            <InfoSection.Text>{t('buttonsBand.linksBelow')}</InfoSection.Text>
-          </InfoSection>
+          <SectionWrapper>
+            {infoSection}
 
-          <ButtonsLayout>
-            <FunnyButton
-              ref={ticketsFunnyButtonRef}
-              icon={<Icon size="xl" zIndex={0} src={ticketImageUrl} />}
-              text={t('buttonsBand.ticketButton')}
-            />
-            <FunnyButton
-              ref={vendorsFunnyButtonRef}
-              icon={<Icon size="xl" zIndex={0} src={shopImageUrl} />}
-              text={isPhone ? undefined : t('buttonsBand.vendorsButton')}
-              onClick={() => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
-            />
-            <FunnyButton
-              ref={geoFunnyButtonRef}
-              icon={<Icon size="xl" zIndex={0} src={pinBlackImageUrl} />}
-              text={isPhone ? undefined : t('buttonsBand.spotButton')}
-              onClick={() => spotBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
-            />
-            {/*             <FunnyButton
-              ref={foodFunnyButtonRef}
-              icon={<Icon size="xl" zIndex={0} src={pizzaImageUrl} />}
-              text={t('buttonsBand.foodButton')}
-              onClick={() => foodBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
-            /> */}
-            {/*             <FunnyButton
-              ref={shipFunnyButtonRef}
-              icon={<Icon size="xl" zIndex={0} src={ferryImageUrl} />}
-              text={t('buttonsBand.cashmereButton')}
-              onClick={() => cashmereTickets.current?.scrollIntoView({ behavior: 'smooth' })}
-            /> */}
-          </ButtonsLayout>
-        </SectionWrapper>
-      </Band>
+            <ButtonsLayout>
+              <FunnyButton
+                ref={ticketsFunnyButtonRef}
+                icon={<Icon size="xl" zIndex={0} src={ticketImageUrl} />}
+                text={t('buttonsBand.ticketButton')}
+              />
+              <FunnyButton
+                ref={vendorsFunnyButtonRef}
+                icon={<Icon size="xl" zIndex={0} src={shopImageUrl} />}
+                text={isPhone ? undefined : t('buttonsBand.vendorsButton')}
+                onClick={() => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
+              />
+              <FunnyButton
+                ref={geoFunnyButtonRef}
+                icon={<Icon size="xl" zIndex={0} src={pinBlackImageUrl} />}
+                text={isPhone ? undefined : t('buttonsBand.spotButton')}
+                onClick={() => spotBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
+              />
+              {/*             <FunnyButton
+                ref={foodFunnyButtonRef}
+                icon={<Icon size="xl" zIndex={0} src={pizzaImageUrl} />}
+                text={t('buttonsBand.foodButton')}
+                onClick={() => foodBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
+              /> */}
+              {/*             <FunnyButton
+                ref={shipFunnyButtonRef}
+                icon={<Icon size="xl" zIndex={0} src={ferryImageUrl} />}
+                text={t('buttonsBand.cashmereButton')}
+                onClick={() => cashmereTickets.current?.scrollIntoView({ behavior: 'smooth' })}
+              /> */}
+            </ButtonsLayout>
+          </SectionWrapper>
+        </Band>
+      )}
 
-      <Band
-        justify="space-around"
-        ref={spotBandRef}
-        size="xl"
-        padding="sm"
-        variant="background-image"
-        src={[halaJpgImageSrc, halaJfifImageSrc, halaAvifImageSrc]}
-        alt="cracovia_hall_image">
-        <Band.Slot>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            aria-label="jak dotrzeć na targi z google maps"
-            href="https://www.google.pl/maps/@50.0572998,19.9107716,3a,75y,214.48h,88.44t/data=!3m6!1e1!3m4!1sVVYRGhxvt5uE6gsr_G7cwA!2e0!7i16384!8i8192?entry=ttu">
-            <AnimatedIconWrapper>
-              <Icon size="200px" src={pinImageUrl} dropShadow />
-            </AnimatedIconWrapper>
-          </a>
-        </Band.Slot>
-
-        <Band.Slot>
-          <NiceBox width="500px" padding="lg">
-            <TextWrapper align="center">
-              <Title>Gdzie?</Title>
-            </TextWrapper>
-
-            <Text>Aleja Marszałka Ferdynanda Focha 40</Text>
-            <Text>{t('spotBand.neighbourhood1')}</Text>
-            <Text>{t('spotBand.neighbourhood2')}</Text>
-
-            {!isSpotOpened && (
-              <SecondaryButton onClick={() => setIsSpotOpened(true)}>{t('spotBand.howToGetToUs')}</SecondaryButton>
-            )}
-
-            {isSpotOpened && (
-              <>
-                <TextWrapper align="center" marginTop="md">
-                  <SubTitle>{t('spotBand.howToGetToUs')}</SubTitle>
-                </TextWrapper>
-                <Text>{t('spotBand.publicTransport')}</Text>
-                <Text>{t('spotBand.list')}</Text>
-                <Text>
-                  <Trans i18nKey="spotBand.option1" />
-                </Text>
-                <Text>
-                  <Trans i18nKey="spotBand.option2" />
-                </Text>
-                <Text>
-                  <Trans i18nKey="spotBand.option3" />
-                </Text>
-                <Text>
-                  <Trans i18nKey="spotBand.option4" />
-                </Text>
-
-                <TextWrapper align="center" marginTop="md">
-                  <SubTitle>{t('spotBand.accessibleByCar')}</SubTitle>
-                </TextWrapper>
-
-                <Text>{t('spotBand.byCar')}</Text>
-
-                <p>fot: https://halacracovii.pl/ </p>
-              </>
-            )}
-          </NiceBox>
-        </Band.Slot>
-      </Band>
+      {isPhone ? mobileEventLocationBand : (
+        <Band
+          justify="space-around"
+          ref={spotBandRef}
+          size="xl"
+          padding="sm"
+          variant="background-image"
+          src={[halaJpgImageSrc, halaJfifImageSrc, halaAvifImageSrc]}
+          alt="cracovia_hall_image">
+          <Band.Slot>
+            {eventLocationButton}
+          </Band.Slot>
+        </Band>
+      )}
 
       {/* TODO: change color to snow when all bands revealed */}
       <Band id="vendors" ref={vendorsBandRef} size="md" variant="background" color={Colors.isabelline} padding="xl">

@@ -35,6 +35,8 @@ export const Header = styled.header`
     flex-direction: row;
     justify-content: flex-end;
     background: ${Colors.beige2};
+    position: sticky;
+    top: 0;
   }
 `;
 
@@ -68,26 +70,6 @@ export const Root = styled.main`
   position: relative;
   min-height: 100vh;
   max-width: 100vw;
-  overflow-x: hidden;
-
-  ${SideBar} {
-    left: 100%;
-    z-index: 1;
-    top: 60px;
-    min-height: 80vh;
-    max-height: 100vh;
-    position: absolute;
-    min-width: 70%;
-    max-width: 80%;
-    transition: all 250ms ease-in-out;
-    transform: translate(0, 0);
-    opacity: 0;
-
-    &.visible {
-      opacity: 1;
-      transform: translate(-100%, 0);
-    }
-  }
 
   > :nth-child(2) {
     flex: 1 1 auto;
@@ -111,6 +93,10 @@ export const Footer = styled.div`
 
   background: ${Colors.snow};
   word-break: break-all;
+
+  @media (max-width: ${ScreenSize.tablet}) {
+    padding: ${Spacings.sm};
+  }
 `;
 
 export const RightBackgroundImage = styled.img<{ src: string }>`
