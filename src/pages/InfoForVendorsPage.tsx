@@ -152,7 +152,7 @@ export const InfoForVendorsPage = () => {
           <source srcSet={woolsAvifLandscape} type="image/avif" />
           <img src={woolsWebpLandscape} />
         </Picture>
-        git
+
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
             <Title>{t('infoForVendorsPage.title')}</Title>
