@@ -5,6 +5,8 @@ import { ScreenSize } from '../styles/screeen-size';
 
 export const Text = styled.p<{ marginBottom?: keyof typeof Spacings; align?: 'center' | 'justify' }>`
   margin-top: ${Spacings.md};
+  margin-bottom: 0;
+  font-size: 18px;
 
   ${({ align }) =>
     align &&
@@ -23,6 +25,7 @@ export const TextH3 = styled.h3`
   font-size: 18px;
   font-weight: 400;
   margin-top: ${Spacings.md};
+  margin-bottom: 0;
 `;
 
 export const CenteredTitle = styled.h2`
