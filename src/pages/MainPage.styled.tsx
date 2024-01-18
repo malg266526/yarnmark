@@ -46,6 +46,8 @@ export const SecondaryButton = styled.button`
 `;
 
 export const ButtonsLayout = styled.div`
+  position: relative;
+  z-index: 1;
   display: flex;
   gap: ${Spacings.xl};
   flex: 1 1 auto;
@@ -63,25 +65,41 @@ const fontVariantToWeight: Record<FontVariant, number> = {
   bold: 600,
   light: 200,
   regular: 500
-}
+};
 
-export const Typography = styled.div<{ size: `${number}px`; weight: FontVariant; paddingBottom?: keyof typeof Spacings; }>`
+export const Typography = styled.div<{
+  size: `${number}px`;
+  weight: FontVariant;
+  paddingBottom?: keyof typeof Spacings;
+}>`
   ${({ size, weight }) => css`
     font-size: ${size};
     font-weight: ${fontVariantToWeight[weight]};
   `};
 
-  ${({ paddingBottom }) => paddingBottom && css`
-    padding-bottom: ${Spacings[paddingBottom]};
-  `};
+  ${({ paddingBottom }) =>
+    paddingBottom &&
+    css`
+      padding-bottom: ${Spacings[paddingBottom]};
+    `};
 `;
 
-export const MobileBasicInfoSection = styled.div<{ background: string[] }>`
+export const MobileInfoSectionWrapper = styled.div`
   position: relative;
-  z-index: 0;
+  z-index: 1;
+`;
+
+export const MobileBasicInfoSection = styled.div<{ background: string[]; zIndex?: number }>`
+  position: relative;
+  ${({ zIndex }) =>
+    zIndex &&
+    css`
+      z-index: ${zIndex};
+    `};
+
   padding: ${Spacings.lg};
   background: #d7c9c0;
-  
+
   &:after {
     content: '';
     position: absolute;
@@ -95,13 +113,13 @@ export const MobileBasicInfoSection = styled.div<{ background: string[] }>`
     background-size: 20%;
     opacity: 0.3;
   }
-`
+`;
 
 export const MobileLocationButtonWrapper = styled.div`
   position: absolute;
   top: 50%;
   transform: translate(10%, -50%);
-`
+`;
 
 export const MobilePicture = styled.picture`
   position: relative;

@@ -29,7 +29,6 @@ import { Icon } from '../components/Icon';
 
 import { Band } from '../components/Band';
 import { FunnyButton } from '../components/FunnyButton';
-import { InfoSection } from '../components/InfoSection';
 import { Link } from '../components/Link';
 import { NiceBox } from '../components/NiceBox';
 // import { PhotoFrame } from '../components/PhotoBox';
@@ -59,6 +58,7 @@ import {
   // LayoutWithActiveButton,
   MenuBackground,
   MobileBasicInfoSection,
+  MobileInfoSectionWrapper,
   MobileLocationButtonWrapper,
   MobilePicture,
   Picture,
@@ -226,47 +226,117 @@ export const MainPage = () => {
           </TextWrapper>
           <Text>{t('spotBand.byCar')}</Text>
 
-          <p>fot: <a href="https://halacracovii.pl/">https://halacracovii.pl/</a> </p>
+          <p>
+            fot: <a href="https://halacracovii.pl/">https://halacracovii.pl/</a>{' '}
+          </p>
         </>
       )}
     </NiceBox>
-  ), [isSpotOpened, setIsSpotOpened]);
+  ),
+    [isSpotOpened, setIsSpotOpened, t]
+  );
 
-  const eventLocationButton = useMemo(() => (
-    <a
-      target="_blank"
-      rel="noreferrer"
-      aria-label="jak dotrzeć na targi z google maps"
-      href="https://www.google.pl/maps/@50.0572998,19.9107716,3a,75y,214.48h,88.44t/data=!3m6!1e1!3m4!1sVVYRGhxvt5uE6gsr_G7cwA!2e0!7i16384!8i8192?entry=ttu"
-    >
-      <AnimatedIconWrapper>
-        <Icon size="200px" src={pinImageUrl} dropShadow />
-      </AnimatedIconWrapper>
-    </a>
-  ), []);
+  const eventLocationButton = useMemo(
+    () => (
+      <a
+        target="_blank"
+        rel="noreferrer"
+        aria-label="jak dotrzeć na targi z google maps"
+        href="https://www.google.pl/maps/@50.0572998,19.9107716,3a,75y,214.48h,88.44t/data=!3m6!1e1!3m4!1sVVYRGhxvt5uE6gsr_G7cwA!2e0!7i16384!8i8192?entry=ttu">
+        <AnimatedIconWrapper>
+          <Icon size="200px" src={pinImageUrl} dropShadow />
+        </AnimatedIconWrapper>
+      </a>
+    ),
+    []
+  );
 
-  const infoSection = useMemo(() => (
-    <div>
-      <Typography size="20px" weight="bold" paddingBottom='md' >{t('buttonsBand.firstEvent')}</Typography>
-      <Typography size="16px" weight="regular" paddingBottom='sm' >{t('buttonsBand.otherCities')}</Typography>
-      <Typography size="16px" weight="regular">{t('buttonsBand.linksBelow')}</Typography>
-    </div>
-  ), []);
+  const infoSectionButtons = useMemo(
+    () => (
+      <ButtonsLayout>
+        <FunnyButton
+          ref={ticketsFunnyButtonRef}
+          icon={<Icon size="xl" zIndex={0} src={ticketImageUrl} />}
+          text={t('buttonsBand.ticketButton')}
+        />
+        <FunnyButton
+          ref={vendorsFunnyButtonRef}
+          icon={<Icon size="xl" zIndex={0} src={shopImageUrl} />}
+          text={isPhone ? undefined : t('buttonsBand.vendorsButton')}
+          onClick={() => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
+        />
+        <FunnyButton
+          ref={geoFunnyButtonRef}
+          icon={<Icon size="xl" zIndex={0} src={pinBlackImageUrl} />}
+          text={isPhone ? undefined : t('buttonsBand.spotButton')}
+          onClick={() => spotBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
+        />
+        {/*             <FunnyButton
+        ref={foodFunnyButtonRef}
+        icon={<Icon size="xl" zIndex={0} src={pizzaImageUrl} />}
+        text={t('buttonsBand.foodButton')}
+        onClick={() => foodBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
+      /> */}
+        {/*             <FunnyButton
+        ref={shipFunnyButtonRef}
+        icon={<Icon size="xl" zIndex={0} src={ferryImageUrl} />}
+        text={t('buttonsBand.cashmereButton')}
+        onClick={() => cashmereTickets.current?.scrollIntoView({ behavior: 'smooth' })}
+      /> */}
+      </ButtonsLayout>
+    ),
+    [isPhone, t]
+  );
 
-  const mobileEventLocationBand = useMemo(() => (
-    <>
-      <MobilePicture>
-        <source srcSet={halaAvifImageSrc} />
-        <source srcSet={halaJfifImageSrc} />
-        <img src={halaJpgImageSrc} alt="hala 100-lecia" />
-        <MobileLocationButtonWrapper>
-          {eventLocationButton}
-        </MobileLocationButtonWrapper>
-      </MobilePicture>
+  const pcInfoSection = useMemo(
+    () => (
+      <MobileInfoSectionWrapper>
+        <Typography size="40px" weight="bold" paddingBottom="md">
+          {t('buttonsBand.firstEvent')}
+        </Typography>
+        <Typography size="20px" weight="regular" paddingBottom="sm">
+          {t('buttonsBand.otherCities')}
+        </Typography>
+        <Typography size="20px" weight="regular">
+          {t('buttonsBand.linksBelow')}
+        </Typography>
+      </MobileInfoSectionWrapper>
+    ),
+    [t]
+  );
 
-      {eventLocationCard}
-    </>
-  ), [eventLocationCard]);
+  const mobileInfoSection = useMemo(
+    () => (
+      <MobileInfoSectionWrapper>
+        <Typography size="20px" weight="bold" paddingBottom="md">
+          {t('buttonsBand.firstEvent')}
+        </Typography>
+        <Typography size="16px" weight="regular" paddingBottom="sm">
+          {t('buttonsBand.otherCities')}
+        </Typography>
+        <Typography size="16px" weight="regular">
+          {t('buttonsBand.linksBelow')}
+        </Typography>
+      </MobileInfoSectionWrapper>
+    ),
+    [t]
+  );
+
+  const mobileEventLocationBand = useMemo(
+    () => (
+      <>
+        <MobilePicture>
+          <source srcSet={halaAvifImageSrc} />
+          <source srcSet={halaJfifImageSrc} />
+          <img src={halaJpgImageSrc} alt="hala 100-lecia" />
+          <MobileLocationButtonWrapper>{eventLocationButton}</MobileLocationButtonWrapper>
+        </MobilePicture>
+
+        {eventLocationCard}
+      </>
+    ),
+    [eventLocationCard, eventLocationButton]
+  );
 
   return (
     <PageContent ref={pageContentRef} variant="wide" padding="none">
@@ -277,30 +347,30 @@ export const MainPage = () => {
           </Header>
 
           <SideBar roundedCorners="left" active={burgerActive}>
-              <SideBar.LinkEntry
-                to="/"
-                onClick={() => {
-                  closeSideBar();
-                }}>
-                <IconifyIcon icon="game-icons:wool" width="24" />
-                Yarnmark
-              </SideBar.LinkEntry>
+            <SideBar.LinkEntry
+              to="/"
+              onClick={() => {
+                closeSideBar();
+              }}>
+              <IconifyIcon icon="game-icons:wool" width="24" />
+              Yarnmark
+            </SideBar.LinkEntry>
 
-              <SideBar.LinkEntry
-                to="#vendors"
-                onClick={() => {
-                  closeSideBar();
-                }}>
-                <IconifyIcon icon="bi:shop" width="24" />
-                {t('menu.vendors')}
-              </SideBar.LinkEntry>
+            <SideBar.LinkEntry
+              to="#vendors"
+              onClick={() => {
+                closeSideBar();
+              }}>
+              <IconifyIcon icon="bi:shop" width="24" />
+              {t('menu.vendors')}
+            </SideBar.LinkEntry>
 
-              <SideBar.LinkEntry onClick={closeSideBar} to="/info-for-vendors">
-                <IconifyIcon icon="material-symbols:info-outline" width="24" />
-                {t('menu.infoForVendors')}
-              </SideBar.LinkEntry>
+            <SideBar.LinkEntry onClick={closeSideBar} to="/info-for-vendors">
+              <IconifyIcon icon="material-symbols:info-outline" width="24" />
+              {t('menu.infoForVendors')}
+            </SideBar.LinkEntry>
 
-              {/*               <SideBar.LinkEntry
+            {/*               <SideBar.LinkEntry
                 onClick={() => {
                   closeSideBar();
                   () => workshopsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -309,7 +379,7 @@ export const MainPage = () => {
                 {t('menu.workshops')}
               </SideBar.LinkEntry> */}
 
-              {/*           <SideBar.LinkEntry
+            {/*           <SideBar.LinkEntry
                 onClick={() => {
                   closeSideBar();
                   () => cashmereTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -319,15 +389,15 @@ export const MainPage = () => {
 
               </SideBar.LinkEntry> */}
 
-              <SideBar.LinkEntry
-                to="#footer"
-                onClick={() => {
-                  closeSideBar();
-                }}>
-                <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
-                {t('menu.contact')}
-              </SideBar.LinkEntry>
-            </SideBar>
+            <SideBar.LinkEntry
+              to="#footer"
+              onClick={() => {
+                closeSideBar();
+              }}>
+              <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
+              {t('menu.contact')}
+            </SideBar.LinkEntry>
+          </SideBar>
         </>
       )}
 
@@ -388,52 +458,24 @@ export const MainPage = () => {
       </Band>
 
       {isPhone ? (
-        <MobileBasicInfoSection background={[knitting2ImageUrl]}>
-          {infoSection}
+        <MobileBasicInfoSection zIndex={1} background={[knitting2ImageUrl]}>
+          {mobileInfoSection}
+          {infoSectionButtons}
         </MobileBasicInfoSection>
       ) : (
         <Band size="md" variant="background" color={Colors.pastelGray} padding="xl" narrowContent>
           <BackgroundImage src={knitting2ImageUrl} alt="wool_skeins_background" />
 
           <SectionWrapper>
-            {infoSection}
-
-            <ButtonsLayout>
-              <FunnyButton
-                ref={ticketsFunnyButtonRef}
-                icon={<Icon size="xl" zIndex={0} src={ticketImageUrl} />}
-                text={t('buttonsBand.ticketButton')}
-              />
-              <FunnyButton
-                ref={vendorsFunnyButtonRef}
-                icon={<Icon size="xl" zIndex={0} src={shopImageUrl} />}
-                text={isPhone ? undefined : t('buttonsBand.vendorsButton')}
-                onClick={() => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
-              />
-              <FunnyButton
-                ref={geoFunnyButtonRef}
-                icon={<Icon size="xl" zIndex={0} src={pinBlackImageUrl} />}
-                text={isPhone ? undefined : t('buttonsBand.spotButton')}
-                onClick={() => spotBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
-              />
-              {/*             <FunnyButton
-                ref={foodFunnyButtonRef}
-                icon={<Icon size="xl" zIndex={0} src={pizzaImageUrl} />}
-                text={t('buttonsBand.foodButton')}
-                onClick={() => foodBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
-              /> */}
-              {/*             <FunnyButton
-                ref={shipFunnyButtonRef}
-                icon={<Icon size="xl" zIndex={0} src={ferryImageUrl} />}
-                text={t('buttonsBand.cashmereButton')}
-                onClick={() => cashmereTickets.current?.scrollIntoView({ behavior: 'smooth' })}
-              /> */}
-            </ButtonsLayout>
+            {pcInfoSection}
+            {infoSectionButtons}
           </SectionWrapper>
         </Band>
       )}
 
-      {isPhone ? mobileEventLocationBand : (
+      {isPhone ? (
+        mobileEventLocationBand
+      ) : (
         <Band
           justify="space-around"
           ref={spotBandRef}
@@ -442,9 +484,9 @@ export const MainPage = () => {
           variant="background-image"
           src={[halaJpgImageSrc, halaJfifImageSrc, halaAvifImageSrc]}
           alt="cracovia_hall_image">
-          <Band.Slot>
-            {eventLocationButton}
-          </Band.Slot>
+          <Band.Slot>{eventLocationButton}</Band.Slot>
+
+          <Band.Slot>{eventLocationCard}</Band.Slot>
         </Band>
       )}
 

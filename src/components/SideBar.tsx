@@ -74,10 +74,12 @@ const SidePanel = styled.div<SidePanelProps>`
   transform: translate(0, 0);
   opacity: 0;
 
-  ${({ active }) => active && css`
-    opacity: 1;
-    transform: translate(-100%, 0);
-  `};
+  ${({ active }) =>
+    active &&
+    css`
+      opacity: 1;
+      transform: translate(-100%, 0);
+    `};
 
   background: ${Colors.ruinedSmores};
   padding: ${Spacings.sm};
@@ -102,7 +104,7 @@ const SidePanelWrapper = styled.div`
 
 export type SideBatProps = SidePanelProps & {
   children?: ReactNode;
-}
+};
 
 const Root = (props: SidePanelProps) => (
   <SidePanelWrapper>

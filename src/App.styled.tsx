@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { BurgerMenu } from './components/BurgerMenu';
-import { SideBar } from './components/SideBar';
 import { ScreenSize } from './styles/screeen-size';
 import { Spacings } from './styles/spacings';
 import { Colors } from './styles/theme';

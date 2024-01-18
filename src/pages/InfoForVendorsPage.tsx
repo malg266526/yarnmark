@@ -97,7 +97,7 @@ export const InfoForVendorsPage = () => {
       {isPhone && (
         <Header>
           <>
-            <SideBar roundedCorners="left" className={burgerActive ? 'visible' : undefined}>
+            <SideBar roundedCorners="left" active={burgerActive}>
               <SideBar.LinkEntry
                 to="/"
                 onClick={() => {

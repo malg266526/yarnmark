@@ -56,6 +56,10 @@ const Root = styled.div<RootProps>`
   ${boxShadow};
   ${animationFrames};
 
+  @media (max-width: ${ScreenSize.phone}) {
+    overflow: hidden;
+  }
+
   &:before {
     content: '';
     position: absolute;
@@ -111,7 +115,7 @@ const Root = styled.div<RootProps>`
   }
 `;
 
-const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: keyof typeof Spacings } & RootProps>`
+const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: keyof typeof Spacings }>`
   ${({ width }) =>
     width &&
     css`
@@ -124,7 +128,7 @@ const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: key
     `};
 
   @media (max-width: ${ScreenSize.phone}) {
-    width: ${({ overflowLength }) => `calc(100% - ${overflowLength} * 2)`};
+    width: 100%;
   }
 
   padding: ${({ padding }) => Spacings[padding]};
@@ -159,17 +163,12 @@ export interface NiceBoxProps extends Partial<RootProps> {
 
 export const NiceBox = ({ children, overflowLength = '30%', overflowSize = '3px', ...rest }: NiceBoxProps) => (
   <Root overflowLength={overflowLength} overflowSize={overflowSize}>
-    <Frame overflowLength={overflowLength} overflowSize={overflowSize} {...rest}>{children}</Frame>
+    <Frame {...rest}>{children}</Frame>
   </Root>
 );
-
-const NiceBoxWrapper = styled.div`
-  
-`
 
 export const WrappedNiceBox = (props: NiceBoxProps) => {
   <div>
     <NiceBox {...props} />
-  </div>
-}
-
+  </div>;
+};
