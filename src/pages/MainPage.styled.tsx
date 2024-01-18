@@ -25,7 +25,7 @@ export const TextH3 = styled.h3`
   margin-top: ${Spacings.md};
 `;
 
-export const CenteredTitle = styled.div`
+export const CenteredTitle = styled.h2`
   font-size: 40px;
   font-weight: 600;
   align-self: center;

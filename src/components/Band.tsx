@@ -112,7 +112,7 @@ const bandSizeToHeight: Record<BandSize, string> = {
 };
 
 interface BandLayoutProps {
-  justify?: 'center' | 'space-around' | 'space-between' | 'flex-start';
+  justify?: 'center' | 'space-around' | 'space-between' | 'flex-start' | 'space-evenly' | 'flex-end';
   flexAuto?: boolean;
   direction?: 'column';
   gap?: keyof typeof Spacings;
