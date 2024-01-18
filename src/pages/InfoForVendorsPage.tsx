@@ -4,7 +4,7 @@ import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import { Band } from '../components/Band';
 import { NiceBox } from '../components/NiceBox';
-import { Title } from '../components/Title';
+import { TextWrapper, Title } from '../components/Title';
 import { PageContent } from '../components/PageContent';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
@@ -45,6 +45,7 @@ export const PlainInfo = styled.div`
   width: 50%;
   min-height: 100px;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  // margin-left: ${Spacings.lg};
 
   @media (max-width: ${ScreenSize.tablet}) {
     max-width: 92%;
@@ -155,7 +156,9 @@ export const InfoForVendorsPage = () => {
 
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
-            <Title>{t('infoForVendorsPage.title')}</Title>
+            <TextWrapper>
+              <Title>{t('infoForVendorsPage.title')}</Title>
+            </TextWrapper>
             <Text>{t('infoForVendorsPage.invitation')}</Text>
             <Text>{t('infoForVendorsPage.organisationInfo')}</Text>
           </NiceBox>
@@ -166,13 +169,13 @@ export const InfoForVendorsPage = () => {
         id="hall"
         size="sm"
         variant="background"
-        justify="center"
+        justify={isPhone ? 'center' : 'space-evenly'}
         align="center"
         color={Colors.isabelline}
         padding="xl">
-        <TitleWrapper>
+        <TextWrapper>
           <CenteredTitle>Hala</CenteredTitle>
-        </TitleWrapper>
+        </TextWrapper>
 
         <PlainInfo>
           <Text>{t('infoForVendorsPage.hallInfo.area')}</Text>
@@ -186,27 +189,39 @@ export const InfoForVendorsPage = () => {
         </PlainInfo>
       </Band>
 
-      {/*      <Band size="sm" variant="background" justify="center" align="center" color={Colors.snow} padding="xl">
+      <Band
+        size="sm"
+        variant="background"
+        justify={isPhone ? 'center' : 'space-evenly'}
+        align="center"
+        color={Colors.snow}
+        padding="xl">
         <TitleWrapper>
           <CenteredTitle>{t('infoForVendorsPage.registration.title')}</CenteredTitle>
         </TitleWrapper>
 
         <PlainInfo>
           <Text>{t('infoForVendorsPage.registration.start')}</Text>
+          <Text>{t('infoForVendorsPage.registration.where')}</Text>
+          <a href="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
+            {t('infoForVendorsPage.registration.buyHere')}
+          </a>
+          <Text>{t('infoForVendorsPage.registration.feedback')}</Text>
+          <Text>{t('infoForVendorsPage.registration.return')}</Text>
         </PlainInfo>
-      </Band> */}
+      </Band>
 
       <Band
         id="parking"
         size="sm"
         variant="background"
-        justify="center"
+        justify={isPhone ? 'center' : 'space-evenly'}
         align="center"
         color={Colors.linen}
         padding="xl">
-        <TitleWrapper>
+        <TextWrapper>
           <CenteredTitle>{t('infoForVendorsPage.parking.title')}</CenteredTitle>
-        </TitleWrapper>
+        </TextWrapper>
 
         <PlainInfo>
           <Text>{t('infoForVendorsPage.parking.parkingSpace')}</Text>
@@ -217,13 +232,13 @@ export const InfoForVendorsPage = () => {
         id="marketing"
         size="sm"
         variant="background"
-        justify="center"
+        justify={isPhone ? 'center' : 'space-evenly'}
         align="center"
         color={Colors.beige1}
         padding="xl">
-        <TitleWrapper>
+        <TextWrapper>
           <CenteredTitle>{t('infoForVendorsPage.marketing.title')}</CenteredTitle>
-        </TitleWrapper>
+        </TextWrapper>
 
         <PlainInfo>
           <Text>
@@ -236,13 +251,13 @@ export const InfoForVendorsPage = () => {
         id="stands"
         ref={standsBandRef}
         size="sm"
-        justify="center"
+        justify={isPhone ? 'center' : 'space-evenly'}
         variant="background"
         color={Colors.linen}
         padding="xl">
-        <TitleWrapper>
+        <TextWrapper>
           <CenteredTitle>{t('infoForVendorsPage.stands.title')}</CenteredTitle>
-        </TitleWrapper>
+        </TextWrapper>
 
         <HallWrapper>
           <Hall />

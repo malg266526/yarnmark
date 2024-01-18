@@ -23,7 +23,7 @@ export const pl = {
       otherCities:
         'Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na targi wełny pod Wawelem. Kraków wchodzi w 2024 rok dziewiarskim krokiem. Chodźże z nami!',
       linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
-      ticketButton: 'Bilety już wkrótce',
+      ticketButton: 'Sprzedaż biletów rusza 14.02.2024r.',
       vendorsButton: 'Sprawdź z jakimi wystawcami się spotkasz',
       spotButton: 'Gdzie jesteśmy i jak tam dojechać?',
       foodButton: 'Gdzie zjeść?',
@@ -106,7 +106,13 @@ export const pl = {
       },
       registration: {
         title: 'Zapisy',
-        start: 'Mozliwosc zakupu stoiska startuje '
+        start: 'Możliwość zakupu stoiska startuje w poniedziałek 22.01.2024r. o godz. 12:00.',
+        where: 'Rezerwacja stoiska odbywa się poprzez zakup miejsca w sklepie online Włóczykijki.',
+        buyHere: 'Tutaj wykupisz stoisko',
+        feedback:
+          'Wszystkie dane dotyczące płatności będą zawarte w informacji zwrotnej, potwierdzającej rezerwację stoiska.',
+        return:
+          'W przypadku rezerwacji i nie opłacenia kosztów – miejsce zostaje anulowane i zostanie ponownie dostępne dla wystawców.'
       }
     },
     foodBand: {

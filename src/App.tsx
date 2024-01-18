@@ -4,7 +4,7 @@ import { createGlobalStyle } from 'styled-components';
 import emailImageUrl from './assets/iconify/email.svg';
 import instagramImageUrl from './assets/iconify/instagram.svg';
 import talkImageUrl from './assets/iconify/talk.svg';
-import { Title } from './components/Title';
+import { TextWrapper, Title } from './components/Title';
 import { Icon } from './components/Icon';
 import { MinimalistLayout } from './components/MinimalistLayout';
 import { RowLayout } from './components/RowLayout';
@@ -47,7 +47,9 @@ export const App = () => {
 
         <Footer id="footer">
           <MinimalistLayout>
-            <Title>{t('contactPage.title')}</Title>
+            <TextWrapper>
+              <Title>{t('contactPage.title')}</Title>
+            </TextWrapper>
 
             <RowLayout>
               <Icon size="xl" src={emailImageUrl} />
