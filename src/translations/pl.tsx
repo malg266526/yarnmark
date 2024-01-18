@@ -23,7 +23,7 @@ export const pl = {
       otherCities:
         'Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na targi wełny pod Wawelem. Kraków wchodzi w 2024 rok dziewiarskim krokiem. Chodźże z nami!',
       linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
-      ticketButton: 'Bilety już wkrótce',
+      ticketButton: 'Sprzedaż biletów rusza 14.02.2024r.',
       vendorsButton: 'Sprawdź z jakimi wystawcami się spotkasz',
       spotButton: 'Gdzie jesteśmy i jak tam dojechać?',
       foodButton: 'Gdzie zjeść?',

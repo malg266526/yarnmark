@@ -4,7 +4,7 @@ import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import { Band } from '../components/Band';
 import { NiceBox } from '../components/NiceBox';
-import { Title } from '../components/Title';
+import { TextWrapper } from '../components/Title';
 import { PageContent } from '../components/PageContent';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
@@ -155,7 +155,7 @@ export const InfoForVendorsPage = () => {
 
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
-            <Title>{t('infoForVendorsPage.title')}</Title>
+            <TextWrapper>{t('infoForVendorsPage.title')}</TextWrapper>
             <Text>{t('infoForVendorsPage.invitation')}</Text>
             <Text>{t('infoForVendorsPage.organisationInfo')}</Text>
           </NiceBox>
@@ -170,9 +170,9 @@ export const InfoForVendorsPage = () => {
         align="center"
         color={Colors.isabelline}
         padding="xl">
-        <TitleWrapper>
+        <TextWrapper>
           <CenteredTitle>Hala</CenteredTitle>
-        </TitleWrapper>
+        </TextWrapper>
 
         <PlainInfo>
           <Text>{t('infoForVendorsPage.hallInfo.area')}</Text>
@@ -204,9 +204,9 @@ export const InfoForVendorsPage = () => {
         align="center"
         color={Colors.linen}
         padding="xl">
-        <TitleWrapper>
+        <TextWrapper>
           <CenteredTitle>{t('infoForVendorsPage.parking.title')}</CenteredTitle>
-        </TitleWrapper>
+        </TextWrapper>
 
         <PlainInfo>
           <Text>{t('infoForVendorsPage.parking.parkingSpace')}</Text>
@@ -221,9 +221,9 @@ export const InfoForVendorsPage = () => {
         align="center"
         color={Colors.beige1}
         padding="xl">
-        <TitleWrapper>
+        <TextWrapper>
           <CenteredTitle>{t('infoForVendorsPage.marketing.title')}</CenteredTitle>
-        </TitleWrapper>
+        </TextWrapper>
 
         <PlainInfo>
           <Text>
@@ -240,9 +240,9 @@ export const InfoForVendorsPage = () => {
         variant="background"
         color={Colors.linen}
         padding="xl">
-        <TitleWrapper>
+        <TextWrapper>
           <CenteredTitle>{t('infoForVendorsPage.stands.title')}</CenteredTitle>
-        </TitleWrapper>
+        </TextWrapper>
 
         <HallWrapper>
           <Hall />

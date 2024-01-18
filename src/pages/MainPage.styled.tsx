@@ -3,7 +3,7 @@ import { Icon } from '../components/Icon';
 import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
 
-export const Text = styled.div<{ marginBottom?: keyof typeof Spacings; align?: 'center' | 'justify' }>`
+export const Text = styled.p<{ marginBottom?: keyof typeof Spacings; align?: 'center' | 'justify' }>`
   margin-top: ${Spacings.md};
 
   ${({ align }) =>
@@ -17,6 +17,12 @@ export const Text = styled.div<{ marginBottom?: keyof typeof Spacings; align?: '
     css`
       margin-bottom: ${Spacings[marginBottom]};
     `};
+`;
+
+export const TextH3 = styled.h3`
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: ${Spacings.md};
 `;
 
 export const CenteredTitle = styled.div`

@@ -44,7 +44,7 @@ import { BurgerMenu } from '../components/BurgerMenu';
 // import { ImageButton } from '../components/ImageButton';
 import { SideBar } from '../components/SideBar';
 // import { Tabs } from '../components/Tabs';
-import { SubTitle, Title } from '../components/Title';
+import { SubTitle, Title, TextWrapper } from '../components/Title';
 import { VendorsList } from '../components/VendorsList';
 import { Colors } from '../styles/theme';
 import {
@@ -62,7 +62,8 @@ import {
   // PhotosLayout,
   SecondaryButton,
   SectionWrapper,
-  Text
+  Text,
+  TextH3
   // TextWrapper
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
@@ -288,8 +289,11 @@ export const MainPage = () => {
 
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
-            <Title>Krakoski Yarnmark Wełny</Title>
-            <Text>{t('welcomeBand.invitation')}</Text>
+            <TextWrapper>
+              <Title>Krakoski Yarnmark Wełny</Title>
+            </TextWrapper>
+
+            <TextH3>{t('welcomeBand.invitation')}</TextH3>
             <Text>{t('welcomeBand.where')}</Text>
             <Text align="justify">{t('welcomeBand.haveFun')}</Text>
             <Text>{t('welcomeBand.seeYou')}</Text>
@@ -364,7 +368,10 @@ export const MainPage = () => {
 
         <Band.Slot>
           <NiceBox width="500px" padding="lg">
-            <Title align="center">Gdzie?</Title>
+            <TextWrapper align="center">
+              <Title>Gdzie?</Title>
+            </TextWrapper>
+
             <Text>Aleja Marszałka Ferdynanda Focha 40</Text>
             <Text>{t('spotBand.neighbourhood1')}</Text>
             <Text>{t('spotBand.neighbourhood2')}</Text>
@@ -375,9 +382,9 @@ export const MainPage = () => {
 
             {isSpotOpened && (
               <>
-                <Title align="center" marginTop="md">
-                  {t('spotBand.howToGetToUs')}
-                </Title>
+                <TextWrapper align="center" marginTop="md">
+                  <SubTitle>{t('spotBand.howToGetToUs')}</SubTitle>
+                </TextWrapper>
                 <Text>{t('spotBand.publicTransport')}</Text>
                 <Text>{t('spotBand.list')}</Text>
                 <Text>
@@ -393,9 +400,10 @@ export const MainPage = () => {
                   <Trans i18nKey="spotBand.option4" />
                 </Text>
 
-                <SubTitle align="center" marginTop="md">
-                  {t('spotBand.accessibleByCar')}
-                </SubTitle>
+                <TextWrapper align="center" marginTop="md">
+                  <SubTitle>{t('spotBand.accessibleByCar')}</SubTitle>
+                </TextWrapper>
+
                 <Text>{t('spotBand.byCar')}</Text>
 
                 <p>fot: https://halacracovii.pl/ </p>
@@ -410,7 +418,9 @@ export const MainPage = () => {
         <BackgroundImage src={bigShopImageUrl} alt="shop_icon_background" />
 
         <Band.Slot flex="auto-grow" size="sm">
-          <Title align="center">{t('vendorsPage.title')}</Title>
+          <TextWrapper align="center">
+            <Title>{t('vendorsPage.title')}</Title>
+          </TextWrapper>
           <VendorsList />
         </Band.Slot>
       </Band>
