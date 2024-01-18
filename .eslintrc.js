@@ -73,6 +73,6 @@ module.exports = {
     'react/jsx-key': 1,
 
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn'
+    'react-hooks/exhaustive-deps': 'error'
   }
 };
