@@ -262,13 +262,13 @@ export const MainPage = () => {
         <FunnyButton
           ref={vendorsFunnyButtonRef}
           icon={<Icon size="xl" zIndex={0} src={shopImageUrl} />}
-          text={isPhone ? undefined : t('buttonsBand.vendorsButton')}
+          text={t('buttonsBand.vendorsButton')}
           onClick={() => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
         />
         <FunnyButton
           ref={geoFunnyButtonRef}
           icon={<Icon size="xl" zIndex={0} src={pinBlackImageUrl} />}
-          text={isPhone ? undefined : t('buttonsBand.spotButton')}
+          text={t('buttonsBand.spotButton')}
           onClick={() => spotBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
         />
         {/*             <FunnyButton
