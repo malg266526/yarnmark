@@ -125,7 +125,7 @@ export const RightBackgroundImage = styled.img<{ src: string }>`
   pointer-events: none;
 `;
 
-export const TransparentText = styled.div`
+export const TransparentText = styled.h2`
   font-size: 8px;
   color: transparent;
 `;
