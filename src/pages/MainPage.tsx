@@ -327,8 +327,8 @@ export const MainPage = () => {
     () => (
       <>
         <MobilePicture>
-          <source srcSet={halaAvifImageSrc} />
-          <source srcSet={halaJfifImageSrc} />
+          <source srcSet={halaAvifImageSrc} type="image/avif" />
+          <source srcSet={halaJfifImageSrc} type="image/jpeg" />
           <img src={halaJpgImageSrc} alt="hala 100-lecia" />
           <MobileLocationButtonWrapper>{eventLocationButton}</MobileLocationButtonWrapper>
         </MobilePicture>
