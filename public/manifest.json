@@ -1,10 +1,11 @@
 {
-  "name": "Yarnmark",
+  "name": "Krakoski Yarnmark Wełny",
   "short_name": "Yarnmark",
-  "start_url": ".",
+  "start_url":"/home",
   "display": "standalone",
   "background_color": "#fff",
-  "description": "Krakowskie Targi Wełny 2024",
+  "description":"Dziewiarskie targi welny Krakow 2024",
+  "id":"yarnmark",
   "icons": [
     {
       "src": "./favicon.ico",
