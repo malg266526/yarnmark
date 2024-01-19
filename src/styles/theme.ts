@@ -22,7 +22,9 @@ export const Colors = {
   pastelGray: '#d7c9c0',
   isabelline: '#f7f0f0',
   snow: '#f9f9f9',
-  linen: '#faf0e6'
+  linen: '#faf0e6',
+
+  error: '#ce2029'
 };
 
 export const Theme = {

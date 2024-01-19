@@ -4,29 +4,53 @@ import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import { Band } from '../components/Band';
 import { NiceBox } from '../components/NiceBox';
-import { TextWrapper, Title } from '../components/Title';
 import { PageContent } from '../components/PageContent';
+import { TextWrapper, Title } from '../components/Title';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
-import { CenteredTitle, Picture, Text, Menu, MenuBackground } from './MainPage.styled';
-import { Link } from '../components/Link';
-import { usePhone } from './usePhone';
+import { Icon as IconifyIcon } from '@iconify/react';
+import { Trans } from 'react-i18next';
+import { Header } from '../App.styled';
+import { BurgerMenu } from '../components/BurgerMenu';
+import { Curtain } from '../components/Curtain';
 import { Hall } from '../components/Hall';
 import { HallLegend } from '../components/HallLegend';
-import { BurgerMenu } from '../components/BurgerMenu';
-import { Header } from '../App.styled';
+import { Link } from '../components/Link';
+import { TransparentButton } from '../components/Menu';
 import { SideBar } from '../components/SideBar';
-import { Icon as IconifyIcon } from '@iconify/react';
 import { ScreenSize } from '../styles/screeen-size';
-import { Trans } from 'react-i18next';
-import { Curtain } from '../components/Curtain';
+import { CenteredTitle, Menu, MenuBackground, Picture, Text } from './MainPage.styled';
+import { usePhone } from './usePhone';
 
 export const FlexLayout = styled.div`
   display: flex;
   gap: ${Spacings.md};
   padding: ${Spacings.md};
+`;
+
+export const TextUnderlined = styled(Text)`
+  text-decoration: underline;
+  font-size: 16px;
+  margin-top: ${Spacings.sm};
+`;
+
+export const PasswordInput = styled.input`
+  width: 300px;
+  margin-top: ${Spacings.xs};
+  margin-right: ${Spacings.md};
+`;
+
+export const Span = styled.div`
+  display: flex;
+  align-items: baseline;
+`;
+
+export const Error = styled(Text)`
+  color: ${Colors.error};
+  margin-top: 0;
+  font-size: 16px;
 `;
 
 export const Row = styled.div`
@@ -46,7 +70,6 @@ export const PlainInfo = styled.div`
   width: 50%;
   min-height: 100px;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
-  // margin-left: ${Spacings.lg};
 
   @media (max-width: ${ScreenSize.tablet}) {
     max-width: 92%;
@@ -92,6 +115,26 @@ export const InfoForVendorsPage = () => {
   const closeSideBar = () => setBurgerActive(false);
 
   const standsBandRef = useRef<HTMLDivElement | null>(null);
+
+  const [showPasswordInput, setShowPasswordInput] = useState(false);
+  const [password, setPassword] = useState<string>('');
+  const [shouldShowError, setShouldShowError] = useState(false);
+
+  const template = 'dziergamy';
+
+  const validateAndGo = () => {
+    setShouldShowError(false);
+    const validOne = template.split('').reverse().join('').replace('a', '@').replace('e', 'E');
+
+    const isPasswordValid = password === validOne;
+    console.log('isPasswordValid', isPasswordValid);
+
+    if (isPasswordValid) {
+      window.open('https://wloczykijki.pl/', '_blank');
+    } else {
+      setShouldShowError(true);
+    }
+  };
 
   return (
     <PageContent variant="wide" padding="none">
@@ -207,9 +250,26 @@ export const InfoForVendorsPage = () => {
         <PlainInfo>
           <Text>{t('infoForVendorsPage.registration.start')}</Text>
           <Text>{t('infoForVendorsPage.registration.where')}</Text>
-          <a href="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
-            {t('infoForVendorsPage.registration.buyHere')}
-          </a>
+
+          <TransparentButton onClick={() => setShowPasswordInput(true)}>
+            <TextUnderlined>{t('infoForVendorsPage.registration.buyHere')}</TextUnderlined>
+          </TransparentButton>
+
+          {showPasswordInput && (
+            <div>
+              <Span>
+                <PasswordInput
+                  name="vendorPassword"
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
+                />
+                <TransparentButton onClick={validateAndGo}>
+                  <TextUnderlined>Go!</TextUnderlined>
+                </TransparentButton>
+              </Span>
+              {shouldShowError && <Error>Error</Error>}
+            </div>
+          )}
           <Text>{t('infoForVendorsPage.registration.feedback')}</Text>
           <Text>{t('infoForVendorsPage.registration.return')}</Text>
         </PlainInfo>

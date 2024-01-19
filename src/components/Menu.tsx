@@ -19,7 +19,7 @@ const Flag = styled.img`
   padding-top: 2px;
 `;
 
-const TransparentButton = styled.button`
+export const TransparentButton = styled.button`
   all: unset;
   padding-top: ${Spacings.xs};
   cursor: pointer;
