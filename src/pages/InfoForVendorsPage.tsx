@@ -21,6 +21,7 @@ import { SideBar } from '../components/SideBar';
 import { Icon as IconifyIcon } from '@iconify/react';
 import { ScreenSize } from '../styles/screeen-size';
 import { Trans } from 'react-i18next';
+import { Curtain } from '../components/Curtain';
 
 export const FlexLayout = styled.div`
   display: flex;
@@ -94,40 +95,43 @@ export const InfoForVendorsPage = () => {
 
   return (
     <PageContent variant="wide" padding="none">
+      {isPhone && <Curtain onClick={() => setBurgerActive(false)} active={burgerActive} />}
+
       {isPhone && (
-        <Header>
-          <>
-            <SideBar roundedCorners="left" className={burgerActive ? 'visible' : undefined}>
-              <SideBar.LinkEntry
-                to="/"
-                onClick={() => {
-                  closeSideBar();
-                }}>
-                <IconifyIcon icon="game-icons:wool" width="24" />
-                Yarnmark
-              </SideBar.LinkEntry>
-
-              <SideBar.LinkEntry
-                to="#stands"
-                onClick={() => {
-                  closeSideBar();
-                }}>
-                <IconifyIcon icon="bi:shop" width="24" />
-                {t('menu.stands')}
-              </SideBar.LinkEntry>
-
-              <SideBar.LinkEntry
-                to="#footer"
-                onClick={() => {
-                  closeSideBar();
-                }}>
-                <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
-                {t('menu.contact')}
-              </SideBar.LinkEntry>
-            </SideBar>
+        <>
+          <Header>
             <BurgerMenu onClick={() => setBurgerActive((prevValue) => !prevValue)} active={burgerActive} />
-          </>
-        </Header>
+          </Header>
+
+          <SideBar roundedCorners="left" active={burgerActive}>
+            <SideBar.LinkEntry
+              to="/"
+              onClick={() => {
+                closeSideBar();
+              }}>
+              <IconifyIcon icon="game-icons:wool" width="24" />
+              Yarnmark
+            </SideBar.LinkEntry>
+
+            <SideBar.LinkEntry
+              to="#stands"
+              onClick={() => {
+                closeSideBar();
+              }}>
+              <IconifyIcon icon="bi:shop" width="24" />
+              {t('menu.stands')}
+            </SideBar.LinkEntry>
+
+            <SideBar.LinkEntry
+              to="#footer"
+              onClick={() => {
+                closeSideBar();
+              }}>
+              <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
+              {t('menu.contact')}
+            </SideBar.LinkEntry>
+          </SideBar>
+        </>
       )}
 
       {!isPhone && (

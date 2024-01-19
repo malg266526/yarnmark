@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
-import { HashLink } from 'react-router-hash-link';
+import { HashLink, HashLinkProps } from 'react-router-hash-link';
 
 const Link = styled(HashLink)`
   text-decoration: none;
@@ -25,24 +25,22 @@ const Link = styled(HashLink)`
   }
 `;
 
+const EXTERNAL_TARGET = '_blank';
 const SCROLL_URL = '#';
 
-export interface LinkEntryProps {
-  children: ReactNode;
-  to: string;
+export interface LinkEntryProps extends HashLinkProps {
   onClick?: React.MouseEventHandler;
 }
 
-const LinkEntry = ({ to, onClick, ...rest }: LinkEntryProps) => {
+const LinkEntry = ({ to, onClick, target, ...rest }: LinkEntryProps) => {
   const navigate = useNavigate();
 
   return (
     <Link
       to={to}
       onClick={(event: React.MouseEvent) => {
-        event.preventDefault();
-
-        if (to && !to.toString().includes(SCROLL_URL)) {
+        if (target !== EXTERNAL_TARGET && to && !to.toString().includes(SCROLL_URL)) {
+          event.preventDefault();
           navigate(to);
         }
 
@@ -55,7 +53,32 @@ const LinkEntry = ({ to, onClick, ...rest }: LinkEntryProps) => {
 
 const roundedCornersSize = 12;
 
-const Root = styled.div<{ roundedCorners: 'left' | 'right' }>`
+interface SidePanelProps {
+  roundedCorners: 'left' | 'right';
+  active?: boolean;
+  children?: ReactNode;
+}
+
+const SidePanel = styled.div<SidePanelProps>`
+  left: 100%;
+  z-index: 1;
+  top: 60px;
+  min-height: 80vh;
+  max-height: 100vh;
+  position: absolute;
+  min-width: 70%;
+  max-width: 80%;
+  transition: all 250ms ease-in-out;
+  transform: translate(0, 0);
+  opacity: 0;
+
+  ${({ active }) =>
+    active &&
+    css`
+      opacity: 1;
+      transform: translate(-100%, 0);
+    `};
+
   background: ${Colors.ruinedSmores};
   padding: ${Spacings.sm};
 
@@ -70,6 +93,22 @@ const Root = styled.div<{ roundedCorners: 'left' | 'right' }>`
           border-bottom-right-radius: ${roundedCornersSize}px;
         `}
 `;
+
+const SidePanelWrapper = styled.div`
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+`;
+
+export type SideBatProps = SidePanelProps & {
+  children?: ReactNode;
+};
+
+const Root = (props: SidePanelProps) => (
+  <SidePanelWrapper>
+    <SidePanel {...props} />
+  </SidePanelWrapper>
+);
 
 export const SideBar = Object.assign(Root, {
   LinkEntry

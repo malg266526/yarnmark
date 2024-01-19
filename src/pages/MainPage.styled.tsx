@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { Icon } from '../components/Icon';
 import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
+import { getBackgroundCssWithFallback } from '../styles/getBackgroundCssWithFallback';
 
 export const Text = styled.p<{ marginBottom?: keyof typeof Spacings; align?: 'center' | 'justify' }>`
   margin-top: ${Spacings.md};
@@ -35,6 +36,7 @@ export const CenteredTitle = styled.h2`
 `;
 
 export const SecondaryButton = styled.button`
+  cursor: pointer;
   font-size: 24px;
   font-weight: 600;
   text-decoration: underline;
@@ -44,6 +46,8 @@ export const SecondaryButton = styled.button`
 `;
 
 export const ButtonsLayout = styled.div`
+  position: relative;
+  z-index: 1;
   display: flex;
   gap: ${Spacings.xl};
   flex: 1 1 auto;
@@ -53,6 +57,85 @@ export const ButtonsLayout = styled.div`
 
   @media (max-width: ${ScreenSize.phone}) {
     gap: ${Spacings.md};
+  }
+`;
+
+type FontVariant = 'regular' | 'bold' | 'light';
+const fontVariantToWeight: Record<FontVariant, number> = {
+  bold: 600,
+  light: 200,
+  regular: 500
+};
+
+export const Typography = styled.div<{
+  size: `${number}px`;
+  weight: FontVariant;
+  paddingBottom?: keyof typeof Spacings;
+}>`
+  ${({ size, weight }) => css`
+    font-size: ${size};
+    font-weight: ${fontVariantToWeight[weight]};
+  `};
+
+  ${({ paddingBottom }) =>
+    paddingBottom &&
+    css`
+      padding-bottom: ${Spacings[paddingBottom]};
+    `};
+`;
+
+export const MobileInfoSectionWrapper = styled.div`
+  position: relative;
+  z-index: 1;
+`;
+
+export const MobileBasicInfoSection = styled.div<{ background: string[]; zIndex?: number }>`
+  position: relative;
+  ${({ zIndex }) =>
+    zIndex &&
+    css`
+      z-index: ${zIndex};
+    `};
+
+  padding: ${Spacings.lg};
+  background: #d7c9c0;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    ${({ background }) => getBackgroundCssWithFallback(background)};
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20%;
+    opacity: 0.3;
+  }
+`;
+
+export const MobileLocationButtonWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  transform: translate(10%, -50%);
+`;
+
+export const MobilePicture = styled.picture`
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: top;
+  z-index: 0;
+
+  > img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: top;
   }
 `;
 
@@ -66,6 +149,16 @@ export const Picture = styled.picture<{ clipped?: boolean }>`
   max-height: 100%;
   object-fit: cover;
   object-position: top;
+
+  > img {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
   ${({ clipped }) =>
     clipped &&
     css`

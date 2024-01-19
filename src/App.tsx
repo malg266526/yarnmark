@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 import emailImageUrl from './assets/iconify/email.svg';
@@ -9,10 +9,9 @@ import { Icon } from './components/Icon';
 import { MinimalistLayout } from './components/MinimalistLayout';
 import { RowLayout } from './components/RowLayout';
 
-import { Curtain, Root, Footer, RightBackgroundImage, TransparentText } from './App.styled';
+import { Root, Footer, RightBackgroundImage, TransparentText } from './App.styled';
 import { InfoForVendorsPage } from './pages/InfoForVendorsPage';
 import { MainPage } from './pages/MainPage';
-import { usePhone } from './pages/usePhone';
 import { useTypedTranslation } from './translations/useTypedTranslation';
 
 const GlobalStyle = createGlobalStyle`
@@ -28,8 +27,6 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export const App = () => {
-  const isPhone = usePhone();
-  const [burgerActive, setBurgerActive] = useState(false);
   const t = useTypedTranslation();
 
   return (
@@ -37,8 +34,6 @@ export const App = () => {
       <GlobalStyle />
 
       <Root id="root">
-        {isPhone && <Curtain onClick={() => setBurgerActive(false)} className={burgerActive ? 'active' : undefined} />}
-
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<MainPage />} />

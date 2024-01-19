@@ -56,6 +56,10 @@ const Root = styled.div<RootProps>`
   ${boxShadow};
   ${animationFrames};
 
+  @media (max-width: ${ScreenSize.phone}) {
+    overflow: hidden;
+  }
+
   &:before {
     content: '';
     position: absolute;
@@ -162,3 +166,9 @@ export const NiceBox = ({ children, overflowLength = '30%', overflowSize = '3px'
     <Frame {...rest}>{children}</Frame>
   </Root>
 );
+
+export const WrappedNiceBox = (props: NiceBoxProps) => {
+  <div>
+    <NiceBox {...props} />
+  </div>;
+};
