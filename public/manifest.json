@@ -1,0 +1,16 @@
+{
+  "name": "Yarnmark",
+  "short_name": "Yarnmark",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "Krakowskie Targi Wełny 2024",
+  "icons": [
+    {
+      "src": "./favicon.ico",
+      "sizes": "48x48",
+      "type": "image/ico"
+    }
+  ],
+  "related_applications": []
+}
