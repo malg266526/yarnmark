@@ -1,9 +1,8 @@
 import styled, { css, RuleSet } from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { Theme } from '../styles/theme';
-import React, { ForwardedRef, forwardRef } from 'react';
+import React, { ForwardedRef, forwardRef, ReactNode } from 'react';
 import { ScreenSize } from '../styles/screeen-size';
-import { getBackgroundCssWithFallback } from '../styles/getBackgroundCssWithFallback';
 
 export type BandProps = InnerWrapperProps &
   BandLayoutProps & {
@@ -17,8 +16,7 @@ export type BandProps = InnerWrapperProps &
     | { variant?: 'default' }
     | {
         variant: 'background-image';
-        src: string[];
-        alt: string;
+        background: ReactNode;
       }
     | {
         variant: 'background';
@@ -188,16 +186,6 @@ const BandRoot = styled.div<BandProps>`
   justify-content: center;
 
   ${(props) =>
-    props.variant &&
-    props.variant === 'background-image' &&
-    css`
-      ${getBackgroundCssWithFallback(props.src)}
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-    `}
-
-  ${(props) =>
     props.variant === 'background' &&
     css`
       background: ${props.color};
@@ -215,10 +203,27 @@ const TitleWrapper = styled.div`
   z-index: 2;
 `;
 
+const Picture = styled.picture`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  > img {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+  }
+`;
+
 export const Band = Object.assign(
   // eslint-disable-next-line react/display-name
   forwardRef(({ children, title, narrowContent, ...props }: BandProps, ref: ForwardedRef<HTMLDivElement>) => (
     <BandRoot ref={ref} {...props}>
+      {props.variant === 'background-image' && props.background}
+
       <InnerWrapper narrowContent={narrowContent}>
         <TitleWrapper>{title}</TitleWrapper>
         <BandLayout {...props}>{children}</BandLayout>
@@ -226,7 +231,8 @@ export const Band = Object.assign(
     </BandRoot>
   )),
   {
-    Slot
+    Slot,
+    Picture
   }
 );
 

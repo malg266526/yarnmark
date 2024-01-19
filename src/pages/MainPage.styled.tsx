@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 import { Icon } from '../components/Icon';
 import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
-import { getBackgroundCssWithFallback } from '../styles/getBackgroundCssWithFallback';
 
 export const Text = styled.p<{ marginBottom?: keyof typeof Spacings; align?: 'center' | 'justify' }>`
   margin-top: ${Spacings.md};
@@ -89,7 +88,7 @@ export const MobileInfoSectionWrapper = styled.div`
   z-index: 1;
 `;
 
-export const MobileBasicInfoSection = styled.div<{ background: string[]; zIndex?: number }>`
+export const MobileBasicInfoSection = styled.div<{ backgroundUrl: string; zIndex?: number }>`
   position: relative;
   ${({ zIndex }) =>
     zIndex &&
@@ -107,7 +106,7 @@ export const MobileBasicInfoSection = styled.div<{ background: string[]; zIndex?
     top: 0;
     width: 100%;
     height: 100%;
-    ${({ background }) => getBackgroundCssWithFallback(background)};
+    background: url(${({ backgroundUrl }) => backgroundUrl});
     background-repeat: no-repeat;
     background-position: center;
     background-size: 20%;

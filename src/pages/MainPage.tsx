@@ -460,7 +460,7 @@ export const MainPage = () => {
       </Band>
 
       {isPhone ? (
-        <MobileBasicInfoSection zIndex={1} background={[knitting2ImageUrl]}>
+        <MobileBasicInfoSection zIndex={1} backgroundUrl={knitting2ImageUrl}>
           {mobileInfoSection}
           {infoSectionButtons}
         </MobileBasicInfoSection>
@@ -484,8 +484,13 @@ export const MainPage = () => {
           size="xl"
           padding="sm"
           variant="background-image"
-          src={[halaJpgImageSrc, halaJfifImageSrc, halaAvifImageSrc]}
-          alt="cracovia_hall_image">
+          background={
+            <Band.Picture>
+              <source srcSet={halaAvifImageSrc} type="image/avif" />
+              <source srcSet={halaJfifImageSrc} type="image/jpeg" />
+              <img src={halaJpgImageSrc} alt="hala cracovii" />
+            </Band.Picture>
+          }>
           <Band.Slot>{eventLocationButton}</Band.Slot>
 
           <Band.Slot>{eventLocationCard}</Band.Slot>
