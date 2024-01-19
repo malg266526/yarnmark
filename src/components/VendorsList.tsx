@@ -16,8 +16,9 @@ import { Spacings } from '../styles/spacings';
 // import RencamiLogoUrl from './../assets/images/rencami.png';
 // import SamaSeUszyjLogoUrl from './../assets/images/samaseuszyj.png';
 // import StyloveWloczkiLogoUrl from './../assets/images/stylovewloczki.jpg';
-// import TimeToKnitLogoUrl from './../assets/images/timetoknit.jpg';
 // import WloczkomaniaczkaLogoUrl from './../assets/images/wloczkomaniaczka.png';
+import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.png';
+import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
 import WloczykijkiLogoUrl from './../assets/images/wloczykijki_logo.png';
 // import WoollalaLogoUrl from './../assets/images/woollala.jpg';
 // import WoolloopLogoUrl from './../assets/images/woolloop.png';
@@ -25,6 +26,7 @@ import WloczykijkiLogoUrl from './../assets/images/wloczykijki_logo.png';
 //import WooloveLogoUrl from './../assets/images/woolove.png';
 // i port YarnWithLoveLogoUrl from './../assets/images/yarnwithlove.png';
 import { Link } from './Link';
+import { ScreenSize } from '../styles/screeen-size';
 
 export const Grid = styled.div`
   display: flex;
@@ -32,15 +34,27 @@ export const Grid = styled.div`
   align-content: space-around;
   align-items: center;
   justify-content: center;
-  gap: ${Spacings.sm};
+  gap: ${Spacings.lg};
   padding: ${Spacings.md};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    gap: ${Spacings.sm};
+  }
 `;
 
 export const VendorsList = () => {
   return (
     <Grid>
+      <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
+        <img width={100} src={NaSztukiStudioLogoUrl} alt="nasztukistudio" />
+      </Link>
+
+      <Link to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
+        <img width={120} src={TimeToKnitLogoUrl} alt="timetoknit" />
+      </Link>
+
       <Link to="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
-        <img width={160} src={WloczykijkiLogoUrl} alt="wloczykijki" />
+        <img width={180} src={WloczykijkiLogoUrl} alt="wloczykijki" />
       </Link>
 
       {/*  <Link href="https://biferno.pl/" target="_blank" rel="noreferrer">
@@ -75,10 +89,6 @@ export const VendorsList = () => {
         <img width={160} src={WoolniejLogoUrl} alt="woolniej" />
       </Link> */}
 
-      {/* <Link href="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
-        <img width={220} src={TimeToKnitLogoUrl} alt="timetoknit" />
-      </Link> */}
-
       {/*   <Link href="https://yarnwithlove.pl/" target="_blank" rel="noreferrer">
         <img width={140} src={YarnWithLoveLogoUrl} alt="yarnwithlove" />
       </Link> */}
@@ -106,10 +116,6 @@ export const VendorsList = () => {
       {/*       <Link href="https://www.gabowool.pl/" target="_blank" rel="noreferrer">
         <img width={140} src={GaboWoolLogoUrl} alt="gabowool" />
       </Link> */}
-
-      {/*           <Link href="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
-              <img width={140} src={GaboWoolLogoUrl} alt="nasztukistudio" />
-            </Link> */}
 
       {/*       <Link href="https://7oczek.pl/pl/" target="_blank" rel="noreferrer">
         <img width={140} src={SiedemOczekLogoUrl} alt="7oczek" />
