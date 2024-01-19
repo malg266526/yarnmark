@@ -99,7 +99,7 @@ export const pl = {
       marketing: {
         title: 'Marketing',
         sendLogos:
-          'Zachęcamy do przesłania swojego na logo na adres email <strong>strona.dziergamynapolu@gmail.com</strong>, umieścimy jew zakładce "Wystawcy" i w ten sposób poinformujemy dziewiarki i dziewiarzy, że z nami będziecie'
+          'Zachęcamy do przesłania swojego na logo na adres email <strong>krakoski.yarnmark.welny@gmail.com</strong>, umieścimy je w zakładce "Wystawcy" i w ten sposób poinformujemy dziewiarki i dziewiarzy, że z nami będziecie'
       },
       stands: {
         title: 'Stoiska'
