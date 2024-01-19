@@ -31,7 +31,7 @@ function shouldForwardProp(propName: string, target: unknown) {
 }
 
 root.render(
-  <StyleSheetManager disableCSSOMInjection shouldForwardProp={shouldForwardProp}>
+  <StyleSheetManager shouldForwardProp={shouldForwardProp}>
     <I18nextProvider i18n={i18next}>
       <BrowserRouter basename="/">
         <App />
