@@ -107,6 +107,8 @@ export const HallWrapper = styled.div`
   }
 `;
 
+const TEMPLATE = 'dziergamy';
+
 export const InfoForVendorsPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
@@ -120,14 +122,11 @@ export const InfoForVendorsPage = () => {
   const [password, setPassword] = useState<string>('');
   const [shouldShowError, setShouldShowError] = useState(false);
 
-  const template = 'dziergamy';
-
   const validateAndGo = () => {
     setShouldShowError(false);
-    const validOne = template.split('').reverse().join('').replace('a', '@').replace('e', 'E');
+    const validOne = TEMPLATE.split('').reverse().join('').replace('a', '@').replace('e', 'E');
 
     const isPasswordValid = password === validOne;
-    console.log('isPasswordValid', isPasswordValid);
 
     if (isPasswordValid) {
       window.open('https://wloczykijki.pl/', '_blank');
