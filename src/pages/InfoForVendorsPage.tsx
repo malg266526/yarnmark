@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import styled from 'styled-components';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
@@ -119,10 +119,10 @@ export const InfoForVendorsPage = () => {
   const standsBandRef = useRef<HTMLDivElement | null>(null);
 
   const [showPasswordInput, setShowPasswordInput] = useState(false);
-  const [password, setPassword] = useState<string>('');
+  const [password, setPassword] = useState('');
   const [shouldShowError, setShouldShowError] = useState(false);
 
-  const validateAndGo = () => {
+  const validateAndGo = useCallback(() => {
     setShouldShowError(false);
     const validOne = TEMPLATE.split('').reverse().join('').replace('a', '@').replace('e', 'E');
 
@@ -133,7 +133,7 @@ export const InfoForVendorsPage = () => {
     } else {
       setShouldShowError(true);
     }
-  };
+  }, [password]);
 
   return (
     <PageContent variant="wide" padding="none">
