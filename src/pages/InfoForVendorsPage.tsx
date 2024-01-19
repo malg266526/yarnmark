@@ -21,6 +21,7 @@ import { SideBar } from '../components/SideBar';
 import { Icon as IconifyIcon } from '@iconify/react';
 import { ScreenSize } from '../styles/screeen-size';
 import { Trans } from 'react-i18next';
+import { Curtain } from '../components/Curtain';
 
 export const FlexLayout = styled.div`
   display: flex;
@@ -94,6 +95,8 @@ export const InfoForVendorsPage = () => {
 
   return (
     <PageContent variant="wide" padding="none">
+      {isPhone && <Curtain onClick={() => setBurgerActive(false)} active={burgerActive} />}
+
       {isPhone && (
         <>
           <Header>

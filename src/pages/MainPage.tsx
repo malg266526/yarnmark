@@ -70,6 +70,7 @@ import {
   // TextWrapper
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
+import { Curtain } from '../components/Curtain';
 
 // type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
@@ -340,6 +341,7 @@ export const MainPage = () => {
 
   return (
     <PageContent ref={pageContentRef} variant="wide" padding="none">
+      {isPhone && <Curtain onClick={() => setBurgerActive(false)} active={burgerActive} />}
       {isPhone && (
         <>
           <Header>
