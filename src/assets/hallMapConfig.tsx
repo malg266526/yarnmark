@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { HallColors } from '../styles/theme';
 import WloczykijkiLogoUrl from './../assets/images/but.png';
 
-export type HallStand = {
+export type HallStandType = {
   width: number;
   height?: number;
 
@@ -15,20 +15,20 @@ export type HallStand = {
   who?: string;
 };
 
-type HallLine = {
+type HallLineType = {
   width?: number;
   height?: number;
 
-  stands: HallStand[];
+  stands: HallStandType[];
 };
 
-type HallMap = {
-  topRows: HallLine[];
-  middleColumns: HallLine[];
-  bottomRows: HallLine[];
+type HallMapType = {
+  topRows: HallLineType[];
+  middleColumns: HallLineType[];
+  bottomRows: HallLineType[];
 };
 
-export const hallMapConfig: HallMap = {
+export const hallMapConfig: HallMapType = {
   topRows: [
     {
       height: 5,
@@ -266,7 +266,7 @@ export const hallMapConfig: HallMap = {
           index: 'P4',
           logoSrc: WloczykijkiLogoUrl,
           taken: true,
-          who: 'Wloczykijki'
+          who: 'Wlóczykijki'
         },
         {
           width: 4,
