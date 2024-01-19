@@ -1,6 +1,6 @@
 import * as esbuild from 'esbuild';
 import fs from 'fs';
-import { config } from './esbuild.config.mjs';
+import { appConfig } from './esbuild.config.mjs';
 import argv from 'argv';
 
 const args = argv
@@ -13,8 +13,8 @@ const args = argv
   .run(process.argv).options;
 
 const metafileData = await esbuild.build({
-  ...config,
-  minify: true
+  ...appConfig,
+  minify: true,
 });
 
 if (args.metafile) {
