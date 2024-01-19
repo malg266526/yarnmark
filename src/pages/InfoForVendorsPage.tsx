@@ -95,39 +95,40 @@ export const InfoForVendorsPage = () => {
   return (
     <PageContent variant="wide" padding="none">
       {isPhone && (
-        <Header>
-          <>
-            <SideBar roundedCorners="left" active={burgerActive}>
-              <SideBar.LinkEntry
-                to="/"
-                onClick={() => {
-                  closeSideBar();
-                }}>
-                <IconifyIcon icon="game-icons:wool" width="24" />
-                Yarnmark
-              </SideBar.LinkEntry>
-
-              <SideBar.LinkEntry
-                to="#stands"
-                onClick={() => {
-                  closeSideBar();
-                }}>
-                <IconifyIcon icon="bi:shop" width="24" />
-                {t('menu.stands')}
-              </SideBar.LinkEntry>
-
-              <SideBar.LinkEntry
-                to="#footer"
-                onClick={() => {
-                  closeSideBar();
-                }}>
-                <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
-                {t('menu.contact')}
-              </SideBar.LinkEntry>
-            </SideBar>
+        <>
+          <Header>
             <BurgerMenu onClick={() => setBurgerActive((prevValue) => !prevValue)} active={burgerActive} />
-          </>
-        </Header>
+          </Header>
+
+          <SideBar roundedCorners="left" active={burgerActive}>
+            <SideBar.LinkEntry
+              to="/"
+              onClick={() => {
+                closeSideBar();
+              }}>
+              <IconifyIcon icon="game-icons:wool" width="24" />
+              Yarnmark
+            </SideBar.LinkEntry>
+
+            <SideBar.LinkEntry
+              to="#stands"
+              onClick={() => {
+                closeSideBar();
+              }}>
+              <IconifyIcon icon="bi:shop" width="24" />
+              {t('menu.stands')}
+            </SideBar.LinkEntry>
+
+            <SideBar.LinkEntry
+              to="#footer"
+              onClick={() => {
+                closeSideBar();
+              }}>
+              <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
+              {t('menu.contact')}
+            </SideBar.LinkEntry>
+          </SideBar>
+        </>
       )}
 
       {!isPhone && (

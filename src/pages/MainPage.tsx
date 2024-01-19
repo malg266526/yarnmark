@@ -21,7 +21,6 @@ import pinImageUrl from '../assets/images/pin.svg';
 import halaAvifImageSrc from '../assets/images/hala.avif';
 import halaJfifImageSrc from '../assets/images/hala.jfif';
 import halaJpgImageSrc from '../assets/images/hala_quality.jpg';
-import halaImageSrc from '../assets/images/hala_quality.jpg';
 // import wawelImageSrc from '../assets/wawel.jpg';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
@@ -164,7 +163,7 @@ export const MainPage = () => {
 
   // const activeButtonToImage = getActiveButtonToImage(t);
 
-  const observerCallback = useCallback(() => { }, []);
+  const observerCallback = useCallback(() => {}, []);
 
   useRootIntersectionObserver({
     rootRef: pageContentRef,
@@ -188,51 +187,52 @@ export const MainPage = () => {
     )
   }; */
 
-  const eventLocationCard = useMemo(() => (
-    <NiceBox width="500px" padding="lg">
-      <TextWrapper align="center">
-        <Title>Gdzie?</Title>
-      </TextWrapper>
-      <Text>Aleja Marszałka Ferdynanda Focha 40</Text>
-      <Text>{t('spotBand.neighbourhood1')}</Text>
-      <Text>{t('spotBand.neighbourhood2')}</Text>
+  const eventLocationCard = useMemo(
+    () => (
+      <NiceBox width="500px" padding="lg">
+        <TextWrapper align="center">
+          <Title>Gdzie?</Title>
+        </TextWrapper>
+        <Text>Aleja Marszałka Ferdynanda Focha 40</Text>
+        <Text>{t('spotBand.neighbourhood1')}</Text>
+        <Text>{t('spotBand.neighbourhood2')}</Text>
 
-      {!isSpotOpened && (
-        <SecondaryButton onClick={() => setIsSpotOpened(true)}>{t('spotBand.howToGetToUs')}</SecondaryButton>
-      )}
+        {!isSpotOpened && (
+          <SecondaryButton onClick={() => setIsSpotOpened(true)}>{t('spotBand.howToGetToUs')}</SecondaryButton>
+        )}
 
-      {isSpotOpened && (
-        <>
-          <TextWrapper align="center" marginTop="md">
-            <SubTitle>{t('spotBand.howToGetToUs')}</SubTitle>
-          </TextWrapper>
-          <Text>{t('spotBand.publicTransport')}</Text>
-          <Text>{t('spotBand.list')}</Text>
-          <Text>
-            <Trans i18nKey="spotBand.option1" />
-          </Text>
-          <Text>
-            <Trans i18nKey="spotBand.option2" />
-          </Text>
-          <Text>
-            <Trans i18nKey="spotBand.option3" />
-          </Text>
-          <Text>
-            <Trans i18nKey="spotBand.option4" />
-          </Text>
+        {isSpotOpened && (
+          <>
+            <TextWrapper align="center" marginTop="md">
+              <SubTitle>{t('spotBand.howToGetToUs')}</SubTitle>
+            </TextWrapper>
+            <Text>{t('spotBand.publicTransport')}</Text>
+            <Text>{t('spotBand.list')}</Text>
+            <Text>
+              <Trans i18nKey="spotBand.option1" />
+            </Text>
+            <Text>
+              <Trans i18nKey="spotBand.option2" />
+            </Text>
+            <Text>
+              <Trans i18nKey="spotBand.option3" />
+            </Text>
+            <Text>
+              <Trans i18nKey="spotBand.option4" />
+            </Text>
 
-          <TextWrapper align="center" marginTop="md">
-            <SubTitle>{t('spotBand.accessibleByCar')}</SubTitle>
-          </TextWrapper>
-          <Text>{t('spotBand.byCar')}</Text>
+            <TextWrapper align="center" marginTop="md">
+              <SubTitle>{t('spotBand.accessibleByCar')}</SubTitle>
+            </TextWrapper>
+            <Text>{t('spotBand.byCar')}</Text>
 
-          <p>
-            fot: <a href="https://halacracovii.pl/">https://halacracovii.pl/</a>{' '}
-          </p>
-        </>
-      )}
-    </NiceBox>
-  ),
+            <p>
+              fot: <a href="https://halacracovii.pl/">https://halacracovii.pl/</a>{' '}
+            </p>
+          </>
+        )}
+      </NiceBox>
+    ),
     [isSpotOpened, setIsSpotOpened, t]
   );
 
@@ -285,7 +285,7 @@ export const MainPage = () => {
       /> */}
       </ButtonsLayout>
     ),
-    [isPhone, t]
+    [t]
   );
 
   const pcInfoSection = useMemo(

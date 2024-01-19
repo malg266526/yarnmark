@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
-import { HashLink } from 'react-router-hash-link';
+import { HashLink, HashLinkProps } from 'react-router-hash-link';
 
 const Link = styled(HashLink)`
   text-decoration: none;
@@ -25,24 +25,22 @@ const Link = styled(HashLink)`
   }
 `;
 
+const EXTERNAL_TARGET = '_blank';
 const SCROLL_URL = '#';
 
-export interface LinkEntryProps {
-  children: ReactNode;
-  to: string;
+export interface LinkEntryProps extends HashLinkProps {
   onClick?: React.MouseEventHandler;
 }
 
-const LinkEntry = ({ to, onClick, ...rest }: LinkEntryProps) => {
+const LinkEntry = ({ to, onClick, target, ...rest }: LinkEntryProps) => {
   const navigate = useNavigate();
 
   return (
     <Link
       to={to}
       onClick={(event: React.MouseEvent) => {
-        event.preventDefault();
-
-        if (to && !to.toString().includes(SCROLL_URL)) {
+        if (target !== EXTERNAL_TARGET && to && !to.toString().includes(SCROLL_URL)) {
+          event.preventDefault();
           navigate(to);
         }
 
