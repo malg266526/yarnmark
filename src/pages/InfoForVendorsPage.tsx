@@ -40,6 +40,7 @@ export const PasswordInput = styled.input`
   width: 300px;
   margin-top: ${Spacings.xs};
   margin-right: ${Spacings.md};
+  font-size: 20px;
 `;
 
 export const Span = styled.div`
@@ -261,6 +262,7 @@ export const InfoForVendorsPage = () => {
                   name="vendorPassword"
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
+                  type="password"
                 />
                 <TransparentButton onClick={validateAndGo}>
                   <TextUnderlined>Go!</TextUnderlined>
