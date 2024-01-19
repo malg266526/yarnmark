@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Spacings } from '../styles/spacings';
+import { Link } from './Link';
+import { ScreenSize } from '../styles/screeen-size';
+
 // import SiedemOczekLogoUrl from './../assets/images/7oczek.svg';
 // import AnimotkiLogoUrl from './../assets/images/animotki.png';
 // import BifernoLogoUrl from './../assets/images/biferno.png';
@@ -17,16 +20,15 @@ import { Spacings } from '../styles/spacings';
 // import SamaSeUszyjLogoUrl from './../assets/images/samaseuszyj.png';
 // import StyloveWloczkiLogoUrl from './../assets/images/stylovewloczki.jpg';
 // import WloczkomaniaczkaLogoUrl from './../assets/images/wloczkomaniaczka.png';
-import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.png';
-import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
-import WloczykijkiLogoUrl from './../assets/images/wloczykijki_logo.png';
+// import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.png';
+// import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
 // import WoollalaLogoUrl from './../assets/images/woollala.jpg';
 // import WoolloopLogoUrl from './../assets/images/woolloop.png';
 // import WoolniejLogoUrl from './../assets/images/woolniej.png';
 //import WooloveLogoUrl from './../assets/images/woolove.png';
 // i port YarnWithLoveLogoUrl from './../assets/images/yarnwithlove.png';
-import { Link } from './Link';
-import { ScreenSize } from '../styles/screeen-size';
+
+import WloczykijkiLogoUrl from './../assets/images/wloczykijki_logo.png';
 
 export const Grid = styled.div`
   display: flex;
@@ -45,13 +47,13 @@ export const Grid = styled.div`
 export const VendorsList = () => {
   return (
     <Grid>
-      <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
+      {/* <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
         <img width={100} src={NaSztukiStudioLogoUrl} alt="nasztukistudio" />
-      </Link>
+      </Link> */}
 
-      <Link to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
+      {/*  <Link to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
         <img width={120} src={TimeToKnitLogoUrl} alt="timetoknit" />
-      </Link>
+      </Link> */}
 
       <Link to="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
         <img width={180} src={WloczykijkiLogoUrl} alt="wloczykijki" />
