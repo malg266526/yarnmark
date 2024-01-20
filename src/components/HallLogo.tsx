@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { HallColors } from '../styles/theme';
 
 const LogoWrapper = styled.div<{ color?: keyof typeof HallColors }>`
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
 `;
 
 export const Image = styled.img`
