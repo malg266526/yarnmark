@@ -207,7 +207,10 @@ export const InfoForVendorsPage = () => {
         <PlainInfo>
           <Text>{t('infoForVendorsPage.registration.start')}</Text>
           <Text>{t('infoForVendorsPage.registration.where')}</Text>
-          <a href="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
+          <a
+            href="https://wloczykijki.pl/pl_PL/c/Krakoski-Yarnmark-Welny/355?preview=true"
+            target="_blank"
+            rel="noreferrer">
             {t('infoForVendorsPage.registration.buyHere')}
           </a>
           <Text>{t('infoForVendorsPage.registration.feedback')}</Text>

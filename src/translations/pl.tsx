@@ -108,7 +108,7 @@ export const pl = {
         title: 'Zapisy',
         start: 'Możliwość zakupu stoiska startuje w poniedziałek 22.01.2024r. o godz. 12:00.',
         where: 'Rezerwacja stoiska odbywa się poprzez zakup miejsca w sklepie online Włóczykijki.',
-        buyHere: 'Tutaj wykupisz stoisko',
+        buyHere: 'Tutaj wykupisz stoisko (produkty pojawią sie w poniedziałek o 12:00)',
         feedback:
           'Wszystkie dane dotyczące płatności będą zawarte w informacji zwrotnej, potwierdzającej rezerwację stoiska.',
         return:
