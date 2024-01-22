@@ -190,6 +190,7 @@ export const InfoForVendorsPage = () => {
           <Text>{t('infoForVendorsPage.hallInfo.tables')}</Text>
           <Text>{t('infoForVendorsPage.hallInfo.extensionCords')}</Text>
           <Text>{t('infoForVendorsPage.hallInfo.socialRoom')}</Text>
+          <Text>{t('infoForVendorsPage.hallInfo.glassWall')}</Text>
         </PlainInfo>
       </Band>
 
