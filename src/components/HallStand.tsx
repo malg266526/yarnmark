@@ -41,7 +41,7 @@ const HallStandOverlay = styled.div`
   bottom: 0;
   left: 0;
   background-color: #ddd;
-  opacity: 0.3;
+  opacity: 0.2;
   z-index: 9999999;
 `;
 

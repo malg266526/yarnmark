@@ -1,13 +1,11 @@
 import { config } from './esbuild.config.mjs';
-import { createServer } from 'esbuild-server'
+import { createServer } from 'esbuild-server';
 
-createServer(config,
-  {
-    port: 8090,
-    open: true,
-    injectLiveReload: true,
-    static: 'dist',
-    historyApiFallback: true,
-    sourcemap: 'inline'
-  }
-).start();
+createServer(config, {
+  port: 8090,
+  open: true,
+  injectLiveReload: true,
+  static: 'dist',
+  historyApiFallback: true,
+  sourcemap: 'inline'
+}).start();

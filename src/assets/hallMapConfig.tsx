@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { HallColors } from '../styles/theme';
 import WloczykijkiLogoUrl from './../assets/images/but.png';
+import WoollalaLogoUrl from './../assets/images/logos/woollala.png';
 
 export type HallStandType = {
   width: number;
@@ -271,14 +272,20 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'normal2',
-          index: 'S16'
+          color: 'taken',
+          index: 'S16',
+          logoSrc: WoollalaLogoUrl,
+          who: 'Woollala',
+          taken: true
         },
         {
           width: 4,
           height: 2.5,
-          color: 'normal1',
-          index: 'S17'
+          color: 'taken',
+          index: 'S17',
+          logoSrc: WoollalaLogoUrl,
+          who: 'Woollala',
+          taken: true
         },
         {
           width: 4,
