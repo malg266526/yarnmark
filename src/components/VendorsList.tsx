@@ -50,7 +50,7 @@ export const VendorsList = () => {
   return (
     <Grid>
       <Link to="https://www.dyedyedone.com/" target="_blank" rel="noreferrer">
-        <img width={160} src={DyeDyeDoneLogoUrl} alt="dyedyedone" />
+        <img width={140} src={DyeDyeDoneLogoUrl} alt="dyedyedone" />
       </Link>
 
       <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
