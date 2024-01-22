@@ -8,8 +8,10 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-K1CRQVKKLS');
-    gtag('referrer', document.referrer ? document.referrer : 'none')
+    gtag('config', 'G-K1CRQVKKLS', { cookie_flags: 'SameSite=None;Secure' });
+    gtag('event', 'referrer', {
+      source: document.referrer ? document.referrer : 'none'
+    })
   </script>
 
   <title>Krakoski Yarnmark Wełny</title>
