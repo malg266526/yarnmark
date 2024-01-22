@@ -20,7 +20,7 @@ import { ScreenSize } from '../styles/screeen-size';
 // import SamaSeUszyjLogoUrl from './../assets/images/samaseuszyj.png';
 // import StyloveWloczkiLogoUrl from './../assets/images/stylovewloczki.jpg';
 // import WloczkomaniaczkaLogoUrl from './../assets/images/wloczkomaniaczka.png';
-// import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.png';
+import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.png';
 // import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
 // import WoollalaLogoUrl from './../assets/images/woollala.jpg';
 // import WoolloopLogoUrl from './../assets/images/woolloop.png';
@@ -48,9 +48,9 @@ export const Grid = styled.div`
 export const VendorsList = () => {
   return (
     <Grid>
-      {/* <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
+      <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
         <img width={100} src={NaSztukiStudioLogoUrl} alt="nasztukistudio" />
-      </Link> */}
+      </Link>
 
       {/*  <Link to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
         <img width={120} src={TimeToKnitLogoUrl} alt="timetoknit" />
