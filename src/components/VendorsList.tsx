@@ -21,7 +21,7 @@ import { ScreenSize } from '../styles/screeen-size';
 // import StyloveWloczkiLogoUrl from './../assets/images/stylovewloczki.jpg';
 // import WloczkomaniaczkaLogoUrl from './../assets/images/wloczkomaniaczka.png';
 import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.png';
-// import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
+import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
 // import WoollalaLogoUrl from './../assets/images/woollala.jpg';
 // import WoolloopLogoUrl from './../assets/images/woolloop.png';
 // import WoolniejLogoUrl from './../assets/images/woolniej.png';
@@ -52,9 +52,9 @@ export const VendorsList = () => {
         <img width={100} src={NaSztukiStudioLogoUrl} alt="nasztukistudio" />
       </Link>
 
-      {/*  <Link to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
+      <Link to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
         <img width={120} src={TimeToKnitLogoUrl} alt="timetoknit" />
-      </Link> */}
+      </Link>
 
       <Link to="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
         <img width={180} src={WloczykijkiLogoUrl} alt="wloczykijki" />
