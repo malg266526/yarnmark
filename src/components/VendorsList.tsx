@@ -60,18 +60,23 @@ export const VendorsList = () => {
       <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
         <img width={100} src={NaSztukiStudioLogoUrl} alt="nasztukistudio" />
       </Link>
+
       <Link to="https://strikke.pl/" target="_blank" rel="noreferrer">
         <img width={180} src={StrikkeLogoUrl} alt="Strikke" />
       </Link>
+
       <Link to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
         <img width={120} src={TimeToKnitLogoUrl} alt="timetoknit" />
       </Link>
+
       <Link to="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
         <img width={180} src={WloczykijkiLogoUrl} alt="wloczykijki" />
       </Link>
+
       <Link to="https://www.woollala.com" target="_blank" rel="noreferrer">
         <img width={180} src={WoollalaLogoUrl} alt="woollala" />
       </Link>
+
       {/*  <Link href="https://biferno.pl/" target="_blank" rel="noreferrer">
         <img width={140} src={BifernoLogoUrl} alt="biferno" />
       </Link> */}
