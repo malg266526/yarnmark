@@ -7,7 +7,7 @@ import { ScreenSize } from '../styles/screeen-size';
 // import SiedemOczekLogoUrl from './../assets/images/7oczek.svg';
 // import AnimotkiLogoUrl from './../assets/images/animotki.png';
 // import BifernoLogoUrl from './../assets/images/biferno.png';
-// import DyeDyeDoneLogoUrl from './../assets/images/dyedyedone.jpg';
+import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.png';
 // import GaboWoolLogoUrl from './../assets/images/gabowool.png';
 // import HankaLogoUrl from './../assets/images/hankamizrobila.png';
 // import KnitPlLogoUrl from './../assets/images/knitpl.png';
@@ -49,6 +49,10 @@ export const Grid = styled.div`
 export const VendorsList = () => {
   return (
     <Grid>
+      <Link to="https://www.dyedyedone.com/" target="_blank" rel="noreferrer">
+        <img width={140} src={DyeDyeDoneLogoUrl} alt="dyedyedone" />
+      </Link>
+
       <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
         <img width={100} src={NaSztukiStudioLogoUrl} alt="nasztukistudio" />
       </Link>
@@ -103,10 +107,6 @@ export const VendorsList = () => {
 
       {/*   <Link href="https://animotki.pl/" target="_blank" rel="noreferrer">
         <img width={160} src={AnimotkiLogoUrl} alt="animotki" />
-      </Link> */}
-
-      {/*       <Link href="https://www.dyedyedone.com/" target="_blank" rel="noreferrer">
-        <img width={160} src={DyeDyeDoneLogoUrl} alt="dyedyedone" />
       </Link> */}
 
       {/* <Link href="https://hankamizrobila.pl/" target="_blank" rel="noreferrer">

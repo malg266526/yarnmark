@@ -90,7 +90,9 @@ export const pl = {
           'Stoisko premium posiada 2 krzesła oraz 3 stoły 160x80cm. Stoisko standard posiada 2 krzesła oraz 2 stoły 140x70cm, a stoisko Mini 2 krzesła oraz 1 stół 140x70cm',
         extensionCords: 'W skład stoiska NIE wchodzą przedłużacze, prosimy o posiadanie własnych.',
         socialRoom:
-          'Wystawcy będą mieli do dyspozycji pomieszczenie socjalne, gdzie będzie można napić się kawy i herbaty oraz osobną toaletę.'
+          'Wystawcy będą mieli do dyspozycji pomieszczenie socjalne, gdzie będzie można napić się kawy i herbaty oraz osobną toaletę.',
+        glassWall:
+          'Ściana za stoiskami P2-P3 składa się z okien na całą wysokość hali, będzie nam wpadać stamtąd fantastyczne światło'
       },
       parking: {
         title: 'Parking',
