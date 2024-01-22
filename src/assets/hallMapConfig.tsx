@@ -8,6 +8,7 @@ import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.png';
 import KnitPlLogoUrl from './../assets/images/logos/knitpl.jpg';
 import KokonkiLogoUrl from './../assets/images/logos/kokonki.png';
 import TheKnittingBoxLogoUrl from './../assets/images/logos/theknittingbox.png';
+import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
 
 export type HallStandType = {
   width: number;
@@ -177,7 +178,8 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'S12',
           taken: true,
-          who: 'TimeToKnit'
+          who: 'TimeToKnit',
+          logoSrc: TimeToKnitLogoUrl
         },
         {
           width: 4,
