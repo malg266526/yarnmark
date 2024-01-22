@@ -243,7 +243,7 @@ export const hallMapConfig: HallMapType = {
           height: 2,
           color: 'taken2',
           index: 'M2',
-          who: 'Paciorkowce',
+          who: 'PaciorkowceIWisielce',
           taken: true
         },
         {
