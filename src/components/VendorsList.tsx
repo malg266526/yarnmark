@@ -21,6 +21,7 @@ import { ScreenSize } from '../styles/screeen-size';
 // import StyloveWloczkiLogoUrl from './../assets/images/stylovewloczki.jpg';
 // import WloczkomaniaczkaLogoUrl from './../assets/images/wloczkomaniaczka.png';
 import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.png';
+import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
 import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
 // import WoollalaLogoUrl from './../assets/images/woollala.jpg';
 // import WoolloopLogoUrl from './../assets/images/woolloop.png';
@@ -50,6 +51,10 @@ export const VendorsList = () => {
     <Grid>
       <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
         <img width={100} src={NaSztukiStudioLogoUrl} alt="nasztukistudio" />
+      </Link>
+
+      <Link to="https://strikke.pl/" target="_blank" rel="noreferrer">
+        <img width={180} src={StrikkeLogoUrl} alt="Strikke" />
       </Link>
 
       <Link to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">

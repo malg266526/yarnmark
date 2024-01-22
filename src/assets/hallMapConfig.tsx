@@ -3,6 +3,7 @@ import { HallColors } from '../styles/theme';
 import WloczykijkiLogoUrl from './../assets/images/but.png';
 import WoollalaLogoUrl from './../assets/images/logos/woollala.png';
 import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.png';
+import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
 
 export type HallStandType = {
   width: number;
@@ -171,7 +172,8 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'S13',
           taken: true,
-          who: 'Strikke'
+          who: 'Strikke',
+          logoSrc: StrikkeLogoUrl
         },
         {
           width: 4,
