@@ -30,6 +30,7 @@ import TheKnittingBoxLogoUrl from './../assets/images/logos/theknittingbox.png';
 // i port YarnWithLoveLogoUrl from './../assets/images/yarnwithlove.png';
 import WloczykijkiLogoUrl from './../assets/images/wloczykijki_logo.png';
 import WoollalaLogoUrl from './../assets/images/logos/woollala.png';
+import WoolloopLogoUrl from './../assets/images/logos/woolloop.png';
 
 export const Grid = styled.div`
   display: flex;
@@ -84,6 +85,10 @@ export const VendorsList = () => {
         <img width={180} src={WoollalaLogoUrl} alt="woollala" />
       </Link>
 
+      <Link to="https://woolloop.pl" target="_blank" rel="noreferrer">
+        <img width={120} src={WoolloopLogoUrl} alt="woolloop" />
+      </Link>
+
       {/*  <Link href="https://biferno.pl/" target="_blank" rel="noreferrer">
         <img width={140} src={BifernoLogoUrl} alt="biferno" />
       </Link> */}
@@ -99,9 +104,7 @@ export const VendorsList = () => {
       {/*  <Link href="https://miedzydrutami.pl" target="_blank" rel="noreferrer">
         <img width={140} src={MiedzyDrutamiLogoUrl} alt="miedzydrutami" />
       </Link> */}
-      {/* <Link href="https://woolloop.pl" target="_blank" rel="noreferrer">
-        <img width={160} src={WoolloopLogoUrl} alt="woolloop" />
-      </Link> */}
+
       {/*  <Link href="https://www.instagram.com/woolniej.pl" target="_blank" rel="noreferrer">
         <img width={160} src={WoolniejLogoUrl} alt="woolniej" />
       </Link> */}
