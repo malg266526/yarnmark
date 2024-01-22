@@ -90,9 +90,11 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'normal1',
+          color: 'taken',
           index: 'S7',
-          height: 4
+          height: 4,
+          taken: true,
+          who: 'Madobo'
         }
       ]
     },
@@ -157,8 +159,10 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'normal1',
-          index: 'S13'
+          color: 'taken',
+          index: 'S13',
+          taken: true,
+          who: 'Strikke'
         },
         {
           width: 4,
@@ -216,8 +220,10 @@ export const hallMapConfig: HallMapType = {
         {
           width: 3,
           height: 2,
-          color: 'small1',
-          index: 'M3'
+          color: 'taken',
+          index: 'M3',
+          taken: true,
+          who: 'NaSztukiStudio'
         },
         {
           width: 3,
