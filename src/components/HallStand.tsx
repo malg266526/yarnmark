@@ -28,10 +28,12 @@ const TextWrapper = styled.div`
 const StandText = styled.h5`
   font-size: 10px;
   text-align: center;
+  margin: 0;
 `;
 
 const StandIndex = styled.h4`
   text-align: center;
+  margin: 0;
 `;
 
 const HallStandOverlay = styled.div`
@@ -60,6 +62,8 @@ const HallStandLayout = styled.div<{
   multiplier: number;
 }>`
   display: flex;
+  flex-direction: ${({ width, height }) => (width && width > (height || 0) ? 'row' : 'column')};
+
   width: ${({ width, multiplier }) => (width ? `${width * multiplier}px` : 'initial')};
   height: ${({ height, multiplier }) => (height ? `${height * multiplier}px` : 'initial')};
 

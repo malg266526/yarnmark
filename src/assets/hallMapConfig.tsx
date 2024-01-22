@@ -5,6 +5,7 @@ import WoollalaLogoUrl from './../assets/images/logos/woollala.png';
 import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.png';
 import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
 import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.png';
+import KnitPlLogoUrl from './../assets/images/logos/knitpl.jpg';
 
 export type HallStandType = {
   width: number;
@@ -73,9 +74,12 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'normal1',
+          color: 'taken',
           index: 'S3',
-          height: 4
+          height: 4,
+          taken: true,
+          who: 'KnitPl',
+          logoSrc: KnitPlLogoUrl
         },
         {
           width: 2.5,
