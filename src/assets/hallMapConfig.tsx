@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { HallColors } from '../styles/theme';
 import WloczykijkiLogoUrl from './../assets/images/but.png';
 import WoollalaLogoUrl from './../assets/images/logos/woollala.png';
+import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.png';
 
 export type HallStandType = {
   width: number;
@@ -47,15 +48,19 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'normal1',
+          color: 'taken',
           index: 'S1',
-          height: 4
+          height: 4,
+          taken: true,
+          who: 'Biferno'
         },
         {
           width: 2.5,
-          color: 'normal2',
+          color: 'taken',
           index: 'S2',
-          height: 4
+          height: 4,
+          taken: true,
+          who: 'Biferno'
         },
 
         {
@@ -90,9 +95,11 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'normal1',
+          color: 'taken',
           index: 'S7',
-          height: 4
+          height: 4,
+          taken: true,
+          who: 'Madobo'
         }
       ]
     },
@@ -121,8 +128,10 @@ export const hallMapConfig: HallMapType = {
         {
           width: 5,
           height: 3,
-          color: 'premium',
-          index: 'P2'
+          color: 'taken',
+          index: 'P2',
+          who: 'GaboWool',
+          taken: true
         },
         {
           width: 4,
@@ -151,14 +160,18 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'normal2',
-          index: 'S12'
+          color: 'taken',
+          index: 'S12',
+          taken: true,
+          who: 'TimeToKnit'
         },
         {
           width: 4,
           height: 2.5,
-          color: 'normal1',
-          index: 'S13'
+          color: 'taken',
+          index: 'S13',
+          taken: true,
+          who: 'Strikke'
         },
         {
           width: 4,
@@ -216,8 +229,11 @@ export const hallMapConfig: HallMapType = {
         {
           width: 3,
           height: 2,
-          color: 'small1',
-          index: 'M3'
+          color: 'taken',
+          index: 'M3',
+          taken: true,
+          who: 'NaSztukiStudio',
+          logoSrc: NaSztukiStudioLogoUrl
         },
         {
           width: 3,
@@ -290,14 +306,18 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'normal2',
-          index: 'S18'
+          color: 'taken',
+          index: 'S18',
+          who: '7Oczek',
+          taken: true
         },
         {
           width: 4,
           height: 2.5,
-          color: 'normal1',
-          index: 'S19'
+          color: 'taken',
+          index: 'S19',
+          who: '7Oczek',
+          taken: true
         },
         {
           width: 4,
