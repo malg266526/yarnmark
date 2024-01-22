@@ -11,7 +11,7 @@ import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.png';
 // import GaboWoolLogoUrl from './../assets/images/gabowool.png';
 // import HankaLogoUrl from './../assets/images/hankamizrobila.png';
 import KnitPlLogoUrl from './../assets/images/logos/knitpl.jpg';
-// import KokonkiLogoUrl from './../assets/images/kokonki.png';
+import KokonkiLogoUrl from './../assets/images/logos/kokonki.png';
 // import LovieczkaLogoUrl from './../assets/images/lovieczka.png';
 // import MadoboLogoUrl from './../assets/images/madobo.png';
 // import MiedzyDrutamiLogoUrl from './../assets/images/miedzydrutami.png';
@@ -23,12 +23,11 @@ import KnitPlLogoUrl from './../assets/images/logos/knitpl.jpg';
 import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.png';
 import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
 import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
-// import WoollalaLogoUrl from './../assets/images/woollala.jpg';
+import TheKnittingBoxLogoUrl from './../assets/images/logos/theknittingbox.png';
 // import WoolloopLogoUrl from './../assets/images/woolloop.png';
 // import WoolniejLogoUrl from './../assets/images/woolniej.png';
 //import WooloveLogoUrl from './../assets/images/woolove.png';
 // i port YarnWithLoveLogoUrl from './../assets/images/yarnwithlove.png';
-
 import WloczykijkiLogoUrl from './../assets/images/wloczykijki_logo.png';
 import WoollalaLogoUrl from './../assets/images/logos/woollala.png';
 
@@ -57,6 +56,10 @@ export const VendorsList = () => {
         <img width={120} src={KnitPlLogoUrl} alt="knitpl" />
       </Link>
 
+      <Link to="https://kokonki.pl/" target="_blank" rel="noreferrer">
+        <img width={200} src={KokonkiLogoUrl} alt="kokonki" />
+      </Link>
+
       <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
         <img width={100} src={NaSztukiStudioLogoUrl} alt="nasztukistudio" />
       </Link>
@@ -67,6 +70,10 @@ export const VendorsList = () => {
 
       <Link to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
         <img width={120} src={TimeToKnitLogoUrl} alt="timetoknit" />
+      </Link>
+
+      <Link to="https://theknittingbox.pl" target="_blank" rel="noreferrer">
+        <img width={120} src={TheKnittingBoxLogoUrl} alt="theknittingbox" />
       </Link>
 
       <Link to="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
@@ -109,9 +116,6 @@ export const VendorsList = () => {
       </Link> */}
       {/* <Link href="https://stylovewloczki.pl/" target="_blank" rel="noreferrer">
         <img width={140} src={StyloveWloczkiLogoUrl} alt="stylovewloczki" />
-      </Link> */}
-      {/* <Link href="https://kokonki.pl/" target="_blank" rel="noreferrer">
-        <img width={140} src={KokonkiLogoUrl} alt="kokonki" />
       </Link> */}
       {/*       <Link href="https://www.gabowool.pl/" target="_blank" rel="noreferrer">
         <img width={140} src={GaboWoolLogoUrl} alt="gabowool" />

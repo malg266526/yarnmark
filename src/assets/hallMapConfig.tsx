@@ -6,6 +6,8 @@ import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.png';
 import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
 import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.png';
 import KnitPlLogoUrl from './../assets/images/logos/knitpl.jpg';
+import KokonkiLogoUrl from './../assets/images/logos/kokonki.png';
+import TheKnittingBoxLogoUrl from './../assets/images/logos/theknittingbox.png';
 
 export type HallStandType = {
   width: number;
@@ -157,7 +159,8 @@ export const hallMapConfig: HallMapType = {
           color: 'taken2',
           index: 'S10',
           who: 'Kokonki',
-          taken: true
+          taken: true,
+          logoSrc: KokonkiLogoUrl
         },
         {
           width: 4,
@@ -165,7 +168,8 @@ export const hallMapConfig: HallMapType = {
           color: 'taken2',
           index: 'S11',
           who: 'Kokonki',
-          taken: true
+          taken: true,
+          logoSrc: KokonkiLogoUrl
         },
         {
           width: 4,
@@ -257,7 +261,8 @@ export const hallMapConfig: HallMapType = {
           color: 'taken2',
           index: 'M4',
           taken: true,
-          who: 'TheKnittingBox'
+          who: 'TheKnittingBox',
+          logoSrc: TheKnittingBoxLogoUrl
         },
         {
           width: 3,
