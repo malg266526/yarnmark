@@ -4,6 +4,7 @@ import WloczykijkiLogoUrl from './../assets/images/but.png';
 import WoollalaLogoUrl from './../assets/images/logos/woollala.png';
 import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.png';
 import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
+import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.png';
 
 export type HallStandType = {
   width: number;
@@ -169,7 +170,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken',
+          color: 'taken2',
           index: 'S13',
           taken: true,
           who: 'Strikke',
@@ -193,7 +194,8 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'P3',
           taken: true,
-          who: 'DyeDyeDone'
+          who: 'DyeDyeDone',
+          logoSrc: DyeDyeDoneLogoUrl
         }
       ]
     },
@@ -244,7 +246,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 3,
           height: 2,
-          color: 'taken',
+          color: 'taken2',
           index: 'M4',
           taken: true,
           who: 'TheKnittingBox'
@@ -296,7 +298,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken',
+          color: 'taken2',
           index: 'S16',
           logoSrc: WoollalaLogoUrl,
           who: 'Woollala',
@@ -305,7 +307,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken',
+          color: 'taken2',
           index: 'S17',
           logoSrc: WoollalaLogoUrl,
           who: 'Woollala',
