@@ -108,6 +108,8 @@ export const en = {
       },
       registration: {
         title: 'Zapisy',
+        beAVendor:
+          'Jeśli chcesz dołączyć do wspaniałego grona naszych wystawców, napisz do nas! Email kontaktowy: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
         start: 'Możliwość zakupu stoiska startuje w poniedziałek 22.01.2024r. o godz. 12:00',
         where: 'Rezerwacja stoiska odbywa się poprzez zakup miejsca w sklepie online Włóczykijki',
         buyHere: 'Tutaj wykupisz stoisko',

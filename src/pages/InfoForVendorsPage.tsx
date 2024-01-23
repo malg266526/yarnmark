@@ -170,12 +170,40 @@ export const InfoForVendorsPage = () => {
       </Band>
 
       <Band
-        id="hall"
         size="sm"
         variant="background"
         justify={isPhone ? 'center' : 'space-evenly'}
         align="center"
         color={Colors.isabelline}
+        padding="xl">
+        <TitleWrapper>
+          <CenteredTitle>{t('infoForVendorsPage.registration.title')}</CenteredTitle>
+        </TitleWrapper>
+
+        <PlainInfo>
+          <Text>
+            <Trans i18nKey="infoForVendorsPage.registration.beAVendor" />
+          </Text>
+          <Text>{t('infoForVendorsPage.registration.start')}</Text>
+          <Text>{t('infoForVendorsPage.registration.where')}</Text>
+          <a
+            href="https://wloczykijki.pl/pl_PL/c/Krakoski-Yarnmark-Welny/355?preview=true"
+            target="_blank"
+            rel="noreferrer">
+            {t('infoForVendorsPage.registration.buyHere')}
+          </a>
+          <Text>{t('infoForVendorsPage.registration.feedback')}</Text>
+          <Text>{t('infoForVendorsPage.registration.return')}</Text>
+        </PlainInfo>
+      </Band>
+
+      <Band
+        id="hall"
+        size="sm"
+        variant="background"
+        justify={isPhone ? 'center' : 'space-evenly'}
+        align="center"
+        color={Colors.snow}
         padding="xl">
         <TextWrapper>
           <CenteredTitle>Hala</CenteredTitle>
@@ -191,31 +219,6 @@ export const InfoForVendorsPage = () => {
           <Text>{t('infoForVendorsPage.hallInfo.extensionCords')}</Text>
           <Text>{t('infoForVendorsPage.hallInfo.socialRoom')}</Text>
           <Text>{t('infoForVendorsPage.hallInfo.glassWall')}</Text>
-        </PlainInfo>
-      </Band>
-
-      <Band
-        size="sm"
-        variant="background"
-        justify={isPhone ? 'center' : 'space-evenly'}
-        align="center"
-        color={Colors.snow}
-        padding="xl">
-        <TitleWrapper>
-          <CenteredTitle>{t('infoForVendorsPage.registration.title')}</CenteredTitle>
-        </TitleWrapper>
-
-        <PlainInfo>
-          <Text>{t('infoForVendorsPage.registration.start')}</Text>
-          <Text>{t('infoForVendorsPage.registration.where')}</Text>
-          <a
-            href="https://wloczykijki.pl/pl_PL/c/Krakoski-Yarnmark-Welny/355?preview=true"
-            target="_blank"
-            rel="noreferrer">
-            {t('infoForVendorsPage.registration.buyHere')}
-          </a>
-          <Text>{t('infoForVendorsPage.registration.feedback')}</Text>
-          <Text>{t('infoForVendorsPage.registration.return')}</Text>
         </PlainInfo>
       </Band>
 
