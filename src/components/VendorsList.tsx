@@ -4,30 +4,15 @@ import { Spacings } from '../styles/spacings';
 import { Link } from './Link';
 import { ScreenSize } from '../styles/screeen-size';
 
-// import SiedemOczekLogoUrl from './../assets/images/7oczek.svg';
-// import AnimotkiLogoUrl from './../assets/images/animotki.png';
-// import BifernoLogoUrl from './../assets/images/biferno.png';
+import BifernoLogoUrl from './../assets/images/logos/biferno.png';
 import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.png';
-// import GaboWoolLogoUrl from './../assets/images/gabowool.png';
-// import HankaLogoUrl from './../assets/images/hankamizrobila.png';
+import HankaMiZrobilaLogoUrl from './../assets/images/logos/hankamizrobila.jpg';
 import KnitPlLogoUrl from './../assets/images/logos/knitpl.jpg';
 import KokonkiLogoUrl from './../assets/images/logos/kokonki.png';
-// import LovieczkaLogoUrl from './../assets/images/lovieczka.png';
-// import MadoboLogoUrl from './../assets/images/madobo.png';
-// import MiedzyDrutamiLogoUrl from './../assets/images/miedzydrutami.png';
-// import MilaDruciarniaLogoUrl from './../assets/images/miladruciarnia.png';
-// import RencamiLogoUrl from './../assets/images/rencami.png';
-// import SamaSeUszyjLogoUrl from './../assets/images/samaseuszyj.png';
-// import StyloveWloczkiLogoUrl from './../assets/images/stylovewloczki.jpg';
-// import WloczkomaniaczkaLogoUrl from './../assets/images/wloczkomaniaczka.png';
 import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.png';
 import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
 import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
 import TheKnittingBoxLogoUrl from './../assets/images/logos/theknittingbox.png';
-// import WoolloopLogoUrl from './../assets/images/woolloop.png';
-// import WoolniejLogoUrl from './../assets/images/woolniej.png';
-//import WooloveLogoUrl from './../assets/images/woolove.png';
-// i port YarnWithLoveLogoUrl from './../assets/images/yarnwithlove.png';
 import WloczykijkiLogoUrl from './../assets/images/wloczykijki_logo.png';
 import WoollalaLogoUrl from './../assets/images/logos/woollala.png';
 import WoolloopLogoUrl from './../assets/images/logos/woolloop.png';
@@ -49,8 +34,16 @@ export const Grid = styled.div`
 export const VendorsList = () => {
   return (
     <Grid>
+      <Link to="https://biferno.pl/" target="_blank" rel="noreferrer">
+        <img width={140} src={BifernoLogoUrl} alt="biferno" />
+      </Link>
+
       <Link to="https://www.dyedyedone.com/" target="_blank" rel="noreferrer">
         <img width={120} src={DyeDyeDoneLogoUrl} alt="dyedyedone" />
+      </Link>
+
+      <Link to="https://hankamizrobila.pl/" target="_blank" rel="noreferrer">
+        <img width={120} src={HankaMiZrobilaLogoUrl} alt="hankamizrobila" />
       </Link>
 
       <Link to="https://knitpl.com/" target="_blank" rel="noreferrer">
@@ -89,20 +82,12 @@ export const VendorsList = () => {
         <img width={120} src={WoolloopLogoUrl} alt="woolloop" />
       </Link>
 
-      {/*  <Link href="https://biferno.pl/" target="_blank" rel="noreferrer">
-        <img width={140} src={BifernoLogoUrl} alt="biferno" />
-      </Link> */}
       {/*  <Link href="woolove.pl" target="_blank" rel="noreferrer">
         <img width={120} src={WooloveLogoUrl} alt="woolove" />
       </Link> */}
-      {/* <Link href="https://lovieczka.pl/" target="_blank" rel="noreferrer">
-        <img width={100} src={LovieczkaLogoUrl} alt="lovieczka" />
-      </Link> */}
+
       {/* <Link href="https://madobo.pl" target="_blank" rel="noreferrer">
         <img width={140} src={MadoboLogoUrl} alt="madobo" />
-      </Link> */}
-      {/*  <Link href="https://miedzydrutami.pl" target="_blank" rel="noreferrer">
-        <img width={140} src={MiedzyDrutamiLogoUrl} alt="miedzydrutami" />
       </Link> */}
 
       {/*  <Link href="https://www.instagram.com/woolniej.pl" target="_blank" rel="noreferrer">
@@ -114,9 +99,7 @@ export const VendorsList = () => {
       {/*   <Link href="https://animotki.pl/" target="_blank" rel="noreferrer">
         <img width={160} src={AnimotkiLogoUrl} alt="animotki" />
       </Link> */}
-      {/* <Link href="https://hankamizrobila.pl/" target="_blank" rel="noreferrer">
-        <img width={140} src={HankaLogoUrl} alt="hankamizrobila" />
-      </Link> */}
+
       {/* <Link href="https://stylovewloczki.pl/" target="_blank" rel="noreferrer">
         <img width={140} src={StyloveWloczkiLogoUrl} alt="stylovewloczki" />
       </Link> */}
