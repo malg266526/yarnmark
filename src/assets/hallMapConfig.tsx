@@ -10,6 +10,8 @@ import KokonkiLogoUrl from './../assets/images/logos/kokonki.png';
 import TheKnittingBoxLogoUrl from './../assets/images/logos/theknittingbox.png';
 import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
 import WoolloopLogoUrl from './../assets/images/logos/woolloop.png';
+import BifernoLogoUrl from './../assets/images/logos/biferno.png';
+import HankaMiZrobilaLogoUrl from './../assets/images/logos/hankamizrobila.jpg';
 
 export type HallStandType = {
   width: number;
@@ -59,7 +61,8 @@ export const hallMapConfig: HallMapType = {
           index: 'S1',
           height: 4,
           taken: true,
-          who: 'Biferno'
+          who: 'Biferno',
+          logoSrc: BifernoLogoUrl
         },
         {
           width: 2.5,
@@ -67,7 +70,8 @@ export const hallMapConfig: HallMapType = {
           index: 'S2',
           height: 4,
           taken: true,
-          who: 'Biferno'
+          who: 'Biferno',
+          logoSrc: BifernoLogoUrl
         },
 
         {
@@ -286,7 +290,8 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'M6',
           taken: true,
-          who: 'HankaMiZrobiła'
+          who: 'HankaMiZrobiła',
+          logoSrc: HankaMiZrobilaLogoUrl
         },
         {
           width: 4,
