@@ -36,6 +36,6 @@ export const HallColors = {
   small1: '#d8e1e8',
   small2: '#b2cbde',
   taken: Colors.pinball,
-  taken2: '#D8D8D8',
+  taken2: '#D9D9D9',
   empty: '#e8f4ea' //
 };
