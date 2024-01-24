@@ -151,19 +151,23 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'normal2',
-          index: 'S8'
-        },
-        {
-          width: 4,
-          height: 2.5,
-          color: 'normal1',
-          index: 'S9'
+          color: 'taken2',
+          index: 'S8',
+          who: 'Pimotki',
+          taken: true
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken2',
+          index: 'S9',
+          who: 'Pimotki',
+          taken: true
+        },
+        {
+          width: 4,
+          height: 2.5,
+          color: 'taken',
           index: 'S10',
           who: 'Kokonki',
           taken: true,
@@ -172,7 +176,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken2',
+          color: 'taken',
           index: 'S11',
           who: 'Kokonki',
           taken: true,
@@ -181,7 +185,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken',
+          color: 'taken2',
           index: 'S12',
           taken: true,
           who: 'TimeToKnit',
@@ -190,7 +194,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken2',
+          color: 'taken',
           index: 'S13',
           taken: true,
           who: 'Strikke',
