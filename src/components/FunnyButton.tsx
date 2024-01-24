@@ -4,6 +4,7 @@ import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 import { Icon } from './Icon';
 import knittingImageUrl from '../assets/images/skein3.svg';
+import { ScreenSize } from '../styles/screeen-size';
 
 const positionTopOffset = 100;
 const translationYOffset = 30;
@@ -75,6 +76,13 @@ const hoverStyles = css`
     z-index: 1;
     transform: scale(1) ${wrapperTranslation};
     opacity: 1;
+
+    @media (max-width: ${ScreenSize.phone}) {
+      z-index: -1;
+      transform: none;
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 `;
 
