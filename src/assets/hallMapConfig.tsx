@@ -431,9 +431,11 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'normal2',
+          color: 'taken',
           height: 4,
-          index: 'S24'
+          index: 'S24',
+          who: 'Mania Chomikuje',
+          taken: true
         },
         {
           width: 2.5,
