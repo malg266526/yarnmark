@@ -9,6 +9,7 @@ import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.png';
 import HankaMiZrobilaLogoUrl from './../assets/images/logos/hankamizrobila.jpg';
 import KnitPlLogoUrl from './../assets/images/logos/knitpl.jpg';
 import KokonkiLogoUrl from './../assets/images/logos/kokonki.png';
+import MissKnitskiLogoUrl from './../assets/images/logos/missknitski.png';
 import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.png';
 import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
 import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
@@ -52,6 +53,10 @@ export const VendorsList = () => {
 
       <Link to="https://kokonki.pl/" target="_blank" rel="noreferrer">
         <img width={200} src={KokonkiLogoUrl} alt="kokonki" />
+      </Link>
+
+      <Link to="https://www.missknitski.com/sklep/" target="_blank" rel="noreferrer">
+        <img width={120} src={MissKnitskiLogoUrl} alt="missknitski" />
       </Link>
 
       <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">

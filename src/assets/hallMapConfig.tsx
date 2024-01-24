@@ -12,6 +12,7 @@ import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
 import WoolloopLogoUrl from './../assets/images/logos/woolloop.png';
 import BifernoLogoUrl from './../assets/images/logos/biferno.png';
 import HankaMiZrobilaLogoUrl from './../assets/images/logos/hankamizrobila.jpg';
+import MissKnitskiLogoUrl from './../assets/images/logos/missknitski.png';
 
 export type HallStandType = {
   width: number;
@@ -359,8 +360,11 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'normal2',
-          index: 'S20'
+          color: 'taken2',
+          index: 'S20',
+          who: 'MissKnitski',
+          taken: true,
+          logoSrc: MissKnitskiLogoUrl
         },
         {
           width: 4,
