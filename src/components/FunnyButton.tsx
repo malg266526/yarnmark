@@ -4,6 +4,7 @@ import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 import { Icon } from './Icon';
 import knittingImageUrl from '../assets/images/skein3.svg';
+import { ScreenSize } from '../styles/screeen-size';
 
 const positionTopOffset = 100;
 const translationYOffset = 30;
@@ -75,16 +76,35 @@ const hoverStyles = css`
     z-index: 1;
     transform: scale(1) ${wrapperTranslation};
     opacity: 1;
+
+    @media (max-width: ${ScreenSize.phone}) {
+      z-index: -1;
+      transform: none;
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 `;
 
 const Root = styled.div<{ active?: boolean }>`
   position: relative;
+  display: flex;
+  justify-content: center;
 
   ${({ active }) => active && hoverStyles};
 
   &:hover {
     ${hoverStyles};
+  }
+`;
+
+const MobileSlot = styled.div`
+  margin-bottom: ${Spacings.xs};
+  display: none;
+  text-align: center;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    display: block;
   }
 `;
 
@@ -97,6 +117,7 @@ const KnittingIconWrapper = styled.div`
 
 export interface FunnyButtonProps {
   icon: React.ReactNode;
+  mobileSlot?: React.ReactNode;
   text?: React.ReactNode;
   onClick?: () => void;
   active?: boolean;
@@ -104,20 +125,24 @@ export interface FunnyButtonProps {
 
 // eslint-disable-next-line react/display-name
 export const FunnyButton = React.forwardRef<HTMLDivElement, FunnyButtonProps>(
-  ({ icon, text, onClick, active }, ref) => (
-    <Root onClick={onClick} active={active} ref={ref}>
-      <IconWrapper2>
-        <IconWrapper>{icon}</IconWrapper>
-      </IconWrapper2>
+  ({ icon, text, onClick, active, mobileSlot }, ref) => (
+    <div>
+      <Root onClick={onClick} active={active} ref={ref}>
+        <IconWrapper2>
+          <IconWrapper>{icon}</IconWrapper>
+        </IconWrapper2>
 
-      {text && (
-        <TextWrapper>
-          <KnittingIconWrapper>
-            <Icon size="xl" src={knittingImageUrl} />
-          </KnittingIconWrapper>
-          {text}
-        </TextWrapper>
-      )}
-    </Root>
+        {text && (
+          <TextWrapper>
+            <KnittingIconWrapper>
+              <Icon size="xl" src={knittingImageUrl} />
+            </KnittingIconWrapper>
+            {text}
+          </TextWrapper>
+        )}
+      </Root>
+
+      <MobileSlot>{mobileSlot}</MobileSlot>
+    </div>
   )
 );
