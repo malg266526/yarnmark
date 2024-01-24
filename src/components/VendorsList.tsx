@@ -24,14 +24,31 @@ import KokonkiLogoUrl from './../assets/images/logos/kokonki.jpg';
 import KokonkiLogoUrlAvif from './../assets/images/logos/kokonki.avif';
 import KokonkiLogoUrlWebp from './../assets/images/logos/kokonki.webp';
 
-import MissKnitskiLogoUrl from './../assets/images/logos/missknitski.png';
-import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.png';
+import MissKnitskiLogoUrl from './../assets/images/logos/missknitski.jpg';
+import MissKnitskiLogoUrlAvif from './../assets/images/logos/missknitski.avif';
+import MissKnitskiLogoUrlWebp from './../assets/images/logos/missknitski.webp';
+
+import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.jpg';
+import NaSztukiStudioLogoUrlAvif from './../assets/images/logos/nasztukistudio.avif';
+import NaSztukiStudioLogoUrlWebp from './../assets/images/logos/nasztukistudio.webp';
+
 import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
+
 import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
+import TimeToKnitLogoUrlAvif from './../assets/images/logos/timetoknit.avif';
+import TimeToKnitLogoUrlWebp from './../assets/images/logos/timetoknit.webp';
+
 import TheKnittingBoxLogoUrl from './../assets/images/logos/theknittingbox.png';
 import WloczykijkiLogoUrl from './../assets/images/wloczykijki_logo.png';
-import WoollalaLogoUrl from './../assets/images/logos/woollala.png';
-import WoolloopLogoUrl from './../assets/images/logos/woolloop.png';
+
+import WoollalaLogoUrl from './../assets/images/logos/woollala.jpg';
+import WoollalaLogoUrlAvif from './../assets/images/logos/woollala.avif';
+import WoollalaLogoUrlWebp from './../assets/images/logos/woollala.webp';
+
+import WoolloopLogoUrl from './../assets/images/logos/woolloop.jpg';
+import WoolloopLogoUrlAvif from './../assets/images/logos/woolloop.avif';
+import WoolloopLogoUrlWebp from './../assets/images/logos/woolloop.webp';
+
 import { MinifiedLogo } from './MinifiedLogo';
 
 export const Grid = styled.div`
@@ -102,28 +119,65 @@ export const VendorsList = () => {
       </Link>
 
       <Link to="https://www.missknitski.com/sklep/" target="_blank" rel="noreferrer">
-        <img width={120} src={MissKnitskiLogoUrl} alt="missknitski" />
+        <MinifiedLogo
+          width={120}
+          alt="missknitski"
+          jpgUrl={MissKnitskiLogoUrl}
+          webpUrl={MissKnitskiLogoUrlWebp}
+          avifUrl={MissKnitskiLogoUrlAvif}
+        />
       </Link>
+
       <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
-        <img width={100} src={NaSztukiStudioLogoUrl} alt="nasztukistudio" />
+        <MinifiedLogo
+          width={100}
+          alt="nasztukistudio"
+          jpgUrl={NaSztukiStudioLogoUrl}
+          webpUrl={NaSztukiStudioLogoUrlWebp}
+          avifUrl={NaSztukiStudioLogoUrlAvif}
+        />
       </Link>
+
       <Link to="https://strikke.pl/" target="_blank" rel="noreferrer">
         <img width={180} src={StrikkeLogoUrl} alt="Strikke" />
       </Link>
+
       <Link to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
-        <img width={120} src={TimeToKnitLogoUrl} alt="timetoknit" />
+        <MinifiedLogo
+          width={120}
+          alt="timetoknit"
+          jpgUrl={TimeToKnitLogoUrl}
+          webpUrl={TimeToKnitLogoUrlWebp}
+          avifUrl={TimeToKnitLogoUrlAvif}
+        />
       </Link>
+
       <Link to="https://theknittingbox.pl" target="_blank" rel="noreferrer">
         <img width={120} src={TheKnittingBoxLogoUrl} alt="theknittingbox" />
       </Link>
+
       <Link to="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
         <img width={180} src={WloczykijkiLogoUrl} alt="wloczykijki" />
       </Link>
+
       <Link to="https://www.woollala.com" target="_blank" rel="noreferrer">
-        <img width={180} src={WoollalaLogoUrl} alt="woollala" />
+        <MinifiedLogo
+          width={180}
+          alt="woollala"
+          jpgUrl={WoollalaLogoUrl}
+          webpUrl={WoollalaLogoUrlWebp}
+          avifUrl={WoollalaLogoUrlAvif}
+        />
       </Link>
+
       <Link to="https://woolloop.pl" target="_blank" rel="noreferrer">
-        <img width={120} src={WoolloopLogoUrl} alt="woolloop" />
+        <MinifiedLogo
+          width={120}
+          alt="woolloop"
+          jpgUrl={WoolloopLogoUrl}
+          webpUrl={WoolloopLogoUrlWebp}
+          avifUrl={WoolloopLogoUrlAvif}
+        />
       </Link>
       {/*  <Link href="woolove.pl" target="_blank" rel="noreferrer">
         <img width={120} src={WooloveLogoUrl} alt="woolove" />
