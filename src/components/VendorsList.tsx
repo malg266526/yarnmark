@@ -8,10 +8,22 @@ import BifernoLogoUrlAvif from './../assets/images/logos/biferno.avif';
 import BifernoLogoUrlWebp from './../assets/images/logos/biferno.webp';
 import BifernoLogoUrlJpg from './../assets/images/logos/biferno.jpg';
 
-import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.png';
+import DyeDyeDoneLogoUrlAvif from './../assets/images/logos/dyedyedone.avif';
+import DyeDyeDoneLogoUrlWebp from './../assets/images/logos/dyedyedone.webp';
+import DyeDyeDoneLogoUrlJpg from './../assets/images/logos/dyedyedone.jpg';
+
 import HankaMiZrobilaLogoUrl from './../assets/images/logos/hankamizrobila.jpg';
+import HankaMiZrobilaLogoUrlAvif from './../assets/images/logos/hankamizrobila.avif';
+import HankaMiZrobilaLogoUrlWebp from './../assets/images/logos/hankamizrobila.webp';
+
 import KnitPlLogoUrl from './../assets/images/logos/knitpl.jpg';
-import KokonkiLogoUrl from './../assets/images/logos/kokonki.png';
+import KnitPlLogoUrlAvif from './../assets/images/logos/knitpl.avif';
+import KnitPlLogoUrlWebp from './../assets/images/logos/knitpl.webp';
+
+import KokonkiLogoUrl from './../assets/images/logos/kokonki.jpg';
+import KokonkiLogoUrlAvif from './../assets/images/logos/kokonki.avif';
+import KokonkiLogoUrlWebp from './../assets/images/logos/kokonki.webp';
+
 import MissKnitskiLogoUrl from './../assets/images/logos/missknitski.png';
 import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.png';
 import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
@@ -20,6 +32,7 @@ import TheKnittingBoxLogoUrl from './../assets/images/logos/theknittingbox.png';
 import WloczykijkiLogoUrl from './../assets/images/wloczykijki_logo.png';
 import WoollalaLogoUrl from './../assets/images/logos/woollala.png';
 import WoolloopLogoUrl from './../assets/images/logos/woolloop.png';
+import { MinifiedLogo } from './MinifiedLogo';
 
 export const Grid = styled.div`
   display: flex;
@@ -39,69 +52,85 @@ export const VendorsList = () => {
   return (
     <Grid>
       <Link to="https://biferno.pl/" target="_blank" rel="noreferrer">
-        <picture>
-          <source srcSet={BifernoLogoUrlAvif} type="image/avif" />
-          <source srcSet={BifernoLogoUrlWebp} type="image/webp" />
-          <img width={140} src={BifernoLogoUrlJpg} alt="biferno" />
-        </picture>
+        <MinifiedLogo
+          width={140}
+          alt="biferno"
+          jpgUrl={BifernoLogoUrlJpg}
+          webpUrl={BifernoLogoUrlWebp}
+          avifUrl={BifernoLogoUrlAvif}
+        />
       </Link>
 
       <Link to="https://www.dyedyedone.com/" target="_blank" rel="noreferrer">
-        <img width={120} src={DyeDyeDoneLogoUrl} alt="dyedyedone" />
+        <MinifiedLogo
+          width={120}
+          alt="dyedyedone"
+          jpgUrl={DyeDyeDoneLogoUrlJpg}
+          webpUrl={DyeDyeDoneLogoUrlWebp}
+          avifUrl={DyeDyeDoneLogoUrlAvif}
+        />
       </Link>
 
       <Link to="https://hankamizrobila.pl/" target="_blank" rel="noreferrer">
-        <img width={120} src={HankaMiZrobilaLogoUrl} alt="hankamizrobila" />
+        <MinifiedLogo
+          width={120}
+          alt="hankamizrobila"
+          jpgUrl={HankaMiZrobilaLogoUrl}
+          webpUrl={HankaMiZrobilaLogoUrlWebp}
+          avifUrl={HankaMiZrobilaLogoUrlAvif}
+        />
       </Link>
 
       <Link to="https://knitpl.com/" target="_blank" rel="noreferrer">
-        <img width={120} src={KnitPlLogoUrl} alt="knitpl" />
+        <MinifiedLogo
+          width={120}
+          alt="knitpl"
+          jpgUrl={KnitPlLogoUrl}
+          webpUrl={KnitPlLogoUrlWebp}
+          avifUrl={KnitPlLogoUrlAvif}
+        />
       </Link>
 
       <Link to="https://kokonki.pl/" target="_blank" rel="noreferrer">
-        <img width={200} src={KokonkiLogoUrl} alt="kokonki" />
+        <MinifiedLogo
+          width={200}
+          alt="kokonki"
+          jpgUrl={KokonkiLogoUrl}
+          webpUrl={KokonkiLogoUrlWebp}
+          avifUrl={KokonkiLogoUrlAvif}
+        />
       </Link>
 
       <Link to="https://www.missknitski.com/sklep/" target="_blank" rel="noreferrer">
         <img width={120} src={MissKnitskiLogoUrl} alt="missknitski" />
       </Link>
-
       <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
         <img width={100} src={NaSztukiStudioLogoUrl} alt="nasztukistudio" />
       </Link>
-
       <Link to="https://strikke.pl/" target="_blank" rel="noreferrer">
         <img width={180} src={StrikkeLogoUrl} alt="Strikke" />
       </Link>
-
       <Link to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
         <img width={120} src={TimeToKnitLogoUrl} alt="timetoknit" />
       </Link>
-
       <Link to="https://theknittingbox.pl" target="_blank" rel="noreferrer">
         <img width={120} src={TheKnittingBoxLogoUrl} alt="theknittingbox" />
       </Link>
-
       <Link to="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
         <img width={180} src={WloczykijkiLogoUrl} alt="wloczykijki" />
       </Link>
-
       <Link to="https://www.woollala.com" target="_blank" rel="noreferrer">
         <img width={180} src={WoollalaLogoUrl} alt="woollala" />
       </Link>
-
       <Link to="https://woolloop.pl" target="_blank" rel="noreferrer">
         <img width={120} src={WoolloopLogoUrl} alt="woolloop" />
       </Link>
-
       {/*  <Link href="woolove.pl" target="_blank" rel="noreferrer">
         <img width={120} src={WooloveLogoUrl} alt="woolove" />
       </Link> */}
-
       {/* <Link href="https://madobo.pl" target="_blank" rel="noreferrer">
         <img width={140} src={MadoboLogoUrl} alt="madobo" />
       </Link> */}
-
       {/*  <Link href="https://www.instagram.com/woolniej.pl" target="_blank" rel="noreferrer">
         <img width={160} src={WoolniejLogoUrl} alt="woolniej" />
       </Link> */}
@@ -111,7 +140,6 @@ export const VendorsList = () => {
       {/*   <Link href="https://animotki.pl/" target="_blank" rel="noreferrer">
         <img width={160} src={AnimotkiLogoUrl} alt="animotki" />
       </Link> */}
-
       {/* <Link href="https://stylovewloczki.pl/" target="_blank" rel="noreferrer">
         <img width={140} src={StyloveWloczkiLogoUrl} alt="stylovewloczki" />
       </Link> */}
