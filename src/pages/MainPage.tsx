@@ -164,7 +164,7 @@ export const MainPage = () => {
 
   // const activeButtonToImage = getActiveButtonToImage(t);
 
-  const observerCallback = useCallback(() => { }, []);
+  const observerCallback = useCallback(() => {}, []);
 
   useRootIntersectionObserver({
     rootRef: pageContentRef,
@@ -256,20 +256,20 @@ export const MainPage = () => {
     () => (
       <ButtonsLayout>
         <FunnyButton
-          mobileSlot={"Bilety (wkrótce dostępne)"}
+          mobileSlot={'Bilety (wkrótce dostępne)'}
           ref={ticketsFunnyButtonRef}
           icon={<Icon size="xl" zIndex={0} src={ticketImageUrl} />}
           text={t('buttonsBand.ticketButton')}
         />
         <FunnyButton
-          mobileSlot={"Wystawcy"}
+          mobileSlot={'Wystawcy'}
           ref={vendorsFunnyButtonRef}
           icon={<Icon size="xl" zIndex={0} src={shopImageUrl} />}
           text={t('buttonsBand.vendorsButton')}
           onClick={() => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
         />
         <FunnyButton
-          mobileSlot={"Jak dojechać"}
+          mobileSlot={'Jak dojechać'}
           ref={geoFunnyButtonRef}
           icon={<Icon size="xl" zIndex={0} src={pinBlackImageUrl} />}
           text={t('buttonsBand.spotButton')}

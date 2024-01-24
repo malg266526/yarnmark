@@ -104,8 +104,8 @@ const MobileSlot = styled.div`
   text-align: center;
 
   @media (max-width: ${ScreenSize.phone}) {
-      display: block;
-    }
+    display: block;
+  }
 `;
 
 const KnittingIconWrapper = styled.div`
@@ -142,9 +142,7 @@ export const FunnyButton = React.forwardRef<HTMLDivElement, FunnyButtonProps>(
         )}
       </Root>
 
-      <MobileSlot>
-        {mobileSlot}
-      </MobileSlot>
+      <MobileSlot>{mobileSlot}</MobileSlot>
     </div>
   )
 );
