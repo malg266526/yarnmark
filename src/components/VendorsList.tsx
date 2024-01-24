@@ -4,7 +4,10 @@ import { Spacings } from '../styles/spacings';
 import { Link } from './Link';
 import { ScreenSize } from '../styles/screeen-size';
 
-import BifernoLogoUrl from './../assets/images/logos/biferno.png';
+import BifernoLogoUrlAvif from './../assets/images/logos/biferno.avif';
+import BifernoLogoUrlWebp from './../assets/images/logos/biferno.webp';
+import BifernoLogoUrlJpg from './../assets/images/logos/biferno.jpg';
+
 import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.png';
 import HankaMiZrobilaLogoUrl from './../assets/images/logos/hankamizrobila.jpg';
 import KnitPlLogoUrl from './../assets/images/logos/knitpl.jpg';
@@ -36,7 +39,11 @@ export const VendorsList = () => {
   return (
     <Grid>
       <Link to="https://biferno.pl/" target="_blank" rel="noreferrer">
-        <img width={140} src={BifernoLogoUrl} alt="biferno" />
+        <picture>
+          <source srcSet={BifernoLogoUrlAvif} type="image/avif" />
+          <source srcSet={BifernoLogoUrlWebp} type="image/webp" />
+          <img width={140} src={BifernoLogoUrlJpg} alt="biferno" />
+        </picture>
       </Link>
 
       <Link to="https://www.dyedyedone.com/" target="_blank" rel="noreferrer">

@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 import { HallColors } from '../styles/theme';
+
+import BifernoLogoUrl from './../assets/images/logos/biferno.avif';
 import WloczykijkiLogoUrl from './../assets/images/but.png';
 import WoollalaLogoUrl from './../assets/images/logos/woollala.png';
 import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.png';
@@ -10,7 +12,6 @@ import KokonkiLogoUrl from './../assets/images/logos/kokonki.png';
 import TheKnittingBoxLogoUrl from './../assets/images/logos/theknittingbox.png';
 import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
 import WoolloopLogoUrl from './../assets/images/logos/woolloop.png';
-import BifernoLogoUrl from './../assets/images/logos/biferno.png';
 import HankaMiZrobilaLogoUrl from './../assets/images/logos/hankamizrobila.jpg';
 import MissKnitskiLogoUrl from './../assets/images/logos/missknitski.png';
 
