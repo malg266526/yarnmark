@@ -2,6 +2,7 @@ import { HallColors } from '../styles/theme';
 
 import WloczykijkiLogoUrlAvif from './../assets/images/logos/but.avif';
 import WloczykijkiLogoUrl from './../assets/images/logos/but.jpg';
+import WloczykijkiLogoUrlWebp from './../assets/images/logos/but.webp';
 
 import BifernoLogoUrlAvif from './../assets/images/logos/biferno.avif';
 import BifernoLogoUrlJpg from './../assets/images/logos/biferno.jpg';
@@ -360,7 +361,7 @@ export const hallMapConfig: HallMapType = {
           logoSrc: WloczykijkiLogoUrl,
           who: 'Wlóczykijki',
           avifUrl: WloczykijkiLogoUrlAvif,
-          webpUrl: BifernoLogoUrlWebp
+          webpUrl: WloczykijkiLogoUrlWebp
         },
         {
           width: 4,
