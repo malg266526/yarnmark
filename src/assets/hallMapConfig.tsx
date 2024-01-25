@@ -205,14 +205,14 @@ export const hallMapConfig: HallMapType = {
           height: 2.5,
           color: 'taken2',
           index: 'S14',
-          who: 'WelnaBawelna'
+          who: 'WełnaBawełna'
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken2',
           index: 'S15',
-          who: 'WelnaBawelna'
+          who: 'WełnaBawełna'
         },
         {
           width: 5,
