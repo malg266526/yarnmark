@@ -104,7 +104,7 @@ export const HallStand = ({ stand, height }: HallStandProps) => {
         </TextWrapper>
       )}
 
-      <HallLogo src={stand.logoSrc} alt={stand.who} avifUrl={stand.avifUrl} webpUrl={stand.webpUrl} />
+      <HallLogo picture={stand.picture} alt={stand.who} />
     </HallStandLayout>
   );
 };
