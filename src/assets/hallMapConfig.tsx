@@ -327,7 +327,7 @@ export const hallMapConfig: HallMapType = {
           index: 'P4',
           logoSrc: WloczykijkiLogoUrl,
           taken: true,
-          who: 'Wlóczykijki'
+          who: 'Włóczykijki'
         },
         {
           width: 4,
