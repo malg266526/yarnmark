@@ -241,14 +241,16 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'normal2',
-          index: 'S14'
+          color: 'taken2',
+          index: 'S14',
+          who: 'WełnaBawełna'
         },
         {
           width: 4,
           height: 2.5,
-          color: 'normal1',
-          index: 'S15'
+          color: 'taken2',
+          index: 'S15',
+          who: 'WełnaBawełna'
         },
         {
           width: 5,
@@ -361,9 +363,9 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'P4',
           logoSrc: WloczykijkiLogoUrl,
-          who: 'Wlóczykijki',
           avifUrl: WloczykijkiLogoUrlAvif,
           webpUrl: WloczykijkiLogoUrlWebp
+          who: 'Włóczykijki'
         },
         {
           width: 4,
@@ -470,9 +472,11 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'normal2',
+          color: 'taken',
           height: 4,
-          index: 'S24'
+          index: 'S24',
+          who: 'Mania Chomikuje',
+          taken: true
         },
         {
           width: 2.5,
