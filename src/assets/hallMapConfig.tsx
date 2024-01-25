@@ -1,18 +1,52 @@
-import { ReactNode } from 'react';
 import { HallColors } from '../styles/theme';
-import WloczykijkiLogoUrl from './../assets/images/but.png';
-import WoollalaLogoUrl from './../assets/images/logos/woollala.png';
-import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.png';
-import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
-import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.png';
-import KnitPlLogoUrl from './../assets/images/logos/knitpl.jpg';
-import KokonkiLogoUrl from './../assets/images/logos/kokonki.png';
-import TheKnittingBoxLogoUrl from './../assets/images/logos/theknittingbox.png';
-import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
-import WoolloopLogoUrl from './../assets/images/logos/woolloop.png';
-import BifernoLogoUrl from './../assets/images/logos/biferno.png';
+
+import WloczykijkiLogoUrlAvif from './../assets/images/logos/but.avif';
+import WloczykijkiLogoUrl from './../assets/images/logos/but.jpg';
+import WloczykijkiLogoUrlWebp from './../assets/images/logos/but.webp';
+
+import BifernoLogoUrlAvif from './../assets/images/logos/biferno.avif';
+import BifernoLogoUrlJpg from './../assets/images/logos/biferno.jpg';
+import BifernoLogoUrlWebp from './../assets/images/logos/biferno.webp';
+
+import DyeDyeDoneLogoUrlAvif from './../assets/images/logos/dyedyedone.avif';
+import DyeDyeDoneLogoUrlJpg from './../assets/images/logos/dyedyedone.jpg';
+import DyeDyeDoneLogoUrlWebp from './../assets/images/logos/dyedyedone.webp';
+
+import HankaMiZrobilaLogoUrlAvif from './../assets/images/logos/hankamizrobila.avif';
 import HankaMiZrobilaLogoUrl from './../assets/images/logos/hankamizrobila.jpg';
-import MissKnitskiLogoUrl from './../assets/images/logos/missknitski.png';
+import HankaMiZrobilaLogoUrlWebp from './../assets/images/logos/hankamizrobila.webp';
+
+import KnitPlLogoUrlAvif from './../assets/images/logos/knitpl.avif';
+import KnitPlLogoUrl from './../assets/images/logos/knitpl.jpg';
+import KnitPlLogoUrlWebp from './../assets/images/logos/knitpl.webp';
+
+import KokonkiLogoUrlAvif from './../assets/images/logos/kokonki.avif';
+import KokonkiLogoUrl from './../assets/images/logos/kokonki.jpg';
+import KokonkiLogoUrlWebp from './../assets/images/logos/kokonki.webp';
+
+import MissKnitskiLogoUrlAvif from './../assets/images/logos/missknitski.avif';
+import MissKnitskiLogoUrl from './../assets/images/logos/missknitski.jpg';
+import MissKnitskiLogoUrlWebp from './../assets/images/logos/missknitski.webp';
+
+import NaSztukiStudioLogoUrlAvif from './../assets/images/logos/nasztukistudio.avif';
+import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.jpg';
+import NaSztukiStudioLogoUrlWebp from './../assets/images/logos/nasztukistudio.webp';
+
+import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
+
+import TimeToKnitLogoUrlAvif from './../assets/images/logos/timetoknit.avif';
+import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
+import TimeToKnitLogoUrlWebp from './../assets/images/logos/timetoknit.webp';
+
+import TheKnittingBoxLogoUrl from './../assets/images/logos/theknittingbox.png';
+
+import WoollalaLogoUrlAvif from './../assets/images/logos/woollala.avif';
+import WoollalaLogoUrl from './../assets/images/logos/woollala.jpg';
+import WoollalaLogoUrlWebp from './../assets/images/logos/woollala.webp';
+
+import WoolloopLogoUrlAvif from './../assets/images/logos/woolloop.avif';
+import WoolloopLogoUrl from './../assets/images/logos/woolloop.jpg';
+import WoolloopLogoUrlWebp from './../assets/images/logos/woolloop.webp';
 
 export type HallStandType = {
   width: number;
@@ -20,11 +54,14 @@ export type HallStandType = {
 
   text?: string;
   color: keyof typeof HallColors;
-  logo?: ReactNode;
   logoSrc?: string;
   index?: number | string;
-  taken?: boolean;
   who?: string;
+
+  avifUrl?: string;
+  webpUrl?: string;
+
+  taken?: boolean;
 };
 
 type HallLineType = {
@@ -61,18 +98,20 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'S1',
           height: 4,
-          taken: true,
           who: 'Biferno',
-          logoSrc: BifernoLogoUrl
+          logoSrc: BifernoLogoUrlJpg,
+          avifUrl: BifernoLogoUrlAvif,
+          webpUrl: BifernoLogoUrlWebp
         },
         {
           width: 2.5,
           color: 'taken',
           index: 'S2',
           height: 4,
-          taken: true,
           who: 'Biferno',
-          logoSrc: BifernoLogoUrl
+          logoSrc: BifernoLogoUrlJpg,
+          avifUrl: BifernoLogoUrlAvif,
+          webpUrl: BifernoLogoUrlWebp
         },
 
         {
@@ -86,9 +125,10 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'S3',
           height: 4,
-          taken: true,
           who: 'KnitPl',
-          logoSrc: KnitPlLogoUrl
+          logoSrc: KnitPlLogoUrl,
+          webpUrl: KnitPlLogoUrlWebp,
+          avifUrl: KnitPlLogoUrlAvif
         },
         {
           width: 2.5,
@@ -113,7 +153,6 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'S7',
           height: 4,
-          taken: true,
           who: 'Madobo'
         }
       ]
@@ -145,24 +184,21 @@ export const hallMapConfig: HallMapType = {
           height: 3,
           color: 'taken',
           index: 'P2',
-          who: 'GaboWool',
-          taken: true
+          who: 'GaboWool'
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken2',
           index: 'S8',
-          who: 'Pimotki',
-          taken: true
+          who: 'Pimotki'
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken2',
           index: 'S9',
-          who: 'Pimotki',
-          taken: true
+          who: 'Pimotki'
         },
         {
           width: 4,
@@ -170,8 +206,9 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'S10',
           who: 'Kokonki',
-          taken: true,
-          logoSrc: KokonkiLogoUrl
+          logoSrc: KokonkiLogoUrl,
+          avifUrl: KokonkiLogoUrlAvif,
+          webpUrl: KokonkiLogoUrlWebp
         },
         {
           width: 4,
@@ -179,24 +216,25 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'S11',
           who: 'Kokonki',
-          taken: true,
-          logoSrc: KokonkiLogoUrl
+          logoSrc: KokonkiLogoUrl,
+          avifUrl: KokonkiLogoUrlAvif,
+          webpUrl: KokonkiLogoUrlWebp
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken2',
           index: 'S12',
-          taken: true,
           who: 'TimeToKnit',
-          logoSrc: TimeToKnitLogoUrl
+          logoSrc: TimeToKnitLogoUrl,
+          avifUrl: TimeToKnitLogoUrlAvif,
+          webpUrl: TimeToKnitLogoUrlWebp
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken',
           index: 'S13',
-          taken: true,
           who: 'Strikke',
           logoSrc: StrikkeLogoUrl
         },
@@ -219,9 +257,10 @@ export const hallMapConfig: HallMapType = {
           height: 3,
           color: 'taken',
           index: 'P3',
-          taken: true,
           who: 'DyeDyeDone',
-          logoSrc: DyeDyeDoneLogoUrl
+          logoSrc: DyeDyeDoneLogoUrlJpg,
+          avifUrl: DyeDyeDoneLogoUrlAvif,
+          webpUrl: DyeDyeDoneLogoUrlWebp
         }
       ]
     },
@@ -246,7 +285,6 @@ export const hallMapConfig: HallMapType = {
           height: 2,
           color: 'taken',
           index: 'M1',
-          taken: true,
           who: 'Woolove'
         },
         {
@@ -254,8 +292,7 @@ export const hallMapConfig: HallMapType = {
           height: 2,
           color: 'taken2',
           index: 'M2',
-          who: 'PaciorkowceIWisielce',
-          taken: true
+          who: 'PaciorkowceIWisielce'
         },
         {
           width: 3,
@@ -267,16 +304,16 @@ export const hallMapConfig: HallMapType = {
           height: 2,
           color: 'taken',
           index: 'M3',
-          taken: true,
           who: 'NaSztukiStudio',
-          logoSrc: NaSztukiStudioLogoUrl
+          logoSrc: NaSztukiStudioLogoUrl,
+          avifUrl: NaSztukiStudioLogoUrlAvif,
+          webpUrl: NaSztukiStudioLogoUrlWebp
         },
         {
           width: 3,
           height: 2,
           color: 'taken2',
           index: 'M4',
-          taken: true,
           who: 'TheKnittingBox',
           logoSrc: TheKnittingBoxLogoUrl
         },
@@ -290,17 +327,17 @@ export const hallMapConfig: HallMapType = {
           height: 2,
           color: 'taken2',
           index: 'M5',
-          who: 'Animotki',
-          taken: true
+          who: 'Animotki'
         },
         {
           width: 3,
           height: 2,
           color: 'taken',
           index: 'M6',
-          taken: true,
           who: 'HankaMiZrobiła',
-          logoSrc: HankaMiZrobilaLogoUrl
+          logoSrc: HankaMiZrobilaLogoUrl,
+          avifUrl: HankaMiZrobilaLogoUrlAvif,
+          webpUrl: HankaMiZrobilaLogoUrlWebp
         },
         {
           width: 4,
@@ -326,7 +363,8 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'P4',
           logoSrc: WloczykijkiLogoUrl,
-          taken: true,
+          avifUrl: WloczykijkiLogoUrlAvif,
+          webpUrl: WloczykijkiLogoUrlWebp,
           who: 'Włóczykijki'
         },
         {
@@ -336,7 +374,8 @@ export const hallMapConfig: HallMapType = {
           index: 'S16',
           logoSrc: WoollalaLogoUrl,
           who: 'Woollala',
-          taken: true
+          avifUrl: WoollalaLogoUrlAvif,
+          webpUrl: WoollalaLogoUrlWebp
         },
         {
           width: 4,
@@ -345,23 +384,22 @@ export const hallMapConfig: HallMapType = {
           index: 'S17',
           logoSrc: WoollalaLogoUrl,
           who: 'Woollala',
-          taken: true
+          avifUrl: WoollalaLogoUrlAvif,
+          webpUrl: WoollalaLogoUrlWebp
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken',
           index: 'S18',
-          who: '7oczek',
-          taken: true
+          who: '7oczek'
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken',
           index: 'S19',
-          who: '7Oczek',
-          taken: true
+          who: '7Oczek'
         },
         {
           width: 4,
@@ -369,8 +407,9 @@ export const hallMapConfig: HallMapType = {
           color: 'taken2',
           index: 'S20',
           who: 'MissKnitski',
-          taken: true,
-          logoSrc: MissKnitskiLogoUrl
+          logoSrc: MissKnitskiLogoUrl,
+          avifUrl: MissKnitskiLogoUrlAvif,
+          webpUrl: MissKnitskiLogoUrlWebp
         },
         {
           width: 4,
@@ -378,8 +417,9 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'S21',
           who: 'Woolloop',
-          taken: true,
-          logoSrc: WoolloopLogoUrl
+          logoSrc: WoolloopLogoUrl,
+          avifUrl: WoolloopLogoUrlAvif,
+          webpUrl: WoolloopLogoUrlWebp
         },
         {
           width: 4,
@@ -398,8 +438,7 @@ export const hallMapConfig: HallMapType = {
           height: 3,
           color: 'taken',
           index: 'P5',
-          who: 'Motkomania',
-          taken: true
+          who: 'Motkomania'
         }
       ]
     },

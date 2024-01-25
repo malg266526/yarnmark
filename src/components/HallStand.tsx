@@ -90,7 +90,7 @@ export const HallStand = ({ stand, height }: HallStandProps) => {
 
   return (
     <HallStandLayout width={stand.width} height={stand.height || height} color={stand.color} multiplier={multiplier}>
-      {stand.taken && <HallStandOverlay />}
+      {stand.who && <HallStandOverlay />}
 
       <div>
         <StandIndex>{stand.index}</StandIndex>
@@ -104,7 +104,7 @@ export const HallStand = ({ stand, height }: HallStandProps) => {
         </TextWrapper>
       )}
 
-      <HallLogo src={stand.logoSrc} alt={stand.who} />
+      <HallLogo src={stand.logoSrc} alt={stand.who} avifUrl={stand.avifUrl} webpUrl={stand.webpUrl} />
     </HallStandLayout>
   );
 };
