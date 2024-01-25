@@ -14,20 +14,20 @@ export const en: PolishTranslations = {
       stands: 'Stands'
     },
     welcomeBand: {
-      invitation: 'Serdecznie zapraszamy na I edycję targów wełny w stolicy małopolski!',
-      where: 'Yarnmark odbędzie się 27/04/2024r. o godz. 10:00, w Hali 100-lecia KS Cracovia',
+      invitation: 'We heartily invite you for I edition of wool fair in captial of małopolska!',
+      where: 'Yarnmark is happening at 27/04/2024 at 10:00 AM, in Hala 100-lecia KS Cracovia',
       haveFun:
-        'Mamy nadzieję, że będzie to dla Was dzień nie tylko zakupowego szaleństwa i udanych łowów, ale również wspólnego dziergania na trybunach i dobrej zabawy.',
-      seeYou: 'Do zobaczenia!'
+        'We hope that it will be a day of not only shopping spree and deal hunting, but integrating, knitting together on stands and having fun.',
+      seeYou: 'See ya all!'
     },
     buttonsBand: {
-      firstEvent: 'The first such event in Krakow!',
+      firstEvent: 'The first such event in Cracow!',
       otherCities:
-        'Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na targi wełny pod Wawelem. Kraków wchodzi w 2024 rok dziewiarskim krokiem. Chodźże z nami!',
-      linksBelow: 'You will find some links that will help you plan your time in our beautiful city below.',
+        "Toruń, Warszawa, Gdańsk, Wrocław...finally it's time for wool fair near Wawel. Cracow enters 2024 with a knitting step. Come with us!",
+      linksBelow: 'Below you will find few links that will help you plan your time in our beautiful city.',
       tickets: {
-        text: 'Tickets coming soon...',
-        mobileTitle: 'Tickets coming soon...'
+        text: 'Ticket will be available starting 14.02.2024',
+        mobileTitle: 'Tickets (available starting 14.02.2024)'
       },
       vendors: {
         mobileTitle: 'Vendors',
