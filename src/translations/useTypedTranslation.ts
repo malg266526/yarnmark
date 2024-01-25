@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useCallback } from 'react';
-import { en } from './en';
+import { pl } from './pl';
 
 type Tree =
   | string
@@ -39,7 +39,7 @@ type ReplaceString<
   NewString extends string
 > = Str extends `${StringToReplace}${infer Rest extends string}` ? `${NewString}${Rest}` : never;
 
-type TranslationKeys = ExtractTranslationKeys<typeof en>;
+type TranslationKeys = ExtractTranslationKeys<typeof pl>;
 export type UnprefixedTranslationKeys = ReplaceString<TranslationKeys, 'translation.', ''>;
 
 export const useTypedTranslation = () => {
