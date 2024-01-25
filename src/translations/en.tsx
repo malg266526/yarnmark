@@ -1,4 +1,6 @@
-export const en = {
+import { PolishTranslations } from './pl';
+
+export const en: PolishTranslations = {
   translation: {
     menu: {
       home: 'Home',
@@ -23,9 +25,18 @@ export const en = {
       otherCities:
         'Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na targi wełny pod Wawelem. Kraków wchodzi w 2024 rok dziewiarskim krokiem. Chodźże z nami!',
       linksBelow: 'You will find some links that will help you plan your time in our beautiful city below.',
-      ticketButton: 'Tickets coming soon...',
-      vendorsButton: 'Check which vendors you will meet',
-      spotButton: 'Where are we and how to get there?',
+      tickets: {
+        text: 'Tickets coming soon...',
+        mobileTitle: 'Tickets coming soon...'
+      },
+      vendors: {
+        mobileTitle: 'Vendors',
+        text: 'Check which vendors you will meet'
+      },
+      location: {
+        mobileTitle: 'How to get there?',
+        text: 'Where are we and how to get there?'
+      },
       foodButton: 'Where to eat?',
       cashmereButton: 'Check out our cashmere package'
     },

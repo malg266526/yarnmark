@@ -256,23 +256,23 @@ export const MainPage = () => {
     () => (
       <ButtonsLayout>
         <FunnyButton
-          mobileSlot={'Bilety (wkrótce dostępne)'}
+          mobileSlot={t('buttonsBand.tickets.mobileTitle')}
           ref={ticketsFunnyButtonRef}
           icon={<Icon size="xl" zIndex={0} src={ticketImageUrl} />}
-          text={t('buttonsBand.ticketButton')}
+          text={t('buttonsBand.tickets.text')}
         />
         <FunnyButton
-          mobileSlot={'Wystawcy'}
+          mobileSlot={t('buttonsBand.vendors.mobileTitle')}
           ref={vendorsFunnyButtonRef}
           icon={<Icon size="xl" zIndex={0} src={shopImageUrl} />}
-          text={t('buttonsBand.vendorsButton')}
+          text={t('buttonsBand.vendors.text')}
           onClick={() => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
         />
         <FunnyButton
-          mobileSlot={'Jak dojechać'}
+          mobileSlot={t('buttonsBand.location.mobileTitle')}
           ref={geoFunnyButtonRef}
           icon={<Icon size="xl" zIndex={0} src={pinBlackImageUrl} />}
-          text={t('buttonsBand.spotButton')}
+          text={t('buttonsBand.location.text')}
           onClick={() => spotBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
         />
         {/*             <FunnyButton
