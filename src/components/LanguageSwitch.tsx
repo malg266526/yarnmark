@@ -10,7 +10,11 @@ const Root = styled.div`
   gap: ${Spacings.xs};
   align-items: center;
   justify-content: center;
-  padding: 0 ${Spacings.sm};
+  padding: 0 0 0 ${Spacings.xl};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    padding: ${Spacings.sm};
+  }
 `;
 
 const TransparentButton = styled.button`
