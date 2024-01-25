@@ -403,6 +403,8 @@ export const MainPage = () => {
               <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
               {t('menu.contact')}
             </SideBar.LinkEntry>
+
+            <LanguageSwitch />
           </SideBar>
         </>
       )}

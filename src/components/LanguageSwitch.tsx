@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { Spacings } from '../styles/spacings';
+import { ScreenSize } from '../styles/screeen-size';
 
 const Root = styled.div`
   display: inline-flex;
@@ -18,9 +19,15 @@ const TransparentButton = styled.button`
   cursor: pointer;
 `;
 
-const LanguageText = styled.p<{ isSelected: boolean }>`
+const LanguageText = styled.p<{ isSelected?: boolean }>`
   font-weight: ${({ isSelected }) => (isSelected ? 700 : 400)};
   font-size: 18px;
+
+  color: black;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    color: white;
+  }
 `;
 
 export interface MenuProps {
@@ -38,7 +45,7 @@ export const LanguageSwitch = () => {
       <TransparentButton onClick={() => changeLanguage('pl')}>
         <LanguageText isSelected={language === 'pl'}>PL</LanguageText>
       </TransparentButton>
-      <p>|</p>
+      <LanguageText>|</LanguageText>
       <TransparentButton onClick={() => changeLanguage('en')}>
         <LanguageText isSelected={language === 'en'}>EN</LanguageText>
       </TransparentButton>
