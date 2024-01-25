@@ -49,6 +49,10 @@ import WoolloopLogoUrl from './../assets/images/logos/woolloop.jpg';
 import WoolloopLogoUrlAvif from './../assets/images/logos/woolloop.avif';
 import WoolloopLogoUrlWebp from './../assets/images/logos/woolloop.webp';
 
+import WooloveLogoUrl from './../assets/images/logos/woolove.jpg';
+import WooloveLogoUrlAvif from './../assets/images/logos/woolove.avif';
+import WooloveLogoUrlWebp from './../assets/images/logos/woolove.webp';
+
 import { Picture } from './Picture';
 
 export const Grid = styled.div`
@@ -279,9 +283,27 @@ export const VendorsList = () => {
           }}
         />
       </Link>
-      {/*  <Link href="woolove.pl" target="_blank" rel="noreferrer">
-        <img width={120} src={WooloveLogoUrl} alt="woolove" />
-      </Link> */}
+
+      <Link to="woolove.pl" target="_blank" rel="noreferrer">
+        <Picture
+          width={120}
+          alt="woolove"
+          picture={{
+            fallbackUrl: WooloveLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: WooloveLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: WooloveLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
       {/* <Link href="https://madobo.pl" target="_blank" rel="noreferrer">
         <img width={140} src={MadoboLogoUrl} alt="madobo" />
       </Link> */}
