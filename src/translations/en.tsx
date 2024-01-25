@@ -1,6 +1,6 @@
-import { PolishTranslations } from './pl';
+import { TranslationsShape } from './pl';
 
-export const en: PolishTranslations = {
+export const en: TranslationsShape = {
   translation: {
     menu: {
       home: 'Home',
@@ -14,20 +14,20 @@ export const en: PolishTranslations = {
       stands: 'Stands'
     },
     welcomeBand: {
-      invitation: 'Serdecznie zapraszamy na I edycję targów wełny w stolicy małopolski!',
-      where: 'Yarnmark odbędzie się 27/04/2024r. o godz. 10:00, w Hali 100-lecia KS Cracovia',
+      invitation: 'We heartily invite you for I edition of wool fair in capital of małopolska!',
+      where: 'Yarnmark is happening at 27/04/2024 at 10:00 AM, in Hala 100-lecia KS Cracovia',
       haveFun:
-        'Mamy nadzieję, że będzie to dla Was dzień nie tylko zakupowego szaleństwa i udanych łowów, ale również wspólnego dziergania na trybunach i dobrej zabawy.',
-      seeYou: 'Do zobaczenia!'
+        'We hope that it will be a day of not only shopping spree and deal hunting, but integrating, knitting together on stands and having fun.',
+      seeYou: 'See ya all!'
     },
     buttonsBand: {
-      firstEvent: 'The first such event in Krakow!',
+      firstEvent: 'The first such event in Cracow!',
       otherCities:
-        'Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na targi wełny pod Wawelem. Kraków wchodzi w 2024 rok dziewiarskim krokiem. Chodźże z nami!',
-      linksBelow: 'You will find some links that will help you plan your time in our beautiful city below.',
+        "Toruń, Warszawa, Gdańsk, Wrocław...finally it's time for wool fair near Wawel. Cracow enters 2024 with a knitting step. Come with us!",
+      linksBelow: 'Below you will find few links that will help you plan your time in our beautiful city.',
       tickets: {
-        text: 'Tickets coming soon...',
-        mobileTitle: 'Tickets coming soon...'
+        text: 'Ticket will be available starting 14.02.2024',
+        mobileTitle: 'Tickets (available starting 14.02.2024)'
       },
       vendors: {
         mobileTitle: 'Vendors',
@@ -65,11 +65,11 @@ export const en: PolishTranslations = {
       title: 'Cashmere tickets',
       ticketDescription:
         'Oferujemy możliwość zakupu biletów zwykłych oraz biletów w pakiecie kaszmirowym. Bilety kaszmirowe oprócz wejściowki na targi obejmują także:',
-      cruise: 'Cruise on the Dziergoship',
-      beautifulCruise: 'Dzieeergostatkiem on a beautyful cruise!',
+      cruise: 'Cruise on the Knitting-ship',
+      beautifulCruise: 'Beautiful cruise on the Knitting-ship!',
       invitations:
-        'Zapraszamy Was serdecznie na godzinny rejs po Wiśle, podczas którego wspólnie podziergamy i porozmawiamy, przy kieliszku prosecco i w otoczeniu krakowskich krajobrazów',
-      souverirBag: 'Pamiątkowa torba targowa'
+        'We heartily invite you for an 1 hour cruise on Wisła, during which we will knit and talk together with a glass of prosecco while being surrounded by Cracow scenery',
+      souverirBag: 'Souvenir fair bag'
     },
     vendorsPage: {
       title: 'Vendors'
@@ -112,39 +112,38 @@ export const en: PolishTranslations = {
       marketing: {
         title: 'Marketing',
         sendLogos:
-          'Zachęcamy do przesłania swojego na logo na adres email <strong>strona.dziergamynapolu@gmail.com</strong>, umieścimy jew zakładce "Wystawcy" i w ten sposób poinformujemy dziewiarki i dziewiarzy, że z nami będziecie'
+          'We encourage to send your logo on email address <strong>krakoski.yarnmark.welny@gmail.com</strong>, we will put it on "Vendors" section and this way inform the knitters, that you will be there.'
       },
       stands: {
-        title: 'Stoiska'
+        title: 'Stands'
       },
       registration: {
         title: 'Zapisy',
         beAVendor:
-          'Jeśli chcesz dołączyć do wspaniałego grona naszych wystawców, napisz do nas! Email kontaktowy: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
-        start: 'Możliwość zakupu stoiska startuje w poniedziałek 22.01.2024r. o godz. 12:00',
-        where: 'Rezerwacja stoiska odbywa się poprzez zakup miejsca w sklepie online Włóczykijki',
-        buyHere: 'Tutaj wykupisz stoisko',
-        feedback:
-          'Wszystkie dane dotyczące płatności będą zawarte w informacji zwrotnej,potwierdzającej rezerwację stoiska',
+          'If you wanna join the great group of our vendors write us an email! Email address: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
+        start: 'Spot reservations start on Monday 22.01.2024r. at 12:00 AM',
+        where: 'Reservation is done by buying the spot in online shop `Włóczykijki`',
+        buyHere: 'Here you will reserve the spot',
+        feedback: 'All data related to payment will be part of feedback confirming spot reservation',
         return:
-          'W przypadku rezerwacji i nie opłacenia kosztów – miejsce zostaje anulowane i zostanie ponownie dostępne dla wystawców'
+          'In case of reservation and missing the payment - reservation is cancelled and will be available again for vendors'
       }
     },
     foodBand: {
       bezogrodekDescription:
         '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów',
-      lookHere: 'Zobacz tutaj',
-      checkMenu: 'Zobacz menu tutaj',
-      pinoGardenDescription: 'Fani włoskiej kuchni i owoców morza naprzeciwko hali znajdą Pino Garden',
+      lookHere: 'See here',
+      checkMenu: 'See menu here',
+      pinoGardenDescription: 'Fans of italian food and seafood will find Pino Garden opposite of event',
       pretzelDescription: 'Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka',
       piastowskaDescription: 'Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej',
-      knittedCoffeeDescription: 'Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee'
+      knittedCoffeeDescription: 'On the event you can drink tasty coffee made by Tarasa from Knitted Coffee'
     },
     hallMap: {
-      premiumStand: 'Miejsce Premium 5x3m',
-      standardStand: 'Miejsce Standard 4x2,5m',
-      miniStand: 'Miejsce Mini 3x2m',
-      taken: 'Miejsce zarezerwowane'
+      premiumStand: 'Premium spot 5x3m',
+      standardStand: 'Standard spot 4x2,5m',
+      miniStand: 'Mini spot 3x2m',
+      taken: 'Reserved'
     }
   }
 };

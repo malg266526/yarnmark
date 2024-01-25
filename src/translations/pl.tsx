@@ -1,4 +1,4 @@
-export type PolishTranslations = typeof pl;
+export type TranslationsShape = typeof pl;
 
 export const pl = {
   translation: {
@@ -127,7 +127,7 @@ export const pl = {
         feedback:
           'Wszystkie dane dotyczące płatności będą zawarte w informacji zwrotnej, potwierdzającej rezerwację stoiska.',
         return:
-          'W przypadku rezerwacji i nie opłacenia kosztów – miejsce zostaje anulowane i zostanie ponownie dostępne dla wystawców.'
+          'W przypadku rezerwacji i nie opłacenia kosztów – rezerwacja zostaje anulowane i zostanie ponownie dostępne dla wystawców.'
       }
     },
     foodBand: {
