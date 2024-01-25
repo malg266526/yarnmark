@@ -364,7 +364,7 @@ export const hallMapConfig: HallMapType = {
           index: 'P4',
           logoSrc: WloczykijkiLogoUrl,
           avifUrl: WloczykijkiLogoUrlAvif,
-          webpUrl: WloczykijkiLogoUrlWebp
+          webpUrl: WloczykijkiLogoUrlWebp,
           who: 'Włóczykijki'
         },
         {
