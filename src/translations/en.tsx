@@ -65,10 +65,10 @@ export const en: TranslationsShape = {
       title: 'Cashmere tickets',
       ticketDescription:
         'Oferujemy możliwość zakupu biletów zwykłych oraz biletów w pakiecie kaszmirowym. Bilety kaszmirowe oprócz wejściowki na targi obejmują także:',
-      cruise: 'Cruise on the Dziergoship',
-      beautifulCruise: 'Dzieeergostatkiem on a beautiful cruise!',
+      cruise: 'Cruise on the Knitting-ship',
+      beautifulCruise: 'Beautiful cruise on the Knitting-ship!',
       invitations:
-        'We heartily invite you for an 1 hour cruise on Wisła, during which we will knit and talk together with a glass of prosecco while being surrounded by cracow scenery',
+        'We heartily invite you for an 1 hour cruise on Wisła, during which we will knit and talk together with a glass of prosecco while being surrounded by Cracow scenery',
       souverirBag: 'Souvenir fair bag'
     },
     vendorsPage: {
@@ -112,7 +112,7 @@ export const en: TranslationsShape = {
       marketing: {
         title: 'Marketing',
         sendLogos:
-          'We encourage to send your logo on email address <strong>strona.dziergamynapolu@gmail.com</strong>, we will put it on "Vendors" section and this way inform knitters, that you will be there.'
+          'We encourage to send your logo on email address <strong>krakoski.yarnmark.welny@gmail.com</strong>, we will put it on "Vendors" section and this way inform the knitters, that you will be there.'
       },
       stands: {
         title: 'Stands'
