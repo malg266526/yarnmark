@@ -60,6 +60,8 @@ export type HallStandType = {
 
   avifUrl?: string;
   webpUrl?: string;
+
+  taken?: boolean;
 };
 
 type HallLineType = {
