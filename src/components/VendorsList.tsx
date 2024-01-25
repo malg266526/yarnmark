@@ -39,7 +39,7 @@ import TimeToKnitLogoUrlAvif from './../assets/images/logos/timetoknit.avif';
 import TimeToKnitLogoUrlWebp from './../assets/images/logos/timetoknit.webp';
 
 import TheKnittingBoxLogoUrl from './../assets/images/logos/theknittingbox.png';
-import WloczykijkiLogoUrl from './../assets/images/wloczykijki_logo.png';
+import WloczykijkiLogoUrl from './../assets/images/logos/wloczykijki_logo.png';
 
 import WoollalaLogoUrl from './../assets/images/logos/woollala.jpg';
 import WoollalaLogoUrlAvif from './../assets/images/logos/woollala.avif';
