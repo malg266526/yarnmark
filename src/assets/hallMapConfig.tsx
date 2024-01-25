@@ -1,15 +1,15 @@
 import { HallColors } from '../styles/theme';
 
-import WloczykijkiLogoUrlAvif from './../assets/images/logos/but.avif';
 import WloczykijkiLogoUrl from './../assets/images/logos/but.jpg';
+import WloczykijkiLogoUrlAvif from './../assets/images/logos/but.avif';
 import WloczykijkiLogoUrlWebp from './../assets/images/logos/but.webp';
 
+import BifernoLogoUrl from './../assets/images/logos/biferno.jpg';
 import BifernoLogoUrlAvif from './../assets/images/logos/biferno.avif';
-import BifernoLogoUrlJpg from './../assets/images/logos/biferno.jpg';
 import BifernoLogoUrlWebp from './../assets/images/logos/biferno.webp';
 
 import DyeDyeDoneLogoUrlAvif from './../assets/images/logos/dyedyedone.avif';
-import DyeDyeDoneLogoUrlJpg from './../assets/images/logos/dyedyedone.jpg';
+import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.jpg';
 import DyeDyeDoneLogoUrlWebp from './../assets/images/logos/dyedyedone.webp';
 
 import HankaMiZrobilaLogoUrlAvif from './../assets/images/logos/hankamizrobila.avif';
@@ -47,6 +47,7 @@ import WoollalaLogoUrlWebp from './../assets/images/logos/woollala.webp';
 import WoolloopLogoUrlAvif from './../assets/images/logos/woolloop.avif';
 import WoolloopLogoUrl from './../assets/images/logos/woolloop.jpg';
 import WoolloopLogoUrlWebp from './../assets/images/logos/woolloop.webp';
+import { PictureType } from '../components/Picture';
 
 export type HallStandType = {
   width: number;
@@ -54,14 +55,10 @@ export type HallStandType = {
 
   text?: string;
   color: keyof typeof HallColors;
-  logoSrc?: string;
   index?: number | string;
   who?: string;
 
-  avifUrl?: string;
-  webpUrl?: string;
-
-  taken?: boolean;
+  picture?: PictureType;
 };
 
 type HallLineType = {
@@ -99,9 +96,19 @@ export const hallMapConfig: HallMapType = {
           index: 'S1',
           height: 4,
           who: 'Biferno',
-          logoSrc: BifernoLogoUrlJpg,
-          avifUrl: BifernoLogoUrlAvif,
-          webpUrl: BifernoLogoUrlWebp
+          picture: {
+            fallbackUrl: BifernoLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: BifernoLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: BifernoLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 2.5,
@@ -109,9 +116,19 @@ export const hallMapConfig: HallMapType = {
           index: 'S2',
           height: 4,
           who: 'Biferno',
-          logoSrc: BifernoLogoUrlJpg,
-          avifUrl: BifernoLogoUrlAvif,
-          webpUrl: BifernoLogoUrlWebp
+          picture: {
+            fallbackUrl: BifernoLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: BifernoLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: BifernoLogoUrlAvif
+              }
+            ]
+          }
         },
 
         {
@@ -126,9 +143,19 @@ export const hallMapConfig: HallMapType = {
           index: 'S3',
           height: 4,
           who: 'KnitPl',
-          logoSrc: KnitPlLogoUrl,
-          webpUrl: KnitPlLogoUrlWebp,
-          avifUrl: KnitPlLogoUrlAvif
+          picture: {
+            fallbackUrl: KnitPlLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: KnitPlLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: KnitPlLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 2.5,
@@ -206,9 +233,19 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'S10',
           who: 'Kokonki',
-          logoSrc: KokonkiLogoUrl,
-          avifUrl: KokonkiLogoUrlAvif,
-          webpUrl: KokonkiLogoUrlWebp
+          picture: {
+            fallbackUrl: KokonkiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: KokonkiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: KokonkiLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 4,
@@ -216,9 +253,19 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'S11',
           who: 'Kokonki',
-          logoSrc: KokonkiLogoUrl,
-          avifUrl: KokonkiLogoUrlAvif,
-          webpUrl: KokonkiLogoUrlWebp
+          picture: {
+            fallbackUrl: KokonkiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: KokonkiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: KokonkiLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 4,
@@ -226,9 +273,19 @@ export const hallMapConfig: HallMapType = {
           color: 'taken2',
           index: 'S12',
           who: 'TimeToKnit',
-          logoSrc: TimeToKnitLogoUrl,
-          avifUrl: TimeToKnitLogoUrlAvif,
-          webpUrl: TimeToKnitLogoUrlWebp
+          picture: {
+            fallbackUrl: TimeToKnitLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: TimeToKnitLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: TimeToKnitLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 4,
@@ -236,7 +293,9 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'S13',
           who: 'Strikke',
-          logoSrc: StrikkeLogoUrl
+          picture: {
+            fallbackUrl: StrikkeLogoUrl
+          }
         },
         {
           width: 4,
@@ -258,9 +317,19 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'P3',
           who: 'DyeDyeDone',
-          logoSrc: DyeDyeDoneLogoUrlJpg,
-          avifUrl: DyeDyeDoneLogoUrlAvif,
-          webpUrl: DyeDyeDoneLogoUrlWebp
+          picture: {
+            fallbackUrl: DyeDyeDoneLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: DyeDyeDoneLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: DyeDyeDoneLogoUrlAvif
+              }
+            ]
+          }
         }
       ]
     },
@@ -305,9 +374,19 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'M3',
           who: 'NaSztukiStudio',
-          logoSrc: NaSztukiStudioLogoUrl,
-          avifUrl: NaSztukiStudioLogoUrlAvif,
-          webpUrl: NaSztukiStudioLogoUrlWebp
+          picture: {
+            fallbackUrl: NaSztukiStudioLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: NaSztukiStudioLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: NaSztukiStudioLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 3,
@@ -315,7 +394,9 @@ export const hallMapConfig: HallMapType = {
           color: 'taken2',
           index: 'M4',
           who: 'TheKnittingBox',
-          logoSrc: TheKnittingBoxLogoUrl
+          picture: {
+            fallbackUrl: TheKnittingBoxLogoUrl
+          }
         },
         {
           width: 3,
@@ -335,9 +416,19 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'M6',
           who: 'HankaMiZrobiła',
-          logoSrc: HankaMiZrobilaLogoUrl,
-          avifUrl: HankaMiZrobilaLogoUrlAvif,
-          webpUrl: HankaMiZrobilaLogoUrlWebp
+          picture: {
+            fallbackUrl: HankaMiZrobilaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: HankaMiZrobilaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: HankaMiZrobilaLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 4,
@@ -362,30 +453,60 @@ export const hallMapConfig: HallMapType = {
           height: 3,
           color: 'taken',
           index: 'P4',
-          logoSrc: WloczykijkiLogoUrl,
-          avifUrl: WloczykijkiLogoUrlAvif,
-          webpUrl: WloczykijkiLogoUrlWebp,
-          who: 'Włóczykijki'
+          who: 'Włóczykijki',
+          picture: {
+            fallbackUrl: WloczykijkiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: WloczykijkiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: WloczykijkiLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken2',
           index: 'S16',
-          logoSrc: WoollalaLogoUrl,
           who: 'Woollala',
-          avifUrl: WoollalaLogoUrlAvif,
-          webpUrl: WoollalaLogoUrlWebp
+          picture: {
+            fallbackUrl: WoollalaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: WoollalaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: WoollalaLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken2',
           index: 'S17',
-          logoSrc: WoollalaLogoUrl,
           who: 'Woollala',
-          avifUrl: WoollalaLogoUrlAvif,
-          webpUrl: WoollalaLogoUrlWebp
+          picture: {
+            fallbackUrl: WoollalaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: WoollalaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: WoollalaLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 4,
@@ -407,9 +528,19 @@ export const hallMapConfig: HallMapType = {
           color: 'taken2',
           index: 'S20',
           who: 'MissKnitski',
-          logoSrc: MissKnitskiLogoUrl,
-          avifUrl: MissKnitskiLogoUrlAvif,
-          webpUrl: MissKnitskiLogoUrlWebp
+          picture: {
+            fallbackUrl: MissKnitskiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: MissKnitskiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: MissKnitskiLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 4,
@@ -417,9 +548,19 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'S21',
           who: 'Woolloop',
-          logoSrc: WoolloopLogoUrl,
-          avifUrl: WoolloopLogoUrlAvif,
-          webpUrl: WoolloopLogoUrlWebp
+          picture: {
+            fallbackUrl: WoolloopLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: WoolloopLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: WoolloopLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 4,
@@ -475,8 +616,7 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           height: 4,
           index: 'S24',
-          who: 'Mania Chomikuje',
-          taken: true
+          who: 'Mania Chomikuje'
         },
         {
           width: 2.5,

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { HallColors } from '../styles/theme';
+import { PictureType } from './Picture';
 
 const LogoWrapper = styled.div<{ color?: keyof typeof HallColors }>`
   width: 38px;
@@ -17,23 +18,20 @@ export const Image = styled.img`
 `;
 
 type HallLogoProps = {
-  src?: string;
+  picture?: PictureType;
   alt?: string;
-  avifUrl?: string;
-  webpUrl?: string;
 };
 
-export const HallLogo = ({ src, alt, avifUrl, webpUrl }: HallLogoProps) => {
-  if (!src) {
+export const HallLogo = ({ picture, alt }: HallLogoProps) => {
+  if (!picture?.fallbackUrl) {
     return;
   }
 
   return (
     <LogoWrapper>
       <picture>
-        {avifUrl && <source srcSet={avifUrl} type="image/avif" />}
-        {webpUrl && <source srcSet={webpUrl} type="image/webp" />}
-        <Image src={src} alt={alt} />
+        {picture.sources?.map(({ type, url }, index) => <source key={index} srcSet={url} type={type} />)}
+        <Image src={picture.fallbackUrl} alt={alt} />
       </picture>
     </LogoWrapper>
   );

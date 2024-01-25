@@ -4,13 +4,13 @@ import { Spacings } from '../styles/spacings';
 import { Link } from './Link';
 import { ScreenSize } from '../styles/screeen-size';
 
+import BifernoLogoUrl from './../assets/images/logos/biferno.jpg';
 import BifernoLogoUrlAvif from './../assets/images/logos/biferno.avif';
 import BifernoLogoUrlWebp from './../assets/images/logos/biferno.webp';
-import BifernoLogoUrlJpg from './../assets/images/logos/biferno.jpg';
 
+import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.jpg';
 import DyeDyeDoneLogoUrlAvif from './../assets/images/logos/dyedyedone.avif';
 import DyeDyeDoneLogoUrlWebp from './../assets/images/logos/dyedyedone.webp';
-import DyeDyeDoneLogoUrlJpg from './../assets/images/logos/dyedyedone.jpg';
 
 import HankaMiZrobilaLogoUrl from './../assets/images/logos/hankamizrobila.jpg';
 import HankaMiZrobilaLogoUrlAvif from './../assets/images/logos/hankamizrobila.avif';
@@ -49,7 +49,7 @@ import WoolloopLogoUrl from './../assets/images/logos/woolloop.jpg';
 import WoolloopLogoUrlAvif from './../assets/images/logos/woolloop.avif';
 import WoolloopLogoUrlWebp from './../assets/images/logos/woolloop.webp';
 
-import { MinifiedLogo } from './MinifiedLogo';
+import { Picture } from './Picture';
 
 export const Grid = styled.div`
   display: flex;
@@ -69,72 +69,142 @@ export const VendorsList = () => {
   return (
     <Grid>
       <Link to="https://biferno.pl/" target="_blank" rel="noreferrer">
-        <MinifiedLogo
+        <Picture
           width={140}
           alt="biferno"
-          jpgUrl={BifernoLogoUrlJpg}
-          webpUrl={BifernoLogoUrlWebp}
-          avifUrl={BifernoLogoUrlAvif}
+          picture={{
+            fallbackUrl: BifernoLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: BifernoLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: BifernoLogoUrlAvif
+              }
+            ]
+          }}
         />
       </Link>
 
       <Link to="https://www.dyedyedone.com/" target="_blank" rel="noreferrer">
-        <MinifiedLogo
+        <Picture
           width={120}
           alt="dyedyedone"
-          jpgUrl={DyeDyeDoneLogoUrlJpg}
-          webpUrl={DyeDyeDoneLogoUrlWebp}
-          avifUrl={DyeDyeDoneLogoUrlAvif}
+          picture={{
+            fallbackUrl: DyeDyeDoneLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: DyeDyeDoneLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: DyeDyeDoneLogoUrlAvif
+              }
+            ]
+          }}
         />
       </Link>
 
       <Link to="https://hankamizrobila.pl/" target="_blank" rel="noreferrer">
-        <MinifiedLogo
+        <Picture
           width={120}
           alt="hankamizrobila"
-          jpgUrl={HankaMiZrobilaLogoUrl}
-          webpUrl={HankaMiZrobilaLogoUrlWebp}
-          avifUrl={HankaMiZrobilaLogoUrlAvif}
+          picture={{
+            fallbackUrl: HankaMiZrobilaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: HankaMiZrobilaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: HankaMiZrobilaLogoUrlAvif
+              }
+            ]
+          }}
         />
       </Link>
 
       <Link to="https://knitpl.com/" target="_blank" rel="noreferrer">
-        <MinifiedLogo
+        <Picture
           width={120}
           alt="knitpl"
-          jpgUrl={KnitPlLogoUrl}
-          webpUrl={KnitPlLogoUrlWebp}
-          avifUrl={KnitPlLogoUrlAvif}
+          picture={{
+            fallbackUrl: KnitPlLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: KnitPlLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: KnitPlLogoUrlAvif
+              }
+            ]
+          }}
         />
       </Link>
 
       <Link to="https://kokonki.pl/" target="_blank" rel="noreferrer">
-        <MinifiedLogo
+        <Picture
           width={200}
           alt="kokonki"
-          jpgUrl={KokonkiLogoUrl}
-          webpUrl={KokonkiLogoUrlWebp}
-          avifUrl={KokonkiLogoUrlAvif}
+          picture={{
+            fallbackUrl: KokonkiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: KokonkiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: KokonkiLogoUrlAvif
+              }
+            ]
+          }}
         />
       </Link>
 
       <Link to="https://www.missknitski.com/sklep/" target="_blank" rel="noreferrer">
-        <MinifiedLogo
+        <Picture
           width={120}
           alt="missknitski"
-          jpgUrl={MissKnitskiLogoUrl}
-          webpUrl={MissKnitskiLogoUrlWebp}
-          avifUrl={MissKnitskiLogoUrlAvif}
+          picture={{
+            fallbackUrl: MissKnitskiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: MissKnitskiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: MissKnitskiLogoUrlAvif
+              }
+            ]
+          }}
         />
       </Link>
 
       <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
-        <MinifiedLogo
+        <Picture
           width={100}
           alt="nasztukistudio"
-          jpgUrl={NaSztukiStudioLogoUrl}
-          webpUrl={NaSztukiStudioLogoUrlWebp}
-          avifUrl={NaSztukiStudioLogoUrlAvif}
+          picture={{
+            fallbackUrl: NaSztukiStudioLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: NaSztukiStudioLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: NaSztukiStudioLogoUrlAvif
+              }
+            ]
+          }}
         />
       </Link>
 
@@ -143,12 +213,22 @@ export const VendorsList = () => {
       </Link>
 
       <Link to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
-        <MinifiedLogo
+        <Picture
           width={120}
           alt="timetoknit"
-          jpgUrl={TimeToKnitLogoUrl}
-          webpUrl={TimeToKnitLogoUrlWebp}
-          avifUrl={TimeToKnitLogoUrlAvif}
+          picture={{
+            fallbackUrl: TimeToKnitLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: TimeToKnitLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: TimeToKnitLogoUrlAvif
+              }
+            ]
+          }}
         />
       </Link>
 
@@ -161,22 +241,42 @@ export const VendorsList = () => {
       </Link>
 
       <Link to="https://www.woollala.com" target="_blank" rel="noreferrer">
-        <MinifiedLogo
+        <Picture
           width={180}
           alt="woollala"
-          jpgUrl={WoollalaLogoUrl}
-          webpUrl={WoollalaLogoUrlWebp}
-          avifUrl={WoollalaLogoUrlAvif}
+          picture={{
+            fallbackUrl: WoollalaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: WoollalaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: WoollalaLogoUrlAvif
+              }
+            ]
+          }}
         />
       </Link>
 
       <Link to="https://woolloop.pl" target="_blank" rel="noreferrer">
-        <MinifiedLogo
+        <Picture
           width={120}
           alt="woolloop"
-          jpgUrl={WoolloopLogoUrl}
-          webpUrl={WoolloopLogoUrlWebp}
-          avifUrl={WoolloopLogoUrlAvif}
+          picture={{
+            fallbackUrl: WoolloopLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: WoolloopLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: WoolloopLogoUrlAvif
+              }
+            ]
+          }}
         />
       </Link>
       {/*  <Link href="woolove.pl" target="_blank" rel="noreferrer">
