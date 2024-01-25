@@ -21,7 +21,7 @@ export const Text = styled.p<{ marginBottom?: keyof typeof Spacings; align?: 'ce
     `};
 `;
 
-export const TextH3 = styled.h3`
+export const TextH2 = styled.h2`
   font-size: 18px;
   font-weight: 400;
   margin-top: ${Spacings.md};
