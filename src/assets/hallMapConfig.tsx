@@ -1,6 +1,8 @@
 import { HallColors } from '../styles/theme';
 
-import WloczykijkiLogoUrl from './../assets/images/but.png';
+import WloczykijkiLogoUrlAvif from './../assets/images/logos/but.avif';
+import WloczykijkiLogoUrl from './../assets/images/logos/but.jpg';
+
 import BifernoLogoUrlAvif from './../assets/images/logos/biferno.avif';
 import BifernoLogoUrlJpg from './../assets/images/logos/biferno.jpg';
 import BifernoLogoUrlWebp from './../assets/images/logos/biferno.webp';
@@ -21,28 +23,28 @@ import KokonkiLogoUrlAvif from './../assets/images/logos/kokonki.avif';
 import KokonkiLogoUrl from './../assets/images/logos/kokonki.jpg';
 import KokonkiLogoUrlWebp from './../assets/images/logos/kokonki.webp';
 
-import MissKnitskiLogoUrl from './../assets/images/logos/missknitski.jpg';
 import MissKnitskiLogoUrlAvif from './../assets/images/logos/missknitski.avif';
+import MissKnitskiLogoUrl from './../assets/images/logos/missknitski.jpg';
 import MissKnitskiLogoUrlWebp from './../assets/images/logos/missknitski.webp';
 
-import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.jpg';
 import NaSztukiStudioLogoUrlAvif from './../assets/images/logos/nasztukistudio.avif';
+import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.jpg';
 import NaSztukiStudioLogoUrlWebp from './../assets/images/logos/nasztukistudio.webp';
 
 import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
 
-import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
 import TimeToKnitLogoUrlAvif from './../assets/images/logos/timetoknit.avif';
+import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
 import TimeToKnitLogoUrlWebp from './../assets/images/logos/timetoknit.webp';
 
 import TheKnittingBoxLogoUrl from './../assets/images/logos/theknittingbox.png';
 
-import WoollalaLogoUrl from './../assets/images/logos/woollala.jpg';
 import WoollalaLogoUrlAvif from './../assets/images/logos/woollala.avif';
+import WoollalaLogoUrl from './../assets/images/logos/woollala.jpg';
 import WoollalaLogoUrlWebp from './../assets/images/logos/woollala.webp';
 
-import WoolloopLogoUrl from './../assets/images/logos/woolloop.jpg';
 import WoolloopLogoUrlAvif from './../assets/images/logos/woolloop.avif';
+import WoolloopLogoUrl from './../assets/images/logos/woolloop.jpg';
 import WoolloopLogoUrlWebp from './../assets/images/logos/woolloop.webp';
 
 export type HallStandType = {
@@ -356,7 +358,9 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'P4',
           logoSrc: WloczykijkiLogoUrl,
-          who: 'Wlóczykijki'
+          who: 'Wlóczykijki',
+          avifUrl: WloczykijkiLogoUrlAvif,
+          webpUrl: BifernoLogoUrlWebp
         },
         {
           width: 4,
