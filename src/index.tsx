@@ -9,9 +9,6 @@ import isPropValid from '@emotion/is-prop-valid';
 import { en } from './translations/en';
 import { pl } from './translations/pl';
 
-console.log('navigator.language', navigator.language);
-console.log('localStorage.setItem("key", "value")', localStorage.getItem('language'));
-
 const DEFAULT_PL_BROWSER_SETTINGS = 'pl-PL';
 
 const localStorageLanguage = localStorage.getItem('language');
