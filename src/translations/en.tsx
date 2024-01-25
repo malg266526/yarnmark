@@ -14,7 +14,7 @@ export const en: TranslationsShape = {
       stands: 'Stands'
     },
     welcomeBand: {
-      invitation: 'We heartily invite you for I edition of wool fair in captial of małopolska!',
+      invitation: 'We heartily invite you for I edition of wool fair in capital of małopolska!',
       where: 'Yarnmark is happening at 27/04/2024 at 10:00 AM, in Hala 100-lecia KS Cracovia',
       haveFun:
         'We hope that it will be a day of not only shopping spree and deal hunting, but integrating, knitting together on stands and having fun.',
@@ -66,10 +66,10 @@ export const en: TranslationsShape = {
       ticketDescription:
         'Oferujemy możliwość zakupu biletów zwykłych oraz biletów w pakiecie kaszmirowym. Bilety kaszmirowe oprócz wejściowki na targi obejmują także:',
       cruise: 'Cruise on the Dziergoship',
-      beautifulCruise: 'Dzieeergostatkiem on a beautyful cruise!',
+      beautifulCruise: 'Dzieeergostatkiem on a beautiful cruise!',
       invitations:
-        'Zapraszamy Was serdecznie na godzinny rejs po Wiśle, podczas którego wspólnie podziergamy i porozmawiamy, przy kieliszku prosecco i w otoczeniu krakowskich krajobrazów',
-      souverirBag: 'Pamiątkowa torba targowa'
+        'We heartily invite you for an 1 hour cruise on Wisła, during which we will knit and talk together with a glass of prosecco while being surrounded by cracow scenery',
+      souverirBag: 'Souvenir fair bag'
     },
     vendorsPage: {
       title: 'Vendors'
@@ -112,39 +112,38 @@ export const en: TranslationsShape = {
       marketing: {
         title: 'Marketing',
         sendLogos:
-          'Zachęcamy do przesłania swojego na logo na adres email <strong>strona.dziergamynapolu@gmail.com</strong>, umieścimy jew zakładce "Wystawcy" i w ten sposób poinformujemy dziewiarki i dziewiarzy, że z nami będziecie'
+          'We encourage to send your logo on email address <strong>strona.dziergamynapolu@gmail.com</strong>, we will put it on "Vendors" section and this way inform knitters, that you will be there.'
       },
       stands: {
-        title: 'Stoiska'
+        title: 'Stands'
       },
       registration: {
         title: 'Zapisy',
         beAVendor:
-          'Jeśli chcesz dołączyć do wspaniałego grona naszych wystawców, napisz do nas! Email kontaktowy: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
-        start: 'Możliwość zakupu stoiska startuje w poniedziałek 22.01.2024r. o godz. 12:00',
-        where: 'Rezerwacja stoiska odbywa się poprzez zakup miejsca w sklepie online Włóczykijki',
-        buyHere: 'Tutaj wykupisz stoisko',
-        feedback:
-          'Wszystkie dane dotyczące płatności będą zawarte w informacji zwrotnej,potwierdzającej rezerwację stoiska',
+          'If you wanna join the great group of our vendors write us an email! Email address: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
+        start: 'Spot reservations start on Monday 22.01.2024r. at 12:00 AM',
+        where: 'Reservation is done by buying the spot in online shop `Włóczykijki`',
+        buyHere: 'Here you will reserve the spot',
+        feedback: 'All data related to payment will be part of feedback confirming spot reservation',
         return:
-          'W przypadku rezerwacji i nie opłacenia kosztów – miejsce zostaje anulowane i zostanie ponownie dostępne dla wystawców'
+          'In case of reservation and missing the payment - reservation is cancelled and will be available again for vendors'
       }
     },
     foodBand: {
       bezogrodekDescription:
         '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów',
-      lookHere: 'Zobacz tutaj',
-      checkMenu: 'Zobacz menu tutaj',
-      pinoGardenDescription: 'Fani włoskiej kuchni i owoców morza naprzeciwko hali znajdą Pino Garden',
+      lookHere: 'See here',
+      checkMenu: 'See menu here',
+      pinoGardenDescription: 'Fans of italian food and seafood will find Pino Garden opposite of event',
       pretzelDescription: 'Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka',
       piastowskaDescription: 'Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej',
-      knittedCoffeeDescription: 'Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee'
+      knittedCoffeeDescription: 'On the event you can drink tasty coffee made by Tarasa from Knitted Coffee'
     },
     hallMap: {
-      premiumStand: 'Miejsce Premium 5x3m',
-      standardStand: 'Miejsce Standard 4x2,5m',
-      miniStand: 'Miejsce Mini 3x2m',
-      taken: 'Miejsce zarezerwowane'
+      premiumStand: 'Premium spot 5x3m',
+      standardStand: 'Standard spot 4x2,5m',
+      miniStand: 'Mini spot 3x2m',
+      taken: 'Reserved'
     }
   }
 };
