@@ -71,6 +71,7 @@ import {
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
 import { Curtain } from '../components/Curtain';
+import { LanguageSwitch } from '../components/LanguageSwitch';
 
 // type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
@@ -437,6 +438,8 @@ export const MainPage = () => {
             <Link color="black" to="#footer">
               {t('menu.contact')}
             </Link>
+
+            <LanguageSwitch />
           </MenuBackground>
         </Menu>
       )}
