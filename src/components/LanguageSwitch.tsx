@@ -39,18 +39,25 @@ export interface MenuProps {
   iconColor?: string;
 }
 
+export type LanguageOption = 'pl' | 'en';
+
 export const LanguageSwitch = () => {
   const [, i18n] = useTranslation('common');
 
   const { language, changeLanguage } = i18n;
 
+  const onChangeLanguageClicked = (language: LanguageOption) => {
+    changeLanguage(language);
+    localStorage.setItem('language', language);
+  };
+
   return (
     <Root>
-      <TransparentButton onClick={() => changeLanguage('pl')}>
+      <TransparentButton onClick={() => onChangeLanguageClicked('pl')}>
         <LanguageText isSelected={language === 'pl'}>PL</LanguageText>
       </TransparentButton>
       <LanguageText>|</LanguageText>
-      <TransparentButton onClick={() => changeLanguage('en')}>
+      <TransparentButton onClick={() => onChangeLanguageClicked('en')}>
         <LanguageText isSelected={language === 'en'}>EN</LanguageText>
       </TransparentButton>
     </Root>
