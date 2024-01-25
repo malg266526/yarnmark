@@ -1,6 +1,6 @@
-import { PolishTranslations } from './pl';
+import { TranslationsShape } from './pl';
 
-export const en: PolishTranslations = {
+export const en: TranslationsShape = {
   translation: {
     menu: {
       home: 'Home',

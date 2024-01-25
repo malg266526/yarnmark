@@ -1,4 +1,4 @@
-export type PolishTranslations = typeof pl;
+export type TranslationsShape = typeof pl;
 
 export const pl = {
   translation: {
