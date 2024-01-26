@@ -6,6 +6,7 @@
   "background_color": "#fff",
   "description":"Dziewiarskie targi welny Krakow 2024",
   "id":"yarnmark",
+  "theme_color": "#d7c9c0",
   "icons":[
     {"purpose":"maskable",
     "sizes":"512x512",
