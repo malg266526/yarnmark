@@ -24,6 +24,10 @@ import KokonkiLogoUrlAvif from './../assets/images/logos/kokonki.avif';
 import KokonkiLogoUrl from './../assets/images/logos/kokonki.jpg';
 import KokonkiLogoUrlWebp from './../assets/images/logos/kokonki.webp';
 
+import ManiaChomikujeLogoUrl from './../assets/images/logos/Mania.jpg';
+import ManiaChomikujeLogoUrlAvif from './../assets/images/logos/Mania.avif';
+import ManiaChomikujeLogoUrlWebp from './../assets/images/logos/Mania.webp';
+
 import MissKnitskiLogoUrlAvif from './../assets/images/logos/missknitski.avif';
 import MissKnitskiLogoUrl from './../assets/images/logos/missknitski.jpg';
 import MissKnitskiLogoUrlWebp from './../assets/images/logos/missknitski.webp';
@@ -32,6 +36,7 @@ import NaSztukiStudioLogoUrlAvif from './../assets/images/logos/nasztukistudio.a
 import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.jpg';
 import NaSztukiStudioLogoUrlWebp from './../assets/images/logos/nasztukistudio.webp';
 
+import SiedemOczekLogoUrl from './../assets/images/logos/7oczek.png';
 import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
 
 import TimeToKnitLogoUrlAvif from './../assets/images/logos/timetoknit.avif';
@@ -531,14 +536,20 @@ export const hallMapConfig: HallMapType = {
           height: 2.5,
           color: 'taken',
           index: 'S18',
-          who: '7oczek'
+          who: '7oczek',
+          picture: {
+            fallbackUrl: SiedemOczekLogoUrl
+          }
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken',
           index: 'S19',
-          who: '7Oczek'
+          who: '7Oczek',
+          picture: {
+            fallbackUrl: SiedemOczekLogoUrl
+          }
         },
         {
           width: 4,
@@ -634,7 +645,20 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           height: 4,
           index: 'S24',
-          who: 'Mania Chomikuje'
+          who: 'Mania Chomikuje',
+          picture: {
+            fallbackUrl: ManiaChomikujeLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: ManiaChomikujeLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: ManiaChomikujeLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 2.5,

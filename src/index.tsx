@@ -9,9 +9,21 @@ import isPropValid from '@emotion/is-prop-valid';
 import { en } from './translations/en';
 import { pl } from './translations/pl';
 
+const DEFAULT_PL_BROWSER_SETTINGS = 'pl-PL';
+
+const localStorageLanguage = localStorage.getItem('language');
+const browserDefaultLanguage = navigator.language;
+
+const defaultLanguage = localStorageLanguage
+  ? localStorageLanguage
+  : browserDefaultLanguage === DEFAULT_PL_BROWSER_SETTINGS
+  ? 'pl'
+  : 'en';
+
 i18next.init({
   interpolation: { escapeValue: false }, // React already does escaping
-  lng: 'pl',
+  lng: defaultLanguage,
+
   resources: {
     en,
     pl

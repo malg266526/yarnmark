@@ -72,6 +72,7 @@ import {
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
 import { Curtain } from '../components/Curtain';
+import { LanguageSwitch } from '../components/LanguageSwitch';
 import { RowLayout } from '../components/RowLayout';
 
 // type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
@@ -404,6 +405,8 @@ export const MainPage = () => {
               <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
               {t('menu.contact')}
             </SideBar.LinkEntry>
+
+            <LanguageSwitch />
           </SideBar>
         </>
       )}
@@ -439,6 +442,8 @@ export const MainPage = () => {
             <Link color="black" to="#footer">
               {t('menu.contact')}
             </Link>
+
+            <LanguageSwitch />
           </MenuBackground>
         </Menu>
       )}
@@ -450,7 +455,7 @@ export const MainPage = () => {
         </Picture>
 
         <Band.Slot>
-          <NiceBox overflowSize="10px" width="500px" padding="lg">
+          <NiceBox overflowSize="10px" width="500px" padding="lg" marginTop="lg">
             <TextWrapper>
               <Title>Krakoski Yarnmark Wełny</Title>
             </TextWrapper>

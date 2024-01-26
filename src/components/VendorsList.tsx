@@ -24,6 +24,10 @@ import KokonkiLogoUrl from './../assets/images/logos/kokonki.jpg';
 import KokonkiLogoUrlAvif from './../assets/images/logos/kokonki.avif';
 import KokonkiLogoUrlWebp from './../assets/images/logos/kokonki.webp';
 
+import ManiaChomikujeLogoUrl from './../assets/images/logos/Mania.jpg';
+import ManiaChomikujeLogoUrlAvif from './../assets/images/logos/Mania.avif';
+import ManiaChomikujeLogoUrlWebp from './../assets/images/logos/Mania.webp';
+
 import MissKnitskiLogoUrl from './../assets/images/logos/missknitski.jpg';
 import MissKnitskiLogoUrlAvif from './../assets/images/logos/missknitski.avif';
 import MissKnitskiLogoUrlWebp from './../assets/images/logos/missknitski.webp';
@@ -32,6 +36,7 @@ import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.jpg';
 import NaSztukiStudioLogoUrlAvif from './../assets/images/logos/nasztukistudio.avif';
 import NaSztukiStudioLogoUrlWebp from './../assets/images/logos/nasztukistudio.webp';
 
+import SiedemOczekLogoUrl from './../assets/images/logos/7oczek.png';
 import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
 
 import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
@@ -172,6 +177,26 @@ export const VendorsList = () => {
         />
       </Link>
 
+      <Link to="https://www.facebook.com/groups/1020511551665421/" target="_blank" rel="noreferrer">
+        <Picture
+          width={140}
+          alt="maniachomikuje"
+          picture={{
+            fallbackUrl: ManiaChomikujeLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: ManiaChomikujeLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: ManiaChomikujeLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
       <Link to="https://www.missknitski.com/sklep/" target="_blank" rel="noreferrer">
         <Picture
           width={120}
@@ -216,9 +241,13 @@ export const VendorsList = () => {
         <img width={180} src={StrikkeLogoUrl} alt="Strikke" />
       </Link>
 
+      <Link to="https://7oczek.pl/pl/" target="_blank" rel="noreferrer">
+        <img width={110} src={SiedemOczekLogoUrl} alt="7Oczek" />
+      </Link>
+
       <Link to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
         <Picture
-          width={120}
+          width={130}
           alt="timetoknit"
           picture={{
             fallbackUrl: TimeToKnitLogoUrl,
@@ -310,20 +339,11 @@ export const VendorsList = () => {
       {/*  <Link href="https://www.instagram.com/woolniej.pl" target="_blank" rel="noreferrer">
         <img width={160} src={WoolniejLogoUrl} alt="woolniej" />
       </Link> */}
-      {/*   <Link href="https://yarnwithlove.pl/" target="_blank" rel="noreferrer">
-        <img width={140} src={YarnWithLoveLogoUrl} alt="yarnwithlove" />
-      </Link> */}
       {/*   <Link href="https://animotki.pl/" target="_blank" rel="noreferrer">
         <img width={160} src={AnimotkiLogoUrl} alt="animotki" />
       </Link> */}
-      {/* <Link href="https://stylovewloczki.pl/" target="_blank" rel="noreferrer">
-        <img width={140} src={StyloveWloczkiLogoUrl} alt="stylovewloczki" />
-      </Link> */}
       {/*       <Link href="https://www.gabowool.pl/" target="_blank" rel="noreferrer">
         <img width={140} src={GaboWoolLogoUrl} alt="gabowool" />
-      </Link> */}
-      {/*       <Link href="https://7oczek.pl/pl/" target="_blank" rel="noreferrer">
-        <img width={140} src={SiedemOczekLogoUrl} alt="7oczek" />
       </Link> */}
       {/* <Link href="https://rencami.pl/" target="_blank" rel="noreferrer">
         <img width={140} src={RencamiLogoUrl} alt="rencami" />
@@ -333,9 +353,6 @@ export const VendorsList = () => {
       </Link> */}
       {/*  <Link href="https://noiklawo.pl/" target="_blank" rel="noreferrer">
         <img width={220} src={SamaSeUszyjLogoUrl} alt="samaseuszyj" />
-      </Link> */}
-      {/*       <Link href="https://miladruciarnia.pl/" target="_blank" rel="noreferrer">
-        <img width={160} src={MilaDruciarniaLogoUrl} alt="miladruciarnia" />
       </Link> */}
     </Grid>
   );

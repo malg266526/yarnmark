@@ -11,6 +11,7 @@ type FrameWidth = `${number}${'px' | '%'}`;
 interface RootProps {
   overflowSize: `${number}${'px' | '%'}`;
   overflowLength: `${number}${'px' | '%'}`;
+  marginTop?: keyof typeof Spacings;
 }
 
 const boxShadow = css`
@@ -55,6 +56,7 @@ const Root = styled.div<RootProps>`
   z-index: 1;
   ${boxShadow};
   ${animationFrames};
+  margin-top: ${({ marginTop }) => Spacings[marginTop || 'none']};
 
   @media (max-width: ${ScreenSize.phone}) {
     overflow: hidden;
@@ -159,10 +161,17 @@ export interface NiceBoxProps extends Partial<RootProps> {
   height?: FrameWidth;
   children?: React.ReactNode;
   padding: keyof typeof Spacings;
+  marginTop?: keyof typeof Spacings;
 }
 
-export const NiceBox = ({ children, overflowLength = '30%', overflowSize = '3px', ...rest }: NiceBoxProps) => (
-  <Root overflowLength={overflowLength} overflowSize={overflowSize}>
+export const NiceBox = ({
+  children,
+  overflowLength = '30%',
+  overflowSize = '3px',
+  marginTop,
+  ...rest
+}: NiceBoxProps) => (
+  <Root overflowLength={overflowLength} overflowSize={overflowSize} marginTop={marginTop}>
     <Frame {...rest}>{children}</Frame>
   </Root>
 );
