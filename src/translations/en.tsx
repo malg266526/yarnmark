@@ -83,7 +83,13 @@ export const en: TranslationsShape = {
       entertainsAndTeaches: 'Yarnmark entertains and teaches',
       invitation:
         'Welcome to participate in knitting and crochet workshops as well heartily invite to take advantage of professional first aid course.',
-      mayTheHealthBeWithYou: 'May the health and safety be with you!'
+      mayTheHealthBeWithYou: 'May the health and safety be with you!',
+      workshop1: 'workshop1',
+      workshop2: 'workshop2',
+      workshop3: 'workshop3',
+      workshop4: 'workshop4',
+      workshop5: 'workshop5',
+      workshop6: 'workshop6'
     },
     infoForVendorsPage: {
       title: 'Information for vendors',

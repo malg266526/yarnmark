@@ -150,7 +150,6 @@ export const MainPage = () => {
 
   const vendorsBandRef = useRef<HTMLDivElement | null>(null);
   const spotBandRef = useRef<HTMLDivElement | null>(null);
-  const workshopsBandRef = useRef<HTMLDivElement | null>(null);
   // const cashmereTicketsBandRef = useRef<HTMLDivElement | null>(null);
   //const foodBandRef = useRef<HTMLDivElement | null>(null);
 
@@ -375,14 +374,10 @@ export const MainPage = () => {
               {t('menu.infoForVendors')}
             </SideBar.LinkEntry>
 
-            {/*               <SideBar.LinkEntry
-                onClick={() => {
-                  closeSideBar();
-                  () => workshopsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
-                }}>
-                <IconifyIcon icon="icons8:student" width="24" />
-                {t('menu.workshops')}
-              </SideBar.LinkEntry> */}
+            <SideBar.LinkEntry to="#workshops" onClick={closeSideBar}>
+              <IconifyIcon icon="icons8:student" width="24" />
+              {t('menu.workshops')}
+            </SideBar.LinkEntry>
 
             {/*           <SideBar.LinkEntry
                 onClick={() => {
@@ -422,13 +417,10 @@ export const MainPage = () => {
             <Link color="black" to="/info-for-vendors">
               {t('menu.infoForVendors')}
             </Link>
-            {/*         <Link
-              color="black"
-              anchorProps={{
-                onClick: () => workshopsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
-              }}>
+
+            <Link to="#workshops" color="black">
               {t('menu.workshops')}
-            </Link> */}
+            </Link>
             {/*           <Link
               color="black"
               anchorProps={{
@@ -526,12 +518,12 @@ export const MainPage = () => {
       </Band>
 
       <Band
-        ref={workshopsBandRef}
+        id="workshops"
         gap="xl"
         size="md"
         variant="background"
         justify="space-around"
-        color={Colors.isabelline}
+        color={Colors.beige1}
         padding="xl"
         reverseOnMobile>
         <Band.Slot flex="auto-grow">
@@ -544,14 +536,69 @@ export const MainPage = () => {
               slot={'TODO: foto i tekst od Ani'}>
               <PhotoFrame.Cursive>{t('workshopsBand.firstAid')}</PhotoFrame.Cursive>
             </PhotoFrame>
-            <PhotoFrame maxSize="400px" src={wawelImageSrc}>
-              <PhotoFrame.Cursive>TODO: Warsztaty 1</PhotoFrame.Cursive>
+            <PhotoFrame
+              variant="slot"
+              maxSize="400px"
+              slotSize="200px"
+              src={wawelImageSrc}
+              slot={t('workshopsBand.workshop1')}>
+              <PhotoFrame.Cursive>Uwolnij pomysły</PhotoFrame.Cursive>
             </PhotoFrame>
-            <PhotoFrame maxSize="400px" src={wawelImageSrc}>
+            <PhotoFrame
+              variant="slot"
+              maxSize="400px"
+              slotSize="200px"
+              src={wawelImageSrc}
+              slot={t('workshopsBand.workshop2')}>
               <PhotoFrame.Cursive>TODO: Warsztaty 2</PhotoFrame.Cursive>
             </PhotoFrame>
-            <PhotoFrame maxSize="400px" src={wawelImageSrc}>
+            <PhotoFrame
+              variant="slot"
+              maxSize="400px"
+              slotSize="200px"
+              src={wawelImageSrc}
+              slot={t('workshopsBand.workshop3')}>
               <PhotoFrame.Cursive>TODO: Warsztaty 3</PhotoFrame.Cursive>
+            </PhotoFrame>
+            <PhotoFrame
+              variant="slot"
+              maxSize="400px"
+              slotSize="200px"
+              src={wawelImageSrc}
+              slot={t('workshopsBand.workshop1')}>
+              <PhotoFrame.Cursive>Uwolnij pomysły</PhotoFrame.Cursive>
+            </PhotoFrame>
+            <PhotoFrame
+              variant="slot"
+              maxSize="400px"
+              slotSize="200px"
+              src={wawelImageSrc}
+              slot={t('workshopsBand.workshop2')}>
+              <PhotoFrame.Cursive>TODO: Warsztaty 2</PhotoFrame.Cursive>
+            </PhotoFrame>
+            <PhotoFrame
+              variant="slot"
+              maxSize="400px"
+              slotSize="200px"
+              src={wawelImageSrc}
+              slot={t('workshopsBand.workshop3')}>
+              <PhotoFrame.Cursive>TODO: Warsztaty 3</PhotoFrame.Cursive>
+            </PhotoFrame>
+            <PhotoFrame
+              variant="slot"
+              maxSize="400px"
+              slotSize="200px"
+              src={wawelImageSrc}
+              slot={t('workshopsBand.workshop1')}>
+              <PhotoFrame.Cursive>Uwolnij pomysły</PhotoFrame.Cursive>
+            </PhotoFrame>
+            <PhotoFrame
+              variant="slot"
+              maxSize="400px"
+              slotSize="200px"
+              src={wawelImageSrc}
+              slot={t('workshopsBand.workshop2')}>
+              <PhotoFrame.Cursive>TODO: Warsztaty 2</PhotoFrame.Cursive>
             </PhotoFrame>
           </PhotosLayout>
         </Band.Slot>
