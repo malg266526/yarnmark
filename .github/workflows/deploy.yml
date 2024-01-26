@@ -6,9 +6,9 @@ on:
         type: choice
         description: Target environment
         options:
-        - production
         - test
-
+        - production
+        
 env:
   node_version: 18
   
