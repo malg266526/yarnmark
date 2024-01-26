@@ -1,6 +1,13 @@
 name: 'Deploy to Test'
 on: 
   workflow_dispatch:
+    inputs: 
+      environment:
+        type: choice
+        description: Target environment
+        options:
+        - production
+        - test
 
 env:
   node_version: 18
@@ -13,7 +20,7 @@ jobs:
       - name: Install
         run: yarn install --frozen-lockfile
 
-      - name: Use Node.js ${{ env.node_version }}
+      - name: Use Node.js ${{ inputs.environment }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.node_version }}
