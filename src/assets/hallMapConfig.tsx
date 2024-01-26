@@ -24,6 +24,10 @@ import KokonkiLogoUrlAvif from './../assets/images/logos/kokonki.avif';
 import KokonkiLogoUrl from './../assets/images/logos/kokonki.jpg';
 import KokonkiLogoUrlWebp from './../assets/images/logos/kokonki.webp';
 
+import ManiaChomikujeLogoUrl from './../assets/images/logos/Mania.jpg';
+import ManiaChomikujeLogoUrlAvif from './../assets/images/logos/Mania.avif';
+import ManiaChomikujeLogoUrlWebp from './../assets/images/logos/Mania.webp';
+
 import MissKnitskiLogoUrlAvif from './../assets/images/logos/missknitski.avif';
 import MissKnitskiLogoUrl from './../assets/images/logos/missknitski.jpg';
 import MissKnitskiLogoUrlWebp from './../assets/images/logos/missknitski.webp';
@@ -641,7 +645,20 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           height: 4,
           index: 'S24',
-          who: 'Mania Chomikuje'
+          who: 'Mania Chomikuje',
+          picture: {
+            fallbackUrl: ManiaChomikujeLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: ManiaChomikujeLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: ManiaChomikujeLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 2.5,
