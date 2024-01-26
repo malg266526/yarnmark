@@ -455,7 +455,7 @@ export const MainPage = () => {
         </Picture>
 
         <Band.Slot>
-          <NiceBox overflowSize="10px" width="500px" padding="lg">
+          <NiceBox overflowSize="10px" width="500px" padding="lg" marginTop="lg">
             <TextWrapper>
               <Title>Krakoski Yarnmark Wełny</Title>
             </TextWrapper>
