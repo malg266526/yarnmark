@@ -83,7 +83,13 @@ export const pl = {
       entertainsAndTeaches: 'Yarnmark bawi, Yarnmark uczy',
       invitation:
         'Zapraszamy do wzięcia udziału w warsztatach dziewiarskich i szydełkowych oraz serdecznie zachęcamy do skorzystania z profesjonalnych kursów pierwszej pomocy.',
-      mayTheHealthBeWithYou: 'Niech zdrowie i bezpieczeństwo będą z Wami!'
+      mayTheHealthBeWithYou: 'Niech zdrowie i bezpieczeństwo będą z Wami!',
+      workshop1: 'workshop1',
+      workshop2: 'workshop2',
+      workshop3: 'workshop3',
+      workshop4: 'workshop4',
+      workshop5: 'workshop5',
+      workshop6: 'workshop6'
     },
     infoForVendorsPage: {
       title: 'Informacje dla wystawców',
