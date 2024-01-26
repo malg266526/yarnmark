@@ -21,7 +21,7 @@ import pinImageUrl from '../assets/images/pin.svg';
 import halaAvifImageSrc from '../assets/images/hala.avif';
 import halaJfifImageSrc from '../assets/images/hala.jfif';
 import halaJpgImageSrc from '../assets/images/hala_quality.jpg';
-// import wawelImageSrc from '../assets/wawel.jpg';
+import wawelImageSrc from '../assets/images/wawel.jpg';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import yarnmarkLogoSrc from '../assets/images/logos/yarnmark.png';
@@ -31,7 +31,7 @@ import { Band } from '../components/Band';
 import { FunnyButton } from '../components/FunnyButton';
 import { Link } from '../components/Link';
 import { NiceBox } from '../components/NiceBox';
-// import { PhotoFrame } from '../components/PhotoBox';
+import { PhotoFrame } from '../components/PhotoBox';
 import { usePhone } from './usePhone';
 
 import { Icon as IconifyIcon } from '@iconify/react';
@@ -62,7 +62,7 @@ import {
   MobileLocationButtonWrapper,
   MobilePicture,
   Picture,
-  // PhotosLayout,
+  PhotosLayout,
   SecondaryButton,
   SectionWrapper,
   Text,
@@ -149,7 +149,7 @@ export const MainPage = () => {
 
   const vendorsBandRef = useRef<HTMLDivElement | null>(null);
   const spotBandRef = useRef<HTMLDivElement | null>(null);
-  // const workshopsBandRef = useRef<HTMLDivElement | null>(null);
+  const workshopsBandRef = useRef<HTMLDivElement | null>(null);
   // const cashmereTicketsBandRef = useRef<HTMLDivElement | null>(null);
   //const foodBandRef = useRef<HTMLDivElement | null>(null);
 
@@ -522,7 +522,7 @@ export const MainPage = () => {
           <VendorsList />
         </Band.Slot>
       </Band>
-      {/* 
+
       <Band
         ref={workshopsBandRef}
         gap="xl"
@@ -562,7 +562,7 @@ export const MainPage = () => {
             <Text>{t('workshopsBand.mayTheHealthBeWithYou')}</Text>
           </NiceBox>
         </Band.Slot>
-      </Band> */}
+      </Band>
 
       {/*    <Band ref={foodBandRef} size="md" variant="background" color={Colors.pastelGray} padding="xl">
         <CenteredTitle>Gdzie zjeść?</CenteredTitle>
