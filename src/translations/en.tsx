@@ -91,6 +91,12 @@ export const en: TranslationsShape = {
       workshop5: 'workshop5',
       workshop6: 'workshop6'
     },
+    scheduleBand: {
+      title: 'Workshops schedule',
+      room1: 'Salka nr 1',
+      room2: 'Salka nr 2',
+      room3: 'Salka nr 3'
+    },
     infoForVendorsPage: {
       title: 'Information for vendors',
       invitation: 'We heartily invite you to participate in I edition of Cracow Wool Fair!',
