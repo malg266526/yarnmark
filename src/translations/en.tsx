@@ -42,29 +42,29 @@ export const en: TranslationsShape = {
     },
     spotBand: {
       neighbourhood1:
-        'Hala 100-lecia KS Cracovia 1906 znajduje się w zielonym sercu Krakowa. W sąsiedztwie rekreacyjnej okolicy Błoń zaraz przy alei Marszałka Ferdynanda Focha.',
+        'Hala 100-lecia KS Cracovia 1906 lies in the green heart of Cracow. In the neighbourhood of recreational surroundings of Błonia next to the avenue of Marszałka Ferdynanda Focha.',
       neighbourhood2:
-        'Dużą zaletą tej lokalizacji jest łatwa dostępność komunikacyjna – dotarcie z każdego miejsca transportem publicznym jak i własnym.',
+        'Great quality of the location is easily accessible communication – reaching it from every place both, with public cummnication and your own.',
       publicTransport:
-        'Osoby korzystające z komunikacji publicznej mogą skorzystać z linii autobusowej (bezpośredni dojazd) jak i z linii tramwajowej (nie obędzie się bez krótkiego spacerku przez błonia). ',
-      list: 'Poniższa lista przedstawia możliwość dojazdu z Krakowskiego Dworca Głównego:',
+        'People using public communication can use bus (to arrive directly on the event) or tram (requires a short stroll through Błonia).',
+      list: 'List below presents options for traveling from Cracow Main Station:',
       option1:
-        '- linia autobusowa <strong>152</strong>, początek przystanek <strong>TEATR SŁOWACKIEGO</strong> (6 min pieszo z dworca PKP) → kierunek Cmentarz Olszanica → przystanek <strong>INSTYTUT REUMATOLOGII</strong>',
+        '- bus line <strong>152</strong>, starting bus stop <strong>TEATR SŁOWACKIEGO</strong> (6 min away on foot from train station PKP) → direction Cmentarz Olszanica → bus stop <strong>INSTYTUT REUMATOLOGII</strong>',
       option2:
-        '- linia autobusowa <strong>192</strong>, początek przystanek <strong>POLITECHNIKA</strong> (7 min pieszo z dworca PKP) → kierunek Olszanica Bory → przystanek <strong>INSTYTUT REUMATOLOGII</strong>',
+        '- bus line <strong>192</strong>, starting bus stop <strong>POLITECHNIKA</strong> (7 min away on foot from train station PKP) → direction Olszanica Bory → bus stop <strong>INSTYTUT REUMATOLOGII</strong>',
       option3:
-        '- linia tramwajowa <strong>20</strong> (trasa z pętli Mały Płaszów), początek przystanek <strong>TEATR SŁOWACKIEGO</strong> (6 min pieszo z dworca PKP) → kierunek Cichy Kącik → przystanek <strong>PARK JORDANA</strong> (10 min pieszo z przystanku przez błonia do HALA Cracovia)',
+        '- tram line <strong>20</strong> (route Mały Płaszów), starting tram stop<strong>TEATR SŁOWACKIEGO</strong> (6 min away on foot from train station  PKP) → direction Cichy Kącik → tram stop <strong>PARK JORDANA</strong> (10min on the foot through Błonia to HALA Cracovia)',
       option4:
-        '- linia tramwajowa <strong>1</strong>, (trasa z pętli Wańkowicza) przystanki najbliżej centrum: <strong>POCZTA GŁÓWNA</strong>, <strong>PLAC WSZYSTKICH ŚWIĘTYCH</strong>,  → kierunek Cichy Kącik → przystanek <strong>PARK JORDANA</strong> (10 min pieszo z przystanku przed błonia do HALA Cracovia)',
+        '- tram line nr<strong>1</strong>, (route Wańkowicza) tram stops closest to the center: <strong>POCZTA GŁÓWNA</strong>, <strong>PLAC WSZYSTKICH ŚWIĘTYCH</strong>,  → direction Cichy Kącik → tram stop <strong>PARK JORDANA</strong> (10 min away on the foot through Błonia to HALA Cracovia)',
       byCar:
-        'Przy budynku znajduje się niewielki parking, który w dniu wydarzenia będzie bezpłatny dla odwiedzających nasze targi. Jeżeli ten parking okaże się nie wystarczający, to w niewielkiej odległości znajduje parking publiczny (przy Bezogródek Tropical Spot Food) czynny całą dobę (płatny). ',
+        "Near the building there is a small parking lot, that on the day of the event will be free of charge for the fair participants. If the parking won't be enough, there is a public parking close to it (next to Bezogródek Tropical Spot Food) open 24h/7 (paid).",
       howToGetToUs: 'How to get to us?',
       accessibleByCar: 'Accessible by car'
     },
     cashmereTicketsBand: {
       title: 'Cashmere tickets',
       ticketDescription:
-        'Oferujemy możliwość zakupu biletów zwykłych oraz biletów w pakiecie kaszmirowym. Bilety kaszmirowe oprócz wejściowki na targi obejmują także:',
+        'We offer the ability to buy standard tickets and tickets in cashmere bundle. Cashmere tickets aside from including entry ticket include as:',
       cruise: 'Cruise on the Knitting-ship',
       beautifulCruise: 'Beautiful cruise on the Knitting-ship!',
       invitations:
@@ -82,31 +82,30 @@ export const en: TranslationsShape = {
       firstAid: 'First Aid',
       entertainsAndTeaches: 'Yarnmark entertains and teaches',
       invitation:
-        'Zapraszamy do wzięcia udziału w warsztatach dziewiarskich i szydełkowych oraz serdecznie zachęcamy do skorzystania z profesjonalnych kursów pierwszej pomocy.',
+        'Welcome to participate in knitting and crochet workshops as well heartily invite to take advantage of professional first aid course.',
       mayTheHealthBeWithYou: 'May the health and safety be with you!'
     },
     infoForVendorsPage: {
       title: 'Information for vendors',
-      invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w I edycji Krakoskiego Yarnmarku Wełny!',
-      organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was',
+      invitation: 'We heartily invite you to participate in I edition of Cracow Wool Fair!',
+      organisationInfo: 'Below a bit of organisational information for you',
       hallInfo: {
         area: 'We have an area of ​​1142 m2 at our disposal.',
-        openHours:
-          'Wejście na halę w celu rozłożenia stoiska będzie możliwe od godz. 5:00. Na miejscu będą panowie portierzy',
-        ramp: 'Z parkingu prosto na halę prowadzi rampa, bez potrzeby korzystania ze schodów czy wind.',
+        openHours: 'Hall entrance in order to prepare the stand will be available at 5.00 AM. Porters will be there.',
+        ramp: 'From parking lot straight to the hall leads a ramp, without need to use stairs or elevators.',
         participants:
-          'Wejście dla odwiedzających targi będzie znajdować się od ulicy Focha, gdzie do hali głównej udadzą się efektownym zejściem z którego będzie widać całą halę wystawienniczą.',
+          'Entrance for fair participants will be on the side of Foch street, where they will enter the main hall efective descent from which whole exhibition hall will be visible.',
         stands: 'Na hali będą trzy rodzaje stoisk: Premium 5x3m, Standard 4x2,5m oraz Mini 3x2m',
         tables:
-          'Stoisko premium posiada 2 krzesła oraz 3 stoły 160x80cm. Stoisko standard posiadaja 2 krzesła oraz 2 stoły 140x70cm, a stoisko Mini 2 krzesła oraz 1 stół 140x70cm',
-        extensionCords: 'W skład stoiska NIE wchodzą przedlużacze, prosimy o posiadanie własnych',
+          'Premium spot includes 2 chairs and 3 tables 160x80cm. Standard spot includes 2 krzesła and 2 tables 140x70cm, while a Mini spot includes 2 chairs  and 1 table 140x70cm',
+        extensionCords: "Stands don't include extension cords, please bring your own",
         socialRoom:
-          'Wystawcy będą mieli do dyspozycji pomieszczenie socjalne, gdzie będzie można napić się kawy i herbaty oraz osobną toaletę.',
+          'Vendors will have at their disposal social room, where you can have a coffee or tea as well a separate toilet.',
         glassWall:
-          'Ściana za stoiskami P2-P3 składa się z okien na całą wysokość hali, będzie nam wpadać stamtąd fantastyczne światło'
+          'Wall behind stands P2-P3 consists of windows of full hall height, the light coming through will be awesome'
       },
       parking: {
-        title: 'Parking',
+        title: 'Parking lot',
         parkingSpace: 'Each exhibitor is entitled to a free parking space at the hall on the day of the fair'
       },
       marketing: {
