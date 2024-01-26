@@ -14,7 +14,7 @@ export const en: TranslationsShape = {
       stands: 'Stands'
     },
     welcomeBand: {
-      invitation: 'We heartily invite you for I edition of wool fair in capital of małopolska!',
+      invitation: 'We heartily invite you for I edition of wool fair in capital of Małopolska!',
       where: 'Yarnmark is happening at 27/04/2024 at 10:00 AM, in Hala 100-lecia KS Cracovia',
       haveFun:
         'We hope that it will be a day of not only shopping spree and deal hunting, but integrating, knitting together on stands and having fun.',
