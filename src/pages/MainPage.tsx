@@ -24,6 +24,7 @@ import halaJpgImageSrc from '../assets/images/hala_quality.jpg';
 // import wawelImageSrc from '../assets/wawel.jpg';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
+import yarnmarkLogoSrc from '../assets/images/logos/yarnmark.png';
 import { Icon } from '../components/Icon';
 
 import { Band } from '../components/Band';
@@ -65,13 +66,14 @@ import {
   SecondaryButton,
   SectionWrapper,
   Text,
-  TextH3,
+  TextH2,
   Typography
   // TextWrapper
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
 import { Curtain } from '../components/Curtain';
 import { LanguageSwitch } from '../components/LanguageSwitch';
+import { RowLayout } from '../components/RowLayout';
 
 // type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
@@ -257,23 +259,23 @@ export const MainPage = () => {
     () => (
       <ButtonsLayout>
         <FunnyButton
-          mobileSlot={'Bilety (wkrótce dostępne)'}
+          mobileSlot={t('buttonsBand.tickets.mobileTitle')}
           ref={ticketsFunnyButtonRef}
           icon={<Icon size="xl" zIndex={0} src={ticketImageUrl} />}
-          text={t('buttonsBand.ticketButton')}
+          text={t('buttonsBand.tickets.text')}
         />
         <FunnyButton
-          mobileSlot={'Wystawcy'}
+          mobileSlot={t('buttonsBand.vendors.mobileTitle')}
           ref={vendorsFunnyButtonRef}
           icon={<Icon size="xl" zIndex={0} src={shopImageUrl} />}
-          text={t('buttonsBand.vendorsButton')}
+          text={t('buttonsBand.vendors.text')}
           onClick={() => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
         />
         <FunnyButton
-          mobileSlot={'Jak dojechać'}
+          mobileSlot={t('buttonsBand.location.mobileTitle')}
           ref={geoFunnyButtonRef}
           icon={<Icon size="xl" zIndex={0} src={pinBlackImageUrl} />}
-          text={t('buttonsBand.spotButton')}
+          text={t('buttonsBand.location.text')}
           onClick={() => spotBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
         />
         {/*             <FunnyButton
@@ -458,11 +460,20 @@ export const MainPage = () => {
               <Title>Krakoski Yarnmark Wełny</Title>
             </TextWrapper>
 
-            <TextH3>{t('welcomeBand.invitation')}</TextH3>
+            <TextH2>{t('welcomeBand.invitation')}</TextH2>
             <Text>{t('welcomeBand.where')}</Text>
-            <Text align="justify">{t('welcomeBand.haveFun')}</Text>
-            <Text>{t('welcomeBand.seeYou')}</Text>
-            <Text>DziergamyNaPolu x Włóczykijki</Text>
+            <Text align="justify" marginBottom="md">
+              {t('welcomeBand.haveFun')}
+            </Text>
+
+            <RowLayout gap="sm">
+              <div>
+                <Text>{t('welcomeBand.seeYou')}</Text>
+                <Text>DziergamyNaPolu x Włóczykijki</Text>
+              </div>
+
+              <img src={yarnmarkLogoSrc} alt="yarnmark_logo" width={156} />
+            </RowLayout>
           </NiceBox>
         </Band.Slot>
       </Band>

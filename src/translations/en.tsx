@@ -1,4 +1,6 @@
-export const en = {
+import { TranslationsShape } from './pl';
+
+export const en: TranslationsShape = {
   translation: {
     menu: {
       home: 'Home',
@@ -12,53 +14,62 @@ export const en = {
       stands: 'Stands'
     },
     welcomeBand: {
-      invitation: 'Serdecznie zapraszamy na I edycję targów wełny w stolicy małopolski!',
-      where: 'Yarnmark odbędzie się 27/04/2024r. o godz. 10:00, w Hali 100-lecia KS Cracovia',
+      invitation: 'We heartily invite you for I edition of wool fair in capital of małopolska!',
+      where: 'Yarnmark is happening at 27/04/2024 at 10:00 AM, in Hala 100-lecia KS Cracovia',
       haveFun:
-        'Mamy nadzieję, że będzie to dla Was dzień nie tylko zakupowego szaleństwa i udanych łowów, ale również wspólnego dziergania na trybunach i dobrej zabawy.',
-      seeYou: 'Do zobaczenia!'
+        'We hope that it will be a day of not only shopping spree and deal hunting, but integrating, knitting together on stands and having fun.',
+      seeYou: 'See ya all!'
     },
     buttonsBand: {
-      firstEvent: 'The first such event in Krakow!',
+      firstEvent: 'The first such event in Cracow!',
       otherCities:
-        'Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na targi wełny pod Wawelem. Kraków wchodzi w 2024 rok dziewiarskim krokiem. Chodźże z nami!',
-      linksBelow: 'You will find some links that will help you plan your time in our beautiful city below.',
-      ticketButton: 'Tickets coming soon...',
-      vendorsButton: 'Check which vendors you will meet',
-      spotButton: 'Where are we and how to get there?',
+        "Toruń, Warszawa, Gdańsk, Wrocław...finally it's time for wool fair near Wawel. Cracow enters 2024 with a knitting step. Come with us!",
+      linksBelow: 'Below you will find few links that will help you plan your time in our beautiful city.',
+      tickets: {
+        text: 'Ticket will be available starting 14.02.2024',
+        mobileTitle: 'Tickets (available starting 14.02.2024)'
+      },
+      vendors: {
+        mobileTitle: 'Vendors',
+        text: 'Check which vendors you will meet'
+      },
+      location: {
+        mobileTitle: 'How to get there?',
+        text: 'Where are we and how to get there?'
+      },
       foodButton: 'Where to eat?',
       cashmereButton: 'Check out our cashmere package'
     },
     spotBand: {
       neighbourhood1:
-        'Hala 100-lecia KS Cracovia 1906 znajduje się w zielonym sercu Krakowa. W sąsiedztwie rekreacyjnej okolicy Błoń zaraz przy alei Marszałka Ferdynanda Focha.',
+        'Hala 100-lecia KS Cracovia 1906 lies in the green heart of Cracow. In the neighbourhood of recreational surroundings of Błonia next to the avenue of Marszałka Ferdynanda Focha.',
       neighbourhood2:
-        'Dużą zaletą tej lokalizacji jest łatwa dostępność komunikacyjna – dotarcie z każdego miejsca transportem publicznym jak i własnym.',
+        'Great quality of the location is easily accessible communication – reaching it from every place both, with public cummnication and your own.',
       publicTransport:
-        'Osoby korzystające z komunikacji publicznej mogą skorzystać z linii autobusowej (bezpośredni dojazd) jak i z linii tramwajowej (nie obędzie się bez krótkiego spacerku przez błonia). ',
-      list: 'Poniższa lista przedstawia możliwość dojazdu z Krakowskiego Dworca Głównego:',
+        'People using public communication can use bus (to arrive directly on the event) or tram (requires a short stroll through Błonia).',
+      list: 'List below presents options for traveling from Cracow Main Station:',
       option1:
-        '- linia autobusowa <strong>152</strong>, początek przystanek <strong>TEATR SŁOWACKIEGO</strong> (6 min pieszo z dworca PKP) → kierunek Cmentarz Olszanica → przystanek <strong>INSTYTUT REUMATOLOGII</strong>',
+        '- bus line <strong>152</strong>, starting bus stop <strong>TEATR SŁOWACKIEGO</strong> (6 min away on foot from train station PKP) → direction Cmentarz Olszanica → bus stop <strong>INSTYTUT REUMATOLOGII</strong>',
       option2:
-        '- linia autobusowa <strong>192</strong>, początek przystanek <strong>POLITECHNIKA</strong> (7 min pieszo z dworca PKP) → kierunek Olszanica Bory → przystanek <strong>INSTYTUT REUMATOLOGII</strong>',
+        '- bus line <strong>192</strong>, starting bus stop <strong>POLITECHNIKA</strong> (7 min away on foot from train station PKP) → direction Olszanica Bory → bus stop <strong>INSTYTUT REUMATOLOGII</strong>',
       option3:
-        '- linia tramwajowa <strong>20</strong> (trasa z pętli Mały Płaszów), początek przystanek <strong>TEATR SŁOWACKIEGO</strong> (6 min pieszo z dworca PKP) → kierunek Cichy Kącik → przystanek <strong>PARK JORDANA</strong> (10 min pieszo z przystanku przez błonia do HALA Cracovia)',
+        '- tram line <strong>20</strong> (route Mały Płaszów), starting tram stop<strong>TEATR SŁOWACKIEGO</strong> (6 min away on foot from train station  PKP) → direction Cichy Kącik → tram stop <strong>PARK JORDANA</strong> (10min on the foot through Błonia to HALA Cracovia)',
       option4:
-        '- linia tramwajowa <strong>1</strong>, (trasa z pętli Wańkowicza) przystanki najbliżej centrum: <strong>POCZTA GŁÓWNA</strong>, <strong>PLAC WSZYSTKICH ŚWIĘTYCH</strong>,  → kierunek Cichy Kącik → przystanek <strong>PARK JORDANA</strong> (10 min pieszo z przystanku przed błonia do HALA Cracovia)',
+        '- tram line nr<strong>1</strong>, (route Wańkowicza) tram stops closest to the center: <strong>POCZTA GŁÓWNA</strong>, <strong>PLAC WSZYSTKICH ŚWIĘTYCH</strong>,  → direction Cichy Kącik → tram stop <strong>PARK JORDANA</strong> (10 min away on the foot through Błonia to HALA Cracovia)',
       byCar:
-        'Przy budynku znajduje się niewielki parking, który w dniu wydarzenia będzie bezpłatny dla odwiedzających nasze targi. Jeżeli ten parking okaże się nie wystarczający, to w niewielkiej odległości znajduje parking publiczny (przy Bezogródek Tropical Spot Food) czynny całą dobę (płatny). ',
+        "Near the building there is a small parking lot, that on the day of the event will be free of charge for the fair participants. If the parking won't be enough, there is a public parking close to it (next to Bezogródek Tropical Spot Food) open 24h/7 (paid).",
       howToGetToUs: 'How to get to us?',
       accessibleByCar: 'Accessible by car'
     },
     cashmereTicketsBand: {
       title: 'Cashmere tickets',
       ticketDescription:
-        'Oferujemy możliwość zakupu biletów zwykłych oraz biletów w pakiecie kaszmirowym. Bilety kaszmirowe oprócz wejściowki na targi obejmują także:',
-      cruise: 'Cruise on the Dziergoship',
-      beautifulCruise: 'Dzieeergostatkiem on a beautyful cruise!',
+        'We offer the ability to buy standard tickets and tickets in cashmere bundle. Cashmere tickets aside from including entry ticket include as:',
+      cruise: 'Cruise on the Knitting-ship',
+      beautifulCruise: 'Beautiful cruise on the Knitting-ship!',
       invitations:
-        'Zapraszamy Was serdecznie na godzinny rejs po Wiśle, podczas którego wspólnie podziergamy i porozmawiamy, przy kieliszku prosecco i w otoczeniu krakowskich krajobrazów',
-      souverirBag: 'Pamiątkowa torba targowa'
+        'We heartily invite you for an 1 hour cruise on Wisła, during which we will knit and talk together with a glass of prosecco while being surrounded by Cracow scenery',
+      souverirBag: 'Souvenir fair bag'
     },
     vendorsPage: {
       title: 'Vendors'
@@ -71,69 +82,67 @@ export const en = {
       firstAid: 'First Aid',
       entertainsAndTeaches: 'Yarnmark entertains and teaches',
       invitation:
-        'Zapraszamy do wzięcia udziału w warsztatach dziewiarskich i szydełkowych oraz serdecznie zachęcamy do skorzystania z profesjonalnych kursów pierwszej pomocy.',
+        'Welcome to participate in knitting and crochet workshops as well heartily invite to take advantage of professional first aid course.',
       mayTheHealthBeWithYou: 'May the health and safety be with you!'
     },
     infoForVendorsPage: {
       title: 'Information for vendors',
-      invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w I edycji Krakoskiego Yarnmarku Wełny!',
-      organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was',
+      invitation: 'We heartily invite you to participate in I edition of Cracow Wool Fair!',
+      organisationInfo: 'Below a bit of organisational information for you',
       hallInfo: {
         area: 'We have an area of ​​1142 m2 at our disposal.',
-        openHours:
-          'Wejście na halę w celu rozłożenia stoiska będzie możliwe od godz. 5:00. Na miejscu będą panowie portierzy',
-        ramp: 'Z parkingu prosto na halę prowadzi rampa, bez potrzeby korzystania ze schodów czy wind.',
+        openHours: 'Hall entrance in order to prepare the stand will be available at 5.00 AM. Porters will be there.',
+        ramp: 'From parking lot straight to the hall leads a ramp, without need to use stairs or elevators.',
         participants:
-          'Wejście dla odwiedzających targi będzie znajdować się od ulicy Focha, gdzie do hali głównej udadzą się efektownym zejściem z którego będzie widać całą halę wystawienniczą.',
+          'Entrance for fair participants will be on the side of Foch street, where they will enter the main hall efective descent from which whole exhibition hall will be visible.',
         stands: 'Na hali będą trzy rodzaje stoisk: Premium 5x3m, Standard 4x2,5m oraz Mini 3x2m',
         tables:
-          'Stoisko premium posiada 2 krzesła oraz 3 stoły 160x80cm. Stoisko standard posiadaja 2 krzesła oraz 2 stoły 140x70cm, a stoisko Mini 2 krzesła oraz 1 stół 140x70cm',
-        extensionCords: 'W skład stoiska NIE wchodzą przedlużacze, prosimy o posiadanie własnych',
+          'Premium spot includes 2 chairs and 3 tables 160x80cm. Standard spot includes 2 krzesła and 2 tables 140x70cm, while a Mini spot includes 2 chairs  and 1 table 140x70cm',
+        extensionCords: "Stands don't include extension cords, please bring your own",
         socialRoom:
-          'Wystawcy będą mieli do dyspozycji pomieszczenie socjalne, gdzie będzie można napić się kawy i herbaty oraz osobną toaletę.',
+          'Vendors will have at their disposal social room, where you can have a coffee or tea as well a separate toilet.',
         glassWall:
-          'Ściana za stoiskami P2-P3 składa się z okien na całą wysokość hali, będzie nam wpadać stamtąd fantastyczne światło'
+          'Wall behind stands P2-P3 consists of windows of full hall height, the light coming through will be awesome'
       },
       parking: {
-        title: 'Parking',
+        title: 'Parking lot',
         parkingSpace: 'Each exhibitor is entitled to a free parking space at the hall on the day of the fair'
       },
       marketing: {
         title: 'Marketing',
         sendLogos:
-          'Zachęcamy do przesłania swojego na logo na adres email <strong>strona.dziergamynapolu@gmail.com</strong>, umieścimy jew zakładce "Wystawcy" i w ten sposób poinformujemy dziewiarki i dziewiarzy, że z nami będziecie'
+          'We encourage to send your logo on email address <strong>krakoski.yarnmark.welny@gmail.com</strong>, we will put it on "Vendors" section and this way inform the knitters, that you will be there.'
       },
       stands: {
-        title: 'Stoiska'
+        title: 'Stands'
       },
       registration: {
         title: 'Zapisy',
         beAVendor:
-          'Jeśli chcesz dołączyć do wspaniałego grona naszych wystawców, napisz do nas! Email kontaktowy: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
-        start: 'Możliwość zakupu stoiska startuje w poniedziałek 22.01.2024r. o godz. 12:00',
-        where: 'Rezerwacja stoiska odbywa się poprzez zakup miejsca w sklepie online Włóczykijki',
-        buyHere: 'Tutaj wykupisz stoisko',
-        feedback:
-          'Wszystkie dane dotyczące płatności będą zawarte w informacji zwrotnej,potwierdzającej rezerwację stoiska',
+          'If you wanna join the great group of our vendors write us an email! Email address: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
+        start: 'Spot reservations start on Monday 22.01.2024r. at 12:00 AM',
+        where: 'Reservation is done by buying the spot in online shop `Włóczykijki`',
+        buyHere: 'Here you will reserve the spot',
+        feedback: 'All data related to payment will be part of feedback confirming spot reservation',
         return:
-          'W przypadku rezerwacji i nie opłacenia kosztów – miejsce zostaje anulowane i zostanie ponownie dostępne dla wystawców'
+          'In case of reservation and missing the payment - reservation is cancelled and will be available again for vendors'
       }
     },
     foodBand: {
       bezogrodekDescription:
         '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów',
-      lookHere: 'Zobacz tutaj',
-      checkMenu: 'Zobacz menu tutaj',
-      pinoGardenDescription: 'Fani włoskiej kuchni i owoców morza naprzeciwko hali znajdą Pino Garden',
+      lookHere: 'See here',
+      checkMenu: 'See menu here',
+      pinoGardenDescription: 'Fans of italian food and seafood will find Pino Garden opposite of event',
       pretzelDescription: 'Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka',
       piastowskaDescription: 'Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej',
-      knittedCoffeeDescription: 'Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee'
+      knittedCoffeeDescription: 'On the event you can drink tasty coffee made by Tarasa from Knitted Coffee'
     },
     hallMap: {
-      premiumStand: 'Miejsce Premium 5x3m',
-      standardStand: 'Miejsce Standard 4x2,5m',
-      miniStand: 'Miejsce Mini 3x2m',
-      taken: 'Miejsce zarezerwowane'
+      premiumStand: 'Premium spot 5x3m',
+      standardStand: 'Standard spot 4x2,5m',
+      miniStand: 'Mini spot 3x2m',
+      taken: 'Reserved'
     }
   }
 };

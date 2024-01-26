@@ -47,6 +47,11 @@ import WoollalaLogoUrlWebp from './../assets/images/logos/woollala.webp';
 import WoolloopLogoUrlAvif from './../assets/images/logos/woolloop.avif';
 import WoolloopLogoUrl from './../assets/images/logos/woolloop.jpg';
 import WoolloopLogoUrlWebp from './../assets/images/logos/woolloop.webp';
+
+import WooloveLogoUrl from './../assets/images/logos/woolove.jpg';
+import WooloveLogoUrlAvif from './../assets/images/logos/woolove.avif';
+import WooloveLogoUrlWebp from './../assets/images/logos/woolove.webp';
+
 import { PictureType } from '../components/Picture';
 
 export type HallStandType = {
@@ -354,7 +359,20 @@ export const hallMapConfig: HallMapType = {
           height: 2,
           color: 'taken',
           index: 'M1',
-          who: 'Woolove'
+          who: 'Woolove',
+          picture: {
+            fallbackUrl: WooloveLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: WooloveLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: WooloveLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 3,

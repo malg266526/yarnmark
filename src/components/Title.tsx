@@ -18,6 +18,7 @@ export const TextWrapper = styled.div<{ align?: 'center' | 'left' | 'center'; ma
 export const Title = styled.h1`
   font-size: 40px;
   font-weight: 600;
+  margin: 0;
 `;
 
 export const SubTitle = styled.h2`

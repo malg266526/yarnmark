@@ -1,3 +1,5 @@
+export type TranslationsShape = typeof pl;
+
 export const pl = {
   translation: {
     menu: {
@@ -23,9 +25,18 @@ export const pl = {
       otherCities:
         'Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na targi wełny pod Wawelem. Kraków wchodzi w 2024 rok dziewiarskim krokiem. Chodźże z nami!',
       linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
-      ticketButton: 'Sprzedaż biletów rusza 14.02.2024r.',
-      vendorsButton: 'Sprawdź z jakimi wystawcami się spotkasz',
-      spotButton: 'Gdzie jesteśmy i jak tam dojechać?',
+      tickets: {
+        text: 'Sprzedaż biletów rusza 14.02.2024r.',
+        mobileTitle: 'Bilety (dostępne od 14.02.2024)'
+      },
+      vendors: {
+        text: 'Sprawdź z jakimi wystawcami się spotkasz',
+        mobileTitle: 'Wystawcy'
+      },
+      location: {
+        text: 'Gdzie jesteśmy i jak tam dojechać?',
+        mobileTitle: 'Jak dojechać?'
+      },
       foodButton: 'Gdzie zjeść?',
       cashmereButton: 'Sprawdź nasz pakiet kaszmirowy'
     },
@@ -116,7 +127,7 @@ export const pl = {
         feedback:
           'Wszystkie dane dotyczące płatności będą zawarte w informacji zwrotnej, potwierdzającej rezerwację stoiska.',
         return:
-          'W przypadku rezerwacji i nie opłacenia kosztów – miejsce zostaje anulowane i zostanie ponownie dostępne dla wystawców.'
+          'W przypadku rezerwacji i nie opłacenia kosztów – rezerwacja zostaje anulowane i zostanie ponownie dostępne dla wystawców.'
       }
     },
     foodBand: {
