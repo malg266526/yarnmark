@@ -1,6 +1,13 @@
-name: 'Deploy to Netlify'
+name: 'Deploy'
 on: 
   workflow_dispatch:
+    inputs: 
+      environment:
+        type: choice
+        description: Target environment
+        options:
+        - production
+        - test
 
 env:
   node_version: 18
@@ -13,7 +20,7 @@ jobs:
       - name: Install
         run: yarn install --frozen-lockfile
 
-      - name: Use Node.js ${{ env.node_version }}
+      - name: Use Node.js ${{ inputs.environment }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.node_version }}
@@ -22,6 +29,12 @@ jobs:
       - name: Bundle
         run: yarn bundle
 
-      - name: Deploy to Netlify
+      - name: Deploy to production
+        if: ${{ inputs.environment == 'production' }}
         run: npx netlify-cli deploy --prod --dir=./dist --site="${{ secrets.NETLIFY_SITE_ID }}" --auth="${{ secrets.NETLIFY_AUTH_TOKEN }}"
+
+      - name: Deploy to test
+        if: ${{ inputs.environment == 'test' }}
+        run: npx netlify-cli deploy --prod --dir=./dist --site="${{ secrets.NETLIFY_TEST_SITE_ID }}" --auth="${{ secrets.NETLIFY_AUTH_TOKEN }}"
        
+
