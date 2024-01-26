@@ -22,6 +22,7 @@ import { Icon as IconifyIcon } from '@iconify/react';
 import { ScreenSize } from '../styles/screeen-size';
 import { Trans } from 'react-i18next';
 import { Curtain } from '../components/Curtain';
+import { LanguageSwitch } from '../components/LanguageSwitch';
 
 export const FlexLayout = styled.div`
   display: flex;
@@ -130,6 +131,8 @@ export const InfoForVendorsPage = () => {
               <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
               {t('menu.contact')}
             </SideBar.LinkEntry>
+
+            <LanguageSwitch />
           </SideBar>
         </>
       )}
@@ -148,6 +151,8 @@ export const InfoForVendorsPage = () => {
             <Link color="black" to="#footer">
               {t('menu.contact')}
             </Link>
+
+            <LanguageSwitch />
           </MenuBackground>
         </Menu>
       )}
