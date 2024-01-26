@@ -32,6 +32,7 @@ import NaSztukiStudioLogoUrlAvif from './../assets/images/logos/nasztukistudio.a
 import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.jpg';
 import NaSztukiStudioLogoUrlWebp from './../assets/images/logos/nasztukistudio.webp';
 
+import SiedemOczekLogoUrl from './../assets/images/logos/7oczek.png';
 import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
 
 import TimeToKnitLogoUrlAvif from './../assets/images/logos/timetoknit.avif';
@@ -531,14 +532,20 @@ export const hallMapConfig: HallMapType = {
           height: 2.5,
           color: 'taken',
           index: 'S18',
-          who: '7oczek'
+          who: '7oczek',
+          picture: {
+            fallbackUrl: SiedemOczekLogoUrl
+          }
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken',
           index: 'S19',
-          who: '7Oczek'
+          who: '7Oczek',
+          picture: {
+            fallbackUrl: SiedemOczekLogoUrl
+          }
         },
         {
           width: 4,

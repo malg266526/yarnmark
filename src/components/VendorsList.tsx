@@ -32,6 +32,7 @@ import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.jpg';
 import NaSztukiStudioLogoUrlAvif from './../assets/images/logos/nasztukistudio.avif';
 import NaSztukiStudioLogoUrlWebp from './../assets/images/logos/nasztukistudio.webp';
 
+import SiedemOczekLogoUrl from './../assets/images/logos/7oczek.png';
 import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
 
 import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
@@ -216,9 +217,13 @@ export const VendorsList = () => {
         <img width={180} src={StrikkeLogoUrl} alt="Strikke" />
       </Link>
 
+      <Link to="https://7oczek.pl/pl/" target="_blank" rel="noreferrer">
+        <img width={110} src={SiedemOczekLogoUrl} alt="7Oczek" />
+      </Link>
+
       <Link to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
         <Picture
-          width={120}
+          width={130}
           alt="timetoknit"
           picture={{
             fallbackUrl: TimeToKnitLogoUrl,
@@ -322,9 +327,7 @@ export const VendorsList = () => {
       {/*       <Link href="https://www.gabowool.pl/" target="_blank" rel="noreferrer">
         <img width={140} src={GaboWoolLogoUrl} alt="gabowool" />
       </Link> */}
-      {/*       <Link href="https://7oczek.pl/pl/" target="_blank" rel="noreferrer">
-        <img width={140} src={SiedemOczekLogoUrl} alt="7oczek" />
-      </Link> */}
+
       {/* <Link href="https://rencami.pl/" target="_blank" rel="noreferrer">
         <img width={140} src={RencamiLogoUrl} alt="rencami" />
       </Link> */}
