@@ -415,7 +415,7 @@ export const MainPage = () => {
         <Menu>
           <MenuBackground>
             <Link color="black" to="/">
-              Yarnmark
+              OMEGALUL
             </Link>
 
             <Link color="black" to="#vendors">
