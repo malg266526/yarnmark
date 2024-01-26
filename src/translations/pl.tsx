@@ -91,6 +91,12 @@ export const pl = {
       workshop5: 'workshop5',
       workshop6: 'workshop6'
     },
+    scheduleBand: {
+      title: 'Harmonogram warsztatów',
+      room1: 'Salka nr 1',
+      room2: 'Salka nr 2',
+      room3: 'Salka nr 3'
+    },
     infoForVendorsPage: {
       title: 'Informacje dla wystawców',
       invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w I edycji Krakoskiego Yarnmarku Wełny!',
