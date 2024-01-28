@@ -95,7 +95,7 @@ export const en: TranslationsShape = {
         ramp: 'From parking lot straight to the hall leads a ramp, without need to use stairs or elevators.',
         participants:
           'Entrance for fair participants will be on the side of Foch street, where they will enter the main hall efective descent from which whole exhibition hall will be visible.',
-        stands: 'Na hali będą trzy rodzaje stoisk: Premium 5x3m, Standard 4x2,5m oraz Mini 3x2m',
+        stands: 'There will be three types of spots in the hall: Premium 5x3m, Standard 4x2,5m and Mini 3x2m',
         tables:
           'Premium spot includes 2 chairs and 3 tables 160x80cm. Standard spot includes 2 krzesła and 2 tables 140x70cm, while a Mini spot includes 2 chairs  and 1 table 140x70cm',
         extensionCords: "Stands don't include extension cords, please bring your own",
