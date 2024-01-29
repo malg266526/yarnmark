@@ -41,10 +41,10 @@ export const en: TranslationsShape = {
       cashmereButton: 'Check out our cashmere package'
     },
     spotBand: {
-      neighbourhood1:
-        'Hala 100-lecia KS Cracovia 1906 lies in the green heart of Cracow. In the neighbourhood of recreational surroundings of Błonia next to the avenue of Marszałka Ferdynanda Focha.',
-      neighbourhood2:
-        'Great quality of the location is easily accessible communication – reaching it from every place both, with public cummnication and your own.',
+      title: 'Where?',
+      address: 'Avenue Marszałka Ferdynanda Focha 40',
+      description: `Hala 100-lecia KS Cracovia 1906 lies in the green heart of Cracow. In the neighbourhood of recreational surroundings of Błonia next to the avenue of Marszałka Ferdynanda Focha.\n
+        Great quality of the location is easily accessible communication – reaching it from every place both, with public cumgit mnication and your own.`,
       publicTransport:
         'People using public communication can use bus (to arrive directly on the event) or tram (requires a short stroll through Błonia).',
       list: 'List below presents options for traveling from Cracow Main Station:',
@@ -117,7 +117,7 @@ export const en: TranslationsShape = {
         title: 'Stands'
       },
       registration: {
-        title: 'Zapisy',
+        title: 'Reservations',
         beAVendor:
           'If you wanna join the great group of our vendors write us an email! Email address: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
         start: 'Spot reservations start on Monday 22.01.2024r. at 12:00 AM',
