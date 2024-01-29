@@ -32,12 +32,20 @@ import MissKnitskiLogoUrl from './../assets/images/logos/missknitski.jpg';
 import MissKnitskiLogoUrlAvif from './../assets/images/logos/missknitski.avif';
 import MissKnitskiLogoUrlWebp from './../assets/images/logos/missknitski.webp';
 
+import MokoszaLogoUrl from './../assets/images/logos/mokosza.jpg';
+import MokoszaLogoUrlAvif from './../assets/images/logos/mokosza.avif';
+import MokoszaLogoUrlWebp from './../assets/images/logos/mokosza.webp';
+
 import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.jpg';
 import NaSztukiStudioLogoUrlAvif from './../assets/images/logos/nasztukistudio.avif';
 import NaSztukiStudioLogoUrlWebp from './../assets/images/logos/nasztukistudio.webp';
 
 import SiedemOczekLogoUrl from './../assets/images/logos/7oczek.png';
 import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
+
+import PimotkiLogoUrl from './../assets/images/logos/pimotki.jpg';
+import PimotkiLogoUrlAvif from './../assets/images/logos/pimotki.avif';
+import PimotkiLogoUrlWebp from './../assets/images/logos/pimotki.webp';
 
 import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
 import TimeToKnitLogoUrlAvif from './../assets/images/logos/timetoknit.avif';
@@ -217,6 +225,26 @@ export const VendorsList = () => {
         />
       </Link>
 
+      <Link to="https://mokosza.com/" target="_blank" rel="noreferrer">
+        <Picture
+          width={160}
+          alt="mokosza"
+          picture={{
+            fallbackUrl: MokoszaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: MokoszaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: MokoszaLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
       <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -231,6 +259,26 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: NaSztukiStudioLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://pimotki.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={130}
+          alt="pimotki"
+          picture={{
+            fallbackUrl: PimotkiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: PimotkiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: PimotkiLogoUrlAvif
               }
             ]
           }}
