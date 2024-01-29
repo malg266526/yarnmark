@@ -44,7 +44,7 @@ export const en: TranslationsShape = {
       title: 'Where?',
       address: 'Avenue Marszałka Ferdynanda Focha 40',
       description: `Hala 100-lecia KS Cracovia 1906 lies in the green heart of Cracow. In the neighbourhood of recreational surroundings of Błonia next to the avenue of Marszałka Ferdynanda Focha.\n
-        Great quality of the location is easily accessible communication – reaching it from every place both, with public cumgit mnication and your own.`,
+        Great quality of the location is easily accessible communication – reaching it from every place both, with public communication and your own.`,
       publicTransport:
         'People using public communication can use bus (to arrive directly on the event) or tram (requires a short stroll through Błonia).',
       list: 'List below presents options for traveling from Cracow Main Station:',
