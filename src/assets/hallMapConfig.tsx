@@ -32,9 +32,17 @@ import MissKnitskiLogoUrlAvif from './../assets/images/logos/missknitski.avif';
 import MissKnitskiLogoUrl from './../assets/images/logos/missknitski.jpg';
 import MissKnitskiLogoUrlWebp from './../assets/images/logos/missknitski.webp';
 
+import MokoszaLogoUrl from './../assets/images/logos/mokosza.jpg';
+import MokoszaLogoUrlAvif from './../assets/images/logos/mokosza.avif';
+import MokoszaLogoUrlWebp from './../assets/images/logos/mokosza.webp';
+
 import NaSztukiStudioLogoUrlAvif from './../assets/images/logos/nasztukistudio.avif';
 import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.jpg';
 import NaSztukiStudioLogoUrlWebp from './../assets/images/logos/nasztukistudio.webp';
+
+import PimotkiLogoUrl from './../assets/images/logos/pimotki.jpg';
+import PimotkiLogoUrlAvif from './../assets/images/logos/pimotki.avif';
+import PimotkiLogoUrlWebp from './../assets/images/logos/pimotki.webp';
 
 import SiedemOczekLogoUrl from './../assets/images/logos/7oczek.png';
 import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
@@ -172,7 +180,20 @@ export const hallMapConfig: HallMapType = {
           color: 'taken2',
           index: 'S4',
           height: 4,
-          who: 'Mokosza'
+          who: 'Mokosza',
+          picture: {
+            fallbackUrl: MokoszaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: MokoszaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: MokoszaLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 2.5,
@@ -229,14 +250,40 @@ export const hallMapConfig: HallMapType = {
           height: 2.5,
           color: 'taken2',
           index: 'S8',
-          who: 'Pimotki'
+          who: 'Pimotki',
+          picture: {
+            fallbackUrl: PimotkiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: PimotkiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: PimotkiLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken2',
           index: 'S9',
-          who: 'Pimotki'
+          who: 'Pimotki',
+          picture: {
+            fallbackUrl: PimotkiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: PimotkiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: PimotkiLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 4,
@@ -594,14 +641,16 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'normal2',
-          index: 'S22'
+          color: 'taken2',
+          index: 'S22',
+          who: 'Liloppi'
         },
         {
           width: 4,
           height: 2.5,
-          color: 'normal1',
-          index: 'S23'
+          color: 'taken2',
+          index: 'S23',
+          who: 'Liloppi'
         },
         {
           width: 5,
