@@ -31,12 +31,28 @@ export const WorkshopsTabs = () => {
 
         <WorkshopsTimeline.Slot workshopTime="12:30 - 15:30">
           <WorkshopsTimeline.Text>Warsztat 1</WorkshopsTimeline.Text>
-          <WorkshopsTimeline.Image width={150} src={uwolnijPomysly} />
+
+          <RowLayout>
+            <WorkshopsTimeline.Image width={150} src={uwolnijPomysly} />
+            <WorkshopsTimeline.Description>
+              fdfdfdfdfd gdfgdgdgdgdgdgd gdgdgdgdgd rerererererere sasasasasasa tretrtrtrtr fdfdfdfdf
+            </WorkshopsTimeline.Description>
+          </RowLayout>
+
+          <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">Kup bilet</Link>
         </WorkshopsTimeline.Slot>
 
         <WorkshopsTimeline.Slot workshopTime="16:00 - 18:30">
           <WorkshopsTimeline.Text>Warsztat 2</WorkshopsTimeline.Text>
-          <WorkshopsTimeline.Image width={150} src={uwolnijPomysly} />
+
+          <RowLayout>
+            <WorkshopsTimeline.Image width={150} src={uwolnijPomysly} />
+            <WorkshopsTimeline.Description>
+              fdfdfdfdfd gdfgdgdgdgdgdgd gdgdgdgdgd rerererererere sasasasasasa tretrtrtrtr fdfdfdfdf
+            </WorkshopsTimeline.Description>
+          </RowLayout>
+
+          <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">Kup bilet</Link>
         </WorkshopsTimeline.Slot>
       </WorkshopsTimeline>
     ),
