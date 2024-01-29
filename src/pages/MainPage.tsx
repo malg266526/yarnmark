@@ -73,7 +73,7 @@ import { useRootIntersectionObserver } from './useRootIntersectionObserver';
 import { Curtain } from '../components/Curtain';
 import { LanguageSwitch } from '../components/LanguageSwitch';
 import { RowLayout } from '../components/RowLayout';
-import { WorkshopsTimeline } from '../components/WorkshopsTimeline';
+import { WorkshopsTabs } from '../components/WorkshopsTabs';
 
 type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
@@ -140,7 +140,6 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
 });
 
 type ActiveTab = 'ship' | 'bag';
-type WorkshopRoom = 1 | 2 | 3;
 
 export const MainPage = () => {
   const t = useTypedTranslation();
@@ -162,7 +161,6 @@ export const MainPage = () => {
 
   const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
   const [activeTab, setActiveTab] = useState<ActiveTab>('ship');
-  const [activeRoom, setActiveRoom] = useState<WorkshopRoom>(1);
 
   const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
 
@@ -189,24 +187,6 @@ export const MainPage = () => {
         <Text>{t('cashmereTicketsBand.beautifulCruise')}</Text>
         <Text>{t('cashmereTicketsBand.invitations')}</Text>
       </FlexColumnLayout>
-    )
-  };
-
-  const activeRoomToContent: Record<WorkshopRoom, ReactNode> = {
-    1: (
-      <WorkshopsTimeline>
-        <WorkshopsTimeline.Slot workshopName="Pierwsza pomoc" workshopTime="10:00 - 12::00" />
-      </WorkshopsTimeline>
-    ),
-    2: (
-      <WorkshopsTimeline>
-        <WorkshopsTimeline.Slot workshopName="Pierwsza pomoc" workshopTime="10:00 - 12::00" />
-      </WorkshopsTimeline>
-    ),
-    3: (
-      <WorkshopsTimeline>
-        <WorkshopsTimeline.Slot workshopName="Pierwsza pomoc" workshopTime="10:00 - 12::00" />
-      </WorkshopsTimeline>
     )
   };
 
@@ -649,21 +629,7 @@ export const MainPage = () => {
           <Title>{t('scheduleBand.title')}</Title>
         </TextWrapper>
 
-        <Tabs>
-          <Tabs.Tab onClick={() => setActiveRoom(1)} active={activeRoom === 1}>
-            {t('scheduleBand.room1')}
-          </Tabs.Tab>
-
-          <Tabs.Tab onClick={() => setActiveRoom(2)} active={activeRoom === 2}>
-            {t('scheduleBand.room2')}
-          </Tabs.Tab>
-
-          <Tabs.Tab onClick={() => setActiveRoom(3)} active={activeRoom === 3}>
-            {t('scheduleBand.room3')}
-          </Tabs.Tab>
-        </Tabs>
-
-        <Tabs.Content>{activeRoomToContent[activeRoom]}</Tabs.Content>
+        <WorkshopsTabs />
       </Band>
 
       <Band ref={foodBandRef} size="md" variant="background" color={Colors.snow} padding="xl">
