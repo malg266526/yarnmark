@@ -9,6 +9,11 @@ export const Text = styled.p`
   font-weight: 400;
 `;
 
+export const Price = styled(Text)`
+  margin: 0;
+  align-self: flex-start;
+`;
+
 type WorkshopsTimelineProps = {
   children?: ReactNode;
 };
@@ -80,7 +85,9 @@ const Slot = ({ workshopTime, children }: WorkshopInfo) => (
     </Timeline>
 
     <SlotContent>
-      <FlexColumnLayout padding="none">{children}</FlexColumnLayout>
+      <FlexColumnLayout padding="none" gap="sm">
+        {children}
+      </FlexColumnLayout>
     </SlotContent>
   </div>
 );
@@ -99,5 +106,5 @@ export const WorkshopsTimeline = Object.assign(
       </Root>
     );
   },
-  { Slot, Image, Text, Description }
+  { Slot, Image, Text, Description, Price }
 );

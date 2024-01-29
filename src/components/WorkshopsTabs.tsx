@@ -20,11 +20,13 @@ export const WorkshopsTabs = () => {
           <WorkshopsTimeline.Text>Pierwsza pomoc</WorkshopsTimeline.Text>
 
           <RowLayout>
-            <WorkshopsTimeline.Image width={150} src={uwolnijPomysly} />
+            <WorkshopsTimeline.Image width={180} src={uwolnijPomysly} />
             <WorkshopsTimeline.Description>
               fdfdfdfdfd gdfgdgdgdgdgdgd gdgdgdgdgd rerererererere sasasasasasa tretrtrtrtr fdfdfdfdf
             </WorkshopsTimeline.Description>
           </RowLayout>
+
+          <WorkshopsTimeline.Price>Koszt: 100 zyla</WorkshopsTimeline.Price>
 
           <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">Kup bilet</Link>
         </WorkshopsTimeline.Slot>
@@ -33,11 +35,13 @@ export const WorkshopsTabs = () => {
           <WorkshopsTimeline.Text>Warsztat 1</WorkshopsTimeline.Text>
 
           <RowLayout>
-            <WorkshopsTimeline.Image width={150} src={uwolnijPomysly} />
+            <WorkshopsTimeline.Image width={180} src={uwolnijPomysly} />
             <WorkshopsTimeline.Description>
               fdfdfdfdfd gdfgdgdgdgdgdgd gdgdgdgdgd rerererererere sasasasasasa tretrtrtrtr fdfdfdfdf
             </WorkshopsTimeline.Description>
           </RowLayout>
+
+          <WorkshopsTimeline.Price>Koszt: 100 zyla</WorkshopsTimeline.Price>
 
           <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">Kup bilet</Link>
         </WorkshopsTimeline.Slot>
@@ -46,11 +50,13 @@ export const WorkshopsTabs = () => {
           <WorkshopsTimeline.Text>Warsztat 2</WorkshopsTimeline.Text>
 
           <RowLayout>
-            <WorkshopsTimeline.Image width={150} src={uwolnijPomysly} />
+            <WorkshopsTimeline.Image width={180} src={uwolnijPomysly} />
             <WorkshopsTimeline.Description>
               fdfdfdfdfd gdfgdgdgdgdgdgd gdgdgdgdgd rerererererere sasasasasasa tretrtrtrtr fdfdfdfdf
             </WorkshopsTimeline.Description>
           </RowLayout>
+
+          <WorkshopsTimeline.Price>Koszt: 100 zyla</WorkshopsTimeline.Price>
 
           <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">Kup bilet</Link>
         </WorkshopsTimeline.Slot>
