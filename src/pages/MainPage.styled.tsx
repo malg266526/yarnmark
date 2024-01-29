@@ -4,6 +4,7 @@ import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
 
 export const Text = styled.p<{ marginBottom?: keyof typeof Spacings; align?: 'center' | 'justify' }>`
+  white-space: break-spaces;
   margin-top: ${Spacings.md};
   margin-bottom: 0;
   font-size: 18px;

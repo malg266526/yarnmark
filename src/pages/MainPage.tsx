@@ -195,16 +195,13 @@ export const MainPage = () => {
     () => (
       <NiceBox width="500px" padding="lg">
         <TextWrapper align="center">
-          <Title>Gdzie?</Title>
+          <Title>{t('spotBand.title')}</Title>
         </TextWrapper>
-        <Text>Aleja Marszałka Ferdynanda Focha 40</Text>
-        <Text>{t('spotBand.neighbourhood1')}</Text>
-        <Text>{t('spotBand.neighbourhood2')}</Text>
-
+        <Text>{t('spotBand.address')}</Text>
+        <Text>{t('spotBand.description')}</Text>
         {!isSpotOpened && (
           <SecondaryButton onClick={() => setIsSpotOpened(true)}>{t('spotBand.howToGetToUs')}</SecondaryButton>
         )}
-
         {isSpotOpened && (
           <>
             <TextWrapper align="center" marginTop="md">

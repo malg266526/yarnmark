@@ -41,10 +41,11 @@ export const pl = {
       cashmereButton: 'Sprawdź nasz pakiet kaszmirowy'
     },
     spotBand: {
-      neighbourhood1:
-        'Hala 100-lecia KS Cracovia 1906 znajduje się w zielonym sercu Krakowa. W sąsiedztwie rekreacyjnej okolicy Błoń zaraz przy alei Marszałka Ferdynanda Focha.',
-      neighbourhood2:
-        'Dużą zaletą tej lokalizacji jest łatwa dostępność komunikacyjna – dotarcie z każdego miejsca transportem publicznym jak i własnym.',
+      title: 'Gdzie?',
+      address: 'Aleja Marszałka Ferdynanda Focha 40',
+      description: `Hala 100-lecia KS Cracovia 1906 znajduje się w zielonym sercu Krakowa. W sąsiedztwie rekreacyjnej okolicy Błoń zaraz przy alei Marszałka Ferdynanda Focha.\n
+        Dużą zaletą tej lokalizacji jest łatwa dostępność komunikacyjna – dotarcie z każdego miejsca transportem publicznym jak i własnym.
+        `,
       publicTransport:
         'Osoby korzystające z komunikacji publicznej mogą skorzystać z linii autobusowej (bezpośredni dojazd) jak i z linii tramwajowej (nie obędzie się bez krótkiego spacerku przez błonia). ',
       list: 'Poniższa lista przedstawia możliwość dojazdu z Krakowskiego Dworca Głównego:',
