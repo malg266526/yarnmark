@@ -385,7 +385,7 @@ export const VendorsList = () => {
         />
       </Link>
 
-      <Link to="woolove.pl" target="_blank" rel="noreferrer">
+      <Link to="https://www.woolove.pl" target="_blank" rel="noreferrer">
         <Picture
           width={120}
           alt="woolove"
