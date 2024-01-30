@@ -12,6 +12,10 @@ import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.jpg';
 import DyeDyeDoneLogoUrlAvif from './../assets/images/logos/dyedyedone.avif';
 import DyeDyeDoneLogoUrlWebp from './../assets/images/logos/dyedyedone.webp';
 
+import GaboWoolLogoUrl from './../assets/images/logos/gabo.jpg';
+import GaboWoolLogoUrlAvif from './../assets/images/logos/gabo.avif';
+import GaboWoolLogoUrlWebp from './../assets/images/logos/gabo.webp';
+
 import HankaMiZrobilaLogoUrl from './../assets/images/logos/hankamizrobila.jpg';
 import HankaMiZrobilaLogoUrlAvif from './../assets/images/logos/hankamizrobila.avif';
 import HankaMiZrobilaLogoUrlWebp from './../assets/images/logos/hankamizrobila.webp';
@@ -119,6 +123,26 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: DyeDyeDoneLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://www.gabowool.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={120}
+          alt="gabowool"
+          picture={{
+            fallbackUrl: GaboWoolLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: GaboWoolLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: GaboWoolLogoUrlAvif
               }
             ]
           }}
@@ -390,9 +414,7 @@ export const VendorsList = () => {
       {/*   <Link href="https://animotki.pl/" target="_blank" rel="noreferrer">
         <img width={160} src={AnimotkiLogoUrl} alt="animotki" />
       </Link> */}
-      {/*       <Link href="https://www.gabowool.pl/" target="_blank" rel="noreferrer">
-        <img width={140} src={GaboWoolLogoUrl} alt="gabowool" />
-      </Link> */}
+
       {/* <Link href="https://rencami.pl/" target="_blank" rel="noreferrer">
         <img width={140} src={RencamiLogoUrl} alt="rencami" />
       </Link> */}
