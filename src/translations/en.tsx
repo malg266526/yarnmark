@@ -97,7 +97,7 @@ export const en: TranslationsShape = {
           'Entrance for fair participants will be on the side of Foch street, where they will enter the main hall efective descent from which whole exhibition hall will be visible.',
         stands: 'There will be three types of spots in the hall: Premium 5x3m, Standard 4x2,5m and Mini 3x2m',
         tables:
-          'Premium spot includes 2 chairs and 3 tables 160x80cm. Standard spot includes 2 krzesła and 2 tables 140x70cm, while a Mini spot includes 2 chairs  and 1 table 140x70cm',
+          'Premium spot includes 2 chairs and 3 tables 160x80cm. Standard spot includes 2 chairs and 2 tables 140x70cm, while a Mini spot includes 2 chairs  and 1 table 140x70cm',
         extensionCords: "Stands don't include extension cords, please bring your own",
         socialRoom:
           'Vendors will have at their disposal social room, where you can have a coffee or tea as well a separate toilet.',

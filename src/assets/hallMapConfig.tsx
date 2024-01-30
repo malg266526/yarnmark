@@ -12,6 +12,10 @@ import DyeDyeDoneLogoUrlAvif from './../assets/images/logos/dyedyedone.avif';
 import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.jpg';
 import DyeDyeDoneLogoUrlWebp from './../assets/images/logos/dyedyedone.webp';
 
+import GaboWoolLogoUrl from './../assets/images/logos/gabo.jpg';
+import GaboWoolLogoUrlAvif from './../assets/images/logos/gabo.avif';
+import GaboWoolLogoUrlWebp from './../assets/images/logos/gabo.webp';
+
 import HankaMiZrobilaLogoUrlAvif from './../assets/images/logos/hankamizrobila.avif';
 import HankaMiZrobilaLogoUrl from './../assets/images/logos/hankamizrobila.jpg';
 import HankaMiZrobilaLogoUrlWebp from './../assets/images/logos/hankamizrobila.webp';
@@ -243,7 +247,20 @@ export const hallMapConfig: HallMapType = {
           height: 3,
           color: 'taken',
           index: 'P2',
-          who: 'GaboWool'
+          who: 'GaboWool',
+          picture: {
+            fallbackUrl: GaboWoolLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: GaboWoolLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: GaboWoolLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 4,
