@@ -163,7 +163,7 @@ export const MainPage = () => {
 
   // const activeButtonToImage = getActiveButtonToImage(t);
 
-  const observerCallback = useCallback(() => {}, []);
+  const observerCallback = useCallback(() => { }, []);
 
   useRootIntersectionObserver({
     rootRef: pageContentRef,
@@ -314,7 +314,7 @@ export const MainPage = () => {
         <MobilePicture>
           <source srcSet={halaAvifImageSrc} type="image/avif" />
           <source srcSet={halaJfifImageSrc} type="image/jpeg" />
-          <img src={halaJpgImageSrc} alt="hala 100-lecia" />
+          <img loading="lazy" src={halaJpgImageSrc} alt="hala 100-lecia" />
           <MobileLocationButtonWrapper>{eventLocationButton}</MobileLocationButtonWrapper>
         </MobilePicture>
 
