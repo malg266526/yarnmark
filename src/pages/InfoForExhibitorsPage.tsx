@@ -85,7 +85,7 @@ export const HallWrapper = styled.div`
   }
 `;
 
-export const InfoForVendorsPage = () => {
+export const InfoForExhibitorsPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
   const [burgerActive, setBurgerActive] = useState(false);

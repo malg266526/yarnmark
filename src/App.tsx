@@ -10,7 +10,7 @@ import { MinimalistLayout } from './components/MinimalistLayout';
 import { RowLayout } from './components/RowLayout';
 
 import { Root, Footer, RightBackgroundImage, TransparentText } from './App.styled';
-import { InfoForVendorsPage } from './pages/InfoForVendorsPage';
+import { InfoForExhibitorsPage } from './pages/InfoForExhibitorsPage';
 import { MainPage } from './pages/MainPage';
 import { useTypedTranslation } from './translations/useTypedTranslation';
 
@@ -37,7 +37,8 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<MainPage />} />
-          <Route path="/info-for-vendors" element={<InfoForVendorsPage />} />
+          <Route path="/info-for-exhibitors" element={<InfoForExhibitorsPage />} />
+          <Route path="/info-for-vendors" element={<InfoForExhibitorsPage />} />
         </Routes>
 
         <Footer id="footer">

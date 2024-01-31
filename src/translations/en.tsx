@@ -5,10 +5,10 @@ export const en: TranslationsShape = {
     menu: {
       home: 'Home',
       workshops: 'Workshops',
-      vendors: 'Vendors',
+      vendors: 'Exhibitors',
       organizers: 'Organizers',
       contact: 'Contact',
-      infoForVendors: 'For Vendors',
+      infoForVendors: 'For Exhibitors',
       cashmereTickets: 'Cashmere Tickets',
       aboutUs: 'About us',
       stands: 'Stands'
@@ -30,8 +30,8 @@ export const en: TranslationsShape = {
         mobileTitle: 'Tickets (available starting 14.02.2024)'
       },
       vendors: {
-        mobileTitle: 'Vendors',
-        text: 'Check which vendors you will meet'
+        mobileTitle: 'Exhibitors',
+        text: 'Check which exhibitors you will meet'
       },
       location: {
         mobileTitle: 'How to get there?',
@@ -72,7 +72,7 @@ export const en: TranslationsShape = {
       souverirBag: 'Souvenir fair bag'
     },
     vendorsPage: {
-      title: 'Vendors'
+      title: 'Exhibitors'
     },
     contactPage: {
       title: 'Contact'
@@ -86,7 +86,7 @@ export const en: TranslationsShape = {
       mayTheHealthBeWithYou: 'May the health and safety be with you!'
     },
     infoForVendorsPage: {
-      title: 'Information for vendors',
+      title: 'Information for exhibitors',
       invitation: 'We heartily invite you to participate in I edition of Cracow Wool Fair!',
       organisationInfo: 'Below a bit of organisational information for you',
       hallInfo: {
@@ -100,7 +100,7 @@ export const en: TranslationsShape = {
           'Premium spot includes 2 chairs and 3 tables 160x80cm. Standard spot includes 2 krzesła and 2 tables 140x70cm, while a Mini spot includes 2 chairs  and 1 table 140x70cm',
         extensionCords: "Stands don't include extension cords, please bring your own",
         socialRoom:
-          'Vendors will have at their disposal social room, where you can have a coffee or tea as well a separate toilet.',
+          'Exhibitors will have at their disposal social room, where you can have a coffee or tea as well a separate toilet.',
         glassWall:
           'Wall behind stands P2-P3 consists of windows of full hall height, the light coming through will be awesome'
       },
@@ -111,7 +111,7 @@ export const en: TranslationsShape = {
       marketing: {
         title: 'Marketing',
         sendLogos:
-          'We encourage to send your logo on email address <strong>krakoski.yarnmark.welny@gmail.com</strong>, we will put it on "Vendors" section and this way inform the knitters, that you will be there.'
+          'We encourage to send your logo on email address <strong>krakoski.yarnmark.welny@gmail.com</strong>, we will put it on "Exhibitors" section and this way inform the knitters, that you will be there.'
       },
       stands: {
         title: 'Stands'
@@ -119,13 +119,13 @@ export const en: TranslationsShape = {
       registration: {
         title: 'Zapisy',
         beAVendor:
-          'If you wanna join the great group of our vendors write us an email! Email address: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
+          'If you wanna join the great group of our exhibitors write us an email! Email address: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
         start: 'Spot reservations start on Monday 22.01.2024r. at 12:00 AM',
         where: 'Reservation is done by buying the spot in online shop `Włóczykijki`',
         buyHere: 'Here you will reserve the spot',
         feedback: 'All data related to payment will be part of feedback confirming spot reservation',
         return:
-          'In case of reservation and missing the payment - reservation is cancelled and will be available again for vendors'
+          'In case of reservation and missing the payment - reservation is cancelled and will be available again for exhibitors'
       }
     },
     foodBand: {

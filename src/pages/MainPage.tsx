@@ -373,7 +373,7 @@ export const MainPage = () => {
               {t('menu.vendors')}
             </SideBar.LinkEntry>
 
-            <SideBar.LinkEntry onClick={closeSideBar} to="/info-for-vendors">
+            <SideBar.LinkEntry onClick={closeSideBar} to="/info-for-exhibitors">
               <IconifyIcon icon="material-symbols:info-outline" width="24" />
               {t('menu.infoForVendors')}
             </SideBar.LinkEntry>
@@ -418,11 +418,11 @@ export const MainPage = () => {
               Yarnmark
             </Link>
 
-            <Link color="black" to="#vendors">
+            <Link color="black" to="#exhibitors">
               {t('menu.vendors')}
             </Link>
 
-            <Link color="black" to="/info-for-vendors">
+            <Link color="black" to="/info-for-exhibitors">
               {t('menu.infoForVendors')}
             </Link>
             {/*         <Link
@@ -517,7 +517,7 @@ export const MainPage = () => {
       )}
 
       {/* TODO: change color to snow when all bands revealed */}
-      <Band id="vendors" ref={vendorsBandRef} size="md" variant="background" color={Colors.isabelline} padding="xl">
+      <Band id="exhibitors" ref={vendorsBandRef} size="md" variant="background" color={Colors.isabelline} padding="xl">
         <BackgroundImage src={bigShopImageUrl} alt="shop_icon_background" />
 
         <Band.Slot flex="auto-grow" size="sm">
