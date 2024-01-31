@@ -19,7 +19,7 @@ const MaskedImage = styled.img`
   mask-size: contain;
   max-width: 100%;
   mask-position: bottom;
-  height: 100%;
+  height: 140px;
   width: 100%;
 `
 
