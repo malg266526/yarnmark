@@ -374,6 +374,8 @@ export const AbsoluteWrapper = styled.div`
   position: absolute;
   bottom: 80px;
   right: 80px;
+  opacity: 0.5;
+  filter: grayscale(0.5);
 `;
 
 export const Waves = styled.div`
