@@ -4,6 +4,10 @@ import { Spacings } from '../styles/spacings';
 import { Link } from './Link';
 import { ScreenSize } from '../styles/screeen-size';
 
+import AnimotkiLogoUrl from './../assets/images/logos/animotki.jpg';
+import AnimotkiLogoUrlAvif from './../assets/images/logos/animotki.avif';
+import AnimotkiLogoUrlWebp from './../assets/images/logos/animotki.webp';
+
 import BifernoLogoUrl from './../assets/images/logos/biferno.jpg';
 import BifernoLogoUrlAvif from './../assets/images/logos/biferno.avif';
 import BifernoLogoUrlWebp from './../assets/images/logos/biferno.webp';
@@ -89,6 +93,26 @@ export const Grid = styled.div`
 export const VendorsList = () => {
   return (
     <Grid>
+      <Link to="https://animotki.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={160}
+          alt="animotki"
+          picture={{
+            fallbackUrl: AnimotkiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: AnimotkiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: AnimotkiLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
       <Link to="https://biferno.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={140}
@@ -410,9 +434,6 @@ export const VendorsList = () => {
       </Link> */}
       {/*  <Link href="https://www.instagram.com/woolniej.pl" target="_blank" rel="noreferrer">
         <img width={160} src={WoolniejLogoUrl} alt="woolniej" />
-      </Link> */}
-      {/*   <Link href="https://animotki.pl/" target="_blank" rel="noreferrer">
-        <img width={160} src={AnimotkiLogoUrl} alt="animotki" />
       </Link> */}
 
       {/* <Link href="https://rencami.pl/" target="_blank" rel="noreferrer">

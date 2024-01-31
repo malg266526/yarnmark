@@ -4,6 +4,10 @@ import WloczykijkiLogoUrl from './../assets/images/logos/but.jpg';
 import WloczykijkiLogoUrlAvif from './../assets/images/logos/but.avif';
 import WloczykijkiLogoUrlWebp from './../assets/images/logos/but.webp';
 
+import AnimotkiLogoUrl from './../assets/images/logos/animotki.jpg';
+import AnimotkiLogoUrlAvif from './../assets/images/logos/animotki.avif';
+import AnimotkiLogoUrlWebp from './../assets/images/logos/animotki.webp';
+
 import BifernoLogoUrl from './../assets/images/logos/biferno.jpg';
 import BifernoLogoUrlAvif from './../assets/images/logos/biferno.avif';
 import BifernoLogoUrlWebp from './../assets/images/logos/biferno.webp';
@@ -756,7 +760,20 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           height: 4,
           index: 'S29',
-          who: 'Animotki'
+          who: 'Animotki',
+          picture: {
+            fallbackUrl: AnimotkiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: AnimotkiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: AnimotkiLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 3,
