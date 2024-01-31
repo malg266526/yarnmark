@@ -1,18 +1,16 @@
-import React, { ReactNode, useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { PageContent } from '../components/PageContent';
-import { UnprefixedTranslationKeys, useTypedTranslation } from '../translations/useTypedTranslation';
+import { /* UnprefixedTranslationKeys, */ useTypedTranslation } from '../translations/useTypedTranslation';
 
 import bigShopImageUrl from '../assets/iconify/bigshop.svg';
-import burgerImageUrl from '../assets/iconify/burger.svg';
-import coffeeImageUrl from '../assets/iconify/coffee.svg';
-import ferryImageUrl from '../assets/iconify/ferry.svg';
-import goodieBagImageUrl from '../assets/iconify/goodiebag.svg';
+// import burgerImageUrl from '../assets/iconify/burger.svg';
+// import coffeeImageUrl from '../assets/iconify/coffee.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
 // import pizzaImageUrl from '../assets/iconify/pizza.svg';
-import pretzelImageUrl from '../assets/iconify/pretzel.svg';
+// import pretzelImageUrl from '../assets/iconify/pretzel.svg';
 import shopImageUrl from '../assets/iconify/shop.svg';
-import shrimpImageUrl from '../assets/iconify/shrimp.svg';
-import soupImageUrl from '../assets/iconify/soup.svg';
+// import shrimpImageUrl from '../assets/iconify/shrimp.svg';
+// import soupImageUrl from '../assets/iconify/soup.svg';
 import ticketImageUrl from '../assets/iconify/ticket.svg';
 
 import knitting2ImageUrl from '../assets/images/knitting2.svg';
@@ -21,10 +19,10 @@ import pinImageUrl from '../assets/images/pin.svg';
 import halaAvifImageSrc from '../assets/images/hala.avif';
 import halaJfifImageSrc from '../assets/images/hala.jfif';
 import halaJpgImageSrc from '../assets/images/hala_quality.jpg';
+import yarnmarkLogoSrc from '../assets/images/logos/yarnmark.png';
 import wawelImageSrc from '../assets/images/wawel.jpg';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
-import yarnmarkLogoSrc from '../assets/images/logos/yarnmark.png';
 import { Icon } from '../components/Icon';
 
 import { Band } from '../components/Band';
@@ -38,31 +36,33 @@ import { Icon as IconifyIcon } from '@iconify/react';
 import { Trans } from 'react-i18next';
 import { Header } from '../App.styled';
 import { BurgerMenu } from '../components/BurgerMenu';
-import { FlexColumnLayout } from '../components/FlexColumnLayout';
-import { FramedBox } from '../components/FramedBox';
-import { ImageButton } from '../components/ImageButton';
+// import { FramedBox } from '../components/FramedBox';
+// import { ImageButton } from '../components/ImageButton';
+import { Curtain } from '../components/Curtain';
+import { LanguageSwitch } from '../components/LanguageSwitch';
+import { RowLayout } from '../components/RowLayout';
 import { SideBar } from '../components/SideBar';
-import { Tabs } from '../components/Tabs';
-import { SubTitle, Title, TextWrapper } from '../components/Title';
+import { SubTitle, TextWrapper, Title } from '../components/Title';
 import { VendorsList } from '../components/VendorsList';
+import { WorkshopsTabs } from '../components/WorkshopsTabs';
 import { Colors } from '../styles/theme';
 import {
-  ActiveImage,
+  // ActiveImage,
   AnimatedIconWrapper,
   BackgroundImage,
   ButtonsLayout,
-  ButtonsWrapper,
-  CenteredTitle,
+  // ButtonsWrapper,
+  // CenteredTitle,
   Menu,
-  ImageContentLayout,
-  LayoutWithActiveButton,
+  // ImageContentLayout,
+  // LayoutWithActiveButton,
   MenuBackground,
   MobileBasicInfoSection,
   MobileInfoSectionWrapper,
   MobileLocationButtonWrapper,
   MobilePicture,
-  Picture,
   PhotosLayout,
+  Picture,
   SecondaryButton,
   SectionWrapper,
   Text,
@@ -70,24 +70,20 @@ import {
   Typography
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
-import { Curtain } from '../components/Curtain';
-import { LanguageSwitch } from '../components/LanguageSwitch';
-import { RowLayout } from '../components/RowLayout';
-import { WorkshopsTabs } from '../components/WorkshopsTabs';
 
-type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
+// type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
-type ActiveButtonToImageConfig = Record<
+/* type ActiveButtonToImageConfig = Record<
   ActiveButtonType,
   {
     image: string;
     text: ReactNode;
   }
->;
+>; */
 
-type ActiveButtonToImageFunction = (t: (key: UnprefixedTranslationKeys) => string) => ActiveButtonToImageConfig;
+// type ActiveButtonToImageFunction = (t: (key: UnprefixedTranslationKeys) => string) => ActiveButtonToImageConfig;
 
-const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
+/* const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
   foodtruckBezogródek: {
     image: wawelImageSrc,
     text: (
@@ -137,9 +133,7 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
       </FlexColumnLayout>
     )
   }
-});
-
-type ActiveTab = 'ship' | 'bag';
+}); */
 
 export const MainPage = () => {
   const t = useTypedTranslation();
@@ -151,7 +145,7 @@ export const MainPage = () => {
   const vendorsBandRef = useRef<HTMLDivElement | null>(null);
   const spotBandRef = useRef<HTMLDivElement | null>(null);
   const cashmereTicketsBandRef = useRef<HTMLDivElement | null>(null);
-  const foodBandRef = useRef<HTMLDivElement | null>(null);
+  // const foodBandRef = useRef<HTMLDivElement | null>(null);
 
   const ticketsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const vendorsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
@@ -159,12 +153,11 @@ export const MainPage = () => {
   // const foodFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   // const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
 
-  const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
-  const [activeTab, setActiveTab] = useState<ActiveTab>('ship');
+  // const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
 
   const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
 
-  const activeButtonToImage = getActiveButtonToImage(t);
+  // const activeButtonToImage = getActiveButtonToImage(t);
 
   const observerCallback = useCallback(() => {}, []);
 
@@ -175,20 +168,6 @@ export const MainPage = () => {
   });
 
   const closeSideBar = () => setBurgerActive(false);
-
-  const activeTabToContent: Record<ActiveTab, ReactNode> = {
-    bag: (
-      <FlexColumnLayout gap="sm" padding="none">
-        Info...
-      </FlexColumnLayout>
-    ),
-    ship: (
-      <FlexColumnLayout gap="sm" padding="none">
-        <Text>{t('cashmereTicketsBand.beautifulCruise')}</Text>
-        <Text>{t('cashmereTicketsBand.invitations')}</Text>
-      </FlexColumnLayout>
-    )
-  };
 
   const eventLocationCard = useMemo(
     () => (
@@ -618,7 +597,7 @@ export const MainPage = () => {
         size="md"
         variant="background"
         justify="space-around"
-        color={Colors.linen}
+        color={Colors.isabelline}
         padding="xl"
         align="initial"
         direction="column">
@@ -629,7 +608,26 @@ export const MainPage = () => {
         <WorkshopsTabs />
       </Band>
 
-      <Band ref={foodBandRef} size="md" variant="background" color={Colors.snow} padding="xl">
+      <Band
+        size="md"
+        ref={cashmereTicketsBandRef}
+        variant="background"
+        justify="space-around"
+        color={Colors.linen}
+        padding="xl"
+        align="initial">
+        <IconifyIcon icon="noto-v1:ship" width={400}></IconifyIcon>
+
+        <Band.Slot flex="auto-shrink">
+          <NiceBox padding="lg">
+            <Title>{t('cashmereTicketsBand.beautifulCruise')}</Title>
+            <Text>{t('cashmereTicketsBand.ticketDescription')}</Text>
+            <Text>{t('cashmereTicketsBand.invitations')}</Text>
+          </NiceBox>
+        </Band.Slot>
+      </Band>
+
+      {/* <Band ref={foodBandRef} size="md" variant="background" color={Colors.snow} padding="xl">
         <CenteredTitle>Gdzie zjeść?</CenteredTitle>
 
         <LayoutWithActiveButton>
@@ -675,38 +673,7 @@ export const MainPage = () => {
           </FramedBox>
         </LayoutWithActiveButton>
       </Band>
-
-      <Band
-        size="md"
-        ref={cashmereTicketsBandRef}
-        variant="background"
-        justify="space-around"
-        color={Colors.isabelline}
-        padding="xl"
-        align="initial"
-        direction="column">
-        <TextWrapper align="center">
-          <Title>{t('cashmereTicketsBand.title')}</Title>
-        </TextWrapper>
-
-        <Text align="center" marginBottom="md">
-          {t('cashmereTicketsBand.ticketDescription')}
-        </Text>
-
-        <Tabs>
-          <Tabs.Tab onClick={() => setActiveTab('ship')} active={activeTab === 'ship'}>
-            <Icon size="xl" src={ferryImageUrl} />
-            {t('cashmereTicketsBand.cruise')}
-          </Tabs.Tab>
-
-          <Tabs.Tab onClick={() => setActiveTab('bag')} active={activeTab === 'bag'}>
-            <Icon size="xl" src={goodieBagImageUrl} />
-            {t('cashmereTicketsBand.souverirBag')}
-          </Tabs.Tab>
-        </Tabs>
-
-        <Tabs.Content>{activeTabToContent[activeTab]}</Tabs.Content>
-      </Band>
+ */}
     </PageContent>
   );
 };
