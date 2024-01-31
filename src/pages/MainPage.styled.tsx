@@ -369,3 +369,15 @@ export const LayoutWithActiveButton = styled.div`
     max-width: 100vw;
   }
 `;
+
+export const AbsoluteWrapper = styled.div`
+  position: absolute;
+  bottom: 80px;
+  right: 80px;
+`;
+
+export const Waves = styled.div`
+  display: flex;
+  gap: ${Spacings.md};
+  align-items: flex-start;
+`;

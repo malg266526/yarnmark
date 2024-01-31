@@ -64,13 +64,14 @@ export const pl = {
     },
     cashmereTicketsBand: {
       title: 'Bilety kaszmirowe',
-      ticketDescription:
-        'Oferujemy możliwość zakupu biletów zwykłych oraz biletów w pakiecie kaszmirowym. Bilety kaszmirowe oprócz wejściowki na targi obejmują także:',
-      cruise: 'Rejs Dziergostatkiem',
       beautifulCruise: 'Dzieeergostatkiem w piękny rejs!',
+      cruise: 'Rejs Dziergostatkiem',
       invitations:
-        'Zapraszamy Was serdecznie na godzinny rejs po Wiśle, podczas którego wspólnie podziergamy i porozmawiamy, przy kieliszku prosecco i w otoczeniu krakowskich krajobrazów',
-      souverirBag: 'Pamiątkowa torba targowa'
+        'Zapraszamy Was serdecznie na 2-godzinny rejs po Wiśle, podczas którego będziemy okazja aby się razem pobawić i podziergać, w otoczeniu krakowskich krajobrazów',
+      ticketDescription:
+        'Oferujemy możliwość zakupu biletów zwykłych oraz biletów w pakiecie kaszmirowym. Bilety kaszmirowe oprócz wejściowki na targi obejmują również rejs dziergostatkiem',
+      prosecco: 'Na miły początek rejsy każdy otrzyma kieliszek prosecco (możliwość napoju bezalko)',
+      tickets: 'Kup bilet kaszmirowy'
     },
     vendorsPage: {
       title: 'Wystawcy'

@@ -69,7 +69,8 @@ export const en: TranslationsShape = {
       beautifulCruise: 'Beautiful cruise on the Knitting-ship!',
       invitations:
         'We heartily invite you for an 1 hour cruise on Wisła, during which we will knit and talk together with a glass of prosecco while being surrounded by Cracow scenery',
-      souverirBag: 'Souvenir fair bag'
+      prosecco: 'Na miły początek rejsy każdy otrzyma kieliszek prosecco (możliwość napoju bezalko)',
+      tickets: 'Bilety'
     },
     vendorsPage: {
       title: 'Vendors'

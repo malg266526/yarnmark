@@ -6,6 +6,7 @@ import bigShopImageUrl from '../assets/iconify/bigshop.svg';
 // import burgerImageUrl from '../assets/iconify/burger.svg';
 // import coffeeImageUrl from '../assets/iconify/coffee.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
+import shipThemed from '../assets/images/ship-themed.svg';
 // import pizzaImageUrl from '../assets/iconify/pizza.svg';
 // import pretzelImageUrl from '../assets/iconify/pretzel.svg';
 import shopImageUrl from '../assets/iconify/shop.svg';
@@ -47,6 +48,7 @@ import { VendorsList } from '../components/VendorsList';
 import { WorkshopsTabs } from '../components/WorkshopsTabs';
 import { Colors } from '../styles/theme';
 import {
+  AbsoluteWrapper,
   // ActiveImage,
   AnimatedIconWrapper,
   BackgroundImage,
@@ -67,9 +69,11 @@ import {
   SectionWrapper,
   Text,
   TextH2,
-  Typography
+  Typography,
+  Waves
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
+import { WaveBox } from '../components/WaveBox';
 
 // type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
@@ -358,15 +362,10 @@ export const MainPage = () => {
               {t('menu.workshops')}
             </SideBar.LinkEntry>
 
-            {/*           <SideBar.LinkEntry
-                onClick={() => {
-                  closeSideBar();
-                  () => cashmereTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
-                }}>
-                <IconifyIcon icon="clarity:ferry-solid" width="24" />
-                {t('menu.cashmereTickets')}
-
-              </SideBar.LinkEntry> */}
+            <SideBar.LinkEntry to="#cruise" onClick={closeSideBar}>
+              <IconifyIcon icon="clarity:ferry-solid" width="24" />
+              {t('menu.cashmereTickets')}
+            </SideBar.LinkEntry>
 
             <SideBar.LinkEntry
               to="#footer"
@@ -400,13 +399,11 @@ export const MainPage = () => {
             <Link to="#workshops" color="black">
               {t('menu.workshops')}
             </Link>
-            {/*           <Link
-              color="black"
-              anchorProps={{
-                onClick: () => cashmereTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
-              }}>
+
+            <Link to="#cruise" color="black">
               {t('menu.cashmereTickets')}
-            </Link> */}
+            </Link>
+
             <Link color="black" to="#footer">
               {t('menu.contact')}
             </Link>
@@ -609,22 +606,36 @@ export const MainPage = () => {
       </Band>
 
       <Band
-        size="md"
+        id="cruise"
+        size="lg"
         ref={cashmereTicketsBandRef}
         variant="background"
-        justify="space-around"
+        justify="flex-start"
         color={Colors.linen}
         padding="xl"
         align="initial">
-        <IconifyIcon icon="noto-v1:ship" width={400}></IconifyIcon>
-
-        <Band.Slot flex="auto-shrink">
-          <NiceBox padding="lg">
+        <Waves>
+          <WaveBox wide>
             <Title>{t('cashmereTicketsBand.beautifulCruise')}</Title>
-            <Text>{t('cashmereTicketsBand.ticketDescription')}</Text>
+            <IconifyIcon icon="flat-color-icons:landscape" width={100} />
             <Text>{t('cashmereTicketsBand.invitations')}</Text>
-          </NiceBox>
-        </Band.Slot>
+          </WaveBox>
+
+          <WaveBox>
+            <Text>{t('cashmereTicketsBand.ticketDescription')}</Text>
+            <IconifyIcon icon="emojione:admission-tickets" width={100} />
+            <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">{t('cashmereTicketsBand.tickets')}</Link>
+          </WaveBox>
+
+          <WaveBox>
+            <Text>{t('cashmereTicketsBand.prosecco')}</Text>
+            <IconifyIcon icon="fluent-emoji:tropical-drink" width={100} />
+          </WaveBox>
+        </Waves>
+
+        <AbsoluteWrapper>
+          <img src={shipThemed} width={500} />
+        </AbsoluteWrapper>
       </Band>
 
       {/* <Band ref={foodBandRef} size="md" variant="background" color={Colors.snow} padding="xl">
