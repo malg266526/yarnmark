@@ -21,7 +21,7 @@ const Table = styled.div`
 
 const TicketButton = styled(TransparentButton)`
   position: absolute;
-  right: 40px;
+  right: 50px;
   top: 140px;
   z-index: 2;
 `;
@@ -37,7 +37,7 @@ const InvitationButton = styled(TransparentButton)`
   position: absolute;
   top: 160px;
   z-index: 2;
-  left: 50px;
+  left: 100px;
 `;
 
 const TableIconWrapper = styled.div`
@@ -69,17 +69,17 @@ export const ClickableTable = () => {
         <WaveBox>{content[currentContent]}</WaveBox>
       </Waves>
 
-      {/*      <div>
-        <IconifyIcon icon="noto-v1:ticket" width={100} style={{ color: '#6f81a5' }}></IconifyIcon>
+      <div>
         <IconifyIcon icon="icon-park:ticket" width={100}></IconifyIcon>
+        <IconifyIcon icon="fluent-emoji-high-contrast:ticket" width={100} style={{ color: '#6f81a5' }} />
+        <IconifyIcon icon="codicon:book" width={100} style={{ color: '#32814d' }} />
 
-        <IconifyIcon icon="emojione-v1:book2" width={100}></IconifyIcon>
         <IconifyIcon icon="emojione-monotone:open-book" width={100} style={{ color: '#155b37' }}></IconifyIcon>
-      </div> */}
+      </div>
 
       <Table>
         <TicketButton onClick={() => setCurrentContent('ticket')}>
-          <IconifyIcon icon="fluent-emoji-high-contrast:ticket" width={100} style={{ color: '#6f81a5' }} />
+          <IconifyIcon icon="noto-v1:ticket" width={100} style={{ color: '#6f81a5' }}></IconifyIcon>
         </TicketButton>
 
         <CoctailButton onClick={() => setCurrentContent('coctail')}>
@@ -87,7 +87,7 @@ export const ClickableTable = () => {
         </CoctailButton>
 
         <InvitationButton onClick={() => setCurrentContent('invitation')}>
-          <IconifyIcon icon="codicon:book" width={100} style={{ color: '#32814d' }} />
+          <IconifyIcon icon="emojione-v1:book2" width={80}></IconifyIcon>
         </InvitationButton>
 
         <TableIconWrapper>
