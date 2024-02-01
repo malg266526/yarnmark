@@ -383,3 +383,7 @@ export const Waves = styled.div`
   gap: ${Spacings.md};
   align-items: flex-start;
 `;
+
+export const MaxWidthWraper = styled.div`
+  width: 20%;
+`;

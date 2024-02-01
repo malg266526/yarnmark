@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
+import { TransparentButton } from './TransparentButton';
 
 const Root = styled.div`
   display: inline-flex;
@@ -15,12 +16,6 @@ const Root = styled.div`
   @media (max-width: ${ScreenSize.phone}) {
     padding: ${Spacings.sm};
   }
-`;
-
-const TransparentButton = styled.button`
-  all: unset;
-  padding-top: 2px;
-  cursor: pointer;
 `;
 
 const LanguageText = styled.p<{ isSelected?: boolean }>`

@@ -21,6 +21,6 @@ const MaskedImage = styled.img`
   mask-position: bottom;
   height: 140px;
   width: 100%;
-`
+`;
 
 export const WaveImage = () => <MaskedImage src={woolsWebpLandscape} />;

@@ -70,7 +70,7 @@ export const en: TranslationsShape = {
       invitations:
         'We heartily invite you for an 1 hour cruise on Wisła, during which we will knit and talk together with a glass of prosecco while being surrounded by Cracow scenery',
       prosecco: 'Na miły początek rejsy każdy otrzyma kieliszek prosecco (możliwość napoju bezalko)',
-      tickets: 'Bilety'
+      buyTickets: 'Bilety'
     },
     vendorsPage: {
       title: 'Vendors'

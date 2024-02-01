@@ -6,7 +6,6 @@ import bigShopImageUrl from '../assets/iconify/bigshop.svg';
 // import burgerImageUrl from '../assets/iconify/burger.svg';
 // import coffeeImageUrl from '../assets/iconify/coffee.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
-import shipThemed from '../assets/images/ship-themed.svg';
 // import pizzaImageUrl from '../assets/iconify/pizza.svg';
 // import pretzelImageUrl from '../assets/iconify/pretzel.svg';
 import shopImageUrl from '../assets/iconify/shop.svg';
@@ -21,7 +20,7 @@ import halaAvifImageSrc from '../assets/images/hala.avif';
 import halaJfifImageSrc from '../assets/images/hala.jfif';
 import halaJpgImageSrc from '../assets/images/hala_quality.jpg';
 import yarnmarkLogoSrc from '../assets/images/logos/yarnmark.png';
-import wawelImageSrc from '../assets/images/wawel.jpg';
+// import wawelImageSrc from '../assets/images/wawel.jpg';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import { Icon } from '../components/Icon';
@@ -30,7 +29,7 @@ import { Band } from '../components/Band';
 import { FunnyButton } from '../components/FunnyButton';
 import { Link } from '../components/Link';
 import { NiceBox } from '../components/NiceBox';
-import { PhotoFrame } from '../components/PhotoBox';
+// import { PhotoFrame } from '../components/PhotoBox';
 import { usePhone } from './usePhone';
 
 import { Icon as IconifyIcon } from '@iconify/react';
@@ -39,6 +38,7 @@ import { Header } from '../App.styled';
 import { BurgerMenu } from '../components/BurgerMenu';
 // import { FramedBox } from '../components/FramedBox';
 // import { ImageButton } from '../components/ImageButton';
+import { ClickableTable } from '../components/ClickableTable';
 import { Curtain } from '../components/Curtain';
 import { LanguageSwitch } from '../components/LanguageSwitch';
 import { RowLayout } from '../components/RowLayout';
@@ -48,11 +48,12 @@ import { VendorsList } from '../components/VendorsList';
 import { WorkshopsTabs } from '../components/WorkshopsTabs';
 import { Colors } from '../styles/theme';
 import {
-  AbsoluteWrapper,
   // ActiveImage,
   AnimatedIconWrapper,
   BackgroundImage,
   ButtonsLayout,
+  CenteredTitle,
+  MaxWidthWraper,
   // ButtonsWrapper,
   // CenteredTitle,
   Menu,
@@ -63,17 +64,15 @@ import {
   MobileInfoSectionWrapper,
   MobileLocationButtonWrapper,
   MobilePicture,
-  PhotosLayout,
+  // PhotosLayout,
   Picture,
   SecondaryButton,
   SectionWrapper,
   Text,
   TextH2,
-  Typography,
-  Waves
+  Typography
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
-import { WaveBox } from '../components/WaveBox';
 
 // type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
@@ -163,7 +162,7 @@ export const MainPage = () => {
 
   // const activeButtonToImage = getActiveButtonToImage(t);
 
-  const observerCallback = useCallback(() => { }, []);
+  const observerCallback = useCallback(() => {}, []);
 
   useRootIntersectionObserver({
     rootRef: pageContentRef,
@@ -357,7 +356,7 @@ export const MainPage = () => {
               {t('menu.infoForVendors')}
             </SideBar.LinkEntry>
 
-            <SideBar.LinkEntry to="#workshops" onClick={closeSideBar}>
+            <SideBar.LinkEntry to="#schedule" onClick={closeSideBar}>
               <IconifyIcon icon="icons8:student" width="24" />
               {t('menu.workshops')}
             </SideBar.LinkEntry>
@@ -396,7 +395,7 @@ export const MainPage = () => {
               {t('menu.infoForVendors')}
             </Link>
 
-            <Link to="#workshops" color="black">
+            <Link to="#schedule" color="black">
               {t('menu.workshops')}
             </Link>
 
@@ -493,7 +492,7 @@ export const MainPage = () => {
         </Band.Slot>
       </Band>
 
-      <Band
+      {/*       <Band
         id="workshops"
         gap="xl"
         size="md"
@@ -587,14 +586,14 @@ export const MainPage = () => {
             <Text>{t('workshopsBand.mayTheHealthBeWithYou')}</Text>
           </NiceBox>
         </Band.Slot>
-      </Band>
+      </Band> */}
 
       <Band
         id="schedule"
         size="md"
         variant="background"
         justify="space-around"
-        color={Colors.isabelline}
+        color={Colors.beige1}
         padding="xl"
         align="initial"
         direction="column">
@@ -607,35 +606,21 @@ export const MainPage = () => {
 
       <Band
         id="cruise"
-        size="lg"
+        size="md"
         ref={cashmereTicketsBandRef}
         variant="background"
-        justify="flex-start"
+        justify="space-evenly"
         color={Colors.linen}
-        padding="xl"
-        align="initial">
-        <Waves>
-          <WaveBox wide>
-            <Title>{t('cashmereTicketsBand.beautifulCruise')}</Title>
-            <IconifyIcon icon="flat-color-icons:landscape" width={100} />
-            <Text>{t('cashmereTicketsBand.invitations')}</Text>
-          </WaveBox>
+        padding="xl">
+        <MaxWidthWraper>
+          <CenteredTitle>{t('cashmereTicketsBand.beautifulCruise')}</CenteredTitle>
+        </MaxWidthWraper>
 
-          <WaveBox>
-            <Text>{t('cashmereTicketsBand.ticketDescription')}</Text>
-            <IconifyIcon icon="emojione:admission-tickets" width={100} />
-            <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">{t('cashmereTicketsBand.tickets')}</Link>
-          </WaveBox>
+        <ClickableTable />
 
-          <WaveBox>
-            <Text>{t('cashmereTicketsBand.prosecco')}</Text>
-            <IconifyIcon icon="fluent-emoji:tropical-drink" width={100} />
-          </WaveBox>
-        </Waves>
-
-        <AbsoluteWrapper>
+        {/*         <AbsoluteWrapper>
           <img src={shipThemed} width={500} />
-        </AbsoluteWrapper>
+        </AbsoluteWrapper> */}
       </Band>
 
       {/* <Band ref={foodBandRef} size="md" variant="background" color={Colors.snow} padding="xl">

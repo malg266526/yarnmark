@@ -71,7 +71,7 @@ export const pl = {
       ticketDescription:
         'Oferujemy możliwość zakupu biletów zwykłych oraz biletów w pakiecie kaszmirowym. Bilety kaszmirowe oprócz wejściowki na targi obejmują również rejs dziergostatkiem',
       prosecco: 'Na miły początek rejsy każdy otrzyma kieliszek prosecco (możliwość napoju bezalko)',
-      tickets: 'Kup bilet kaszmirowy'
+      buyTickets: 'Kup bilet kaszmirowy'
     },
     vendorsPage: {
       title: 'Wystawcy'
