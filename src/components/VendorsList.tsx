@@ -12,6 +12,10 @@ import BifernoLogoUrl from './../assets/images/logos/biferno.jpg';
 import BifernoLogoUrlAvif from './../assets/images/logos/biferno.avif';
 import BifernoLogoUrlWebp from './../assets/images/logos/biferno.webp';
 
+import BrioszkaLogoUrl from './../assets/images/logos/brioszka.jpg';
+import BrioszkaLogoUrlAvif from './../assets/images/logos/brioszka.avif';
+import BrioszkaLogoUrlWebp from './../assets/images/logos/brioszka.webp';
+
 import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.jpg';
 import DyeDyeDoneLogoUrlAvif from './../assets/images/logos/dyedyedone.avif';
 import DyeDyeDoneLogoUrlWebp from './../assets/images/logos/dyedyedone.webp';
@@ -127,6 +131,26 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: BifernoLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://brioszka.com.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={120}
+          alt="brioszka"
+          picture={{
+            fallbackUrl: BrioszkaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: BrioszkaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: BrioszkaLogoUrlAvif
               }
             ]
           }}
