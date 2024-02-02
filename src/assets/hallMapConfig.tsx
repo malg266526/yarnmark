@@ -12,6 +12,10 @@ import BifernoLogoUrl from './../assets/images/logos/biferno.jpg';
 import BifernoLogoUrlAvif from './../assets/images/logos/biferno.avif';
 import BifernoLogoUrlWebp from './../assets/images/logos/biferno.webp';
 
+import BrioszkaLogoUrl from './../assets/images/logos/brioszka.jpg';
+import BrioszkaLogoUrlAvif from './../assets/images/logos/brioszka.avif';
+import BrioszkaLogoUrlWebp from './../assets/images/logos/brioszka.webp';
+
 import DyeDyeDoneLogoUrlAvif from './../assets/images/logos/dyedyedone.avif';
 import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.jpg';
 import DyeDyeDoneLogoUrlWebp from './../assets/images/logos/dyedyedone.webp';
@@ -214,7 +218,20 @@ export const hallMapConfig: HallMapType = {
           color: 'taken2',
           index: 'S6',
           height: 4,
-          who: 'Brioszka'
+          who: 'Brioszka',
+          picture: {
+            fallbackUrl: BrioszkaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: BrioszkaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: BrioszkaLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 2.5,
@@ -740,9 +757,10 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'normal2',
+          color: 'taken2',
           height: 4,
-          index: 'S26'
+          index: 'S26',
+          who: "Martin's Lab"
         },
         {
           width: 2.5,
