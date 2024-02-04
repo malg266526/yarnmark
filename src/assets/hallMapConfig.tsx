@@ -764,19 +764,21 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'normal1',
+          color: 'taken',
           height: 4,
-          index: 'S27'
-        },
-        {
-          width: 2.5,
-          color: 'normal2',
-          height: 4,
-          index: 'S28'
+          index: 'S27',
+          who: 'FuroraYarns'
         },
         {
           width: 2.5,
           color: 'taken',
+          height: 4,
+          index: 'S28',
+          who: 'FuroraYarns'
+        },
+        {
+          width: 2.5,
+          color: 'taken2',
           height: 4,
           index: 'S29',
           who: 'Animotki',
