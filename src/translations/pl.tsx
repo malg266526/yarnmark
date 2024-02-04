@@ -65,13 +65,24 @@ export const pl = {
     cashmereTicketsBand: {
       title: 'Bilety kaszmirowe',
       beautifulCruise: 'Dzieeergostatkiem w piękny rejs!',
-      cruise: 'Rejs Dziergostatkiem',
-      invitations:
-        'Zapraszamy Was serdecznie na 2-godzinny rejs po Wiśle, podczas którego będziemy okazja aby się razem pobawić i podziergać, w otoczeniu krakowskich krajobrazów',
-      ticketDescription:
-        'Oferujemy możliwość zakupu biletów zwykłych oraz biletów w pakiecie kaszmirowym. Bilety kaszmirowe oprócz wejściowki na targi obejmują również rejs dziergostatkiem',
-      prosecco: 'Na miły początek rejsy każdy otrzyma kieliszek prosecco (możliwość napoju bezalko)',
-      buyTickets: 'Kup bilet kaszmirowy'
+      map: {
+        cruise: 'Dziewiarski rejs po Wiśle',
+        info: 'Informacje o rejsie:',
+        startAndStop: 'Miejsce startu i zakończenia rejsu:',
+        time: 'Godzina rejsu:',
+        price: 'Cena',
+        priceIncludesYarnmarkTicket:
+          'Cena zawiera bilet wejścia na targi <strong>Krakoski Yarnmark Włóczki 2024</strong>',
+        route: 'Trasa:'
+      },
+      invitation: 'Zapraszamy Cię na niezapomniany rejs statkiem po urokliwej Wiśle w Krakowie.',
+      ship: 'Pragniemy, aby pokład statku „Legenda/Horyzont” stał się sceną do wspólnego dziergania, tworzenia niepowtarzalnych chwil i zawierania nowych dziewiarskich znajomości.',
+      prosecco:
+        'Podczas rejsu poczęstujemy Cię kieliszkiem Prosecco (lub napoju bezalkoholowego), dodając tym samym nutę luksusu do atmosfery.',
+      buyTickets: 'Tutaj kupisz bilet',
+      tickets: 'Bilety',
+      proseccoIntro:
+        'Rejs statkiem po Wiśle w Krakowie to nie tylko atrakcyjna forma spędzenia czasu, ale także doskonały sposób na odprężenie się i zobaczenie miasta z innej strony. '
     },
     vendorsPage: {
       title: 'Wystawcy'

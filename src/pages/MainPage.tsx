@@ -52,8 +52,6 @@ import {
   AnimatedIconWrapper,
   BackgroundImage,
   ButtonsLayout,
-  CenteredTitle,
-  MaxWidthWraper,
   // ButtonsWrapper,
   // CenteredTitle,
   Menu,
@@ -612,9 +610,14 @@ export const MainPage = () => {
         justify="space-evenly"
         color={Colors.linen}
         padding="xl">
-        <MaxWidthWraper>
-          <CenteredTitle>{t('cashmereTicketsBand.beautifulCruise')}</CenteredTitle>
-        </MaxWidthWraper>
+        <NiceBox overflowSize="10px" width="500px" padding="lg" marginTop="lg">
+          <TextWrapper>
+            <Title>{t('cashmereTicketsBand.beautifulCruise')}</Title>
+          </TextWrapper>
+
+          <TextH2>{t('cashmereTicketsBand.invitation')}</TextH2>
+          <TextH2>{t('cashmereTicketsBand.ship')}</TextH2>
+        </NiceBox>
 
         <ClickableTable />
 

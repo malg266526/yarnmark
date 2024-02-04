@@ -1,13 +1,14 @@
+import { Icon as IconifyIcon } from '@iconify/react';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
-import { Waves, Text } from '../pages/MainPage.styled';
-import { WaveBox } from './WaveBox';
-import { Icon as IconifyIcon } from '@iconify/react';
-import { FlexColumnLayout } from './FlexColumnLayout';
-import { Link } from './Link';
-import { TransparentButton } from './TransparentButton';
+import shipThemed from '../assets/images/ship-themed.svg';
+import { Text } from '../pages/MainPage.styled';
 import { Spacings } from '../styles/spacings';
+import { useTypedTranslation } from '../translations/useTypedTranslation';
+import { CruiseMap } from './CruiseMap';
+import { CruiseTicket } from './CruiseTicket';
+import { TransparentButton } from './TransparentButton';
+import { FlexColumnLayout } from './FlexColumnLayout';
 
 const Root = styled.div`
   display: flex;
@@ -45,37 +46,72 @@ const TableIconWrapper = styled.div`
   bottom: -50px;
 `;
 
-type OnTheTable = 'invitation' | 'ticket' | 'coctail';
+export const TextH2 = styled.h2`
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 0;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+  position: relative;
+  min-height: 400px;
+
+  align-items: flex-start;
+  background-color: white;
+
+  padding: ${Spacings.lg};
+  gap: ${Spacings.md};
+
+  border-radius: 4px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+`;
+
+type OnTheTable = 'ticket' | 'coctail' | 'map';
 
 export const ClickableTable = () => {
   const t = useTypedTranslation();
 
   const content = {
-    ticket: (
-      <FlexColumnLayout>
-        <Text>{t('cashmereTicketsBand.ticketDescription')}</Text>
-        <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">{t('cashmereTicketsBand.buyTickets')}</Link>
+    ticket: <CruiseTicket />,
+    coctail: (
+      <FlexColumnLayout gap="sm" padding="none" align="flex-start">
+        <Text>{t('cashmereTicketsBand.proseccoIntro')}</Text>
+        <Text>{t('cashmereTicketsBand.prosecco')}</Text>
       </FlexColumnLayout>
     ),
-    coctail: <Text>{t('cashmereTicketsBand.prosecco')}</Text>,
-    invitation: <Text>{t('cashmereTicketsBand.invitations')}</Text>
+    map: <CruiseMap />
   };
 
-  const [currentContent, setCurrentContent] = useState<OnTheTable>('invitation');
+  const [currentContent, setCurrentContent] = useState<OnTheTable>('ticket');
 
   return (
     <Root>
-      <Waves>
-        <WaveBox>{content[currentContent]}</WaveBox>
-      </Waves>
+      <Content>
+        {content[currentContent]}
 
-      <div>
+        <img
+          src={shipThemed}
+          width={200}
+          style={{
+            opacity: 0.5,
+            filter: 'grayscale(0.5)',
+            position: 'absolute',
+            right: '24px',
+            bottom: '24px'
+          }}
+        />
+      </Content>
+
+      {/*       <div>
         <IconifyIcon icon="icon-park:ticket" width={100}></IconifyIcon>
         <IconifyIcon icon="fluent-emoji-high-contrast:ticket" width={100} style={{ color: '#6f81a5' }} />
         <IconifyIcon icon="codicon:book" width={100} style={{ color: '#32814d' }} />
 
         <IconifyIcon icon="emojione-monotone:open-book" width={100} style={{ color: '#155b37' }}></IconifyIcon>
-      </div>
+      </div> */}
 
       <Table>
         <TicketButton onClick={() => setCurrentContent('ticket')}>
@@ -86,8 +122,9 @@ export const ClickableTable = () => {
           <IconifyIcon icon="pepicons-print:coctail" width={100} style={{ color: '#d1d425' }} />
         </CoctailButton>
 
-        <InvitationButton onClick={() => setCurrentContent('invitation')}>
-          <IconifyIcon icon="emojione-v1:book2" width={80}></IconifyIcon>
+        <InvitationButton onClick={() => setCurrentContent('map')}>
+          {/* <IconifyIcon icon="emojione-v1:book2" width={80}></IconifyIcon> */}
+          <IconifyIcon icon="noto:world-map" width={80}></IconifyIcon>
         </InvitationButton>
 
         <TableIconWrapper>

@@ -6,6 +6,7 @@ export const FlexColumnLayout = styled.div<{
   justifyContent?: string;
   gap?: keyof typeof Spacings;
   padding?: keyof typeof Spacings;
+  align?: string;
 }>`
   display: flex;
   flex-wrap: wrap;
@@ -16,5 +17,5 @@ export const FlexColumnLayout = styled.div<{
 
   height: ${({ fullHeight: isFullHeight }) => (isFullHeight ? '100%' : 'initial')};
   justify-content: ${({ justifyContent }) => (justifyContent ? justifyContent : 'initial')};
-  align-items: center;
+  align-items: ${({ align }) => (align ? align : 'center')};
 `;

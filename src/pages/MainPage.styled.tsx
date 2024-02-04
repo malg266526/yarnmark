@@ -3,9 +3,13 @@ import { Icon } from '../components/Icon';
 import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
 
-export const Text = styled.p<{ marginBottom?: keyof typeof Spacings; align?: 'center' | 'justify' }>`
+export const Text = styled.p<{
+  marginBottom?: keyof typeof Spacings;
+  marginTop?: keyof typeof Spacings;
+  align?: 'center' | 'justify';
+}>`
   white-space: break-spaces;
-  margin-top: ${Spacings.md};
+  margin-top: ${({ marginTop }) => Spacings[marginTop || 'md']};
   margin-bottom: 0;
   font-size: 18px;
 
@@ -376,12 +380,6 @@ export const AbsoluteWrapper = styled.div`
   right: 80px;
   opacity: 0.5;
   filter: grayscale(0.5);
-`;
-
-export const Waves = styled.div`
-  display: flex;
-  gap: ${Spacings.md};
-  align-items: flex-start;
 `;
 
 export const MaxWidthWraper = styled.div`

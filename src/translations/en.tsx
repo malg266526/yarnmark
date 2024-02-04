@@ -63,14 +63,24 @@ export const en: TranslationsShape = {
     },
     cashmereTicketsBand: {
       title: 'Cashmere tickets',
-      ticketDescription:
-        'We offer the ability to buy standard tickets and tickets in cashmere bundle. Cashmere tickets aside from including entry ticket include as:',
-      cruise: 'Cruise on the Knitting-ship',
       beautifulCruise: 'Beautiful cruise on the Knitting-ship!',
-      invitations:
-        'We heartily invite you for an 1 hour cruise on Wisła, during which we will knit and talk together with a glass of prosecco while being surrounded by Cracow scenery',
-      prosecco: 'Na miły początek rejsy każdy otrzyma kieliszek prosecco (możliwość napoju bezalko)',
-      buyTickets: 'Bilety'
+      map: {
+        cruise: 'Dziewiarski rejs po Wiśle',
+        info: 'Informacje o rejsie',
+        startAndStop: 'Miejsce startu i zakończenia rejsu:',
+        time: 'Godzina rejsu:',
+        price: 'Cena',
+        priceIncludesYarnmarkTicket: '(cena zawiera bilet wejścia na targi Krakoski Yarnmark Włóczki 2024)',
+        route: 'Trasa:'
+      },
+      invitation: 'Zapraszamy Cię na niezapomniany rejs statkiem po urokliwej Wiśle w Krakowie.',
+      ship: 'Pragniemy, aby pokład statku „Legenda/Horyzont” stał się sceną do wspólnego dziergania, tworzenia niepowtarzalnych chwil i zawierania nowych dziewiarskich znajomości.',
+      prosecco:
+        'Podczas rejsu poczęstujemy Cię kieliszkiem Prosecco (lub napoju bezalkoholowego), dodając tym samym nutę luksusu do atmosfery',
+      buyTickets: 'Tutaj kupisz bilet',
+      tickets: 'Bilety',
+      proseccoIntro:
+        'Rejs statkiem po Wiśle w Krakowie to nie tylko atrakcyjna forma spędzenia czasu, ale także doskonały sposób na odprężenie się i zobaczenie miasta z innej strony. '
     },
     vendorsPage: {
       title: 'Vendors'
