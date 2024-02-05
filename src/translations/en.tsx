@@ -65,22 +65,23 @@ export const en: TranslationsShape = {
       title: 'Cashmere tickets',
       beautifulCruise: 'Beautiful cruise on the Knitting-ship!',
       map: {
-        cruise: 'Dziewiarski rejs po Wiśle',
-        info: 'Informacje o rejsie',
-        startAndStop: 'Miejsce startu i zakończenia rejsu:',
-        time: 'Godzina rejsu:',
-        price: 'Cena',
-        priceIncludesYarnmarkTicket: '(cena zawiera bilet wejścia na targi Krakoski Yarnmark Włóczki 2024)',
-        route: 'Trasa:'
+        cruise: 'Knitting cruise on Vistula River',
+        info: 'Cruise information',
+        startAndStop: 'Place of departure and end of the cruise:',
+        time: 'Cruise time:',
+        price: 'Price',
+        priceIncludesYarnmarkTicket:
+          'The price includes an entry ticket to the <strong>Krakoski Yarnmark Włóczki 2024</strong>',
+        route: 'Route:'
       },
-      invitation: 'Zapraszamy Cię na niezapomniany rejs statkiem po urokliwej Wiśle w Krakowie.',
-      ship: 'Pragniemy, aby pokład statku „Legenda/Horyzont” stał się sceną do wspólnego dziergania, tworzenia niepowtarzalnych chwil i zawierania nowych dziewiarskich znajomości.',
+      invitation: 'We heartily invite you for an unforgettable cruise on the charming Vistula River in Cracow.',
+      ship: 'We want the deck of the "Legend/Horyzont" ship to become a stage for knitting together, creating unique moments and making new knitting acquaintances.',
       prosecco:
-        'Podczas rejsu poczęstujemy Cię kieliszkiem Prosecco (lub napoju bezalkoholowego), dodając tym samym nutę luksusu do atmosfery',
-      buyTickets: 'Tutaj kupisz bilet',
-      tickets: 'Bilety',
+        'During the cruise, we will offer you a glass of Prosecco (or a non-alcoholic drink), thus adding a touch of luxury to the atmosphere.',
+      buyTickets: 'Buy a ticket',
+      tickets: 'Tickets',
       proseccoIntro:
-        'Rejs statkiem po Wiśle w Krakowie to nie tylko atrakcyjna forma spędzenia czasu, ale także doskonały sposób na odprężenie się i zobaczenie miasta z innej strony. '
+        'A ship cruise on the Vistula River in Cracow is not only a great way to spend time, but also a great way to relax and see the city from a different side.'
     },
     vendorsPage: {
       title: 'Vendors'
