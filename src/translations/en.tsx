@@ -75,13 +75,13 @@ export const en: TranslationsShape = {
         route: 'Route:'
       },
       invitation: 'We heartily invite you for an unforgettable cruise on the charming Vistula River in Cracow.',
-      ship: 'We want the deck of the "Legend/Horyzont" ship to become a stage for knitting together, creating unique moments and making new knitting acquaintances.',
+      ship: 'We want the deck of the "Legend/Horizon" ship to become a stage for knitting together, creating unique moments and making new knitting acquaintances.',
       prosecco:
         'During the cruise, we will offer you a glass of Prosecco (or a non-alcoholic drink), thus adding a touch of luxury to the atmosphere.',
       buyTickets: 'Buy a ticket',
       tickets: 'Tickets',
       proseccoIntro:
-        'A ship cruise on the Vistula River in Cracow is not only a great way to spend time, but also a great way to relax and see the city from a different side.'
+        'A ship cruise on the Vistula River in Cracow is not only a awesome way to spend time, but also a great way to relax and see the city from a different side.'
     },
     vendorsPage: {
       title: 'Vendors'
@@ -167,6 +167,29 @@ export const en: TranslationsShape = {
       standardStand: 'Standard spot 4x2,5m',
       miniStand: 'Mini spot 3x2m',
       taken: 'Reserved'
+    },
+    workshops: {
+      buyTicket: 'Kup bilet',
+      firstAid: 'First aid',
+      freeAdmission: 'Wstęp wolny',
+      firstAidDescription:
+        'Resuscytacja na manekinie osoby dorosłej i dziecku plus pomoc w stanach nagłych zadławienie, oparzenie itd',
+      decorativeKnitting: 'Dzianiny ozdobne',
+      decorativeKnittingDescription:
+        'Osobom zainteresowanym warsztatami pokaże jak tworzyć dzianiny ażurowe, ozdabianie warkoczami i żakardowe jeśli wystarczy czasu to również wykończenia i-cord. Osoby chcące wziąć udział w warsztatach powinny przynieść ze sobą druty proste lub na żyłce w rozmiarze między 3 a 4 mm odpowiednią dla danego rozmiaru wełnę w 2 kolorach najlepiej kolory ze sobą kontrastujące oraz drut pomocniczy do warkoczy. Jeśli chodzi o wełnę nie musi to być pełny motek, potrzebujemy ilość która pozwoli na zrobienie próbki interesujących nas dzianin.',
+      price: 'Price',
+      haftowaBabaDescription1:
+        'Chcesz nauczyć się jak w ciekawy sposób ozdobić czapki, szaliki, swetry czy rękawiczki?',
+      haftowaBabaDescription2: 'Ciekawi cię haft wełną, jak go wykonać i wykorzystać w swoich udziergach?',
+      haftowaBabaDescription3: 'W takim razie to idealne warsztaty dla Ciebie!?',
+      haftowaBabaDescription4:
+        'Zapraszamy Cię na lekcję haftu wełną. Pod moim okiem poznasz kilka technik, inne niż ścieg udający żakardy.',
+      haftowaBabaDescription5:
+        'Pokażę Ci też jak nakreślić wzór, jak prostymi patentami stworzyć kwiaty, liście, napisy czy proste wzory.',
+      haftowaBabaDescription6:
+        'Osoby chcące wziąć udział w warsztatach powinny przynieść ze sobą włóczkę w różnych kolorach i rozmiarach w ilości minimum dwóch sztuk.',
+      colorfulEmbroidery: 'Haft krakowski kolorowy - inspiracje z tradycyjnych gorsetów krakowskich',
+      colorfulEmbroideryDescription: 'TODO'
     }
   }
 };

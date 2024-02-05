@@ -3,6 +3,7 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { FlexColumnLayout } from './FlexColumnLayout';
+import { WorkshopImage } from './WorkshopImage';
 
 export const Text = styled.p`
   font-size: 18px;
@@ -106,5 +107,5 @@ export const WorkshopsTimeline = Object.assign(
       </Root>
     );
   },
-  { Slot, Image, Text, Description, Price }
+  { Slot, Image: WorkshopImage, Text, Description, Price }
 );

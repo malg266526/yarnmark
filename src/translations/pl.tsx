@@ -9,7 +9,7 @@ export const pl = {
       organizers: 'Organizatorzy',
       contact: 'Kontakt',
       infoForVendors: 'Dla wystawców',
-      cashmereTickets: 'Bilety kaszmirowe',
+      cashmereTickets: 'Bilety rejsowe',
       aboutUs: 'O nas',
       stands: 'Stoiska'
     },
@@ -170,6 +170,29 @@ export const pl = {
       standardStand: 'Miejsce Standard 4x2,5m',
       miniStand: 'Miejsce Mini 3x2m',
       taken: 'Miejsce zarezerwowane'
+    },
+    workshops: {
+      buyTicket: 'Kup bilet',
+      firstAid: 'Pierwsza pomoc',
+      freeAdmission: 'Wstęp wolny',
+      firstAidDescription:
+        'Nasze pokazy z pierwszej pomocy to interaktywne wydarzenia, podczas których nasi doświadczeni instruktorzy dzielą się wiedzą na temat podstawowych technik udzielania pomocy przedmedycznej. Pokazy są dostosowane do różnych grup wiekowych i poziomów zaawansowania, aby każdy uczestnik mógł zyskać praktyczne umiejętności, które mogą okazać się życiowo ważne.',
+      decorativeKnitting: 'Dzianiny ozdobne',
+      decorativeKnittingDescription:
+        'Osobom zainteresowanym warsztatami pokaże jak tworzyć dzianiny ażurowe, ozdabianie warkoczami i żakardowe jeśli wystarczy czasu to również wykończenia i-cord. Osoby chcące wziąć udział w warsztatach powinny przynieść ze sobą druty proste lub na żyłce w rozmiarze między 3 a 4 mm odpowiednią dla danego rozmiaru wełnę w 2 kolorach najlepiej kolory ze sobą kontrastujące oraz drut pomocniczy do warkoczy. Jeśli chodzi o wełnę nie musi to być pełny motek, potrzebujemy ilość która pozwoli na zrobienie próbki interesujących nas dzianin.',
+      price: 'Koszt',
+      haftowaBabaDescription1:
+        'Chcesz nauczyć się jak w ciekawy sposób ozdobić czapki, szaliki, swetry czy rękawiczki?',
+      haftowaBabaDescription2: 'Ciekawi cię haft wełną, jak go wykonać i wykorzystać w swoich udziergach?',
+      haftowaBabaDescription3: 'W takim razie to idealne warsztaty dla Ciebie!?',
+      haftowaBabaDescription4:
+        'Zapraszamy Cię na lekcję haftu wełną. Pod moim okiem poznasz kilka technik, inne niż ścieg udający żakardy.',
+      haftowaBabaDescription5:
+        'Pokażę Ci też jak nakreślić wzór, jak prostymi patentami stworzyć kwiaty, liście, napisy czy proste wzory.',
+      haftowaBabaDescription6:
+        'Osoby chcące wziąć udział w warsztatach powinny przynieść ze sobą włóczkę w różnych kolorach i rozmiarach w ilości minimum dwóch sztuk.',
+      colorfulEmbroidery: 'Haft krakowski kolorowy - inspiracje z tradycyjnych gorsetów krakowskich',
+      colorfulEmbroideryDescription: 'TODO'
     }
   }
 };
