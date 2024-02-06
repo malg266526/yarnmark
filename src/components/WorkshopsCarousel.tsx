@@ -38,22 +38,21 @@ import DoRanyPrzylozUrlWebp from './../assets/images/workshops/doranyprzyloz.web
 
 const Root = styled.div`
   width: 100%;
-  padding: 0 ${Spacings.xl};
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  border: 1px solid darkgray;
 `;
 
 const Item = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 500px;
+  min-height: 600px;
   background-color: white;
   color: black;
   border-radius: 2px;
-  padding: ${Spacings.sm};
-  padding-top: ${Spacings.lg};
+  padding: ${Spacings.lg} ${Spacings.md} ${Spacings.md} ${Spacings.md};
+  margin-right: 40px;
   align-items: center;
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
-  //justify-content: space-evenly;
 `;
 
 const NoTopMarginText = styled(Text)`
@@ -65,7 +64,7 @@ export const WorkshopsCarousel = () => {
 
   return (
     <Root>
-      <Carousel interval={90000} variant="dark">
+      <Carousel interval={2000} variant="dark" fade>
         <Carousel.Item>
           <Item>
             <Picture

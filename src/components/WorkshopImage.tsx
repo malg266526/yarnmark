@@ -1,18 +1,11 @@
 import React from 'react';
-import { Picture, PictureType } from './Picture';
 import styled from 'styled-components';
-
-import JerseyUrl from './../assets/images/workshops/jersey.jpg';
-import JerseyUrlAvif from './../assets/images/workshops/jersey.avif';
-import JerseyUrlWebp from './../assets/images/workshops/jersey.webp';
+import { Picture, PictureType } from './Picture';
 
 const Root = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
-
-const LogoWrapper = styled.div`
   z-index: 20;
 `;
 
@@ -43,15 +36,7 @@ type WorkshopImageProps = {
 export const WorkshopImage = ({ picture, alt }: WorkshopImageProps) => {
   return (
     <Root>
-      <Background>
-        <source srcSet={JerseyUrlAvif} type="image/avif" />
-        <source srcSet={JerseyUrl} type="image/jpeg" />
-        <img loading="lazy" src={JerseyUrlWebp} alt="jersey_background" />
-      </Background>
-
-      <LogoWrapper>
-        <Picture picture={picture} alt={alt} width={180} />
-      </LogoWrapper>
+      <Picture picture={picture} alt={alt} width={100} />
     </Root>
   );
 };

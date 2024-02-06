@@ -389,6 +389,7 @@ export const AbsoluteWrapper = styled.div`
   filter: grayscale(0.5);
 `;
 
-export const MaxWidthWraper = styled.div`
-  width: 20%;
+export const WorkshopsWrapper = styled.div`
+  width: 100%;
+  padding: 0 ${Spacings.xxl};
 `;

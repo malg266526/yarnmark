@@ -51,6 +51,7 @@ import {
   // ActiveImage,
   AnimatedIconWrapper,
   BackgroundImage,
+  WorkshopsWrapper,
   ButtonsLayout,
   // ButtonsWrapper,
   // CenteredTitle,
@@ -499,13 +500,15 @@ export const MainPage = () => {
       <Band
         id="workshops"
         gap="xl"
-        size="lg"
+        size="xl"
         variant="background"
         justify="space-around"
         color={Colors.beige1}
-        padding="lg"
+        padding="xl"
         reverseOnMobile>
-        <WorkshopsCarousel />
+        <WorkshopsWrapper>
+          <WorkshopsCarousel />
+        </WorkshopsWrapper>
       </Band>
 
       <Band

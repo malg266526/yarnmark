@@ -66,6 +66,7 @@ const SlotContent = styled.div`
   padding: ${Spacings.sm} ${Spacings.sm};
   align-items: center;
   justify-content: center;
+  min-width: 400px;
 `;
 
 type WorkshopInfo = {
