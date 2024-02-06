@@ -71,6 +71,8 @@ import {
   Typography
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
+import { WorkshopsCarousel } from '../components/WorkshopsCarousel';
+import { FirstAidCard } from '../components/FirstAidCard';
 
 // type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
@@ -354,7 +356,7 @@ export const MainPage = () => {
               {t('menu.infoForVendors')}
             </SideBar.LinkEntry>
 
-            <SideBar.LinkEntry to="#schedule" onClick={closeSideBar}>
+            <SideBar.LinkEntry to="#workshops" onClick={closeSideBar}>
               <IconifyIcon icon="icons8:student" width="24" />
               {t('menu.workshops')}
             </SideBar.LinkEntry>
@@ -393,7 +395,7 @@ export const MainPage = () => {
               {t('menu.infoForVendors')}
             </Link>
 
-            <Link to="#schedule" color="black">
+            <Link to="#workshops" color="black">
               {t('menu.workshops')}
             </Link>
 
@@ -490,92 +492,15 @@ export const MainPage = () => {
         </Band.Slot>
       </Band>
 
-      {/*       <Band
+      <Band
         id="workshops"
         gap="xl"
-        size="md"
+        size="xl"
         variant="background"
         justify="space-around"
         color={Colors.beige1}
         padding="xl"
         reverseOnMobile>
-        <Band.Slot flex="auto-grow">
-          <PhotosLayout>
-            <PhotoFrame
-              variant="slot"
-              maxSize="400px"
-              src={wawelImageSrc}
-              slotSize="200px"
-              slot={'TODO: foto i tekst od Ani'}>
-              <PhotoFrame.Cursive>{t('workshopsBand.firstAid')}</PhotoFrame.Cursive>
-            </PhotoFrame>
-            <PhotoFrame
-              variant="slot"
-              maxSize="400px"
-              slotSize="200px"
-              src={wawelImageSrc}
-              slot={t('workshopsBand.workshop1')}>
-              <PhotoFrame.Cursive>Uwolnij pomysły</PhotoFrame.Cursive>
-            </PhotoFrame>
-            <PhotoFrame
-              variant="slot"
-              maxSize="400px"
-              slotSize="200px"
-              src={wawelImageSrc}
-              slot={t('workshopsBand.workshop2')}>
-              <PhotoFrame.Cursive>TODO: Warsztaty 2</PhotoFrame.Cursive>
-            </PhotoFrame>
-            <PhotoFrame
-              variant="slot"
-              maxSize="400px"
-              slotSize="200px"
-              src={wawelImageSrc}
-              slot={t('workshopsBand.workshop3')}>
-              <PhotoFrame.Cursive>TODO: Warsztaty 3</PhotoFrame.Cursive>
-            </PhotoFrame>
-            <PhotoFrame
-              variant="slot"
-              maxSize="400px"
-              slotSize="200px"
-              src={wawelImageSrc}
-              slot={t('workshopsBand.workshop1')}>
-              <PhotoFrame.Cursive>Uwolnij pomysły</PhotoFrame.Cursive>
-            </PhotoFrame>
-            <PhotoFrame
-              variant="slot"
-              maxSize="400px"
-              slotSize="200px"
-              src={wawelImageSrc}
-              slot={t('workshopsBand.workshop2')}>
-              <PhotoFrame.Cursive>TODO: Warsztaty 2</PhotoFrame.Cursive>
-            </PhotoFrame>
-            <PhotoFrame
-              variant="slot"
-              maxSize="400px"
-              slotSize="200px"
-              src={wawelImageSrc}
-              slot={t('workshopsBand.workshop3')}>
-              <PhotoFrame.Cursive>TODO: Warsztaty 3</PhotoFrame.Cursive>
-            </PhotoFrame>
-            <PhotoFrame
-              variant="slot"
-              maxSize="400px"
-              slotSize="200px"
-              src={wawelImageSrc}
-              slot={t('workshopsBand.workshop1')}>
-              <PhotoFrame.Cursive>Uwolnij pomysły</PhotoFrame.Cursive>
-            </PhotoFrame>
-            <PhotoFrame
-              variant="slot"
-              maxSize="400px"
-              slotSize="200px"
-              src={wawelImageSrc}
-              slot={t('workshopsBand.workshop2')}>
-              <PhotoFrame.Cursive>TODO: Warsztaty 2</PhotoFrame.Cursive>
-            </PhotoFrame>
-          </PhotosLayout>
-        </Band.Slot>
-
         <Band.Slot flex="auto-shrink">
           <NiceBox padding="lg">
             <Title>{t('workshopsBand.title')}</Title>
@@ -584,14 +509,35 @@ export const MainPage = () => {
             <Text>{t('workshopsBand.mayTheHealthBeWithYou')}</Text>
           </NiceBox>
         </Band.Slot>
-      </Band> */}
+        <WorkshopsCarousel />
+      </Band>
+
+      <Band
+        id="firstaid"
+        gap="xl"
+        size="xl"
+        variant="background"
+        justify="space-around"
+        color={Colors.linen}
+        padding="xl"
+        reverseOnMobile>
+        <Band.Slot flex="auto-shrink">
+          <NiceBox padding="lg">
+            <Title>{t('workshops.firstAidQuote')}</Title>
+            <Text>Thomas Keneally</Text>
+            <Text>{t('workshops.firstAidIntro')}</Text>
+            <Text>{t('workshops.firstAidSuperhero')}</Text>
+          </NiceBox>
+        </Band.Slot>
+        <FirstAidCard />
+      </Band>
 
       <Band
         id="schedule"
         size="md"
         variant="background"
         justify="space-around"
-        color={Colors.beige1}
+        color={Colors.snow}
         padding="xl"
         align="initial"
         direction="column">

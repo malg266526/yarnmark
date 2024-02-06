@@ -189,7 +189,29 @@ export const en: TranslationsShape = {
       haftowaBabaDescription6:
         'Osoby chcące wziąć udział w warsztatach powinny przynieść ze sobą włóczkę w różnych kolorach i rozmiarach w ilości minimum dwóch sztuk.',
       colorfulEmbroidery: 'Haft krakowski kolorowy - inspiracje z tradycyjnych gorsetów krakowskich',
-      colorfulEmbroideryDescription: 'TODO'
+      colorfulEmbroideryDescription: 'TODO',
+      trainingPlan: 'Plan Pokazów',
+      firstAidLessons: {
+        lesson1: 'Rozpoznawanie zagrożeń i bezpieczeństwo',
+        lessonDescription1:
+          'Opis: Uczestnicy dowiedzą się, jak rozpoznawać potencjalne zagrożenia oraz jak zadbać o własne bezpieczeństwo i bezpieczeństwo osób wokół w sytuacjach awaryjnych.',
+        lesson2: 'Resuscytacja krążeniowo-oddechowa (RKO)',
+        lessonDescription2:
+          'Instruktorzy przekażą praktyczne umiejętności związane z wykonywaniem resuscytacji krążeniowo-oddechowej, z użyciem manekina do treningu.',
+        lesson3: 'Zachowanie w przypadku obrażeń i wypadków',
+        lessonDescription3:
+          'Opis: Uczestnicy zdobędą wiedzę na temat postępowania w przypadku różnych rodzajów obrażeń, w tym złamań, skręceń czy oparzeń.',
+        lesson4: 'Używanie automatycznego defibrylatora (AED)',
+        lessonDescription4:
+          'Opis: Praktyczne szkolenie z obsługi AED, wskazówki dotyczące lokalizacji urządzeń oraz skuteczne wykorzystanie ich w nagłych sytuacjach.',
+        lesson5: 'Ćwiczenia praktyczne',
+        lessonDescription5:
+          'Opis: Uczestnicy będą mieli okazję do praktycznego zastosowania zdobytej wiedzy podczas symulacji różnych sytuacji awaryjnych.'
+      },
+      firstAidQuote: 'Ten, kto ratuje życie jednego człowieka, ratuje cały świat',
+      firstAidIntro: 'Wśród wszystkich wspaniałych warsztatów, te są najbardziej wyjątkowe.',
+      firstAidSuperhero:
+        'Dzięki poznanym tu umiejętnościom zostaniecie Superbohaterkami i Superbohaterami, które będą potrafiły uratować świat.'
     }
   }
 };
