@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState, ReactNode } from 'react';
+import React, { ReactNode, useCallback, useMemo, useRef, useState } from 'react';
 import { PageContent } from '../components/PageContent';
 import {
   /* UnprefixedTranslationKeys, */ UnprefixedTranslationKeys,
@@ -43,19 +43,25 @@ import { BurgerMenu } from '../components/BurgerMenu';
 // import { ImageButton } from '../components/ImageButton';
 import { ClickableTable } from '../components/ClickableTable';
 import { Curtain } from '../components/Curtain';
+import { FirstAidCard } from '../components/FirstAidCard';
 import { LanguageSwitch } from '../components/LanguageSwitch';
 import { RowLayout } from '../components/RowLayout';
 import { SideBar } from '../components/SideBar';
 import { SubTitle, TextWrapper, Title } from '../components/Title';
 import { VendorsList } from '../components/VendorsList';
+import { WorkshopsCarousel } from '../components/WorkshopsCarousel';
 import { WorkshopsTabs } from '../components/WorkshopsTabs';
 import { Colors } from '../styles/theme';
 import {
+  ActiveImage,
   // ActiveImage,
   AnimatedIconWrapper,
   BackgroundImage,
-  WorkshopsWrapper,
   ButtonsLayout,
+  ButtonsWrapper,
+  CenteredTitle,
+  ImageContentLayout,
+  LayoutWithActiveButton,
   // ButtonsWrapper,
   // CenteredTitle,
   Menu,
@@ -72,23 +78,16 @@ import {
   SectionWrapper,
   Text,
   TextH2,
-  Typography,
-  ImageContentLayout,
-  ActiveImage,
-  LayoutWithActiveButton,
-  CenteredTitle,
-  ButtonsWrapper
+  Typography
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
-import { WorkshopsCarousel } from '../components/WorkshopsCarousel';
-import { FirstAidCard } from '../components/FirstAidCard';
 
-import JerseyUrl from './../assets/images/workshops/jersey.jpg';
-import JerseyUrlAvif from './../assets/images/workshops/jersey.avif';
-import JerseyUrlWebp from './../assets/images/workshops/jersey.webp';
-import { ImageButton } from '../components/ImageButton';
-import { FramedBox } from '../components/FramedBox';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
+import { FramedBox } from '../components/FramedBox';
+import { ImageButton } from '../components/ImageButton';
+import JerseyUrlAvif from './../assets/images/workshops/jersey.avif';
+import JerseyUrl from './../assets/images/workshops/jersey.jpg';
+import JerseyUrlWebp from './../assets/images/workshops/jersey.webp';
 
 type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
@@ -510,17 +509,15 @@ export const MainPage = () => {
 
       <Band
         id="workshops"
-        gap="xl"
+        gap="md"
         size="xl"
         variant="background"
-        justify="space-around"
-        color={Colors.beige1}
-        padding="xl"
+        justify="center"
+        color={Colors.linen}
+        padding="lg"
         direction="column">
         <CenteredTitle>{t('workshopsBand.title')}</CenteredTitle>
-        <WorkshopsWrapper>
-          <WorkshopsCarousel />
-        </WorkshopsWrapper>
+        <WorkshopsCarousel />
       </Band>
 
       <Band
