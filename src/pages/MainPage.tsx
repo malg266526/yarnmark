@@ -74,6 +74,10 @@ import { useRootIntersectionObserver } from './useRootIntersectionObserver';
 import { WorkshopsCarousel } from '../components/WorkshopsCarousel';
 import { FirstAidCard } from '../components/FirstAidCard';
 
+import JerseyUrl from './../assets/images/workshops/jersey.jpg';
+import JerseyUrlAvif from './../assets/images/workshops/jersey.avif';
+import JerseyUrlWebp from './../assets/images/workshops/jersey.webp';
+
 // type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
 /* type ActiveButtonToImageConfig = Record<
@@ -495,32 +499,32 @@ export const MainPage = () => {
       <Band
         id="workshops"
         gap="xl"
-        size="xl"
+        size="lg"
         variant="background"
         justify="space-around"
         color={Colors.beige1}
-        padding="xl"
+        padding="lg"
         reverseOnMobile>
-        <Band.Slot flex="auto-shrink">
-          <NiceBox padding="lg">
-            <Title>{t('workshopsBand.title')}</Title>
-            <Text>{t('workshopsBand.entertainsAndTeaches')}</Text>
-            <Text>{t('workshopsBand.invitation')}</Text>
-            <Text>{t('workshopsBand.mayTheHealthBeWithYou')}</Text>
-          </NiceBox>
-        </Band.Slot>
         <WorkshopsCarousel />
       </Band>
 
       <Band
         id="firstaid"
         gap="xl"
-        size="xl"
-        variant="background"
+        size="md"
+        // variant="background"
         justify="space-around"
-        color={Colors.linen}
+        // color={Colors.linen}
         padding="xl"
-        reverseOnMobile>
+        reverseOnMobile
+        variant="background-image"
+        background={
+          <Band.Picture>
+            <source srcSet={JerseyUrlAvif} type="image/avif" />
+            <source srcSet={JerseyUrlWebp} type="image/jpeg" />
+            <img src={JerseyUrl} alt="hala cracovii" style={{ objectFit: 'cover' }} />
+          </Band.Picture>
+        }>
         <Band.Slot flex="auto-shrink">
           <NiceBox padding="lg">
             <Title>"{t('workshops.firstAidQuote')}"</Title>

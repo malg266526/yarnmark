@@ -49,7 +49,7 @@ const ArrowRight = styled.div`
   background-color: black;
   align-items: center;
   justify-content: flex-end;
-  margin-top: 82px;
+  margin-top: 68px;
 `;
 
 const ArrowWrapper = styled.div`

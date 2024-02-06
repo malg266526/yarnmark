@@ -188,7 +188,8 @@ export const en: TranslationsShape = {
         'Pokażę Ci też jak nakreślić wzór, jak prostymi patentami stworzyć kwiaty, liście, napisy czy proste wzory.',
       haftowaBabaDescription6:
         'Osoby chcące wziąć udział w warsztatach powinny przynieść ze sobą włóczkę w różnych kolorach i rozmiarach w ilości minimum dwóch sztuk.',
-      colorfulEmbroidery: 'Haft krakowski kolorowy - inspiracje z tradycyjnych gorsetów krakowskich',
+      colorfulEmbroidery: 'Haft krakowski kolorowy',
+      colorfulEmbroideryInspirations: 'Inspiracje z tradycyjnych gorsetów krakowskich',
       colorfulEmbroideryDescription: 'TODO',
       trainingPlan: 'Plan Pokazów',
       firstAidLessons: {
