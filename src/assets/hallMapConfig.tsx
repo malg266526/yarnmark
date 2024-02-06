@@ -36,6 +36,10 @@ import KokonkiLogoUrlAvif from './../assets/images/logos/kokonki.avif';
 import KokonkiLogoUrl from './../assets/images/logos/kokonki.jpg';
 import KokonkiLogoUrlWebp from './../assets/images/logos/kokonki.webp';
 
+import MadoboLogoUrl from './../assets/images/logos/madobo.jpg';
+import MadoboLogoUrlAvif from './../assets/images/logos/madobo.avif';
+import MadoboLogoUrlWebp from './../assets/images/logos/madobo.webp';
+
 import ManiaChomikujeLogoUrl from './../assets/images/logos/Mania.jpg';
 import ManiaChomikujeLogoUrlAvif from './../assets/images/logos/Mania.avif';
 import ManiaChomikujeLogoUrlWebp from './../assets/images/logos/Mania.webp';
@@ -238,7 +242,20 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'S7',
           height: 4,
-          who: 'Madobo'
+          who: 'Madobo',
+          picture: {
+            fallbackUrl: MadoboLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: MadoboLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: MadoboLogoUrlAvif
+              }
+            ]
+          }
         }
       ]
     },

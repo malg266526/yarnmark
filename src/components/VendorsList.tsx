@@ -36,6 +36,10 @@ import KokonkiLogoUrl from './../assets/images/logos/kokonki.jpg';
 import KokonkiLogoUrlAvif from './../assets/images/logos/kokonki.avif';
 import KokonkiLogoUrlWebp from './../assets/images/logos/kokonki.webp';
 
+import MadoboLogoUrl from './../assets/images/logos/madobo.jpg';
+import MadoboLogoUrlAvif from './../assets/images/logos/madobo.avif';
+import MadoboLogoUrlWebp from './../assets/images/logos/madobo.webp';
+
 import ManiaChomikujeLogoUrl from './../assets/images/logos/Mania.jpg';
 import ManiaChomikujeLogoUrlAvif from './../assets/images/logos/Mania.avif';
 import ManiaChomikujeLogoUrlWebp from './../assets/images/logos/Mania.webp';
@@ -257,9 +261,29 @@ export const VendorsList = () => {
         />
       </Link>
 
-      <Link to="https://www.facebook.com/groups/1020511551665421/" target="_blank" rel="noreferrer">
+      <Link to="https://madobo.pl" target="_blank" rel="noreferrer">
         <Picture
           width={140}
+          alt="madobo"
+          picture={{
+            fallbackUrl: MadoboLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: MadoboLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: MadoboLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://www.facebook.com/groups/1020511551665421/" target="_blank" rel="noreferrer">
+        <Picture
+          width={120}
           alt="maniachomikuje"
           picture={{
             fallbackUrl: ManiaChomikujeLogoUrl,
@@ -453,9 +477,6 @@ export const VendorsList = () => {
         />
       </Link>
 
-      {/* <Link href="https://madobo.pl" target="_blank" rel="noreferrer">
-        <img width={140} src={MadoboLogoUrl} alt="madobo" />
-      </Link> */}
       {/*  <Link href="https://www.instagram.com/woolniej.pl" target="_blank" rel="noreferrer">
         <img width={160} src={WoolniejLogoUrl} alt="woolniej" />
       </Link> */}
