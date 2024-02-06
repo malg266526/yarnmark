@@ -7,11 +7,18 @@ export const Text = styled.p<{
   marginBottom?: keyof typeof Spacings;
   marginTop?: keyof typeof Spacings;
   align?: 'center' | 'justify';
+  bold?: boolean;
 }>`
   white-space: break-spaces;
   margin-top: ${({ marginTop }) => Spacings[marginTop || 'md']};
   margin-bottom: 0;
   font-size: 18px;
+
+  ${({ bold }) =>
+    bold &&
+    css`
+      font-weight: 600;
+    `};
 
   ${({ align }) =>
     align &&
