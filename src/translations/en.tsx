@@ -176,16 +176,14 @@ export const en: TranslationsShape = {
         'Resuscytacja na manekinie osoby dorosłej i dziecku plus pomoc w stanach nagłych zadławienie, oparzenie itd',
       decorativeKnitting: 'Dzianiny ozdobne',
       decorativeKnittingDescription:
-        'Osobom zainteresowanym warsztatami pokaże jak tworzyć dzianiny ażurowe, ozdabianie warkoczami i żakardowe jeśli wystarczy czasu to również wykończenia i-cord. Osoby chcące wziąć udział w warsztatach powinny przynieść ze sobą druty proste lub na żyłce w rozmiarze między 3 a 4 mm odpowiednią dla danego rozmiaru wełnę w 2 kolorach najlepiej kolory ze sobą kontrastujące oraz drut pomocniczy do warkoczy. Jeśli chodzi o wełnę nie musi to być pełny motek, potrzebujemy ilość która pozwoli na zrobienie próbki interesujących nas dzianin.',
+        'Osobom zainteresowanym warsztatami pokaże jak tworzyć dzianiny ażurowe, ozdabianie warkoczami i żakardowe jeśli wystarczy czasu to również wykończenia i-cord. Osoby chcące wziąć udział w warsztatach powinny przynieść ze sobą druty proste lub na żyłce w rozmiarze między 3 a 4 mm, odpowiednią dla danego rozmiaru wełnę w 2 kolorach, najlepiej kolory ze sobą kontrastujące oraz drut pomocniczy do warkoczy. Jeśli chodzi o wełnę nie musi to być pełny motek, potrzebujemy ilość która pozwoli na zrobienie próbki interesujących nas dzianin.',
       price: 'Price',
       haftowaBabaDescription1:
         'Chcesz nauczyć się jak w ciekawy sposób ozdobić czapki, szaliki, swetry czy rękawiczki?',
       haftowaBabaDescription2: 'Ciekawi cię haft wełną, jak go wykonać i wykorzystać w swoich udziergach?',
       haftowaBabaDescription3: 'W takim razie to idealne warsztaty dla Ciebie!?',
       haftowaBabaDescription4:
-        'Zapraszamy Cię na lekcję haftu wełną. Pod moim okiem poznasz kilka technik, inne niż ścieg udający żakardy.',
-      haftowaBabaDescription5:
-        'Pokażę Ci też jak nakreślić wzór, jak prostymi patentami stworzyć kwiaty, liście, napisy czy proste wzory.',
+        'Zapraszamy Cię na lekcję haftu wełną. Pod moim okiem poznasz kilka technik, inne niż ścieg udający żakardy. Pokażę Ci też jak nakreślić wzór, jak prostymi patentami stworzyć kwiaty, liście, napisy czy proste wzory.',
       haftowaBabaDescription6:
         'Osoby chcące wziąć udział w warsztatach powinny przynieść ze sobą włóczkę w różnych kolorach i rozmiarach w ilości minimum dwóch sztuk.',
       colorfulEmbroidery: 'Haft krakowski kolorowy',
@@ -222,7 +220,8 @@ export const en: TranslationsShape = {
       raffiaStrap: 'Skórzany rzemyk',
       raffiaBifernoDiscount: 'Dla każdego z uczestników rabat -15% w sklepie Biferno na wyżej wymienione produkty',
       knitolog: {
-        topic: 'Zaprojektuj swój sweter na drutach (raglanem, od góry, na okrągło)',
+        topic: 'Zaprojektuj swój sweter na drutach ',
+        subtopic: '(raglanem, od góry, na okrągło)',
         plan: 'Podczas warsztatów nauczysz się: ',
         lesson1: 'jak rozliczyć raglan',
         lesson2: 'jak zamknąć oczka w okrążeniu i pracować metodą Magic Loop',

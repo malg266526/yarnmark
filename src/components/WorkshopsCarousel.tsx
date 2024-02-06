@@ -6,7 +6,6 @@ import { Spacings } from '../styles/spacings';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import { FlexColumnLayout } from './FlexColumnLayout';
 import { Picture } from './Picture';
-import { Title } from './Title';
 
 import HaftowaBabaUrlAvif from './../assets/images/workshops/haftowa.avif';
 import HaftowaBabaUrl from './../assets/images/workshops/haftowa.jpg';
@@ -43,6 +42,13 @@ import Blob3 from './../assets/blobs/blob3.svg';
 import Blob4 from './../assets/blobs/blob4.svg';
 
 import { Icon } from './Icon';
+import { RowLayout } from './RowLayout';
+
+export const Title = styled.h3`
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+`;
 
 const Root = styled.div`
   display: inline-block;
@@ -50,6 +56,8 @@ const Root = styled.div`
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
   border: 1px solid darkgray;
   align-self: center;
+  background-color: white;
+  z-index: 2;
 `;
 
 const Item = styled.div`
@@ -84,10 +92,15 @@ const StainImage = styled(Icon)<StainProps>`
   right: ${({ right }) => right};
   left: ${({ left }) => left};
   bottom: ${({ bottom }) => bottom};
+  overflow: hidden;
 `;
 
 const NoTopMarginText = styled(Text)`
   margin-top: 0;
+`;
+
+const Column = styled(FlexColumnLayout)`
+  width: 50%;
 `;
 
 export const WorkshopsCarousel = () => {
@@ -102,7 +115,7 @@ export const WorkshopsCarousel = () => {
       <StainImage size="320px" src={Blob4} top="720px" left="380px" />
 
       <Root>
-        <Carousel interval={70000} variant="dark" fade>
+        <Carousel interval={2000} variant="dark" fade>
           <Carousel.Item>
             <Item>
               <Picture
@@ -130,7 +143,6 @@ export const WorkshopsCarousel = () => {
                   <NoTopMarginText>{t('workshops.haftowaBabaDescription2')}</NoTopMarginText>
                   <NoTopMarginText>{t('workshops.haftowaBabaDescription3')}</NoTopMarginText>
                   <NoTopMarginText>{t('workshops.haftowaBabaDescription4')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.haftowaBabaDescription5')}</NoTopMarginText>
                   <NoTopMarginText>{t('workshops.haftowaBabaDescription6')}</NoTopMarginText>
                 </FlexColumnLayout>
               </Carousel.Caption>
@@ -228,43 +240,55 @@ export const WorkshopsCarousel = () => {
 
           <Carousel.Item>
             <Item>
-              <Picture
-                picture={{
-                  fallbackUrl: KnitologUrl,
-                  sources: [
-                    {
-                      type: 'image/webp',
-                      url: KnitologUrlWebp
-                    },
-                    {
-                      type: 'image/avif',
-                      url: KnitologUrlAvif
-                    }
-                  ]
-                }}
-                alt="knitolog"
-                width={180}
-              />
-
               <Carousel.Caption>
-                <Title>{t('workshops.knitolog.topic')}</Title>
-                <FlexColumnLayout gap="xs" padding="none">
-                  <NoTopMarginText>{t('workshops.knitolog.plan')}</NoTopMarginText>
-                  <NoTopMarginText>- {t('workshops.knitolog.lesson1')}</NoTopMarginText>
-                  <NoTopMarginText>- {t('workshops.knitolog.lesson2')}</NoTopMarginText>
-                  <NoTopMarginText>- {t('workshops.knitolog.lesson3')}</NoTopMarginText>
-                  <NoTopMarginText>- {t('workshops.knitolog.lesson4')}</NoTopMarginText>
-                  <NoTopMarginText>- {t('workshops.knitolog.lesson5')}</NoTopMarginText>
-                  <NoTopMarginText>- {t('workshops.knitolog.lesson6')}</NoTopMarginText>
-                  <NoTopMarginText>- {t('workshops.knitolog.lesson7')}</NoTopMarginText>
+                <RowLayout wide>
+                  <div>
+                    <Title>{t('workshops.knitolog.topic')}</Title>
+                    <h4>{t('workshops.knitolog.subtopic')}</h4>
+                  </div>
 
-                  <NoTopMarginText>{t('workshops.knitolog.pattern')}</NoTopMarginText>
-                  <NoTopMarginText bold>{t('workshops.knitolog.materialsNeeded')}</NoTopMarginText>
-                  <NoTopMarginText>- {t('workshops.knitolog.wool')}</NoTopMarginText>
-                  <NoTopMarginText>- {t('workshops.knitolog.knittingNeedles')}</NoTopMarginText>
-                  <NoTopMarginText>- {t('workshops.knitolog.markers')}</NoTopMarginText>
-                  <NoTopMarginText>- {t('workshops.knitolog.pinMarkers')}</NoTopMarginText>
-                </FlexColumnLayout>
+                  <Picture
+                    picture={{
+                      fallbackUrl: KnitologUrl,
+                      sources: [
+                        {
+                          type: 'image/webp',
+                          url: KnitologUrlWebp
+                        },
+                        {
+                          type: 'image/avif',
+                          url: KnitologUrlAvif
+                        }
+                      ]
+                    }}
+                    alt="knitolog"
+                    width={180}
+                    //style={{ opacity: '0.75' }}
+                  />
+                </RowLayout>
+
+                <RowLayout wide>
+                  <Column gap="none" padding="none">
+                    <NoTopMarginText bold>{t('workshops.knitolog.plan')}</NoTopMarginText>
+                    <NoTopMarginText>- {t('workshops.knitolog.lesson1')}</NoTopMarginText>
+                    <NoTopMarginText>- {t('workshops.knitolog.lesson2')}</NoTopMarginText>
+                    <NoTopMarginText>- {t('workshops.knitolog.lesson3')}</NoTopMarginText>
+                    <NoTopMarginText>- {t('workshops.knitolog.lesson4')}</NoTopMarginText>
+                    <NoTopMarginText>- {t('workshops.knitolog.lesson5')}</NoTopMarginText>
+                    <NoTopMarginText>- {t('workshops.knitolog.lesson6')}</NoTopMarginText>
+                    <NoTopMarginText>- {t('workshops.knitolog.lesson7')}</NoTopMarginText>
+                  </Column>
+
+                  <Column gap="xs" padding="none">
+                    <NoTopMarginText bold>{t('workshops.knitolog.materialsNeeded')}</NoTopMarginText>
+                    <NoTopMarginText>- {t('workshops.knitolog.wool')}</NoTopMarginText>
+                    <NoTopMarginText>- {t('workshops.knitolog.knittingNeedles')}</NoTopMarginText>
+                    <NoTopMarginText>- {t('workshops.knitolog.markers')}</NoTopMarginText>
+                    <NoTopMarginText>- {t('workshops.knitolog.pinMarkers')}</NoTopMarginText>
+                  </Column>
+                </RowLayout>
+
+                <Text marginTop="sm">{t('workshops.knitolog.pattern')}</Text>
               </Carousel.Caption>
             </Item>
           </Carousel.Item>
@@ -296,7 +320,6 @@ export const WorkshopsCarousel = () => {
                   <NoTopMarginText>{t('workshops.freeYourIdeas.booklet')}</NoTopMarginText>
                   <NoTopMarginText>{t('workshops.freeYourIdeas.takeFreeMind')}</NoTopMarginText>
                   <NoTopMarginText>{t('workshops.freeYourIdeas.seeYou')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.freeYourIdeas.meetMe')}</NoTopMarginText>
                 </FlexColumnLayout>
               </Carousel.Caption>
             </Item>
@@ -333,7 +356,7 @@ export const WorkshopsCarousel = () => {
             <Item>
               <Carousel.Caption>
                 <Title>{t('workshops.ewa.topic')}</Title>
-                <FlexColumnLayout gap="md" padding="none">
+                <FlexColumnLayout gap="xs" padding="none">
                   <NoTopMarginText>{t('workshops.ewa.misteries')}</NoTopMarginText>
                   <NoTopMarginText>{t('workshops.ewa.plan')}</NoTopMarginText>
                   <NoTopMarginText>{t('workshops.ewa.debugging')}</NoTopMarginText>
