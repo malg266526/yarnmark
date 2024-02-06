@@ -523,7 +523,7 @@ export const MainPage = () => {
         reverseOnMobile>
         <Band.Slot flex="auto-shrink">
           <NiceBox padding="lg">
-            <Title>{t('workshops.firstAidQuote')}</Title>
+            <Title>"{t('workshops.firstAidQuote')}"</Title>
             <Text>Thomas Keneally</Text>
             <Text>{t('workshops.firstAidIntro')}</Text>
             <Text>{t('workshops.firstAidSuperhero')}</Text>

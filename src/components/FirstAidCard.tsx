@@ -22,7 +22,7 @@ const Root = styled.div`
 const MainContent = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1000px;
+  width: 600px;
   color: black;
 
   padding: ${Spacings.md};
