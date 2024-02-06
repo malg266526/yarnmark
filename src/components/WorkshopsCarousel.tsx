@@ -35,6 +35,8 @@ import UwolnijPomyslyWebp from './../assets/images/workshops/uwolnijpomysly.webp
 import DoRanyPrzylozUrl from './../assets/images/workshops/doranyprzyloz.jpg';
 import DoRanyPrzylozUrlAvif from './../assets/images/workshops/doranyprzyloz.avif';
 import DoRanyPrzylozUrlWebp from './../assets/images/workshops/doranyprzyloz.webp';
+import { Bubbles } from './Bubbles';
+import { Colors } from '../styles/theme';
 
 const Root = styled.div`
   width: 100%;
@@ -53,6 +55,8 @@ const Item = styled.div`
   padding: ${Spacings.lg} ${Spacings.md} ${Spacings.md} ${Spacings.md};
   margin-right: 40px;
   align-items: center;
+  position: relative;
+  // background-color: pink;
 `;
 
 const NoTopMarginText = styled(Text)`
@@ -64,25 +68,53 @@ export const WorkshopsCarousel = () => {
 
   return (
     <Root>
-      <Carousel interval={2000} variant="dark" fade>
+      <Carousel interval={70000} variant="dark" fade>
         <Carousel.Item>
           <Item>
-            <Picture
-              picture={{
-                fallbackUrl: HaftowaBabaUrl,
-                sources: [
-                  {
-                    type: 'image/webp',
-                    url: HaftowaBabaUrlWebp
-                  },
-                  {
-                    type: 'image/avif',
-                    url: HaftowaBabaUrlAvif
-                  }
-                ]
-              }}
-              alt="haftowababa"
-              width={180}
+            <Bubbles
+              coordinates={[
+                {
+                  top: '50px',
+                  right: '80px',
+                  width: '140px',
+                  color: 'pink'
+                },
+                {
+                  top: '30px',
+                  right: '460px',
+                  width: '90px',
+                  color: Colors.linen
+                },
+                {
+                  top: '80px',
+                  right: '240px',
+                  width: '180px',
+                  content: (
+                    <Picture
+                      picture={{
+                        fallbackUrl: HaftowaBabaUrl,
+                        sources: [
+                          {
+                            type: 'image/webp',
+                            url: HaftowaBabaUrlWebp
+                          },
+                          {
+                            type: 'image/avif',
+                            url: HaftowaBabaUrlAvif
+                          }
+                        ]
+                      }}
+                      alt="haftowababa"
+                      width={180}
+                    />
+                  )
+                },
+                {
+                  top: '240px',
+                  right: '160px',
+                  width: '100px'
+                }
+              ]}
             />
 
             <Carousel.Caption>
@@ -293,24 +325,6 @@ export const WorkshopsCarousel = () => {
 
         <Carousel.Item>
           <Item>
-            {/* <Picture
-              picture={{
-                fallbackUrl: UwolnijPomyslyUrl,
-                sources: [
-                  {
-                    type: 'image/webp',
-                    url: UwolnijPomyslyWebp
-                  },
-                  {
-                    type: 'image/avif',
-                    url: UwolnijPomyslyUrlAvif
-                  }
-                ]
-              }}
-              alt="zielonedruty"
-              width={180}
-            /> */}
-
             <Carousel.Caption>
               <Title>{t('workshops.ewa.topic')}</Title>
               <FlexColumnLayout gap="md" padding="none">

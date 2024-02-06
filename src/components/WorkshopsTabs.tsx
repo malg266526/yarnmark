@@ -20,6 +20,7 @@ import HaftowaBabaUrlWebp from './../assets/images/workshops/haftowa.webp';
 import LudArtUrlAvif from './../assets/images/workshops/ludart.avif';
 import LudArtUrl from './../assets/images/workshops/ludart.jpg';
 import LudArtUrlWebp from './../assets/images/workshops/ludart.webp';
+import { Picture } from './Picture';
 
 type WorkshopRoom = 1 | 2 | 3;
 
@@ -34,7 +35,7 @@ export const WorkshopsTabs = () => {
         <WorkshopsTimeline.Slot workshopTime="10:00 - 12:30">
           <WorkshopsTimeline.Text>{t('workshops.firstAid')}</WorkshopsTimeline.Text>
 
-          <WorkshopsTimeline.Image
+          <Picture
             picture={{
               fallbackUrl: PierwszaPomocUrl,
               sources: [
@@ -49,6 +50,7 @@ export const WorkshopsTabs = () => {
               ]
             }}
             alt="firstAid"
+            width={100}
           />
 
           <WorkshopsTimeline.Price>{t('workshops.freeAdmission')}</WorkshopsTimeline.Price>
