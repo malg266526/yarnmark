@@ -215,7 +215,15 @@ export const pl = {
       firstAidQuote: 'Ten, kto ratuje życie jednego człowieka, ratuje cały świat',
       firstAidIntro: 'Wśród wszystkich wspaniałych warsztatów, te są najbardziej wyjątkowe.',
       firstAidSuperhero:
-        'Dzięki poznanym tu umiejętnościom zostaniecie Superbohaterkami i Superbohaterami, które będą potrafiły uratować świat.'
+        'Dzięki poznanym tu umiejętnościom zostaniecie Superbohaterkami i Superbohaterami, które będą potrafiły uratować świat.',
+      raffia: 'Szydełkowanie z rafii - pierwsze kroki.',
+      raffiaDescription:
+        'Na warsztatach uczestnicy zapoznają się z rafią oraz technikami jej przerabiania. Podzielę się wiedzą jaką zdobyłam podczas kilkuletniej pracy z tym włóknem. Chętnie odpowiem na nurtujące  pytania. Ze spotkania uczestnicy wyjdą z wydzierganą przez siebie mini torebką lub jej częścią😉 Materiały potrzebne do pracy uczestnicy przynoszą we własnym zakresie.',
+      raffiaNeededMaterials: 'Potrzebne materiały, które można zakupić w sklepie biferno.pl:',
+      raffiaGptex: 'Rafia GPTEX - 2 motki',
+      raffiaCrochet: 'Szydełko nr 3mm,  3.5mm, 4mm',
+      raffiaStrap: 'Skórzany rzemyk',
+      raffiaBifernoDiscount: 'Dla każdego z uczestników rabat -15% w sklepie Biferno na wyżej wymienione produkty'
     }
   }
 };

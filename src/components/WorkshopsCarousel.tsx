@@ -102,9 +102,9 @@ export const WorkshopsCarousel = () => {
             />
 
             <Carousel.Caption>
-              <h3>LudArt - {t('workshops.colorfulEmbroidery')}</h3>
+              <Title>LudArt - {t('workshops.colorfulEmbroidery')}</Title>
               <h4>{t('workshops.colorfulEmbroideryInspirations')}</h4>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <NoTopMarginText>Nulla vitae elit libero, a pharetra augue mollis interdum.</NoTopMarginText>
             </Carousel.Caption>
           </Item>
         </Carousel.Item>
@@ -130,8 +130,8 @@ export const WorkshopsCarousel = () => {
             />
 
             <Carousel.Caption>
-              <h3>{t('workshops.decorativeKnitting')}</h3>
-              <p>{t('workshops.decorativeKnittingDescription')}</p>
+              <Title>{t('workshops.decorativeKnitting')}</Title>
+              <NoTopMarginText>{t('workshops.decorativeKnittingDescription')}</NoTopMarginText>
             </Carousel.Caption>
           </Item>
         </Carousel.Item>
@@ -152,13 +152,54 @@ export const WorkshopsCarousel = () => {
                   }
                 ]
               }}
-              alt="woolanka"
+              alt="raffiaBasics"
               width={180}
             />
 
             <Carousel.Caption>
-              <h3>{t('workshops.decorativeKnitting')}</h3>
-              <p>{t('workshops.decorativeKnittingDescription')}</p>
+              <Title>{t('workshops.raffia')}</Title>
+              <FlexColumnLayout gap="xs" padding="none">
+                <NoTopMarginText>{t('workshops.raffiaDescription')}</NoTopMarginText>
+                <NoTopMarginText>{t('workshops.raffiaNeededMaterials')}</NoTopMarginText>
+                <NoTopMarginText>- {t('workshops.raffiaGptex')}</NoTopMarginText>
+                <NoTopMarginText>- {t('workshops.raffiaCrochet')}</NoTopMarginText>
+                <NoTopMarginText>- {t('workshops.raffiaStrap')}</NoTopMarginText>
+                <NoTopMarginText>{t('workshops.raffiaBifernoDiscount')}</NoTopMarginText>
+              </FlexColumnLayout>
+            </Carousel.Caption>
+          </Item>
+        </Carousel.Item>
+
+        <Carousel.Item>
+          <Item>
+            <Picture
+              picture={{
+                fallbackUrl: WoolankaUrl,
+                sources: [
+                  {
+                    type: 'image/webp',
+                    url: WoolankaUrlWebp
+                  },
+                  {
+                    type: 'image/avif',
+                    url: WoolankaUrlAvif
+                  }
+                ]
+              }}
+              alt="knitolog"
+              width={180}
+            />
+
+            <Carousel.Caption>
+              <Title>{t('workshops.raffia')}</Title>
+              <FlexColumnLayout gap="xs" padding="none">
+                <NoTopMarginText>{t('workshops.raffiaDescription')}</NoTopMarginText>
+                <NoTopMarginText>{t('workshops.raffiaNeededMaterials')}</NoTopMarginText>
+                <NoTopMarginText>- {t('workshops.raffiaGptex')}</NoTopMarginText>
+                <NoTopMarginText>- {t('workshops.raffiaCrochet')}</NoTopMarginText>
+                <NoTopMarginText>- {t('workshops.raffiaStrap')}</NoTopMarginText>
+                <NoTopMarginText>{t('workshops.raffiaBifernoDiscount')}</NoTopMarginText>
+              </FlexColumnLayout>
             </Carousel.Caption>
           </Item>
         </Carousel.Item>
