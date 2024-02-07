@@ -213,9 +213,10 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'normal1',
+          color: 'taken',
           index: 'S5',
-          height: 4
+          height: 4,
+          who: 'BawełnianyFilament & MalinowyKos'
         },
         {
           width: 2.5,
