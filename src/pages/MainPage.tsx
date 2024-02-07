@@ -1,12 +1,9 @@
-import React, { ReactNode, useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { PageContent } from '../components/PageContent';
-import {
-  /* UnprefixedTranslationKeys, */ UnprefixedTranslationKeys,
-  useTypedTranslation
-} from '../translations/useTypedTranslation';
+import { useTypedTranslation } from '../translations/useTypedTranslation';
 
 import bigShopImageUrl from '../assets/iconify/bigshop.svg';
-import burgerImageUrl from '../assets/iconify/burger.svg';
+// import burgerImageUrl from '../assets/iconify/burger.svg';
 // import coffeeImageUrl from '../assets/iconify/coffee.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
 // import pizzaImageUrl from '../assets/iconify/pizza.svg';
@@ -23,7 +20,7 @@ import halaAvifImageSrc from '../assets/images/hala.avif';
 import halaJfifImageSrc from '../assets/images/hala.jfif';
 import halaJpgImageSrc from '../assets/images/hala_quality.jpg';
 import yarnmarkLogoSrc from '../assets/images/logos/yarnmark.png';
-import wawelImageSrc from '../assets/images/wawel.jpg';
+// import wawelImageSrc from '../assets/images/wawel.jpg';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import { Icon } from '../components/Icon';
@@ -53,15 +50,11 @@ import { WorkshopsCarousel } from '../components/WorkshopsCarousel';
 import { WorkshopsTabs } from '../components/WorkshopsTabs';
 import { Colors } from '../styles/theme';
 import {
-  ActiveImage,
   // ActiveImage,
   AnimatedIconWrapper,
   BackgroundImage,
   ButtonsLayout,
-  ButtonsWrapper,
   CenteredTitle,
-  ImageContentLayout,
-  LayoutWithActiveButton,
   // ButtonsWrapper,
   // CenteredTitle,
   Menu,
@@ -82,26 +75,24 @@ import {
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
 
-import { FlexColumnLayout } from '../components/FlexColumnLayout';
-import { FramedBox } from '../components/FramedBox';
-import { ImageButton } from '../components/ImageButton';
+// import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import JerseyUrlAvif from './../assets/images/workshops/jersey.avif';
 import JerseyUrl from './../assets/images/workshops/jersey.jpg';
 import JerseyUrlWebp from './../assets/images/workshops/jersey.webp';
 
-type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
+// type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
-type ActiveButtonToImageConfig = Record<
+/* type ActiveButtonToImageConfig = Record<
   ActiveButtonType,
   {
     image: string;
     text: ReactNode;
   }
->;
+>; */
 
-type ActiveButtonToImageFunction = (t: (key: UnprefixedTranslationKeys) => string) => ActiveButtonToImageConfig;
+// type ActiveButtonToImageFunction = (t: (key: UnprefixedTranslationKeys) => string) => ActiveButtonToImageConfig;
 
-const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
+/* const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
   foodtruckBezogródek: {
     image: wawelImageSrc,
     text: (
@@ -151,7 +142,7 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
       </FlexColumnLayout>
     )
   }
-});
+}); */
 
 export const MainPage = () => {
   const t = useTypedTranslation();
@@ -163,7 +154,7 @@ export const MainPage = () => {
   const vendorsBandRef = useRef<HTMLDivElement | null>(null);
   const spotBandRef = useRef<HTMLDivElement | null>(null);
   const cashmereTicketsBandRef = useRef<HTMLDivElement | null>(null);
-  const foodBandRef = useRef<HTMLDivElement | null>(null);
+  // const foodBandRef = useRef<HTMLDivElement | null>(null);
 
   const ticketsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const vendorsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
@@ -171,11 +162,11 @@ export const MainPage = () => {
   // const foodFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   // const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
 
-  const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
+  //  const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
 
   const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
 
-  const activeButtonToImage = getActiveButtonToImage(t);
+  // const activeButtonToImage = getActiveButtonToImage(t);
 
   const observerCallback = useCallback(() => {}, []);
 
@@ -588,7 +579,7 @@ export const MainPage = () => {
         </AbsoluteWrapper> */}
       </Band>
 
-      <Band ref={foodBandRef} size="md" variant="background" color={Colors.snow} padding="xl">
+      {/*       <Band ref={foodBandRef} size="md" variant="background" color={Colors.snow} padding="xl">
         <CenteredTitle>Gdzie zjeść?</CenteredTitle>
 
         <LayoutWithActiveButton>
@@ -624,7 +615,7 @@ export const MainPage = () => {
               onClick={() => setActiveButton('knittedCoffee')}>
               Knitted Coffee
             </ImageButton> */}
-          </ButtonsWrapper>
+      {/*           </ButtonsWrapper>
 
           <FramedBox padding="md">
             <ImageContentLayout>
@@ -633,7 +624,7 @@ export const MainPage = () => {
             </ImageContentLayout>
           </FramedBox>
         </LayoutWithActiveButton>
-      </Band>
+      </Band> */}
     </PageContent>
   );
 };
