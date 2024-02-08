@@ -78,7 +78,10 @@ import { useRootIntersectionObserver } from './useRootIntersectionObserver';
 
 // import { FlexColumnLayout } from '../components/FlexColumnLayout';
 
-import unsplashBackground from './../assets/backgrounds/unsplash9.png';
+import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.jpg';
+import sweatersBackgroundUrlAvif from './../assets/backgrounds/sweaters_background.avif';
+import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
+
 import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
 
 // type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
@@ -492,7 +495,6 @@ export const MainPage = () => {
         ref={vendorsBandRef}
         size="lg"
         variant="background"
-        // color={Colors.isabelline}
         padding="xl"
         color={`linear-gradient(to bottom, #eee3de 5%, #ece7e3 13%, #fff 40%, #fff 80%, #ece7e3 90%, #eee3de 100%);`}>
         <Band.Slot flex="auto-grow" size="sm">
@@ -513,9 +515,9 @@ export const MainPage = () => {
         variant="background-image"
         background={
           <Band.Picture>
-            {/*  <source srcSet={JerseyUrlAvif} type="image/avif" />
-            <source srcSet={JerseyUrlWebp} type="image/jpeg" /> */}
-            <img src={unsplashBackground} alt="wool background" style={{ objectFit: 'cover' }} />
+            <source srcSet={sweatersBackgroundUrlAvif} type="image/avif" />
+            <source srcSet={sweatersBackgroundUrlWebp} type="image/webp" />
+            <img src={sweatersBackgroundUrl} alt="wool background" style={{ objectFit: 'cover' }} />
           </Band.Picture>
         }>
         <CenteredTitle>{t('workshopsBand.title')}</CenteredTitle>

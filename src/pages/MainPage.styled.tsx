@@ -44,7 +44,7 @@ export const CenteredTitle = styled.h2`
   font-size: 40px;
   font-weight: 600;
   align-self: center;
-  z-index: 5;
+  z-index: 2;
 `;
 
 export const SecondaryButton = styled.button`
