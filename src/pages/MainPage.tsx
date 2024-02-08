@@ -487,9 +487,15 @@ export const MainPage = () => {
       )}
 
       {/* TODO: change color to snow when all bands revealed */}
-      <Band id="vendors" ref={vendorsBandRef} size="md" variant="background" color={Colors.isabelline} padding="xl">
-        <BackgroundImage src={bigShopImageUrl} alt="shop_icon_background" />
-
+      <Band
+        id="vendors"
+        ref={vendorsBandRef}
+        size="md"
+        variant="background"
+        // color={Colors.isabelline}
+        padding="xl"
+        color={`linear-gradient(to bottom, #EAE9E9 15%, white 85%, #EAE9E9 100%);`}>
+        {/* <BackgroundImage src={bigShopImageUrl} alt="shop_icon_background" /> */}
         <Band.Slot flex="auto-grow" size="sm">
           <TextWrapper align="center">
             <Title>{t('vendorsPage.title')}</Title>
