@@ -115,7 +115,7 @@ export const WorkshopsCarousel = () => {
       <StainImage size="320px" src={Blob4} top="720px" left="380px" />
 
       <Root>
-        <Carousel interval={2000} variant="dark" fade>
+        <Carousel interval={10000} variant="dark" fade>
           <Carousel.Item>
             <Item>
               <Picture
