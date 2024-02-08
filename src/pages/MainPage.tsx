@@ -40,14 +40,14 @@ import { BurgerMenu } from '../components/BurgerMenu';
 // import { ImageButton } from '../components/ImageButton';
 import { ClickableTable } from '../components/ClickableTable';
 import { Curtain } from '../components/Curtain';
-import { FirstAidCard } from '../components/FirstAidCard';
+import { FirstAidCard } from './FirstAidCard';
 import { LanguageSwitch } from '../components/LanguageSwitch';
 import { RowLayout } from '../components/RowLayout';
 import { SideBar } from '../components/SideBar';
 import { SubTitle, TextWrapper, Title } from '../components/Title';
 import { VendorsList } from '../components/VendorsList';
-import { WorkshopsCarousel } from '../components/WorkshopsCarousel';
-import { WorkshopsTabs } from '../components/WorkshopsTabs';
+import { WorkshopsCarousel } from './WorkshopsCarousel';
+import { WorkshopsTabs } from './WorkshopsTabs';
 import { Colors } from '../styles/theme';
 import {
   // ActiveImage,

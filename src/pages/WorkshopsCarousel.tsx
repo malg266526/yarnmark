@@ -1,11 +1,11 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import styled from 'styled-components';
-import { Text } from '../pages/MainPage.styled';
+import { Text } from './MainPage.styled';
 import { Spacings } from '../styles/spacings';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
-import { FlexColumnLayout } from './FlexColumnLayout';
-import { Picture } from './Picture';
+import { FlexColumnLayout } from '../components/FlexColumnLayout';
+import { Picture } from '../components/Picture';
 
 import HaftowaBabaUrlAvif from './../assets/images/workshops/haftowa.avif';
 import HaftowaBabaUrl from './../assets/images/workshops/haftowa.jpg';
@@ -41,8 +41,8 @@ import Blob2 from './../assets/blobs/blob2.svg';
 import Blob3 from './../assets/blobs/blob3.svg';
 import Blob4 from './../assets/blobs/blob4.svg';
 
-import { Icon } from './Icon';
-import { RowLayout } from './RowLayout';
+import { Icon } from '../components/Icon';
+import { RowLayout } from '../components/RowLayout';
 
 export const Title = styled.h3`
   font-size: 28px;

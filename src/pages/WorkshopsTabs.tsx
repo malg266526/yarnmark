@@ -1,9 +1,9 @@
 import React, { ReactNode, useState } from 'react';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
-import { Link } from './Link';
-import { RowLayout } from './RowLayout';
-import { Tabs } from './Tabs';
-import { WorkshopsTimeline } from './WorkshopsTimeline';
+import { Link } from '../components/Link';
+import { RowLayout } from '../components/RowLayout';
+import { Tabs } from '../components/Tabs';
+import { WorkshopsTimeline } from '../components/WorkshopsTimeline';
 
 import PierwszaPomocUrlAvif from './../assets/images/workshops/pierwszapomoc.avif';
 import PierwszaPomocUrl from './../assets/images/workshops/pierwszapomoc.jpg';
@@ -20,7 +20,7 @@ import HaftowaBabaUrlWebp from './../assets/images/workshops/haftowa.webp';
 import LudArtUrlAvif from './../assets/images/workshops/ludart.avif';
 import LudArtUrl from './../assets/images/workshops/ludart.jpg';
 import LudArtUrlWebp from './../assets/images/workshops/ludart.webp';
-import { Picture } from './Picture';
+import { Picture } from '../components/Picture';
 
 type WorkshopRoom = 1 | 2 | 3;
 

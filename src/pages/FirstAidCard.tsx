@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Text } from '../pages/MainPage.styled';
+import { Text } from './MainPage.styled';
 import { Spacings } from '../styles/spacings';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import PierwszaPomocUrlAvif from './../assets/images/workshops/pierwszapomoc.avif';
 import PierwszaPomocUrl from './../assets/images/workshops/pierwszapomoc.jpg';
 import PierwszaPomocUrlWebp from './../assets/images/workshops/pierwszapomoc.webp';
-import { Picture } from './Picture';
-import { Title } from './Title';
-import { TransparentButton } from './TransparentButton';
+import { Picture } from '../components/Picture';
+import { Title } from '../components/Title';
+import { TransparentButton } from '../components/TransparentButton';
 
 const Root = styled.div`
   display: flex;
