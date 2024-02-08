@@ -35,14 +35,9 @@ import DoRanyPrzylozUrlAvif from './../assets/images/workshops/doranyprzyloz.avi
 import DoRanyPrzylozUrl from './../assets/images/workshops/doranyprzyloz.jpg';
 import DoRanyPrzylozUrlWebp from './../assets/images/workshops/doranyprzyloz.webp';
 
-import Blob from './../assets/blobs/blob.svg';
-import Blob1 from './../assets/blobs/blob1.svg';
-import Blob2 from './../assets/blobs/blob2.svg';
-import Blob3 from './../assets/blobs/blob3.svg';
-import Blob4 from './../assets/blobs/blob4.svg';
-
-import { Icon } from './Icon';
 import { RowLayout } from './RowLayout';
+
+import knittingSvgUrl from '../assets/images/skein3.svg';
 
 export const Title = styled.h3`
   font-size: 28px;
@@ -52,7 +47,7 @@ export const Title = styled.h3`
 
 const Root = styled.div`
   display: inline-block;
-  width: 65%;
+  width: 90%;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
   border: 1px solid darkgray;
   align-self: center;
@@ -67,32 +62,15 @@ const Item = styled.div`
   min-height: 600px;
   background-color: white;
   color: black;
-  border-radius: 2px;
+  border-radius: 10px;
   padding: ${Spacings.lg} ${Spacings.md} ${Spacings.md} ${Spacings.md};
   align-items: center;
   position: relative;
-  // background-color: pink;
 `;
 
 const BlobBackground = styled.div`
   width: 100%;
   text-align: center;
-`;
-
-type StainProps = {
-  top?: `${number}px`;
-  left?: `${number}px`;
-  right?: `${number}px`;
-  bottom?: `${number}px`;
-};
-
-const StainImage = styled(Icon)<StainProps>`
-  position: absolute;
-  top: ${({ top }) => top};
-  right: ${({ right }) => right};
-  left: ${({ left }) => left};
-  bottom: ${({ bottom }) => bottom};
-  overflow: hidden;
 `;
 
 const NoTopMarginText = styled(Text)`
@@ -108,14 +86,13 @@ export const WorkshopsCarousel = () => {
 
   return (
     <BlobBackground>
-      <StainImage size="280px" src={Blob} top="120px" left="220px" />
-      <StainImage size="240px" src={Blob1} top="240px" right="180px" />
-      <StainImage size="340px" src={Blob2} top="540px" left="160px" />
-      <StainImage size="360px" src={Blob3} top="600px" right="180px" />
-      <StainImage size="320px" src={Blob4} top="720px" left="380px" />
-
       <Root>
-        <Carousel interval={2000} variant="dark" fade>
+        <Carousel
+          interval={2000}
+          variant="dark"
+          fade
+          prevIcon={<img src={knittingSvgUrl} alt="knittingIcon" width={40} />}
+          nextIcon={<img src={knittingSvgUrl} alt="knittingIcon" width={40} style={{ transform: 'scaleX(-1)' }} />}>
           <Carousel.Item>
             <Item>
               <Picture

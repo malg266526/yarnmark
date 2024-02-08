@@ -9,22 +9,21 @@ import PierwszaPomocUrlWebp from './../assets/images/workshops/pierwszapomoc.web
 import { Picture } from './Picture';
 import { Title } from './Title';
 import { TransparentButton } from './TransparentButton';
+import { Icon as IconifyIcon } from '@iconify/react';
 
 const Root = styled.div`
   display: flex;
   z-index: 20;
   background-color: white;
-  border: 2px solid darkblue;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
   border-radius: 2px;
+  width: 600px;
   height: 600px;
 `;
 
 const MainContent = styled.div`
   display: flex;
   flex-direction: column;
-  width: 600px;
-  color: black;
 
   padding: ${Spacings.md};
   align-items: center;
@@ -46,7 +45,6 @@ const UnderlineButton = styled(TransparentButton)<{ isActive?: boolean }>`
 
 const TrainingPlan = styled.div`
   padding: ${Spacings.md};
-  max-width: 600px;
   height: 600px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -58,35 +56,15 @@ export const FirstAidCard = () => {
 
   return (
     <Root>
-      <MainContent>
-        <Picture
-          picture={{
-            fallbackUrl: PierwszaPomocUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: PierwszaPomocUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: PierwszaPomocUrlAvif
-              }
-            ]
-          }}
-          alt="firstaid"
-          width={200}
-        />
-        <TextWrapper>
-          <Title>{t('workshops.firstAid')}</Title>
-          <Text align="center">{t('workshops.firstAidDescription')}</Text>
-        </TextWrapper>
-
-        <UnderlineButton isActive={showPlan} onClick={() => setShowPlan(!showPlan)}>
-          {t('workshops.trainingPlan')}
-        </UnderlineButton>
-      </MainContent>
-      {showPlan && (
+      {showPlan ? (
         <TrainingPlan>
+          <TransparentButton onClick={() => setShowPlan(false)}>
+            <IconifyIcon
+              icon="ion:arrow-back-outline"
+              width={24}
+              style={{ marginBottom: `${Spacings.md}` }}></IconifyIcon>
+          </TransparentButton>
+
           <h3>{t('workshops.trainingPlan')}</h3>
           <Text bold>1. {t('workshops.firstAidLessons.lesson1')}</Text>
           <Text>{t('workshops.firstAidLessons.lessonDescription1')}</Text>
@@ -103,6 +81,34 @@ export const FirstAidCard = () => {
           <Text bold>5. {t('workshops.firstAidLessons.lesson5')}</Text>
           <Text>{t('workshops.firstAidLessons.lessonDescription5')}</Text>
         </TrainingPlan>
+      ) : (
+        <MainContent>
+          <Picture
+            picture={{
+              fallbackUrl: PierwszaPomocUrl,
+              sources: [
+                {
+                  type: 'image/webp',
+                  url: PierwszaPomocUrlWebp
+                },
+                {
+                  type: 'image/avif',
+                  url: PierwszaPomocUrlAvif
+                }
+              ]
+            }}
+            alt="firstaid"
+            width={100}
+          />
+          <TextWrapper>
+            <Title>{t('workshops.firstAid')}</Title>
+            <Text align="center">{t('workshops.firstAidDescription')}</Text>
+          </TextWrapper>
+
+          <UnderlineButton isActive={showPlan} onClick={() => setShowPlan(!showPlan)}>
+            {t('workshops.trainingPlan')}
+          </UnderlineButton>
+        </MainContent>
       )}
     </Root>
   );
