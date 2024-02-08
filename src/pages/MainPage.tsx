@@ -494,7 +494,7 @@ export const MainPage = () => {
         variant="background"
         // color={Colors.isabelline}
         padding="xl"
-        color={`linear-gradient(to bottom, #eee3de 5%, #ece7e3 15%, #fff 50%, #fff 80%, #ece7e3 90%, #eee3de 100%);`}>
+        color={`linear-gradient(to bottom, #eee3de 5%, #ece7e3 13%, #fff 40%, #fff 80%, #ece7e3 90%, #eee3de 100%);`}>
         <Band.Slot flex="auto-grow" size="sm">
           <TextWrapper align="center">
             <Title>{t('vendorsPage.title')}</Title>
