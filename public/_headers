@@ -1,4 +1,4 @@
 /*
-  Content-Security-Policy: default-src 'self' 'unsafe-inline' *.google-analytics.com fonts.googleapis.com fonts.gstatic.com api.iconify.design cdn.jsdelivr.net/npm/bootstrap; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdn.jsdelivr.net/npm/bootstrap; script-src 'self' 'unsafe-inline' fonts.gstatic.com www.googletagmanager.com; 
+  Content-Security-Policy: default-src 'self' 'unsafe-inline' *.google-analytics.com fonts.googleapis.com fonts.gstatic.com api.iconify.design cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css; script-src 'self' 'unsafe-inline' fonts.gstatic.com www.googletagmanager.com; 
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
