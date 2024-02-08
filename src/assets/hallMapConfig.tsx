@@ -4,9 +4,21 @@ import WloczykijkiLogoUrl from './../assets/images/logos/but.jpg';
 import WloczykijkiLogoUrlAvif from './../assets/images/logos/but.avif';
 import WloczykijkiLogoUrlWebp from './../assets/images/logos/but.webp';
 
+import AnimotkiLogoUrl from './../assets/images/logos/animotki.jpg';
+import AnimotkiLogoUrlAvif from './../assets/images/logos/animotki.avif';
+import AnimotkiLogoUrlWebp from './../assets/images/logos/animotki.webp';
+
+import BawelnianyFilamentLogoUrl from './../assets/images/logos/bawelnianyfilament.jpg';
+import BawelnianyFilamentLogoUrlAvif from './../assets/images/logos/bawelnianyfilament.avif';
+import BawelnianyFilamentLogoUrlWebp from './../assets/images/logos/bawelnianyfilament.webp';
+
 import BifernoLogoUrl from './../assets/images/logos/biferno.jpg';
 import BifernoLogoUrlAvif from './../assets/images/logos/biferno.avif';
 import BifernoLogoUrlWebp from './../assets/images/logos/biferno.webp';
+
+import BrioszkaLogoUrl from './../assets/images/logos/brioszka.jpg';
+import BrioszkaLogoUrlAvif from './../assets/images/logos/brioszka.avif';
+import BrioszkaLogoUrlWebp from './../assets/images/logos/brioszka.webp';
 
 import DyeDyeDoneLogoUrlAvif from './../assets/images/logos/dyedyedone.avif';
 import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.jpg';
@@ -28,6 +40,10 @@ import KokonkiLogoUrlAvif from './../assets/images/logos/kokonki.avif';
 import KokonkiLogoUrl from './../assets/images/logos/kokonki.jpg';
 import KokonkiLogoUrlWebp from './../assets/images/logos/kokonki.webp';
 
+import MadoboLogoUrl from './../assets/images/logos/madobo.jpg';
+import MadoboLogoUrlAvif from './../assets/images/logos/madobo.avif';
+import MadoboLogoUrlWebp from './../assets/images/logos/madobo.webp';
+
 import ManiaChomikujeLogoUrl from './../assets/images/logos/Mania.jpg';
 import ManiaChomikujeLogoUrlAvif from './../assets/images/logos/Mania.avif';
 import ManiaChomikujeLogoUrlWebp from './../assets/images/logos/Mania.webp';
@@ -39,6 +55,10 @@ import MissKnitskiLogoUrlWebp from './../assets/images/logos/missknitski.webp';
 import MokoszaLogoUrl from './../assets/images/logos/mokosza.jpg';
 import MokoszaLogoUrlAvif from './../assets/images/logos/mokosza.avif';
 import MokoszaLogoUrlWebp from './../assets/images/logos/mokosza.webp';
+
+import MotkomaniaLogoUrl from './../assets/images/logos/motkomania.jpg';
+import MotkomaniaLogoUrlAvif from './../assets/images/logos/motkomania.avif';
+import MotkomaniaLogoUrlWebp from './../assets/images/logos/motkomania.webp';
 
 import NaSztukiStudioLogoUrlAvif from './../assets/images/logos/nasztukistudio.avif';
 import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.jpg';
@@ -56,6 +76,10 @@ import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
 import TimeToKnitLogoUrlWebp from './../assets/images/logos/timetoknit.webp';
 
 import TheKnittingBoxLogoUrl from './../assets/images/logos/theknittingbox.png';
+
+import WelnaBawelnaLogoUrl from './../assets/images/logos/WelnaBawelna.jpg';
+import WelnaBawelnaLogoUrlAvif from './../assets/images/logos/WelnaBawelna.avif';
+import WelnaBawelnaLogoUrlWebp from './../assets/images/logos/WelnaBawelna.webp';
 
 import WoollalaLogoUrlAvif from './../assets/images/logos/woollala.avif';
 import WoollalaLogoUrl from './../assets/images/logos/woollala.jpg';
@@ -201,22 +225,63 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'normal1',
+          color: 'taken',
           index: 'S5',
-          height: 4
+          height: 4,
+          who: 'BawełnianyFilament & MalinowyKos',
+          picture: {
+            fallbackUrl: BawelnianyFilamentLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: BawelnianyFilamentLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: BawelnianyFilamentLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 2.5,
-          color: 'normal2',
+          color: 'taken2',
           index: 'S6',
-          height: 4
+          height: 4,
+          who: 'Brioszka',
+          picture: {
+            fallbackUrl: BrioszkaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: BrioszkaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: BrioszkaLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 2.5,
           color: 'taken',
           index: 'S7',
           height: 4,
-          who: 'Madobo'
+          who: 'Madobo',
+          picture: {
+            fallbackUrl: MadoboLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: MadoboLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: MadoboLogoUrlAvif
+              }
+            ]
+          }
         }
       ]
     },
@@ -377,14 +442,40 @@ export const hallMapConfig: HallMapType = {
           height: 2.5,
           color: 'taken2',
           index: 'S14',
-          who: 'WełnaBawełna'
+          who: 'WełnaBawełna',
+          picture: {
+            fallbackUrl: WelnaBawelnaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: WelnaBawelnaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: WelnaBawelnaLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken2',
           index: 'S15',
-          who: 'WełnaBawełna'
+          who: 'WełnaBawełna',
+          picture: {
+            fallbackUrl: WelnaBawelnaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: WelnaBawelnaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: WelnaBawelnaLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 5,
@@ -494,8 +585,9 @@ export const hallMapConfig: HallMapType = {
         {
           width: 3,
           height: 2,
-          color: 'small2',
-          index: 'M5'
+          color: 'taken2',
+          index: 'M5',
+          who: 'Rencami'
         },
         {
           width: 3,
@@ -674,7 +766,20 @@ export const hallMapConfig: HallMapType = {
           height: 3,
           color: 'taken',
           index: 'P5',
-          who: 'Motkomania'
+          who: 'Motkomania',
+          picture: {
+            fallbackUrl: MotkomaniaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: MotkomaniaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: MotkomaniaLogoUrlAvif
+              }
+            ]
+          }
         }
       ]
     },
@@ -734,28 +839,44 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'normal2',
+          color: 'taken2',
           height: 4,
-          index: 'S26'
-        },
-        {
-          width: 2.5,
-          color: 'normal1',
-          height: 4,
-          index: 'S27'
-        },
-        {
-          width: 2.5,
-          color: 'normal2',
-          height: 4,
-          index: 'S28'
+          index: 'S26',
+          who: "Martin's Lab"
         },
         {
           width: 2.5,
           color: 'taken',
           height: 4,
+          index: 'S27',
+          who: 'FuroraYarns'
+        },
+        {
+          width: 2.5,
+          color: 'taken',
+          height: 4,
+          index: 'S28',
+          who: 'FuroraYarns'
+        },
+        {
+          width: 2.5,
+          color: 'taken2',
+          height: 4,
           index: 'S29',
-          who: 'Animotki'
+          who: 'Animotki',
+          picture: {
+            fallbackUrl: AnimotkiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: AnimotkiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: AnimotkiLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 3,

@@ -4,9 +4,21 @@ import { Spacings } from '../styles/spacings';
 import { Link } from './Link';
 import { ScreenSize } from '../styles/screeen-size';
 
+import AnimotkiLogoUrl from './../assets/images/logos/animotki.jpg';
+import AnimotkiLogoUrlAvif from './../assets/images/logos/animotki.avif';
+import AnimotkiLogoUrlWebp from './../assets/images/logos/animotki.webp';
+
+import BawelnianyFilamentLogoUrl from './../assets/images/logos/bawelnianyfilament.jpg';
+import BawelnianyFilamentLogoUrlAvif from './../assets/images/logos/bawelnianyfilament.avif';
+import BawelnianyFilamentLogoUrlWebp from './../assets/images/logos/bawelnianyfilament.webp';
+
 import BifernoLogoUrl from './../assets/images/logos/biferno.jpg';
 import BifernoLogoUrlAvif from './../assets/images/logos/biferno.avif';
 import BifernoLogoUrlWebp from './../assets/images/logos/biferno.webp';
+
+import BrioszkaLogoUrl from './../assets/images/logos/brioszka.jpg';
+import BrioszkaLogoUrlAvif from './../assets/images/logos/brioszka.avif';
+import BrioszkaLogoUrlWebp from './../assets/images/logos/brioszka.webp';
 
 import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.jpg';
 import DyeDyeDoneLogoUrlAvif from './../assets/images/logos/dyedyedone.avif';
@@ -28,6 +40,10 @@ import KokonkiLogoUrl from './../assets/images/logos/kokonki.jpg';
 import KokonkiLogoUrlAvif from './../assets/images/logos/kokonki.avif';
 import KokonkiLogoUrlWebp from './../assets/images/logos/kokonki.webp';
 
+import MadoboLogoUrl from './../assets/images/logos/madobo.jpg';
+import MadoboLogoUrlAvif from './../assets/images/logos/madobo.avif';
+import MadoboLogoUrlWebp from './../assets/images/logos/madobo.webp';
+
 import ManiaChomikujeLogoUrl from './../assets/images/logos/Mania.jpg';
 import ManiaChomikujeLogoUrlAvif from './../assets/images/logos/Mania.avif';
 import ManiaChomikujeLogoUrlWebp from './../assets/images/logos/Mania.webp';
@@ -39,6 +55,10 @@ import MissKnitskiLogoUrlWebp from './../assets/images/logos/missknitski.webp';
 import MokoszaLogoUrl from './../assets/images/logos/mokosza.jpg';
 import MokoszaLogoUrlAvif from './../assets/images/logos/mokosza.avif';
 import MokoszaLogoUrlWebp from './../assets/images/logos/mokosza.webp';
+
+import MotkomaniaLogoUrl from './../assets/images/logos/motkomania.jpg';
+import MotkomaniaLogoUrlAvif from './../assets/images/logos/motkomania.avif';
+import MotkomaniaLogoUrlWebp from './../assets/images/logos/motkomania.webp';
 
 import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.jpg';
 import NaSztukiStudioLogoUrlAvif from './../assets/images/logos/nasztukistudio.avif';
@@ -56,6 +76,11 @@ import TimeToKnitLogoUrlAvif from './../assets/images/logos/timetoknit.avif';
 import TimeToKnitLogoUrlWebp from './../assets/images/logos/timetoknit.webp';
 
 import TheKnittingBoxLogoUrl from './../assets/images/logos/theknittingbox.png';
+
+import WelnaBawelnaLogoUrl from './../assets/images/logos/WelnaBawelna.jpg';
+import WelnaBawelnaLogoUrlAvif from './../assets/images/logos/WelnaBawelna.avif';
+import WelnaBawelnaLogoUrlWebp from './../assets/images/logos/WelnaBawelna.webp';
+
 import WloczykijkiLogoUrl from './../assets/images/logos/wloczykijki_logo.png';
 
 import WoollalaLogoUrl from './../assets/images/logos/woollala.jpg';
@@ -89,6 +114,46 @@ export const Grid = styled.div`
 export const VendorsList = () => {
   return (
     <Grid>
+      <Link to="https://animotki.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={160}
+          alt="animotki"
+          picture={{
+            fallbackUrl: AnimotkiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: AnimotkiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: AnimotkiLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://www.facebook.com/bawelnianyfilament/" target="_blank" rel="noreferrer">
+        <Picture
+          width={160}
+          alt="bawelnianyfilament"
+          picture={{
+            fallbackUrl: BawelnianyFilamentLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: BawelnianyFilamentLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: BawelnianyFilamentLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
       <Link to="https://biferno.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -103,6 +168,26 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: BifernoLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://brioszka.com.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={120}
+          alt="brioszka"
+          picture={{
+            fallbackUrl: BrioszkaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: BrioszkaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: BrioszkaLogoUrlAvif
               }
             ]
           }}
@@ -209,9 +294,29 @@ export const VendorsList = () => {
         />
       </Link>
 
-      <Link to="https://www.facebook.com/groups/1020511551665421/" target="_blank" rel="noreferrer">
+      <Link to="https://madobo.pl" target="_blank" rel="noreferrer">
         <Picture
           width={100}
+          alt="madobo"
+          picture={{
+            fallbackUrl: MadoboLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: MadoboLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: MadoboLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://www.facebook.com/groups/1020511551665421/" target="_blank" rel="noreferrer">
+        <Picture
+          width={120}
           alt="maniachomikuje"
           picture={{
             fallbackUrl: ManiaChomikujeLogoUrl,
@@ -263,6 +368,26 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: MokoszaLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://motkomania.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={160}
+          alt="motkomania"
+          picture={{
+            fallbackUrl: MotkomaniaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: MotkomaniaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: MotkomaniaLogoUrlAvif
               }
             ]
           }}
@@ -339,6 +464,26 @@ export const VendorsList = () => {
 
       <Link to="https://theknittingbox.pl" target="_blank" rel="noreferrer">
         <img width={100} src={TheKnittingBoxLogoUrl} alt="theknittingbox" />
+      </Link>
+
+      <Link to="https://welnabawelna.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={180}
+          alt="welnabawelna"
+          picture={{
+            fallbackUrl: WelnaBawelnaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: WelnaBawelnaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: WelnaBawelnaLogoUrlAvif
+              }
+            ]
+          }}
+        />
       </Link>
 
       <Link to="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
