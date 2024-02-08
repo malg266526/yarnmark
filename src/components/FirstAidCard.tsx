@@ -10,6 +10,7 @@ import { Picture } from './Picture';
 import { Title } from './Title';
 import { TransparentButton } from './TransparentButton';
 import { Icon as IconifyIcon } from '@iconify/react';
+import firstAidIcon from './../assets/backgrounds/firstAid.svg';
 
 const Root = styled.div`
   display: flex;
@@ -19,6 +20,7 @@ const Root = styled.div`
   border-radius: 2px;
   width: 600px;
   height: 600px;
+  position: relative;
 `;
 
 const MainContent = styled.div`
@@ -28,6 +30,13 @@ const MainContent = styled.div`
   padding: ${Spacings.md};
   align-items: center;
   justify-content: space-around;
+`;
+
+export const TransparentIcon = styled.img`
+  position: absolute;
+  bottom: 0px;
+  right: 20px;
+  opacity: 0.2;
 `;
 
 const TextWrapper = styled.div`
@@ -100,6 +109,8 @@ export const FirstAidCard = () => {
             alt="firstaid"
             width={100}
           />
+          <TransparentIcon src={firstAidIcon} width={160} alt="first_aid_icon" />
+
           <TextWrapper>
             <Title>{t('workshops.firstAid')}</Title>
             <Text align="center">{t('workshops.firstAidDescription')}</Text>
