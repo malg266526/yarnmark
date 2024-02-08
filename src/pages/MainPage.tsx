@@ -2,7 +2,6 @@ import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { PageContent } from '../components/PageContent';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
-import bigShopImageUrl from '../assets/iconify/bigshop.svg';
 // import burgerImageUrl from '../assets/iconify/burger.svg';
 // import coffeeImageUrl from '../assets/iconify/coffee.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
@@ -52,6 +51,7 @@ import { Colors } from '../styles/theme';
 import {
   // ActiveImage,
   AnimatedIconWrapper,
+  BackgroundIcon,
   BackgroundImage,
   ButtonsLayout,
   CenteredTitle,
@@ -65,6 +65,7 @@ import {
   MobileInfoSectionWrapper,
   MobileLocationButtonWrapper,
   MobilePicture,
+  Paragraph,
   // PhotosLayout,
   Picture,
   SecondaryButton,
@@ -76,9 +77,12 @@ import {
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
 
 // import { FlexColumnLayout } from '../components/FlexColumnLayout';
-import JerseyUrlAvif from './../assets/images/workshops/jersey.avif';
-import JerseyUrl from './../assets/images/workshops/jersey.jpg';
-import JerseyUrlWebp from './../assets/images/workshops/jersey.webp';
+
+import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.jpg';
+import sweatersBackgroundUrlAvif from './../assets/backgrounds/sweaters_background.avif';
+import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
+
+import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
 
 // type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
@@ -486,10 +490,13 @@ export const MainPage = () => {
         </Band>
       )}
 
-      {/* TODO: change color to snow when all bands revealed */}
-      <Band id="vendors" ref={vendorsBandRef} size="md" variant="background" color={Colors.isabelline} padding="xl">
-        <BackgroundImage src={bigShopImageUrl} alt="shop_icon_background" />
-
+      <Band
+        id="vendors"
+        ref={vendorsBandRef}
+        size="lg"
+        variant="background"
+        padding="xl"
+        color={`linear-gradient(to bottom, #eee3de 5%, #ece7e3 13%, #fff 40%, #fff 80%, #ece7e3 90%, #eee3de 100%);`}>
         <Band.Slot flex="auto-grow" size="sm">
           <TextWrapper align="center">
             <Title>{t('vendorsPage.title')}</Title>
@@ -501,12 +508,18 @@ export const MainPage = () => {
       <Band
         id="workshops"
         gap="md"
-        size="xl"
-        variant="background"
+        size="lg"
         justify="center"
-        color={Colors.linen}
-        padding="lg"
-        direction="column">
+        padding="xl"
+        direction="column"
+        variant="background-image"
+        background={
+          <Band.Picture>
+            <source srcSet={sweatersBackgroundUrlAvif} type="image/avif" />
+            <source srcSet={sweatersBackgroundUrlWebp} type="image/webp" />
+            <img src={sweatersBackgroundUrl} alt="wool background" style={{ objectFit: 'cover' }} />
+          </Band.Picture>
+        }>
         <CenteredTitle>{t('workshopsBand.title')}</CenteredTitle>
         <WorkshopsCarousel />
       </Band>
@@ -515,27 +528,17 @@ export const MainPage = () => {
         id="firstaid"
         gap="xl"
         size="md"
-        // variant="background"
+        variant="background"
         justify="space-around"
-        // color={Colors.linen}
+        color={Colors.linen}
         padding="xl"
-        reverseOnMobile
-        variant="background-image"
-        background={
-          <Band.Picture>
-            <source srcSet={JerseyUrlAvif} type="image/avif" />
-            <source srcSet={JerseyUrlWebp} type="image/jpeg" />
-            <img src={JerseyUrl} alt="hala cracovii" style={{ objectFit: 'cover' }} />
-          </Band.Picture>
-        }>
-        <Band.Slot flex="auto-shrink">
-          <NiceBox padding="lg">
-            <Title>"{t('workshops.firstAidQuote')}"</Title>
-            <Text>Thomas Keneally</Text>
-            <Text>{t('workshops.firstAidIntro')}</Text>
-            <Text>{t('workshops.firstAidSuperhero')}</Text>
-          </NiceBox>
-        </Band.Slot>
+        reverseOnMobile>
+        <Paragraph>
+          <h2>"{t('workshops.firstAidQuote')}"</h2>
+          <h3>Thomas Keneally</h3>
+        </Paragraph>
+
+        <BackgroundIcon src={firstAidIcon} width={500} />
         <FirstAidCard />
       </Band>
 

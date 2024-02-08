@@ -1,4 +1,6 @@
 export const Colors = {
+  text: '#151414',
+
   gold: 'gold',
 
   honeyMustard: '#ae8d4a', //174,141,74

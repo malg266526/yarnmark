@@ -13,11 +13,13 @@ import { Root, Footer, RightBackgroundImage, TransparentText } from './App.style
 import { InfoForVendorsPage } from './pages/InfoForVendorsPage';
 import { MainPage } from './pages/MainPage';
 import { useTypedTranslation } from './translations/useTypedTranslation';
+import { Colors } from './styles/theme';
 
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     font-family: 'Lexend', sans-serif;
+    color: ${Colors.text};
     /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; */
   }
 
