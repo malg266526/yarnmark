@@ -3,11 +3,22 @@ import { Icon } from '../components/Icon';
 import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
 
-export const Text = styled.p<{ marginBottom?: keyof typeof Spacings; align?: 'center' | 'justify' }>`
+export const Text = styled.p<{
+  marginBottom?: keyof typeof Spacings;
+  marginTop?: keyof typeof Spacings;
+  align?: 'center' | 'justify';
+  bold?: boolean;
+}>`
   white-space: break-spaces;
-  margin-top: ${Spacings.md};
+  margin-top: ${({ marginTop }) => Spacings[marginTop || 'md']};
   margin-bottom: 0;
   font-size: 18px;
+
+  ${({ bold }) =>
+    bold &&
+    css`
+      font-weight: 600;
+    `};
 
   ${({ align }) =>
     align &&
@@ -33,6 +44,7 @@ export const CenteredTitle = styled.h2`
   font-size: 40px;
   font-weight: 600;
   align-self: center;
+  z-index: 2;
 `;
 
 export const SecondaryButton = styled.button`
@@ -368,4 +380,28 @@ export const LayoutWithActiveButton = styled.div`
     flex-direction: column;
     max-width: 100vw;
   }
+`;
+
+export const AbsoluteWrapper = styled.div`
+  position: absolute;
+  bottom: 80px;
+  right: 80px;
+  opacity: 0.5;
+  filter: grayscale(0.5);
+`;
+
+export const WorkshopsWrapper = styled.div`
+  width: 100%;
+  padding: 0 ${Spacings.xxl};
+`;
+
+export const Paragraph = styled.div`
+  max-width: 500px;
+`;
+
+export const BackgroundIcon = styled.img`
+  position: absolute;
+  top: 400px;
+  left: 160px;
+  opacity: 0.75;
 `;

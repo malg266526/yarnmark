@@ -1,12 +1,9 @@
-import React, { /* ReactNode, */ useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { PageContent } from '../components/PageContent';
-import { /* UnprefixedTranslationKeys, */ useTypedTranslation } from '../translations/useTypedTranslation';
+import { useTypedTranslation } from '../translations/useTypedTranslation';
 
-import bigShopImageUrl from '../assets/iconify/bigshop.svg';
 // import burgerImageUrl from '../assets/iconify/burger.svg';
 // import coffeeImageUrl from '../assets/iconify/coffee.svg';
-// import ferryImageUrl from '../assets/iconify/ferry.svg';
-// import goodieBagImageUrl from '../assets/iconify/goodiebag.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
 // import pizzaImageUrl from '../assets/iconify/pizza.svg';
 // import pretzelImageUrl from '../assets/iconify/pretzel.svg';
@@ -21,10 +18,10 @@ import pinImageUrl from '../assets/images/pin.svg';
 import halaAvifImageSrc from '../assets/images/hala.avif';
 import halaJfifImageSrc from '../assets/images/hala.jfif';
 import halaJpgImageSrc from '../assets/images/hala_quality.jpg';
-// import wawelImageSrc from '../assets/wawel.jpg';
+import yarnmarkLogoSrc from '../assets/images/logos/yarnmark.png';
+// import wawelImageSrc from '../assets/images/wawel.jpg';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
-import yarnmarkLogoSrc from '../assets/images/logos/yarnmark.png';
 import { Icon } from '../components/Icon';
 
 import { Band } from '../components/Band';
@@ -38,19 +35,26 @@ import { Icon as IconifyIcon } from '@iconify/react';
 import { Trans } from 'react-i18next';
 import { Header } from '../App.styled';
 import { BurgerMenu } from '../components/BurgerMenu';
-// import { FlexColumnLayout } from '../components/FlexColumnLayout';
 // import { FramedBox } from '../components/FramedBox';
 // import { ImageButton } from '../components/ImageButton';
+import { ClickableTable } from '../components/ClickableTable';
+import { Curtain } from '../components/Curtain';
+import { FirstAidCard } from './FirstAidCard';
+import { LanguageSwitch } from '../components/LanguageSwitch';
+import { RowLayout } from '../components/RowLayout';
 import { SideBar } from '../components/SideBar';
-// import { Tabs } from '../components/Tabs';
-import { SubTitle, Title, TextWrapper } from '../components/Title';
+import { SubTitle, TextWrapper, Title } from '../components/Title';
 import { VendorsList } from '../components/VendorsList';
+import { WorkshopsCarousel } from './WorkshopsCarousel';
+import { WorkshopsTabs } from './WorkshopsTabs';
 import { Colors } from '../styles/theme';
 import {
   // ActiveImage,
   AnimatedIconWrapper,
+  BackgroundIcon,
   BackgroundImage,
   ButtonsLayout,
+  CenteredTitle,
   // ButtonsWrapper,
   // CenteredTitle,
   Menu,
@@ -61,19 +65,24 @@ import {
   MobileInfoSectionWrapper,
   MobileLocationButtonWrapper,
   MobilePicture,
-  Picture,
+  Paragraph,
   // PhotosLayout,
+  Picture,
   SecondaryButton,
   SectionWrapper,
   Text,
   TextH2,
   Typography
-  // TextWrapper
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
-import { Curtain } from '../components/Curtain';
-import { LanguageSwitch } from '../components/LanguageSwitch';
-import { RowLayout } from '../components/RowLayout';
+
+// import { FlexColumnLayout } from '../components/FlexColumnLayout';
+
+import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.jpg';
+import sweatersBackgroundUrlAvif from './../assets/backgrounds/sweaters_background.avif';
+import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
+
+import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
 
 // type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
@@ -139,8 +148,6 @@ import { RowLayout } from '../components/RowLayout';
   }
 }); */
 
-// type ActiveTab = 'ship' | 'bag';
-
 export const MainPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
@@ -150,9 +157,8 @@ export const MainPage = () => {
 
   const vendorsBandRef = useRef<HTMLDivElement | null>(null);
   const spotBandRef = useRef<HTMLDivElement | null>(null);
-  // const workshopsBandRef = useRef<HTMLDivElement | null>(null);
-  // const cashmereTicketsBandRef = useRef<HTMLDivElement | null>(null);
-  //const foodBandRef = useRef<HTMLDivElement | null>(null);
+  const cashmereTicketsBandRef = useRef<HTMLDivElement | null>(null);
+  // const foodBandRef = useRef<HTMLDivElement | null>(null);
 
   const ticketsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const vendorsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
@@ -160,8 +166,7 @@ export const MainPage = () => {
   // const foodFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   // const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
 
-  // const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
-  // const [activeTab, setActiveTab] = useState<ActiveTab>('ship');
+  //  const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
 
   const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
 
@@ -176,20 +181,6 @@ export const MainPage = () => {
   });
 
   const closeSideBar = () => setBurgerActive(false);
-
-  /*  const activeTabToContent: Record<ActiveTab, ReactNode> = {
-    bag: (
-      <FlexColumnLayout gap="sm" padding="none">
-        Info...
-      </FlexColumnLayout>
-    ),
-    ship: (
-      <FlexColumnLayout gap="sm" padding="none">
-        <Text>{t('cashmereTicketsBand.beautifulCruise')}</Text>
-        <Text>{t('cashmereTicketsBand.invitations')}</Text>
-      </FlexColumnLayout>
-    )
-  }; */
 
   const eventLocationCard = useMemo(
     () => (
@@ -332,7 +323,7 @@ export const MainPage = () => {
         <MobilePicture>
           <source srcSet={halaAvifImageSrc} type="image/avif" />
           <source srcSet={halaJfifImageSrc} type="image/jpeg" />
-          <img src={halaJpgImageSrc} alt="hala 100-lecia" />
+          <img loading="lazy" src={halaJpgImageSrc} alt="hala 100-lecia" />
           <MobileLocationButtonWrapper>{eventLocationButton}</MobileLocationButtonWrapper>
         </MobilePicture>
 
@@ -375,24 +366,15 @@ export const MainPage = () => {
               {t('menu.infoForVendors')}
             </SideBar.LinkEntry>
 
-            {/*               <SideBar.LinkEntry
-                onClick={() => {
-                  closeSideBar();
-                  () => workshopsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
-                }}>
-                <IconifyIcon icon="icons8:student" width="24" />
-                {t('menu.workshops')}
-              </SideBar.LinkEntry> */}
+            <SideBar.LinkEntry to="#workshops" onClick={closeSideBar}>
+              <IconifyIcon icon="icons8:student" width="24" />
+              {t('menu.workshops')}
+            </SideBar.LinkEntry>
 
-            {/*           <SideBar.LinkEntry
-                onClick={() => {
-                  closeSideBar();
-                  () => cashmereTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' });
-                }}>
-                <IconifyIcon icon="clarity:ferry-solid" width="24" />
-                {t('menu.cashmereTickets')}
-
-              </SideBar.LinkEntry> */}
+            <SideBar.LinkEntry to="#cruise" onClick={closeSideBar}>
+              <IconifyIcon icon="clarity:ferry-solid" width="24" />
+              {t('menu.cashmereTickets')}
+            </SideBar.LinkEntry>
 
             <SideBar.LinkEntry
               to="#footer"
@@ -422,20 +404,15 @@ export const MainPage = () => {
             <Link color="black" to="/info-for-vendors">
               {t('menu.infoForVendors')}
             </Link>
-            {/*         <Link
-              color="black"
-              anchorProps={{
-                onClick: () => workshopsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
-              }}>
+
+            <Link to="#workshops" color="black">
               {t('menu.workshops')}
-            </Link> */}
-            {/*           <Link
-              color="black"
-              anchorProps={{
-                onClick: () => cashmereTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })
-              }}>
+            </Link>
+
+            <Link to="#cruise" color="black">
               {t('menu.cashmereTickets')}
-            </Link> */}
+            </Link>
+
             <Link color="black" to="#footer">
               {t('menu.contact')}
             </Link>
@@ -513,10 +490,13 @@ export const MainPage = () => {
         </Band>
       )}
 
-      {/* TODO: change color to snow when all bands revealed */}
-      <Band id="vendors" ref={vendorsBandRef} size="md" variant="background" color={Colors.isabelline} padding="xl">
-        <BackgroundImage src={bigShopImageUrl} alt="shop_icon_background" />
-
+      <Band
+        id="vendors"
+        ref={vendorsBandRef}
+        size="lg"
+        variant="background"
+        padding="xl"
+        color={`linear-gradient(to bottom, #eee3de 5%, #ece7e3 13%, #fff 40%, #fff 80%, #ece7e3 90%, #eee3de 100%);`}>
         <Band.Slot flex="auto-grow" size="sm">
           <TextWrapper align="center">
             <Title>{t('vendorsPage.title')}</Title>
@@ -524,49 +504,85 @@ export const MainPage = () => {
           <VendorsList />
         </Band.Slot>
       </Band>
-      {/* 
+
       <Band
-        ref={workshopsBandRef}
+        id="workshops"
+        gap="md"
+        size="lg"
+        justify="center"
+        padding="xl"
+        direction="column"
+        variant="background-image"
+        background={
+          <Band.Picture>
+            <source srcSet={sweatersBackgroundUrlAvif} type="image/avif" />
+            <source srcSet={sweatersBackgroundUrlWebp} type="image/webp" />
+            <img src={sweatersBackgroundUrl} alt="wool background" style={{ objectFit: 'cover' }} />
+          </Band.Picture>
+        }>
+        <CenteredTitle>{t('workshopsBand.title')}</CenteredTitle>
+        <WorkshopsCarousel />
+      </Band>
+
+      <Band
+        id="firstaid"
         gap="xl"
         size="md"
         variant="background"
         justify="space-around"
-        color={Colors.isabelline}
+        color={Colors.linen}
         padding="xl"
         reverseOnMobile>
-        <Band.Slot flex="auto-grow">
-          <PhotosLayout>
-            <PhotoFrame
-              variant="slot"
-              maxSize="400px"
-              src={wawelImageSrc}
-              slotSize="200px"
-              slot={'TODO: foto i tekst od Ani'}>
-              <PhotoFrame.Cursive>{t('workshopsBand.firstAid')}</PhotoFrame.Cursive>
-            </PhotoFrame>
-            <PhotoFrame maxSize="400px" src={wawelImageSrc}>
-              <PhotoFrame.Cursive>TODO: Warsztaty 1</PhotoFrame.Cursive>
-            </PhotoFrame>
-            <PhotoFrame maxSize="400px" src={wawelImageSrc}>
-              <PhotoFrame.Cursive>TODO: Warsztaty 2</PhotoFrame.Cursive>
-            </PhotoFrame>
-            <PhotoFrame maxSize="400px" src={wawelImageSrc}>
-              <PhotoFrame.Cursive>TODO: Warsztaty 3</PhotoFrame.Cursive>
-            </PhotoFrame>
-          </PhotosLayout>
-        </Band.Slot>
+        <Paragraph>
+          <h2>"{t('workshops.firstAidQuote')}"</h2>
+          <h3>Thomas Keneally</h3>
+        </Paragraph>
 
-        <Band.Slot flex="auto-shrink">
-          <NiceBox padding="lg">
-            <Title>{t('workshopsBand.title')}</Title>
-            <Text>{t('workshopsBand.entertainsAndTeaches')}</Text>
-            <Text>{t('workshopsBand.invitation')}</Text>
-            <Text>{t('workshopsBand.mayTheHealthBeWithYou')}</Text>
-          </NiceBox>
-        </Band.Slot>
-      </Band> */}
+        <BackgroundIcon src={firstAidIcon} width={500} />
+        <FirstAidCard />
+      </Band>
 
-      {/*    <Band ref={foodBandRef} size="md" variant="background" color={Colors.pastelGray} padding="xl">
+      <Band
+        id="schedule"
+        size="md"
+        variant="background"
+        justify="space-around"
+        color={Colors.snow}
+        padding="xl"
+        align="initial"
+        direction="column">
+        <TextWrapper align="center">
+          <Title>{t('scheduleBand.title')}</Title>
+        </TextWrapper>
+
+        <WorkshopsTabs />
+      </Band>
+
+      <Band
+        id="cruise"
+        size="md"
+        ref={cashmereTicketsBandRef}
+        variant="background"
+        justify="space-evenly"
+        color={Colors.linen}
+        padding="xl">
+        <NiceBox overflowSize="10px" width="500px" padding="lg" marginTop="lg">
+          <TextWrapper>
+            <Title>{t('cashmereTicketsBand.beautifulCruise')}</Title>
+          </TextWrapper>
+
+          <TextH2>{t('cashmereTicketsBand.invitation')}</TextH2>
+          <TextH2>{t('cashmereTicketsBand.ship')}</TextH2>
+        </NiceBox>
+
+        <ClickableTable />
+
+        {/*         <AbsoluteWrapper>
+          <img src={shipThemed} width={500} />
+        </AbsoluteWrapper> */}
+      </Band>
+
+      {/*       <Band ref={foodBandRef} size="md" variant="background" color={Colors.snow} padding="xl">
         <CenteredTitle>Gdzie zjeść?</CenteredTitle>
 
         <LayoutWithActiveButton>
@@ -578,7 +594,7 @@ export const MainPage = () => {
               Food Truck Park Bezogródek
             </ImageButton>
 
-            <ImageButton
+            {/*             <ImageButton
               active={activeButton === 'pinoGarden'}
               onClick={() => setActiveButton('pinoGarden')}
               icon={<Icon size="xl" src={shrimpImageUrl} />}>
@@ -601,8 +617,8 @@ export const MainPage = () => {
               icon={<Icon size="xl" src={coffeeImageUrl} />}
               onClick={() => setActiveButton('knittedCoffee')}>
               Knitted Coffee
-            </ImageButton>
-          </ButtonsWrapper>
+            </ImageButton> */}
+      {/*           </ButtonsWrapper>
 
           <FramedBox padding="md">
             <ImageContentLayout>
@@ -611,36 +627,6 @@ export const MainPage = () => {
             </ImageContentLayout>
           </FramedBox>
         </LayoutWithActiveButton>
-      </Band> */}
-
-      {/*       <Band
-        size="md"
-        ref={cashmereTicketsBandRef}
-        variant="background"
-        justify="space-around"
-        color={Colors.isabelline}
-        padding="xl"
-        align="initial"
-        direction="column">
-        <Title align="center">{t('cashmereTicketsBand.title')}</Title>
-
-        <Text align="center" marginBottom="md">
-          {t('cashmereTicketsBand.ticketDescription')}
-        </Text>
-
-        <Tabs>
-          <Tabs.Tab onClick={() => setActiveTab('ship')} active={activeTab === 'ship'}>
-            <Icon size="xl" src={ferryImageUrl} />
-            {t('cashmereTicketsBand.cruise')}
-          </Tabs.Tab>
-
-          <Tabs.Tab onClick={() => setActiveTab('bag')} active={activeTab === 'bag'}>
-            <Icon size="xl" src={goodieBagImageUrl} />
-            {t('cashmereTicketsBand.souverirBag')}
-          </Tabs.Tab>
-        </Tabs>
-
-        <Tabs.Content>{activeTabToContent[activeTab]}</Tabs.Content>
       </Band> */}
     </PageContent>
   );

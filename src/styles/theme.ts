@@ -1,4 +1,6 @@
 export const Colors = {
+  text: '#151414',
+
   gold: 'gold',
 
   honeyMustard: '#ae8d4a', //174,141,74
@@ -22,7 +24,9 @@ export const Colors = {
   pastelGray: '#d7c9c0',
   isabelline: '#f7f0f0',
   snow: '#f9f9f9',
-  linen: '#faf0e6'
+  linen: '#faf0e6',
+
+  pink: '#FF91A4'
 };
 
 export const Theme = {

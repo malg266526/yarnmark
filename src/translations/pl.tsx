@@ -9,7 +9,7 @@ export const pl = {
       organizers: 'Organizatorzy',
       contact: 'Kontakt',
       infoForVendors: 'Dla wystawców',
-      cashmereTickets: 'Bilety kaszmirowe',
+      cashmereTickets: 'Bilety rejsowe',
       aboutUs: 'O nas',
       stands: 'Stoiska'
     },
@@ -64,13 +64,25 @@ export const pl = {
     },
     cashmereTicketsBand: {
       title: 'Bilety kaszmirowe',
-      ticketDescription:
-        'Oferujemy możliwość zakupu biletów zwykłych oraz biletów w pakiecie kaszmirowym. Bilety kaszmirowe oprócz wejściowki na targi obejmują także:',
-      cruise: 'Rejs Dziergostatkiem',
       beautifulCruise: 'Dzieeergostatkiem w piękny rejs!',
-      invitations:
-        'Zapraszamy Was serdecznie na godzinny rejs po Wiśle, podczas którego wspólnie podziergamy i porozmawiamy, przy kieliszku prosecco i w otoczeniu krakowskich krajobrazów',
-      souverirBag: 'Pamiątkowa torba targowa'
+      map: {
+        cruise: 'Dziewiarski rejs po Wiśle',
+        info: 'Informacje o rejsie:',
+        startAndStop: 'Miejsce startu i zakończenia rejsu:',
+        time: 'Godzina rejsu:',
+        price: 'Cena',
+        priceIncludesYarnmarkTicket:
+          'Cena zawiera bilet wejścia na targi <strong>Krakoski Yarnmark Włóczki 2024</strong>',
+        route: 'Trasa:'
+      },
+      invitation: 'Zapraszamy Cię na niezapomniany rejs statkiem po urokliwej Wiśle w Krakowie.',
+      ship: 'Pragniemy, aby pokład statku „Legenda/Horyzont” stał się sceną do wspólnego dziergania, tworzenia niepowtarzalnych chwil i zawierania nowych dziewiarskich znajomości.',
+      prosecco:
+        'Podczas rejsu poczęstujemy Cię kieliszkiem Prosecco (lub napoju bezalkoholowego), dodając tym samym nutę luksusu do atmosfery.',
+      buyTickets: 'Tutaj kupisz bilet',
+      tickets: 'Bilety',
+      proseccoIntro:
+        'Rejs statkiem po Wiśle w Krakowie to nie tylko atrakcyjna forma spędzenia czasu, ale także doskonały sposób na odprężenie się i zobaczenie miasta z innej strony. '
     },
     vendorsPage: {
       title: 'Wystawcy'
@@ -84,7 +96,19 @@ export const pl = {
       entertainsAndTeaches: 'Yarnmark bawi, Yarnmark uczy',
       invitation:
         'Zapraszamy do wzięcia udziału w warsztatach dziewiarskich i szydełkowych oraz serdecznie zachęcamy do skorzystania z profesjonalnych kursów pierwszej pomocy.',
-      mayTheHealthBeWithYou: 'Niech zdrowie i bezpieczeństwo będą z Wami!'
+      mayTheHealthBeWithYou: 'Niech zdrowie i bezpieczeństwo będą z Wami!',
+      workshop1: 'workshop1',
+      workshop2: 'workshop2',
+      workshop3: 'workshop3',
+      workshop4: 'workshop4',
+      workshop5: 'workshop5',
+      workshop6: 'workshop6'
+    },
+    scheduleBand: {
+      title: 'Harmonogram warsztatów',
+      room1: 'Salka nr 1',
+      room2: 'Salka nr 2',
+      room3: 'Salka nr 3'
     },
     infoForVendorsPage: {
       title: 'Informacje dla wystawców',
@@ -146,6 +170,96 @@ export const pl = {
       standardStand: 'Miejsce Standard 4x2,5m',
       miniStand: 'Miejsce Mini 3x2m',
       taken: 'Miejsce zarezerwowane'
+    },
+    workshops: {
+      buyTicket: 'Kup bilet',
+      firstAid: 'Pierwsza pomoc',
+      freeAdmission: 'Wstęp wolny',
+      firstAidDescription:
+        'Nasze pokazy z pierwszej pomocy to interaktywne wydarzenia, podczas których nasi doświadczeni instruktorzy dzielą się wiedzą na temat podstawowych technik udzielania pomocy przedmedycznej. Pokazy są dostosowane do różnych grup wiekowych i poziomów zaawansowania, aby każdy uczestnik mógł zyskać praktyczne umiejętności, które mogą okazać się życiowo ważne.',
+      decorativeKnitting: 'Dzianiny ozdobne',
+      decorativeKnittingDescription:
+        'Osobom zainteresowanym warsztatami pokaże jak tworzyć dzianiny ażurowe, ozdabianie warkoczami i żakardowe jeśli wystarczy czasu to również wykończenia i-cord. Osoby chcące wziąć udział w warsztatach powinny przynieść ze sobą druty proste lub na żyłce w rozmiarze między 3 a 4mm, odpowiednią dla danego rozmiaru wełnę w 2 kolorach, najlepiej kolory ze sobą kontrastujące oraz drut pomocniczy do warkoczy. Jeśli chodzi o wełnę nie musi to być pełny motek, potrzebujemy ilość która pozwoli na zrobienie próbki interesujących nas dzianin.',
+      price: 'Koszt',
+      haftowaBabaDescription1:
+        'Chcesz nauczyć się jak w ciekawy sposób ozdobić czapki, szaliki, swetry czy rękawiczki?',
+      haftowaBabaDescription2: 'Ciekawi cię haft wełną, jak go wykonać i wykorzystać w swoich udziergach?',
+      haftowaBabaDescription3: 'W takim razie to idealne warsztaty dla Ciebie!',
+      haftowaBabaDescription4:
+        'Zapraszamy Cię na lekcję haftu wełną. Pod moim okiem poznasz kilka technik, inne niż ścieg udający żakardy. Pokażę Ci też jak nakreślić wzór, jak prostymi patentami stworzyć kwiaty, liście, napisy czy proste wzory.',
+      haftowaBabaDescription6:
+        'Osoby chcące wziąć udział w warsztatach powinny przynieść ze sobą włóczkę w różnych kolorach i rozmiarach w ilości minimum dwóch sztuk.',
+      colorfulEmbroidery: 'Haft krakowski kolorowy',
+      colorfulEmbroideryInspirations: 'Inspiracje z tradycyjnych gorsetów krakowskich',
+      colorfulEmbroideryDescription: 'TODO',
+      trainingPlan: 'Plan Pokazów',
+      firstAidLessons: {
+        lesson1: 'Rozpoznawanie zagrożeń i bezpieczeństwo',
+        lessonDescription1:
+          'Uczestnicy dowiedzą się, jak rozpoznawać potencjalne zagrożenia oraz jak zadbać o własne bezpieczeństwo i bezpieczeństwo osób wokół w sytuacjach awaryjnych.',
+        lesson2: 'Resuscytacja krążeniowo-oddechowa (RKO)',
+        lessonDescription2:
+          'Instruktorzy przekażą praktyczne umiejętności związane z wykonywaniem resuscytacji krążeniowo-oddechowej, z użyciem manekina do treningu.',
+        lesson3: 'Zachowanie w przypadku obrażeń i wypadków',
+        lessonDescription3:
+          'Uczestnicy zdobędą wiedzę na temat postępowania w przypadku różnych rodzajów obrażeń, w tym złamań, skręceń czy oparzeń.',
+        lesson4: 'Używanie automatycznego defibrylatora (AED)',
+        lessonDescription4:
+          'Praktyczne szkolenie z obsługi AED, wskazówki dotyczące lokalizacji urządzeń oraz skuteczne wykorzystanie ich w nagłych sytuacjach.',
+        lesson5: 'Ćwiczenia praktyczne',
+        lessonDescription5:
+          'Uczestnicy będą mieli okazję do praktycznego zastosowania zdobytej wiedzy podczas symulacji różnych sytuacji awaryjnych.'
+      },
+      firstAidQuote: 'Ten, kto ratuje życie jednego człowieka, ratuje cały świat',
+      firstAidIntro: 'Wśród wszystkich wspaniałych warsztatów, te są najbardziej wyjątkowe.',
+      firstAidSuperhero:
+        'Dzięki poznanym tu umiejętnościom zostaniecie Superbohaterkami i Superbohaterami, które będą potrafiły uratować świat.',
+      raffia: 'Szydełkowanie z rafii - pierwsze kroki.',
+      raffiaDescription:
+        'Na warsztatach uczestnicy zapoznają się z rafią oraz technikami jej przerabiania. Podzielę się wiedzą jaką zdobyłam podczas kilkuletniej pracy z tym włóknem. Chętnie odpowiem na nurtujące  pytania. Ze spotkania uczestnicy wyjdą z wydzierganą przez siebie mini torebką lub jej częścią😉 Materiały potrzebne do pracy uczestnicy przynoszą we własnym zakresie.',
+      raffiaNeededMaterials: 'Potrzebne materiały, które można zakupić w sklepie biferno.pl:',
+      raffiaGptex: 'Rafia GPTEX - 2 motki',
+      raffiaCrochet: 'Szydełko nr 3mm,  3.5mm, 4mm',
+      raffiaStrap: 'Skórzany rzemyk',
+      raffiaBifernoDiscount: 'Dla każdego z uczestników rabat -15% w sklepie Biferno na wyżej wymienione produkty.',
+      knitolog: {
+        topic: 'Zaprojektuj swój sweter na drutach ',
+        subtopic: '(raglanem, od góry, na okrągło)',
+        plan: 'Podczas warsztatów nauczysz się: ',
+        lesson1: 'jak rozliczyć raglan',
+        lesson2: 'jak zamknąć oczka w okrążeniu i pracować metodą Magic Loop',
+        lesson3: 'jak robić japońskie rzędy skrócone',
+        lesson4: 'jak dodawać oczka w raglanie, po prawej i po lewej stronie',
+        lesson5: 'jak zrobić głębszy lub płytszy dekolt',
+        lesson6: 'jak rozdzielić korpus i rękawy',
+        lesson7: 'jak estetycznie nabrać oczka pod pachą',
+        pattern:
+          'Każdy uczestnik warsztatów otrzyma wzór na sweter, na bazie którego będziemy pracować. Aby wziąć udział w warsztatach wystarczą podstawowe umiejętności dziewiarskie.',
+        materialsNeeded: 'Materiały potrzebne na warsztaty:',
+        wool: 'motek włóczki o grubości ok. 200 m w 100 g (ok. 100 m w 50 g)',
+        knittingNeedles: 'druty 4,00 mm z żyłką 80 cm (lub taką na jakiej lubisz robić swetry w okrążeniach)',
+        markers: 'markery dziewiarskie 9 szt.',
+        pinMarkers: ' markery odpinane w formie agrafki: 10-12 szt.'
+      },
+      freeYourIdeas: {
+        topic: 'Uwolnij pomysły! Jak zbierać i czytać inspiracje do projektów.',
+        description:
+          'Uwolnij Pomysły to warsztaty na których dosłownie uwalniamy pomysły! Mam na imię Marta, robię na drutach i uwielbiam się dzielić wiedzą, dlatego podczas spotkania pokażę Tobie metody na walkę z blokadą twórczą, podpowiem gdzie można znaleźć inspiracje, pomogę stworzyć moodboard i dam wskazówki jak przełożyć to wszystko na język projektowy. Przez kilka godzin będziemy się twórczo bawić tworząc z kolorowych wycinków tablice inspiracji i szkicując na szablonach autorskie projekty.',
+        booklet:
+          'Na każdą osobę uczestniczącą w warsztatach Uwolnij Pomysły będą czekać broszury z notatkami, wycinki do tworzenia moodboardów oraz szablony do szkicowania projektów.',
+        takeFreeMind: 'Pamiętaj aby zabrać ze sobą otwartą głowę gotową na kreatywne pobudzenie.',
+        seeYou: 'Do zobaczenia w Krakowie!',
+        meetMe: 'Jeśli masz ochotę mnie bardziej poznać to zapraszam na mojego instagrama @marta.kania'
+      },
+      ewa: {
+        topic: 'Zielone druty',
+        misteries: 'Na warsztatach dla początkujących wprowadzę Cię w tajniki i mistyczne arkana sztuki dziewiarskiej.',
+        plan: 'Poznasz różne rodzaje materiałów z którymi zazwyczaj pracujemy, nauczę Cię paru technik nabierania oczek, poznasz podstawy - prawe i lewe oczka. Zapoznam z metodą dodawania oraz ujmowania oczek oraz zakańczania dzianiny. Pokażę Ci dziewiarskie akcesoria, które ułatwiają życie dziewiarce/dziewiarzowi. Wytłumaczę, jak czytać wzory w książkach i na banderolach. Przerobimy razem kawałek dzianiny.',
+        debugging:
+          'Oczywiście pokażę, jak ratować zgubione oczka lub naprawiać proste błędy. Postaram się odpowiedzieć na nurtujące pytania.',
+        forBeginners:
+          'Grupa dla początkujących, zaczynających przygodę z drutami, jak i dla tych co chcą nabrać pewności w swoich robótkach'
+      }
     }
   }
 };
