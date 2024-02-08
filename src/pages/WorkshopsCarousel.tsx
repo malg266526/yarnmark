@@ -35,18 +35,7 @@ import DoRanyPrzylozUrlAvif from './../assets/images/workshops/doranyprzyloz.avi
 import DoRanyPrzylozUrl from './../assets/images/workshops/doranyprzyloz.jpg';
 import DoRanyPrzylozUrlWebp from './../assets/images/workshops/doranyprzyloz.webp';
 
-<<<<<<< HEAD:src/pages/WorkshopsCarousel.tsx
-import Blob from './../assets/blobs/blob.svg';
-import Blob1 from './../assets/blobs/blob1.svg';
-import Blob2 from './../assets/blobs/blob2.svg';
-import Blob3 from './../assets/blobs/blob3.svg';
-import Blob4 from './../assets/blobs/blob4.svg';
-
-import { Icon } from '../components/Icon';
 import { RowLayout } from '../components/RowLayout';
-=======
-import { RowLayout } from './RowLayout';
->>>>>>> 6cd2795c74e7efbc4a81bb4d24d55c2f50d19ad0:src/components/WorkshopsCarousel.tsx
 
 import knittingSvgUrl from '../assets/images/skein3.svg';
 

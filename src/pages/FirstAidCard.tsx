@@ -6,17 +6,11 @@ import { useTypedTranslation } from '../translations/useTypedTranslation';
 import PierwszaPomocUrlAvif from './../assets/images/workshops/pierwszapomoc.avif';
 import PierwszaPomocUrl from './../assets/images/workshops/pierwszapomoc.jpg';
 import PierwszaPomocUrlWebp from './../assets/images/workshops/pierwszapomoc.webp';
-<<<<<<< HEAD:src/pages/FirstAidCard.tsx
 import { Picture } from '../components/Picture';
 import { Title } from '../components/Title';
 import { TransparentButton } from '../components/TransparentButton';
-=======
-import { Picture } from './Picture';
-import { Title } from './Title';
-import { TransparentButton } from './TransparentButton';
 import { Icon as IconifyIcon } from '@iconify/react';
 import firstAidIcon from './../assets/backgrounds/firstAid.svg';
->>>>>>> 6cd2795c74e7efbc4a81bb4d24d55c2f50d19ad0:src/components/FirstAidCard.tsx
 
 const Root = styled.div`
   display: flex;
