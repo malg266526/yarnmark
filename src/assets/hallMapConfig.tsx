@@ -8,6 +8,10 @@ import AnimotkiLogoUrl from './../assets/images/logos/animotki.jpg';
 import AnimotkiLogoUrlAvif from './../assets/images/logos/animotki.avif';
 import AnimotkiLogoUrlWebp from './../assets/images/logos/animotki.webp';
 
+import BawelnianyFilamentLogoUrl from './../assets/images/logos/bawelnianyfilament.jpg';
+import BawelnianyFilamentLogoUrlAvif from './../assets/images/logos/bawelnianyfilament.avif';
+import BawelnianyFilamentLogoUrlWebp from './../assets/images/logos/bawelnianyfilament.webp';
+
 import BifernoLogoUrl from './../assets/images/logos/biferno.jpg';
 import BifernoLogoUrlAvif from './../assets/images/logos/biferno.avif';
 import BifernoLogoUrlWebp from './../assets/images/logos/biferno.webp';
@@ -52,6 +56,10 @@ import MokoszaLogoUrl from './../assets/images/logos/mokosza.jpg';
 import MokoszaLogoUrlAvif from './../assets/images/logos/mokosza.avif';
 import MokoszaLogoUrlWebp from './../assets/images/logos/mokosza.webp';
 
+import MotkomaniaLogoUrl from './../assets/images/logos/motkomania.jpg';
+import MotkomaniaLogoUrlAvif from './../assets/images/logos/motkomania.avif';
+import MotkomaniaLogoUrlWebp from './../assets/images/logos/motkomania.webp';
+
 import NaSztukiStudioLogoUrlAvif from './../assets/images/logos/nasztukistudio.avif';
 import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.jpg';
 import NaSztukiStudioLogoUrlWebp from './../assets/images/logos/nasztukistudio.webp';
@@ -68,6 +76,10 @@ import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
 import TimeToKnitLogoUrlWebp from './../assets/images/logos/timetoknit.webp';
 
 import TheKnittingBoxLogoUrl from './../assets/images/logos/theknittingbox.png';
+
+import WelnaBawelnaLogoUrl from './../assets/images/logos/WelnaBawelna.jpg';
+import WelnaBawelnaLogoUrlAvif from './../assets/images/logos/WelnaBawelna.avif';
+import WelnaBawelnaLogoUrlWebp from './../assets/images/logos/WelnaBawelna.webp';
 
 import WoollalaLogoUrlAvif from './../assets/images/logos/woollala.avif';
 import WoollalaLogoUrl from './../assets/images/logos/woollala.jpg';
@@ -216,7 +228,20 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'S5',
           height: 4,
-          who: 'BawełnianyFilament & MalinowyKos'
+          who: 'BawełnianyFilament & MalinowyKos',
+          picture: {
+            fallbackUrl: BawelnianyFilamentLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: BawelnianyFilamentLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: BawelnianyFilamentLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 2.5,
@@ -417,14 +442,40 @@ export const hallMapConfig: HallMapType = {
           height: 2.5,
           color: 'taken2',
           index: 'S14',
-          who: 'WełnaBawełna'
+          who: 'WełnaBawełna',
+          picture: {
+            fallbackUrl: WelnaBawelnaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: WelnaBawelnaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: WelnaBawelnaLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken2',
           index: 'S15',
-          who: 'WełnaBawełna'
+          who: 'WełnaBawełna',
+          picture: {
+            fallbackUrl: WelnaBawelnaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: WelnaBawelnaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: WelnaBawelnaLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 5,
@@ -715,7 +766,20 @@ export const hallMapConfig: HallMapType = {
           height: 3,
           color: 'taken',
           index: 'P5',
-          who: 'Motkomania'
+          who: 'Motkomania',
+          picture: {
+            fallbackUrl: MotkomaniaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: MotkomaniaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: MotkomaniaLogoUrlAvif
+              }
+            ]
+          }
         }
       ]
     },

@@ -8,6 +8,10 @@ import AnimotkiLogoUrl from './../assets/images/logos/animotki.jpg';
 import AnimotkiLogoUrlAvif from './../assets/images/logos/animotki.avif';
 import AnimotkiLogoUrlWebp from './../assets/images/logos/animotki.webp';
 
+import BawelnianyFilamentLogoUrl from './../assets/images/logos/bawelnianyfilament.jpg';
+import BawelnianyFilamentLogoUrlAvif from './../assets/images/logos/bawelnianyfilament.avif';
+import BawelnianyFilamentLogoUrlWebp from './../assets/images/logos/bawelnianyfilament.webp';
+
 import BifernoLogoUrl from './../assets/images/logos/biferno.jpg';
 import BifernoLogoUrlAvif from './../assets/images/logos/biferno.avif';
 import BifernoLogoUrlWebp from './../assets/images/logos/biferno.webp';
@@ -52,6 +56,10 @@ import MokoszaLogoUrl from './../assets/images/logos/mokosza.jpg';
 import MokoszaLogoUrlAvif from './../assets/images/logos/mokosza.avif';
 import MokoszaLogoUrlWebp from './../assets/images/logos/mokosza.webp';
 
+import MotkomaniaLogoUrl from './../assets/images/logos/motkomania.jpg';
+import MotkomaniaLogoUrlAvif from './../assets/images/logos/motkomania.avif';
+import MotkomaniaLogoUrlWebp from './../assets/images/logos/motkomania.webp';
+
 import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.jpg';
 import NaSztukiStudioLogoUrlAvif from './../assets/images/logos/nasztukistudio.avif';
 import NaSztukiStudioLogoUrlWebp from './../assets/images/logos/nasztukistudio.webp';
@@ -68,6 +76,11 @@ import TimeToKnitLogoUrlAvif from './../assets/images/logos/timetoknit.avif';
 import TimeToKnitLogoUrlWebp from './../assets/images/logos/timetoknit.webp';
 
 import TheKnittingBoxLogoUrl from './../assets/images/logos/theknittingbox.png';
+
+import WelnaBawelnaLogoUrl from './../assets/images/logos/WelnaBawelna.jpg';
+import WelnaBawelnaLogoUrlAvif from './../assets/images/logos/WelnaBawelna.avif';
+import WelnaBawelnaLogoUrlWebp from './../assets/images/logos/WelnaBawelna.webp';
+
 import WloczykijkiLogoUrl from './../assets/images/logos/wloczykijki_logo.png';
 
 import WoollalaLogoUrl from './../assets/images/logos/woollala.jpg';
@@ -115,6 +128,26 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: AnimotkiLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://www.facebook.com/bawelnianyfilament/" target="_blank" rel="noreferrer">
+        <Picture
+          width={160}
+          alt="bawelnianyfilament"
+          picture={{
+            fallbackUrl: BawelnianyFilamentLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: BawelnianyFilamentLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: BawelnianyFilamentLogoUrlAvif
               }
             ]
           }}
@@ -341,6 +374,26 @@ export const VendorsList = () => {
         />
       </Link>
 
+      <Link to="https://motkomania.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={160}
+          alt="motkomania"
+          picture={{
+            fallbackUrl: MotkomaniaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: MotkomaniaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: MotkomaniaLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
       <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -411,6 +464,26 @@ export const VendorsList = () => {
 
       <Link to="https://theknittingbox.pl" target="_blank" rel="noreferrer">
         <img width={120} src={TheKnittingBoxLogoUrl} alt="theknittingbox" />
+      </Link>
+
+      <Link to="https://welnabawelna.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={180}
+          alt="welnabawelna"
+          picture={{
+            fallbackUrl: WelnaBawelnaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: WelnaBawelnaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: WelnaBawelnaLogoUrlAvif
+              }
+            ]
+          }}
+        />
       </Link>
 
       <Link to="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
