@@ -44,6 +44,7 @@ export const CenteredTitle = styled.h2`
   font-size: 40px;
   font-weight: 600;
   align-self: center;
+  z-index: 2;
 `;
 
 export const SecondaryButton = styled.button`
@@ -392,4 +393,15 @@ export const AbsoluteWrapper = styled.div`
 export const WorkshopsWrapper = styled.div`
   width: 100%;
   padding: 0 ${Spacings.xxl};
+`;
+
+export const Paragraph = styled.div`
+  max-width: 500px;
+`;
+
+export const BackgroundIcon = styled.img`
+  position: absolute;
+  top: 400px;
+  left: 160px;
+  opacity: 0.75;
 `;
