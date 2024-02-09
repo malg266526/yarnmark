@@ -1,5 +1,6 @@
 import React, { ReactNode, useCallback, useEffect, useMemo, useRef } from 'react';
 import styled, { css } from 'styled-components';
+import { Icon as IconifyIcon } from '@iconify/react';
 import skeinIconSrc from '../assets/images/skein3.svg';
 import { Spacings } from '../styles/spacings';
 
@@ -31,7 +32,7 @@ const Footer = styled.div`
   flex: 1 0;
 `;
 
-const ClickElement = styled.div<{ side: 'left' | 'right' }>`
+const ClickElement = styled.div<{ side: 'left' | 'right'; visible?: boolean }>`
   position: absolute;
   ${({ side }) =>
     side === 'left'
@@ -45,6 +46,42 @@ const ClickElement = styled.div<{ side: 'left' | 'right' }>`
   width: ${(100 - ITEM_ELEMENT_WIDTH) / 2}%;
   height: 100%;
   z-index: 1;
+  padding: ${Spacings.md};
+
+  display: flex;
+  justify-content: ${({ side }) => side === 'left' ? 'flex-end' : 'flex-start'};
+  align-items: center;
+  opacity: ${({ visible }) => visible ? 0.35 : 0};
+  pointer-events: ${({ visible }) => visible ? 'auto' : 'none'};
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+`;
+
+const ItemBackground = styled.picture<{ opacity?: number; background?: string }>`
+  position: absolute;
+  left: 0;
+  top: 0;
+  ${({ background }) => background && css`
+    &:after {
+      content: '';
+      display: block;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: ${background}; 
+    }
+  `};
+  
+  &, > img {
+    ${({ opacity }) => Number.isFinite(opacity) && css`
+      opacity: ${opacity};
+    `}
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 `;
 
 const Indicator = styled.div<{ active?: boolean }>`
@@ -142,39 +179,41 @@ const Root = styled.div<RootProps>`
   `};
 `;
 
-const Item = styled.div`
+const Item = styled.div<{ icon?: boolean }>`
   min-width: 200px;
   min-height: 200px;
   background: white;
   box-shadow: 8px 8px 18px 0px rgba(66, 68, 90, 1);
   padding: ${Spacings.md};
 
-  &:before {
-    content: '';
-    display: block;
-    left: ${Spacings.sm};
-    top: ${Spacings.sm};
-    position: absolute;
-    width: 20px;
-    height: 20px;
+  ${({ icon }) => icon && css`
+    &:before {
+      content: '';
+      display: block;
+      left: ${Spacings.sm};
+      top: ${Spacings.sm};
+      position: absolute;
+      width: 20px;
+      height: 20px;
 
-    background: url(${skeinIconSrc});
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
-    transition: all 150ms ease-int-out;
-  }
+      background: url(${skeinIconSrc});
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: center;
+      transition: all 150ms ease-int-out;
+    }
+  `};
 `;
 
 const getVisibleIndexes = (middleIndex: number, percentage: number): VisibleIndex[] => [
-  { index: middleIndex - 2, left: 0, opacity: 0, pointerEvents: 'none', translateXZ: [-100, -1500] },
+  { index: middleIndex - 2, left: 0, opacity: 0, pointerEvents: 'none', translateXZ: [-100, -6000] },
   { index: middleIndex - 1, left: 0, opacity: 1, pointerEvents: 'none', translateXZ: [0, -1500] },
   { index: middleIndex - 0, left: 50, opacity: 1, pointerEvents: 'initial', translateXZ: [-50, 0], zIndex: 1 },
   { index: middleIndex + 1, left: 100, opacity: 1, pointerEvents: 'none', translateXZ: [-100, -1500] },
-  { index: middleIndex + 2, left: 100, opacity: 0, pointerEvents: 'none', translateXZ: [0, -1500] }
+  { index: middleIndex + 2, left: 100, opacity: 0, pointerEvents: 'none', translateXZ: [0, -6000] }
 ];
 
-export interface CarouselgeProps extends Pick<RootProps, 'width'> {
+export interface CarouselgeProps extends RootProps {
   className?: string;
   onChange: (index: number) => void;
   selectedIndex: number;
@@ -184,6 +223,10 @@ export interface CarouselgeProps extends Pick<RootProps, 'width'> {
 
 const MINIMUM_MOUSE_MOVE_TO_TRIGGER_CHANGE = 100;
 
+// TODO add motion to drag
+// TODO add timer for automatic change
+// TODO make indicators white
+// TODO add linked variant
 export const Carouselge = Object.assign(
   ({ onChange, indicators, selectedIndex, children, ...rest }: CarouselgeProps) => {
     const childrenCount = useMemo(() => React.Children.count(children), [children]);
@@ -208,6 +251,8 @@ export const Carouselge = Object.assign(
     }, [updateSize]);
 
     const mouseDownDataRef = useRef<{ x: number; y: number } | undefined>(undefined);
+
+    const isIndexValid = useCallback((index: number) => index <= childrenCount - 1 && index > -1, [childrenCount]);
 
     const handleChange = (newValue: number) => {
       if (newValue <= childrenCount - 1 && newValue > -1) {
@@ -245,19 +290,24 @@ export const Carouselge = Object.assign(
         <OuterWrapper>
           <ClickElement
             side="left"
+            visible={isIndexValid(selectedIndex - 1)}
             onClick={(e) => {
               e.preventDefault();
               handleChange(selectedIndex - 1);
             }}
-          />
+          >
+            <IconifyIcon icon="mdi:arrow-left" width="50" />
+          </ClickElement>
           <ClickElement
             side="right"
+            visible={isIndexValid(selectedIndex + 1)}
             onClick={(e) => {
               e.preventDefault();
               handleChange(selectedIndex + 1);
             }}
-          />
-
+          >
+            <IconifyIcon icon="mdi:arrow-right" width="50" />
+          </ClickElement>
           <ChildrenWrapper
             ref={childrenWrapperRef}
             onMouseDown={(e) => {
@@ -282,5 +332,5 @@ export const Carouselge = Object.assign(
       </Root>
     );
   },
-  { Item }
+  { Item, ItemBackground }
 );
