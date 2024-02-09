@@ -64,7 +64,7 @@ import siedemOczekLogoUrl from './../assets/images/minifiedLogos/7oczek.jpg';
 import siedemOczekLogoUrlAvif from './../assets/images/minifiedLogos/7oczek.avif';
 import siedemOczekLogoUrlWebp from './../assets/images/minifiedLogos/7oczek.webp';
 
-import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
+import strikkeLogoUrl from './../assets/images/minifiedLogos/strikke.png';
 
 import pimotkiLogoUrl from './../assets/images/minifiedLogos/pimotki.png';
 
@@ -74,22 +74,24 @@ import timeToKnitLogoUrlWebp from './../assets/images/minifiedLogos/timetoknit.w
 
 import theKnittingBoxLogoUrl from './../assets/images/minifiedLogos/theknittingbox.png';
 
-import WelnaBawelnaLogoUrl from './../assets/images/logos/WelnaBawelna.jpg';
-import WelnaBawelnaLogoUrlAvif from './../assets/images/logos/WelnaBawelna.avif';
-import WelnaBawelnaLogoUrlWebp from './../assets/images/logos/WelnaBawelna.webp';
+import welnaBawelnaLogoUrl from './../assets/images/minifiedLogos/WelnaBawelna.jpg';
+import welnaBawelnaLogoUrlAvif from './../assets/images/minifiedLogos/WelnaBawelna.avif';
+import welnaBawelnaLogoUrlWebp from './../assets/images/minifiedLogos/WelnaBawelna.webp';
 
-import WloczykijkiLogoUrl from './../assets/images/logos/wloczykijki_logo.png';
+import wloczykijkiLogoUrl from './../assets/images/minifiedLogos/wloczykijki.png';
+import wloczykijkiLogoUrlAvif from './../assets/images/minifiedLogos/wloczykijki.avif';
+import wloczykijkiLogoUrlWebp from './../assets/images/minifiedLogos/wloczykijki.webp';
 
-import WoollalaLogoUrl from './../assets/images/minifiedLogos/woollala.png';
-import WoollalaLogoUrlWebp from './../assets/images/minifiedLogos/woollala.webp';
+import woollalaLogoUrl from './../assets/images/minifiedLogos/woollala.png';
+import woollalaLogoUrlWebp from './../assets/images/minifiedLogos/woollala.webp';
 
-import WoolloopLogoUrl from './../assets/images/logos/woolloop.jpg';
-import WoolloopLogoUrlAvif from './../assets/images/logos/woolloop.avif';
-import WoolloopLogoUrlWebp from './../assets/images/logos/woolloop.webp';
+import woolloopLogoUrl from './../assets/images/minifiedLogos/woolloop.png';
+import woolloopLogoUrlAvif from './../assets/images/minifiedLogos/woolloop.avif';
+import woolloopLogoUrlWebp from './../assets/images/minifiedLogos/woolloop.webp';
 
-import WooloveLogoUrl from './../assets/images/logos/woolove.jpg';
-import WooloveLogoUrlAvif from './../assets/images/logos/woolove.avif';
-import WooloveLogoUrlWebp from './../assets/images/logos/woolove.webp';
+import wooloveLogoUrl from './../assets/images/minifiedLogos/woolove.png';
+import wooloveLogoUrlAvif from './../assets/images/minifiedLogos/woolove.avif';
+import wooloveLogoUrlWebp from './../assets/images/minifiedLogos/woolove.webp';
 
 import { Picture } from '../components/Picture';
 
@@ -252,7 +254,7 @@ export const VendorsList = () => {
 
       <Link to="https://knitpl.com/" target="_blank" rel="noreferrer">
         <Picture
-          width={100}
+          width={90}
           alt="knitpl"
           picture={{
             fallbackUrl: knitPlLogoUrl,
@@ -296,7 +298,7 @@ export const VendorsList = () => {
 
       <Link to="https://www.facebook.com/groups/1020511551665421/" target="_blank" rel="noreferrer">
         <Picture
-          width={120}
+          width={100}
           alt="maniachomikuje"
           picture={{
             fallbackUrl: maniaChomikujeLogoUrl,
@@ -383,7 +385,7 @@ export const VendorsList = () => {
       </Link>
 
       <Link to="https://strikke.pl/" target="_blank" rel="noreferrer">
-        <img width={150} src={StrikkeLogoUrl} alt="Strikke" />
+        <img width={150} src={strikkeLogoUrl} alt="Strikke" />
       </Link>
 
       <Link to="https://7oczek.pl/pl/" target="_blank" rel="noreferrer">
@@ -427,23 +429,23 @@ export const VendorsList = () => {
       </Link>
 
       <Link to="https://theknittingbox.pl" target="_blank" rel="noreferrer">
-        <img width={100} src={theKnittingBoxLogoUrl} alt="theknittingbox" />
+        <img width={180} src={theKnittingBoxLogoUrl} alt="theknittingbox" />
       </Link>
 
       <Link to="https://welnabawelna.pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={180}
+          width={200}
           alt="welnabawelna"
           picture={{
-            fallbackUrl: WelnaBawelnaLogoUrl,
+            fallbackUrl: welnaBawelnaLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: WelnaBawelnaLogoUrlWebp
+                url: welnaBawelnaLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: WelnaBawelnaLogoUrlAvif
+                url: welnaBawelnaLogoUrlAvif
               }
             ]
           }}
@@ -451,19 +453,35 @@ export const VendorsList = () => {
       </Link>
 
       <Link to="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
-        <img width={150} src={WloczykijkiLogoUrl} alt="wloczykijki" />
+        <Picture
+          width={150}
+          alt="wloczykijki_logo"
+          picture={{
+            fallbackUrl: wloczykijkiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: wloczykijkiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: wloczykijkiLogoUrlAvif
+              }
+            ]
+          }}
+        />
       </Link>
 
       <Link to="https://www.woollala.com" target="_blank" rel="noreferrer">
         <Picture
-          width={100}
+          width={140}
           alt="woollala"
           picture={{
-            fallbackUrl: WoollalaLogoUrl,
+            fallbackUrl: woollalaLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: WoollalaLogoUrlWebp
+                url: woollalaLogoUrlWebp
               }
             ]
           }}
@@ -475,15 +493,15 @@ export const VendorsList = () => {
           width={100}
           alt="woolloop"
           picture={{
-            fallbackUrl: WoolloopLogoUrl,
+            fallbackUrl: woolloopLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: WoolloopLogoUrlWebp
+                url: woolloopLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: WoolloopLogoUrlAvif
+                url: woolloopLogoUrlAvif
               }
             ]
           }}
@@ -495,15 +513,15 @@ export const VendorsList = () => {
           width={100}
           alt="woolove"
           picture={{
-            fallbackUrl: WooloveLogoUrl,
+            fallbackUrl: wooloveLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: WooloveLogoUrlWebp
+                url: wooloveLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: WooloveLogoUrlAvif
+                url: wooloveLogoUrlAvif
               }
             ]
           }}
