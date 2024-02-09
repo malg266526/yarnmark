@@ -2,6 +2,17 @@ import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { PageContent } from '../components/PageContent';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
+import wineWebpSrc from '../assets/images/wine.webp';
+import wineAvifSrc from '../assets/images/wine.avif';
+import winePngSrc from '../assets/images/wine.png';
+
+import tickets from '../assets/images/tickets.png';
+
+import wineOnAShoreAvifSrc from '../assets/images/wine-on-a-shore.webp';
+import wineOnAShoreWebpSrc from '../assets/images/wine-on-a-shore.avif';
+import wineOnAShorePngSrc from '../assets/images/wine-on-a-shore.png';
+
+import bigShopImageUrl from '../assets/iconify/bigshop.svg';
 // import burgerImageUrl from '../assets/iconify/burger.svg';
 // import coffeeImageUrl from '../assets/iconify/coffee.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
@@ -85,6 +96,7 @@ import sweatersBackgroundUrlAvif from './../assets/backgrounds/sweaters_backgrou
 import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
 
 import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
+import { Carouselge } from '../components/Carouselge';
 
 // type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
@@ -174,7 +186,7 @@ export const MainPage = () => {
 
   // const activeButtonToImage = getActiveButtonToImage(t);
 
-  const observerCallback = useCallback(() => {}, []);
+  const observerCallback = useCallback(() => { }, []);
 
   useRootIntersectionObserver({
     rootRef: pageContentRef,
@@ -244,6 +256,8 @@ export const MainPage = () => {
     ),
     []
   );
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const infoSectionButtons = useMemo(
     () => (
@@ -446,7 +460,7 @@ export const MainPage = () => {
               <div>
                 <Text>{t('welcomeBand.seeYou')}</Text>
                 <Text>DziergamyNaPolu x Włóczykijki</Text>
-              </div>
+          </div>
 
               <img src={yarnmarkLogoSrc} alt="yarnmark_logo" width={156} />
             </RowLayout>
