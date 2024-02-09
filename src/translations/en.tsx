@@ -190,21 +190,21 @@ export const en: TranslationsShape = {
       colorfulEmbroideryDescription: 'TODO',
       trainingPlan: 'Schedule',
       firstAidLessons: {
-        lesson1: 'Rozpoznawanie zagrożeń i bezpieczeństwo',
+        lesson1: 'Hazard recognition and safety',
         lessonDescription1:
-          'Opis: Uczestnicy dowiedzą się, jak rozpoznawać potencjalne zagrożenia oraz jak zadbać o własne bezpieczeństwo i bezpieczeństwo osób wokół w sytuacjach awaryjnych.',
+          'Uczestnicy dowiedzą się, jak rozpoznawać potencjalne zagrożenia oraz jak zadbać o własne bezpieczeństwo i bezpieczeństwo osób wokół w sytuacjach awaryjnych.',
         lesson2: 'Resuscytacja krążeniowo-oddechowa (RKO)',
         lessonDescription2:
           'Instruktorzy przekażą praktyczne umiejętności związane z wykonywaniem resuscytacji krążeniowo-oddechowej, z użyciem manekina do treningu.',
-        lesson3: 'Zachowanie w przypadku obrażeń i wypadków',
+        lesson3: 'Behavior in the event of injuries and accidents',
         lessonDescription3:
-          'Opis: Uczestnicy zdobędą wiedzę na temat postępowania w przypadku różnych rodzajów obrażeń, w tym złamań, skręceń czy oparzeń.',
-        lesson4: 'Używanie automatycznego defibrylatora (AED)',
+          'Uczestnicy zdobędą wiedzę na temat postępowania w przypadku różnych rodzajów obrażeń, w tym złamań, skręceń czy oparzeń.',
+        lesson4: 'Using an automatic defibrillator (AED)',
         lessonDescription4:
-          'Opis: Praktyczne szkolenie z obsługi AED, wskazówki dotyczące lokalizacji urządzeń oraz skuteczne wykorzystanie ich w nagłych sytuacjach.',
+          'Praktyczne szkolenie z obsługi AED, wskazówki dotyczące lokalizacji urządzeń oraz skuteczne wykorzystanie ich w nagłych sytuacjach.',
         lesson5: 'Ćwiczenia praktyczne',
         lessonDescription5:
-          'Opis: Uczestnicy będą mieli okazję do praktycznego zastosowania zdobytej wiedzy podczas symulacji różnych sytuacji awaryjnych.'
+          'Participants will have the opportunity to practically apply the acquired knowledge during simulations of various emergency situations.'
       },
       firstAidQuote: 'Ten, kto ratuje życie jednego człowieka, ratuje cały świat',
       firstAidIntro: 'Wśród wszystkich wspaniałych warsztatów, te są najbardziej wyjątkowe.',
@@ -219,32 +219,32 @@ export const en: TranslationsShape = {
       raffiaStrap: 'Skórzany rzemyk',
       raffiaBifernoDiscount: 'Dla każdego z uczestników rabat -15% w sklepie Biferno na wyżej wymienione produkty',
       knitolog: {
-        topic: 'Zaprojektuj swój sweter na drutach ',
-        subtopic: '(raglanem, od góry, na okrągło)',
+        topic: 'Design your own sweater',
+        subtopic: '(raglan, from the top, in the round)',
         plan: 'Podczas warsztatów nauczysz się: ',
         lesson1: 'jak rozliczyć raglan',
-        lesson2: 'jak zamknąć oczka w okrążeniu i pracować metodą Magic Loop',
+        lesson2: 'how to decrease stitches in a round and work with the Magic Loop method',
         lesson3: 'jak robić japońskie rzędy skrócone',
         lesson4: 'jak dodawać oczka w raglanie, po prawej i po lewej stronie',
-        lesson5: 'jak zrobić głębszy lub płytszy dekolt',
+        lesson5: 'how to make a deeper or shallower neckline',
         lesson6: 'jak rozdzielić korpus i rękawy',
         lesson7: 'jak estetycznie nabrać oczka pod pachą',
         pattern:
           'Każdy uczestnik warsztatów otrzyma wzór na sweter, na bazie którego będziemy pracować. Aby wziąć udział w warsztatach wystarczą podstawowe umiejętności dziewiarskie.',
         materialsNeeded: 'Materiały potrzebne na warsztaty:',
-        wool: 'motek włóczki o grubości ok. 200 m w 100 g (ok. 100 m w 50 g)',
+        wool: 'a skein of yarn approx. 200m in 100g (approx. 100m in 50g)',
         knittingNeedles: 'druty 4,00 mm z żyłką 80 cm (lub taką na jakiej lubisz robić swetry w okrążeniach)',
         markers: 'markery dziewiarskie 9 szt.',
-        pinMarkers: ' markery odpinane w formie agrafki: 10-12 szt.'
+        pinMarkers: 'safety pin markers: 10-12 pcs.'
       },
       freeYourIdeas: {
         topic: 'Uwolnij pomysły! Jak zbierać i czytać inspiracje do projektów.',
         description:
           'Uwolnij Pomysły to warsztaty na których dosłownie uwalniamy pomysły! Mam na imię Marta, robię na drutach i uwielbiam się dzielić wiedzą, dlatego podczas spotkania pokażę Tobie metody na walkę z blokadą twórczą, podpowiem gdzie można znaleźć inspiracje, pomogę stworzyć moodboard i dam wskazówki jak przełożyć to wszystko na język projektowy. Przez kilka godzin będziemy się twórczo bawić tworząc z kolorowych wycinków tablice inspiracji i szkicując na szablonach autorskie projekty.',
         booklet:
-          'Na każdą osobę uczestniczącą w warsztatach Uwolnij Pomysły będą czekać broszury z notatkami, wycinki do tworzenia moodboardów oraz szablony do szkicowania projektów.',
+          'Each participant of the workshop will receive brochures with notes, clippings for creating mood boards and templates for sketching projects.',
         takeFreeMind: 'Pamiętaj aby zabrać ze sobą otwartą głowę gotową na kreatywne pobudzenie.',
-        seeYou: 'Do zobaczenia w Krakowie!',
+        seeYou: 'See you in Cracow!',
         meetMe: 'Jeśli masz ochotę mnie bardziej poznać to zapraszam na mojego instagrama @marta.kania'
       },
       ewa: {
@@ -254,7 +254,7 @@ export const en: TranslationsShape = {
         debugging:
           'Oczywiście pokażę, jak ratować zgubione oczka lub naprawiać proste błędy. Postaram się odpowiedzieć na nurtujące pytania.',
         forBeginners:
-          'Grupa dla początkujących, zaczynających przygodę z drutami, jak i dla tych co chcą nabrać pewności w swoich robótkach'
+          'A group for beginners who are starting their adventure with knitting, as well as for those who want to gain confidence in their knitting'
       }
     }
   }
