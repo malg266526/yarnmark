@@ -255,6 +255,9 @@ export const en: TranslationsShape = {
           'Oczywiście pokażę, jak ratować zgubione oczka lub naprawiać proste błędy. Postaram się odpowiedzieć na nurtujące pytania.',
         forBeginners:
           'A group for beginners who are starting their adventure with knitting, as well as for those who want to gain confidence in their knitting'
+      },
+      doRanyPrzyloz: {
+        topic: 'niewiadomo'
       }
     }
   }
