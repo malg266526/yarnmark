@@ -58,15 +58,16 @@ import MotkomaniaLogoUrl from './../assets/images/logos/motkomania.jpg';
 import MotkomaniaLogoUrlAvif from './../assets/images/logos/motkomania.avif';
 import MotkomaniaLogoUrlWebp from './../assets/images/logos/motkomania.webp';
 
-import NaSztukiStudioLogoUrlAvif from './../assets/images/logos/nasztukistudio.avif';
-import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.jpg';
-import NaSztukiStudioLogoUrlWebp from './../assets/images/logos/nasztukistudio.webp';
+import NaSztukiStudioLogoUrl from './../assets/images/minifiedLogos/nasztukistudio.png';
 
 import PimotkiLogoUrl from './../assets/images/logos/pimotki.jpg';
 import PimotkiLogoUrlAvif from './../assets/images/logos/pimotki.avif';
 import PimotkiLogoUrlWebp from './../assets/images/logos/pimotki.webp';
 
-import SiedemOczekLogoUrl from './../assets/images/logos/7oczek.png';
+import siedemOczekLogoUrl from './../assets/images/minifiedLogos/7oczek.jpg';
+import siedemOczekLogoUrlAvif from './../assets/images/minifiedLogos/7oczek.avif';
+import siedemOczekLogoUrlWebp from './../assets/images/minifiedLogos/7oczek.webp';
+
 import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
 
 import TimeToKnitLogoUrlAvif from './../assets/images/logos/timetoknit.avif';
@@ -531,17 +532,7 @@ export const hallMapConfig: HallMapType = {
           index: 'M3',
           who: 'NaSztukiStudio',
           picture: {
-            fallbackUrl: NaSztukiStudioLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: NaSztukiStudioLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: NaSztukiStudioLogoUrlAvif
-              }
-            ]
+            fallbackUrl: NaSztukiStudioLogoUrl
           }
         },
         {
@@ -663,7 +654,17 @@ export const hallMapConfig: HallMapType = {
           index: 'S18',
           who: '7oczek',
           picture: {
-            fallbackUrl: SiedemOczekLogoUrl
+            fallbackUrl: siedemOczekLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: siedemOczekLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: siedemOczekLogoUrlAvif
+              }
+            ]
           }
         },
         {
@@ -673,7 +674,17 @@ export const hallMapConfig: HallMapType = {
           index: 'S19',
           who: '7Oczek',
           picture: {
-            fallbackUrl: SiedemOczekLogoUrl
+            fallbackUrl: siedemOczekLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: siedemOczekLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: siedemOczekLogoUrlAvif
+              }
+            ]
           }
         },
         {

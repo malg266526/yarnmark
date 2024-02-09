@@ -32,9 +32,9 @@ import HankaMiZrobilaLogoUrl from './../assets/images/logos/hankamizrobila.jpg';
 import HankaMiZrobilaLogoUrlAvif from './../assets/images/logos/hankamizrobila.avif';
 import HankaMiZrobilaLogoUrlWebp from './../assets/images/logos/hankamizrobila.webp';
 
-import KnitPlLogoUrl from './../assets/images/minifiedLogos/knitpl.png';
-import KnitPlLogoUrlAvif from './../assets/images/minifiedLogos/knitpl.avif';
-import KnitPlLogoUrlWebp from './../assets/images/minifiedLogos/knitpl.webp';
+import knitPlLogoUrl from './../assets/images/minifiedLogos/knitpl.png';
+import knitPlLogoUrlAvif from './../assets/images/minifiedLogos/knitpl.avif';
+import knitPlLogoUrlWebp from './../assets/images/minifiedLogos/knitpl.webp';
 
 import KokonkiLogoUrl from './../assets/images/minifiedLogos/kokonki.png';
 
@@ -58,11 +58,12 @@ import MotkomaniaLogoUrl from './../assets/images/logos/motkomania.jpg';
 import MotkomaniaLogoUrlAvif from './../assets/images/logos/motkomania.avif';
 import MotkomaniaLogoUrlWebp from './../assets/images/logos/motkomania.webp';
 
-import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.jpg';
-import NaSztukiStudioLogoUrlAvif from './../assets/images/logos/nasztukistudio.avif';
-import NaSztukiStudioLogoUrlWebp from './../assets/images/logos/nasztukistudio.webp';
+import naSztukiStudioLogoUrl from './../assets/images/minifiedLogos/nasztukistudio.png';
 
-import SiedemOczekLogoUrl from './../assets/images/logos/7oczek.png';
+import siedemOczekLogoUrl from './../assets/images/minifiedLogos/7oczek.jpg';
+import siedemOczekLogoUrlAvif from './../assets/images/minifiedLogos/7oczek.avif';
+import siedemOczekLogoUrlWebp from './../assets/images/minifiedLogos/7oczek.webp';
+
 import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
 
 import PimotkiLogoUrl from './../assets/images/logos/pimotki.jpg';
@@ -256,15 +257,15 @@ export const VendorsList = () => {
           width={100}
           alt="knitpl"
           picture={{
-            fallbackUrl: KnitPlLogoUrl,
+            fallbackUrl: knitPlLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: KnitPlLogoUrlWebp
+                url: knitPlLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: KnitPlLogoUrlAvif
+                url: knitPlLogoUrlAvif
               }
             ]
           }}
@@ -376,23 +377,7 @@ export const VendorsList = () => {
       </Link>
 
       <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
-        <Picture
-          width={100}
-          alt="nasztukistudio"
-          picture={{
-            fallbackUrl: NaSztukiStudioLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: NaSztukiStudioLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: NaSztukiStudioLogoUrlAvif
-              }
-            ]
-          }}
-        />
+        <img width={100} src={naSztukiStudioLogoUrl} alt="nasztukistudio_logo" />
       </Link>
 
       <Link to="https://pimotki.pl/" target="_blank" rel="noreferrer">
@@ -420,7 +405,23 @@ export const VendorsList = () => {
       </Link>
 
       <Link to="https://7oczek.pl/pl/" target="_blank" rel="noreferrer">
-        <img width={100} src={SiedemOczekLogoUrl} alt="7Oczek" />
+        <Picture
+          width={100}
+          alt="7Oczek_logo"
+          picture={{
+            fallbackUrl: siedemOczekLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: siedemOczekLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: siedemOczekLogoUrlAvif
+              }
+            ]
+          }}
+        />
       </Link>
 
       <Link to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
