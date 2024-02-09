@@ -9,7 +9,7 @@ export const en: TranslationsShape = {
       organizers: 'Organizers',
       contact: 'Contact',
       infoForVendors: 'For Vendors',
-      cruise: 'KnittingShip',
+      cruise: 'Knitting-ship',
       aboutUs: 'About us',
       stands: 'Stands'
     },
@@ -195,7 +195,7 @@ export const en: TranslationsShape = {
           'Participants will learn how to recognize potential threats and how to ensure their own safety and the safety of those around them in emergency situations.',
         lesson2: 'Resuscytacja krążeniowo-oddechowa (RKO)',
         lessonDescription2:
-          'Instructors will provide practical skills in performing cardiopulmonary resuscitation using a training manikin.',
+          'Instructors will impart practical skills in performing cardiopulmonary resuscitation using a training manikin.',
         lesson3: 'Behavior in the event of injuries and accidents',
         lessonDescription3:
           'Participants will gain knowledge on how to deal with various types of injuries, including fractures, sprains and burns.',
