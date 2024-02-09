@@ -9,7 +9,7 @@ export const pl = {
       organizers: 'Organizatorzy',
       contact: 'Kontakt',
       infoForVendors: 'Dla wystawców',
-      cashmereTickets: 'Bilety rejsowe',
+      cruise: 'Dziergostatek',
       aboutUs: 'O nas',
       stands: 'Stoiska'
     },
@@ -215,9 +215,6 @@ export const pl = {
           'Uczestnicy będą mieli okazję do praktycznego zastosowania zdobytej wiedzy podczas symulacji różnych sytuacji awaryjnych.'
       },
       firstAidQuote: 'Ten, kto ratuje życie jednego człowieka, ratuje cały świat',
-      firstAidIntro: 'Wśród wszystkich wspaniałych warsztatów, te są najbardziej wyjątkowe.',
-      firstAidSuperhero:
-        'Dzięki poznanym tu umiejętnościom zostaniecie Superbohaterkami i Superbohaterami, które będą potrafiły uratować świat.',
       raffia: 'Szydełkowanie z rafii - pierwsze kroki.',
       raffiaDescription:
         'Na warsztatach uczestnicy zapoznają się z rafią oraz technikami jej przerabiania. Podzielę się wiedzą jaką zdobyłam podczas kilkuletniej pracy z tym włóknem. Chętnie odpowiem na nurtujące  pytania. Ze spotkania uczestnicy wyjdą z wydzierganą przez siebie mini torebką lub jej częścią😉 Materiały potrzebne do pracy uczestnicy przynoszą we własnym zakresie.',

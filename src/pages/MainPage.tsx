@@ -398,7 +398,7 @@ export const MainPage = () => {
 
             <SideBar.LinkEntry to="#cruise" onClick={closeSideBar}>
               <IconifyIcon icon="clarity:ferry-solid" width="24" />
-              {t('menu.cashmereTickets')}
+              {t('menu.cruise')}
             </SideBar.LinkEntry>
 
             <SideBar.LinkEntry
@@ -435,7 +435,7 @@ export const MainPage = () => {
             </Link>
 
             <Link to="#cruise" color="black">
-              {t('menu.cashmereTickets')}
+              {t('menu.cruise')}
             </Link>
 
             <Link color="black" to="#footer">
