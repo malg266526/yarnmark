@@ -121,7 +121,7 @@ export const FirstAidCard = () => {
               ]
             }}
             alt="firstaid"
-            width={100}
+            width={isPhone ? 180 : 100}
             style={logoStyle}
           />
           <TransparentIcon src={firstAidIcon} width={160} alt="first_aid_icon" />
