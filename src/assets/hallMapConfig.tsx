@@ -83,7 +83,7 @@ import woollalaLogoUrlWebp from './../assets/images/minifiedLogos/woollala.webp'
 
 import woolloopLogoUrl from './../assets/images/minifiedLogos/woolloop.png';
 import woolloopLogoUrlAvif from './../assets/images/minifiedLogos/woolloop.avif';
-import woolloopLogoUrlWebp from './../assets/images/logos/woolloop.webp';
+import woolloopLogoUrlWebp from './../assets/images/minifiedLogos/woolloop.webp';
 
 import wooloveLogoUrl from './../assets/images/minifiedLogos/woolove.png';
 import wooloveLogoUrlAvif from './../assets/images/minifiedLogos/woolove.avif';

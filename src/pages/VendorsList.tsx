@@ -434,7 +434,7 @@ export const VendorsList = () => {
 
       <Link to="https://welnabawelna.pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={200}
+          width={140}
           alt="welnabawelna"
           picture={{
             fallbackUrl: welnaBawelnaLogoUrl,
@@ -474,7 +474,7 @@ export const VendorsList = () => {
 
       <Link to="https://www.woollala.com" target="_blank" rel="noreferrer">
         <Picture
-          width={140}
+          width={150}
           alt="woollala"
           picture={{
             fallbackUrl: woollalaLogoUrl,
