@@ -214,7 +214,7 @@ export const VendorsList = () => {
 
       <Link to="https://www.gabowool.pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={110}
+          width={130}
           alt="gabowool"
           picture={{
             fallbackUrl: gaboWoolLogoUrl,

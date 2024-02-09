@@ -38,7 +38,7 @@ export const pl = {
         mobileTitle: 'Jak dojechać?'
       },
       foodButton: 'Gdzie zjeść?',
-      cashmereButton: 'Sprawdź nasz pakiet kaszmirowy'
+      cruiseButton: 'Dołącz do imprezy na dziergostatku!'
     },
     spotBand: {
       title: 'Gdzie?',

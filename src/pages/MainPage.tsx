@@ -11,6 +11,7 @@ import shopImageUrl from '../assets/iconify/shop.svg';
 // import shrimpImageUrl from '../assets/iconify/shrimp.svg';
 // import soupImageUrl from '../assets/iconify/soup.svg';
 import ticketImageUrl from '../assets/iconify/ticket.svg';
+import ferryImageUrl from '../assets/iconify/ferry.svg';
 
 import knitting2ImageUrl from '../assets/images/knitting2.svg';
 import pinImageUrl from '../assets/images/pin.svg';
@@ -158,14 +159,14 @@ export const MainPage = () => {
 
   const vendorsBandRef = useRef<HTMLDivElement | null>(null);
   const spotBandRef = useRef<HTMLDivElement | null>(null);
-  const cashmereTicketsBandRef = useRef<HTMLDivElement | null>(null);
+  const cruiseTicketsBandRef = useRef<HTMLDivElement | null>(null);
   // const foodBandRef = useRef<HTMLDivElement | null>(null);
 
   const ticketsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const vendorsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const geoFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   // const foodFunnyButtonRef = useRef<HTMLDivElement | null>(null);
-  // const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
+  const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
 
   //  const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
 
@@ -273,12 +274,12 @@ export const MainPage = () => {
         text={t('buttonsBand.foodButton')}
         onClick={() => foodBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
       /> */}
-        {/*             <FunnyButton
-        ref={shipFunnyButtonRef}
-        icon={<Icon size="xl" zIndex={0} src={ferryImageUrl} />}
-        text={t('buttonsBand.cashmereButton')}
-        onClick={() => cashmereTickets.current?.scrollIntoView({ behavior: 'smooth' })}
-      /> */}
+        <FunnyButton
+          ref={shipFunnyButtonRef}
+          icon={<Icon size="xl" zIndex={0} src={ferryImageUrl} />}
+          text={t('buttonsBand.cruiseButton')}
+          onClick={() => cruiseTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
+        />
       </ButtonsLayout>
     ),
     [t]
@@ -562,7 +563,7 @@ export const MainPage = () => {
       <Band
         id="cruise"
         size="md"
-        ref={cashmereTicketsBandRef}
+        ref={cruiseTicketsBandRef}
         variant="background"
         justify="space-evenly"
         color={Colors.linen}
