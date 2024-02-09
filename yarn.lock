@@ -1463,9 +1463,9 @@
     "@types/react" "*"
     "@types/react-router" "*"
 
-"@types/react-router-hash-link@^2.4.9":
+"@types/react-router-hash-link@2.4.9":
   version "2.4.9"
-  resolved "https://registry.npmjs.org/@types/react-router-hash-link/-/react-router-hash-link-2.4.9.tgz"
+  resolved "https://registry.yarnpkg.com/@types/react-router-hash-link/-/react-router-hash-link-2.4.9.tgz#b9f069fb5faeba2477426b3932205d080f72ba99"
   integrity sha512-zl/VMj+lfJZhvjOAQXIlBVPNKSK+/fRG8AUHhlP9++LhlA2ziLeTmbRxIMJI3PCiCTS+W/FosEoDRoNOGH0OzA==
   dependencies:
     "@types/history" "^4.7.11"

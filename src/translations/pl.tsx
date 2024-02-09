@@ -77,12 +77,16 @@ export const pl = {
       },
       invitation: 'Zapraszamy Cię na niezapomniany rejs statkiem po urokliwej Wiśle w Krakowie.',
       ship: 'Pragniemy, aby pokład statku „Legenda/Horyzont” stał się sceną do wspólnego dziergania, tworzenia niepowtarzalnych chwil i zawierania nowych dziewiarskich znajomości.',
-      prosecco:
-        'Podczas rejsu poczęstujemy Cię kieliszkiem Prosecco (lub napoju bezalkoholowego), dodając tym samym nutę luksusu do atmosfery.',
+
       buyTickets: 'Tutaj kupisz bilet',
       tickets: 'Bilety',
-      proseccoIntro:
-        'Rejs statkiem po Wiśle w Krakowie to nie tylko atrakcyjna forma spędzenia czasu, ale także doskonały sposób na odprężenie się i zobaczenie miasta z innej strony. '
+      prosecco: {
+        title: 'Relaks!',
+        intro:
+          'Rejs statkiem po Wiśle w Krakowie to nie tylko atrakcyjna forma spędzenia czasu, ale także doskonały sposób na odprężenie się i zobaczenie miasta z innej strony.',
+        description:
+          'Podczas rejsu poczęstujemy Cię kieliszkiem Prosecco (lub napoju bezalkoholowego), dodając tym samym nutę luksusu do atmosfery.'
+      }
     },
     vendorsPage: {
       title: 'Wystawcy'

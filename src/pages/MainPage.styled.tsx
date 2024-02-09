@@ -397,6 +397,8 @@ export const WorkshopsWrapper = styled.div`
 
 export const Paragraph = styled.div`
   max-width: 500px;
+
+  padding: ${Spacings.md};
 `;
 
 export const BackgroundIcon = styled.img`
@@ -404,4 +406,8 @@ export const BackgroundIcon = styled.img`
   top: 400px;
   left: 160px;
   opacity: 0.75;
+`;
+
+export const LinkWrapper = styled.div`
+  margin-left: -8px;
 `;
