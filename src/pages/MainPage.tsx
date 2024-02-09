@@ -663,7 +663,7 @@ export const MainPage = () => {
 
                 <FlexColumnLayout gap="sm" padding="none" align="flex-start">
                   <TextH2>{t('cashmereTicketsBand.map.price')}:</TextH2>
-                  <Text marginTop="none">129 zł </Text>
+                  <Text marginTop="none">130 zł </Text>
                   <Text marginTop="none">
                     <Trans i18nKey="cashmereTicketsBand.map.priceIncludesYarnmarkTicket" />
                   </Text>
