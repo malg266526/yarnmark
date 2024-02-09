@@ -11,6 +11,8 @@ import { Title } from '../components/Title';
 import { TransparentButton } from '../components/TransparentButton';
 import { Icon as IconifyIcon } from '@iconify/react';
 import firstAidIcon from './../assets/backgrounds/firstAid.svg';
+import { ScreenSize } from '../styles/screeen-size';
+import { usePhone } from './usePhone';
 
 const Root = styled.div`
   display: flex;
@@ -21,6 +23,11 @@ const Root = styled.div`
   width: 600px;
   height: 600px;
   position: relative;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    width: 100%;
+    align-items: center;
+  }
 `;
 
 const MainContent = styled.div`
@@ -30,6 +37,7 @@ const MainContent = styled.div`
   padding: ${Spacings.md};
   align-items: center;
   justify-content: space-around;
+  position: relative;
 `;
 
 export const TransparentIcon = styled.img`
@@ -44,6 +52,7 @@ const TextWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: ${Spacings.sm};
+  text-align: center;
 `;
 
 const UnderlineButton = styled(TransparentButton)<{ isActive?: boolean }>`
@@ -62,6 +71,11 @@ const TrainingPlan = styled.div`
 export const FirstAidCard = () => {
   const t = useTypedTranslation();
   const [showPlan, setShowPlan] = useState(false);
+  const isPhone = usePhone();
+
+  const logoStyle = isPhone
+    ? { opacity: '0.27', position: 'absolute' as const, top: '5%', left: '50%', transform: 'translateX(-50%)' }
+    : undefined;
 
   return (
     <Root>
@@ -107,7 +121,8 @@ export const FirstAidCard = () => {
               ]
             }}
             alt="firstaid"
-            width={100}
+            width={isPhone ? 180 : 100}
+            style={logoStyle}
           />
           <TransparentIcon src={firstAidIcon} width={160} alt="first_aid_icon" />
 
