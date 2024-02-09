@@ -259,6 +259,9 @@ export const pl = {
           'Oczywiście pokażę, jak ratować zgubione oczka lub naprawiać proste błędy. Postaram się odpowiedzieć na nurtujące pytania.',
         forBeginners:
           'Grupa dla początkujących, zaczynających przygodę z drutami, jak i dla tych co chcą nabrać pewności w swoich robótkach'
+      },
+      doRanyPrzyloz: {
+        topic: 'niewiadomo'
       }
     }
   }

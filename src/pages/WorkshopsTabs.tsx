@@ -1,9 +1,9 @@
 import React, { ReactNode, useState } from 'react';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
 import { Link } from '../components/Link';
-import { RowLayout } from '../components/RowLayout';
+import { Picture } from '../components/Picture';
 import { Tabs } from '../components/Tabs';
 import { WorkshopsTimeline } from '../components/WorkshopsTimeline';
+import { useTypedTranslation } from '../translations/useTypedTranslation';
 
 import PierwszaPomocUrlAvif from './../assets/images/workshops/pierwszapomoc.avif';
 import PierwszaPomocUrl from './../assets/images/workshops/pierwszapomoc.jpg';
@@ -17,10 +17,25 @@ import HaftowaBabaUrlAvif from './../assets/images/workshops/haftowa.avif';
 import HaftowaBabaUrl from './../assets/images/workshops/haftowa.jpg';
 import HaftowaBabaUrlWebp from './../assets/images/workshops/haftowa.webp';
 
+import KnitologUrlAvif from './../assets/images/workshops/knitolog.avif';
+import KnitologUrl from './../assets/images/workshops/knitolog.jpg';
+import KnitologUrlWebp from './../assets/images/workshops/knitolog.webp';
+
+import RaffiaUrlAvif from './../assets/images/workshops/rafia.avif';
+import RaffiaUrl from './../assets/images/workshops/rafia.jpg';
+import RaffiaUrlWebp from './../assets/images/workshops/rafia.webp';
+
 import LudArtUrlAvif from './../assets/images/workshops/ludart.avif';
 import LudArtUrl from './../assets/images/workshops/ludart.jpg';
 import LudArtUrlWebp from './../assets/images/workshops/ludart.webp';
-import { Picture } from '../components/Picture';
+
+import UwolnijPomyslyUrlAvif from './../assets/images/workshops/uwolnijpomysly.avif';
+import UwolnijPomyslyUrl from './../assets/images/workshops/uwolnijpomysly.jpg';
+import UwolnijPomyslyWebp from './../assets/images/workshops/uwolnijpomysly.webp';
+
+import DoRanyPrzylozUrlAvif from './../assets/images/workshops/doranyprzyloz.avif';
+import DoRanyPrzylozUrl from './../assets/images/workshops/doranyprzyloz.jpg';
+import DoRanyPrzylozUrlWebp from './../assets/images/workshops/doranyprzyloz.webp';
 
 type WorkshopRoom = 1 | 2 | 3;
 
@@ -32,7 +47,14 @@ export const WorkshopsTabs = () => {
   const activeRoomToContent: Record<WorkshopRoom, ReactNode> = {
     1: (
       <WorkshopsTimeline>
-        <WorkshopsTimeline.Slot workshopTime="10:00 - 12:30">
+        <WorkshopsTimeline.Slot workshopTime="9:00 - 12:00">
+          <WorkshopsTimeline.Text>{t('workshops.ewa.topic')}</WorkshopsTimeline.Text>
+          <WorkshopsTimeline.Price>{t('workshops.price')}: XXzł</WorkshopsTimeline.Price>
+
+          <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">{t('workshops.buyTicket')}</Link>
+        </WorkshopsTimeline.Slot>
+
+        <WorkshopsTimeline.Slot workshopTime="12:00 - 15:30">
           <WorkshopsTimeline.Text>{t('workshops.firstAid')}</WorkshopsTimeline.Text>
 
           <Picture
@@ -53,37 +75,14 @@ export const WorkshopsTabs = () => {
             width={100}
           />
 
-          <WorkshopsTimeline.Price>{t('workshops.freeAdmission')}</WorkshopsTimeline.Price>
+          <WorkshopsTimeline.Price>
+            {t('workshops.price')}: {t('workshops.freeAdmission')}
+          </WorkshopsTimeline.Price>
 
           <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">{t('workshops.buyTicket')}</Link>
         </WorkshopsTimeline.Slot>
 
-        <WorkshopsTimeline.Slot workshopTime="12:30 - 15:30">
-          <WorkshopsTimeline.Text>Haftowa Baba</WorkshopsTimeline.Text>
-
-          <WorkshopsTimeline.Image
-            picture={{
-              fallbackUrl: HaftowaBabaUrl,
-              sources: [
-                {
-                  type: 'image/webp',
-                  url: HaftowaBabaUrlWebp
-                },
-                {
-                  type: 'image/avif',
-                  url: HaftowaBabaUrlAvif
-                }
-              ]
-            }}
-            alt="haftowababa"
-          />
-
-          <WorkshopsTimeline.Price>{t('workshops.price')}: XXzł</WorkshopsTimeline.Price>
-
-          <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">{t('workshops.buyTicket')}</Link>
-        </WorkshopsTimeline.Slot>
-
-        <WorkshopsTimeline.Slot workshopTime="15:30 - 18:30">
+        <WorkshopsTimeline.Slot workshopTime="15:40 - 18:40">
           <WorkshopsTimeline.Text>{t('workshops.colorfulEmbroidery')}</WorkshopsTimeline.Text>
 
           <WorkshopsTimeline.Image
@@ -109,40 +108,160 @@ export const WorkshopsTabs = () => {
         </WorkshopsTimeline.Slot>
       </WorkshopsTimeline>
     ),
-    2: <WorkshopsTimeline></WorkshopsTimeline>,
-    3: (
+    2: (
       <WorkshopsTimeline>
-        <WorkshopsTimeline.Slot workshopTime="9:15 - 12:15">
-          <WorkshopsTimeline.Text>TODO</WorkshopsTimeline.Text>
+        <WorkshopsTimeline.Slot workshopTime="9:00 - 12:00">
+          <WorkshopsTimeline.Text>{t('workshops.knitolog.topic')}</WorkshopsTimeline.Text>
+          <Picture
+            picture={{
+              fallbackUrl: KnitologUrl,
+              sources: [
+                {
+                  type: 'image/webp',
+                  url: KnitologUrlWebp
+                },
+                {
+                  type: 'image/avif',
+                  url: KnitologUrlAvif
+                }
+              ]
+            }}
+            alt="knitolog"
+            width={100}
+          />
 
-          <WorkshopsTimeline.Price>{t('workshops.price')}: zł</WorkshopsTimeline.Price>
+          <WorkshopsTimeline.Price>{t('workshops.price')}: XXzł</WorkshopsTimeline.Price>
 
           <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">{t('workshops.buyTicket')}</Link>
         </WorkshopsTimeline.Slot>
 
-        <WorkshopsTimeline.Slot workshopTime="12:15 - 15:15">
+        <WorkshopsTimeline.Slot workshopTime="12:10 - 15:10">
+          <WorkshopsTimeline.Text>{t('workshops.freeYourIdeas.topic')}</WorkshopsTimeline.Text>
+
+          <Picture
+            picture={{
+              fallbackUrl: UwolnijPomyslyUrl,
+              sources: [
+                {
+                  type: 'image/webp',
+                  url: UwolnijPomyslyWebp
+                },
+                {
+                  type: 'image/avif',
+                  url: UwolnijPomyslyUrlAvif
+                }
+              ]
+            }}
+            alt="uwolnijpomysly"
+            width={100}
+          />
+
+          <WorkshopsTimeline.Price>
+            {t('workshops.price')}: {t('workshops.freeAdmission')}
+          </WorkshopsTimeline.Price>
+
+          <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">{t('workshops.buyTicket')}</Link>
+        </WorkshopsTimeline.Slot>
+
+        <WorkshopsTimeline.Slot workshopTime="15:20 - 18:20">
+          <WorkshopsTimeline.Text>{t('workshops.doRanyPrzyloz.topic')}</WorkshopsTimeline.Text>
+
+          <WorkshopsTimeline.Image
+            picture={{
+              fallbackUrl: DoRanyPrzylozUrl,
+              sources: [
+                {
+                  type: 'image/webp',
+                  url: DoRanyPrzylozUrlWebp
+                },
+                {
+                  type: 'image/avif',
+                  url: DoRanyPrzylozUrlAvif
+                }
+              ]
+            }}
+            alt="doranyprzyloz"
+          />
+
+          <WorkshopsTimeline.Price>{t('workshops.price')}: XXzł</WorkshopsTimeline.Price>
+
+          <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">{t('workshops.buyTicket')}</Link>
+        </WorkshopsTimeline.Slot>
+      </WorkshopsTimeline>
+    ),
+    3: (
+      <WorkshopsTimeline>
+        <WorkshopsTimeline.Slot workshopTime="9:15 - 25:15">
+          <WorkshopsTimeline.Text>Haftowa Baba</WorkshopsTimeline.Text>
+
+          <WorkshopsTimeline.Image
+            picture={{
+              fallbackUrl: HaftowaBabaUrl,
+              sources: [
+                {
+                  type: 'image/webp',
+                  url: HaftowaBabaUrlWebp
+                },
+                {
+                  type: 'image/avif',
+                  url: HaftowaBabaUrlAvif
+                }
+              ]
+            }}
+            alt="haftowababa_logo"
+          />
+
+          <WorkshopsTimeline.Price>{t('workshops.price')}: XXzł</WorkshopsTimeline.Price>
+
+          <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">{t('workshops.buyTicket')}</Link>
+        </WorkshopsTimeline.Slot>
+
+        <WorkshopsTimeline.Slot workshopTime="12:25 - 15:25">
           <WorkshopsTimeline.Text>{t('workshops.decorativeKnitting')}</WorkshopsTimeline.Text>
 
-          <RowLayout>
-            <WorkshopsTimeline.Image
-              picture={{
-                fallbackUrl: WoolankaUrl,
-                sources: [
-                  {
-                    type: 'image/webp',
-                    url: WoolankaUrlWebp
-                  },
-                  {
-                    type: 'image/avif',
-                    url: WoolankaUrlAvif
-                  }
-                ]
-              }}
-              alt="woolanka"
-            />
-          </RowLayout>
+          <WorkshopsTimeline.Image
+            picture={{
+              fallbackUrl: WoolankaUrl,
+              sources: [
+                {
+                  type: 'image/webp',
+                  url: WoolankaUrlWebp
+                },
+                {
+                  type: 'image/avif',
+                  url: WoolankaUrlAvif
+                }
+              ]
+            }}
+            alt="woolanka"
+          />
 
-          <WorkshopsTimeline.Price>{t('workshops.price')}: 65zł</WorkshopsTimeline.Price>
+          <WorkshopsTimeline.Price>{t('workshops.price')}: XXzł</WorkshopsTimeline.Price>
+
+          <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">{t('workshops.buyTicket')}</Link>
+        </WorkshopsTimeline.Slot>
+
+        <WorkshopsTimeline.Slot workshopTime="15:35 - 18:45">
+          <WorkshopsTimeline.Text>{t('workshops.raffia')}</WorkshopsTimeline.Text>
+
+          <WorkshopsTimeline.Image
+            picture={{
+              fallbackUrl: RaffiaUrl,
+              sources: [
+                {
+                  type: 'image/webp',
+                  url: RaffiaUrlWebp
+                },
+                {
+                  type: 'image/avif',
+                  url: RaffiaUrlAvif
+                }
+              ]
+            }}
+            alt="woolanka"
+          />
+
+          <WorkshopsTimeline.Price>{t('workshops.price')}: XXzł</WorkshopsTimeline.Price>
 
           <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">{t('workshops.buyTicket')}</Link>
         </WorkshopsTimeline.Slot>
