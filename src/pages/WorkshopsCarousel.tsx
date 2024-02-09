@@ -106,6 +106,11 @@ const AdjustableContent = styled.div`
   }
 `;
 
+const ReverseContent = styled(AdjustableContent)`
+  flex-direction: row-reverse;
+  gap: ${Spacings.lg};
+`;
+
 const ScrollableContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -263,7 +268,7 @@ export const WorkshopsCarousel = () => {
           <Carousel.Item>
             <Item>
               <Carousel.Caption>
-                <AdjustableContent>
+                <ReverseContent>
                   <Picture
                     picture={{
                       fallbackUrl: knitologUrl,
@@ -287,7 +292,7 @@ export const WorkshopsCarousel = () => {
                     <Title>{t('workshops.knitolog.topic')}</Title>
                     <h4>{t('workshops.knitolog.subtopic')}</h4>
                   </div>
-                </AdjustableContent>
+                </ReverseContent>
 
                 <ScrollableContent>
                   <AdjustableContent>
