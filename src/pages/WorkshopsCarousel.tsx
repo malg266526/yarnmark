@@ -1,43 +1,43 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import styled from 'styled-components';
-import { Text } from './MainPage.styled';
-import { Spacings } from '../styles/spacings';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { Picture } from '../components/Picture';
+import { Spacings } from '../styles/spacings';
+import { useTypedTranslation } from '../translations/useTypedTranslation';
+import { Text } from './MainPage.styled';
 
-import HaftowaBabaUrlAvif from './../assets/images/workshops/haftowa.avif';
-import HaftowaBabaUrl from './../assets/images/workshops/haftowa.jpg';
-import HaftowaBabaUrlWebp from './../assets/images/workshops/haftowa.webp';
+import haftowaBabaUrlAvif from './../assets/images/workshops/haftowa.avif';
+import haftowaBabaUrl from './../assets/images/workshops/haftowa.jpg';
+import haftowaBabaUrlWebp from './../assets/images/workshops/haftowa.webp';
 
-import WoolankaUrlAvif from './../assets/images/workshops/woolanka.avif';
-import WoolankaUrl from './../assets/images/workshops/woolanka.jpg';
-import WoolankaUrlWebp from './../assets/images/workshops/woolanka.webp';
+import woolankaUrlAvif from './../assets/images/workshops/woolanka.avif';
+import woolankaUrl from './../assets/images/workshops/woolanka.jpg';
+import woolankaUrlWebp from './../assets/images/workshops/woolanka.webp';
 
-import RaffiaUrlAvif from './../assets/images/workshops/rafia.avif';
-import RaffiaUrl from './../assets/images/workshops/rafia.jpg';
-import RaffiaUrlWebp from './../assets/images/workshops/rafia.webp';
+import raffiaUrlAvif from './../assets/images/workshops/rafia.avif';
+import raffiaUrl from './../assets/images/workshops/rafia.jpg';
+import raffiaUrlWebp from './../assets/images/workshops/rafia.webp';
 
-import LudArtUrlAvif from './../assets/images/workshops/ludart.avif';
-import LudArtUrl from './../assets/images/workshops/ludart.jpg';
-import LudArtUrlWebp from './../assets/images/workshops/ludart.webp';
+import ludArtUrlAvif from './../assets/images/workshops/ludart.avif';
+import ludArtUrl from './../assets/images/workshops/ludart.jpg';
+import ludArtUrlWebp from './../assets/images/workshops/ludart.webp';
 
-import KnitologUrlAvif from './../assets/images/workshops/knitolog.avif';
-import KnitologUrl from './../assets/images/workshops/knitolog.jpg';
-import KnitologUrlWebp from './../assets/images/workshops/knitolog.webp';
+import knitologUrlAvif from './../assets/images/workshops/knitolog.avif';
+import knitologUrl from './../assets/images/workshops/knitolog.jpg';
+import knitologUrlWebp from './../assets/images/workshops/knitolog.webp';
 
-import UwolnijPomyslyUrlAvif from './../assets/images/workshops/uwolnijpomysly.avif';
-import UwolnijPomyslyUrl from './../assets/images/workshops/uwolnijpomysly.jpg';
-import UwolnijPomyslyWebp from './../assets/images/workshops/uwolnijpomysly.webp';
+import uwolnijPomyslyUrlAvif from './../assets/images/workshops/uwolnijpomysly.avif';
+import uwolnijPomyslyUrl from './../assets/images/workshops/uwolnijpomysly.jpg';
+import uwolnijPomyslyWebp from './../assets/images/workshops/uwolnijpomysly.webp';
 
-import DoRanyPrzylozUrlAvif from './../assets/images/workshops/doranyprzyloz.avif';
-import DoRanyPrzylozUrl from './../assets/images/workshops/doranyprzyloz.jpg';
-import DoRanyPrzylozUrlWebp from './../assets/images/workshops/doranyprzyloz.webp';
-
-import { RowLayout } from '../components/RowLayout';
+import doRanyPrzylozUrlAvif from './../assets/images/workshops/doranyprzyloz.avif';
+import doRanyPrzylozUrl from './../assets/images/workshops/doranyprzyloz.jpg';
+import doRanyPrzylozUrlWebp from './../assets/images/workshops/doranyprzyloz.webp';
 
 import knittingSvgUrl from '../assets/images/skein3.svg';
+import { usePhone } from './usePhone';
+import { ScreenSize } from '../styles/screeen-size';
 
 export const Title = styled.h3`
   font-size: 28px;
@@ -75,20 +75,66 @@ const BlobBackground = styled.div`
 
 const NoTopMarginText = styled(Text)`
   margin-top: 0;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    font-size: 12px;
+  }
+`;
+
+const ExtraCaption = styled(Text)`
+  @media (max-width: ${ScreenSize.phone}) {
+    font-size: 12px;
+  }
 `;
 
 const Column = styled(FlexColumnLayout)`
   width: 50%;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    width: 100%;
+  }
+`;
+
+const AdjustableContent = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: row;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    flex-direction: column;
+  }
+`;
+
+const ReverseContent = styled(AdjustableContent)`
+  flex-direction: row-reverse;
+  gap: ${Spacings.lg};
+`;
+
+const ScrollableContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    height: 300px;
+    overflow-y: scroll;
+  }
 `;
 
 export const WorkshopsCarousel = () => {
   const t = useTypedTranslation();
+  const isPhone = usePhone();
+
+  const logoStyle = isPhone
+    ? { opacity: '0.27', position: 'absolute' as const, top: '5%', left: '50%', transform: 'translateX(-50%)' }
+    : undefined;
 
   return (
     <BlobBackground>
       <Root>
         <Carousel
-          interval={2000}
+          interval={50000}
           variant="dark"
           fade
           prevIcon={<img src={knittingSvgUrl} alt="knittingIcon" width={40} />}
@@ -97,20 +143,21 @@ export const WorkshopsCarousel = () => {
             <Item>
               <Picture
                 picture={{
-                  fallbackUrl: HaftowaBabaUrl,
+                  fallbackUrl: haftowaBabaUrl,
                   sources: [
                     {
                       type: 'image/webp',
-                      url: HaftowaBabaUrlWebp
+                      url: haftowaBabaUrlWebp
                     },
                     {
                       type: 'image/avif',
-                      url: HaftowaBabaUrlAvif
+                      url: haftowaBabaUrlAvif
                     }
                   ]
                 }}
-                alt="haftowababa"
+                alt="haftowababa_logo"
                 width={180}
+                style={logoStyle}
               />
 
               <Carousel.Caption>
@@ -130,20 +177,21 @@ export const WorkshopsCarousel = () => {
             <Item>
               <Picture
                 picture={{
-                  fallbackUrl: LudArtUrl,
+                  fallbackUrl: ludArtUrl,
                   sources: [
                     {
                       type: 'image/webp',
-                      url: LudArtUrlWebp
+                      url: ludArtUrlWebp
                     },
                     {
                       type: 'image/avif',
-                      url: LudArtUrlAvif
+                      url: ludArtUrlAvif
                     }
                   ]
                 }}
                 alt="ludart"
                 width={180}
+                style={logoStyle}
               />
 
               <Carousel.Caption>
@@ -158,20 +206,21 @@ export const WorkshopsCarousel = () => {
             <Item>
               <Picture
                 picture={{
-                  fallbackUrl: WoolankaUrl,
+                  fallbackUrl: woolankaUrl,
                   sources: [
                     {
                       type: 'image/webp',
-                      url: WoolankaUrlWebp
+                      url: woolankaUrlWebp
                     },
                     {
                       type: 'image/avif',
-                      url: WoolankaUrlAvif
+                      url: woolankaUrlAvif
                     }
                   ]
                 }}
                 alt="woolanka"
                 width={180}
+                style={logoStyle}
               />
 
               <Carousel.Caption>
@@ -185,20 +234,21 @@ export const WorkshopsCarousel = () => {
             <Item>
               <Picture
                 picture={{
-                  fallbackUrl: RaffiaUrl,
+                  fallbackUrl: raffiaUrl,
                   sources: [
                     {
                       type: 'image/webp',
-                      url: RaffiaUrlWebp
+                      url: raffiaUrlWebp
                     },
                     {
                       type: 'image/avif',
-                      url: RaffiaUrlAvif
+                      url: raffiaUrlAvif
                     }
                   ]
                 }}
                 alt="raffiaBasics"
                 width={180}
+                style={logoStyle}
               />
 
               <Carousel.Caption>
@@ -218,54 +268,56 @@ export const WorkshopsCarousel = () => {
           <Carousel.Item>
             <Item>
               <Carousel.Caption>
-                <RowLayout wide>
-                  <div>
-                    <Title>{t('workshops.knitolog.topic')}</Title>
-                    <h4>{t('workshops.knitolog.subtopic')}</h4>
-                  </div>
-
+                <ReverseContent>
                   <Picture
                     picture={{
-                      fallbackUrl: KnitologUrl,
+                      fallbackUrl: knitologUrl,
                       sources: [
                         {
                           type: 'image/webp',
-                          url: KnitologUrlWebp
+                          url: knitologUrlWebp
                         },
                         {
                           type: 'image/avif',
-                          url: KnitologUrlAvif
+                          url: knitologUrlAvif
                         }
                       ]
                     }}
                     alt="knitolog"
                     width={180}
-                    //style={{ opacity: '0.75' }}
+                    style={logoStyle}
                   />
-                </RowLayout>
 
-                <RowLayout wide>
-                  <Column gap="none" padding="none">
-                    <NoTopMarginText bold>{t('workshops.knitolog.plan')}</NoTopMarginText>
-                    <NoTopMarginText>- {t('workshops.knitolog.lesson1')}</NoTopMarginText>
-                    <NoTopMarginText>- {t('workshops.knitolog.lesson2')}</NoTopMarginText>
-                    <NoTopMarginText>- {t('workshops.knitolog.lesson3')}</NoTopMarginText>
-                    <NoTopMarginText>- {t('workshops.knitolog.lesson4')}</NoTopMarginText>
-                    <NoTopMarginText>- {t('workshops.knitolog.lesson5')}</NoTopMarginText>
-                    <NoTopMarginText>- {t('workshops.knitolog.lesson6')}</NoTopMarginText>
-                    <NoTopMarginText>- {t('workshops.knitolog.lesson7')}</NoTopMarginText>
-                  </Column>
+                  <div>
+                    <Title>{t('workshops.knitolog.topic')}</Title>
+                    <h4>{t('workshops.knitolog.subtopic')}</h4>
+                  </div>
+                </ReverseContent>
 
-                  <Column gap="xs" padding="none">
-                    <NoTopMarginText bold>{t('workshops.knitolog.materialsNeeded')}</NoTopMarginText>
-                    <NoTopMarginText>- {t('workshops.knitolog.wool')}</NoTopMarginText>
-                    <NoTopMarginText>- {t('workshops.knitolog.knittingNeedles')}</NoTopMarginText>
-                    <NoTopMarginText>- {t('workshops.knitolog.markers')}</NoTopMarginText>
-                    <NoTopMarginText>- {t('workshops.knitolog.pinMarkers')}</NoTopMarginText>
-                  </Column>
-                </RowLayout>
+                <ScrollableContent>
+                  <AdjustableContent>
+                    <Column gap="none" padding="none">
+                      <NoTopMarginText bold>{t('workshops.knitolog.plan')}</NoTopMarginText>
+                      <NoTopMarginText>- {t('workshops.knitolog.lesson1')}</NoTopMarginText>
+                      <NoTopMarginText>- {t('workshops.knitolog.lesson2')}</NoTopMarginText>
+                      <NoTopMarginText>- {t('workshops.knitolog.lesson3')}</NoTopMarginText>
+                      <NoTopMarginText>- {t('workshops.knitolog.lesson4')}</NoTopMarginText>
+                      <NoTopMarginText>- {t('workshops.knitolog.lesson5')}</NoTopMarginText>
+                      <NoTopMarginText>- {t('workshops.knitolog.lesson6')}</NoTopMarginText>
+                      <NoTopMarginText>- {t('workshops.knitolog.lesson7')}</NoTopMarginText>
+                    </Column>
 
-                <Text marginTop="sm">{t('workshops.knitolog.pattern')}</Text>
+                    <Column gap="xs" padding="none">
+                      <NoTopMarginText bold>{t('workshops.knitolog.materialsNeeded')}</NoTopMarginText>
+                      <NoTopMarginText>- {t('workshops.knitolog.wool')}</NoTopMarginText>
+                      <NoTopMarginText>- {t('workshops.knitolog.knittingNeedles')}</NoTopMarginText>
+                      <NoTopMarginText>- {t('workshops.knitolog.markers')}</NoTopMarginText>
+                      <NoTopMarginText>- {t('workshops.knitolog.pinMarkers')}</NoTopMarginText>
+                    </Column>
+                  </AdjustableContent>
+
+                  <ExtraCaption marginTop="sm">{t('workshops.knitolog.pattern')}</ExtraCaption>
+                </ScrollableContent>
               </Carousel.Caption>
             </Item>
           </Carousel.Item>
@@ -274,20 +326,21 @@ export const WorkshopsCarousel = () => {
             <Item>
               <Picture
                 picture={{
-                  fallbackUrl: UwolnijPomyslyUrl,
+                  fallbackUrl: uwolnijPomyslyUrl,
                   sources: [
                     {
                       type: 'image/webp',
-                      url: UwolnijPomyslyWebp
+                      url: uwolnijPomyslyWebp
                     },
                     {
                       type: 'image/avif',
-                      url: UwolnijPomyslyUrlAvif
+                      url: uwolnijPomyslyUrlAvif
                     }
                   ]
                 }}
                 alt="uwolnijpomysly"
                 width={180}
+                style={logoStyle}
               />
 
               <Carousel.Caption>
@@ -306,20 +359,21 @@ export const WorkshopsCarousel = () => {
             <Item>
               <Picture
                 picture={{
-                  fallbackUrl: DoRanyPrzylozUrl,
+                  fallbackUrl: doRanyPrzylozUrl,
                   sources: [
                     {
                       type: 'image/webp',
-                      url: DoRanyPrzylozUrlWebp
+                      url: doRanyPrzylozUrlWebp
                     },
                     {
                       type: 'image/avif',
-                      url: DoRanyPrzylozUrlAvif
+                      url: doRanyPrzylozUrlAvif
                     }
                   ]
                 }}
                 alt="doranyprzyloz"
                 width={180}
+                style={logoStyle}
               />
 
               <Carousel.Caption>
