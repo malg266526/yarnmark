@@ -49,10 +49,10 @@ const ClickElement = styled.div<{ side: 'left' | 'right'; visible?: boolean }>`
   padding: ${Spacings.md};
 
   display: flex;
-  justify-content: ${({ side }) => side === 'left' ? 'flex-end' : 'flex-start'};
+  justify-content: ${({ side }) => (side === 'left' ? 'flex-end' : 'flex-start')};
   align-items: center;
-  opacity: ${({ visible }) => visible ? 0.35 : 0};
-  pointer-events: ${({ visible }) => visible ? 'auto' : 'none'};
+  opacity: ${({ visible }) => (visible ? 0.35 : 0)};
+  pointer-events: ${({ visible }) => (visible ? 'auto' : 'none')};
   cursor: pointer;
   transition: all 150ms ease-in-out;
 `;
@@ -63,38 +63,45 @@ const ItemBackground = styled.picture<{ opacity?: number; background?: string; v
   left: 0;
   width: 100%;
 
-  ${({ variant = 'covering' }) => variant === 'covering' ? css`
-    height: 100%;
-    top: 0;
-  ` : css`
-    height: 50%;
-    bottom: 0;
-  `}
+  ${({ variant = 'covering' }) =>
+    variant === 'covering'
+      ? css`
+          height: 100%;
+          top: 0;
+        `
+      : css`
+          height: 50%;
+          bottom: 0;
+        `}
 
-  ${({ background }) => background && css`
-    &:after {
-      content: '';
-      display: block;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      background: ${background}; 
-    }
-  `};
-  
+  ${({ background }) =>
+    background &&
+    css`
+      &:after {
+        content: '';
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: ${background};
+      }
+    `};
+
   > img {
-    ${({ opacity }) => Number.isFinite(opacity) && css`
-      opacity: ${opacity};
-    `}
+    ${({ opacity }) =>
+      Number.isFinite(opacity) &&
+      css`
+        opacity: ${opacity};
+      `}
     height: 100%;
     width: 100%;
     object-fit: cover;
   }
 `;
 
-const Indicator = styled.div<{ active?: boolean }>`
+const Indicator = styled.div<{ active?: boolean; color: 'black' | 'white' }>`
   border-radius: 50%;
   border: 2px solid black;
 
@@ -104,6 +111,12 @@ const Indicator = styled.div<{ active?: boolean }>`
   transition: all 150ms ease-in-out;
   transform: scale(1);
   box-sizing: content-box;
+
+  ${({ color }) =>
+    color === 'white' &&
+    css`
+      filter: invert(1);
+    `};
 
   &:before {
     opacity: 0;
@@ -163,7 +176,7 @@ const ChildrenWrapper = styled.div<{ visibleIndexes: VisibleIndex[] }>`
           opacity: ${opacity};
           pointer-events: ${pointerEvents};
           ${zIndex &&
-        css`
+          css`
             z-index: ${zIndex};
           `}
         }
@@ -196,26 +209,28 @@ const Item = styled.div<{ icon?: boolean }>`
   box-shadow: 8px 8px 18px 0px rgba(66, 68, 90, 1);
   padding: ${Spacings.md};
 
-  ${({ icon }) => icon && css`
-    &:before {
-      content: '';
-      display: block;
-      left: ${Spacings.sm};
-      top: ${Spacings.sm};
-      position: absolute;
-      width: 20px;
-      height: 20px;
+  ${({ icon }) =>
+    icon &&
+    css`
+      &:before {
+        content: '';
+        display: block;
+        left: ${Spacings.sm};
+        top: ${Spacings.sm};
+        position: absolute;
+        width: 20px;
+        height: 20px;
 
-      background: url(${skeinIconSrc});
-      background-repeat: no-repeat;
-      background-size: 100%;
-      background-position: center;
-      transition: all 150ms ease-int-out;
-    }
-  `};
+        background: url(${skeinIconSrc});
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        transition: all 150ms ease-int-out;
+      }
+    `};
 `;
 
-const getVisibleIndexes = (middleIndex: number, percentage: number): VisibleIndex[] => [
+const getVisibleIndexes = (middleIndex: number): VisibleIndex[] => [
   { index: middleIndex - 2, left: 0, opacity: 0, pointerEvents: 'none', translateXZ: [-100, -6000] },
   { index: middleIndex - 1, left: 0, opacity: 1, pointerEvents: 'none', translateXZ: [0, -1500] },
   { index: middleIndex - 0, left: 50, opacity: 1, pointerEvents: 'initial', translateXZ: [-50, 0], zIndex: 1 },
@@ -228,14 +243,13 @@ export interface CarouselgeProps extends RootProps {
   onChange: (index: number) => void;
   selectedIndex: number;
   children: ReactNode;
-  indicators?: boolean;
+  indicators?: 'black' | 'white';
 }
 
 const MINIMUM_MOUSE_MOVE_TO_TRIGGER_CHANGE = 100;
 
 // TODO add motion to drag
 // TODO add timer for automatic change
-// TODO make indicators white
 // TODO add linked variant
 export const Carouselge = Object.assign(
   ({ onChange, indicators, selectedIndex, children, ...rest }: CarouselgeProps) => {
@@ -248,7 +262,7 @@ export const Carouselge = Object.assign(
         sizeRef.current = { height, width, left, top };
       }
     }, []);
-    const visibleIndexes = getVisibleIndexes(selectedIndex, 0);
+    const visibleIndexes = getVisibleIndexes(selectedIndex);
 
     useEffect(() => {
       updateSize();
@@ -305,8 +319,7 @@ export const Carouselge = Object.assign(
             onClick={(e) => {
               e.preventDefault();
               handleChange(selectedIndex - 1);
-            }}
-          >
+            }}>
             <IconifyIcon icon="mdi:arrow-left" width="50" />
           </ClickElement>
           <ClickElement
@@ -315,8 +328,7 @@ export const Carouselge = Object.assign(
             onClick={(e) => {
               e.preventDefault();
               handleChange(selectedIndex + 1);
-            }}
-          >
+            }}>
             <IconifyIcon icon="mdi:arrow-right" width="50" />
           </ClickElement>
           <ChildrenWrapper
@@ -338,7 +350,7 @@ export const Carouselge = Object.assign(
             {Array(childrenCount)
               .fill(0)
               .map((value, index) => (
-                <Indicator key={index} active={index === selectedIndex} />
+                <Indicator color={indicators} key={index} active={index === selectedIndex} />
               ))}
           </Footer>
         )}

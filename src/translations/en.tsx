@@ -76,12 +76,15 @@ export const en: TranslationsShape = {
       },
       invitation: 'We heartily invite you for an unforgettable cruise on the charming Vistula River in Cracow.',
       ship: 'We want the deck of the "Legend/Horizon" ship to become a stage for knitting together, creating unique moments and making new knitting acquaintances.',
-      prosecco:
-        'During the cruise, we will offer you a glass of Prosecco (or a non-alcoholic drink), thus adding a touch of luxury to the atmosphere.',
+      prosecco: {
+        title: 'Relax!',
+        intro:
+          'A ship cruise on the Vistula River in Cracow is not only a awesome way to spend time, but also a great way to relax and see the city from a different side.',
+        description:
+          'During the cruise, we will offer you a glass of Prosecco (or a non-alcoholic drink), thus adding a touch of luxury to the atmosphere.'
+      },
       buyTickets: 'Buy a ticket',
-      tickets: 'Tickets',
-      proseccoIntro:
-        'A ship cruise on the Vistula River in Cracow is not only a awesome way to spend time, but also a great way to relax and see the city from a different side.'
+      tickets: 'Tickets'
     },
     vendorsPage: {
       title: 'Vendors'

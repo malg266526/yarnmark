@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Text } from '../pages/MainPage.styled';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import { FlexColumnLayout } from './FlexColumnLayout';
+import { Title } from './Title';
 
 export const TextH2 = styled.h2`
   font-size: 18px;
@@ -15,7 +16,7 @@ export const CruiseMap = () => {
 
   return (
     <FlexColumnLayout gap="sm" padding="none" align="flex-start">
-      <TextH2>{t('cashmereTicketsBand.map.startAndStop')}</TextH2>
+      <Title>{t('cashmereTicketsBand.map.startAndStop')}</Title>
 
       <FlexColumnLayout gap="sm" padding="none" align="flex-start">
         <Text marginTop="none">AQUA FUN </Text>

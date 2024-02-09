@@ -2,17 +2,24 @@ import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { PageContent } from '../components/PageContent';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
-import wineWebpSrc from '../assets/images/wine.webp';
+import mapWebpSrc from '../assets/images/map.webp';
+import mapJpgSrc from '../assets/images/map.jpg';
+
 import wineAvifSrc from '../assets/images/wine.avif';
-import winePngSrc from '../assets/images/wine.png';
+import wineWebpSrc from '../assets/images/wine.webp';
+import wineJpgSrc from '../assets/images/wine.jpg';
 
-import tickets from '../assets/images/tickets.png';
+import waterWebpSrc from '../assets/images/water.webp';
+import waterJpgSrc from '../assets/images/water.jpg';
 
-import wineOnAShoreAvifSrc from '../assets/images/wine-on-a-shore.webp';
-import wineOnAShoreWebpSrc from '../assets/images/wine-on-a-shore.avif';
-import wineOnAShorePngSrc from '../assets/images/wine-on-a-shore.png';
+import shipAvifSrc from '../assets/images/ship.avif';
+import shipJpgSrc from '../assets/images/ship.jpg';
 
-import bigShopImageUrl from '../assets/iconify/bigshop.svg';
+import ticketAvifSrc from '../assets/images/ticket.avif';
+import ticketWebpSrc from '../assets/images/ticket.webp';
+import ticketJpgSrc from '../assets/images/ticket.jpg';
+
+// import bigShopImageUrl from '../assets/iconify/bigshop.svg';
 // import burgerImageUrl from '../assets/iconify/burger.svg';
 // import coffeeImageUrl from '../assets/iconify/coffee.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
@@ -50,7 +57,6 @@ import { Header } from '../App.styled';
 import { BurgerMenu } from '../components/BurgerMenu';
 // import { FramedBox } from '../components/FramedBox';
 // import { ImageButton } from '../components/ImageButton';
-import { ClickableTable } from '../components/ClickableTable';
 import { Curtain } from '../components/Curtain';
 import { FirstAidCard } from './FirstAidCard';
 import { LanguageSwitch } from '../components/LanguageSwitch';
@@ -68,6 +74,7 @@ import {
   BackgroundImage,
   ButtonsLayout,
   CenteredTitle,
+  LinkWrapper,
   // ButtonsWrapper,
   // CenteredTitle,
   Menu,
@@ -97,6 +104,8 @@ import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_backgrou
 
 import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
 import { Carouselge } from '../components/Carouselge';
+import { FlexColumnLayout } from '../components/FlexColumnLayout';
+import { CruiseMap } from '../components/CruiseMap';
 
 // type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
@@ -460,7 +469,7 @@ export const MainPage = () => {
               <div>
                 <Text>{t('welcomeBand.seeYou')}</Text>
                 <Text>DziergamyNaPolu x Włóczykijki</Text>
-          </div>
+              </div>
 
               <img src={yarnmarkLogoSrc} alt="yarnmark_logo" width={156} />
             </RowLayout>
@@ -576,26 +585,104 @@ export const MainPage = () => {
 
       <Band
         id="cruise"
-        size="md"
-        ref={cruiseTicketsBandRef}
-        variant="background"
-        justify="space-evenly"
-        color={Colors.linen}
-        padding="xl">
-        <NiceBox overflowSize="10px" width="500px" padding="lg" marginTop="lg">
-          <TextWrapper>
-            <Title>{t('cashmereTicketsBand.beautifulCruise')}</Title>
-          </TextWrapper>
+        size="lg"
+        narrowContent
+        variant="background-image"
+        justify="flex-end"
+        background={
+          <Band.Picture objectFit="cover" filter="grayscale(0.2) brightness(1.3) contrast(0.8)">
+            <source srcSet={shipAvifSrc} type="image/avif" />
+            <img loading="lazy" src={shipJpgSrc} alt="sailing ship" />
+          </Band.Picture>
+        }>
+        <Band.Slot size="sm">
+          <Carouselge
+            width="800px"
+            height="800px"
+            selectedIndex={selectedIndex}
+            onChange={(index) => setSelectedIndex(index)}
+            indicators="white">
+            <Carouselge.Item>
+              <Carouselge.ItemBackground
+                opacity={0.8}
+                variant="bottom"
+                background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 95%)">
+                <source srcSet={waterWebpSrc} type="image/webp" />
+                <img src={waterJpgSrc} />
+              </Carouselge.ItemBackground>
 
-          <TextH2>{t('cashmereTicketsBand.invitation')}</TextH2>
-          <TextH2>{t('cashmereTicketsBand.ship')}</TextH2>
-        </NiceBox>
+              <TextWrapper>
+                <Title>{t('cashmereTicketsBand.beautifulCruise')}</Title>
+              </TextWrapper>
 
-        <ClickableTable />
+              <TextH2>{t('cashmereTicketsBand.invitation')}</TextH2>
+              <TextH2>{t('cashmereTicketsBand.ship')}</TextH2>
+            </Carouselge.Item>
 
-        {/*         <AbsoluteWrapper>
-          <img src={shipThemed} width={500} />
-        </AbsoluteWrapper> */}
+            <Carouselge.Item>
+              <Carouselge.ItemBackground
+                background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)"
+                opacity={0.8}
+                variant="bottom">
+                <source srcSet={wineAvifSrc} type="image/avif" />
+                <source srcSet={wineWebpSrc} type="image/webp" />
+                <img src={wineJpgSrc} />
+              </Carouselge.ItemBackground>
+
+              <TextWrapper>
+                <Title>{t('cashmereTicketsBand.prosecco.title')}</Title>
+              </TextWrapper>
+
+              <FlexColumnLayout gap="sm" padding="none" align="flex-start">
+                <Text>{t('cashmereTicketsBand.prosecco.intro')}</Text>
+                <Text>{t('cashmereTicketsBand.prosecco.description')}</Text>
+              </FlexColumnLayout>
+            </Carouselge.Item>
+
+            <Carouselge.Item>
+              <Carouselge.ItemBackground
+                variant="bottom"
+                background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)"
+                opacity={0.8}>
+                <source srcSet={ticketAvifSrc} type="image/avif" />
+                <source srcSet={ticketWebpSrc} type="image/webp" />
+                <img src={ticketJpgSrc} />
+              </Carouselge.ItemBackground>
+
+              <FlexColumnLayout gap="sm" padding="none" align="flex-start">
+                <TextWrapper>
+                  <Title>{t('cashmereTicketsBand.tickets')}</Title>
+                </TextWrapper>
+
+                <LinkWrapper>
+                  <Link target="_blank" to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
+                    {t('cashmereTicketsBand.buyTickets')}
+                  </Link>
+                </LinkWrapper>
+
+                <FlexColumnLayout gap="sm" padding="none" align="flex-start">
+                  <TextH2>{t('cashmereTicketsBand.map.price')}:</TextH2>
+                  <Text marginTop="none">129 zł </Text>
+                  <Text marginTop="none">
+                    <Trans i18nKey="cashmereTicketsBand.map.priceIncludesYarnmarkTicket" />
+                  </Text>
+                </FlexColumnLayout>
+              </FlexColumnLayout>
+            </Carouselge.Item>
+
+            <Carouselge.Item>
+              <Carouselge.ItemBackground
+                variant="bottom"
+                background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)"
+                opacity={0.8}>
+                <source srcSet={mapWebpSrc} type="image/webp" />
+                <img src={mapJpgSrc} />
+              </Carouselge.ItemBackground>
+
+              <CruiseMap />
+            </Carouselge.Item>
+          </Carouselge>
+        </Band.Slot>
       </Band>
 
       {/*       <Band ref={foodBandRef} size="md" variant="background" color={Colors.snow} padding="xl">
