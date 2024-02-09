@@ -169,27 +169,26 @@ export const en: TranslationsShape = {
       taken: 'Reserved'
     },
     workshops: {
-      buyTicket: 'Kup bilet',
+      buyTicket: 'Buy a ticket',
       firstAid: 'First aid',
       freeAdmission: 'Wstęp wolny',
       firstAidDescription:
         'Resuscytacja na manekinie osoby dorosłej i dziecku plus pomoc w stanach nagłych zadławienie, oparzenie itd',
-      decorativeKnitting: 'Dzianiny ozdobne',
+      decorativeKnitting: 'Decorative knitting',
       decorativeKnittingDescription:
-        'Osobom zainteresowanym warsztatami pokaże jak tworzyć dzianiny ażurowe, ozdabianie warkoczami i żakardowe jeśli wystarczy czasu to również wykończenia i-cord. Osoby chcące wziąć udział w warsztatach powinny przynieść ze sobą druty proste lub na żyłce w rozmiarze między 3 a 4 mm, odpowiednią dla danego rozmiaru wełnę w 2 kolorach, najlepiej kolory ze sobą kontrastujące oraz drut pomocniczy do warkoczy. Jeśli chodzi o wełnę nie musi to być pełny motek, potrzebujemy ilość która pozwoli na zrobienie próbki interesujących nas dzianin.',
+        'I will show you how to create openwork knits, decorate with cables and jacquard, if there is enough time, I will also show you how to finish them with i-cord. People who want to take part in the workshops should bring straight or circular needles, between 3 and 4 mm, wool appropriate for a given size in 2 colors, preferably contrasting colors, and an cable needle for braids. When it comes to wool, it does not have to be a full skein, we need an amount that will allow us to make a sample of the knitwear we are interested in.',
       price: 'Price',
-      haftowaBabaDescription1:
-        'Chcesz nauczyć się jak w ciekawy sposób ozdobić czapki, szaliki, swetry czy rękawiczki?',
-      haftowaBabaDescription2: 'Ciekawi cię haft wełną, jak go wykonać i wykorzystać w swoich udziergach?',
-      haftowaBabaDescription3: 'W takim razie to idealne warsztaty dla Ciebie!?',
+      haftowaBabaDescription1: 'Do you want to learn how to interestingly decorate hats, scarves, sweaters or gloves?',
+      haftowaBabaDescription2: 'Are you curious about wool embroidery, how to make it and use it in your knits?',
+      haftowaBabaDescription3: 'That workshop is perfect for you!',
       haftowaBabaDescription4:
-        'Zapraszamy Cię na lekcję haftu wełną. Pod moim okiem poznasz kilka technik, inne niż ścieg udający żakardy. Pokażę Ci też jak nakreślić wzór, jak prostymi patentami stworzyć kwiaty, liście, napisy czy proste wzory.',
+        'We invite you to a wool embroidery lesson. Under my supervision, you will learn several techniques other than the jacquard stitch. I will also show you how to draw a pattern and how to easily create flowers, leaves, inscriptions or simple patterns.',
       haftowaBabaDescription6:
-        'Osoby chcące wziąć udział w warsztatach powinny przynieść ze sobą włóczkę w różnych kolorach i rozmiarach w ilości minimum dwóch sztuk.',
-      colorfulEmbroidery: 'Haft krakowski kolorowy',
-      colorfulEmbroideryInspirations: 'Inspiracje z tradycyjnych gorsetów krakowskich',
+        'People who want to take part in the workshops should bring at least two pieces of yarn in different colors and sizes.',
+      colorfulEmbroidery: 'Colorful Cracow embroidery',
+      colorfulEmbroideryInspirations: 'Inspiration from traditional Crakow corsets',
       colorfulEmbroideryDescription: 'TODO',
-      trainingPlan: 'Plan Pokazów',
+      trainingPlan: 'Schedule',
       firstAidLessons: {
         lesson1: 'Rozpoznawanie zagrożeń i bezpieczeństwo',
         lessonDescription1:
