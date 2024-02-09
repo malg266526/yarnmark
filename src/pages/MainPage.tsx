@@ -586,6 +586,7 @@ export const MainPage = () => {
       <Band
         id="cruise"
         size="lg"
+        ref={cruiseTicketsBandRef}
         narrowContent
         variant="background-image"
         justify="flex-end"
