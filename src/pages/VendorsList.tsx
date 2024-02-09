@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Spacings } from '../styles/spacings';
-import { Link } from './Link';
+import { Link } from '../components/Link';
 import { ScreenSize } from '../styles/screeen-size';
 
 import AnimotkiLogoUrl from './../assets/images/logos/animotki.jpg';
@@ -32,13 +32,11 @@ import HankaMiZrobilaLogoUrl from './../assets/images/logos/hankamizrobila.jpg';
 import HankaMiZrobilaLogoUrlAvif from './../assets/images/logos/hankamizrobila.avif';
 import HankaMiZrobilaLogoUrlWebp from './../assets/images/logos/hankamizrobila.webp';
 
-import KnitPlLogoUrl from './../assets/images/logos/knitpl.jpg';
-import KnitPlLogoUrlAvif from './../assets/images/logos/knitpl.avif';
-import KnitPlLogoUrlWebp from './../assets/images/logos/knitpl.webp';
+import KnitPlLogoUrl from './../assets/images/minifiedLogos/knitpl.png';
+import KnitPlLogoUrlAvif from './../assets/images/minifiedLogos/knitpl.avif';
+import KnitPlLogoUrlWebp from './../assets/images/minifiedLogos/knitpl.webp';
 
-import KokonkiLogoUrl from './../assets/images/logos/kokonki.jpg';
-import KokonkiLogoUrlAvif from './../assets/images/logos/kokonki.avif';
-import KokonkiLogoUrlWebp from './../assets/images/logos/kokonki.webp';
+import KokonkiLogoUrl from './../assets/images/minifiedLogos/kokonki.png';
 
 import MadoboLogoUrl from './../assets/images/logos/madobo.jpg';
 import MadoboLogoUrlAvif from './../assets/images/logos/madobo.avif';
@@ -83,9 +81,8 @@ import WelnaBawelnaLogoUrlWebp from './../assets/images/logos/WelnaBawelna.webp'
 
 import WloczykijkiLogoUrl from './../assets/images/logos/wloczykijki_logo.png';
 
-import WoollalaLogoUrl from './../assets/images/logos/woollala.jpg';
-import WoollalaLogoUrlAvif from './../assets/images/logos/woollala.avif';
-import WoollalaLogoUrlWebp from './../assets/images/logos/woollala.webp';
+import WoollalaLogoUrl from './../assets/images/minifiedLogos/woollala.png';
+import WoollalaLogoUrlWebp from './../assets/images/minifiedLogos/woollala.webp';
 
 import WoolloopLogoUrl from './../assets/images/logos/woolloop.jpg';
 import WoolloopLogoUrlAvif from './../assets/images/logos/woolloop.avif';
@@ -95,7 +92,7 @@ import WooloveLogoUrl from './../assets/images/logos/woolove.jpg';
 import WooloveLogoUrlAvif from './../assets/images/logos/woolove.avif';
 import WooloveLogoUrlWebp from './../assets/images/logos/woolove.webp';
 
-import { Picture } from './Picture';
+import { Picture } from '../components/Picture';
 
 export const Grid = styled.div`
   display: flex;
@@ -275,23 +272,7 @@ export const VendorsList = () => {
       </Link>
 
       <Link to="https://kokonki.pl/" target="_blank" rel="noreferrer">
-        <Picture
-          width={150}
-          alt="kokonki"
-          picture={{
-            fallbackUrl: KokonkiLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: KokonkiLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: KokonkiLogoUrlAvif
-              }
-            ]
-          }}
-        />
+        <img width={120} src={KokonkiLogoUrl} alt="kokonki_logo" />
       </Link>
 
       <Link to="https://madobo.pl" target="_blank" rel="noreferrer">
@@ -492,7 +473,7 @@ export const VendorsList = () => {
 
       <Link to="https://www.woollala.com" target="_blank" rel="noreferrer">
         <Picture
-          width={150}
+          width={100}
           alt="woollala"
           picture={{
             fallbackUrl: WoollalaLogoUrl,
@@ -500,10 +481,6 @@ export const VendorsList = () => {
               {
                 type: 'image/webp',
                 url: WoollalaLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: WoollalaLogoUrlAvif
               }
             ]
           }}

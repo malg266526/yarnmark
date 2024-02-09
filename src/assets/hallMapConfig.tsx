@@ -32,13 +32,11 @@ import HankaMiZrobilaLogoUrlAvif from './../assets/images/logos/hankamizrobila.a
 import HankaMiZrobilaLogoUrl from './../assets/images/logos/hankamizrobila.jpg';
 import HankaMiZrobilaLogoUrlWebp from './../assets/images/logos/hankamizrobila.webp';
 
-import KnitPlLogoUrlAvif from './../assets/images/logos/knitpl.avif';
-import KnitPlLogoUrl from './../assets/images/logos/knitpl.jpg';
-import KnitPlLogoUrlWebp from './../assets/images/logos/knitpl.webp';
+import KnitPlLogoUrl from './../assets/images/minifiedLogos/knitpl.png';
+import KnitPlLogoUrlAvif from './../assets/images/minifiedLogos/knitpl.avif';
+import KnitPlLogoUrlWebp from './../assets/images/minifiedLogos/knitpl.webp';
 
-import KokonkiLogoUrlAvif from './../assets/images/logos/kokonki.avif';
-import KokonkiLogoUrl from './../assets/images/logos/kokonki.jpg';
-import KokonkiLogoUrlWebp from './../assets/images/logos/kokonki.webp';
+import KokonkiLogoUrl from './../assets/images/minifiedLogos/kokonki.png';
 
 import MadoboLogoUrl from './../assets/images/logos/madobo.jpg';
 import MadoboLogoUrlAvif from './../assets/images/logos/madobo.avif';
@@ -81,9 +79,8 @@ import WelnaBawelnaLogoUrl from './../assets/images/logos/WelnaBawelna.jpg';
 import WelnaBawelnaLogoUrlAvif from './../assets/images/logos/WelnaBawelna.avif';
 import WelnaBawelnaLogoUrlWebp from './../assets/images/logos/WelnaBawelna.webp';
 
-import WoollalaLogoUrlAvif from './../assets/images/logos/woollala.avif';
-import WoollalaLogoUrl from './../assets/images/logos/woollala.jpg';
-import WoollalaLogoUrlWebp from './../assets/images/logos/woollala.webp';
+import WoollalaLogoUrl from './../assets/images/minifiedLogos/woollala.png';
+import WoollalaLogoUrlWebp from './../assets/images/minifiedLogos/woollala.webp';
 
 import WoolloopLogoUrlAvif from './../assets/images/logos/woolloop.avif';
 import WoolloopLogoUrl from './../assets/images/logos/woolloop.jpg';
@@ -374,17 +371,7 @@ export const hallMapConfig: HallMapType = {
           index: 'S10',
           who: 'Kokonki',
           picture: {
-            fallbackUrl: KokonkiLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: KokonkiLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: KokonkiLogoUrlAvif
-              }
-            ]
+            fallbackUrl: KokonkiLogoUrl
           }
         },
         {
@@ -394,17 +381,7 @@ export const hallMapConfig: HallMapType = {
           index: 'S11',
           who: 'Kokonki',
           picture: {
-            fallbackUrl: KokonkiLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: KokonkiLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: KokonkiLogoUrlAvif
-              }
-            ]
+            fallbackUrl: KokonkiLogoUrl
           }
         },
         {
@@ -659,10 +636,6 @@ export const hallMapConfig: HallMapType = {
               {
                 type: 'image/webp',
                 url: WoollalaLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: WoollalaLogoUrlAvif
               }
             ]
           }
@@ -679,10 +652,6 @@ export const hallMapConfig: HallMapType = {
               {
                 type: 'image/webp',
                 url: WoollalaLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: WoollalaLogoUrlAvif
               }
             ]
           }
