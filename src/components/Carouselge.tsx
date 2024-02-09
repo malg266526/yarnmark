@@ -57,10 +57,20 @@ const ClickElement = styled.div<{ side: 'left' | 'right'; visible?: boolean }>`
   transition: all 150ms ease-in-out;
 `;
 
-const ItemBackground = styled.picture<{ opacity?: number; background?: string }>`
+const ItemBackground = styled.picture<{ opacity?: number; background?: string; variant?: 'covering' | 'bottom' }>`
+  z-index: -1;
   position: absolute;
   left: 0;
-  top: 0;
+  width: 100%;
+
+  ${({ variant = 'covering' }) => variant === 'covering' ? css`
+    height: 100%;
+    top: 0;
+  ` : css`
+    height: 50%;
+    bottom: 0;
+  `}
+
   ${({ background }) => background && css`
     &:after {
       content: '';
@@ -74,7 +84,7 @@ const ItemBackground = styled.picture<{ opacity?: number; background?: string }>
     }
   `};
   
-  &, > img {
+  > img {
     ${({ opacity }) => Number.isFinite(opacity) && css`
       opacity: ${opacity};
     `}
@@ -265,7 +275,7 @@ export const Carouselge = Object.assign(
         if (e.button !== 0 || !mouseDownDataRef.current) {
           return;
         }
-        
+
         if (mouseDownDataRef.current?.x - e.screenX > MINIMUM_MOUSE_MOVE_TO_TRIGGER_CHANGE) {
           if (selectedIndex < childrenCount - 1) {
             onChange(selectedIndex + 1);
