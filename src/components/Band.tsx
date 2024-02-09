@@ -15,13 +15,13 @@ export type BandProps = InnerWrapperProps &
   } & (
     | { variant?: 'default' }
     | {
-        variant: 'background-image';
-        background: ReactNode;
-      }
+      variant: 'background-image';
+      background: ReactNode;
+    }
     | {
-        variant: 'background';
-        color: string;
-      }
+      variant: 'background';
+      color: string;
+    }
   );
 
 interface InnerWrapperProps {
@@ -70,7 +70,7 @@ const flexTypeToCss: Record<FlexType, RuleSet<object>> = {
 
 interface SlotProps {
   size?: SlotSize;
-  justify?: 'center' | 'flex-start';
+  justify?: 'center' | 'flex-start' | 'flex-end';
   flex?: FlexType;
   width?: `${number}${'px' | '%'}`;
 }
@@ -203,18 +203,28 @@ const TitleWrapper = styled.div`
   z-index: 2;
 `;
 
-const Picture = styled.picture`
+const Picture = styled.picture<{ objectFit?: 'cover' | 'contain'; filter?: string; objectPosition?: string; }>`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  ${({ filter }) => filter && css`
+    filter: ${filter};
+  `};
 
   > img {
     width: 100%;
     max-width: 100%;
     height: 100%;
     max-height: 100%;
+    ${({ objectFit }) => objectFit && css`
+      object-fit: ${objectFit};
+    `};
+
+    ${({ objectPosition }) => objectPosition && css`
+      object-position: ${objectPosition};
+    `};
   }
 `;
 
