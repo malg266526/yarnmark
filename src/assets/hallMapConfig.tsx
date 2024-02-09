@@ -1,97 +1,93 @@
 import { HallColors } from '../styles/theme';
 
-import WloczykijkiLogoUrl from './../assets/images/logos/but.jpg';
-import WloczykijkiLogoUrlAvif from './../assets/images/logos/but.avif';
-import WloczykijkiLogoUrlWebp from './../assets/images/logos/but.webp';
+import wloczykijkiLogoUrl from './../assets/images/minifiedLogos/but.jpg';
+import wloczykijkiLogoUrlAvif from './../assets/images/minifiedLogos/but.avif';
+import wloczykijkiLogoUrlWebp from './../assets/images/minifiedLogos/but.webp';
 
-import AnimotkiLogoUrl from './../assets/images/logos/animotki.jpg';
-import AnimotkiLogoUrlAvif from './../assets/images/logos/animotki.avif';
-import AnimotkiLogoUrlWebp from './../assets/images/logos/animotki.webp';
+import animotkiLogoUrl from './../assets/images/minifiedLogos/animotki.png';
+import animotkiLogoUrlAvif from './../assets/images/minifiedLogos/animotki.avif';
+import animotkiLogoUrlWebp from './../assets/images/minifiedLogos/animotki.webp';
 
-import BawelnianyFilamentLogoUrl from './../assets/images/logos/bawelnianyfilament.jpg';
-import BawelnianyFilamentLogoUrlAvif from './../assets/images/logos/bawelnianyfilament.avif';
-import BawelnianyFilamentLogoUrlWebp from './../assets/images/logos/bawelnianyfilament.webp';
+import bawelnianyFilamentLogoUrl from './../assets/images/minifiedLogos/bawelnianyfilament.jpg';
+import bawelnianyFilamentLogoUrlAvif from './../assets/images/minifiedLogos/bawelnianyfilament.avif';
+import bawelnianyFilamentLogoUrlWebp from './../assets/images/minifiedLogos/bawelnianyfilament.webp';
 
-import BifernoLogoUrl from './../assets/images/logos/biferno.jpg';
-import BifernoLogoUrlAvif from './../assets/images/logos/biferno.avif';
-import BifernoLogoUrlWebp from './../assets/images/logos/biferno.webp';
+import bifernoLogoUrl from './../assets/images/minifiedLogos/biferno.png';
+import bifernoLogoUrlAvif from './../assets/images/minifiedLogos/biferno.avif';
+import bifernoLogoUrlWebp from './../assets/images/minifiedLogos/biferno.webp';
 
-import BrioszkaLogoUrl from './../assets/images/logos/brioszka.jpg';
-import BrioszkaLogoUrlAvif from './../assets/images/logos/brioszka.avif';
-import BrioszkaLogoUrlWebp from './../assets/images/logos/brioszka.webp';
+import brioszkaLogoUrl from './../assets/images/minifiedLogos/brioszka.png';
+import brioszkaLogoUrlAvif from './../assets/images/minifiedLogos/brioszka.avif';
+import brioszkaLogoUrlWebp from './../assets/images/minifiedLogos/brioszka.webp';
 
-import DyeDyeDoneLogoUrlAvif from './../assets/images/logos/dyedyedone.avif';
-import DyeDyeDoneLogoUrl from './../assets/images/logos/dyedyedone.jpg';
-import DyeDyeDoneLogoUrlWebp from './../assets/images/logos/dyedyedone.webp';
+import dyeDyeDoneLogoUrlAvif from './../assets/images/minifiedLogos/dyedyedone.avif';
+import dyeDyeDoneLogoUrl from './../assets/images/minifiedLogos/dyedyedone.png';
+import dyeDyeDoneLogoUrlWebp from './../assets/images/minifiedLogos/dyedyedone.webp';
 
-import GaboWoolLogoUrl from './../assets/images/logos/gabo.jpg';
-import GaboWoolLogoUrlAvif from './../assets/images/logos/gabo.avif';
-import GaboWoolLogoUrlWebp from './../assets/images/logos/gabo.webp';
+import gaboWoolLogoUrl from './../assets/images/minifiedLogos/gabowool.png';
+import gaboWoolLogoUrlAvif from './../assets/images/minifiedLogos/gabowool.avif';
+import gaboWoolLogoUrlWebp from './../assets/images/minifiedLogos/gabowool.webp';
 
-import HankaMiZrobilaLogoUrlAvif from './../assets/images/logos/hankamizrobila.avif';
-import HankaMiZrobilaLogoUrl from './../assets/images/logos/hankamizrobila.jpg';
-import HankaMiZrobilaLogoUrlWebp from './../assets/images/logos/hankamizrobila.webp';
+import hankaMiZrobilaLogoUrl from './../assets/images/minifiedLogos/hankamizrobila.png';
+import hankaMiZrobilaLogoUrlAvif from './../assets/images/minifiedLogos/hankamizrobila.avif';
+import hankaMiZrobilaLogoUrlWebp from './../assets/images/minifiedLogos/hankamizrobila.webp';
 
-import KnitPlLogoUrlAvif from './../assets/images/logos/knitpl.avif';
-import KnitPlLogoUrl from './../assets/images/logos/knitpl.jpg';
-import KnitPlLogoUrlWebp from './../assets/images/logos/knitpl.webp';
+import knitPlLogoUrl from './../assets/images/minifiedLogos/knitpl.png';
+import knitPlLogoUrlAvif from './../assets/images/minifiedLogos/knitpl.avif';
+import knitPlLogoUrlWebp from './../assets/images/minifiedLogos/knitpl.webp';
 
-import KokonkiLogoUrlAvif from './../assets/images/logos/kokonki.avif';
-import KokonkiLogoUrl from './../assets/images/logos/kokonki.jpg';
-import KokonkiLogoUrlWebp from './../assets/images/logos/kokonki.webp';
+import kokonkiLogoUrl from './../assets/images/minifiedLogos/kokonki.png';
 
-import MadoboLogoUrl from './../assets/images/logos/madobo.jpg';
-import MadoboLogoUrlAvif from './../assets/images/logos/madobo.avif';
-import MadoboLogoUrlWebp from './../assets/images/logos/madobo.webp';
+import madoboLogoUrl from './../assets/images/minifiedLogos/madobo.png';
+import madoboLogoUrlAvif from './../assets/images/minifiedLogos/madobo.avif';
+import madoboLogoUrlWebp from './../assets/images/minifiedLogos/madobo.webp';
 
-import ManiaChomikujeLogoUrl from './../assets/images/logos/Mania.jpg';
-import ManiaChomikujeLogoUrlAvif from './../assets/images/logos/Mania.avif';
-import ManiaChomikujeLogoUrlWebp from './../assets/images/logos/Mania.webp';
+import maniaChomikujeLogoUrl from './../assets/images/minifiedLogos/mania.png';
+import maniaChomikujeLogoUrlAvif from './../assets/images/minifiedLogos/mania.avif';
+import maniaChomikujeLogoUrlWebp from './../assets/images/minifiedLogos/mania.webp';
 
-import MissKnitskiLogoUrlAvif from './../assets/images/logos/missknitski.avif';
-import MissKnitskiLogoUrl from './../assets/images/logos/missknitski.jpg';
-import MissKnitskiLogoUrlWebp from './../assets/images/logos/missknitski.webp';
+import missKnitskiLogoUrl from './../assets/images/minifiedLogos/missknitski.png';
+import missKnitskiLogoUrlAvif from './../assets/images/minifiedLogos/missknitski.avif';
+import missKnitskiLogoUrlWebp from './../assets/images/minifiedLogos/missknitski.webp';
 
-import MokoszaLogoUrl from './../assets/images/logos/mokosza.jpg';
-import MokoszaLogoUrlAvif from './../assets/images/logos/mokosza.avif';
-import MokoszaLogoUrlWebp from './../assets/images/logos/mokosza.webp';
+import mokoszaLogoUrl from './../assets/images/minifiedLogos/mokosza.png';
+import mokoszaLogoUrlAvif from './../assets/images/minifiedLogos/mokosza.avif';
+import mokoszaLogoUrlWebp from './../assets/images/minifiedLogos/mokosza.webp';
 
-import MotkomaniaLogoUrl from './../assets/images/logos/motkomania.jpg';
-import MotkomaniaLogoUrlAvif from './../assets/images/logos/motkomania.avif';
-import MotkomaniaLogoUrlWebp from './../assets/images/logos/motkomania.webp';
+import motkomaniaLogoUrl from './../assets/images/minifiedLogos/motkomania.jpg';
+import motkomaniaLogoUrlAvif from './../assets/images/minifiedLogos/motkomania.avif';
+import motkomaniaLogoUrlWebp from './../assets/images/minifiedLogos/motkomania.webp';
 
-import NaSztukiStudioLogoUrlAvif from './../assets/images/logos/nasztukistudio.avif';
-import NaSztukiStudioLogoUrl from './../assets/images/logos/nasztukistudio.jpg';
-import NaSztukiStudioLogoUrlWebp from './../assets/images/logos/nasztukistudio.webp';
+import naSztukiStudioLogoUrl from './../assets/images/minifiedLogos/nasztukistudio.png';
 
-import PimotkiLogoUrl from './../assets/images/logos/pimotki.jpg';
-import PimotkiLogoUrlAvif from './../assets/images/logos/pimotki.avif';
-import PimotkiLogoUrlWebp from './../assets/images/logos/pimotki.webp';
+import pimotkiLogoUrl from './../assets/images/minifiedLogos/pimotki.png';
 
-import SiedemOczekLogoUrl from './../assets/images/logos/7oczek.png';
-import StrikkeLogoUrl from './../assets/images/logos/strikke.png';
+import siedemOczekLogoUrl from './../assets/images/minifiedLogos/7oczek.jpg';
+import siedemOczekLogoUrlAvif from './../assets/images/minifiedLogos/7oczek.avif';
+import siedemOczekLogoUrlWebp from './../assets/images/minifiedLogos/7oczek.webp';
 
-import TimeToKnitLogoUrlAvif from './../assets/images/logos/timetoknit.avif';
-import TimeToKnitLogoUrl from './../assets/images/logos/timetoknit.jpg';
-import TimeToKnitLogoUrlWebp from './../assets/images/logos/timetoknit.webp';
+import strikkeLogoUrl from './../assets/images/minifiedLogos/strikke.png';
 
-import TheKnittingBoxLogoUrl from './../assets/images/logos/theknittingbox.png';
+import timeToKnitLogoUrlAvif from './../assets/images/minifiedLogos/timetoknit.avif';
+import timeToKnitLogoUrl from './../assets/images/minifiedLogos/timetoknit.png';
+import timeToKnitLogoUrlWebp from './../assets/images/minifiedLogos/timetoknit.webp';
 
-import WelnaBawelnaLogoUrl from './../assets/images/logos/WelnaBawelna.jpg';
-import WelnaBawelnaLogoUrlAvif from './../assets/images/logos/WelnaBawelna.avif';
-import WelnaBawelnaLogoUrlWebp from './../assets/images/logos/WelnaBawelna.webp';
+import theKnittingBoxLogoUrl from './../assets/images/minifiedLogos/theknittingbox.png';
 
-import WoollalaLogoUrlAvif from './../assets/images/logos/woollala.avif';
-import WoollalaLogoUrl from './../assets/images/logos/woollala.jpg';
-import WoollalaLogoUrlWebp from './../assets/images/logos/woollala.webp';
+import welnaBawelnaLogoUrl from './../assets/images/minifiedLogos/WelnaBawelna.jpg';
+import welnaBawelnaLogoUrlAvif from './../assets/images/minifiedLogos/WelnaBawelna.avif';
+import welnaBawelnaLogoUrlWebp from './../assets/images/minifiedLogos/WelnaBawelna.webp';
 
-import WoolloopLogoUrlAvif from './../assets/images/logos/woolloop.avif';
-import WoolloopLogoUrl from './../assets/images/logos/woolloop.jpg';
-import WoolloopLogoUrlWebp from './../assets/images/logos/woolloop.webp';
+import woollalaLogoUrl from './../assets/images/minifiedLogos/woollala.png';
+import woollalaLogoUrlWebp from './../assets/images/minifiedLogos/woollala.webp';
 
-import WooloveLogoUrl from './../assets/images/logos/woolove.jpg';
-import WooloveLogoUrlAvif from './../assets/images/logos/woolove.avif';
-import WooloveLogoUrlWebp from './../assets/images/logos/woolove.webp';
+import woolloopLogoUrl from './../assets/images/minifiedLogos/woolloop.png';
+import woolloopLogoUrlAvif from './../assets/images/minifiedLogos/woolloop.avif';
+import woolloopLogoUrlWebp from './../assets/images/minifiedLogos/woolloop.webp';
+
+import wooloveLogoUrl from './../assets/images/minifiedLogos/woolove.png';
+import wooloveLogoUrlAvif from './../assets/images/minifiedLogos/woolove.avif';
+import wooloveLogoUrlWebp from './../assets/images/minifiedLogos/woolove.webp';
 
 import { PictureType } from '../components/Picture';
 
@@ -143,15 +139,15 @@ export const hallMapConfig: HallMapType = {
           height: 4,
           who: 'Biferno',
           picture: {
-            fallbackUrl: BifernoLogoUrl,
+            fallbackUrl: bifernoLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: BifernoLogoUrlWebp
+                url: bifernoLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: BifernoLogoUrlAvif
+                url: bifernoLogoUrlAvif
               }
             ]
           }
@@ -163,15 +159,15 @@ export const hallMapConfig: HallMapType = {
           height: 4,
           who: 'Biferno',
           picture: {
-            fallbackUrl: BifernoLogoUrl,
+            fallbackUrl: bifernoLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: BifernoLogoUrlWebp
+                url: bifernoLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: BifernoLogoUrlAvif
+                url: bifernoLogoUrlAvif
               }
             ]
           }
@@ -190,15 +186,15 @@ export const hallMapConfig: HallMapType = {
           height: 4,
           who: 'KnitPl',
           picture: {
-            fallbackUrl: KnitPlLogoUrl,
+            fallbackUrl: knitPlLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: KnitPlLogoUrlWebp
+                url: knitPlLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: KnitPlLogoUrlAvif
+                url: knitPlLogoUrlAvif
               }
             ]
           }
@@ -210,15 +206,15 @@ export const hallMapConfig: HallMapType = {
           height: 4,
           who: 'Mokosza',
           picture: {
-            fallbackUrl: MokoszaLogoUrl,
+            fallbackUrl: mokoszaLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: MokoszaLogoUrlWebp
+                url: mokoszaLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: MokoszaLogoUrlAvif
+                url: mokoszaLogoUrlAvif
               }
             ]
           }
@@ -230,15 +226,15 @@ export const hallMapConfig: HallMapType = {
           height: 4,
           who: 'BawełnianyFilament & MalinowyKos',
           picture: {
-            fallbackUrl: BawelnianyFilamentLogoUrl,
+            fallbackUrl: bawelnianyFilamentLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: BawelnianyFilamentLogoUrlWebp
+                url: bawelnianyFilamentLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: BawelnianyFilamentLogoUrlAvif
+                url: bawelnianyFilamentLogoUrlAvif
               }
             ]
           }
@@ -250,15 +246,15 @@ export const hallMapConfig: HallMapType = {
           height: 4,
           who: 'Brioszka',
           picture: {
-            fallbackUrl: BrioszkaLogoUrl,
+            fallbackUrl: brioszkaLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: BrioszkaLogoUrlWebp
+                url: brioszkaLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: BrioszkaLogoUrlAvif
+                url: brioszkaLogoUrlAvif
               }
             ]
           }
@@ -270,15 +266,15 @@ export const hallMapConfig: HallMapType = {
           height: 4,
           who: 'Madobo',
           picture: {
-            fallbackUrl: MadoboLogoUrl,
+            fallbackUrl: madoboLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: MadoboLogoUrlWebp
+                url: madoboLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: MadoboLogoUrlAvif
+                url: madoboLogoUrlAvif
               }
             ]
           }
@@ -314,15 +310,15 @@ export const hallMapConfig: HallMapType = {
           index: 'P2',
           who: 'GaboWool',
           picture: {
-            fallbackUrl: GaboWoolLogoUrl,
+            fallbackUrl: gaboWoolLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: GaboWoolLogoUrlWebp
+                url: gaboWoolLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: GaboWoolLogoUrlAvif
+                url: gaboWoolLogoUrlAvif
               }
             ]
           }
@@ -334,17 +330,7 @@ export const hallMapConfig: HallMapType = {
           index: 'S8',
           who: 'Pimotki',
           picture: {
-            fallbackUrl: PimotkiLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: PimotkiLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: PimotkiLogoUrlAvif
-              }
-            ]
+            fallbackUrl: pimotkiLogoUrl
           }
         },
         {
@@ -354,17 +340,7 @@ export const hallMapConfig: HallMapType = {
           index: 'S9',
           who: 'Pimotki',
           picture: {
-            fallbackUrl: PimotkiLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: PimotkiLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: PimotkiLogoUrlAvif
-              }
-            ]
+            fallbackUrl: pimotkiLogoUrl
           }
         },
         {
@@ -374,17 +350,7 @@ export const hallMapConfig: HallMapType = {
           index: 'S10',
           who: 'Kokonki',
           picture: {
-            fallbackUrl: KokonkiLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: KokonkiLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: KokonkiLogoUrlAvif
-              }
-            ]
+            fallbackUrl: kokonkiLogoUrl
           }
         },
         {
@@ -394,17 +360,7 @@ export const hallMapConfig: HallMapType = {
           index: 'S11',
           who: 'Kokonki',
           picture: {
-            fallbackUrl: KokonkiLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: KokonkiLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: KokonkiLogoUrlAvif
-              }
-            ]
+            fallbackUrl: kokonkiLogoUrl
           }
         },
         {
@@ -414,15 +370,15 @@ export const hallMapConfig: HallMapType = {
           index: 'S12',
           who: 'TimeToKnit',
           picture: {
-            fallbackUrl: TimeToKnitLogoUrl,
+            fallbackUrl: timeToKnitLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: TimeToKnitLogoUrlWebp
+                url: timeToKnitLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: TimeToKnitLogoUrlAvif
+                url: timeToKnitLogoUrlAvif
               }
             ]
           }
@@ -434,7 +390,7 @@ export const hallMapConfig: HallMapType = {
           index: 'S13',
           who: 'Strikke',
           picture: {
-            fallbackUrl: StrikkeLogoUrl
+            fallbackUrl: strikkeLogoUrl
           }
         },
         {
@@ -444,15 +400,15 @@ export const hallMapConfig: HallMapType = {
           index: 'S14',
           who: 'WełnaBawełna',
           picture: {
-            fallbackUrl: WelnaBawelnaLogoUrl,
+            fallbackUrl: welnaBawelnaLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: WelnaBawelnaLogoUrlWebp
+                url: welnaBawelnaLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: WelnaBawelnaLogoUrlAvif
+                url: welnaBawelnaLogoUrlAvif
               }
             ]
           }
@@ -464,15 +420,15 @@ export const hallMapConfig: HallMapType = {
           index: 'S15',
           who: 'WełnaBawełna',
           picture: {
-            fallbackUrl: WelnaBawelnaLogoUrl,
+            fallbackUrl: welnaBawelnaLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: WelnaBawelnaLogoUrlWebp
+                url: welnaBawelnaLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: WelnaBawelnaLogoUrlAvif
+                url: welnaBawelnaLogoUrlAvif
               }
             ]
           }
@@ -484,15 +440,15 @@ export const hallMapConfig: HallMapType = {
           index: 'P3',
           who: 'DyeDyeDone',
           picture: {
-            fallbackUrl: DyeDyeDoneLogoUrl,
+            fallbackUrl: dyeDyeDoneLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: DyeDyeDoneLogoUrlWebp
+                url: dyeDyeDoneLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: DyeDyeDoneLogoUrlAvif
+                url: dyeDyeDoneLogoUrlAvif
               }
             ]
           }
@@ -522,15 +478,15 @@ export const hallMapConfig: HallMapType = {
           index: 'M1',
           who: 'Woolove',
           picture: {
-            fallbackUrl: WooloveLogoUrl,
+            fallbackUrl: wooloveLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: WooloveLogoUrlWebp
+                url: wooloveLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: WooloveLogoUrlAvif
+                url: wooloveLogoUrlAvif
               }
             ]
           }
@@ -554,17 +510,7 @@ export const hallMapConfig: HallMapType = {
           index: 'M3',
           who: 'NaSztukiStudio',
           picture: {
-            fallbackUrl: NaSztukiStudioLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: NaSztukiStudioLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: NaSztukiStudioLogoUrlAvif
-              }
-            ]
+            fallbackUrl: naSztukiStudioLogoUrl
           }
         },
         {
@@ -574,7 +520,7 @@ export const hallMapConfig: HallMapType = {
           index: 'M4',
           who: 'TheKnittingBox',
           picture: {
-            fallbackUrl: TheKnittingBoxLogoUrl
+            fallbackUrl: theKnittingBoxLogoUrl
           }
         },
         {
@@ -596,15 +542,15 @@ export const hallMapConfig: HallMapType = {
           index: 'M6',
           who: 'HankaMiZrobiła',
           picture: {
-            fallbackUrl: HankaMiZrobilaLogoUrl,
+            fallbackUrl: hankaMiZrobilaLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: HankaMiZrobilaLogoUrlWebp
+                url: hankaMiZrobilaLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: HankaMiZrobilaLogoUrlAvif
+                url: hankaMiZrobilaLogoUrlAvif
               }
             ]
           }
@@ -634,15 +580,15 @@ export const hallMapConfig: HallMapType = {
           index: 'P4',
           who: 'Włóczykijki',
           picture: {
-            fallbackUrl: WloczykijkiLogoUrl,
+            fallbackUrl: wloczykijkiLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: WloczykijkiLogoUrlWebp
+                url: wloczykijkiLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: WloczykijkiLogoUrlAvif
+                url: wloczykijkiLogoUrlAvif
               }
             ]
           }
@@ -654,15 +600,11 @@ export const hallMapConfig: HallMapType = {
           index: 'S16',
           who: 'Woollala',
           picture: {
-            fallbackUrl: WoollalaLogoUrl,
+            fallbackUrl: woollalaLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: WoollalaLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: WoollalaLogoUrlAvif
+                url: woollalaLogoUrlWebp
               }
             ]
           }
@@ -674,15 +616,11 @@ export const hallMapConfig: HallMapType = {
           index: 'S17',
           who: 'Woollala',
           picture: {
-            fallbackUrl: WoollalaLogoUrl,
+            fallbackUrl: woollalaLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: WoollalaLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: WoollalaLogoUrlAvif
+                url: woollalaLogoUrlWebp
               }
             ]
           }
@@ -694,7 +632,17 @@ export const hallMapConfig: HallMapType = {
           index: 'S18',
           who: '7oczek',
           picture: {
-            fallbackUrl: SiedemOczekLogoUrl
+            fallbackUrl: siedemOczekLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: siedemOczekLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: siedemOczekLogoUrlAvif
+              }
+            ]
           }
         },
         {
@@ -704,7 +652,17 @@ export const hallMapConfig: HallMapType = {
           index: 'S19',
           who: '7Oczek',
           picture: {
-            fallbackUrl: SiedemOczekLogoUrl
+            fallbackUrl: siedemOczekLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: siedemOczekLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: siedemOczekLogoUrlAvif
+              }
+            ]
           }
         },
         {
@@ -714,15 +672,15 @@ export const hallMapConfig: HallMapType = {
           index: 'S20',
           who: 'MissKnitski',
           picture: {
-            fallbackUrl: MissKnitskiLogoUrl,
+            fallbackUrl: missKnitskiLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: MissKnitskiLogoUrlWebp
+                url: missKnitskiLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: MissKnitskiLogoUrlAvif
+                url: missKnitskiLogoUrlAvif
               }
             ]
           }
@@ -734,15 +692,15 @@ export const hallMapConfig: HallMapType = {
           index: 'S21',
           who: 'Woolloop',
           picture: {
-            fallbackUrl: WoolloopLogoUrl,
+            fallbackUrl: woolloopLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: WoolloopLogoUrlWebp
+                url: woolloopLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: WoolloopLogoUrlAvif
+                url: woolloopLogoUrlAvif
               }
             ]
           }
@@ -768,15 +726,15 @@ export const hallMapConfig: HallMapType = {
           index: 'P5',
           who: 'Motkomania',
           picture: {
-            fallbackUrl: MotkomaniaLogoUrl,
+            fallbackUrl: motkomaniaLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: MotkomaniaLogoUrlWebp
+                url: motkomaniaLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: MotkomaniaLogoUrlAvif
+                url: motkomaniaLogoUrlAvif
               }
             ]
           }
@@ -818,15 +776,15 @@ export const hallMapConfig: HallMapType = {
           index: 'S24',
           who: 'Mania Chomikuje',
           picture: {
-            fallbackUrl: ManiaChomikujeLogoUrl,
+            fallbackUrl: maniaChomikujeLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: ManiaChomikujeLogoUrlWebp
+                url: maniaChomikujeLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: ManiaChomikujeLogoUrlAvif
+                url: maniaChomikujeLogoUrlAvif
               }
             ]
           }
@@ -865,15 +823,15 @@ export const hallMapConfig: HallMapType = {
           index: 'S29',
           who: 'Animotki',
           picture: {
-            fallbackUrl: AnimotkiLogoUrl,
+            fallbackUrl: animotkiLogoUrl,
             sources: [
               {
                 type: 'image/webp',
-                url: AnimotkiLogoUrlWebp
+                url: animotkiLogoUrlWebp
               },
               {
                 type: 'image/avif',
-                url: AnimotkiLogoUrlAvif
+                url: animotkiLogoUrlAvif
               }
             ]
           }
