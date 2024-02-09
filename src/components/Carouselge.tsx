@@ -265,7 +265,7 @@ export const Carouselge = Object.assign(
         if (e.button !== 0 || !mouseDownDataRef.current) {
           return;
         }
-
+        
         if (mouseDownDataRef.current?.x - e.screenX > MINIMUM_MOUSE_MOVE_TO_TRIGGER_CHANGE) {
           if (selectedIndex < childrenCount - 1) {
             onChange(selectedIndex + 1);
@@ -281,6 +281,7 @@ export const Carouselge = Object.assign(
           mouseDownDataRef.current = undefined;
           return;
         }
+        mouseDownDataRef.current = undefined;
       },
       [selectedIndex, mouseDownDataRef, childrenCount, onChange]
     );
@@ -311,8 +312,10 @@ export const Carouselge = Object.assign(
           <ChildrenWrapper
             ref={childrenWrapperRef}
             onMouseDown={(e) => {
-              e.preventDefault();
-              mouseDownDataRef.current = { x: e.screenX, y: e.screenY };
+              if (e.button === 0) {
+                e.preventDefault();
+                mouseDownDataRef.current = { x: e.screenX, y: e.screenY };
+              }
             }}
             onMouseLeave={onMouseUp}
             onMouseUp={onMouseUp}
