@@ -171,7 +171,7 @@ export const en: TranslationsShape = {
     workshops: {
       buyTicket: 'Buy a ticket',
       firstAid: 'First aid',
-      freeAdmission: 'Free',
+      freeAdmission: 'Free admission',
       firstAidDescription:
         'Resuscytacja na manekinie osoby dorosłej i dziecku plus pomoc w stanach nagłych zadławienie, oparzenie itd',
       decorativeKnitting: 'Decorative knitting',
