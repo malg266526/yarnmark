@@ -9,7 +9,7 @@ export const en: TranslationsShape = {
       organizers: 'Organizers',
       contact: 'Contact',
       infoForVendors: 'For Vendors',
-      cashmereTickets: 'Cashmere Tickets',
+      cruise: 'KnittingShip',
       aboutUs: 'About us',
       stands: 'Stands'
     },
@@ -173,7 +173,7 @@ export const en: TranslationsShape = {
       firstAid: 'First aid',
       freeAdmission: 'Free admission',
       firstAidDescription:
-        'Resuscytacja na manekinie osoby dorosłej i dziecku plus pomoc w stanach nagłych zadławienie, oparzenie itd',
+        'Our first aid demonstrations are interactive events, during which our experienced instructors share knowledge about basic techniques of providing first aid. The shows are adapted to different age groups and advancement levels, so that each participant can gain practical skills that may prove important in life',
       decorativeKnitting: 'Decorative knitting',
       decorativeKnittingDescription:
         'I will show you how to create openwork knits, decorate with cables and jacquard, if there is enough time, I will also show you how to finish them with i-cord. People who want to take part in the workshops should bring straight or circular needles, between 3 and 4 mm, wool appropriate for a given size in 2 colors, preferably contrasting colors, and an cable needle for braids. When it comes to wool, it does not have to be a full skein, we need an amount that will allow us to make a sample of the knitwear we are interested in.',
@@ -192,53 +192,50 @@ export const en: TranslationsShape = {
       firstAidLessons: {
         lesson1: 'Hazard recognition and safety',
         lessonDescription1:
-          'Uczestnicy dowiedzą się, jak rozpoznawać potencjalne zagrożenia oraz jak zadbać o własne bezpieczeństwo i bezpieczeństwo osób wokół w sytuacjach awaryjnych.',
+          'Participants will learn how to recognize potential threats and how to ensure their own safety and the safety of those around them in emergency situations.',
         lesson2: 'Resuscytacja krążeniowo-oddechowa (RKO)',
         lessonDescription2:
-          'Instruktorzy przekażą praktyczne umiejętności związane z wykonywaniem resuscytacji krążeniowo-oddechowej, z użyciem manekina do treningu.',
+          'Instructors will provide practical skills in performing cardiopulmonary resuscitation using a training manikin.',
         lesson3: 'Behavior in the event of injuries and accidents',
         lessonDescription3:
-          'Uczestnicy zdobędą wiedzę na temat postępowania w przypadku różnych rodzajów obrażeń, w tym złamań, skręceń czy oparzeń.',
+          'Participants will gain knowledge on how to deal with various types of injuries, including fractures, sprains and burns.',
         lesson4: 'Using an automatic defibrillator (AED)',
         lessonDescription4:
-          'Praktyczne szkolenie z obsługi AED, wskazówki dotyczące lokalizacji urządzeń oraz skuteczne wykorzystanie ich w nagłych sytuacjach.',
+          'Practical training in the use of AEDs, tips on locating devices and their effective use in emergency situations.',
         lesson5: 'Ćwiczenia praktyczne',
         lessonDescription5:
           'Participants will have the opportunity to practically apply the acquired knowledge during simulations of various emergency situations.'
       },
       firstAidQuote: 'Ten, kto ratuje życie jednego człowieka, ratuje cały świat',
-      firstAidIntro: 'Wśród wszystkich wspaniałych warsztatów, te są najbardziej wyjątkowe.',
-      firstAidSuperhero:
-        'Dzięki poznanym tu umiejętnościom zostaniecie Superbohaterkami i Superbohaterami, które będą potrafiły uratować świat.',
-      raffia: 'Szydełkowanie z rafii - pierwsze kroki.',
+      raffia: 'Crocheting with raffia - first steps',
       raffiaDescription:
         'Na warsztatach uczestnicy zapoznają się z rafią oraz technikami jej przerabiania. Podzielę się wiedzą jaką zdobyłam podczas kilkuletniej pracy z tym włóknem. Chętnie odpowiem na nurtujące  pytania. Ze spotkania uczestnicy wyjdą z wydzierganą przez siebie mini torebką lub jej częścią😉 Materiały potrzebne do pracy uczestnicy przynoszą we własnym zakresie.',
       raffiaNeededMaterials: 'Potrzebne materiały, które można zakupić w sklepie biferno.pl:',
-      raffiaGptex: 'Rafia GPTEX - 2 motki',
-      raffiaCrochet: 'Szydełko nr 3mm,  3.5mm, 4mm',
+      raffiaGptex: 'Rafia GPTEX - 2 skeins',
+      raffiaCrochet: 'Crochet hook no. 3mm,  3.5mm, 4mm',
       raffiaStrap: 'Skórzany rzemyk',
       raffiaBifernoDiscount: 'Dla każdego z uczestników rabat -15% w sklepie Biferno na wyżej wymienione produkty',
       knitolog: {
         topic: 'Design your own sweater',
         subtopic: '(raglan, from the top, in the round)',
-        plan: 'Podczas warsztatów nauczysz się: ',
+        plan: 'You will learn:',
         lesson1: 'jak rozliczyć raglan',
         lesson2: 'how to decrease stitches in a round and work with the Magic Loop method',
         lesson3: 'jak robić japońskie rzędy skrócone',
-        lesson4: 'jak dodawać oczka w raglanie, po prawej i po lewej stronie',
+        lesson4: 'how to increase stitches in raglan, on the right and left side',
         lesson5: 'how to make a deeper or shallower neckline',
-        lesson6: 'jak rozdzielić korpus i rękawy',
+        lesson6: 'how to separate the body and sleeves',
         lesson7: 'jak estetycznie nabrać oczka pod pachą',
         pattern:
           'Każdy uczestnik warsztatów otrzyma wzór na sweter, na bazie którego będziemy pracować. Aby wziąć udział w warsztatach wystarczą podstawowe umiejętności dziewiarskie.',
         materialsNeeded: 'Materiały potrzebne na warsztaty:',
         wool: 'a skein of yarn approx. 200m in 100g (approx. 100m in 50g)',
         knittingNeedles: 'druty 4,00 mm z żyłką 80 cm (lub taką na jakiej lubisz robić swetry w okrążeniach)',
-        markers: 'markery dziewiarskie 9 szt.',
+        markers: 'stitch markers - 9 pcs.',
         pinMarkers: 'safety pin markers: 10-12 pcs.'
       },
       freeYourIdeas: {
-        topic: 'Uwolnij pomysły! Jak zbierać i czytać inspiracje do projektów.',
+        topic: 'Unleash your ideas! How to collect and read design inspiration',
         description:
           'Uwolnij Pomysły to warsztaty na których dosłownie uwalniamy pomysły! Mam na imię Marta, robię na drutach i uwielbiam się dzielić wiedzą, dlatego podczas spotkania pokażę Tobie metody na walkę z blokadą twórczą, podpowiem gdzie można znaleźć inspiracje, pomogę stworzyć moodboard i dam wskazówki jak przełożyć to wszystko na język projektowy. Przez kilka godzin będziemy się twórczo bawić tworząc z kolorowych wycinków tablice inspiracji i szkicując na szablonach autorskie projekty.',
         booklet:
@@ -248,9 +245,9 @@ export const en: TranslationsShape = {
         meetMe: 'Jeśli masz ochotę mnie bardziej poznać to zapraszam na mojego instagrama @marta.kania'
       },
       ewa: {
-        topic: 'Zielone druty',
+        topic: 'The Greeners',
         misteries: 'Na warsztatach dla początkujących wprowadzę Cię w tajniki i mistyczne arkana sztuki dziewiarskiej.',
-        plan: 'Poznasz różne rodzaje materiałów z którymi zazwyczaj pracujemy, nauczę Cię paru technik nabierania oczek, poznasz podstawy - prawe i lewe oczka. Zapoznam z metodą dodawania oraz ujmowania oczek oraz zakańczania dzianiny. Pokażę Ci dziewiarskie akcesoria, które ułatwiają życie dziewiarce/dziewiarzowi. Wytłumaczę, jak czytać wzory w książkach i na banderolach. Przerobimy razem kawałek dzianiny.',
+        plan: 'You will learn about the different types of materials we usually work with, I will teach you some techniques for casting on stitches, and you will learn the basics - knit and purl stitches. I will introduce you to the methods of adding and decreasing stitches and finishing the knitted fabric. I will show you knitting accessories that make the life of a knitter easier. I will explain how to read patterns in books and on banners. We will knit a piece of knit together.',
         debugging:
           'Oczywiście pokażę, jak ratować zgubione oczka lub naprawiać proste błędy. Postaram się odpowiedzieć na nurtujące pytania.',
         forBeginners:
