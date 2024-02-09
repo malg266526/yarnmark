@@ -91,8 +91,8 @@ const ItemBackground = styled.picture<{ opacity?: number; background?: string; v
 
   > img {
     ${({ opacity }) =>
-      Number.isFinite(opacity) &&
-      css`
+    Number.isFinite(opacity) &&
+    css`
         opacity: ${opacity};
       `}
     height: 100%;
@@ -147,7 +147,6 @@ const Indicator = styled.div<{ active?: boolean; color: 'black' | 'white' }>`
 const OuterWrapper = styled.div`
   position: relative;
   height: calc(100% - ${INACTIVE_INDICATOR_SIZE * ACTIVE_INDICATOR_SCALE}px - 20px);
-  // width: calc(100% - 50px);
   width: 100%;
 `;
 
@@ -176,7 +175,7 @@ const ChildrenWrapper = styled.div<{ visibleIndexes: VisibleIndex[] }>`
           opacity: ${opacity};
           pointer-events: ${pointerEvents};
           ${zIndex &&
-          css`
+        css`
             z-index: ${zIndex};
           `}
         }
