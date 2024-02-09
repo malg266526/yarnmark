@@ -174,6 +174,7 @@ export const pl = {
     workshops: {
       buyTicket: 'Kup bilet',
       firstAid: 'Pierwsza pomoc',
+      freeAdmission: 'Wstęp wolny',
       firstAidDescription:
         'Nasze pokazy z pierwszej pomocy to interaktywne wydarzenia, podczas których nasi doświadczeni instruktorzy dzielą się wiedzą na temat podstawowych technik udzielania pomocy przedmedycznej. Pokazy są dostosowane do różnych grup wiekowych i poziomów zaawansowania, aby każdy uczestnik mógł zyskać praktyczne umiejętności, które mogą okazać się życiowo ważne.',
       decorativeKnitting: 'Dzianiny ozdobne',
@@ -210,6 +211,9 @@ export const pl = {
           'Uczestnicy będą mieli okazję do praktycznego zastosowania zdobytej wiedzy podczas symulacji różnych sytuacji awaryjnych.'
       },
       firstAidQuote: 'Ten, kto ratuje życie jednego człowieka, ratuje cały świat',
+      firstAidIntro: 'Wśród wszystkich wspaniałych warsztatów, te są najbardziej wyjątkowe.',
+      firstAidSuperhero:
+        'Dzięki poznanym tu umiejętnościom zostaniecie Superbohaterkami i Superbohaterami, które będą potrafiły uratować świat.',
       raffia: 'Szydełkowanie z rafii - pierwsze kroki.',
       raffiaDescription:
         'Na warsztatach uczestnicy zapoznają się z rafią oraz technikami jej przerabiania. Podzielę się wiedzą jaką zdobyłam podczas kilkuletniej pracy z tym włóknem. Chętnie odpowiem na nurtujące  pytania. Ze spotkania uczestnicy wyjdą z wydzierganą przez siebie mini torebką lub jej częścią😉 Materiały potrzebne do pracy uczestnicy przynoszą we własnym zakresie.',
