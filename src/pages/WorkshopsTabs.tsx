@@ -5,37 +5,37 @@ import { Tabs } from '../components/Tabs';
 import { WorkshopsTimeline } from '../components/WorkshopsTimeline';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
-import PierwszaPomocUrlAvif from './../assets/images/workshops/pierwszapomoc.avif';
-import PierwszaPomocUrl from './../assets/images/workshops/pierwszapomoc.jpg';
-import PierwszaPomocUrlWebp from './../assets/images/workshops/pierwszapomoc.webp';
+import pierwszaPomocUrlAvif from './../assets/images/workshops/pierwszapomoc.avif';
+import pierwszaPomocUrl from './../assets/images/workshops/pierwszapomoc.jpg';
+import pierwszaPomocUrlWebp from './../assets/images/workshops/pierwszapomoc.webp';
 
-import WoolankaUrlAvif from './../assets/images/workshops/woolanka.avif';
-import WoolankaUrl from './../assets/images/workshops/woolanka.jpg';
-import WoolankaUrlWebp from './../assets/images/workshops/woolanka.webp';
+import woolankaUrlAvif from './../assets/images/workshops/woolanka.avif';
+import woolankaUrl from './../assets/images/workshops/woolanka.jpg';
+import woolankaUrlWebp from './../assets/images/workshops/woolanka.webp';
 
-import HaftowaBabaUrlAvif from './../assets/images/workshops/haftowa.avif';
-import HaftowaBabaUrl from './../assets/images/workshops/haftowa.jpg';
-import HaftowaBabaUrlWebp from './../assets/images/workshops/haftowa.webp';
+import haftowaBabaUrlAvif from './../assets/images/workshops/haftowa.avif';
+import haftowaBabaUrl from './../assets/images/workshops/haftowa.jpg';
+import haftowaBabaUrlWebp from './../assets/images/workshops/haftowa.webp';
 
-import KnitologUrlAvif from './../assets/images/workshops/knitolog.avif';
-import KnitologUrl from './../assets/images/workshops/knitolog.jpg';
-import KnitologUrlWebp from './../assets/images/workshops/knitolog.webp';
+import knitologUrlAvif from './../assets/images/workshops/knitolog.avif';
+import knitologUrl from './../assets/images/workshops/knitolog.jpg';
+import knitologUrlWebp from './../assets/images/workshops/knitolog.webp';
 
-import RaffiaUrlAvif from './../assets/images/workshops/rafia.avif';
-import RaffiaUrl from './../assets/images/workshops/rafia.jpg';
-import RaffiaUrlWebp from './../assets/images/workshops/rafia.webp';
+import raffiaUrlAvif from './../assets/images/workshops/rafia.avif';
+import raffiaUrl from './../assets/images/workshops/rafia.jpg';
+import raffiaUrlWebp from './../assets/images/workshops/rafia.webp';
 
-import LudArtUrlAvif from './../assets/images/workshops/ludart.avif';
-import LudArtUrl from './../assets/images/workshops/ludart.jpg';
-import LudArtUrlWebp from './../assets/images/workshops/ludart.webp';
+import ludArtUrlAvif from './../assets/images/workshops/ludart.avif';
+import ludArtUrl from './../assets/images/workshops/ludart.jpg';
+import ludArtUrlWebp from './../assets/images/workshops/ludart.webp';
 
-import UwolnijPomyslyUrlAvif from './../assets/images/workshops/uwolnijpomysly.avif';
-import UwolnijPomyslyUrl from './../assets/images/workshops/uwolnijpomysly.jpg';
-import UwolnijPomyslyWebp from './../assets/images/workshops/uwolnijpomysly.webp';
+import uwolnijPomyslyUrlAvif from './../assets/images/workshops/uwolnijpomysly.avif';
+import uwolnijPomyslyUrl from './../assets/images/workshops/uwolnijpomysly.jpg';
+import uwolnijPomyslyWebp from './../assets/images/workshops/uwolnijpomysly.webp';
 
-import DoRanyPrzylozUrlAvif from './../assets/images/workshops/doranyprzyloz.avif';
-import DoRanyPrzylozUrl from './../assets/images/workshops/doranyprzyloz.jpg';
-import DoRanyPrzylozUrlWebp from './../assets/images/workshops/doranyprzyloz.webp';
+import doRanyPrzylozUrlAvif from './../assets/images/workshops/doranyprzyloz.avif';
+import doRanyPrzylozUrl from './../assets/images/workshops/doranyprzyloz.jpg';
+import doRanyPrzylozUrlWebp from './../assets/images/workshops/doranyprzyloz.webp';
 
 type WorkshopRoom = 1 | 2 | 3;
 
@@ -59,15 +59,15 @@ export const WorkshopsTabs = () => {
 
           <Picture
             picture={{
-              fallbackUrl: PierwszaPomocUrl,
+              fallbackUrl: pierwszaPomocUrl,
               sources: [
                 {
                   type: 'image/webp',
-                  url: PierwszaPomocUrlWebp
+                  url: pierwszaPomocUrlWebp
                 },
                 {
                   type: 'image/avif',
-                  url: PierwszaPomocUrlAvif
+                  url: pierwszaPomocUrlAvif
                 }
               ]
             }}
@@ -85,21 +85,22 @@ export const WorkshopsTabs = () => {
         <WorkshopsTimeline.Slot workshopTime="15:40 - 18:40">
           <WorkshopsTimeline.Text>{t('workshops.colorfulEmbroidery')}</WorkshopsTimeline.Text>
 
-          <WorkshopsTimeline.Image
+          <Picture
             picture={{
-              fallbackUrl: LudArtUrl,
+              fallbackUrl: ludArtUrl,
               sources: [
                 {
                   type: 'image/webp',
-                  url: LudArtUrlWebp
+                  url: ludArtUrlWebp
                 },
                 {
                   type: 'image/avif',
-                  url: LudArtUrlAvif
+                  url: ludArtUrlAvif
                 }
               ]
             }}
             alt="ludart"
+            width={100}
           />
 
           <WorkshopsTimeline.Price>{t('workshops.price')}: XXzł</WorkshopsTimeline.Price>
@@ -114,15 +115,15 @@ export const WorkshopsTabs = () => {
           <WorkshopsTimeline.Text>{t('workshops.knitolog.topic')}</WorkshopsTimeline.Text>
           <Picture
             picture={{
-              fallbackUrl: KnitologUrl,
+              fallbackUrl: knitologUrl,
               sources: [
                 {
                   type: 'image/webp',
-                  url: KnitologUrlWebp
+                  url: knitologUrlWebp
                 },
                 {
                   type: 'image/avif',
-                  url: KnitologUrlAvif
+                  url: knitologUrlAvif
                 }
               ]
             }}
@@ -140,15 +141,15 @@ export const WorkshopsTabs = () => {
 
           <Picture
             picture={{
-              fallbackUrl: UwolnijPomyslyUrl,
+              fallbackUrl: uwolnijPomyslyUrl,
               sources: [
                 {
                   type: 'image/webp',
-                  url: UwolnijPomyslyWebp
+                  url: uwolnijPomyslyWebp
                 },
                 {
                   type: 'image/avif',
-                  url: UwolnijPomyslyUrlAvif
+                  url: uwolnijPomyslyUrlAvif
                 }
               ]
             }}
@@ -166,21 +167,22 @@ export const WorkshopsTabs = () => {
         <WorkshopsTimeline.Slot workshopTime="15:20 - 18:20">
           <WorkshopsTimeline.Text>{t('workshops.doRanyPrzyloz.topic')}</WorkshopsTimeline.Text>
 
-          <WorkshopsTimeline.Image
+          <Picture
             picture={{
-              fallbackUrl: DoRanyPrzylozUrl,
+              fallbackUrl: doRanyPrzylozUrl,
               sources: [
                 {
                   type: 'image/webp',
-                  url: DoRanyPrzylozUrlWebp
+                  url: doRanyPrzylozUrlWebp
                 },
                 {
                   type: 'image/avif',
-                  url: DoRanyPrzylozUrlAvif
+                  url: doRanyPrzylozUrlAvif
                 }
               ]
             }}
             alt="doranyprzyloz"
+            width={100}
           />
 
           <WorkshopsTimeline.Price>{t('workshops.price')}: XXzł</WorkshopsTimeline.Price>
@@ -194,21 +196,22 @@ export const WorkshopsTabs = () => {
         <WorkshopsTimeline.Slot workshopTime="9:15 - 25:15">
           <WorkshopsTimeline.Text>Haftowa Baba</WorkshopsTimeline.Text>
 
-          <WorkshopsTimeline.Image
+          <Picture
             picture={{
-              fallbackUrl: HaftowaBabaUrl,
+              fallbackUrl: haftowaBabaUrl,
               sources: [
                 {
                   type: 'image/webp',
-                  url: HaftowaBabaUrlWebp
+                  url: haftowaBabaUrlWebp
                 },
                 {
                   type: 'image/avif',
-                  url: HaftowaBabaUrlAvif
+                  url: haftowaBabaUrlAvif
                 }
               ]
             }}
             alt="haftowababa_logo"
+            width={100}
           />
 
           <WorkshopsTimeline.Price>{t('workshops.price')}: XXzł</WorkshopsTimeline.Price>
@@ -219,21 +222,22 @@ export const WorkshopsTabs = () => {
         <WorkshopsTimeline.Slot workshopTime="12:25 - 15:25">
           <WorkshopsTimeline.Text>{t('workshops.decorativeKnitting')}</WorkshopsTimeline.Text>
 
-          <WorkshopsTimeline.Image
+          <Picture
             picture={{
-              fallbackUrl: WoolankaUrl,
+              fallbackUrl: woolankaUrl,
               sources: [
                 {
                   type: 'image/webp',
-                  url: WoolankaUrlWebp
+                  url: woolankaUrlWebp
                 },
                 {
                   type: 'image/avif',
-                  url: WoolankaUrlAvif
+                  url: woolankaUrlAvif
                 }
               ]
             }}
             alt="woolanka"
+            width={100}
           />
 
           <WorkshopsTimeline.Price>{t('workshops.price')}: XXzł</WorkshopsTimeline.Price>
@@ -244,21 +248,22 @@ export const WorkshopsTabs = () => {
         <WorkshopsTimeline.Slot workshopTime="15:35 - 18:45">
           <WorkshopsTimeline.Text>{t('workshops.raffia')}</WorkshopsTimeline.Text>
 
-          <WorkshopsTimeline.Image
+          <Picture
             picture={{
-              fallbackUrl: RaffiaUrl,
+              fallbackUrl: raffiaUrl,
               sources: [
                 {
                   type: 'image/webp',
-                  url: RaffiaUrlWebp
+                  url: raffiaUrlWebp
                 },
                 {
                   type: 'image/avif',
-                  url: RaffiaUrlAvif
+                  url: raffiaUrlAvif
                 }
               ]
             }}
             alt="woolanka"
+            width={100}
           />
 
           <WorkshopsTimeline.Price>{t('workshops.price')}: XXzł</WorkshopsTimeline.Price>
