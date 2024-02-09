@@ -532,8 +532,7 @@ export const MainPage = () => {
         variant="background"
         justify="space-around"
         color={Colors.linen}
-        padding="xl"
-        reverseOnMobile>
+        padding="xl">
         <Paragraph>
           <h2>"{t('workshops.firstAidQuote')}"</h2>
           <h3>Thomas Keneally</h3>

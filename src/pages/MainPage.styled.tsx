@@ -397,6 +397,8 @@ export const WorkshopsWrapper = styled.div`
 
 export const Paragraph = styled.div`
   max-width: 500px;
+
+  padding: ${Spacings.md};
 `;
 
 export const BackgroundIcon = styled.img`
