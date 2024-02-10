@@ -35,6 +35,9 @@ import doRanyPrzylozUrlAvif from './../assets/images/workshops/doranyprzyloz.avi
 import doRanyPrzylozUrl from './../assets/images/workshops/doranyprzyloz.jpg';
 import doRanyPrzylozUrlWebp from './../assets/images/workshops/doranyprzyloz.webp';
 
+import ewaUrlAvif from './../assets/images/workshops/ewa.avif';
+import ewaUrl from './../assets/images/workshops/ewa.jpg';
+
 import knittingSvgUrl from '../assets/images/skein3.svg';
 import { usePhone } from './usePhone';
 import { ScreenSize } from '../styles/screeen-size';
@@ -76,13 +79,13 @@ const BlobBackground = styled.div`
 const NoTopMarginText = styled(Text)`
   margin-top: 0;
 
-  @media (max-width: ${ScreenSize.phone}) {
+  @media (max-width: ${ScreenSize.tablet}) {
     font-size: 12px;
   }
 `;
 
 const ExtraCaption = styled(Text)`
-  @media (max-width: ${ScreenSize.phone}) {
+  @media (max-width: ${ScreenSize.tablet}) {
     font-size: 12px;
   }
 `;
@@ -90,7 +93,7 @@ const ExtraCaption = styled(Text)`
 const Column = styled(FlexColumnLayout)`
   width: 50%;
 
-  @media (max-width: ${ScreenSize.phone}) {
+  @media (max-width: ${ScreenSize.tablet}) {
     width: 100%;
   }
 `;
@@ -101,7 +104,7 @@ const AdjustableContent = styled.div`
   align-items: center;
   flex-direction: row;
 
-  @media (max-width: ${ScreenSize.phone}) {
+  @media (max-width: ${ScreenSize.tablet}) {
     flex-direction: column;
   }
 `;
@@ -116,7 +119,7 @@ const ScrollableContent = styled.div`
   flex-direction: column;
   align-items: center;
 
-  @media (max-width: ${ScreenSize.phone}) {
+  @media (max-width: ${ScreenSize.tablet}) {
     height: 300px;
     overflow-y: scroll;
   }
@@ -126,9 +129,14 @@ export const WorkshopsCarousel = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
 
-  const logoStyle = isPhone
-    ? { opacity: '0.27', position: 'absolute' as const, top: '5%', left: '50%', transform: 'translateX(-50%)' }
-    : undefined;
+  const mobileStyle = {
+    opacity: '0.27',
+    position: 'absolute' as const,
+    top: '5%',
+    left: '50%',
+    transform: 'translateX(-50%)'
+  };
+  const logoStyle = isPhone ? mobileStyle : undefined;
 
   return (
     <BlobBackground>
@@ -373,18 +381,40 @@ export const WorkshopsCarousel = () => {
                 }}
                 alt="doranyprzyloz"
                 width={180}
-                style={logoStyle}
+                style={isPhone ? mobileStyle : { opacity: '0.47' }}
               />
 
               <Carousel.Caption>
-                <Title>doranyprzyloz</Title>
-                <FlexColumnLayout gap="xs" padding="none"></FlexColumnLayout>
+                <Title>{t('workshops.doRanyPrzyloz.topic')}</Title>
+                <FlexColumnLayout gap="xs" padding="none">
+                  <NoTopMarginText>{t('workshops.doRanyPrzyloz.intro')}</NoTopMarginText>
+                  <NoTopMarginText>{t('workshops.doRanyPrzyloz.macrame')}</NoTopMarginText>
+                  <NoTopMarginText>{t('workshops.doRanyPrzyloz.macrameOnTheHoop')}</NoTopMarginText>
+                  <NoTopMarginText>{t('workshops.doRanyPrzyloz.example')}</NoTopMarginText>
+                  <NoTopMarginText>{t('workshops.doRanyPrzyloz.forBeginners')}</NoTopMarginText>
+                  <NoTopMarginText>{t('workshops.doRanyPrzyloz.invite')}</NoTopMarginText>
+                </FlexColumnLayout>
               </Carousel.Caption>
             </Item>
           </Carousel.Item>
 
           <Carousel.Item>
             <Item>
+              <Picture
+                picture={{
+                  fallbackUrl: ewaUrl,
+                  sources: [
+                    {
+                      type: 'image/avif',
+                      url: ewaUrlAvif
+                    }
+                  ]
+                }}
+                alt="ewa"
+                width={180}
+                style={logoStyle}
+              />
+
               <Carousel.Caption>
                 <Title>{t('workshops.ewa.topic')}</Title>
                 <FlexColumnLayout gap="xs" padding="none">

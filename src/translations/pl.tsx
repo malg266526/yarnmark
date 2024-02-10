@@ -262,7 +262,18 @@ export const pl = {
           'Grupa dla początkujących, zaczynających przygodę z drutami, jak i dla tych co chcą nabrać pewności w swoich robótkach'
       },
       doRanyPrzyloz: {
-        topic: 'niewiadomo'
+        topic: 'Warsztaty makramy',
+        intro: 'Przyjdź, a nauczę Cię pleść makramy zupełnie od zera!',
+        macrame:
+          'Makrama to ponadczasowa przygoda, która co chwilę wraca. Plotło się je w starożytności, plotły nasze babcie, a teraz pleciemy my.',
+        macrameOnTheHoop:
+          'Na warsztatach samodzielnie wykonasz makramę na obręczy, która będzie się składała z najpopularniejszych splotów używanych w tej technice.',
+        example:
+          'Dzięki przykładowej pracy, którą przyniosę ze sobą łatwiej będzie Ci podążać za etapami i poznać najważniejsze wskazówki dotyczące tej techniki. Swój projekt oczywiście będziesz mogła/mógł dowolnie modyfikować, jeśli tylko poczujesz się na tyle pewnie.',
+        forBeginners:
+          'Warsztaty skierowane są do osób początkujących, więc możesz mieć pewność, że otrzymasz bardzo szczegółowe instrukcje i na pewno nauczysz się pleść. Potem wyobraźnia podpowie Ci następne projekty, bo jestem pewna, że na jednej makramie się nie skończy (Twoi bliscy też będą chcieli taką mieć!).',
+        invite:
+          'Na zajęcia zapraszam także każdego, kto potrzebuje więcej kreatywności w swoim życiu, albo po prostu chciałby miło spędzić czas.'
       }
     }
   }
