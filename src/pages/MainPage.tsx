@@ -195,7 +195,7 @@ export const MainPage = () => {
 
   // const activeButtonToImage = getActiveButtonToImage(t);
 
-  const observerCallback = useCallback(() => {}, []);
+  const observerCallback = useCallback(() => { }, []);
 
   useRootIntersectionObserver({
     rootRef: pageContentRef,
@@ -584,7 +584,7 @@ export const MainPage = () => {
         variant="background-image"
         justify="flex-end"
         background={
-          <Band.Picture objectFit="cover" filter="grayscale(0.2) brightness(1.3) contrast(0.8)">
+          <Band.Picture opacity={0.8} objectFit="cover" filter="grayscale(0.2) brightness(1.3) contrast(0.8)">
             <source srcSet={shipAvifSrc} type="image/avif" />
             <img loading="lazy" src={shipJpgSrc} alt="sailing ship" />
           </Band.Picture>
@@ -597,7 +597,6 @@ export const MainPage = () => {
             indicators="white">
             <Carouselge.Item>
               <Carouselge.ItemBackground
-                opacity={0.8}
                 variant="bottom"
                 background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 95%)">
                 <source srcSet={waterWebpSrc} type="image/webp" />
@@ -615,7 +614,6 @@ export const MainPage = () => {
             <Carouselge.Item>
               <Carouselge.ItemBackground
                 background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)"
-                opacity={0.8}
                 variant="bottom">
                 <source srcSet={wineAvifSrc} type="image/avif" />
                 <source srcSet={wineWebpSrc} type="image/webp" />
@@ -636,7 +634,7 @@ export const MainPage = () => {
               <Carouselge.ItemBackground
                 variant="bottom"
                 background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)"
-                opacity={0.8}>
+              >
                 <source srcSet={ticketAvifSrc} type="image/avif" />
                 <source srcSet={ticketWebpSrc} type="image/webp" />
                 <img src={ticketJpgSrc} />
@@ -667,7 +665,7 @@ export const MainPage = () => {
               <Carouselge.ItemBackground
                 variant="bottom"
                 background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)"
-                opacity={0.8}>
+              >
                 <source srcSet={mapWebpSrc} type="image/webp" />
                 <img src={mapJpgSrc} />
               </Carouselge.ItemBackground>
@@ -724,6 +722,6 @@ export const MainPage = () => {
           </FramedBox>
         </LayoutWithActiveButton>
       </Band> */}
-    </StyledPageContent>
+    </StyledPageContent >
   );
 };
