@@ -5,7 +5,6 @@ import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import { Band } from '../components/Band';
 import { NiceBox } from '../components/NiceBox';
 import { TextWrapper, Title } from '../components/Title';
-import { PageContent } from '../components/PageContent';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
@@ -23,6 +22,7 @@ import { ScreenSize } from '../styles/screeen-size';
 import { Trans } from 'react-i18next';
 import { Curtain } from '../components/Curtain';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { StyledPageContent } from './InfoForVendorsPage.styled';
 
 export const FlexLayout = styled.div`
   display: flex;
@@ -95,7 +95,7 @@ export const InfoForVendorsPage = () => {
   const standsBandRef = useRef<HTMLDivElement | null>(null);
 
   return (
-    <PageContent variant="wide" padding="none">
+    <StyledPageContent variant="wide" padding="none">
       {isPhone && <Curtain onClick={() => setBurgerActive(false)} active={burgerActive} />}
 
       {isPhone && (
@@ -138,23 +138,25 @@ export const InfoForVendorsPage = () => {
       )}
 
       {!isPhone && (
-        <Menu>
-          <MenuBackground>
-            <Link color="black" to="/">
-              Yarnmark
-            </Link>
+        <>
+          <LanguageSwitcher />
 
-            <Link color="black" to="#stands">
-              {t('menu.stands')}
-            </Link>
+          <Menu>
+            <MenuBackground>
+              <Link color="black" to="/">
+                Yarnmark
+              </Link>
 
-            <Link color="black" to="#footer">
-              {t('menu.contact')}
-            </Link>
+              <Link color="black" to="#stands">
+                {t('menu.stands')}
+              </Link>
 
-            <LanguageSwitcher />
-          </MenuBackground>
-        </Menu>
+              <Link color="black" to="#footer">
+                {t('menu.contact')}
+              </Link>
+            </MenuBackground>
+          </Menu>
+        </>
       )}
 
       <Band size="lg" justify="flex-start" narrowContent="fixed" padding="md">
@@ -280,6 +282,6 @@ export const InfoForVendorsPage = () => {
           <HallLegend />
         </HallWrapper>
       </Band>
-    </PageContent>
+    </StyledPageContent>
   );
 };

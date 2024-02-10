@@ -23,11 +23,23 @@ const Button = styled.button<{ selected: boolean }>`
   display: inline-block;
   margin: 0;
   padding: 0;
-  filter: grayscale(0.7);
+  filter: grayscale(0.8);
+  opacity: 0.7;
+  transition: all 150ms ease-in-out;
 
-  ${({ selected }) => selected && css`
-   filter: none;
-  `}
+  ${({ selected }) =>
+    selected &&
+    css`
+      opacity: 1;
+      filter: none;
+    `}
+
+  /* polish flag has bad border around and below is the fix */
+  .remove-stroke-on-polish-flag {
+    path:last-of-type {
+      stroke-width: 0;
+    }
+  }
 `;
 
 export type LanguageOption = 'pl' | 'en';
@@ -44,10 +56,10 @@ export const LanguageSwitcher = styled((props: { className?: string }) => {
 
   return (
     <Root {...props}>
-      <Button onClick={() => onChangeLanguageClicked('pl')} selected={language === 'pl'} >
-        <Icon width={50} icon="openmoji:flag-poland" />
+      <Button onClick={() => onChangeLanguageClicked('pl')} selected={language === 'pl'}>
+        <Icon className="remove-stroke-on-polish-flag" width={50} icon="openmoji:flag-poland" />
       </Button>
-      <Button onClick={() => onChangeLanguageClicked('en')} selected={language === 'en'} >
+      <Button onClick={() => onChangeLanguageClicked('en')} selected={language === 'en'}>
         <Icon width={50} icon="cif:us" />
       </Button>
     </Root>

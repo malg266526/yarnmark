@@ -91,8 +91,8 @@ const ItemBackground = styled.picture<{ opacity?: number; background?: string; v
 
   > img {
     ${({ opacity }) =>
-    Number.isFinite(opacity) &&
-    css`
+      Number.isFinite(opacity) &&
+      css`
         opacity: ${opacity};
       `}
     height: 100%;
@@ -176,7 +176,7 @@ const ChildrenWrapper = styled.div<{ visibleIndexes: VisibleIndex[] }>`
           opacity: ${opacity};
           pointer-events: ${pointerEvents};
           ${zIndex &&
-        css`
+          css`
             z-index: ${zIndex};
           `}
         }
@@ -356,7 +356,8 @@ export const Carouselge = Object.assign(
                   key={index}
                   active={index === selectedIndex}
                 />
-              ))}a
+              ))}
+            a
           </Footer>
         )}
       </Root>

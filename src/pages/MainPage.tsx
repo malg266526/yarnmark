@@ -1,6 +1,4 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { PageContent } from '../components/PageContent';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
 
 import mapWebpSrc from '../assets/images/map.webp';
 import mapJpgSrc from '../assets/images/map.jpg';
@@ -196,7 +194,7 @@ export const MainPage = () => {
 
   // const activeButtonToImage = getActiveButtonToImage(t);
 
-  const observerCallback = useCallback(() => { }, []);
+  const observerCallback = useCallback(() => {}, []);
 
   useRootIntersectionObserver({
     rootRef: pageContentRef,
@@ -361,8 +359,6 @@ export const MainPage = () => {
 
   return (
     <StyledPageContent ref={pageContentRef} variant="wide" padding="none">
-      <LanguageSwitcher />
-
       {isPhone && <Curtain onClick={() => setBurgerActive(false)} active={burgerActive} />}
       {isPhone && (
         <>
@@ -371,20 +367,12 @@ export const MainPage = () => {
           </Header>
 
           <SideBar roundedCorners="left" active={burgerActive}>
-            <SideBar.LinkEntry
-              to="/"
-              onClick={() => {
-                closeSideBar();
-              }}>
+            <SideBar.LinkEntry to="/" onClick={closeSideBar}>
               <IconifyIcon icon="game-icons:wool" width="24" />
               Yarnmark
             </SideBar.LinkEntry>
 
-            <SideBar.LinkEntry
-              to="#vendors"
-              onClick={() => {
-                closeSideBar();
-              }}>
+            <SideBar.LinkEntry to="#vendors" onClick={closeSideBar}>
               <IconifyIcon icon="bi:shop" width="24" />
               {t('menu.vendors')}
             </SideBar.LinkEntry>
@@ -412,38 +400,44 @@ export const MainPage = () => {
               <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
               {t('menu.contact')}
             </SideBar.LinkEntry>
+
+            <LanguageSwitcher />
           </SideBar>
         </>
       )}
 
       {!isPhone && (
-        <Menu>
-          <MenuBackground>
-            <Link color="black" to="/">
-              Yarnmark
-            </Link>
+        <>
+          <LanguageSwitcher />
 
-            <Link color="black" to="#vendors">
-              {t('menu.vendors')}
-            </Link>
+          <Menu>
+            <MenuBackground>
+              <Link color="black" to="/">
+                Yarnmark
+              </Link>
 
-            <Link color="black" to="/info-for-vendors">
-              {t('menu.infoForVendors')}
-            </Link>
+              <Link color="black" to="#vendors">
+                {t('menu.vendors')}
+              </Link>
 
-            <Link to="#workshops" color="black">
-              {t('menu.workshops')}
-            </Link>
+              <Link color="black" to="/info-for-vendors">
+                {t('menu.infoForVendors')}
+              </Link>
 
-            <Link to="#cruise" color="black">
-              {t('menu.cruise')}
-            </Link>
+              <Link to="#workshops" color="black">
+                {t('menu.workshops')}
+              </Link>
 
-            <Link color="black" to="#footer">
-              {t('menu.contact')}
-            </Link>
-          </MenuBackground>
-        </Menu>
+              <Link to="#cruise" color="black">
+                {t('menu.cruise')}
+              </Link>
+
+              <Link color="black" to="#footer">
+                {t('menu.contact')}
+              </Link>
+            </MenuBackground>
+          </Menu>
+        </>
       )}
 
       <Band size="xl" padding="xl" justify="flex-start">

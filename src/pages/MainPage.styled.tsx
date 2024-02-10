@@ -5,6 +5,7 @@ import { ScreenSize } from '../styles/screeen-size';
 import { Carouselge } from '../components/Carouselge';
 import { PageContent } from '../components/PageContent';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { Link } from '../components/Link';
 
 export const StyledPageContent = styled(PageContent)`
   ${Carouselge} {
@@ -20,6 +21,11 @@ export const StyledPageContent = styled(PageContent)`
     z-index: 1;
     top: 0;
     right: ${Spacings.md};
+
+    @media (max-width: ${ScreenSize.phone}) {
+      top: initial;
+      bottom: 0;
+    }
   }
 `;
 
@@ -242,36 +248,32 @@ export const PhotosLayout = styled.div`
 export const Menu = styled.div`
   position: absolute;
   width: 100%;
+  max-width: 100%;
   top: 100px;
   left: 0;
-  padding-right: 160px;
   z-index: 1;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  flex: 1 1 auto;
 
   @media (max-width: ${ScreenSize.tablet}) {
     padding-right: 0;
   }
+
+  ${Link} {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `;
 
 export const MenuBackground = styled.div`
-  padding-left: 200px;
+  max-width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end
   align-items: center;
-  background: linear-gradient(90deg, rgba(44, 82, 155, 0) 100px, rgb(255, 255, 255) 50%);
-
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 300px;
-    background: white;
-    z-index: -1;
-  }
+  background: linear-gradient(90deg, rgba(44, 82, 155, 0) 30px, rgb(255, 255, 255) 50%);
 `;
 
 export const AnimatedIconWrapper = styled.div`
