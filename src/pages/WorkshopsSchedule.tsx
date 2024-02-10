@@ -114,9 +114,7 @@ export const WorkshopsSchedule = () => {
             width={100}
           />
 
-          <WorkshopsTimeline.Price>
-            {t('workshops.price')}: {t('workshops.freeAdmission')}
-          </WorkshopsTimeline.Price>
+          <WorkshopsTimeline.Price>{t('workshops.price')}: XXzł</WorkshopsTimeline.Price>
 
           <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">{t('workshops.buyTicket')}</Link>
         </WorkshopsTimeline.Slot>
@@ -142,9 +140,7 @@ export const WorkshopsSchedule = () => {
             width={100}
           />
 
-          <WorkshopsTimeline.Price>
-            {t('workshops.price')}: {t('workshops.freeAdmission')}
-          </WorkshopsTimeline.Price>
+          <WorkshopsTimeline.Price>{t('workshops.price')}: XXzł</WorkshopsTimeline.Price>
 
           <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">{t('workshops.buyTicket')}</Link>
         </WorkshopsTimeline.Slot>
@@ -170,9 +166,7 @@ export const WorkshopsSchedule = () => {
             width={100}
           />
 
-          <WorkshopsTimeline.Price>
-            {t('workshops.price')}: {t('workshops.freeAdmission')}
-          </WorkshopsTimeline.Price>
+          <WorkshopsTimeline.Price>{t('workshops.price')}: XXzł</WorkshopsTimeline.Price>
 
           <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">{t('workshops.buyTicket')}</Link>
         </WorkshopsTimeline.Slot>
