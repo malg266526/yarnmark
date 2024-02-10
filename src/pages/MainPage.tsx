@@ -562,12 +562,12 @@ export const MainPage = () => {
 
       <Band
         id="schedule"
-        size="md"
+        size="lg"
         variant="background"
-        justify="space-around"
+        justify="space-between"
         color={Colors.snow}
         padding="xl"
-        align="initial"
+        align="center"
         direction="column">
         <TextWrapper align="center">
           <Title>{t('scheduleBand.title')}</Title>

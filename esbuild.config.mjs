@@ -21,6 +21,9 @@ export const config = {
     '.jpeg': 'file',
     '.webp': 'file',
     '.avif': 'file',
-    '.jfif': 'file'
+    '.jfif': 'file',
+    '.woff': 'file',
+    '.ttf': 'file',
+    '.eot': 'file'
   }
 };

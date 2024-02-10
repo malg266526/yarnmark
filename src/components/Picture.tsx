@@ -7,15 +7,16 @@ export type PictureType = {
 
 type PictureProps = {
   width?: number;
+  height?: number;
   alt: string;
   picture: PictureType;
   style?: CSSProperties;
 };
 
-export const Picture = ({ width, alt, picture, style }: PictureProps) => (
+export const Picture = ({ width, alt, picture, style, height }: PictureProps) => (
   <picture>
     {picture.sources?.map(({ type, url }, index) => <source key={index} srcSet={url} type={type} />)}
 
-    <img width={width} src={picture.fallbackUrl} alt={alt} style={style} />
+    <img width={width} height={height} src={picture.fallbackUrl} alt={alt} style={style} />
   </picture>
 );
