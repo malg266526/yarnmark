@@ -51,7 +51,7 @@ export const Title = styled.h3`
 const Root = styled.div`
   display: inline-block;
   width: 90%;
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 15px 0px rgba(121, 59, 59, 0.25);
   border: 1px solid darkgray;
   align-self: center;
   background-color: white;

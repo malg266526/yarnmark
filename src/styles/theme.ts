@@ -16,9 +16,9 @@ export const Colors = {
   green3: '#084400',
   grayLight: '#f9f9f9',
 
-  veryLightWarm: '#fbfaf5',
+  veryLightWarm: '#FDF0E4',
   veryLightGray: '#f4f4f4',
-  chocolate: '#4d2e25',
+  chocolate: '#5e5349',
 
   beige1: '#dac9bd',
   beige2: '#b9aa9d',

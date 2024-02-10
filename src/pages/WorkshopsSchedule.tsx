@@ -72,7 +72,7 @@ const PlannerCard = styled.div`
   border: 2px solid darkgray;
   margin-top: ${Spacings.md};
   position: relative;
-  box-shadow: 1px 0px 1px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 15px 0px rgba(121, 59, 59, 0.25);
   width: 300px;
   height: 360px;
   justify-content: space-between;
@@ -82,7 +82,7 @@ const TextContent = styled.div`
   display: flex;
   flex-direction: column;
   height: 50%;
-  background: linear-gradient(to top, ${Colors.veryLightWarm} 70%, #fff);
+  background: linear-gradient(to top, ${Colors.veryLightWarm}, #fff);
   justify-content: space-around;
   width: 100%;
   padding-bottom: ${Spacings.md};
