@@ -4,7 +4,8 @@ module.exports = {
     "prettier",
     'plugin:react/recommended',
     'plugin:import/errors',
-    'plugin:import/warnings'
+    'plugin:import/warnings',
+    "plugin:jsx-a11y/recommended"
   ],
   plugins: ['@typescript-eslint', 'prettier', 'import', 'react', 'react-hooks'],
   parser: '@typescript-eslint/parser',
@@ -41,6 +42,7 @@ module.exports = {
     }
   },
   rules: {
+    'jsx-a11y/alt-text': "error",
     'linebreak-style': ['error', 'unix'],
     'no-unused-vars': 0,
     'no-undef': 0,

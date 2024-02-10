@@ -620,7 +620,7 @@ export const MainPage = () => {
                 variant="bottom"
                 background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 95%)">
                 <source srcSet={waterWebpSrc} type="image/webp" />
-                <img src={waterJpgSrc} />
+                <img src={waterJpgSrc} alt="water visible on the ship" />
               </Carouselge.ItemBackground>
 
               <TextWrapper>
@@ -637,7 +637,7 @@ export const MainPage = () => {
                 variant="bottom">
                 <source srcSet={wineAvifSrc} type="image/avif" />
                 <source srcSet={wineWebpSrc} type="image/webp" />
-                <img src={wineJpgSrc} />
+                <img src={wineJpgSrc} alt="glass of wine" />
               </Carouselge.ItemBackground>
 
               <TextWrapper>
@@ -656,7 +656,7 @@ export const MainPage = () => {
                 background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)">
                 <source srcSet={ticketAvifSrc} type="image/avif" />
                 <source srcSet={ticketWebpSrc} type="image/webp" />
-                <img src={ticketJpgSrc} />
+                <img src={ticketJpgSrc} alt="ticket lying around" />
               </Carouselge.ItemBackground>
 
               <FlexColumnLayout gap="sm" padding="none" align="flex-start">
@@ -685,7 +685,7 @@ export const MainPage = () => {
                 variant="bottom"
                 background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)">
                 <source srcSet={mapWebpSrc} type="image/webp" />
-                <img src={mapJpgSrc} />
+                <img src={mapJpgSrc} alt="map" />
               </Carouselge.ItemBackground>
 
               <CruiseMap />

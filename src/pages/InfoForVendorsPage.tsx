@@ -162,7 +162,7 @@ export const InfoForVendorsPage = () => {
       <Band size="lg" justify="flex-start" narrowContent="fixed" padding="md">
         <Picture>
           <source srcSet={woolsAvifLandscape} type="image/avif" />
-          <img src={woolsWebpLandscape} />
+          <img src={woolsWebpLandscape} alt="wool" />
         </Picture>
 
         <Band.Slot>
