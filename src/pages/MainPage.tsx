@@ -36,7 +36,9 @@ import pinImageUrl from '../assets/images/pin.svg';
 import halaAvifImageSrc from '../assets/images/hala.avif';
 import halaJfifImageSrc from '../assets/images/hala.jfif';
 import halaJpgImageSrc from '../assets/images/hala_quality.jpg';
-import yarnmarkLogoSrc from '../assets/images/yarnmark.png';
+import yarnmarkLogoSrc from '../assets/images/yarnmark_logo.jpg';
+import yarnmarkLogoSrcAvif from '../assets/images/yarnmark_logo.avif';
+import yarnmarkLogoSrcWebp from '../assets/images/yarnmark_logo.webp';
 
 // import wawelImageSrc from '../assets/images/wawel.jpg';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
@@ -95,6 +97,7 @@ import {
   Typography
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
+import { Picture as DragonPicture } from '../components/Picture';
 
 // import { FlexColumnLayout } from '../components/FlexColumnLayout';
 
@@ -465,7 +468,23 @@ export const MainPage = () => {
                 <Text>DziergamyNaPolu x Włóczykijki</Text>
               </div>
 
-              <img src={yarnmarkLogoSrc} alt="yarnmark_logo" width={156} />
+              <DragonPicture
+                picture={{
+                  fallbackUrl: yarnmarkLogoSrc,
+                  sources: [
+                    {
+                      type: 'image/webp',
+                      url: yarnmarkLogoSrcWebp
+                    },
+                    {
+                      type: 'image/avif',
+                      url: yarnmarkLogoSrcAvif
+                    }
+                  ]
+                }}
+                alt="yarnmark_logo"
+                width={156}
+              />
             </RowLayout>
           </NiceBox>
         </Band.Slot>
