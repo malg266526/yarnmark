@@ -271,7 +271,7 @@ export const Menu = styled.div`
 export const MenuBackground = styled.div`
   max-width: 100%;
   display: flex;
-  justify-content: flex-end
+  justify-content: flex-end;
   align-items: center;
   background: linear-gradient(90deg, rgba(44, 82, 155, 0) 30px, rgb(255, 255, 255) 50%);
 `;
@@ -418,7 +418,7 @@ export const WorkshopsWrapper = styled.div`
 `;
 
 export const Paragraph = styled.div`
-  max-width: 500px;
+  max-width: 400px;
 
   padding: ${Spacings.md};
 `;
