@@ -12,7 +12,7 @@ import { TransparentButton } from '../components/TransparentButton';
 import { Icon as IconifyIcon } from '@iconify/react';
 import firstAidIcon from './../assets/backgrounds/firstAid.svg';
 import { ScreenSize } from '../styles/screeen-size';
-import { usePhone } from './usePhone';
+import { useTablet } from './usePhone';
 
 const Root = styled.div`
   display: flex;
@@ -24,7 +24,7 @@ const Root = styled.div`
   height: 600px;
   position: relative;
 
-  @media (max-width: ${ScreenSize.phone}) {
+  @media (max-width: ${ScreenSize.tablet}) {
     width: 100%;
     align-items: center;
   }
@@ -71,9 +71,9 @@ const TrainingPlan = styled.div`
 export const FirstAidCard = () => {
   const t = useTypedTranslation();
   const [showPlan, setShowPlan] = useState(false);
-  const isPhone = usePhone();
+  const isTablet = useTablet();
 
-  const logoStyle = isPhone
+  const logoStyle = isTablet
     ? { opacity: '0.27', position: 'absolute' as const, top: '5%', left: '50%', transform: 'translateX(-50%)' }
     : undefined;
 
@@ -121,7 +121,7 @@ export const FirstAidCard = () => {
               ]
             }}
             alt="firstaid"
-            width={isPhone ? 180 : 100}
+            width={isTablet ? 180 : 100}
             style={logoStyle}
           />
           <TransparentIcon src={firstAidIcon} width={160} alt="first_aid_icon" />

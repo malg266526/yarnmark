@@ -31,3 +31,25 @@ export const usePhone = () => {
 
   return isPhone;
 };
+
+const tabletScreenSize = Number(ScreenSize.tablet.replace('px', ''));
+
+export const useTablet = () => {
+  const [isTablet, setIsTablet] = useState(false);
+  const handler = useCallback((newWidth: number) => setIsTablet(newWidth <= tabletScreenSize), [setIsTablet]);
+
+  useLayoutEffect(() => {
+    handler(lastWindowInnerWidth);
+    handlers.push(handler);
+
+    return () => {
+      const handlerIndex = handlers.findIndex((listHandler) => listHandler === handler);
+      if (handlerIndex > -1) {
+        handlers.splice(handlerIndex, 1);
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return isTablet;
+};
