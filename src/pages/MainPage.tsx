@@ -59,7 +59,7 @@ import { BurgerMenu } from '../components/BurgerMenu';
 // import { ImageButton } from '../components/ImageButton';
 import { Curtain } from '../components/Curtain';
 import { FirstAidCard } from './FirstAidCard';
-import { LanguageSwitch } from '../components/LanguageSwitch';
+import { LanguageSwitcher } from './LanguageSwitcher';
 import { RowLayout } from '../components/RowLayout';
 import { SideBar } from '../components/SideBar';
 import { SubTitle, TextWrapper, Title } from '../components/Title';
@@ -90,7 +90,7 @@ import {
   Picture,
   SecondaryButton,
   SectionWrapper,
-  StyledCarouselge,
+  StyledPageContent,
   Text,
   TextH2,
   Typography
@@ -196,7 +196,7 @@ export const MainPage = () => {
 
   // const activeButtonToImage = getActiveButtonToImage(t);
 
-  const observerCallback = useCallback(() => {}, []);
+  const observerCallback = useCallback(() => { }, []);
 
   useRootIntersectionObserver({
     rootRef: pageContentRef,
@@ -360,7 +360,9 @@ export const MainPage = () => {
   );
 
   return (
-    <PageContent ref={pageContentRef} variant="wide" padding="none">
+    <StyledPageContent ref={pageContentRef} variant="wide" padding="none">
+      <LanguageSwitcher />
+
       {isPhone && <Curtain onClick={() => setBurgerActive(false)} active={burgerActive} />}
       {isPhone && (
         <>
@@ -410,8 +412,6 @@ export const MainPage = () => {
               <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
               {t('menu.contact')}
             </SideBar.LinkEntry>
-
-            <LanguageSwitch />
           </SideBar>
         </>
       )}
@@ -442,8 +442,6 @@ export const MainPage = () => {
             <Link color="black" to="#footer">
               {t('menu.contact')}
             </Link>
-
-            <LanguageSwitch />
           </MenuBackground>
         </Menu>
       )}
@@ -597,7 +595,7 @@ export const MainPage = () => {
           </Band.Picture>
         }>
         <Band.Slot alignItems="flex-end" width="100%">
-          <StyledCarouselge
+          <Carouselge
             height="800px"
             selectedIndex={selectedIndex}
             onChange={(index) => setSelectedIndex(index)}
@@ -681,7 +679,7 @@ export const MainPage = () => {
 
               <CruiseMap />
             </Carouselge.Item>
-          </StyledCarouselge>
+          </Carouselge>
         </Band.Slot>
       </Band>
 
@@ -731,6 +729,6 @@ export const MainPage = () => {
           </FramedBox>
         </LayoutWithActiveButton>
       </Band> */}
-    </PageContent>
+    </StyledPageContent>
   );
 };

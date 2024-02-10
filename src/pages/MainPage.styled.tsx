@@ -3,12 +3,23 @@ import { Icon } from '../components/Icon';
 import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
 import { Carouselge } from '../components/Carouselge';
+import { PageContent } from '../components/PageContent';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
-export const StyledCarouselge = styled(Carouselge)`
-  width: 800px;
+export const StyledPageContent = styled(PageContent)`
+  ${Carouselge} {
+    width: 800px;
 
-  @media (max-width: ${ScreenSize.tablet}) {
-    width: 100%;
+    @media (max-width: ${ScreenSize.tablet}) {
+      width: 100%;
+    }
+  }
+
+  ${LanguageSwitcher} {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: ${Spacings.md};
   }
 `;
 
