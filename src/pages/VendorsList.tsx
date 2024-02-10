@@ -114,7 +114,7 @@ export const VendorsList = () => {
     <Grid>
       <Link to="https://animotki.pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={160}
+          width={120}
           alt="animotki"
           picture={{
             fallbackUrl: animotkiLogoUrl,
@@ -134,7 +134,7 @@ export const VendorsList = () => {
 
       <Link to="https://www.facebook.com/bawelnianyfilament/" target="_blank" rel="noreferrer">
         <Picture
-          width={160}
+          width={110}
           alt="bawelnianyfilament"
           picture={{
             fallbackUrl: bawelnianyFilamentLogoUrl,

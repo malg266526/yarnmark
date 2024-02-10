@@ -65,7 +65,7 @@ import { SideBar } from '../components/SideBar';
 import { SubTitle, TextWrapper, Title } from '../components/Title';
 import { VendorsList } from './VendorsList';
 import { WorkshopsCarousel } from './WorkshopsCarousel';
-import { WorkshopsTabs } from './WorkshopsTabs';
+import { WorkshopsSchedule } from './WorkshopsSchedule';
 import { Colors } from '../styles/theme';
 import {
   // ActiveImage,
@@ -580,7 +580,7 @@ export const MainPage = () => {
           <Title>{t('scheduleBand.title')}</Title>
         </TextWrapper>
 
-        <WorkshopsTabs />
+        <WorkshopsSchedule />
       </Band>
 
       <Band
