@@ -75,7 +75,7 @@ export const en: TranslationsShape = {
         route: 'Route:'
       },
       invitation: 'We heartily invite you for an unforgettable cruise on the charming Vistula River in Cracow.',
-      ship: 'We want the deck of the "Legend/Horizon" ship to become a stage for knitting together, creating unique moments and making new knitting acquaintances.',
+      ship: 'We want the deck of the "Legend" ship to become a stage for knitting together, creating unique moments and making new knitting acquaintances.',
       prosecco: {
         title: 'Relax!',
         intro:
