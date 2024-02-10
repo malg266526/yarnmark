@@ -91,8 +91,8 @@ const ItemBackground = styled.picture<{ opacity?: number; background?: string; v
 
   > img {
     ${({ opacity }) =>
-    Number.isFinite(opacity) &&
-    css`
+      Number.isFinite(opacity) &&
+      css`
         opacity: ${opacity};
       `}
     height: 100%;
@@ -104,6 +104,7 @@ const ItemBackground = styled.picture<{ opacity?: number; background?: string; v
 const Indicator = styled.div<{ active?: boolean; color: 'black' | 'white' }>`
   border-radius: 50%;
   border: 2px solid black;
+  cursor: pointer;
 
   width: ${INACTIVE_INDICATOR_SIZE}px;
   height: ${INACTIVE_INDICATOR_SIZE}px;
@@ -175,7 +176,7 @@ const ChildrenWrapper = styled.div<{ visibleIndexes: VisibleIndex[] }>`
           opacity: ${opacity};
           pointer-events: ${pointerEvents};
           ${zIndex &&
-        css`
+          css`
             z-index: ${zIndex};
           `}
         }
@@ -350,7 +351,12 @@ export const Carouselge = Object.assign(
             {Array(childrenCount)
               .fill(0)
               .map((value, index) => (
-                <Indicator color={indicators} key={index} active={index === selectedIndex} />
+                <Indicator
+                  onClick={() => onChange(index)}
+                  color={indicators}
+                  key={index}
+                  active={index === selectedIndex}
+                />
               ))}
           </Footer>
         )}

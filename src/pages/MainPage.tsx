@@ -196,7 +196,7 @@ export const MainPage = () => {
 
   // const activeButtonToImage = getActiveButtonToImage(t);
 
-  const observerCallback = useCallback(() => { }, []);
+  const observerCallback = useCallback(() => {}, []);
 
   useRootIntersectionObserver({
     rootRef: pageContentRef,
@@ -596,7 +596,7 @@ export const MainPage = () => {
             <img loading="lazy" src={shipJpgSrc} alt="sailing ship" />
           </Band.Picture>
         }>
-        <Band.Slot alignItems='flex-end' width="100%">
+        <Band.Slot alignItems="flex-end" width="100%">
           <StyledCarouselge
             height="800px"
             selectedIndex={selectedIndex}

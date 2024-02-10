@@ -15,13 +15,13 @@ export type BandProps = InnerWrapperProps &
   } & (
     | { variant?: 'default' }
     | {
-      variant: 'background-image';
-      background: ReactNode;
-    }
+        variant: 'background-image';
+        background: ReactNode;
+      }
     | {
-      variant: 'background';
-      color: string;
-    }
+        variant: 'background';
+        color: string;
+      }
   );
 
 interface InnerWrapperProps {
@@ -222,14 +222,14 @@ const Picture = styled.picture<{ objectFit?: 'cover' | 'contain'; filter?: strin
     height: 100%;
     max-height: 100%;
     ${({ objectFit }) =>
-    objectFit &&
-    css`
+      objectFit &&
+      css`
         object-fit: ${objectFit};
       `};
 
     ${({ objectPosition }) =>
-    objectPosition &&
-    css`
+      objectPosition &&
+      css`
         object-position: ${objectPosition};
       `};
   }

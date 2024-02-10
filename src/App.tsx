@@ -23,6 +23,12 @@ const GlobalStyle = createGlobalStyle`
     /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; */
   }
 
+  /** bootstrap adds margin for p elements; line below removes it */
+  P {
+    margin-top: initial;
+    margin-bottom: initial;
+  }
+
   * {
     box-sizing: border-box;
   }
