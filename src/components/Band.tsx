@@ -15,17 +15,17 @@ export type BandProps = InnerWrapperProps &
   } & (
     | { variant?: 'default' }
     | {
-        variant: 'background-image';
-        background: ReactNode;
-      }
+      variant: 'background-image';
+      background: ReactNode;
+    }
     | {
-        variant: 'background';
-        color: string;
-      }
+      variant: 'background';
+      color: string;
+    }
   );
 
 interface InnerWrapperProps {
-  narrowContent?: boolean;
+  narrowContent?: 'auto' | 'fixed';
 }
 
 const InnerWrapper = styled.div<InnerWrapperProps>`
@@ -36,7 +36,7 @@ const InnerWrapper = styled.div<InnerWrapperProps>`
   ${({ narrowContent }) =>
     narrowContent &&
     css`
-      max-width: ${Theme.pageContentWidth};
+      max-width: ${narrowContent === 'auto' ? '85%' : Theme.pageContentWidth};
       margin: auto;
 
       @media (max-width: ${ScreenSize.phone}) {
@@ -71,6 +71,7 @@ const flexTypeToCss: Record<FlexType, RuleSet<object>> = {
 interface SlotProps {
   size?: SlotSize;
   justify?: 'center' | 'flex-start' | 'flex-end';
+  alignItems?: 'center' | 'flex-start' | 'flex-end';
   flex?: FlexType;
   width?: `${number}${'px' | '%'}`;
 }
@@ -89,7 +90,7 @@ const Slot = styled.div<SlotProps>`
   display: flex;
   flex-direction: column;
   justify-content: ${({ justify }) => justify || 'center'};
-  align-items: center;
+  align-items: ${({ alignItems = 'center' }) => alignItems};
 
   ${({ flex }) => flex && flexTypeToCss[flex]};
 
@@ -221,14 +222,14 @@ const Picture = styled.picture<{ objectFit?: 'cover' | 'contain'; filter?: strin
     height: 100%;
     max-height: 100%;
     ${({ objectFit }) =>
-      objectFit &&
-      css`
+    objectFit &&
+    css`
         object-fit: ${objectFit};
       `};
 
     ${({ objectPosition }) =>
-      objectPosition &&
-      css`
+    objectPosition &&
+    css`
         object-position: ${objectPosition};
       `};
   }

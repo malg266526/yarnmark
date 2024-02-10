@@ -22,7 +22,7 @@ const MIN_HEIGHT = 260;
 const INACTIVE_INDICATOR_SIZE = 12;
 const ACTIVE_INDICATOR_SCALE = 3;
 
-const ITEM_ELEMENT_WIDTH = 65;
+const ACTIVE_ITEM_ELEMENT_WIDTH_PERCENTAGE = 65;
 
 const Footer = styled.div`
   display: flex;
@@ -43,7 +43,7 @@ const ClickElement = styled.div<{ side: 'left' | 'right'; visible?: boolean }>`
           right: 0;
         `};
   top: 0;
-  width: ${(100 - ITEM_ELEMENT_WIDTH) / 2}%;
+  width: ${(100 - ACTIVE_ITEM_ELEMENT_WIDTH_PERCENTAGE) / 2}%;
   height: 100%;
   z-index: 1;
   padding: ${Spacings.md};
@@ -91,8 +91,8 @@ const ItemBackground = styled.picture<{ opacity?: number; background?: string; v
 
   > img {
     ${({ opacity }) =>
-      Number.isFinite(opacity) &&
-      css`
+    Number.isFinite(opacity) &&
+    css`
         opacity: ${opacity};
       `}
     height: 100%;
@@ -159,7 +159,7 @@ const ChildrenWrapper = styled.div<{ visibleIndexes: VisibleIndex[] }>`
   > * {
     height: calc(100% - 30px);
     position: absolute;
-    width: ${ITEM_ELEMENT_WIDTH}%;
+    width: ${ACTIVE_ITEM_ELEMENT_WIDTH_PERCENTAGE}%;
     left: 0;
     top: 50%;
     transform: translate(200%) scale(0);
@@ -175,7 +175,7 @@ const ChildrenWrapper = styled.div<{ visibleIndexes: VisibleIndex[] }>`
           opacity: ${opacity};
           pointer-events: ${pointerEvents};
           ${zIndex &&
-          css`
+        css`
             z-index: ${zIndex};
           `}
         }
@@ -207,6 +207,7 @@ const Item = styled.div<{ icon?: boolean }>`
   background: white;
   box-shadow: 8px 8px 18px 0px rgba(66, 68, 90, 1);
   padding: ${Spacings.md};
+  word-break: break-word;
 
   ${({ icon }) =>
     icon &&

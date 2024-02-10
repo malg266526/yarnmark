@@ -2,6 +2,15 @@ import styled, { css } from 'styled-components';
 import { Icon } from '../components/Icon';
 import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
+import { Carouselge } from '../components/Carouselge';
+
+export const StyledCarouselge = styled(Carouselge)`
+  width: 800px;
+
+  @media (max-width: ${ScreenSize.tablet}) {
+    width: 100%;
+  }
+`;
 
 export const Text = styled.p<{
   marginBottom?: keyof typeof Spacings;
