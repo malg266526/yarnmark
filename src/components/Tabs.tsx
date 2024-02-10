@@ -32,8 +32,9 @@ const TabRoot = styled.div<{ active?: boolean }>`
   ${({ active }) =>
     active &&
     css`
+      border-color: ${Colors.chocolate};
       background: ${Colors.veryLightGray};
-      border-bottom: 1px solid ${Colors.text};
+      border-bottom: 1px solid darkgray;
     `};
 `;
 

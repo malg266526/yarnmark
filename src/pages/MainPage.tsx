@@ -547,6 +547,7 @@ export const MainPage = () => {
         id="firstaid"
         gap="xl"
         size="md"
+        flexWrap="wrap"
         variant="background"
         justify="space-around"
         color={Colors.linen}
