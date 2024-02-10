@@ -91,8 +91,8 @@ const ItemBackground = styled.picture<{ opacity?: number; background?: string; v
 
   > img {
     ${({ opacity }) =>
-    Number.isFinite(opacity) &&
-    css`
+      Number.isFinite(opacity) &&
+      css`
         opacity: ${opacity};
       `}
     height: 100%;
@@ -107,7 +107,7 @@ const colorToFilter: Record<IndicatorColor, string> = {
   black: 'none',
   white: 'invert(1)',
   beige: 'invert(95%) sepia(5%) saturate(1345%) hue-rotate(318deg) brightness(91%) contrast(87%)'
-}
+};
 
 const IndicatorBall = styled.div`
   display: block;
@@ -121,7 +121,7 @@ const IndicatorBall = styled.div`
 
 interface IndicatorRootProps {
   active?: boolean;
-  color: IndicatorColor
+  color: IndicatorColor;
 }
 
 const IndicatorRoot = styled.div<IndicatorRootProps>`
@@ -140,7 +140,7 @@ const IndicatorRoot = styled.div<IndicatorRootProps>`
   `};
 
   &:before {
-    position:  absolute;
+    position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
@@ -172,7 +172,11 @@ const IndicatorRoot = styled.div<IndicatorRootProps>`
     `};
 `;
 
-const Indicator = (props: IndicatorRootProps & { className?: string }) => <IndicatorRoot {...props} ><IndicatorBall /></IndicatorRoot>
+const Indicator = (props: IndicatorRootProps & { className?: string; onClick?: () => void }) => (
+  <IndicatorRoot {...props}>
+    <IndicatorBall />
+  </IndicatorRoot>
+);
 
 const OuterWrapper = styled.div`
   position: relative;
@@ -205,7 +209,7 @@ const ChildrenWrapper = styled.div<{ visibleIndexes: VisibleIndex[] }>`
           opacity: ${opacity};
           pointer-events: ${pointerEvents};
           ${zIndex &&
-        css`
+          css`
             z-index: ${zIndex};
           `}
         }
@@ -260,7 +264,7 @@ const Item = styled.div<{ icon?: boolean }>`
     `};
 `;
 
-const getVisibleIndexes = (middleIndex: number, limiter: number): VisibleIndex[] => [
+const getVisibleIndexes = (middleIndex: number): VisibleIndex[] => [
   { index: middleIndex - 2, left: 0, opacity: 0, pointerEvents: 'none', translateXZ: [-100, -6000] },
   { index: middleIndex - 1, left: 0, opacity: 1, pointerEvents: 'none', translateXZ: [0, -1500] },
   { index: middleIndex - 0, left: 50, opacity: 1, pointerEvents: 'initial', translateXZ: [-50, 0], zIndex: 1 },

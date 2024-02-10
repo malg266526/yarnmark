@@ -195,7 +195,7 @@ export const MainPage = () => {
 
   // const activeButtonToImage = getActiveButtonToImage(t);
 
-  const observerCallback = useCallback(() => { }, []);
+  const observerCallback = useCallback(() => {}, []);
 
   useRootIntersectionObserver({
     rootRef: pageContentRef,
@@ -633,8 +633,7 @@ export const MainPage = () => {
             <Carouselge.Item>
               <Carouselge.ItemBackground
                 variant="bottom"
-                background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)"
-              >
+                background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)">
                 <source srcSet={ticketAvifSrc} type="image/avif" />
                 <source srcSet={ticketWebpSrc} type="image/webp" />
                 <img src={ticketJpgSrc} />
@@ -664,8 +663,7 @@ export const MainPage = () => {
             <Carouselge.Item>
               <Carouselge.ItemBackground
                 variant="bottom"
-                background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)"
-              >
+                background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)">
                 <source srcSet={mapWebpSrc} type="image/webp" />
                 <img src={mapJpgSrc} />
               </Carouselge.ItemBackground>
@@ -722,6 +720,6 @@ export const MainPage = () => {
           </FramedBox>
         </LayoutWithActiveButton>
       </Band> */}
-    </StyledPageContent >
+    </StyledPageContent>
   );
 };
