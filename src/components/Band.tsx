@@ -204,12 +204,24 @@ const TitleWrapper = styled.div`
   z-index: 2;
 `;
 
-const Picture = styled.picture<{ objectFit?: 'cover' | 'contain'; filter?: string; objectPosition?: string }>`
+const Picture = styled.picture<{
+  objectFit?: 'cover' | 'contain';
+  filter?: string;
+  objectPosition?: string;
+  opacity?: number;
+}>`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+
+  ${({ opacity }) =>
+    Number.isFinite(opacity) &&
+    css`
+      opacity: ${opacity};
+    `};
+
   ${({ filter }) =>
     filter &&
     css`

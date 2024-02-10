@@ -28,7 +28,7 @@ const Footer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: ${Spacings.md};
+  gap: ${Spacings.sm};
   flex: 1 0;
 `;
 
@@ -80,10 +80,10 @@ const ItemBackground = styled.picture<{ opacity?: number; background?: string; v
       &:after {
         content: '';
         display: block;
-        top: 0;
+        top: -2px;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: calc(100% + 2px);
         position: absolute;
         background: ${background};
       }
@@ -101,25 +101,48 @@ const ItemBackground = styled.picture<{ opacity?: number; background?: string; v
   }
 `;
 
-const Indicator = styled.div<{ active?: boolean; color: 'black' | 'white' }>`
-  border-radius: 50%;
-  border: 2px solid black;
-  cursor: pointer;
+type IndicatorColor = 'black' | 'white' | 'beige';
 
+const colorToFilter: Record<IndicatorColor, string> = {
+  black: 'none',
+  white: 'invert(1)',
+  beige: 'invert(95%) sepia(5%) saturate(1345%) hue-rotate(318deg) brightness(91%) contrast(87%)'
+};
+
+const IndicatorBall = styled.div`
+  display: block;
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  border: 2px solid black;
+  opacity: 1;
+  transition: all 150ms ease-in-out;
+`;
+
+interface IndicatorRootProps {
+  active?: boolean;
+  color: IndicatorColor;
+}
+
+const IndicatorRoot = styled.div<IndicatorRootProps>`
+  cursor: pointer;
+  padding: 12px;
   width: ${INACTIVE_INDICATOR_SIZE}px;
   height: ${INACTIVE_INDICATOR_SIZE}px;
   flex: 0 0 auto;
   transition: all 150ms ease-in-out;
   transform: scale(1);
   box-sizing: content-box;
+  position: relative;
 
-  ${({ color }) =>
-    color === 'white' &&
-    css`
-      filter: invert(1);
-    `};
+  ${({ color }) => css`
+    filter: ${colorToFilter[color]};
+  `};
 
   &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
     opacity: 0;
     display: block;
     content: '';
@@ -135,15 +158,25 @@ const Indicator = styled.div<{ active?: boolean; color: 'black' | 'white' }>`
   ${({ active }) =>
     active &&
     css`
+      ${IndicatorBall} {
+        transform: scale(3);
+        opacity: 0;
+      }
+
       background: transparent;
       border-color: transparent;
-      transform: scale(${ACTIVE_INDICATOR_SCALE});
 
       &:before {
         opacity: 1;
       }
     `};
 `;
+
+const Indicator = (props: IndicatorRootProps & { className?: string; onClick?: () => void }) => (
+  <IndicatorRoot {...props}>
+    <IndicatorBall />
+  </IndicatorRoot>
+);
 
 const OuterWrapper = styled.div`
   position: relative;
@@ -245,7 +278,7 @@ export interface CarouselgeProps extends RootProps {
   onChange: (index: number) => void;
   selectedIndex: number;
   children: ReactNode;
-  indicators?: 'black' | 'white';
+  indicators?: IndicatorColor;
 }
 
 const MINIMUM_MOUSE_MOVE_TO_TRIGGER_CHANGE = 100;
@@ -357,7 +390,6 @@ export const Carouselge = Object.assign(
                   active={index === selectedIndex}
                 />
               ))}
-            a
           </Footer>
         )}
       </Root>
