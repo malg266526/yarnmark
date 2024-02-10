@@ -18,7 +18,7 @@ import { Colors } from './styles/theme';
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
-    font-family: 'Lexend', sans-serif;
+    font-family: 'Lexend', sans-serif !important;
     color: ${Colors.text};
     /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; */
   }
