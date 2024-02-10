@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
+import { useTypedTranslation } from '../translations/useTypedTranslation';
 
 import mapWebpSrc from '../assets/images/map.webp';
 import mapJpgSrc from '../assets/images/map.jpg';
