@@ -32,7 +32,6 @@ const TabRoot = styled.div<{ active?: boolean }>`
   ${({ active }) =>
     active &&
     css`
-      // border-color: black;
       background: ${Colors.veryLightGray};
       border-bottom: 1px solid ${Colors.text};
     `};
@@ -48,7 +47,6 @@ const Tab = ({ onClick, ...rest }: TabProps) => {
 
   const proxyOnClick = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
-      // ref.current?.scrollIntoView({ behavior: 'smooth' });
       onClick?.(e);
     },
     [onClick]
@@ -64,7 +62,7 @@ const Content = styled.div`
   width: 100%;
   flex: 1 1 auto;
 
-  box-shadow: 1px 14px 7px -11px #555;
+  box-shadow: 2px 2px 15px 0px rgba(121, 59, 59, 0.25);
 `;
 
 export const Tabs = Object.assign(
