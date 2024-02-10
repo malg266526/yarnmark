@@ -65,7 +65,7 @@ const Item = styled.div`
   min-height: 600px;
   background-color: white;
   color: black;
-  border-radius: 10px;
+  border-radius: 4px;
   padding: ${Spacings.lg} ${Spacings.md} ${Spacings.md} ${Spacings.md};
   align-items: center;
   position: relative;
