@@ -90,6 +90,7 @@ import {
   Picture,
   SecondaryButton,
   SectionWrapper,
+  StyledCarouselge,
   Text,
   TextH2,
   Typography
@@ -483,7 +484,7 @@ export const MainPage = () => {
           {infoSectionButtons}
         </MobileBasicInfoSection>
       ) : (
-        <Band size="md" variant="background" color={Colors.pastelGray} padding="xl" narrowContent>
+        <Band size="md" variant="background" color={Colors.pastelGray} padding="xl" narrowContent="fixed">
           <BackgroundImage src={knitting2ImageUrl} alt="wool_skeins_background" />
 
           <SectionWrapper>
@@ -586,7 +587,7 @@ export const MainPage = () => {
         id="cruise"
         size="lg"
         ref={cruiseTicketsBandRef}
-        narrowContent
+        narrowContent="auto"
         variant="background-image"
         justify="flex-end"
         background={
@@ -595,9 +596,8 @@ export const MainPage = () => {
             <img loading="lazy" src={shipJpgSrc} alt="sailing ship" />
           </Band.Picture>
         }>
-        <Band.Slot size="sm">
-          <Carouselge
-            width="800px"
+        <Band.Slot alignItems="flex-end" width="100%">
+          <StyledCarouselge
             height="800px"
             selectedIndex={selectedIndex}
             onChange={(index) => setSelectedIndex(index)}
@@ -681,7 +681,7 @@ export const MainPage = () => {
 
               <CruiseMap />
             </Carouselge.Item>
-          </Carouselge>
+          </StyledCarouselge>
         </Band.Slot>
       </Band>
 
