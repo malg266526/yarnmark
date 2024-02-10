@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
-  "sideEffects": ["*.css"],
   "scripts": {
     "lint": "eslint src/**/*.{ts,tsx}",
     "typecheck": "tsc --noEmit --skipLibCheck",
