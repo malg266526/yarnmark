@@ -113,6 +113,7 @@ const bandSizeToHeight: Record<BandSize, string> = {
 interface BandLayoutProps {
   justify?: 'center' | 'space-around' | 'space-between' | 'flex-start' | 'space-evenly' | 'flex-end';
   flexAuto?: boolean;
+  flexWrap?: 'wrap';
   direction?: 'column';
   gap?: keyof typeof Spacings;
   reverseOnMobile?: boolean;
@@ -126,6 +127,12 @@ const BandLayout = styled.div<BandLayoutProps>`
     direction &&
     css`
       flex-direction: ${direction};
+    `};
+
+  ${({ flexWrap }) =>
+    flexWrap &&
+    css`
+      flex-wrap: ${flexWrap};
     `}
 
   @media (max-width: ${ScreenSize.tablet}) {

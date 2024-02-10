@@ -39,7 +39,7 @@ import ewaUrlAvif from './../assets/images/workshops/ewa.avif';
 import ewaUrl from './../assets/images/workshops/ewa.jpg';
 
 import knittingSvgUrl from '../assets/images/skein3.svg';
-import { usePhone } from './usePhone';
+import { useTablet } from './usePhone';
 import { ScreenSize } from '../styles/screeen-size';
 
 export const Title = styled.h3`
@@ -104,7 +104,7 @@ const AdjustableContent = styled.div`
   align-items: center;
   flex-direction: row;
 
-  @media (max-width: ${ScreenSize.tablet}) {
+  @media (max-width: ${ScreenSize.smallPc}) {
     flex-direction: column;
   }
 `;
@@ -119,7 +119,7 @@ const ScrollableContent = styled.div`
   flex-direction: column;
   align-items: center;
 
-  @media (max-width: ${ScreenSize.tablet}) {
+  @media (max-width: ${ScreenSize.smallPc}) {
     height: 300px;
     overflow-y: scroll;
   }
@@ -127,7 +127,7 @@ const ScrollableContent = styled.div`
 
 export const WorkshopsCarousel = () => {
   const t = useTypedTranslation();
-  const isPhone = usePhone();
+  const isTablet = useTablet();
 
   const mobileStyle = {
     opacity: '0.27',
@@ -136,7 +136,7 @@ export const WorkshopsCarousel = () => {
     left: '50%',
     transform: 'translateX(-50%)'
   };
-  const logoStyle = isPhone ? mobileStyle : undefined;
+  const logoStyle = isTablet ? mobileStyle : undefined;
 
   return (
     <BlobBackground>
@@ -165,7 +165,7 @@ export const WorkshopsCarousel = () => {
                 }}
                 alt="haftowababa_logo"
                 width={180}
-                style={logoStyle}
+                style={isTablet ? mobileStyle : { opacity: '0.47' }}
               />
 
               <Carousel.Caption>
@@ -256,7 +256,7 @@ export const WorkshopsCarousel = () => {
                 }}
                 alt="raffiaBasics"
                 width={180}
-                style={logoStyle}
+                style={isTablet ? mobileStyle : { opacity: '0.47' }}
               />
 
               <Carousel.Caption>
@@ -348,7 +348,7 @@ export const WorkshopsCarousel = () => {
                 }}
                 alt="uwolnijpomysly"
                 width={180}
-                style={logoStyle}
+                style={isTablet ? mobileStyle : { opacity: '0.47' }}
               />
 
               <Carousel.Caption>
@@ -381,7 +381,7 @@ export const WorkshopsCarousel = () => {
                 }}
                 alt="doranyprzyloz"
                 width={180}
-                style={isPhone ? mobileStyle : { opacity: '0.47' }}
+                style={isTablet ? mobileStyle : { opacity: '0.47' }}
               />
 
               <Carousel.Caption>
@@ -412,7 +412,7 @@ export const WorkshopsCarousel = () => {
                 }}
                 alt="ewa"
                 width={180}
-                style={logoStyle}
+                style={isTablet ? mobileStyle : { opacity: '0.47' }}
               />
 
               <Carousel.Caption>

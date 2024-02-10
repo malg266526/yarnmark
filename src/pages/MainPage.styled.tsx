@@ -428,6 +428,10 @@ export const BackgroundIcon = styled.img`
   top: 400px;
   left: 160px;
   opacity: 0.75;
+
+  @media (max-width: ${ScreenSize.tablet}) {
+    display: none;
+  }
 `;
 
 export const LinkWrapper = styled.div`

@@ -73,6 +73,8 @@ export const FirstAidCard = () => {
   const [showPlan, setShowPlan] = useState(false);
   const isTablet = useTablet();
 
+  console.log('isTablet', isTablet);
+
   const logoStyle = isTablet
     ? { opacity: '0.27', position: 'absolute' as const, top: '5%', left: '50%', transform: 'translateX(-50%)' }
     : undefined;

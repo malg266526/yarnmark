@@ -49,16 +49,28 @@ const responsive = {
     items: 5
   },
   desktop: {
-    breakpoint: { max: 2000, min: 860 },
+    breakpoint: { max: 2000, min: 1155 },
     items: 3
   },
   tablet: {
-    breakpoint: { max: 860, min: 640 },
+    breakpoint: { max: 1155, min: 640 },
     items: 2
   },
   mobile: {
     breakpoint: { max: 640, min: 0 },
     items: 1
+  }
+};
+
+const reponsiveWhenMoreItems = {
+  ...responsive,
+  desktop: {
+    breakpoint: { max: 1400, min: 1155 },
+    items: 3
+  },
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 1400 },
+    items: 4
   }
 };
 
@@ -144,7 +156,7 @@ export const WorkshopsSchedule = () => {
 
   const activeRoomToContent: Record<WorkshopRoom, ReactNode> = {
     1: (
-      <Carousel responsive={responsive} keyBoardControl infinite>
+      <Carousel responsive={reponsiveWhenMoreItems} keyBoardControl infinite>
         <PlannerCard>
           <Ribbon>
             <Text>9:00 - 10:30</Text>
