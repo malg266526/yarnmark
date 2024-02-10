@@ -205,7 +205,7 @@ export const WorkshopsCarousel = () => {
               <Carousel.Caption>
                 <Title>LudArt - {t('workshops.colorfulEmbroidery')}</Title>
                 <h4>{t('workshops.colorfulEmbroideryInspirations')}</h4>
-                <NoTopMarginText>Nulla vitae elit libero, a pharetra augue mollis interdum.</NoTopMarginText>
+                <NoTopMarginText></NoTopMarginText>
               </Carousel.Caption>
             </Item>
           </Carousel.Item>

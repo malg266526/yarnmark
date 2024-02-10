@@ -43,10 +43,10 @@ const Tab = ({ onClick, ...rest }: TabProps) => {
 
   const proxyOnClick = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
-      ref.current?.scrollIntoView({ behavior: 'smooth' });
+      // ref.current?.scrollIntoView({ behavior: 'smooth' });
       onClick?.(e);
     },
-    [onClick, ref]
+    [onClick]
   );
 
   return <TabRoot {...rest} ref={ref} onClick={proxyOnClick} />;

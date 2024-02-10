@@ -569,7 +569,7 @@ export const MainPage = () => {
 
       <Band
         id="schedule"
-        size="md"
+        size="lg"
         variant="background"
         justify="space-around"
         color={Colors.snow}
