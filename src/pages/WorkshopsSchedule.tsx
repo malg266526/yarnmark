@@ -37,9 +37,12 @@ import doRanyPrzylozUrlAvif from './../assets/images/workshops/doranyprzyloz.avi
 import doRanyPrzylozUrl from './../assets/images/workshops/doranyprzyloz.jpg';
 import doRanyPrzylozUrlWebp from './../assets/images/workshops/doranyprzyloz.webp';
 
+import ewaUrlAvif from './../assets/images/workshops/ewa.avif';
+import ewaUrl from './../assets/images/workshops/ewa.jpg';
+
 type WorkshopRoom = 1 | 2 | 3;
 
-export const WorkshopsTabs = () => {
+export const WorkshopsSchedule = () => {
   const t = useTypedTranslation();
 
   const [activeRoom, setActiveRoom] = useState<WorkshopRoom>(1);
@@ -47,14 +50,106 @@ export const WorkshopsTabs = () => {
   const activeRoomToContent: Record<WorkshopRoom, ReactNode> = {
     1: (
       <WorkshopsTimeline>
-        <WorkshopsTimeline.Slot workshopTime="9:00 - 12:00">
+        <WorkshopsTimeline.Slot workshopTime="9:00 - 10:30">
           <WorkshopsTimeline.Text>{t('workshops.ewa.topic')}</WorkshopsTimeline.Text>
+
+          <Picture
+            picture={{
+              fallbackUrl: ewaUrl,
+              sources: [
+                {
+                  type: 'image/avif',
+                  url: ewaUrlAvif
+                }
+              ]
+            }}
+            alt="ewa"
+            width={100}
+          />
+
           <WorkshopsTimeline.Price>{t('workshops.price')}: XXzł</WorkshopsTimeline.Price>
 
           <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">{t('workshops.buyTicket')}</Link>
         </WorkshopsTimeline.Slot>
 
-        <WorkshopsTimeline.Slot workshopTime="12:00 - 15:30">
+        <WorkshopsTimeline.Slot workshopTime="10:30 - 12:00">
+          <WorkshopsTimeline.Text>{t('workshops.ewa.topic')}</WorkshopsTimeline.Text>
+          <Picture
+            picture={{
+              fallbackUrl: ewaUrl,
+              sources: [
+                {
+                  type: 'image/avif',
+                  url: ewaUrlAvif
+                }
+              ]
+            }}
+            alt="ewa"
+            width={100}
+          />
+
+          <WorkshopsTimeline.Price>{t('workshops.price')}: XXzł</WorkshopsTimeline.Price>
+
+          <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">{t('workshops.buyTicket')}</Link>
+        </WorkshopsTimeline.Slot>
+
+        <WorkshopsTimeline.Slot workshopTime="12:00 - 13:00">
+          <WorkshopsTimeline.Text>{t('workshops.firstAid')}</WorkshopsTimeline.Text>
+
+          <Picture
+            picture={{
+              fallbackUrl: pierwszaPomocUrl,
+              sources: [
+                {
+                  type: 'image/webp',
+                  url: pierwszaPomocUrlWebp
+                },
+                {
+                  type: 'image/avif',
+                  url: pierwszaPomocUrlAvif
+                }
+              ]
+            }}
+            alt="firstAid"
+            width={100}
+          />
+
+          <WorkshopsTimeline.Price>
+            {t('workshops.price')}: {t('workshops.freeAdmission')}
+          </WorkshopsTimeline.Price>
+
+          <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">{t('workshops.buyTicket')}</Link>
+        </WorkshopsTimeline.Slot>
+
+        <WorkshopsTimeline.Slot workshopTime="13:15 - 14:15">
+          <WorkshopsTimeline.Text>{t('workshops.firstAid')}</WorkshopsTimeline.Text>
+
+          <Picture
+            picture={{
+              fallbackUrl: pierwszaPomocUrl,
+              sources: [
+                {
+                  type: 'image/webp',
+                  url: pierwszaPomocUrlWebp
+                },
+                {
+                  type: 'image/avif',
+                  url: pierwszaPomocUrlAvif
+                }
+              ]
+            }}
+            alt="firstAid"
+            width={100}
+          />
+
+          <WorkshopsTimeline.Price>
+            {t('workshops.price')}: {t('workshops.freeAdmission')}
+          </WorkshopsTimeline.Price>
+
+          <Link to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">{t('workshops.buyTicket')}</Link>
+        </WorkshopsTimeline.Slot>
+
+        <WorkshopsTimeline.Slot workshopTime="14:30 - 15:30">
           <WorkshopsTimeline.Text>{t('workshops.firstAid')}</WorkshopsTimeline.Text>
 
           <Picture
@@ -100,7 +195,7 @@ export const WorkshopsTabs = () => {
               ]
             }}
             alt="ludart"
-            width={100}
+            width={110}
           />
 
           <WorkshopsTimeline.Price>{t('workshops.price')}: XXzł</WorkshopsTimeline.Price>
