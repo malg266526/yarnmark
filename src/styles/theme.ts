@@ -17,6 +17,7 @@ export const Colors = {
   grayLight: '#f9f9f9',
 
   veryLightWarm: '#fbfaf5',
+  veryLightGray: '#f4f4f4',
   chocolate: '#4d2e25',
 
   beige1: '#dac9bd',

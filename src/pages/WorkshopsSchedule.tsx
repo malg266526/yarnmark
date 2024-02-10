@@ -67,7 +67,6 @@ type WorkshopRoom = 1 | 2 | 3;
 const PlannerCard = styled.div`
   display: flex;
   flex-direction: column;
-  // padding: ${Spacings.lg} 0 0 0;
   border-radius: 4px;
   align-items: center;
   border: 2px solid darkgray;
@@ -83,8 +82,7 @@ const TextContent = styled.div`
   display: flex;
   flex-direction: column;
   height: 50%;
-  background-color: ${Colors.veryLightWarm};
-  border-top: 1px solid black;
+  background: linear-gradient(to top, ${Colors.veryLightWarm} 70%, #fff);
   justify-content: space-around;
   width: 100%;
   padding-bottom: ${Spacings.md};
@@ -171,7 +169,7 @@ export const WorkshopsSchedule = () => {
 
           <TextContent>
             <TextH2>{t('workshops.ewa.topic')}</TextH2>
-            <Text>{t('workshops.price')}: XXzł</Text>
+            <Text>{t('workshops.price')}: 30zł</Text>
             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
             </WorkshopLink>
@@ -202,7 +200,7 @@ export const WorkshopsSchedule = () => {
 
           <TextContent>
             <TextH2>{t('workshops.ewa.topic')}</TextH2>
-            <Text>{t('workshops.price')}: XXzł</Text>
+            <Text>{t('workshops.price')}: 30zł</Text>
             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
             </WorkshopLink>
@@ -236,7 +234,7 @@ export const WorkshopsSchedule = () => {
 
           <TextContent>
             <TextH2>{t('workshops.firstAid')}</TextH2>
-            <Text>{t('workshops.price')}: XXzł</Text>
+            <Text>{t('workshops.price')}: 10zł</Text>
             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
             </WorkshopLink>
@@ -269,7 +267,7 @@ export const WorkshopsSchedule = () => {
           </ImageWrapper>
           <TextContent>
             <TextH2>{t('workshops.firstAid')}</TextH2>
-            <Text>{t('workshops.price')}: XXzł</Text>
+            <Text>{t('workshops.price')}: 10zł</Text>
             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
             </WorkshopLink>
@@ -303,7 +301,7 @@ export const WorkshopsSchedule = () => {
 
           <TextContent>
             <TextH2>{t('workshops.firstAid')}</TextH2>
-            <Text>{t('workshops.price')}: XXzł</Text>
+            <Text>{t('workshops.price')}: 10zł</Text>
             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
             </WorkshopLink>
@@ -374,7 +372,7 @@ export const WorkshopsSchedule = () => {
 
           <TextContent>
             <TextH2>{t('workshops.knitolog.topic')}</TextH2>
-            <Text>{t('workshops.price')}: XXzł</Text>
+            <Text>{t('workshops.price')}: 150zł</Text>
             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
             </WorkshopLink>
@@ -408,7 +406,7 @@ export const WorkshopsSchedule = () => {
 
           <TextContent>
             <SmallTextH2>{t('workshops.freeYourIdeas.topic')}</SmallTextH2>
-            <Text>{t('workshops.price')}: XXzł</Text>
+            <Text>{t('workshops.price')}: 130zł</Text>
             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
             </WorkshopLink>
@@ -442,7 +440,7 @@ export const WorkshopsSchedule = () => {
 
           <TextContent>
             <TextH2>{t('workshops.doRanyPrzyloz.topic')}</TextH2>
-            <Text>{t('workshops.price')}: XXzł</Text>
+            <Text>{t('workshops.price')}: 130zł</Text>
             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
             </WorkshopLink>
@@ -479,7 +477,7 @@ export const WorkshopsSchedule = () => {
 
           <TextContent>
             <TextH2>Haftowa Baba</TextH2>
-            <Text>{t('workshops.price')}: XXzł</Text>
+            <Text>{t('workshops.price')}: 150zł</Text>
             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
             </WorkshopLink>
@@ -513,7 +511,7 @@ export const WorkshopsSchedule = () => {
 
           <TextContent>
             <TextH2>{t('workshops.decorativeKnitting')}</TextH2>
-            <Text>{t('workshops.price')}: XXzł</Text>
+            <Text>{t('workshops.price')}: 100zł</Text>
             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
             </WorkshopLink>
@@ -547,7 +545,7 @@ export const WorkshopsSchedule = () => {
 
           <TextContent>
             <TextH2>{t('workshops.raffia')}</TextH2>
-            <Text>{t('workshops.price')}: XXzł</Text>
+            <Text>{t('workshops.price')}: 150zł</Text>
             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
             </WorkshopLink>
