@@ -1,5 +1,4 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { PageContent } from '../components/PageContent';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
 import mapWebpSrc from '../assets/images/map.webp';
@@ -59,7 +58,7 @@ import { BurgerMenu } from '../components/BurgerMenu';
 // import { ImageButton } from '../components/ImageButton';
 import { Curtain } from '../components/Curtain';
 import { FirstAidCard } from './FirstAidCard';
-import { LanguageSwitch } from '../components/LanguageSwitch';
+import { LanguageSwitcher } from './LanguageSwitcher';
 import { RowLayout } from '../components/RowLayout';
 import { SideBar } from '../components/SideBar';
 import { SubTitle, TextWrapper, Title } from '../components/Title';
@@ -90,7 +89,7 @@ import {
   Picture,
   SecondaryButton,
   SectionWrapper,
-  StyledCarouselge,
+  StyledPageContent,
   Text,
   TextH2,
   Typography
@@ -360,7 +359,7 @@ export const MainPage = () => {
   );
 
   return (
-    <PageContent ref={pageContentRef} variant="wide" padding="none">
+    <StyledPageContent ref={pageContentRef} variant="wide" padding="none">
       {isPhone && <Curtain onClick={() => setBurgerActive(false)} active={burgerActive} />}
       {isPhone && (
         <>
@@ -369,20 +368,12 @@ export const MainPage = () => {
           </Header>
 
           <SideBar roundedCorners="left" active={burgerActive}>
-            <SideBar.LinkEntry
-              to="/"
-              onClick={() => {
-                closeSideBar();
-              }}>
+            <SideBar.LinkEntry to="/" onClick={closeSideBar}>
               <IconifyIcon icon="game-icons:wool" width="24" />
               Yarnmark
             </SideBar.LinkEntry>
 
-            <SideBar.LinkEntry
-              to="#vendors"
-              onClick={() => {
-                closeSideBar();
-              }}>
+            <SideBar.LinkEntry to="#vendors" onClick={closeSideBar}>
               <IconifyIcon icon="bi:shop" width="24" />
               {t('menu.vendors')}
             </SideBar.LinkEntry>
@@ -411,41 +402,43 @@ export const MainPage = () => {
               {t('menu.contact')}
             </SideBar.LinkEntry>
 
-            <LanguageSwitch />
+            <LanguageSwitcher />
           </SideBar>
         </>
       )}
 
       {!isPhone && (
-        <Menu>
-          <MenuBackground>
-            <Link color="black" to="/">
-              Yarnmark
-            </Link>
+        <>
+          <LanguageSwitcher />
 
-            <Link color="black" to="#vendors">
-              {t('menu.vendors')}
-            </Link>
+          <Menu>
+            <MenuBackground>
+              <Link color="black" to="/">
+                Yarnmark
+              </Link>
 
-            <Link color="black" to="/info-for-vendors">
-              {t('menu.infoForVendors')}
-            </Link>
+              <Link color="black" to="#vendors">
+                {t('menu.vendors')}
+              </Link>
 
-            <Link to="#workshops" color="black">
-              {t('menu.workshops')}
-            </Link>
+              <Link color="black" to="/info-for-vendors">
+                {t('menu.infoForVendors')}
+              </Link>
 
-            <Link to="#cruise" color="black">
-              {t('menu.cruise')}
-            </Link>
+              <Link to="#workshops" color="black">
+                {t('menu.workshops')}
+              </Link>
 
-            <Link color="black" to="#footer">
-              {t('menu.contact')}
-            </Link>
+              <Link to="#cruise" color="black">
+                {t('menu.cruise')}
+              </Link>
 
-            <LanguageSwitch />
-          </MenuBackground>
-        </Menu>
+              <Link color="black" to="#footer">
+                {t('menu.contact')}
+              </Link>
+            </MenuBackground>
+          </Menu>
+        </>
       )}
 
       <Band size="xl" padding="xl" justify="flex-start">
@@ -597,7 +590,7 @@ export const MainPage = () => {
           </Band.Picture>
         }>
         <Band.Slot alignItems="flex-end" width="100%">
-          <StyledCarouselge
+          <Carouselge
             height="800px"
             selectedIndex={selectedIndex}
             onChange={(index) => setSelectedIndex(index)}
@@ -681,7 +674,7 @@ export const MainPage = () => {
 
               <CruiseMap />
             </Carouselge.Item>
-          </StyledCarouselge>
+          </Carouselge>
         </Band.Slot>
       </Band>
 
@@ -731,6 +724,6 @@ export const MainPage = () => {
           </FramedBox>
         </LayoutWithActiveButton>
       </Band> */}
-    </PageContent>
+    </StyledPageContent>
   );
 };

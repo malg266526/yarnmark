@@ -1,4 +1,4 @@
-import React, { ReactNode, useCallback, useEffect, useMemo, useRef } from 'react';
+import React, { CSSProperties, ReactNode, useCallback, useEffect, useMemo, useRef } from 'react';
 import styled, { css } from 'styled-components';
 import { Icon as IconifyIcon } from '@iconify/react';
 import skeinIconSrc from '../assets/images/skein3.svg';
@@ -241,6 +241,7 @@ const getVisibleIndexes = (middleIndex: number): VisibleIndex[] => [
 
 export interface CarouselgeProps extends RootProps {
   className?: string;
+  style?: CSSProperties;
   onChange: (index: number) => void;
   selectedIndex: number;
   children: ReactNode;
@@ -253,7 +254,7 @@ const MINIMUM_MOUSE_MOVE_TO_TRIGGER_CHANGE = 100;
 // TODO add timer for automatic change
 // TODO add linked variant
 export const Carouselge = Object.assign(
-  ({ onChange, indicators, selectedIndex, children, ...rest }: CarouselgeProps) => {
+  styled(({ onChange, indicators, selectedIndex, children, ...rest }: CarouselgeProps) => {
     const childrenCount = useMemo(() => React.Children.count(children), [children]);
     const childrenWrapperRef = useRef<HTMLDivElement>(null);
     const sizeRef = useRef({ width: 0, height: 0, left: 0, top: 0 });
@@ -278,12 +279,6 @@ export const Carouselge = Object.assign(
     const mouseDownDataRef = useRef<{ x: number; y: number } | undefined>(undefined);
 
     const isIndexValid = useCallback((index: number) => index <= childrenCount - 1 && index > -1, [childrenCount]);
-
-    const handleChange = (newValue: number) => {
-      if (newValue <= childrenCount - 1 && newValue > -1) {
-        onChange(newValue);
-      }
-    };
 
     const onMouseUp = useCallback(
       (e: React.MouseEvent) => {
@@ -319,7 +314,9 @@ export const Carouselge = Object.assign(
             visible={isIndexValid(selectedIndex - 1)}
             onClick={(e) => {
               e.preventDefault();
-              handleChange(selectedIndex - 1);
+              if (isIndexValid(selectedIndex - 1)) {
+                onChange(selectedIndex - 1);
+              }
             }}>
             <IconifyIcon icon="mdi:arrow-left" width="50" />
           </ClickElement>
@@ -328,7 +325,9 @@ export const Carouselge = Object.assign(
             visible={isIndexValid(selectedIndex + 1)}
             onClick={(e) => {
               e.preventDefault();
-              handleChange(selectedIndex + 1);
+              if (isIndexValid(selectedIndex + 1)) {
+                onChange(selectedIndex + 1);
+              }
             }}>
             <IconifyIcon icon="mdi:arrow-right" width="50" />
           </ClickElement>
@@ -358,10 +357,11 @@ export const Carouselge = Object.assign(
                   active={index === selectedIndex}
                 />
               ))}
+            a
           </Footer>
         )}
       </Root>
     );
-  },
+  })``,
   { Item, ItemBackground }
 );

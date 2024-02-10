@@ -60,11 +60,12 @@ const StyledLink = styled(HashLink)<{ color?: string }>`
 const EXTERNAL_TARGET = '_blank';
 const SCROLL_URL = '#';
 
-export const Link = ({ children, to, target, rel, color }: HashLinkProps) => {
+export const Link = styled(({ children, to, target, rel, color, ...rest }: HashLinkProps & { className?: string }) => {
   const navigate = useNavigate();
 
   return (
     <StyledLink
+      {...rest}
       color={color}
       smooth
       to={to}
@@ -79,4 +80,4 @@ export const Link = ({ children, to, target, rel, color }: HashLinkProps) => {
       {children}
     </StyledLink>
   );
-};
+})``;
