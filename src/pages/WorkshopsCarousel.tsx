@@ -136,7 +136,7 @@ export const WorkshopsCarousel = () => {
     left: '50%',
     transform: 'translateX(-50%)'
   };
-  const logoStyle = isTablet ? mobileStyle : undefined;
+  const logoStyle = isTablet ? mobileStyle : { opacity: '0.45' }
 
   return (
     <BlobBackground>
@@ -165,17 +165,16 @@ export const WorkshopsCarousel = () => {
                 }}
                 alt="haftowababa_logo"
                 width={180}
-                style={isTablet ? mobileStyle : { opacity: '0.47' }}
+                style={logoStyle}
               />
 
               <Carousel.Caption>
-                <Title>Haftowa Baba</Title>
+                <Title>{t('workshops.woolEmbroidery')}</Title>
                 <FlexColumnLayout gap="xs" padding="none">
                   <NoTopMarginText>{t('workshops.haftowaBabaDescription1')}</NoTopMarginText>
                   <NoTopMarginText>{t('workshops.haftowaBabaDescription2')}</NoTopMarginText>
                   <NoTopMarginText>{t('workshops.haftowaBabaDescription3')}</NoTopMarginText>
                   <NoTopMarginText>{t('workshops.haftowaBabaDescription4')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.haftowaBabaDescription6')}</NoTopMarginText>
                 </FlexColumnLayout>
               </Carousel.Caption>
             </Item>
@@ -203,9 +202,9 @@ export const WorkshopsCarousel = () => {
               />
 
               <Carousel.Caption>
-                <Title>LudArt - {t('workshops.colorfulEmbroidery')}</Title>
+                <Title>{t('workshops.colorfulEmbroidery')}</Title>
                 <h4>{t('workshops.colorfulEmbroideryInspirations')}</h4>
-                <NoTopMarginText></NoTopMarginText>
+                <NoTopMarginText>{t('workshops.ludartDescription')}</NoTopMarginText>
               </Carousel.Caption>
             </Item>
           </Carousel.Item>
@@ -256,7 +255,7 @@ export const WorkshopsCarousel = () => {
                 }}
                 alt="raffiaBasics"
                 width={180}
-                style={isTablet ? mobileStyle : { opacity: '0.47' }}
+                style={logoStyle}
               />
 
               <Carousel.Caption>
@@ -348,7 +347,7 @@ export const WorkshopsCarousel = () => {
                 }}
                 alt="uwolnijpomysly"
                 width={180}
-                style={isTablet ? mobileStyle : { opacity: '0.47' }}
+                style={logoStyle}
               />
 
               <Carousel.Caption>
@@ -381,7 +380,7 @@ export const WorkshopsCarousel = () => {
                 }}
                 alt="doranyprzyloz"
                 width={180}
-                style={isTablet ? mobileStyle : { opacity: '0.47' }}
+                style={logoStyle}
               />
 
               <Carousel.Caption>
@@ -412,7 +411,7 @@ export const WorkshopsCarousel = () => {
                 }}
                 alt="ewa"
                 width={180}
-                style={isTablet ? mobileStyle : { opacity: '0.47' }}
+                style={logoStyle}
               />
 
               <Carousel.Caption>

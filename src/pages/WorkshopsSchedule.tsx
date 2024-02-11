@@ -182,9 +182,9 @@ export const WorkshopsSchedule = () => {
           <TextContent>
             <TextH2>{t('workshops.ewa.topic')}</TextH2>
             <Text>{t('workshops.price')}: 30zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
+{/*             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
-            </WorkshopLink>
+            </WorkshopLink> */}
           </TextContent>
         </PlannerCard>
 
@@ -213,15 +213,15 @@ export const WorkshopsSchedule = () => {
           <TextContent>
             <TextH2>{t('workshops.ewa.topic')}</TextH2>
             <Text>{t('workshops.price')}: 30zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
+{/*             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
-            </WorkshopLink>
+            </WorkshopLink> */}
           </TextContent>
         </PlannerCard>
 
         <PlannerCard>
           <Ribbon>
-            <Text>12:00 - 13:30</Text>
+            <Text>12:00 - 13:00</Text>
           </Ribbon>
 
           <ImageWrapper>
@@ -247,9 +247,9 @@ export const WorkshopsSchedule = () => {
           <TextContent>
             <TextH2>{t('workshops.firstAid')}</TextH2>
             <Text>{t('workshops.price')}: 10zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
+{/*             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
-            </WorkshopLink>
+            </WorkshopLink> */}
           </TextContent>
         </PlannerCard>
 
@@ -280,9 +280,9 @@ export const WorkshopsSchedule = () => {
           <TextContent>
             <TextH2>{t('workshops.firstAid')}</TextH2>
             <Text>{t('workshops.price')}: 10zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
+{/*             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
-            </WorkshopLink>
+            </WorkshopLink> */}
           </TextContent>
         </PlannerCard>
 
@@ -314,9 +314,9 @@ export const WorkshopsSchedule = () => {
           <TextContent>
             <TextH2>{t('workshops.firstAid')}</TextH2>
             <Text>{t('workshops.price')}: 10zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
+{/*             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
-            </WorkshopLink>
+            </WorkshopLink> */}
           </TextContent>
         </PlannerCard>
 
@@ -347,10 +347,10 @@ export const WorkshopsSchedule = () => {
 
           <TextContent>
             <TextH2>{t('workshops.colorfulEmbroidery')}</TextH2>
-            <Text>{t('workshops.price')}: XXzł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
+            <Text>{t('workshops.price')}: 100zł</Text>
+{/*             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
-            </WorkshopLink>
+            </WorkshopLink> */}
           </TextContent>
         </PlannerCard>
       </Carousel>
@@ -385,9 +385,9 @@ export const WorkshopsSchedule = () => {
           <TextContent>
             <TextH2>{t('workshops.knitolog.topic')}</TextH2>
             <Text>{t('workshops.price')}: 150zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
+{/*             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
-            </WorkshopLink>
+            </WorkshopLink> */}
           </TextContent>
         </PlannerCard>
 
@@ -418,10 +418,10 @@ export const WorkshopsSchedule = () => {
 
           <TextContent>
             <SmallTextH2>{t('workshops.freeYourIdeas.topic')}</SmallTextH2>
-            <Text>{t('workshops.price')}: 130zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
+            <Text>{t('workshops.price')}: 150zł</Text>
+{/*             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
-            </WorkshopLink>
+            </WorkshopLink> */}
           </TextContent>
         </PlannerCard>
 
@@ -453,9 +453,9 @@ export const WorkshopsSchedule = () => {
           <TextContent>
             <TextH2>{t('workshops.doRanyPrzyloz.topic')}</TextH2>
             <Text>{t('workshops.price')}: 130zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
+{/*             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
-            </WorkshopLink>
+            </WorkshopLink> */}
           </TextContent>
         </PlannerCard>
       </Carousel>
@@ -466,41 +466,6 @@ export const WorkshopsSchedule = () => {
           <Ribbon>
             <Text>9:15 - 12:15</Text>
           </Ribbon>
-
-          <ImageWrapper>
-            <Picture
-              picture={{
-                fallbackUrl: haftowaBabaUrl,
-                sources: [
-                  {
-                    type: 'image/webp',
-                    url: haftowaBabaUrlWebp
-                  },
-                  {
-                    type: 'image/avif',
-                    url: haftowaBabaUrlAvif
-                  }
-                ]
-              }}
-              alt="haftowababa_logo"
-              width={120}
-            />
-          </ImageWrapper>
-
-          <TextContent>
-            <TextH2>Haftowa Baba</TextH2>
-            <Text>{t('workshops.price')}: 150zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
-              {t('workshops.buyTicket')}
-            </WorkshopLink>
-          </TextContent>
-        </PlannerCard>
-
-        <PlannerCard>
-          <Ribbon>
-            <Text>12:25 - 15:25</Text>
-          </Ribbon>
-
           <ImageWrapper>
             <Picture
               picture={{
@@ -524,10 +489,47 @@ export const WorkshopsSchedule = () => {
           <TextContent>
             <TextH2>{t('workshops.decorativeKnitting')}</TextH2>
             <Text>{t('workshops.price')}: 100zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
+{/*             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
-            </WorkshopLink>
+            </WorkshopLink> */}
           </TextContent>
+
+        </PlannerCard>
+
+        <PlannerCard>
+          <Ribbon>
+            <Text>12:25 - 15:25</Text>
+          </Ribbon>
+
+          <ImageWrapper>
+            <Picture
+              picture={{
+                fallbackUrl: haftowaBabaUrl,
+                sources: [
+                  {
+                    type: 'image/webp',
+                    url: haftowaBabaUrlWebp
+                  },
+                  {
+                    type: 'image/avif',
+                    url: haftowaBabaUrlAvif
+                  }
+                ]
+              }}
+              alt="haftowababa_logo"
+              width={120}
+            />
+          </ImageWrapper>
+
+          <TextContent>
+            <TextH2>{t('workshops.woolEmbroidery')}</TextH2>
+            <Text>{t('workshops.price')}: 150zł</Text>
+  {/*           <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
+              {t('workshops.buyTicket')}
+            </WorkshopLink> */}
+          </TextContent>
+
+          
         </PlannerCard>
 
         <PlannerCard>
@@ -558,9 +560,9 @@ export const WorkshopsSchedule = () => {
           <TextContent>
             <TextH2>{t('workshops.raffia')}</TextH2>
             <Text>{t('workshops.price')}: 150zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
+{/*             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
-            </WorkshopLink>
+            </WorkshopLink> */}
           </TextContent>
         </PlannerCard>
       </Carousel>
