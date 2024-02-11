@@ -248,7 +248,7 @@ export const en: TranslationsShape = {
           'Unleash Ideas are workshops where we literally unleash ideas! My name is Marta, I knit and I love sharing knowledge, so during the meeting I will show you methods to battle creative block, I will tell you where to find inspiration, I will help you create a moodboard and I will give you tips on how to translate it all into a design language. For a few hours we will have creative fun, creating inspiration boards from colorful clippings and sketching original projects on templates.',
         booklet:
           'Each participant of the workshop will receive brochures with notes, clippings for creating mood boards and templates for sketching projects.',
-        takeFreeMind: 'Remember to bring an open mind ready for creative stimulation.',
+        takeFreeMind: 'Remember to bring an open mind ready for a creative stimulation.',
         seeYou: 'See you in Cracow!',
         meetMe: 'Jeśli masz ochotę mnie bardziej poznać to zapraszam na mojego instagrama @marta.kania'
       },
