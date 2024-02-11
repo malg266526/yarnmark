@@ -26,8 +26,8 @@ export const pl = {
         'Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na targi wełny pod Wawelem. Kraków wchodzi w 2024 rok dziewiarskim krokiem. Chodźże z nami!',
       linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
       tickets: {
-        text: 'Sprzedaż biletów rusza 14.02.2024r.',
-        mobileTitle: 'Bilety (dostępne od 14.02.2024)'
+        text: 'Sprzedaż biletów rusza 14.02.2024r. o 14:00',
+        mobileTitle: 'Bilety (dostępne od godz. 14:00 w dniu 14.02.2024)'
       },
       vendors: {
         text: 'Sprawdź z jakimi wystawcami się spotkasz',
@@ -76,7 +76,7 @@ export const pl = {
         route: 'Trasa:'
       },
       invitation: 'Zapraszamy Cię na niezapomniany rejs statkiem po urokliwej Wiśle w Krakowie.',
-      ship: 'Pragniemy, aby pokład statku „Legenda stał się sceną do wspólnego dziergania, tworzenia niepowtarzalnych chwil i zawierania nowych dziewiarskich znajomości.',
+      ship: 'Pragniemy, aby pokład statku „Legenda" stał się sceną do wspólnego dziergania, tworzenia niepowtarzalnych chwil i zawierania nowych dziewiarskich znajomości.',
 
       buyTickets: 'Tutaj kupisz bilet',
       tickets: 'Bilety',
@@ -110,9 +110,9 @@ export const pl = {
     },
     scheduleBand: {
       title: 'Harmonogram warsztatów',
-      room1: 'Salka nr 1',
-      room2: 'Salka nr 2',
-      room3: 'Salka nr 3'
+      room1: 'Sala lustrzana',
+      room2: 'Sala szermiercza',
+      room3: 'Sala konferencyjna'
     },
     infoForVendorsPage: {
       title: 'Informacje dla wystawców',
@@ -176,6 +176,7 @@ export const pl = {
       taken: 'Miejsce zarezerwowane'
     },
     workshops: {
+      tutor: 'Prowadzący: ',
       buyTicket: 'Kup bilet',
       firstAid: 'Pierwsza pomoc',
       freeAdmission: 'Wstęp wolny',
@@ -185,6 +186,9 @@ export const pl = {
       decorativeKnittingDescription:
         'Osobom zainteresowanym warsztatami pokaże jak tworzyć dzianiny ażurowe, ozdabianie warkoczami i żakardowe jeśli wystarczy czasu to również wykończenia i-cord. Osoby chcące wziąć udział w warsztatach powinny przynieść ze sobą druty proste lub na żyłce w rozmiarze między 3 a 4mm, odpowiednią dla danego rozmiaru wełnę w 2 kolorach, najlepiej kolory ze sobą kontrastujące oraz drut pomocniczy do warkoczy. Jeśli chodzi o wełnę nie musi to być pełny motek, potrzebujemy ilość która pozwoli na zrobienie próbki interesujących nas dzianin.',
       price: 'Koszt',
+      ludartDescription:
+        'towarzyszenie Miłośników Tradycyjnego Rękodzieła Ludowego i Artystycznego przy Muzeum Etnograficznym im. Seweryna Udzieli w Krakowie działa od 30 lat. Jego myśl przewodnia to "tradycja i współczesność". Na cotygodniowych spotkaniach członkowie, będący przedstawicielami różnych pokoleń i środowisk, zajmują się doskonaleniem technik hafciarskich, koronkarskich, wymianą doświadczeń. Stowarzyszenie prowadzi też  bogatą działalność wystawienniczą ( ponad 130 wystaw) nie tylko na terenie Krakowa i okolic,  ale także w innych miastach Polski. Wielu członków  prezentuje też swoje prace na wystawach indywidualnych i zbiorowych oraz bierze udział w licznych konkursach zdobywając nagrody. Stowarzyszenie uczestniczy w pokazach haftu i koronki oraz w promowaniu rękodzieła ludowego przy okazji różnego rodzaju imprez kulturalnych i oświatowych. W 2023 roku członkinie Stowarzyszenia LUD-Art uczestniczyły w tworzeniu Kurtyny Kobiet w Teatrze Juliusza Słowackiego w Krakowie.',
+      woolEmbroidery: 'Haft wełną na dzianinie',
       haftowaBabaDescription1:
         'Chcesz nauczyć się jak w ciekawy sposób ozdobić czapki, szaliki, swetry czy rękawiczki?',
       haftowaBabaDescription2: 'Ciekawi cię haft wełną, jak go wykonać i wykorzystać w swoich udziergach?',
@@ -215,7 +219,7 @@ export const pl = {
           'Uczestnicy będą mieli okazję do praktycznego zastosowania zdobytej wiedzy podczas symulacji różnych sytuacji awaryjnych.'
       },
       firstAidQuote: 'Ten, kto ratuje życie jednego człowieka, ratuje cały świat',
-      raffia: 'Szydełkowanie z rafii - pierwsze kroki.',
+      raffia: 'Szydełkowanie z rafii - pierwsze kroki',
       raffiaDescription:
         'Na warsztatach uczestnicy zapoznają się z rafią oraz technikami jej przerabiania. Podzielę się wiedzą jaką zdobyłam podczas kilkuletniej pracy z tym włóknem. Chętnie odpowiem na nurtujące  pytania. Ze spotkania uczestnicy wyjdą z wydzierganą przez siebie mini torebką lub jej częścią😉 Materiały potrzebne do pracy uczestnicy przynoszą we własnym zakresie.',
       raffiaNeededMaterials: 'Potrzebne materiały, które można zakupić w sklepie biferno.pl:',
@@ -243,7 +247,7 @@ export const pl = {
         pinMarkers: ' markery odpinane w formie agrafki: 10-12 szt.'
       },
       freeYourIdeas: {
-        topic: 'Uwolnij pomysły! Jak zbierać i czytać inspiracje do projektów.',
+        topic: 'Uwolnij pomysły! Jak zbierać i czytać inspiracje do projektów',
         description:
           'Uwolnij Pomysły to warsztaty na których dosłownie uwalniamy pomysły! Mam na imię Marta, robię na drutach i uwielbiam się dzielić wiedzą, dlatego podczas spotkania pokażę Tobie metody na walkę z blokadą twórczą, podpowiem gdzie można znaleźć inspiracje, pomogę stworzyć moodboard i dam wskazówki jak przełożyć to wszystko na język projektowy. Przez kilka godzin będziemy się twórczo bawić tworząc z kolorowych wycinków tablice inspiracji i szkicując na szablonach autorskie projekty.',
         booklet:
