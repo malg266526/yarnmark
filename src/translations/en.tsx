@@ -172,6 +172,7 @@ export const en: TranslationsShape = {
       taken: 'Reserved'
     },
     workshops: {
+      tutor: 'Tutor: ',
       buyTicket: 'Buy a ticket',
       firstAid: 'First aid',
       freeAdmission: 'Free admission',
@@ -181,6 +182,10 @@ export const en: TranslationsShape = {
       decorativeKnittingDescription:
         'I will show you how to create openwork knits, decorate with cables and jacquard, if there is enough time, I will also show you how to finish them with i-cord. People who want to take part in the workshops should bring straight or circular needles, between 3 and 4 mm, wool appropriate for a given size in 2 colors, preferably contrasting colors, and an cable needle for braids. When it comes to wool, it does not have to be a full skein, we need an amount that will allow us to make a sample of the knitwear we are interested in.',
       price: 'Price',
+      ludartDescription:
+        'towarzyszenie Miłośników Tradycyjnego Rękodzieła Ludowego i Artystycznego przy Muzeum Etnograficznym im. Seweryna Udzieli w Krakowie działa od 30 lat. Jego myśl przewodnia to "tradycja i współczesność". Na cotygodniowych spotkaniach członkowie, będący przedstawicielami różnych pokoleń i środowisk, zajmują się doskonaleniem technik hafciarskich, koronkarskich, wymianą doświadczeń. Stowarzyszenie prowadzi też  bogatą działalność wystawienniczą ( ponad 130 wystaw) nie tylko na terenie Krakowa i okolic,  ale także w innych miastach Polski. Wielu członków  prezentuje też swoje prace na wystawach indywidualnych i zbiorowych oraz bierze udział w licznych konkursach zdobywając nagrody. Stowarzyszenie uczestniczy w pokazach haftu i koronki oraz w promowaniu rękodzieła ludowego przy okazji różnego rodzaju imprez kulturalnych i oświatowych. W 2023 roku członkinie Stowarzyszenia LUD-Art uczestniczyły w tworzeniu Kurtyny Kobiet w Teatrze Juliusza Słowackiego w Krakowie.',
+
+      woolEmbroidery: 'Wool embroidery on knitted fabric',
       haftowaBabaDescription1: 'Do you want to learn how to interestingly decorate hats, scarves, sweaters or gloves?',
       haftowaBabaDescription2: 'Are you curious about wool embroidery, how to make it and use it in your knits?',
       haftowaBabaDescription3: 'That workshop is perfect for you!',
@@ -240,10 +245,10 @@ export const en: TranslationsShape = {
       freeYourIdeas: {
         topic: 'Unleash your ideas! How to collect and read design inspiration',
         description:
-          'Unleash Ideas are workshops where we literally unleash ideas! My name is Marta, I knit and I love sharing knowledge, so during the meeting I will show you methods to fight creative block, I will tell you where to find inspiration, I will help you create a moodboard and I will give you tips on how to translate it all into a design language. For a few hours we will have creative fun, creating inspiration boards from colorful clippings and sketching original projects on templates.',
+          'Unleash Ideas are workshops where we literally unleash ideas! My name is Marta, I knit and I love sharing knowledge, so during the meeting I will show you methods to battle creative block, I will tell you where to find inspiration, I will help you create a moodboard and I will give you tips on how to translate it all into a design language. For a few hours we will have creative fun, creating inspiration boards from colorful clippings and sketching original projects on templates.',
         booklet:
           'Each participant of the workshop will receive brochures with notes, clippings for creating mood boards and templates for sketching projects.',
-        takeFreeMind: 'Remember to bring an open mind ready for creative stimulation.',
+        takeFreeMind: 'Remember to bring an open mind ready for a creative stimulation.',
         seeYou: 'See you in Cracow!',
         meetMe: 'Jeśli masz ochotę mnie bardziej poznać to zapraszam na mojego instagrama @marta.kania'
       },
@@ -252,7 +257,7 @@ export const en: TranslationsShape = {
         misteries: 'During workshops for beginners, I will introduce you to the mystical secrets of knitting.',
         plan: 'You will learn about the different types of materials we usually work with, I will teach you some techniques for casting on stitches, and you will learn the basics - knit and purl stitches. I will introduce you to the methods of adding and decreasing stitches and finishing the knitted fabric. I will show you knitting accessories that make the life of a knitter easier. I will explain how to read patterns in books and on banners. We will knit a piece of knit together.',
         debugging:
-          'Of course, I will show you how to save lost stitches or fix simple mistakes. I will try to answer your questions.',
+          'Obviously, I will show you how to save lost stitches or fix simple mistakes. I will try my best to answer your questions.',
         forBeginners:
           'A group for beginners who are starting their adventure with knitting, as well as for those who want to gain confidence in their knitting'
       },
@@ -260,15 +265,14 @@ export const en: TranslationsShape = {
         topic: 'Macrame workshops',
         intro: 'Come and I will teach you how to weave macrame from scratch!',
         macrame:
-          'Macrame is a timeless adventure that comes back again and again. They were weaved in ancient times, our grandmothers weaved them, and now we weave them.',
+          'Macrame is a timeless journey that comes back again and again. They used to be weaved in ancient times, our grandmothers weaved them, and now we weave them.',
         macrameOnTheHoop:
           'During the workshops, you will make a macrame on a hoop yourself, which will consist of the most popular weaves used in this technique.',
         example:
           'Thanks to the sample work that I will bring with me, it will be easier for you to follow the steps and learn the most important tips for this technique. Of course, you will be able to modify your project as you wish, if you feel confident enough.',
         forBeginners:
           'The workshops are aimed at beginners, so you can be sure that you will receive very detailed instructions and you will definitely learn how to weave. Then your imagination will suggest further projects, because I am sure that you will not end with one macrame (your loved ones will also want to have one!)',
-        invite:
-          'I also invite to the workshop anyone who needs more creativity in their life or just want to have a nice time.'
+        invite: "I'm inviting anyone who needs more creativity in their life or just want to have a nice time."
       }
     }
   }

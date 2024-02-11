@@ -5,9 +5,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
-    "plugin:jsx-a11y/recommended"
   ],
-  plugins: ['@typescript-eslint', 'prettier', 'import', 'react', 'react-hooks'],
+  plugins: ['@typescript-eslint', 'prettier', 'import', 'react', 'react-hooks', 'jsx-a11y'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
