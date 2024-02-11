@@ -42,6 +42,10 @@ import madoboLogoUrl from './../assets/images/minifiedLogos/madobo.png';
 import madoboLogoUrlAvif from './../assets/images/minifiedLogos/madobo.avif';
 import madoboLogoUrlWebp from './../assets/images/minifiedLogos/madobo.webp';
 
+import malinowyKosLogoUrl from './../assets/images/minifiedLogos/malinowyKos.png';
+import malinowyKosLogoUrlAvif from './../assets/images/minifiedLogos/malinowyKos.avif';
+import malinowyKosLogoUrlWebp from './../assets/images/minifiedLogos/malinowyKos.webp';
+
 import maniaChomikujeLogoUrl from './../assets/images/minifiedLogos/mania.png';
 import maniaChomikujeLogoUrlAvif from './../assets/images/minifiedLogos/mania.avif';
 import maniaChomikujeLogoUrlWebp from './../assets/images/minifiedLogos/mania.webp';
@@ -290,6 +294,26 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: madoboLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://malinowykos.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={100}
+          alt="malinowykos_logo"
+          picture={{
+            fallbackUrl: malinowyKosLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: malinowyKosLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: malinowyKosLogoUrlAvif
               }
             ]
           }}
