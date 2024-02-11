@@ -108,9 +108,9 @@ export const en: TranslationsShape = {
     },
     scheduleBand: {
       title: 'Workshops schedule',
-      room1: 'Salka nr 1',
-      room2: 'Salka nr 2',
-      room3: 'Salka nr 3'
+      room1: 'Mirrors room',
+      room2: 'Fencing room',
+      room3: 'Conference room'
     },
     infoForVendorsPage: {
       title: 'Information for vendors',
@@ -182,9 +182,9 @@ export const en: TranslationsShape = {
       decorativeKnittingDescription:
         'I will show you how to create openwork knits, decorate with cables and jacquard, if there is enough time, I will also show you how to finish them with i-cord. People who want to take part in the workshops should bring straight or circular needles, between 3 and 4 mm, wool appropriate for a given size in 2 colors, preferably contrasting colors, and an cable needle for braids. When it comes to wool, it does not have to be a full skein, we need an amount that will allow us to make a sample of the knitwear we are interested in.',
       price: 'Price',
-      ludartDescription:
-        'towarzyszenie Miłośników Tradycyjnego Rękodzieła Ludowego i Artystycznego przy Muzeum Etnograficznym im. Seweryna Udzieli w Krakowie działa od 30 lat. Jego myśl przewodnia to "tradycja i współczesność". Na cotygodniowych spotkaniach członkowie, będący przedstawicielami różnych pokoleń i środowisk, zajmują się doskonaleniem technik hafciarskich, koronkarskich, wymianą doświadczeń. Stowarzyszenie prowadzi też  bogatą działalność wystawienniczą ( ponad 130 wystaw) nie tylko na terenie Krakowa i okolic,  ale także w innych miastach Polski. Wielu członków  prezentuje też swoje prace na wystawach indywidualnych i zbiorowych oraz bierze udział w licznych konkursach zdobywając nagrody. Stowarzyszenie uczestniczy w pokazach haftu i koronki oraz w promowaniu rękodzieła ludowego przy okazji różnego rodzaju imprez kulturalnych i oświatowych. W 2023 roku członkinie Stowarzyszenia LUD-Art uczestniczyły w tworzeniu Kurtyny Kobiet w Teatrze Juliusza Słowackiego w Krakowie.',
-
+      ludartDescription: 'The workshops aim to present the patterns of decorations on Cracow corsets.',
+      ludartDescription2:
+        'During the workshops, participants will have the opportunity to learn the necessary embroidery stitches and embroider on the canvas one of the prepared patterns inspired by the Crakow corsets.',
       woolEmbroidery: 'Wool embroidery on knitted fabric',
       haftowaBabaDescription1: 'Do you want to learn how to interestingly decorate hats, scarves, sweaters or gloves?',
       haftowaBabaDescription2: 'Are you curious about wool embroidery, how to make it and use it in your knits?',
@@ -218,11 +218,12 @@ export const en: TranslationsShape = {
       raffia: 'Crocheting with raffia - first steps',
       raffiaDescription:
         'During the workshops, participants will learn about raffia and techniques of working with it. I will share the knowledge I have gained during several years of working with this fiber. I will be happy to answer any questions you may have. Participants will leave the meeting with a mini bag they have knitted, or part of it. 😉 Participants bring the materials needed for work on their own.',
-      raffiaNeededMaterials: 'Potrzebne materiały, które można zakupić w sklepie biferno.pl:',
+      raffiaNeededMaterials: 'Materials needed, which can be purchased in the biferno.pl store:',
       raffiaGptex: 'Rafia GPTEX - 2 skeins',
       raffiaCrochet: 'Crochet hook no. 3mm,  3.5mm, 4mm',
       raffiaStrap: 'Leather strap',
-      raffiaBifernoDiscount: 'Dla każdego z uczestników rabat -15% w sklepie Biferno na wyżej wymienione produkty',
+      raffiaBifernoDiscount:
+        'For each participant, a 15% discount in the Biferno store on the above-mentioned products',
       knitolog: {
         topic: 'Design your own sweater',
         subtopic: '(raglan, from the top, in the round)',
@@ -236,7 +237,7 @@ export const en: TranslationsShape = {
         lesson7: 'how to aesthetically cast on stitches under the armpit',
         pattern:
           'Each workshop participant will receive a sweater pattern on which we will work. To take part in the workshops, basic knitting skills are enough.',
-        materialsNeeded: 'Materiały potrzebne na warsztaty:',
+        materialsNeeded: 'Materials needed for the workshop:',
         wool: 'a skein of yarn approx. 200m in 100g (approx. 100m in 50g)',
         knittingNeedles: '4.00 mm 80cm circular needles (or the one you like to use to knit sweaters in rounds)',
         markers: 'stitch markers - 9 pcs.',

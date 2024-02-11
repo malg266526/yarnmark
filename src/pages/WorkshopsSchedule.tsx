@@ -352,7 +352,7 @@ export const WorkshopsSchedule = () => {
 
           <TextContent>
             <TextH2>{t('workshops.colorfulEmbroidery')}</TextH2>
-            <Text>{t('workshops.price')}: 100zł</Text>
+            <Text>{t('workshops.price')}: 70zł</Text>
             {/*             <WorkshopLink to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
               {t('workshops.buyTicket')}
             </WorkshopLink> */}

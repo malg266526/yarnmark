@@ -186,8 +186,9 @@ export const pl = {
       decorativeKnittingDescription:
         'Osobom zainteresowanym warsztatami pokaże jak tworzyć dzianiny ażurowe, ozdabianie warkoczami i żakardowe jeśli wystarczy czasu to również wykończenia i-cord. Osoby chcące wziąć udział w warsztatach powinny przynieść ze sobą druty proste lub na żyłce w rozmiarze między 3 a 4mm, odpowiednią dla danego rozmiaru wełnę w 2 kolorach, najlepiej kolory ze sobą kontrastujące oraz drut pomocniczy do warkoczy. Jeśli chodzi o wełnę nie musi to być pełny motek, potrzebujemy ilość która pozwoli na zrobienie próbki interesujących nas dzianin.',
       price: 'Koszt',
-      ludartDescription:
-        'towarzyszenie Miłośników Tradycyjnego Rękodzieła Ludowego i Artystycznego przy Muzeum Etnograficznym im. Seweryna Udzieli w Krakowie działa od 30 lat. Jego myśl przewodnia to "tradycja i współczesność". Na cotygodniowych spotkaniach członkowie, będący przedstawicielami różnych pokoleń i środowisk, zajmują się doskonaleniem technik hafciarskich, koronkarskich, wymianą doświadczeń. Stowarzyszenie prowadzi też  bogatą działalność wystawienniczą ( ponad 130 wystaw) nie tylko na terenie Krakowa i okolic,  ale także w innych miastach Polski. Wielu członków  prezentuje też swoje prace na wystawach indywidualnych i zbiorowych oraz bierze udział w licznych konkursach zdobywając nagrody. Stowarzyszenie uczestniczy w pokazach haftu i koronki oraz w promowaniu rękodzieła ludowego przy okazji różnego rodzaju imprez kulturalnych i oświatowych. W 2023 roku członkinie Stowarzyszenia LUD-Art uczestniczyły w tworzeniu Kurtyny Kobiet w Teatrze Juliusza Słowackiego w Krakowie.',
+      ludartDescription: 'Warsztaty mają na celu zaprezentowanie wzornictwa zdobień na gorsetach krakowskich.',
+      ludartDescription2:
+        'Uczestnicy podczas warsztatów będą mieli okazję zapoznać się z niezbędnymi ściegami hafciarskimi i wyhaftować na płótnie jeden z przygotowanych wzorów inspirowanych krakowskimi gorsetami.',
       woolEmbroidery: 'Haft wełną na dzianinie',
       haftowaBabaDescription1:
         'Chcesz nauczyć się jak w ciekawy sposób ozdobić czapki, szaliki, swetry czy rękawiczki?',
