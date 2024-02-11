@@ -226,6 +226,7 @@ export const WorkshopsCarousel = () => {
 
                 <ScrollableContent>
                   <ResponsiveText>{t('workshops.ludartDescription')}</ResponsiveText>
+                  <NoTopMarginText>{t('workshops.ludartDescription2')}</NoTopMarginText>
                 </ScrollableContent>
               </Carousel.Caption>
             </Item>

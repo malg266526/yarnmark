@@ -182,8 +182,9 @@ export const en: TranslationsShape = {
       decorativeKnittingDescription:
         'I will show you how to create openwork knits, decorate with cables and jacquard, if there is enough time, I will also show you how to finish them with i-cord. People who want to take part in the workshops should bring straight or circular needles, between 3 and 4 mm, wool appropriate for a given size in 2 colors, preferably contrasting colors, and an cable needle for braids. When it comes to wool, it does not have to be a full skein, we need an amount that will allow us to make a sample of the knitwear we are interested in.',
       price: 'Price',
-      ludartDescription:
-        'Association of Lovers of Traditional Folk and Artistic Handicrafts at the Seweryn Udziel Ethnographic Museuma has been working in Cracow for 30 years. Its main idea is "tradition and modernity". At weekly meetings, members representing different generations and environments, improve embroidery and lace techniques and exchange their experiences. The association also conducts extensive exhibition activities (over 130 exhibitions) not only in Cracow and the surrounding area, but also in other Polish cities. Many members also present their works at individual and collective exhibitions and take part in numerous competitions, winning prizes. The association participates in embroidery and lace shows and in promoting folk handicrafts during various cultural and educational events. In 2023, members of the LUD-Art Association participated in the creation of the Women\'s Curtain at the Juliusz Słowacki Theater in Cracow.',
+      ludartDescription: 'The workshops aim to present the patterns of decorations on Cracow corsets.',
+      ludartDescription2:
+        'During the workshops, participants will have the opportunity to learn the necessary embroidery stitches and embroider on the canvas one of the prepared patterns inspired by the Crakow corsets.',
       woolEmbroidery: 'Wool embroidery on knitted fabric',
       haftowaBabaDescription1: 'Do you want to learn how to interestingly decorate hats, scarves, sweaters or gloves?',
       haftowaBabaDescription2: 'Are you curious about wool embroidery, how to make it and use it in your knits?',
