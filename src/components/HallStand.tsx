@@ -34,6 +34,7 @@ const StandText = styled.h5`
 const StandIndex = styled.h4`
   text-align: center;
   margin: 0;
+  font-size: 14px;
 `;
 
 const HallStandOverlay = styled.div`
@@ -104,7 +105,8 @@ export const HallStand = ({ stand, height }: HallStandProps) => {
         </TextWrapper>
       )}
 
-      <HallLogo picture={stand.picture} alt={stand.who} />
+      <HallLogo picture={stand.picture} alt={stand.who} width={stand.extraPicture ? 22 : 36} />
+      {stand.extraPicture && <HallLogo picture={stand.extraPicture} alt={stand.who} width={22} />}
     </HallStandLayout>
   );
 };

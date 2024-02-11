@@ -42,6 +42,10 @@ import madoboLogoUrl from './../assets/images/minifiedLogos/madobo.png';
 import madoboLogoUrlAvif from './../assets/images/minifiedLogos/madobo.avif';
 import madoboLogoUrlWebp from './../assets/images/minifiedLogos/madobo.webp';
 
+import malinowyKosLogoUrl from './../assets/images/minifiedLogos/malinowyKos.png';
+import malinowyKosLogoUrlAvif from './../assets/images/minifiedLogos/malinowyKos.avif';
+import malinowyKosLogoUrlWebp from './../assets/images/minifiedLogos/malinowyKos.webp';
+
 import maniaChomikujeLogoUrl from './../assets/images/minifiedLogos/mania.png';
 import maniaChomikujeLogoUrlAvif from './../assets/images/minifiedLogos/mania.avif';
 import maniaChomikujeLogoUrlWebp from './../assets/images/minifiedLogos/mania.webp';
@@ -101,6 +105,7 @@ export type HallStandType = {
   who?: string;
 
   picture?: PictureType;
+  extraPicture?: PictureType;
 };
 
 type HallLineType = {
@@ -235,6 +240,19 @@ export const hallMapConfig: HallMapType = {
               {
                 type: 'image/avif',
                 url: bawelnianyFilamentLogoUrlAvif
+              }
+            ]
+          },
+          extraPicture: {
+            fallbackUrl: malinowyKosLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: malinowyKosLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: malinowyKosLogoUrlAvif
               }
             ]
           }
