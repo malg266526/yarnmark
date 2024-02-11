@@ -77,12 +77,14 @@ const BlobBackground = styled.div`
   text-align: center;
 `;
 
-const NoTopMarginText = styled(Text)`
-  margin-top: 0;
-
+const ResponsiveText = styled(Text)`
   @media (max-width: ${ScreenSize.tablet}) {
     font-size: 12px;
   }
+`;
+
+const NoTopMarginText = styled(ResponsiveText)`
+  margin-top: 0;
 `;
 
 const ExtraCaption = styled(Text)`
@@ -186,7 +188,7 @@ export const WorkshopsCarousel = () => {
 
                 <ScrollableContent>
                   <FlexColumnLayout gap="xs" padding="none">
-                    <Text>{t('workshops.haftowaBabaDescription1')}</Text>
+                    <ResponsiveText>{t('workshops.haftowaBabaDescription1')}</ResponsiveText>
                     <NoTopMarginText>{t('workshops.haftowaBabaDescription2')}</NoTopMarginText>
                     <NoTopMarginText>{t('workshops.haftowaBabaDescription3')}</NoTopMarginText>
                     <NoTopMarginText>{t('workshops.haftowaBabaDescription4')}</NoTopMarginText>
@@ -223,7 +225,7 @@ export const WorkshopsCarousel = () => {
                 <NoTopMarginText>{t('workshops.tutor')} LudArt</NoTopMarginText>
 
                 <ScrollableContent>
-                  <Text>{t('workshops.ludartDescription')}</Text>
+                  <ResponsiveText>{t('workshops.ludartDescription')}</ResponsiveText>
                 </ScrollableContent>
               </Carousel.Caption>
             </Item>
@@ -260,7 +262,7 @@ export const WorkshopsCarousel = () => {
                 </RowLayout>
 
                 <ScrollableContent>
-                  <Text>{t('workshops.decorativeKnittingDescription')}</Text>
+                  <ResponsiveText>{t('workshops.decorativeKnittingDescription')}</ResponsiveText>
                 </ScrollableContent>
               </Carousel.Caption>
             </Item>
@@ -298,7 +300,7 @@ export const WorkshopsCarousel = () => {
 
                 <ScrollableContent>
                   <FlexColumnLayout gap="xs" padding="none">
-                    <Text>{t('workshops.raffiaDescription')}</Text>
+                    <ResponsiveText>{t('workshops.raffiaDescription')}</ResponsiveText>
                     <NoTopMarginText>{t('workshops.raffiaNeededMaterials')}</NoTopMarginText>
                     <NoTopMarginText>- {t('workshops.raffiaGptex')}</NoTopMarginText>
                     <NoTopMarginText>- {t('workshops.raffiaCrochet')}</NoTopMarginText>
@@ -405,7 +407,7 @@ export const WorkshopsCarousel = () => {
 
                 <ScrollableContent>
                   <FlexColumnLayout gap="xs" padding="none">
-                    <Text>{t('workshops.freeYourIdeas.description')}</Text>
+                    <ResponsiveText>{t('workshops.freeYourIdeas.description')}</ResponsiveText>
                     <NoTopMarginText>{t('workshops.freeYourIdeas.booklet')}</NoTopMarginText>
                     <NoTopMarginText>{t('workshops.freeYourIdeas.takeFreeMind')}</NoTopMarginText>
                     <NoTopMarginText>{t('workshops.freeYourIdeas.seeYou')}</NoTopMarginText>
@@ -447,7 +449,7 @@ export const WorkshopsCarousel = () => {
 
                 <ScrollableContent>
                   <FlexColumnLayout gap="xs" padding="none">
-                    <Text>{t('workshops.doRanyPrzyloz.intro')}</Text>
+                    <ResponsiveText>{t('workshops.doRanyPrzyloz.intro')}</ResponsiveText>
                     <NoTopMarginText>{t('workshops.doRanyPrzyloz.macrame')}</NoTopMarginText>
                     <NoTopMarginText>{t('workshops.doRanyPrzyloz.macrameOnTheHoop')}</NoTopMarginText>
                     <NoTopMarginText>{t('workshops.doRanyPrzyloz.example')}</NoTopMarginText>
@@ -487,7 +489,7 @@ export const WorkshopsCarousel = () => {
 
                 <ScrollableContent>
                   <FlexColumnLayout gap="xs" padding="none">
-                    <Text>{t('workshops.ewa.misteries')}</Text>
+                    <ResponsiveText>{t('workshops.ewa.misteries')}</ResponsiveText>
                     <NoTopMarginText>{t('workshops.ewa.plan')}</NoTopMarginText>
                     <NoTopMarginText>{t('workshops.ewa.debugging')}</NoTopMarginText>
                     <NoTopMarginText>{t('workshops.ewa.forBeginners')}</NoTopMarginText>
