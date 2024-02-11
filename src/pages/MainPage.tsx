@@ -75,7 +75,6 @@ import {
   BackgroundImage,
   ButtonsLayout,
   CenteredTitle,
-  LinkWrapper,
   // ButtonsWrapper,
   // CenteredTitle,
   Menu,
@@ -664,7 +663,7 @@ export const MainPage = () => {
                   <Title>{t('cashmereTicketsBand.tickets')}</Title>
                 </TextWrapper>
 
-{/*                 <LinkWrapper>
+                {/*                 <LinkWrapper>
                   <Link target="_blank" to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
                     {t('cashmereTicketsBand.buyTickets')}
                   </Link>
