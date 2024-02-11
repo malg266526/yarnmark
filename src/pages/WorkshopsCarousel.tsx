@@ -222,7 +222,7 @@ export const WorkshopsCarousel = () => {
               <Carousel.Caption>
                 <Title>{t('workshops.colorfulEmbroidery')}</Title>
                 <h4>{t('workshops.colorfulEmbroideryInspirations')}</h4>
-                <NoTopMarginText>{t('workshops.tutor')} LudArt</NoTopMarginText>
+                <NoTopMarginText>{t('workshops.tutor')} Lud-art</NoTopMarginText>
 
                 <ScrollableContent>
                   <ResponsiveText>{t('workshops.ludartDescription')}</ResponsiveText>
