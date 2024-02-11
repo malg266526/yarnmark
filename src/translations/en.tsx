@@ -201,7 +201,7 @@ export const en: TranslationsShape = {
         lesson1: 'Hazard recognition and safety',
         lessonDescription1:
           'Participants will learn how to recognize potential threats and how to ensure their own safety and the safety of those around them in emergency situations.',
-        lesson2: 'Resuscytacja krążeniowo-oddechowa (RKO)',
+        lesson2: 'Cardiopulmonary resuscitation (CPR)',
         lessonDescription2:
           'Instructors will impart practical skills in performing cardiopulmonary resuscitation using a training manikin.',
         lesson3: 'Behavior in the event of injuries and accidents',
@@ -210,70 +210,69 @@ export const en: TranslationsShape = {
         lesson4: 'Using an automatic defibrillator (AED)',
         lessonDescription4:
           'Practical training in the use of AEDs, tips on locating devices and their effective use in emergency situations.',
-        lesson5: 'Ćwiczenia praktyczne',
+        lesson5: 'Practical exercises',
         lessonDescription5:
           'Participants will have the opportunity to practically apply the acquired knowledge during simulations of various emergency situations.'
       },
-      firstAidQuote: 'Ten, kto ratuje życie jednego człowieka, ratuje cały świat',
+      firstAidQuote: 'Whoever saves one life, saves the world entire.',
       raffia: 'Crocheting with raffia - first steps',
       raffiaDescription:
-        'Na warsztatach uczestnicy zapoznają się z rafią oraz technikami jej przerabiania. Podzielę się wiedzą jaką zdobyłam podczas kilkuletniej pracy z tym włóknem. Chętnie odpowiem na nurtujące  pytania. Ze spotkania uczestnicy wyjdą z wydzierganą przez siebie mini torebką lub jej częścią😉 Materiały potrzebne do pracy uczestnicy przynoszą we własnym zakresie.',
+        'During the workshops, participants will learn about raffia and techniques of working with it. I will share the knowledge I have gained during several years of working with this fiber. I will be happy to answer any questions you may have. Participants will leave the meeting with a mini bag they have knitted, or part of it. 😉 Participants bring the materials needed for work on their own.',
       raffiaNeededMaterials: 'Potrzebne materiały, które można zakupić w sklepie biferno.pl:',
       raffiaGptex: 'Rafia GPTEX - 2 skeins',
       raffiaCrochet: 'Crochet hook no. 3mm,  3.5mm, 4mm',
-      raffiaStrap: 'Skórzany rzemyk',
+      raffiaStrap: 'Leather strap',
       raffiaBifernoDiscount: 'Dla każdego z uczestników rabat -15% w sklepie Biferno na wyżej wymienione produkty',
       knitolog: {
         topic: 'Design your own sweater',
         subtopic: '(raglan, from the top, in the round)',
         plan: 'You will learn:',
-        lesson1: 'jak rozliczyć raglan',
-        lesson2: 'how to cast off stitches in a round and work with the Magic Loop method',
-        lesson3: 'jak robić japońskie rzędy skrócone',
+        lesson1: 'how to settle raglan',
+        lesson2: 'how to decrease stitches in a round and work with the Magic Loop method',
+        lesson3: 'how to do japanese short rows',
         lesson4: 'how to increase stitches in raglan, on the right and left side',
         lesson5: 'how to make a deeper or shallower neckline',
         lesson6: 'how to separate the body and sleeves',
-        lesson7: 'jak estetycznie nabrać oczka pod pachą',
+        lesson7: 'how to aesthetically cast on stitches under the armpit',
         pattern:
-          'Każdy uczestnik warsztatów otrzyma wzór na sweter, na bazie którego będziemy pracować. Aby wziąć udział w warsztatach wystarczą podstawowe umiejętności dziewiarskie.',
+          'Each workshop participant will receive a sweater pattern on which we will work. To take part in the workshops, basic knitting skills are enough.',
         materialsNeeded: 'Materiały potrzebne na warsztaty:',
         wool: 'a skein of yarn approx. 200m in 100g (approx. 100m in 50g)',
-        knittingNeedles: 'druty 4,00 mm z żyłką 80 cm (lub taką na jakiej lubisz robić swetry w okrążeniach)',
+        knittingNeedles: '4.00 mm 80cm circular needles (or the one you like to use to knit sweaters in rounds)',
         markers: 'stitch markers - 9 pcs.',
         pinMarkers: 'safety pin markers: 10-12 pcs.'
       },
       freeYourIdeas: {
         topic: 'Unleash your ideas! How to collect and read design inspiration',
         description:
-          'Uwolnij Pomysły to warsztaty na których dosłownie uwalniamy pomysły! Mam na imię Marta, robię na drutach i uwielbiam się dzielić wiedzą, dlatego podczas spotkania pokażę Tobie metody na walkę z blokadą twórczą, podpowiem gdzie można znaleźć inspiracje, pomogę stworzyć moodboard i dam wskazówki jak przełożyć to wszystko na język projektowy. Przez kilka godzin będziemy się twórczo bawić tworząc z kolorowych wycinków tablice inspiracji i szkicując na szablonach autorskie projekty.',
+          'Unleash Ideas are workshops where we literally unleash ideas! My name is Marta, I knit and I love sharing knowledge, so during the meeting I will show you methods to battle creative block, I will tell you where to find inspiration, I will help you create a moodboard and I will give you tips on how to translate it all into a design language. For a few hours we will have creative fun, creating inspiration boards from colorful clippings and sketching original projects on templates.',
         booklet:
           'Each participant of the workshop will receive brochures with notes, clippings for creating mood boards and templates for sketching projects.',
-        takeFreeMind: 'Pamiętaj aby zabrać ze sobą otwartą głowę gotową na kreatywne pobudzenie.',
+        takeFreeMind: 'Remember to bring an open mind ready for a creative stimulation.',
         seeYou: 'See you in Cracow!',
         meetMe: 'Jeśli masz ochotę mnie bardziej poznać to zapraszam na mojego instagrama @marta.kania'
       },
       ewa: {
         topic: 'The Greeners',
-        misteries: 'Na warsztatach dla początkujących wprowadzę Cię w tajniki i mistyczne arkana sztuki dziewiarskiej.',
+        misteries: 'During workshops for beginners, I will introduce you to the mystical secrets of knitting.',
         plan: 'You will learn about the different types of materials we usually work with, I will teach you some techniques for casting on stitches, and you will learn the basics - knit and purl stitches. I will introduce you to the methods of adding and decreasing stitches and finishing the knitted fabric. I will show you knitting accessories that make the life of a knitter easier. I will explain how to read patterns in books and on banners. We will knit a piece of knit together.',
         debugging:
-          'Oczywiście pokażę, jak ratować zgubione oczka lub naprawiać proste błędy. Postaram się odpowiedzieć na nurtujące pytania.',
+          'Obviously, I will show you how to save lost stitches or fix simple mistakes. I will try my best to answer your questions.',
         forBeginners:
           'A group for beginners who are starting their adventure with knitting, as well as for those who want to gain confidence in their knitting'
       },
       doRanyPrzyloz: {
         topic: 'Macrame workshops',
-        intro: 'Przyjdź, a nauczę Cię pleść makramy zupełnie od zera!',
+        intro: 'Come and I will teach you how to weave macrame from scratch!',
         macrame:
-          'Makrama to ponadczasowa przygoda, która co chwilę wraca. Plotło się je w starożytności, plotły nasze babcie, a teraz pleciemy my.',
+          'Macrame is a timeless journey that comes back again and again. They used to be weaved in ancient times, our grandmothers weaved them, and now we weave them.',
         macrameOnTheHoop:
-          'Na warsztatach samodzielnie wykonasz makramę na obręczy, która będzie się składała z najpopularniejszych splotów używanych w tej technice.',
+          'During the workshops, you will make a macrame on a hoop yourself, which will consist of the most popular weaves used in this technique.',
         example:
-          'Dzięki przykładowej pracy, którą przyniosę ze sobą łatwiej będzie Ci podążać za etapami i poznać najważniejsze wskazówki dotyczące tej techniki. Swój projekt oczywiście będziesz mogła/mógł dowolnie modyfikować, jeśli tylko poczujesz się na tyle pewnie.',
+          'Thanks to the sample work that I will bring with me, it will be easier for you to follow the steps and learn the most important tips for this technique. Of course, you will be able to modify your project as you wish, if you feel confident enough.',
         forBeginners:
-          'Warsztaty skierowane są do osób początkujących, więc możesz mieć pewność, że otrzymasz bardzo szczegółowe instrukcje i na pewno nauczysz się pleść. Potem wyobraźnia podpowie Ci następne projekty, bo jestem pewna, że na jednej makramie się nie skończy (Twoi bliscy też będą chcieli taką mieć!).',
-        invite:
-          'Na zajęcia zapraszam także każdego, kto potrzebuje więcej kreatywności w swoim życiu, albo po prostu chciałby miło spędzić czas.'
+          'The workshops are aimed at beginners, so you can be sure that you will receive very detailed instructions and you will definitely learn how to weave. Then your imagination will suggest further projects, because I am sure that you will not end with one macrame (your loved ones will also want to have one!)',
+        invite: "I'm inviting anyone who needs more creativity in their life or just want to have a nice time."
       }
     }
   }
