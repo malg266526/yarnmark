@@ -172,6 +172,7 @@ export const en: TranslationsShape = {
       taken: 'Reserved'
     },
     workshops: {
+      tutor: 'Tutor: ',
       buyTicket: 'Buy a ticket',
       firstAid: 'First aid',
       freeAdmission: 'Free admission',
@@ -181,6 +182,10 @@ export const en: TranslationsShape = {
       decorativeKnittingDescription:
         'I will show you how to create openwork knits, decorate with cables and jacquard, if there is enough time, I will also show you how to finish them with i-cord. People who want to take part in the workshops should bring straight or circular needles, between 3 and 4 mm, wool appropriate for a given size in 2 colors, preferably contrasting colors, and an cable needle for braids. When it comes to wool, it does not have to be a full skein, we need an amount that will allow us to make a sample of the knitwear we are interested in.',
       price: 'Price',
+      ludartDescription:
+        'towarzyszenie Miłośników Tradycyjnego Rękodzieła Ludowego i Artystycznego przy Muzeum Etnograficznym im. Seweryna Udzieli w Krakowie działa od 30 lat. Jego myśl przewodnia to "tradycja i współczesność". Na cotygodniowych spotkaniach członkowie, będący przedstawicielami różnych pokoleń i środowisk, zajmują się doskonaleniem technik hafciarskich, koronkarskich, wymianą doświadczeń. Stowarzyszenie prowadzi też  bogatą działalność wystawienniczą ( ponad 130 wystaw) nie tylko na terenie Krakowa i okolic,  ale także w innych miastach Polski. Wielu członków  prezentuje też swoje prace na wystawach indywidualnych i zbiorowych oraz bierze udział w licznych konkursach zdobywając nagrody. Stowarzyszenie uczestniczy w pokazach haftu i koronki oraz w promowaniu rękodzieła ludowego przy okazji różnego rodzaju imprez kulturalnych i oświatowych. W 2023 roku członkinie Stowarzyszenia LUD-Art uczestniczyły w tworzeniu Kurtyny Kobiet w Teatrze Juliusza Słowackiego w Krakowie.',
+
+      woolEmbroidery: 'Wool embroidery on knitted fabric',
       haftowaBabaDescription1: 'Do you want to learn how to interestingly decorate hats, scarves, sweaters or gloves?',
       haftowaBabaDescription2: 'Are you curious about wool embroidery, how to make it and use it in your knits?',
       haftowaBabaDescription3: 'That workshop is perfect for you!',
@@ -223,7 +228,7 @@ export const en: TranslationsShape = {
         subtopic: '(raglan, from the top, in the round)',
         plan: 'You will learn:',
         lesson1: 'jak rozliczyć raglan',
-        lesson2: 'how to decrease stitches in a round and work with the Magic Loop method',
+        lesson2: 'how to cast off stitches in a round and work with the Magic Loop method',
         lesson3: 'jak robić japońskie rzędy skrócone',
         lesson4: 'how to increase stitches in raglan, on the right and left side',
         lesson5: 'how to make a deeper or shallower neckline',

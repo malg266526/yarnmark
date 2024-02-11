@@ -39,8 +39,9 @@ import ewaUrlAvif from './../assets/images/workshops/ewa.avif';
 import ewaUrl from './../assets/images/workshops/ewa.jpg';
 
 import knittingSvgUrl from '../assets/images/skein3.svg';
-import { useTablet } from './usePhone';
+import { usePhone, useTablet } from './usePhone';
 import { ScreenSize } from '../styles/screeen-size';
+import { RowLayout } from '../components/RowLayout';
 
 export const Title = styled.h3`
   font-size: 28px;
@@ -103,6 +104,7 @@ const AdjustableContent = styled.div`
   width: 100%;
   align-items: center;
   flex-direction: row;
+  justify-content: center;
 
   @media (max-width: ${ScreenSize.smallPc}) {
     flex-direction: column;
@@ -112,6 +114,10 @@ const AdjustableContent = styled.div`
 const ReverseContent = styled(AdjustableContent)`
   flex-direction: row-reverse;
   gap: ${Spacings.lg};
+
+  @media (max-width: ${ScreenSize.smallPc}) {
+    gap: 0;
+  }
 `;
 
 const ScrollableContent = styled.div`
@@ -128,6 +134,7 @@ const ScrollableContent = styled.div`
 export const WorkshopsCarousel = () => {
   const t = useTypedTranslation();
   const isTablet = useTablet();
+  const isPhone = usePhone();
 
   const mobileStyle = {
     opacity: '0.27',
@@ -136,7 +143,7 @@ export const WorkshopsCarousel = () => {
     left: '50%',
     transform: 'translateX(-50%)'
   };
-  const logoStyle = isTablet ? mobileStyle : undefined;
+  const logoStyle = isTablet ? mobileStyle : { opacity: '0.45' };
 
   return (
     <BlobBackground>
@@ -165,18 +172,26 @@ export const WorkshopsCarousel = () => {
                 }}
                 alt="haftowababa_logo"
                 width={180}
-                style={isTablet ? mobileStyle : { opacity: '0.47' }}
+                style={logoStyle}
               />
 
               <Carousel.Caption>
-                <Title>Haftowa Baba</Title>
-                <FlexColumnLayout gap="xs" padding="none">
-                  <NoTopMarginText>{t('workshops.haftowaBabaDescription1')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.haftowaBabaDescription2')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.haftowaBabaDescription3')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.haftowaBabaDescription4')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.haftowaBabaDescription6')}</NoTopMarginText>
-                </FlexColumnLayout>
+                <Title>{t('workshops.woolEmbroidery')}</Title>
+                <RowLayout justify="center" gap="none">
+                  <NoTopMarginText>{t('workshops.tutor')} </NoTopMarginText>
+                  <a href="https://www.instagram.com/haftowababa/" target="_blank" rel="noreferrer">
+                    Haftowa Baba
+                  </a>
+                </RowLayout>
+
+                <ScrollableContent>
+                  <FlexColumnLayout gap="xs" padding="none">
+                    <Text>{t('workshops.haftowaBabaDescription1')}</Text>
+                    <NoTopMarginText>{t('workshops.haftowaBabaDescription2')}</NoTopMarginText>
+                    <NoTopMarginText>{t('workshops.haftowaBabaDescription3')}</NoTopMarginText>
+                    <NoTopMarginText>{t('workshops.haftowaBabaDescription4')}</NoTopMarginText>
+                  </FlexColumnLayout>
+                </ScrollableContent>
               </Carousel.Caption>
             </Item>
           </Carousel.Item>
@@ -203,9 +218,13 @@ export const WorkshopsCarousel = () => {
               />
 
               <Carousel.Caption>
-                <Title>LudArt - {t('workshops.colorfulEmbroidery')}</Title>
+                <Title>{t('workshops.colorfulEmbroidery')}</Title>
                 <h4>{t('workshops.colorfulEmbroideryInspirations')}</h4>
-                <NoTopMarginText></NoTopMarginText>
+                <NoTopMarginText>{t('workshops.tutor')} LudArt</NoTopMarginText>
+
+                <ScrollableContent>
+                  <Text>{t('workshops.ludartDescription')}</Text>
+                </ScrollableContent>
               </Carousel.Caption>
             </Item>
           </Carousel.Item>
@@ -233,7 +252,16 @@ export const WorkshopsCarousel = () => {
 
               <Carousel.Caption>
                 <Title>{t('workshops.decorativeKnitting')}</Title>
-                <NoTopMarginText>{t('workshops.decorativeKnittingDescription')}</NoTopMarginText>
+                <RowLayout justify="center" gap="none">
+                  <NoTopMarginText>{t('workshops.tutor')} </NoTopMarginText>
+                  <a href="https://www.instagram.com/woolanka" target="_blank" rel="noreferrer">
+                    WOOLANKA Anna Kaleta
+                  </a>
+                </RowLayout>
+
+                <ScrollableContent>
+                  <Text>{t('workshops.decorativeKnittingDescription')}</Text>
+                </ScrollableContent>
               </Carousel.Caption>
             </Item>
           </Carousel.Item>
@@ -256,19 +284,28 @@ export const WorkshopsCarousel = () => {
                 }}
                 alt="raffiaBasics"
                 width={180}
-                style={isTablet ? mobileStyle : { opacity: '0.47' }}
+                style={logoStyle}
               />
 
               <Carousel.Caption>
                 <Title>{t('workshops.raffia')}</Title>
-                <FlexColumnLayout gap="xs" padding="none">
-                  <NoTopMarginText>{t('workshops.raffiaDescription')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.raffiaNeededMaterials')}</NoTopMarginText>
-                  <NoTopMarginText>- {t('workshops.raffiaGptex')}</NoTopMarginText>
-                  <NoTopMarginText>- {t('workshops.raffiaCrochet')}</NoTopMarginText>
-                  <NoTopMarginText>- {t('workshops.raffiaStrap')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.raffiaBifernoDiscount')}</NoTopMarginText>
-                </FlexColumnLayout>
+                <RowLayout justify="center" gap="none">
+                  <NoTopMarginText>{t('workshops.tutor')} </NoTopMarginText>
+                  <a href="https://www.instagram.com/beata5006" target="_blank" rel="noreferrer">
+                    Beata Strzelec
+                  </a>
+                </RowLayout>
+
+                <ScrollableContent>
+                  <FlexColumnLayout gap="xs" padding="none">
+                    <Text>{t('workshops.raffiaDescription')}</Text>
+                    <NoTopMarginText>{t('workshops.raffiaNeededMaterials')}</NoTopMarginText>
+                    <NoTopMarginText>- {t('workshops.raffiaGptex')}</NoTopMarginText>
+                    <NoTopMarginText>- {t('workshops.raffiaCrochet')}</NoTopMarginText>
+                    <NoTopMarginText>- {t('workshops.raffiaStrap')}</NoTopMarginText>
+                    <NoTopMarginText>{t('workshops.raffiaBifernoDiscount')}</NoTopMarginText>
+                  </FlexColumnLayout>
+                </ScrollableContent>
               </Carousel.Caption>
             </Item>
           </Carousel.Item>
@@ -299,6 +336,12 @@ export const WorkshopsCarousel = () => {
                   <div>
                     <Title>{t('workshops.knitolog.topic')}</Title>
                     <h4>{t('workshops.knitolog.subtopic')}</h4>
+                    <RowLayout justify="center" gap="none">
+                      <NoTopMarginText>{t('workshops.tutor')} </NoTopMarginText>
+                      <a href="https://www.instagram.com/knitolog" target="_blank" rel="noreferrer">
+                        {isPhone ? 'Knitolog' : 'Knitolog Dorota Morawiak-Lichota'}
+                      </a>
+                    </RowLayout>
                   </div>
                 </ReverseContent>
 
@@ -348,17 +391,26 @@ export const WorkshopsCarousel = () => {
                 }}
                 alt="uwolnijpomysly"
                 width={180}
-                style={isTablet ? mobileStyle : { opacity: '0.47' }}
+                style={logoStyle}
               />
 
               <Carousel.Caption>
                 <Title>{t('workshops.freeYourIdeas.topic')}</Title>
-                <FlexColumnLayout gap="xs" padding="none">
-                  <NoTopMarginText>{t('workshops.freeYourIdeas.description')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.freeYourIdeas.booklet')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.freeYourIdeas.takeFreeMind')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.freeYourIdeas.seeYou')}</NoTopMarginText>
-                </FlexColumnLayout>
+                <RowLayout justify="center" gap="none">
+                  <NoTopMarginText>{t('workshops.tutor')} </NoTopMarginText>
+                  <a href="https://www.instagram.com/marta.kania" target="_blank" rel="noreferrer">
+                    Marta Kania
+                  </a>
+                </RowLayout>
+
+                <ScrollableContent>
+                  <FlexColumnLayout gap="xs" padding="none">
+                    <Text>{t('workshops.freeYourIdeas.description')}</Text>
+                    <NoTopMarginText>{t('workshops.freeYourIdeas.booklet')}</NoTopMarginText>
+                    <NoTopMarginText>{t('workshops.freeYourIdeas.takeFreeMind')}</NoTopMarginText>
+                    <NoTopMarginText>{t('workshops.freeYourIdeas.seeYou')}</NoTopMarginText>
+                  </FlexColumnLayout>
+                </ScrollableContent>
               </Carousel.Caption>
             </Item>
           </Carousel.Item>
@@ -381,19 +433,28 @@ export const WorkshopsCarousel = () => {
                 }}
                 alt="doranyprzyloz"
                 width={180}
-                style={isTablet ? mobileStyle : { opacity: '0.47' }}
+                style={logoStyle}
               />
 
               <Carousel.Caption>
                 <Title>{t('workshops.doRanyPrzyloz.topic')}</Title>
-                <FlexColumnLayout gap="xs" padding="none">
-                  <NoTopMarginText>{t('workshops.doRanyPrzyloz.intro')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.doRanyPrzyloz.macrame')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.doRanyPrzyloz.macrameOnTheHoop')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.doRanyPrzyloz.example')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.doRanyPrzyloz.forBeginners')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.doRanyPrzyloz.invite')}</NoTopMarginText>
-                </FlexColumnLayout>
+                <RowLayout justify="center" gap="none">
+                  <NoTopMarginText>{t('workshops.tutor')} </NoTopMarginText>
+                  <a href="https://www.instagram.com/doranyprzyloz" target="_blank" rel="noreferrer">
+                    I'M UNIQUE Katarzyna Faliszek
+                  </a>
+                </RowLayout>
+
+                <ScrollableContent>
+                  <FlexColumnLayout gap="xs" padding="none">
+                    <Text>{t('workshops.doRanyPrzyloz.intro')}</Text>
+                    <NoTopMarginText>{t('workshops.doRanyPrzyloz.macrame')}</NoTopMarginText>
+                    <NoTopMarginText>{t('workshops.doRanyPrzyloz.macrameOnTheHoop')}</NoTopMarginText>
+                    <NoTopMarginText>{t('workshops.doRanyPrzyloz.example')}</NoTopMarginText>
+                    <NoTopMarginText>{t('workshops.doRanyPrzyloz.forBeginners')}</NoTopMarginText>
+                    <NoTopMarginText>{t('workshops.doRanyPrzyloz.invite')}</NoTopMarginText>
+                  </FlexColumnLayout>
+                </ScrollableContent>
               </Carousel.Caption>
             </Item>
           </Carousel.Item>
@@ -412,17 +473,26 @@ export const WorkshopsCarousel = () => {
                 }}
                 alt="ewa"
                 width={180}
-                style={isTablet ? mobileStyle : { opacity: '0.47' }}
+                style={logoStyle}
               />
 
               <Carousel.Caption>
                 <Title>{t('workshops.ewa.topic')}</Title>
-                <FlexColumnLayout gap="xs" padding="none">
-                  <NoTopMarginText>{t('workshops.ewa.misteries')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.ewa.plan')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.ewa.debugging')}</NoTopMarginText>
-                  <NoTopMarginText>{t('workshops.ewa.forBeginners')}</NoTopMarginText>
-                </FlexColumnLayout>
+                <RowLayout justify="center" gap="none">
+                  <NoTopMarginText>{t('workshops.tutor')} </NoTopMarginText>
+                  <a href="https://www.instagram.com/evvoola" target="_blank" rel="noreferrer">
+                    Ewa Głazek
+                  </a>
+                </RowLayout>
+
+                <ScrollableContent>
+                  <FlexColumnLayout gap="xs" padding="none">
+                    <Text>{t('workshops.ewa.misteries')}</Text>
+                    <NoTopMarginText>{t('workshops.ewa.plan')}</NoTopMarginText>
+                    <NoTopMarginText>{t('workshops.ewa.debugging')}</NoTopMarginText>
+                    <NoTopMarginText>{t('workshops.ewa.forBeginners')}</NoTopMarginText>
+                  </FlexColumnLayout>
+                </ScrollableContent>
               </Carousel.Caption>
             </Item>
           </Carousel.Item>
