@@ -212,11 +212,11 @@ export const en: TranslationsShape = {
       firstAidQuote: 'Whoever saves one life, saves the world entire.',
       raffia: 'Crocheting with raffia - first steps',
       raffiaDescription:
-        'Na warsztatach uczestnicy zapoznają się z rafią oraz technikami jej przerabiania. Podzielę się wiedzą jaką zdobyłam podczas kilkuletniej pracy z tym włóknem. Chętnie odpowiem na nurtujące  pytania. Ze spotkania uczestnicy wyjdą z wydzierganą przez siebie mini torebką lub jej częścią😉 Materiały potrzebne do pracy uczestnicy przynoszą we własnym zakresie.',
+        'During the workshops, participants will learn about raffia and techniques of working with it. I will share the knowledge I have gained during several years of working with this fiber. I will be happy to answer any questions you may have. Participants will leave the meeting with a mini bag they have knitted, or part of it. 😉 Participants bring the materials needed for work on their own.',
       raffiaNeededMaterials: 'Potrzebne materiały, które można zakupić w sklepie biferno.pl:',
       raffiaGptex: 'Rafia GPTEX - 2 skeins',
       raffiaCrochet: 'Crochet hook no. 3mm,  3.5mm, 4mm',
-      raffiaStrap: 'Skórzany rzemyk',
+      raffiaStrap: 'Leather strap',
       raffiaBifernoDiscount: 'Dla każdego z uczestników rabat -15% w sklepie Biferno na wyżej wymienione produkty',
       knitolog: {
         topic: 'Design your own sweater',
@@ -230,10 +230,10 @@ export const en: TranslationsShape = {
         lesson6: 'how to separate the body and sleeves',
         lesson7: 'how to aesthetically cast on stitches under the armpit',
         pattern:
-          'Każdy uczestnik warsztatów otrzyma wzór na sweter, na bazie którego będziemy pracować. Aby wziąć udział w warsztatach wystarczą podstawowe umiejętności dziewiarskie.',
+          'Each workshop participant will receive a sweater pattern on which we will work. To take part in the workshops, basic knitting skills are enough.',
         materialsNeeded: 'Materiały potrzebne na warsztaty:',
         wool: 'a skein of yarn approx. 200m in 100g (approx. 100m in 50g)',
-        knittingNeedles: 'druty 4,00 mm z żyłką 80 cm (lub taką na jakiej lubisz robić swetry w okrążeniach)',
+        knittingNeedles: '4.00 mm 80cm circular needles (or the one you like to use to knit sweaters in rounds)',
         markers: 'stitch markers - 9 pcs.',
         pinMarkers: 'safety pin markers: 10-12 pcs.'
       },
@@ -258,15 +258,15 @@ export const en: TranslationsShape = {
       },
       doRanyPrzyloz: {
         topic: 'Macrame workshops',
-        intro: 'Przyjdź, a nauczę Cię pleść makramy zupełnie od zera!',
+        intro: 'Come and I will teach you how to weave macrame from scratch!',
         macrame:
           'Macrame is a timeless adventure that comes back again and again. They were weaved in ancient times, our grandmothers weaved them, and now we weave them.',
         macrameOnTheHoop:
-          'Na warsztatach samodzielnie wykonasz makramę na obręczy, która będzie się składała z najpopularniejszych splotów używanych w tej technice.',
+          'During the workshops, you will make a macrame on a hoop yourself, which will consist of the most popular weaves used in this technique.',
         example:
           'Thanks to the sample work that I will bring with me, it will be easier for you to follow the steps and learn the most important tips for this technique. Of course, you will be able to modify your project as you wish, if you feel confident enough.',
         forBeginners:
-          'Warsztaty skierowane są do osób początkujących, więc możesz mieć pewność, że otrzymasz bardzo szczegółowe instrukcje i na pewno nauczysz się pleść. Potem wyobraźnia podpowie Ci następne projekty, bo jestem pewna, że na jednej makramie się nie skończy (Twoi bliscy też będą chcieli taką mieć!).',
+          'The workshops are aimed at beginners, so you can be sure that you will receive very detailed instructions and you will definitely learn how to weave. Then your imagination will suggest further projects, because I am sure that you will not end with one macrame (your loved ones will also want to have one!)',
         invite:
           'I also invite to the workshop anyone who needs more creativity in their life or just want to have a nice time.'
       }
