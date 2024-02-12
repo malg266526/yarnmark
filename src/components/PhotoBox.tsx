@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
 import { usePhone } from '../pages/usePhone';
+import { FontSize } from '../styles/font-size';
 
 export const Image = styled.img`
   width: 100%;
@@ -77,7 +78,7 @@ const ImageWrapper = styled.div``;
 
 const Cursive = styled.div`
   text-align: center;
-  font-size: 16px;
+  font-size: ${FontSize.md};
   font-family: cursive;
 `;
 

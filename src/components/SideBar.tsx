@@ -4,12 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 import { HashLink, HashLinkProps } from 'react-router-hash-link';
+import { FontSize } from '../styles/font-size';
 
 const Link = styled(HashLink)`
   text-decoration: none;
   padding: 8px 8px;
   color: ${Colors.white};
-  font-size: 1.6rem;
+  font-size: ${FontSize.xl};
   border-radius: 4px;
   display: flex;
   align-items: center;

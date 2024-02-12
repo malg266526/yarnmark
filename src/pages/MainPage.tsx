@@ -316,13 +316,13 @@ export const MainPage = () => {
   const pcInfoSection = useMemo(
     () => (
       <MobileInfoSectionWrapper>
-        <Typography size="40px" weight="bold" paddingBottom="md">
+        <Typography size="xxl" weight="bold" paddingBottom="md">
           {t('buttonsBand.firstEvent')}
         </Typography>
-        <Typography size="20px" weight="regular" paddingBottom="sm">
+        <Typography size="lg" weight="regular" paddingBottom="sm">
           {t('buttonsBand.otherCities')}
         </Typography>
-        <Typography size="20px" weight="regular">
+        <Typography size="lg" weight="regular">
           {t('buttonsBand.linksBelow')}
         </Typography>
       </MobileInfoSectionWrapper>
@@ -333,13 +333,13 @@ export const MainPage = () => {
   const mobileInfoSection = useMemo(
     () => (
       <MobileInfoSectionWrapper>
-        <Typography size="20px" weight="bold" paddingBottom="md">
+        <Typography size="lg" weight="bold" paddingBottom="md">
           {t('buttonsBand.firstEvent')}
         </Typography>
-        <Typography size="16px" weight="regular" paddingBottom="sm">
+        <Typography size="md" weight="regular" paddingBottom="sm">
           {t('buttonsBand.otherCities')}
         </Typography>
-        <Typography size="16px" weight="regular">
+        <Typography size="md" weight="regular">
           {t('buttonsBand.linksBelow')}
         </Typography>
       </MobileInfoSectionWrapper>

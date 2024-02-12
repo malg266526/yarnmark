@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import yarnSvgUrl from '../assets/images/skein3.svg';
 import { HashLink, HashLinkProps } from 'react-router-hash-link';
+import { FontSize } from '../styles/font-size';
 
 const StyledLink = styled(HashLink)<{ color?: string }>`
   ${({ color }) =>
@@ -10,7 +11,7 @@ const StyledLink = styled(HashLink)<{ color?: string }>`
     css`
       color: ${color};
     `};
-  font-size: 22px;
+  font-size: ${FontSize.lg};
   padding: 10px 8px;
   border-radius: 5px;
   cursor: pointer;
