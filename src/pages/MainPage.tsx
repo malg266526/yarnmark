@@ -635,7 +635,9 @@ export const MainPage = () => {
               </Carouselge.ItemBackground>
 
               <TextWrapper>
-                <Title>{t('cashmereTicketsBand.beautifulCruise')}</Title>
+                <Typography size="xl" weight="bold">
+                  {t('cashmereTicketsBand.beautifulCruise')}
+                </Typography>
               </TextWrapper>
 
               <TextH2>{t('cashmereTicketsBand.invitation')}</TextH2>
@@ -652,7 +654,9 @@ export const MainPage = () => {
               </Carouselge.ItemBackground>
 
               <TextWrapper>
-                <Title>{t('cashmereTicketsBand.prosecco.title')}</Title>
+                <Typography size="xl" weight="bold">
+                  {t('cashmereTicketsBand.prosecco.title')}
+                </Typography>
               </TextWrapper>
 
               <FlexColumnLayout gap="sm" padding="none" align="flex-start">
@@ -672,7 +676,9 @@ export const MainPage = () => {
 
               <FlexColumnLayout gap="sm" padding="none" align="flex-start">
                 <TextWrapper>
-                  <Title>{t('cashmereTicketsBand.tickets')}</Title>
+                  <Typography size="xl" weight="bold">
+                    {t('cashmereTicketsBand.tickets')}
+                  </Typography>
                 </TextWrapper>
 
                 <LinkWrapper>
@@ -684,7 +690,9 @@ export const MainPage = () => {
                 <Text marginTop="none">{t('buttonsBand.tickets.text')}</Text>
 
                 <FlexColumnLayout gap="sm" padding="none" align="flex-start">
-                  <TextH2>{t('cashmereTicketsBand.map.price')}:</TextH2>
+                  <Typography size="xl" weight="bold">
+                    {t('cashmereTicketsBand.map.price')}:
+                  </Typography>
                   <Text marginTop="none">130 zł </Text>
                   <Text marginTop="none">
                     <Trans i18nKey="cashmereTicketsBand.map.priceIncludesYarnmarkTicket" />
