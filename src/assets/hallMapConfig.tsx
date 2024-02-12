@@ -783,13 +783,15 @@ export const hallMapConfig: HallMapType = {
       height: 5,
       stands: [
         {
-          width: 3,
-          color: 'premium',
-          index: 'P6'
+          width: 2.5,
+          color: 'taken',
+          index: 'S30',
+          height: 4,
+          who: 'Ale masz to cudne!'
         },
         {
           width: 2.5,
-          color: 'taken',
+          color: 'taken2',
           height: 4,
           index: 'S24',
           who: 'Mania Chomikuje',
@@ -809,9 +811,10 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'normal1',
+          color: 'taken',
           height: 4,
-          index: 'S25'
+          index: 'S25',
+          who: 'Colorido'
         },
         {
           width: 2.5,
