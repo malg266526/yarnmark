@@ -73,7 +73,7 @@ export const pl = {
         time: 'Godzina rejsu:',
         price: 'Cena',
         priceIncludesYarnmarkTicket:
-          'Cena zawiera bilet wejścia na targi <strong>Krakoski Yarnmark Włóczki 2024</strong>',
+          'Cena zawiera bilet wejścia na targi <strong>Krakoski Yarnmark Wełny 2024</strong>',
         route: 'Trasa:'
       },
       invitation: 'Zapraszamy Cię na niezapomniany rejs statkiem po urokliwej Wiśle w Krakowie.',

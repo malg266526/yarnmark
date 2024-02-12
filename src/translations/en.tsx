@@ -72,7 +72,7 @@ export const en: TranslationsShape = {
         time: 'Cruise time:',
         price: 'Price',
         priceIncludesYarnmarkTicket:
-          'The price includes an entry ticket to the <strong>Krakoski Yarnmark Włóczki 2024</strong>',
+          'The price includes an entry ticket to the <strong>Krakoski Yarnmark Wełny 2024</strong>',
         route: 'Route:'
       },
       invitation: 'We heartily invite you for an unforgettable cruise on the charming Vistula River in Cracow.',
