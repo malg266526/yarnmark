@@ -80,7 +80,7 @@ const BlobBackground = styled.div`
 
 const ResponsiveText = styled(Text)`
   @media (max-width: ${ScreenSize.tablet}) {
-    font-size: ${FontSize.sm};
+    font-size: ${FontSize.md};
   }
 `;
 

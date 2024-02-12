@@ -15,8 +15,26 @@ import { MainPage } from './pages/MainPage';
 import { useTypedTranslation } from './translations/useTypedTranslation';
 import { Colors } from './styles/theme';
 import { StatutesPage } from './pages/StatutesPage';
+import { FontToScreenSize } from './styles/font-to-screen-size';
+import { ScreenSize } from './styles/screeen-size';
 
 const GlobalStyle = createGlobalStyle`
+  html {
+    font-size: ${FontToScreenSize.pc};
+
+    @media (max-width: ${ScreenSize.smallPc}) {
+      font-size: ${FontToScreenSize.smallPc};
+    }
+
+    @media (max-width: ${ScreenSize.tablet}) {
+      font-size: ${FontToScreenSize.tablet};
+    }
+
+    @media (max-width: ${ScreenSize.phone}) {
+      font-size: ${FontToScreenSize.phone};
+    }
+  }
+
   body {
     margin: 0;
     font-family: 'Lexend', sans-serif !important;
