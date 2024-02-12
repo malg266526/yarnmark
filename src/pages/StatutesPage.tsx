@@ -191,9 +191,6 @@ export const StatutesPage = () => {
                   <li>wnoszenia i spożywania alkoholu lub środków odurzających</li>
                   <li>wnoszenia przedmiotów mogących zagrozić życiu lub zdrowiu ludzkiemu</li>
                   <li>rozstawiania stojaków, wieszaków, reklam itp. bez wcześniejszej zgody Organizatorów</li>
-                  <li>sprzedaży bez zgody Organizatorów z tzw “dzikich stoisk”</li>
-                  <li>palenia papierosów</li>
-                  <li>wnoszenia i spożywania alkoholu lub środków odurzających</li>
                   <li>wejścia i przebywania w strefach Hali Cracovii wyłączonych dla uczestników</li>
                   <li>blokowania ciągów komunikacyjnych, dróg dojazdowych dla służb ratunkowych, dróg ewakuacyjnych</li>
                   <li>
