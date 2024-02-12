@@ -198,7 +198,7 @@ export const MainPage = () => {
 
   // const activeButtonToImage = getActiveButtonToImage(t);
 
-  const observerCallback = useCallback(() => { }, []);
+  const observerCallback = useCallback(() => {}, []);
 
   useRootIntersectionObserver({
     rootRef: pageContentRef,
@@ -635,7 +635,9 @@ export const MainPage = () => {
               </Carouselge.ItemBackground>
 
               <TextWrapper>
-                <Typography size='xl' weight="bold">{t('cashmereTicketsBand.beautifulCruise')}</Typography>
+                <Typography size="xl" weight="bold">
+                  {t('cashmereTicketsBand.beautifulCruise')}
+                </Typography>
               </TextWrapper>
 
               <TextH2>{t('cashmereTicketsBand.invitation')}</TextH2>
@@ -652,7 +654,9 @@ export const MainPage = () => {
               </Carouselge.ItemBackground>
 
               <TextWrapper>
-                <Typography size='xl' weight="bold">{t('cashmereTicketsBand.prosecco.title')}</Typography>
+                <Typography size="xl" weight="bold">
+                  {t('cashmereTicketsBand.prosecco.title')}
+                </Typography>
               </TextWrapper>
 
               <FlexColumnLayout gap="sm" padding="none" align="flex-start">
@@ -672,7 +676,9 @@ export const MainPage = () => {
 
               <FlexColumnLayout gap="sm" padding="none" align="flex-start">
                 <TextWrapper>
-                <Typography size='xl' weight="bold">{t('cashmereTicketsBand.tickets')}</Typography>
+                  <Typography size="xl" weight="bold">
+                    {t('cashmereTicketsBand.tickets')}
+                  </Typography>
                 </TextWrapper>
 
                 <LinkWrapper>
@@ -684,7 +690,9 @@ export const MainPage = () => {
                 <Text marginTop="none">{t('buttonsBand.tickets.text')}</Text>
 
                 <FlexColumnLayout gap="sm" padding="none" align="flex-start">
-                  <Typography size='xl' weight="bold">{t('cashmereTicketsBand.map.price')}:</Typography>
+                  <Typography size="xl" weight="bold">
+                    {t('cashmereTicketsBand.map.price')}:
+                  </Typography>
                   <Text marginTop="none">130 zł </Text>
                   <Text marginTop="none">
                     <Trans i18nKey="cashmereTicketsBand.map.priceIncludesYarnmarkTicket" />
