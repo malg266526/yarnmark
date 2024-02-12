@@ -11,7 +11,8 @@ export const pl = {
       infoForVendors: 'Dla wystawców',
       cruise: 'Dziergostatek',
       aboutUs: 'O nas',
-      stands: 'Stoiska'
+      stands: 'Stoiska',
+      statutes: 'Regulamin'
     },
     welcomeBand: {
       invitation: 'Serdecznie zapraszamy na I edycję targów wełny w stolicy Małopolski!',

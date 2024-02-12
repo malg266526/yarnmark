@@ -396,6 +396,11 @@ export const MainPage = () => {
               {t('menu.cruise')}
             </SideBar.LinkEntry>
 
+            <SideBar.LinkEntry to="/statutes" onClick={closeSideBar}>
+              <IconifyIcon icon="mdi:document-sign" width="24" />
+              {t('menu.statutes')}
+            </SideBar.LinkEntry>
+
             <SideBar.LinkEntry
               to="#footer"
               onClick={() => {
@@ -434,6 +439,10 @@ export const MainPage = () => {
 
               <Link to="#cruise" color="black">
                 {t('menu.cruise')}
+              </Link>
+
+              <Link color="black" to="/statutes">
+                {t('menu.statutes')}
               </Link>
 
               <Link color="black" to="#footer">

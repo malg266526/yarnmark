@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
@@ -16,6 +16,11 @@ import { StyledPageContent } from './InfoForVendorsPage.styled';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { Menu, MenuBackground, Picture } from './MainPage.styled';
 import { usePhone } from './usePhone';
+import { Curtain } from '../components/Curtain';
+import { SideBar } from '../components/SideBar';
+import { Header } from '../App.styled';
+import { BurgerMenu } from '../components/BurgerMenu';
+import { Icon as IconifyIcon } from '@iconify/react';
 
 const StatuteTitle = styled(Title)`
   font-size: 32px;
@@ -43,8 +48,48 @@ export const StatutesPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
 
+  const [burgerActive, setBurgerActive] = useState(false);
+  const closeSideBar = () => setBurgerActive(false);
+
   return (
     <StyledPageContent variant="wide" padding="none">
+      {isPhone && <Curtain onClick={() => setBurgerActive(false)} active={burgerActive} />}
+
+      {isPhone && (
+        <>
+          <Header>
+            <BurgerMenu onClick={() => setBurgerActive((prevValue) => !prevValue)} active={burgerActive} />
+          </Header>
+
+          <SideBar roundedCorners="left" active={burgerActive}>
+            <SideBar.LinkEntry
+              to="/"
+              onClick={() => {
+                closeSideBar();
+              }}>
+              <IconifyIcon icon="game-icons:wool" width="24" />
+              Yarnmark
+            </SideBar.LinkEntry>
+
+            <SideBar.LinkEntry onClick={closeSideBar} to="/info-for-vendors">
+              <IconifyIcon icon="material-symbols:info-outline" width="24" />
+              {t('menu.infoForVendors')}
+            </SideBar.LinkEntry>
+
+            <SideBar.LinkEntry
+              to="#footer"
+              onClick={() => {
+                closeSideBar();
+              }}>
+              <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
+              {t('menu.contact')}
+            </SideBar.LinkEntry>
+
+            <LanguageSwitcher />
+          </SideBar>
+        </>
+      )}
+
       {!isPhone && (
         <>
           <LanguageSwitcher />
@@ -224,7 +269,6 @@ export const StatutesPage = () => {
                 Prowadzącego
               </li>
               <li>W przypadku rezygnacji z uczestnictwa w warsztatach, wniesiona opłata nie podlega zwrotowi.</li>
-              <li></li>
               <li>
                 W przypadku zbyt małej liczby chętnych bądź odwołania warsztatów z innych przyczyn, wniesione opłaty
                 zostaną niezwłocznie zwrócone na rachunek bankowy uczestnika. Ewentualne uczestnictwo w Yarnmarku wymaga
