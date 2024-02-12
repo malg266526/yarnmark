@@ -314,7 +314,7 @@ export const Carouselge = Object.assign(
     const isIndexValid = useCallback((index: number) => index <= childrenCount - 1 && index > -1, [childrenCount]);
 
     const onMouseUp = useCallback(
-      (e: React.MouseEvent) => {
+      (e: { button: number; screenX: number; screenY: number }) => {
         if (e.button !== 0 || !mouseDownDataRef.current) {
           return;
         }
@@ -340,7 +340,23 @@ export const Carouselge = Object.assign(
     );
 
     return (
-      <Root {...rest}>
+      <Root
+        {...rest}
+        onMouseDown={(e) => {
+          if (e.button === 0) {
+            e.preventDefault();
+            mouseDownDataRef.current = { x: e.screenX, y: e.screenY };
+          }
+        }}
+        onTouchStart={(e) => {
+          e.preventDefault();
+          mouseDownDataRef.current = { x: e.touches[0].screenX, y: e.touches[0].screenY };
+        }}
+        onMouseLeave={onMouseUp}
+        onMouseUp={onMouseUp}
+        onTouchEnd={(e) =>
+          onMouseUp({ button: 0, screenX: e.changedTouches[0].screenX, screenY: e.changedTouches[0].screenY })
+        }>
         <OuterWrapper>
           <ClickElement
             side="left"
@@ -364,17 +380,7 @@ export const Carouselge = Object.assign(
             }}>
             <IconifyIcon icon="mdi:arrow-right" width="50" />
           </ClickElement>
-          <ChildrenWrapper
-            ref={childrenWrapperRef}
-            onMouseDown={(e) => {
-              if (e.button === 0) {
-                e.preventDefault();
-                mouseDownDataRef.current = { x: e.screenX, y: e.screenY };
-              }
-            }}
-            onMouseLeave={onMouseUp}
-            onMouseUp={onMouseUp}
-            visibleIndexes={visibleIndexes}>
+          <ChildrenWrapper ref={childrenWrapperRef} visibleIndexes={visibleIndexes}>
             {children}
           </ChildrenWrapper>
         </OuterWrapper>
