@@ -5,7 +5,7 @@ import yarnSvgUrl from '../assets/images/skein3.svg';
 import { HashLink, HashLinkProps } from 'react-router-hash-link';
 import { FontSize } from '../styles/font-size';
 
-const StyledLink = styled(HashLink) <{ color?: string }>`
+const StyledLink = styled(HashLink)<{ color?: string }>`
   ${({ color }) =>
     color &&
     css`
@@ -49,8 +49,8 @@ const StyledLink = styled(HashLink) <{ color?: string }>`
     width: 100%;
     background: #000;
     ${({ color }) =>
-    color &&
-    css`
+      color &&
+      css`
         background: ${color};
       `};
     opacity: 0;
