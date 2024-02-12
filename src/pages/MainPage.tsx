@@ -198,7 +198,7 @@ export const MainPage = () => {
 
   // const activeButtonToImage = getActiveButtonToImage(t);
 
-  const observerCallback = useCallback(() => {}, []);
+  const observerCallback = useCallback(() => { }, []);
 
   useRootIntersectionObserver({
     rootRef: pageContentRef,
@@ -622,7 +622,7 @@ export const MainPage = () => {
         }>
         <Band.Slot alignItems="flex-end" width="100%">
           <Carouselge
-            height="800px"
+            height="600px"
             selectedIndex={selectedIndex}
             onChange={(index) => setSelectedIndex(index)}
             indicators="white">
