@@ -75,6 +75,7 @@ import {
   BackgroundImage,
   ButtonsLayout,
   CenteredTitle,
+  LinkWrapper,
   // ButtonsWrapper,
   // CenteredTitle,
   Menu,
@@ -278,6 +279,7 @@ export const MainPage = () => {
           ref={ticketsFunnyButtonRef}
           icon={<Icon size="xl" zIndex={0} src={ticketImageUrl} />}
           text={t('buttonsBand.tickets.text')}
+          onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}
         />
         <FunnyButton
           mobileSlot={t('buttonsBand.vendors.mobileTitle')}
@@ -673,11 +675,11 @@ export const MainPage = () => {
                   <Title>{t('cashmereTicketsBand.tickets')}</Title>
                 </TextWrapper>
 
-                {/*                 <LinkWrapper>
-                  <Link target="_blank" to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355">
+                <LinkWrapper>
+                  <Link target="_blank" to="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833">
                     {t('cashmereTicketsBand.buyTickets')}
                   </Link>
-                </LinkWrapper> */}
+                </LinkWrapper>
 
                 <Text marginTop="none">{t('buttonsBand.tickets.text')}</Text>
 

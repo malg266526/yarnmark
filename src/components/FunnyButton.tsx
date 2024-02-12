@@ -1,10 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { ScreenSize } from '../styles/screeen-size';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
-import { Icon } from './Icon';
-import knittingImageUrl from '../assets/images/skein3.svg';
-import { ScreenSize } from '../styles/screeen-size';
 
 const positionTopOffset = 100;
 const translationYOffset = 30;
@@ -100,19 +98,13 @@ const Root = styled.div<{ active?: boolean }>`
 
 const MobileSlot = styled.div`
   margin-bottom: ${Spacings.xs};
-  display: none;
+  display: block;
   text-align: center;
+  width: 120px;
 
-  @media (max-width: ${ScreenSize.phone}) {
+  /*   @media (max-width: ${ScreenSize.phone}) {
     display: block;
-  }
-`;
-
-const KnittingIconWrapper = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
-  transform: translate(-50%, -50%);
+  } */
 `;
 
 export interface FunnyButtonProps {
@@ -125,21 +117,21 @@ export interface FunnyButtonProps {
 
 // eslint-disable-next-line react/display-name
 export const FunnyButton = React.forwardRef<HTMLDivElement, FunnyButtonProps>(
-  ({ icon, text, onClick, active, mobileSlot }, ref) => (
+  ({ icon, onClick, active, mobileSlot }, ref) => (
     <div>
       <Root onClick={onClick} active={active} ref={ref}>
         <IconWrapper2>
           <IconWrapper>{icon}</IconWrapper>
         </IconWrapper2>
 
-        {text && (
+        {/*         {text && (
           <TextWrapper>
             <KnittingIconWrapper>
               <Icon size="xl" src={knittingImageUrl} />
             </KnittingIconWrapper>
             {text}
           </TextWrapper>
-        )}
+        )} */}
       </Root>
 
       <MobileSlot>{mobileSlot}</MobileSlot>

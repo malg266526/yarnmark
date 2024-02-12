@@ -89,7 +89,7 @@ export const ButtonsLayout = styled.div`
   display: flex;
   gap: ${Spacings.xl};
   flex: 1 1 auto;
-  align-items: center;
+  // align-items: center;
   justify-content: center;
   flex-wrap: wrap;
 
