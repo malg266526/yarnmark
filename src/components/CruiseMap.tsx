@@ -31,7 +31,9 @@ export const CruiseMap = () => {
 
       <FlexColumnLayout gap="sm" padding="none" align="flex-start">
         <TextH2>{t('cashmereTicketsBand.map.route')}</TextH2>
-        <Text marginTop="none">Bielany - Kazimierz</Text>
+        <a href="https://rejsy.krakow.pl/bielany-i-kazimierz/" target="_blank" rel="noreferrer">
+          Bielany - Kazimierz
+        </a>
       </FlexColumnLayout>
     </FlexColumnLayout>
   );
