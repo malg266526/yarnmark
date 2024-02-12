@@ -300,6 +300,7 @@ export const MainPage = () => {
         onClick={() => foodBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
       /> */}
         <FunnyButton
+          mobileSlot={t('buttonsBand.cruiseButton')}
           ref={shipFunnyButtonRef}
           icon={<Icon size="xl" zIndex={0} src={ferryImageUrl} />}
           text={t('buttonsBand.cruiseButton')}
