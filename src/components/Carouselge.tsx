@@ -91,8 +91,8 @@ const ItemBackground = styled.picture<{ opacity?: number; background?: string; v
 
   > img {
     ${({ opacity }) =>
-      Number.isFinite(opacity) &&
-      css`
+    Number.isFinite(opacity) &&
+    css`
         opacity: ${opacity};
       `}
     height: 100%;
@@ -209,7 +209,7 @@ const ChildrenWrapper = styled.div<{ visibleIndexes: VisibleIndex[] }>`
           opacity: ${opacity};
           pointer-events: ${pointerEvents};
           ${zIndex &&
-          css`
+        css`
             z-index: ${zIndex};
           `}
         }
@@ -340,7 +340,17 @@ export const Carouselge = Object.assign(
     );
 
     return (
-      <Root {...rest}>
+      <Root
+        {...rest}
+        onMouseDown={(e) => {
+          if (e.button === 0) {
+            e.preventDefault();
+            mouseDownDataRef.current = { x: e.screenX, y: e.screenY };
+          }
+        }}
+        onMouseLeave={onMouseUp}
+        onMouseUp={onMouseUp}
+      >
         <OuterWrapper>
           <ClickElement
             side="left"
@@ -366,14 +376,6 @@ export const Carouselge = Object.assign(
           </ClickElement>
           <ChildrenWrapper
             ref={childrenWrapperRef}
-            onMouseDown={(e) => {
-              if (e.button === 0) {
-                e.preventDefault();
-                mouseDownDataRef.current = { x: e.screenX, y: e.screenY };
-              }
-            }}
-            onMouseLeave={onMouseUp}
-            onMouseUp={onMouseUp}
             visibleIndexes={visibleIndexes}>
             {children}
           </ChildrenWrapper>
