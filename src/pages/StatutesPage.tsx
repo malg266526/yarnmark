@@ -90,8 +90,6 @@ export const StatutesPage = () => {
         </>
       )}
 
-  return (
-    <StyledPageContent variant="wide" padding="none">
       {!isPhone && (
         <>
           <LanguageSwitcher />
