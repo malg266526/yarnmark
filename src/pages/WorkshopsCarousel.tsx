@@ -130,7 +130,7 @@ const ScrollableContent = styled.div`
 
   @media (max-width: ${ScreenSize.smallPc}) {
     height: 300px;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 `;
 
