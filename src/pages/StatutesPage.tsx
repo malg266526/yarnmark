@@ -47,6 +47,7 @@ const StatuteWrapper = styled.div`
 export const StatutesPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
+
   const [burgerActive, setBurgerActive] = useState(false);
   const closeSideBar = () => setBurgerActive(false);
 
@@ -89,6 +90,8 @@ export const StatutesPage = () => {
         </>
       )}
 
+  return (
+    <StyledPageContent variant="wide" padding="none">
       {!isPhone && (
         <>
           <LanguageSwitcher />
