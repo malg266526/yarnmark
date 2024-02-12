@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Text } from '../pages/MainPage.styled';
+import { Text, Typography } from '../pages/MainPage.styled';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import { FlexColumnLayout } from './FlexColumnLayout';
 import { Title } from './Title';
@@ -17,7 +17,7 @@ export const CruiseMap = () => {
 
   return (
     <FlexColumnLayout gap="sm" padding="none" align="flex-start">
-      <Title>{t('cashmereTicketsBand.map.startAndStop')}</Title>
+      <Typography size='xl' weight="bold" >{t('cashmereTicketsBand.map.startAndStop')}</Typography>
 
       <FlexColumnLayout gap="sm" padding="none" align="flex-start">
         <Text marginTop="none">AQUA FUN </Text>

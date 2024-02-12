@@ -10,7 +10,7 @@ import { FontSize } from '../styles/font-size';
 
 export const StyledPageContent = styled(PageContent)`
   ${Carouselge} {
-    width: 800px;
+    width: 650px;
 
     @media (max-width: ${ScreenSize.tablet}) {
       width: 100%;
