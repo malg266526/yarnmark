@@ -59,6 +59,7 @@ const Root = styled.div<RootProps>`
   margin-top: ${({ marginTop }) => Spacings[marginTop || 'none']};
 
   @media (max-width: ${ScreenSize.phone}) {
+    max-width: 100%;
     overflow: hidden;
   }
 
