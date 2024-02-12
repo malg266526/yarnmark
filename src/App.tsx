@@ -14,6 +14,7 @@ import { InfoForVendorsPage } from './pages/InfoForVendorsPage';
 import { MainPage } from './pages/MainPage';
 import { useTypedTranslation } from './translations/useTypedTranslation';
 import { Colors } from './styles/theme';
+import { StatutesPage } from './pages/StatutesPage';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -46,6 +47,7 @@ export const App = () => {
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<MainPage />} />
           <Route path="/info-for-vendors" element={<InfoForVendorsPage />} />
+          <Route path="/statutes" element={<StatutesPage />} />
         </Routes>
 
         <Footer id="footer">
