@@ -43,6 +43,7 @@ import ewaUrlAvif from './../assets/images/workshops/ewa.avif';
 import ewaUrl from './../assets/images/workshops/ewa.jpg';
 import { ScreenSize } from '../styles/screeen-size';
 import { Link } from '../components/Link';
+import { FontSize } from '../styles/font-size';
 
 const responsive = {
   superLargeDesktop: {
@@ -107,7 +108,7 @@ const TextContent = styled.div`
 `;
 
 export const TextH2 = styled.h2`
-  font-size: 20px;
+  font-size: ${FontSize.lg};
   font-weight: 600;
   margin-top: ${Spacings.md};
   margin-bottom: 0;
@@ -115,17 +116,17 @@ export const TextH2 = styled.h2`
 `;
 
 const SmallTextH2 = styled(TextH2)`
-  font-size: 18px;
+  font-size: ${FontSize.md};
 `;
 
 const Text = styled.p`
-  font-size: 20px;
+  font-size: ${FontSize.lg};
   font-weight: 400;
   margin-bottom: 0;
 `;
 
 const WorkshopLink = styled(Link)`
-  font-size: 18px;
+  font-size: ${FontSize.md};
   padding: 0;
 `;
 
@@ -133,7 +134,7 @@ const Ribbon = styled.div`
   position: absolute;
   top: -28px;
 
-  font-size: 18px;
+  font-size: ${FontSize.md};
   font-weight: bold;
   color: #fff;
 

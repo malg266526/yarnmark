@@ -21,9 +21,10 @@ import { SideBar } from '../components/SideBar';
 import { Header } from '../App.styled';
 import { BurgerMenu } from '../components/BurgerMenu';
 import { Icon as IconifyIcon } from '@iconify/react';
+import { FontSize } from '../styles/font-size';
 
 const StatuteTitle = styled(Title)`
-  font-size: 32px;
+  font-size: ${FontSize.xl};
   text-align: center;
 `;
 

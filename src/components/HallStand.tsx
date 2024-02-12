@@ -6,6 +6,7 @@ import { Spacings } from '../styles/spacings';
 import { Colors, HallColors } from '../styles/theme';
 import { HallLogo } from './HallLogo';
 import { KnittingIconOnHover } from './KnittingIconOnHover';
+import { FontSize } from '../styles/font-size';
 
 const wrapperTranslation = `translate(-50%, 0px)`;
 
@@ -26,7 +27,7 @@ const TextWrapper = styled.div`
 `;
 
 const StandText = styled.h5`
-  font-size: 10px;
+  font-size: ${FontSize.xs};
   text-align: center;
   margin: 0;
 `;
@@ -34,7 +35,7 @@ const StandText = styled.h5`
 const StandIndex = styled.h4`
   text-align: center;
   margin: 0;
-  font-size: 14px;
+  font-size: ${FontSize.md};
 `;
 
 const HallStandOverlay = styled.div`

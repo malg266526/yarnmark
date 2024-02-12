@@ -3,6 +3,7 @@ import { BurgerMenu } from './components/BurgerMenu';
 import { ScreenSize } from './styles/screeen-size';
 import { Spacings } from './styles/spacings';
 import { Colors } from './styles/theme';
+import { FontSize } from './styles/font-size';
 
 export const Header = styled.header`
   display: flex;
@@ -94,6 +95,6 @@ export const RightBackgroundImage = styled.img<{ src: string }>`
 `;
 
 export const TransparentText = styled.h2`
-  font-size: 8px;
+  font-size: ${FontSize.xs};
   color: transparent;
 `;

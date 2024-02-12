@@ -42,9 +42,10 @@ import knittingSvgUrl from '../assets/images/skein3.svg';
 import { usePhone, useTablet } from './usePhone';
 import { ScreenSize } from '../styles/screeen-size';
 import { RowLayout } from '../components/RowLayout';
+import { FontSize } from '../styles/font-size';
 
 export const Title = styled.h3`
-  font-size: 28px;
+  font-size: ${FontSize.xl};
   font-weight: 600;
   margin: 0;
 `;
@@ -79,7 +80,7 @@ const BlobBackground = styled.div`
 
 const ResponsiveText = styled(Text)`
   @media (max-width: ${ScreenSize.tablet}) {
-    font-size: 12px;
+    font-size: ${FontSize.sm};
   }
 `;
 
@@ -89,7 +90,7 @@ const NoTopMarginText = styled(ResponsiveText)`
 
 const ExtraCaption = styled(Text)`
   @media (max-width: ${ScreenSize.tablet}) {
-    font-size: 12px;
+    font-size: ${FontSize.sm};
   }
 `;
 

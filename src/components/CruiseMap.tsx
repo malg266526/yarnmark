@@ -4,9 +4,10 @@ import { Text } from '../pages/MainPage.styled';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import { FlexColumnLayout } from './FlexColumnLayout';
 import { Title } from './Title';
+import { FontSize } from '../styles/font-size';
 
 export const TextH2 = styled.h2`
-  font-size: 18px;
+  font-size: ${FontSize.lg};
   font-weight: 600;
   margin-bottom: 0;
 `;

@@ -6,6 +6,7 @@ import { Carouselge } from '../components/Carouselge';
 import { PageContent } from '../components/PageContent';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { Link } from '../components/Link';
+import { FontSize } from '../styles/font-size';
 
 export const StyledPageContent = styled(PageContent)`
   ${Carouselge} {
@@ -38,7 +39,7 @@ export const Text = styled.p<{
   white-space: break-spaces;
   margin-top: ${({ marginTop }) => Spacings[marginTop || 'md']};
   margin-bottom: 0;
-  font-size: 18px;
+  font-size: ${FontSize.md};
 
   ${({ bold }) =>
     bold &&
@@ -60,14 +61,14 @@ export const Text = styled.p<{
 `;
 
 export const TextH2 = styled.h2`
-  font-size: 18px;
+  font-size: ${FontSize.md};
   font-weight: 400;
   margin-top: ${Spacings.md};
   margin-bottom: 0;
 `;
 
 export const CenteredTitle = styled.h2`
-  font-size: 40px;
+  font-size: ${FontSize.xxl};
   font-weight: 600;
   align-self: center;
   z-index: 2;
@@ -75,7 +76,7 @@ export const CenteredTitle = styled.h2`
 
 export const SecondaryButton = styled.button`
   cursor: pointer;
-  font-size: 24px;
+  font-size: ${FontSize.lg};
   font-weight: 600;
   text-decoration: underline;
   margin-top: ${Spacings.md};
@@ -106,12 +107,12 @@ const fontVariantToWeight: Record<FontVariant, number> = {
 };
 
 export const Typography = styled.div<{
-  size: `${number}px`;
+  size: keyof typeof FontSize;
   weight: FontVariant;
   paddingBottom?: keyof typeof Spacings;
 }>`
   ${({ size, weight }) => css`
-    font-size: ${size};
+    font-size: ${FontSize[size]};
     font-weight: ${fontVariantToWeight[weight]};
   `};
 

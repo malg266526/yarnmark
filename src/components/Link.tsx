@@ -3,14 +3,15 @@ import styled, { css } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import yarnSvgUrl from '../assets/images/skein3.svg';
 import { HashLink, HashLinkProps } from 'react-router-hash-link';
+import { FontSize } from '../styles/font-size';
 
-const StyledLink = styled(HashLink)<{ color?: string }>`
+const StyledLink = styled(HashLink) <{ color?: string }>`
   ${({ color }) =>
     color &&
     css`
       color: ${color};
     `};
-  font-size: 22px;
+  font-size: ${FontSize.lg};
   padding: 10px 8px;
   border-radius: 5px;
   cursor: pointer;
@@ -48,8 +49,8 @@ const StyledLink = styled(HashLink)<{ color?: string }>`
     width: 100%;
     background: #000;
     ${({ color }) =>
-      color &&
-      css`
+    color &&
+    css`
         background: ${color};
       `};
     opacity: 0;
