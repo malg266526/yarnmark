@@ -55,7 +55,7 @@ const TextWrapper = styled.div`
   text-align: center;
 `;
 
-const UnderlineButton = styled(TransparentButton) <{ isActive?: boolean }>`
+const UnderlineButton = styled(TransparentButton)<{ isActive?: boolean }>`
   padding: ${Spacings.xs};
   border-bottom: 2px solid black;
   background-color: ${({ isActive }) => (isActive ? '#EFFFE8' : 'transparent')};
