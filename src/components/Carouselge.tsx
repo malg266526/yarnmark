@@ -22,7 +22,7 @@ const MIN_HEIGHT = 260;
 const INACTIVE_INDICATOR_SIZE = 12;
 const ACTIVE_INDICATOR_SCALE = 3;
 
-const ACTIVE_ITEM_ELEMENT_WIDTH_PERCENTAGE = 65;
+const ACTIVE_ITEM_ELEMENT_WIDTH_PERCENTAGE = 75;
 
 const Footer = styled.div`
   display: flex;
@@ -239,7 +239,7 @@ const Item = styled.div<{ icon?: boolean }>`
   min-width: 200px;
   min-height: 200px;
   background: white;
-  box-shadow: 8px 8px 18px 0px rgba(66, 68, 90, 1);
+  box-shadow: 8px 8px 14px 0px rgba(66, 68, 90, 1);
   padding: ${Spacings.md};
   word-break: break-word;
 
@@ -266,9 +266,9 @@ const Item = styled.div<{ icon?: boolean }>`
 
 const getVisibleIndexes = (middleIndex: number): VisibleIndex[] => [
   { index: middleIndex - 2, left: 0, opacity: 0, pointerEvents: 'none', translateXZ: [-100, -6000] },
-  { index: middleIndex - 1, left: 0, opacity: 1, pointerEvents: 'none', translateXZ: [0, -1500] },
+  { index: middleIndex - 1, left: 0, opacity: 1, pointerEvents: 'none', translateXZ: [-5, -1500] },
   { index: middleIndex - 0, left: 50, opacity: 1, pointerEvents: 'initial', translateXZ: [-50, 0], zIndex: 1 },
-  { index: middleIndex + 1, left: 100, opacity: 1, pointerEvents: 'none', translateXZ: [-100, -1500] },
+  { index: middleIndex + 1, left: 100, opacity: 1, pointerEvents: 'none', translateXZ: [-95, -1500] },
   { index: middleIndex + 2, left: 100, opacity: 0, pointerEvents: 'none', translateXZ: [0, -6000] }
 ];
 
