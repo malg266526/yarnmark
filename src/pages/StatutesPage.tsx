@@ -131,13 +131,13 @@ export const StatutesPage = () => {
       <Band size="lg" justify="flex-start" narrowContent="auto" padding="lg" variant="background" color={Colors.linen}>
         <Card>
           <TextWrapper>
-            <StatuteTitle>Regulamin Krakowskiego Yarnmarku Wełny</StatuteTitle>
+            <StatuteTitle>Regulamin Krakoskiego Yarnmarku Wełny</StatuteTitle>
           </TextWrapper>
 
           <StatuteWrapper>
             <ol>
               <li>
-                Włóczykijki s.c. oraz Dziergamy na polu są organizatorami (dalej: “Organizator”) wydarzenia Krakowski
+                Włóczykijki s.c. oraz Dziergamy na polu są organizatorami (dalej: “Organizator”) wydarzenia Krakoski
                 Yarnmark Wełny (dalej: “Yarnmark”), który odbywa się w dniu 27 kwietnia 2024 roku na terenie Hali
                 Cracovii (dalej “Hala”) w godzinach od 10:00 do 18:00
               </li>
@@ -255,7 +255,7 @@ export const StatutesPage = () => {
           <StatuteWrapper>
             <ol>
               <li>
-                Warsztaty odbywają się zgodnie z Harmonogramem ustalonym przez Organizatorów Krakowskiego Yarnmarku
+                Warsztaty odbywają się zgodnie z Harmonogramem ustalonym przez Organizatorów Krakoskiego Yarnmarku
                 Wełny.
               </li>
               <li>
