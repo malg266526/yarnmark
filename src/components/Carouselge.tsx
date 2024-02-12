@@ -91,8 +91,8 @@ const ItemBackground = styled.picture<{ opacity?: number; background?: string; v
 
   > img {
     ${({ opacity }) =>
-    Number.isFinite(opacity) &&
-    css`
+      Number.isFinite(opacity) &&
+      css`
         opacity: ${opacity};
       `}
     height: 100%;
@@ -209,7 +209,7 @@ const ChildrenWrapper = styled.div<{ visibleIndexes: VisibleIndex[] }>`
           opacity: ${opacity};
           pointer-events: ${pointerEvents};
           ${zIndex &&
-        css`
+          css`
             z-index: ${zIndex};
           `}
         }
@@ -314,7 +314,7 @@ export const Carouselge = Object.assign(
     const isIndexValid = useCallback((index: number) => index <= childrenCount - 1 && index > -1, [childrenCount]);
 
     const onMouseUp = useCallback(
-      (e: { button: number; screenX: number, screenY: number }) => {
+      (e: { button: number; screenX: number; screenY: number }) => {
         if (e.button !== 0 || !mouseDownDataRef.current) {
           return;
         }
@@ -354,8 +354,9 @@ export const Carouselge = Object.assign(
         }}
         onMouseLeave={onMouseUp}
         onMouseUp={onMouseUp}
-        onTouchEnd={(e) => onMouseUp({ button: 0, screenX: e.changedTouches[0].screenX, screenY: e.changedTouches[0].screenY })}
-      >
+        onTouchEnd={(e) =>
+          onMouseUp({ button: 0, screenX: e.changedTouches[0].screenX, screenY: e.changedTouches[0].screenY })
+        }>
         <OuterWrapper>
           <ClickElement
             side="left"
@@ -379,9 +380,7 @@ export const Carouselge = Object.assign(
             }}>
             <IconifyIcon icon="mdi:arrow-right" width="50" />
           </ClickElement>
-          <ChildrenWrapper
-            ref={childrenWrapperRef}
-            visibleIndexes={visibleIndexes}>
+          <ChildrenWrapper ref={childrenWrapperRef} visibleIndexes={visibleIndexes}>
             {children}
           </ChildrenWrapper>
         </OuterWrapper>
