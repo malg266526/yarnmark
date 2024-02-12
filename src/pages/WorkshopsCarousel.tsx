@@ -151,7 +151,7 @@ export const WorkshopsCarousel = () => {
     <BlobBackground>
       <Root>
         <Carousel
-          interval={50000}
+          interval={90000}
           variant="dark"
           fade
           prevIcon={<img src={knittingSvgUrl} alt="knittingIcon" width={40} />}
