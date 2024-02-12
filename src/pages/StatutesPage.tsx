@@ -35,7 +35,7 @@ const Card = styled.div`
   border-radius: 4px;
   box-shadow: 2px 2px 15px 0px rgba(121, 59, 59, 0.25);
   flex: 1 1 auto;
-  z-index: 2;
+  z-index: 0;
   flex-direction: column;
   gap: ${Spacings.md};
 `;

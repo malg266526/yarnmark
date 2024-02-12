@@ -16,7 +16,7 @@ import { useTablet } from './usePhone';
 
 const Root = styled.div`
   display: flex;
-  z-index: 20;
+  z-index: 1;
   background-color: white;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
   border-radius: 4px;
@@ -55,7 +55,7 @@ const TextWrapper = styled.div`
   text-align: center;
 `;
 
-const UnderlineButton = styled(TransparentButton)<{ isActive?: boolean }>`
+const UnderlineButton = styled(TransparentButton) <{ isActive?: boolean }>`
   padding: ${Spacings.xs};
   border-bottom: 2px solid black;
   background-color: ${({ isActive }) => (isActive ? '#EFFFE8' : 'transparent')};
