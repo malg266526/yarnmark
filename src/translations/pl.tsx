@@ -12,7 +12,8 @@ export const pl = {
       cruise: 'Dziergostatek',
       aboutUs: 'O nas',
       stands: 'Stoiska',
-      statutes: 'Regulamin'
+      statutes: 'Regulamin',
+      tickets: 'Bilety'
     },
     welcomeBand: {
       invitation: 'Serdecznie zapraszamy na I edycję targów wełny w stolicy Małopolski!',

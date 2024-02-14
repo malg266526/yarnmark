@@ -12,7 +12,8 @@ export const en: TranslationsShape = {
       cruise: 'Knitting-ship',
       aboutUs: 'About us',
       stands: 'Stands',
-      statutes: 'Statute'
+      statutes: 'Statute',
+      tickets: 'Tickets'
     },
     welcomeBand: {
       invitation: 'We heartily invite you for I edition of wool fair in capital of Malopolska!',

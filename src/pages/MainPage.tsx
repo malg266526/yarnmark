@@ -383,6 +383,14 @@ export const MainPage = () => {
               {t('menu.vendors')}
             </SideBar.LinkEntry>
 
+            <SideBar.LinkEntry
+              target="_blank"
+              to="https://wloczykijki.pl/pl_PL/i/Krakoski-Yarnmark-Welny/41?preview=true"
+              onClick={closeSideBar}>
+              <IconifyIcon icon="streamline:tickets" width="24" />
+              {t('menu.tickets')}
+            </SideBar.LinkEntry>
+
             <SideBar.LinkEntry onClick={closeSideBar} to="/info-for-vendors">
               <IconifyIcon icon="material-symbols:info-outline" width="24" />
               {t('menu.infoForVendors')}
@@ -429,6 +437,13 @@ export const MainPage = () => {
 
               <Link color="black" to="#vendors">
                 {t('menu.vendors')}
+              </Link>
+
+              <Link
+                target="_blank"
+                color="black"
+                to="https://wloczykijki.pl/pl_PL/i/Krakoski-Yarnmark-Welny/41?preview=true">
+                {t('menu.tickets')}
               </Link>
 
               <Link color="black" to="/info-for-vendors">
