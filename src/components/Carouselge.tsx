@@ -55,12 +55,11 @@ const ClickElement = styled.div<{ side: 'left' | 'right'; visible?: boolean }>`
   width: ${(100 - ACTIVE_ITEM_ELEMENT_WIDTH_PERCENTAGE) / 2}%;
   height: 100%;
   z-index: 1;
-  padding: ${Spacings.md};
 
   display: flex;
   justify-content: ${({ side }) => (side === 'left' ? 'flex-end' : 'flex-start')};
   align-items: center;
-  opacity: ${({ visible }) => (visible ? 0.35 : 0)};
+  opacity: ${({ visible }) => (visible ? 0.4 : 0)};
   pointer-events: ${({ visible }) => (visible ? 'auto' : 'none')};
   cursor: pointer;
   transition: all 150ms ease-in-out;
@@ -275,7 +274,7 @@ const useItemDataContext = () => {
   const getStyle = useContext(ItemDataContext);
 
   if (!getStyle) {
-    throw new Error('ERRORR');
+    throw new Error('Missing ItemDataContext');
   }
 
   return getStyle;
