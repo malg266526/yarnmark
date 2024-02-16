@@ -29,7 +29,7 @@ export const pl = {
       linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
       tickets: {
         text: 'Sprzedaż biletów rusza 14.02.2024r. o 14:00',
-        mobileTitle: 'Bilety (dostępne od godz. 14:00 w dniu 14.02.2024)'
+        mobileTitle: 'Bilety'
       },
       vendors: {
         text: 'Sprawdź z jakimi wystawcami się spotkasz',
@@ -121,6 +121,7 @@ export const pl = {
       invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w I edycji Krakoskiego Yarnmarku Wełny!',
       organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was',
       hallInfo: {
+        title: 'Hala',
         area: 'Mamy do dyspozycji powierzchnię 1142m2.',
         openHours:
           'Wejście na halę w celu rozłożenia stoiska będzie możliwe od godz. 5:00. Na miejscu będą panowie portierzy.',
