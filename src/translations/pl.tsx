@@ -122,6 +122,7 @@ export const pl = {
       invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w I edycji Krakoskiego Yarnmarku Wełny!',
       organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was',
       hallInfo: {
+        title: 'Hala',
         area: 'Mamy do dyspozycji powierzchnię 1142m2.',
         openHours:
           'Wejście na halę w celu rozłożenia stoiska będzie możliwe od godz. 5:00. Na miejscu będą panowie portierzy.',
