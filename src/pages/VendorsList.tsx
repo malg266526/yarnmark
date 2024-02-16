@@ -32,11 +32,19 @@ import hankaMiZrobilaLogoUrl from './../assets/images/minifiedLogos/hankamizrobi
 import hankaMiZrobilaLogoUrlAvif from './../assets/images/minifiedLogos/hankamizrobila.avif';
 import hankaMiZrobilaLogoUrlWebp from './../assets/images/minifiedLogos/hankamizrobila.webp';
 
+import knittedCoffeeLogoUrl from './../assets/images/minifiedLogos/knitted.jpg';
+import knittedCoffeeLogoUrlAvif from './../assets/images/minifiedLogos/knitted.avif';
+import knittedCoffeeLogoUrlWebp from './../assets/images/minifiedLogos/knitted.webp';
+
 import knitPlLogoUrl from './../assets/images/minifiedLogos/knitpl.png';
 import knitPlLogoUrlAvif from './../assets/images/minifiedLogos/knitpl.avif';
 import knitPlLogoUrlWebp from './../assets/images/minifiedLogos/knitpl.webp';
 
 import kokonkiLogoUrl from './../assets/images/minifiedLogos/kokonki.png';
+
+import liloppiLogoUrl from './../assets/images/minifiedLogos/liloppi.jpg';
+import liloppiLogoUrlAvif from './../assets/images/minifiedLogos/liloppi.avif';
+import liloppiLogoUrlWebp from './../assets/images/minifiedLogos/liloppi.webp';
 
 import madoboLogoUrl from './../assets/images/minifiedLogos/madobo.png';
 import madoboLogoUrlAvif from './../assets/images/minifiedLogos/madobo.avif';
@@ -71,6 +79,8 @@ import siedemOczekLogoUrlWebp from './../assets/images/minifiedLogos/7oczek.webp
 import strikkeLogoUrl from './../assets/images/minifiedLogos/strikke.png';
 
 import pimotkiLogoUrl from './../assets/images/minifiedLogos/pimotki.png';
+
+import rencamiLogoUrl from './../assets/images/minifiedLogos/rencami.png';
 
 import timeToKnitLogoUrl from './../assets/images/minifiedLogos/timetoknit.png';
 import timeToKnitLogoUrlAvif from './../assets/images/minifiedLogos/timetoknit.avif';
@@ -256,6 +266,26 @@ export const VendorsList = () => {
         />
       </Link>
 
+      <Link to="https://knittedcoffee.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={100}
+          alt="knitted_coffee_logo"
+          picture={{
+            fallbackUrl: knittedCoffeeLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: knittedCoffeeLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: knittedCoffeeLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
       <Link to="https://knitpl.com/" target="_blank" rel="noreferrer">
         <Picture
           width={90}
@@ -278,6 +308,26 @@ export const VendorsList = () => {
 
       <Link to="https://kokonki.pl/" target="_blank" rel="noreferrer">
         <img width={120} src={kokonkiLogoUrl} alt="kokonki_logo" />
+      </Link>
+
+      <Link to="https://liloppi.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={120}
+          alt="liloppi_logo"
+          picture={{
+            fallbackUrl: liloppiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: liloppiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: liloppiLogoUrlAvif
+              }
+            ]
+          }}
+        />
       </Link>
 
       <Link to="https://madobo.pl" target="_blank" rel="noreferrer">
@@ -408,8 +458,12 @@ export const VendorsList = () => {
         <img width={100} src={pimotkiLogoUrl} alt="pimotki_logo" />
       </Link>
 
+      <Link to="https://rencami.pl/" target="_blank" rel="noreferrer">
+        <img width={110} src={rencamiLogoUrl} alt="rencami_logo" />
+      </Link>
+
       <Link to="https://strikke.pl/" target="_blank" rel="noreferrer">
-        <img width={150} src={strikkeLogoUrl} alt="Strikke" />
+        <img width={150} src={strikkeLogoUrl} alt="Strikke_logo" />
       </Link>
 
       <Link to="https://7oczek.pl/pl/" target="_blank" rel="noreferrer">
