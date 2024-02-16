@@ -1,67 +1,69 @@
 import { TranslationsShape } from './pl';
 
-export const en: TranslationsShape = {
+export const de: TranslationsShape = {
   translation: {
     menu: {
       home: 'Home',
-      workshops: 'Workshops',
-      vendors: 'Vendors',
-      organizers: 'Organizers',
-      contact: 'Contact',
-      infoForVendors: 'For Vendors',
+      workshops: 'Workshop`s',
+      vendors: 'Aussteller',
+      organizers: 'Veranstalter',
+      contact: 'Kontakt',
+      infoForVendors: 'für Aussteller',
       cruise: 'Knitting-ship',
       aboutUs: 'About us',
-      stands: 'Stands',
-      statutes: 'Statute',
+      stands: 'Stände',
+      statutes: 'Ordnung',
       tickets: 'Tickets'
     },
     welcomeBand: {
-      invitation: 'We heartily invite you for I edition of wool fair in capital of Malopolska!',
-      where: 'Yarnmark is happening at 27/04/2024 at 10:00 AM, in Hala 100-lecia KS Cracovia',
+      invitation: 'Wir laden Sie herzlich  zur ersten Edition Wollmesse in Krakau ein!',
+      where: 'Die Messe findet am 27.04.2024 ab 10:00, in der Halle Hala 100-lecia KS Cracovia statt',
       haveFun:
-        'We hope that it will be a day of not only shopping spree and deal hunting, but integrating, knitting together on stands and having fun.',
-      seeYou: 'See ya all!'
+        'Wir hoffen, dass dies nicht nur ein Tag voller Shopping-Wahnsinn und erfolgreicher Jagd auf wunderschöne Garne, sondern auch der Integration, des gemeinsamen Strickens und des guten Spaßes wird.',
+      seeYou: 'Auf Wiedersehen!'
     },
     buttonsBand: {
-      firstEvent: 'The first such event in Cracow!',
+      firstEvent: 'Das ist das allererste Event dieser Art in Krakaw!',
       otherCities:
-        "Toruń, Warsaw, Gdańsk, Wrocław...finally it's time for wool fair near Wawel Castle. Cracow enters 2024 with a knitting step. Come with us!",
-      linksBelow: 'Below you will find few links that will help you plan your time in our beautiful city.',
+        'Torun,Warschav, Danzig, Breslav Endlich ist Zeit für die Wollmesse an der Wavel. Krakau startet im Strickschritt ins Jahr 2024. Komm mit uns!',
+      linksBelow:
+        'Unten findest du einige Links, die dir bei der Planung deiner Zeit in unserer schönen Stadt helfen werden',
       tickets: {
-        text: 'Tickets',
+        text: 'Ticket will be available starting 14.02.2024',
         mobileTitle: 'Tickets'
       },
       vendors: {
-        mobileTitle: 'Vendors',
-        text: 'Check which vendors you will meet'
+        mobileTitle: 'Aussteller',
+        text: 'Schau welche Aussteller du triffst'
       },
       location: {
-        mobileTitle: 'How to get there?',
-        text: 'Where are we and how to get there?'
+        mobileTitle: 'Wie man dorthin kommt?',
+        text: 'Wo sind wir und wie kommst du dorthin?'
       },
-      foodButton: 'Where to eat?',
-      cruiseButton: 'Join our knitting-ship party!'
+      foodButton: 'Wo sollen wir essen?',
+      cruiseButton: 'Machen Sie mit bei unserer Strickschiff-Party!'
     },
     spotBand: {
-      title: 'Where?',
-      address: 'Avenue Marszałka Ferdynanda Focha 40',
-      description: `Hala 100-lecia KS Cracovia 1906 lies in the green heart of Cracow. In the neighbourhood of recreational surroundings of Błonia next to the avenue of Marszałka Ferdynanda Focha.\n
-        Great quality of the location is easily accessible communication – reaching it from every place both, with public communication and your own.`,
+      title: 'Wo?',
+      address: 'die Avenue Marszałka Ferdynanda Focha 40',
+      description: `Die 100-jährige Jubiläumshalle von KS Cracovia 1906 befindet sich im grünen Herzen von Krakau, in der Nähe des Erholungsgebiets Błonia, direkt an der Aleja Marszałka Ferdynanda Foch..\n
+      Ein großer Vorteil dieser Lage ist die gute Verkehrsanbindung – Sie können von jedem Ort aus mit öffentlichen oder privaten Verkehrsmitteln 
+      dorthin gelangen.`,
       publicTransport:
-        'People using public communication can use bus (to arrive directly on the event) or tram (requires a short stroll through Błonia).',
-      list: 'List below presents options for traveling from Cracow Main Station:',
+        'Öffis-Nutzer können die Buslinie (direkte Anbindung) und die Straßenbahnlinie nutzen, müssen aber mit einem kurzen Spaziergang über die Blonie Wiesen rechnen.',
+      list: 'Die folgende Liste zeigt die Zufahrtsmöglichkeiten vom Krakauer Hauptbahnhof:',
       option1:
-        '- bus line <strong>152</strong>, starting bus stop <strong>TEATR SŁOWACKIEGO</strong> (6 min away on foot from train station PKP) → direction Cmentarz Olszanica → bus stop <strong>INSTYTUT REUMATOLOGII</strong>',
+        '- Buslinie <strong>152</strong>, Haltestelle <strong>TEATR SŁOWACKIEGO</strong> (6 6 Minuten zu Fuß vom Bahnhof entfernt) → Richtung Friedhof Olszanica → Haltestelle <strong>INSTYTUT REUMATOLOGII</strong>',
       option2:
-        '- bus line <strong>192</strong>, starting bus stop <strong>POLITECHNIKA</strong> (7 min away on foot from train station PKP) → direction Olszanica Bory → bus stop <strong>INSTYTUT REUMATOLOGII</strong>',
+        '- Buslinie <strong>192</strong>, Haltestelle <strong>POLITECHNIKA</strong> (7 Minuten Fußweg vom Bahnhof entfernt) → Richtung Olszanica Bory → Haltestelle <strong>INSTYTUT REUMATOLOGII</strong>',
       option3:
-        '- tram line <strong>20</strong> (route Mały Płaszów), starting tram stop<strong>TEATR SŁOWACKIEGO</strong> (6 min away on foot from train station  PKP) → direction Cichy Kącik → tram stop <strong>PARK JORDANA</strong> (10min on the foot through Błonia to HALA Cracovia)',
+        '- Straßenbahnlinie <strong>20</strong> (Strecke von der Mały Płaszów-Schleife), Beginn: Haltestelle <strong>TEATR SŁOWACKIEGO</strong> (6 Minuten zu Fuß vom Bahnhof entfernt) → Richtung Cichy Kącik → Haltestelle <strong>PARK JORDANA</strong> (10 Minuten zu Fuß von der Haltestelle über die Wiesen zur HALA Cracovia)',
       option4:
-        '- tram line nr<strong>1</strong>, (route Wańkowicza) tram stops closest to the center: <strong>POCZTA GŁÓWNA</strong>, <strong>PLAC WSZYSTKICH ŚWIĘTYCH</strong>,  → direction Cichy Kącik → tram stop <strong>PARK JORDANA</strong> (10 min away on the foot through Błonia to HALA Cracovia)',
+        '- Straßenbahnlinie <strong>1</strong>, (Strecke von der Wańkowicz-Schleife) hält am nähesten zum Zentrum: <strong>HAUPTPOST</strong>, <strong>PLAC WSZYSTKICH ŚWIĘTYCH</strong>,  → Richtung Cichy Kącik → Haltestelle <strong>PARK JORDANA</strong> (10 Minuten zu Fuß von der Haltestelle vor Błonia bis HALA Cracovia)',
       byCar:
-        "Near the building there is a small parking lot, that on the day of the event will be free of charge for the fair participants. If the parking won't be enough, there is a public parking close to it (next to Bezogródek Tropical Spot Food) open 24h/7 (paid).",
-      howToGetToUs: 'How to get to us?',
-      accessibleByCar: 'Accessible by car'
+        'Neben dem Gebäude befindet sich ein kleiner Parkplatz, der am Veranstaltungstag für Besucher unserer Messe kostenfrei zur Verfügung steht. Sollte sich herausstellen, dass dieser Parkplatz nicht ausreicht, gibt es einen öffentlichen Parkplatz in der Nähe (bei Bezogródek Tropical Spot Food), der 24 Stunden am Tag geöffnet ist (kostenpflichtig).',
+      howToGetToUs: 'Wie kommen Sie zu uns?',
+      accessibleByCar: 'Mit dem Auto'
     },
     cashmereTicketsBand: {
       title: 'Cashmere tickets',
@@ -71,7 +73,7 @@ export const en: TranslationsShape = {
         info: 'Cruise information',
         startAndStop: 'Place of departure and end of the cruise:',
         time: 'Cruise time:',
-        price: 'Price',
+        price: 'Preis',
         priceIncludesYarnmarkTicket:
           'The price includes an entry ticket to the <strong>Krakoski Yarnmark Wełny 2024</strong>',
         route: 'Route:'
@@ -85,18 +87,18 @@ export const en: TranslationsShape = {
         description:
           'During the cruise, we will offer you a glass of Prosecco (or a non-alcoholic drink), thus adding a touch of luxury to the atmosphere.'
       },
-      buyTickets: 'Buy a ticket',
+      buyTickets: 'kauf ein Ticket',
       tickets: 'Tickets'
     },
     vendorsPage: {
-      title: 'Vendors'
+      title: 'Aussteller'
     },
     contactPage: {
-      title: 'Contact'
+      title: 'Kontakt'
     },
     workshopsBand: {
-      title: 'Workshops',
-      firstAid: 'First Aid',
+      title: 'Workshop`s',
+      firstAid: 'Erste Hilfe',
       entertainsAndTeaches: 'Yarnmark entertains and teaches',
       invitation:
         'Welcome to participate in knitting and crochet workshops as well heartily invite to take advantage of professional first aid course.',
@@ -109,54 +111,54 @@ export const en: TranslationsShape = {
       workshop6: 'workshop6'
     },
     scheduleBand: {
-      title: 'Workshops schedule',
-      room1: 'Mirrors room',
-      room2: 'Fencing room',
-      room3: 'Conference room',
-      soldOut: 'Sold out'
+      title: 'Workshop-Zeitplan',
+      room1: 'Spiegelsaal',
+      room2: 'Fechtraum',
+      room3: 'Konferenzraum'
     },
     infoForVendorsPage: {
-      title: 'Information for vendors',
-      invitation: 'We heartily invite you to participate in I edition of Cracow Wool Fair!',
-      organisationInfo: 'Below a bit of organisational information for you',
+      title: 'Informationen für Aussteller',
+      invitation: 'Wir laden dich herzlich ein, an der 1. Ausgabe des Krakow Wool Yarnmark teilzunehmen!',
+      organisationInfo: 'Unten findest du einige organisatorische Informationen.',
       hallInfo: {
-        title: 'Hall',
-        area: 'We have an area of ​​1142 m2 at our disposal.',
-        openHours: 'Hall entrance in order to prepare the stand will be available at 5.00 AM. Porters will be there.',
-        ramp: 'From parking lot straight to the hall leads a ramp, without need to use stairs or elevators.',
+        title: 'Halle',
+        area: 'Uns steht eine Fläche von 1142 m2 zur Verfügung.',
+        openHours: 'Der Zugang zur Halle zum Aufbau eines Standes ist ab 5:00 Uhr möglich ',
+        ramp: 'Eine Rampe führt vom Parkplatz direkt zur Halle, ohne dass Treppen oder Aufzüge genutzt werden müssen.',
         participants:
-          'Entrance for fair participants will be on the side of Foch street, where they will enter the main hall efective descent from which whole exhibition hall will be visible.',
-        stands: 'There will be three types of spots in the hall: Premium 5x3m, Standard 4x2,5m and Mini 3x2m',
+          'Der Eingang für Messebesucher erfolgt über die Focha-Straße, wo sie über einen beeindruckenden Abstieg in die Haupthalle gelangen, von der aus Sie die gesamte Ausstellungshalle sehen können.',
+        stands: 'In der Halle wird es drei Arten von Ständen geben: Premium 5x3m, Standard 4x2,5m und Mini 3x2m',
         tables:
-          'Premium spot includes 2 chairs and 3 tables 160x80cm. Standard spot includes 2 chairs and 2 tables 140x70cm, while a Mini spot includes 2 chairs  and 1 table 140x70cm',
-        extensionCords: "Stands don't include extension cords, please bring your own",
+          'Der Premium-Stand verfügt über 2 Stühle und 3 Tische 160x80cm. Standard-Stand verfügt über 2 Stühle und 2 Tische 140x70 cm, der Mini-Stand über 2 Stühle und 1 Tisch 140x70 cm',
+        extensionCords:
+          'Im Lieferumfang des Standes sind KEINE Verlängerungskabel enthalten. Bitte bringen Sie Ihre eigenen mit.',
         socialRoom:
-          'Vendors will have at their disposal social room, where you can have a coffee or tea as well a separate toilet.',
+          'Den Ausstellern steht ein Aufenthaltsraum zur Verfügung, in dem Sie Kaffee und Tee trinken können, sowie eine separate Toilette.',
         glassWall:
-          'Wall behind stands P2-P3 consists of windows of full hall height, the light coming through will be awesome'
+          'Die Wand hinter den Tribünen P2-P3 besteht aus Fenstern, die sich über die gesamte Hallenhöhe erstrecken, von dort fällt fantastisches Licht ein.'
       },
       parking: {
-        title: 'Parking lot',
-        parkingSpace: 'Each exhibitor is entitled to a free parking space at the hall on the day of the fair'
+        title: 'Parking',
+        parkingSpace: 'Jedem Aussteller steht am Messetag ein kostenfreier Parkplatz neben der Halle zu'
       },
       marketing: {
         title: 'Marketing',
         sendLogos:
-          'We encourage to send your logo on email address <strong>krakoski.yarnmark.welny@gmail.com</strong>, we will put it on "Vendors" section and this way inform the knitters, that you will be there.'
+          'Wir empfehlen Ihnen, Ihr Logo an die E-Mail-Adresse <strong>krakoski.yarnmark.welny@gmail.com</strong>, zu senden. Wir werden es in der Registerkarte „Aussteller“ platzieren und auf diese Weise die Stricker darüber informieren, dass Sie bei uns sein werden.'
       },
       stands: {
         title: 'Stands'
       },
       registration: {
-        title: 'Reservations',
+        title: 'Anmeldungen',
         beAVendor:
-          'If you wanna join the great group of our vendors write us an email! Email address: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
-        start: 'Spot reservations start on Monday 22.01.2024r. at 12:00 AM',
-        where: 'Reservation is done by buying the spot in online shop `Włóczykijki`',
-        buyHere: 'Here you will reserve the spot',
-        feedback: 'All data related to payment will be part of feedback confirming spot reservation',
+          'Wenn Sie sich der wunderbaren Gruppe unserer Aussteller anschließen möchten, schreiben Sie uns! Kontakt E-mail: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
+        start: 'Die Möglichkeit zum Kauf eines Standes beginnt am Montag, 22. Januar 2024 um 12:00',
+        where: 'Die Reservierung eines Standes erfolgt durch den Kauf einer Fläche im Włóczykijki-Onlineshop.',
+        buyHere: 'Hier können Sie einen Stand kaufen',
+        feedback: 'Alle Zahlungsdetails werden in der Rückmeldung zur Bestätigung Ihrer Standreservierung aufgeführt.',
         return:
-          'In case of reservation and missing the payment - reservation is cancelled and will be available again for vendors'
+          'Im Falle einer Reservierung und Nichtzahlung der Kosten wird die Reservierung storniert und den anderen Ausstellern wieder zur Verfügung gestellt'
       }
     },
     foodBand: {
@@ -170,35 +172,22 @@ export const en: TranslationsShape = {
       knittedCoffeeDescription: 'On the event you can drink tasty coffee made by Tarasa from Knitted Coffee'
     },
     hallMap: {
-      premiumStand: 'Premium spot 5x3m',
-      standardStand: 'Standard spot 4x2,5m',
-      miniStand: 'Mini spot 3x2m',
-      taken: 'Reserved'
+      premiumStand: 'Premium Platz 5x3m',
+      standardStand: 'Standard Platz 4x5m',
+      miniStand: 'Mini Platz 3x2m',
+      taken: 'Platz reserviert'
     },
     workshops: {
-      labolens: {
-        title: 'Capture the beauty of handicraft through the lens - product photography workshops',
-        intro:
-          'In a world where photography becomes not only an art, but also a way of capturing beauty, emotions and history. Working in the heart of Malopolska, I surround myself with an inspiring environment, which becomes the background for many of my photographs. I invite you to my workshops on handmade product photography.',
-        schedule:
-          'Product photography workshops are an excellent opportunity for people interested in photography, especially for product promotion. During these workshops, participants can learn many useful skills, including:',
-        schedule1:
-          'basic principles of photographic composition. They will learn how to properly compose product photos to highlight their most important features and attract the attention of potential recipients',
-        schedule2:
-          'lighting use. They will have the opportunity to learn how to manipulate light to create the right atmosphere and display the product in the best light',
-        schedule3:
-          'use of various equipment. In addition to working with a camera, participants will also be able to experiment with using a mobile phone to take high-quality product photos, which is especially important in the era of social media.'
-      },
       tutor: 'Tutor: ',
-      buyTicket: 'Buy a ticket',
-      firstAid: 'First aid',
+      buyTicket: 'kauf ein Ticket',
+      firstAid: 'Erste Hilfe',
       freeAdmission: 'Free admission',
       firstAidDescription:
         'Our first aid demonstrations are interactive events, during which our experienced instructors share knowledge about basic techniques of providing first aid. The shows are adapted to different age groups and advancement levels, so that each participant can gain practical skills that may prove important in life',
       decorativeKnitting: 'Decorative knitting',
       decorativeKnittingDescription:
         'I will show you how to create openwork knits, decorate with cables and jacquard, if there is enough time, I will also show you how to finish them with i-cord. People who want to take part in the workshops should bring straight or circular needles, between 3 and 4 mm, wool appropriate for a given size in 2 colors, preferably contrasting colors, and an cable needle for braids. When it comes to wool, it does not have to be a full skein, we need an amount that will allow us to make a sample of the knitwear we are interested in.',
-      price: 'Price',
+      price: 'Preis',
       ludartDescription: 'The workshops aim to present the patterns of decorations on Cracow corsets.',
       ludartDescription2:
         'During the workshops, participants will have the opportunity to learn the necessary embroidery stitches and embroider on the canvas one of the prepared patterns inspired by the Crakow corsets.',
@@ -292,9 +281,6 @@ export const en: TranslationsShape = {
           'The workshops are aimed at beginners, so you can be sure that you will receive very detailed instructions and you will definitely learn how to weave. Then your imagination will suggest further projects, because I am sure that you will not end with one macrame (your loved ones will also want to have one!)',
         invite: "I'm inviting anyone who needs more creativity in their life or just want to have a nice time."
       }
-    },
-    firstAidBand: {
-      saveTheLife: 'Click and save life right now'
     }
   }
 };

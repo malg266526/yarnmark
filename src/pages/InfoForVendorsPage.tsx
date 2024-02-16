@@ -213,7 +213,7 @@ export const InfoForVendorsPage = () => {
         color={Colors.snow}
         padding="xl">
         <TextWrapper>
-          <CenteredTitle>Hala</CenteredTitle>
+          <CenteredTitle>{t('infoForVendorsPage.hallInfo.title')}</CenteredTitle>
         </TextWrapper>
 
         <PlainInfo>

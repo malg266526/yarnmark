@@ -767,8 +767,6 @@ export const MainPage = () => {
                   </Link>
                 </LinkWrapper>
 
-                <Text marginTop="none">{t('buttonsBand.tickets.text')}</Text>
-
                 <FlexColumnLayout gap="sm" padding="none" align="flex-start">
                   <Typography size="xl" weight="bold">
                     {t('cashmereTicketsBand.map.price')}:
