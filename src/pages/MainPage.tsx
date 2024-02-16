@@ -34,8 +34,8 @@ import knitting2ImageUrl from '../assets/images/knitting2.svg';
 import pinImageUrl from '../assets/images/pin.svg';
 
 import halaAvifImageSrc from '../assets/images/hala.avif';
-import halaJfifImageSrc from '../assets/images/hala.jfif';
-import halaJpgImageSrc from '../assets/images/hala_quality.jpg';
+import halaWebpImageSrc from '../assets/images/hala.webp';
+import halaJpgImageSrc from '../assets/images/hala.jpg';
 import yarnmarkLogoSrc from '../assets/images/yarnmark_logo.jpg';
 import yarnmarkLogoSrcAvif from '../assets/images/yarnmark_logo.avif';
 import yarnmarkLogoSrcWebp from '../assets/images/yarnmark_logo.webp';
@@ -43,6 +43,8 @@ import yarnmarkLogoSrcWebp from '../assets/images/yarnmark_logo.webp';
 // import wawelImageSrc from '../assets/images/wawel.jpg';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
+import woolsJpgLandscape from '../assets/images/wools2_landscape.jpg';
+
 import { Icon } from '../components/Icon';
 
 import { Band } from '../components/Band';
@@ -352,7 +354,7 @@ export const MainPage = () => {
       <>
         <MobilePicture>
           <source srcSet={halaAvifImageSrc} type="image/avif" />
-          <source srcSet={halaJfifImageSrc} type="image/jpeg" />
+          <source srcSet={halaWebpImageSrc} type="image/webp" />
           <img loading="lazy" src={halaJpgImageSrc} alt="hala 100-lecia" />
           <MobileLocationButtonWrapper>{eventLocationButton}</MobileLocationButtonWrapper>
         </MobilePicture>
@@ -473,7 +475,8 @@ export const MainPage = () => {
       <Band size="xl" padding="xl" justify="flex-start">
         <Picture>
           <source srcSet={woolsAvifLandscape} type="image/avif" />
-          <img src={woolsWebpLandscape} alt="wool" />
+          <source srcSet={woolsWebpLandscape} type="image/webp" />
+          <img src={woolsJpgLandscape} alt="wool" />
         </Picture>
 
         <Band.Slot>
@@ -544,7 +547,7 @@ export const MainPage = () => {
           background={
             <Band.Picture>
               <source srcSet={halaAvifImageSrc} type="image/avif" />
-              <source srcSet={halaJfifImageSrc} type="image/jpeg" />
+              <source srcSet={halaWebpImageSrc} type="image/webp" />
               <img src={halaJpgImageSrc} alt="hala cracovii" />
             </Band.Picture>
           }>
