@@ -13,7 +13,10 @@ export const de: TranslationsShape = {
       aboutUs: 'About us',
       stands: 'Stände',
       statutes: 'Ordnung',
-      tickets: 'Tickets'
+      tickets: 'Tickets',
+      entranceTicket: 'Entrance tickets',
+      workshopTickets: 'Workshops tickets',
+      cruiseTickets: 'Cruise tickets'
     },
     welcomeBand: {
       invitation: 'Wir laden Sie herzlich  zur ersten Edition Wollmesse in Krakau ein!',
