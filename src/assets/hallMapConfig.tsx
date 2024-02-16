@@ -32,11 +32,19 @@ import hankaMiZrobilaLogoUrl from './../assets/images/minifiedLogos/hankamizrobi
 import hankaMiZrobilaLogoUrlAvif from './../assets/images/minifiedLogos/hankamizrobila.avif';
 import hankaMiZrobilaLogoUrlWebp from './../assets/images/minifiedLogos/hankamizrobila.webp';
 
+import knittedCoffeeLogoUrl from './../assets/images/minifiedLogos/knitted.jpg';
+import knittedCoffeeLogoUrlAvif from './../assets/images/minifiedLogos/knitted.avif';
+import knittedCoffeeLogoUrlWebp from './../assets/images/minifiedLogos/knitted.webp';
+
 import knitPlLogoUrl from './../assets/images/minifiedLogos/knitpl.png';
 import knitPlLogoUrlAvif from './../assets/images/minifiedLogos/knitpl.avif';
 import knitPlLogoUrlWebp from './../assets/images/minifiedLogos/knitpl.webp';
 
 import kokonkiLogoUrl from './../assets/images/minifiedLogos/kokonki.png';
+
+import liloppiLogoUrl from './../assets/images/minifiedLogos/liloppi.jpg';
+import liloppiLogoUrlAvif from './../assets/images/minifiedLogos/liloppi.avif';
+import liloppiLogoUrlWebp from './../assets/images/minifiedLogos/liloppi.webp';
 
 import madoboLogoUrl from './../assets/images/minifiedLogos/madobo.png';
 import madoboLogoUrlAvif from './../assets/images/minifiedLogos/madobo.avif';
@@ -65,6 +73,8 @@ import motkomaniaLogoUrlWebp from './../assets/images/minifiedLogos/motkomania.w
 import naSztukiStudioLogoUrl from './../assets/images/minifiedLogos/nasztukistudio.png';
 
 import pimotkiLogoUrl from './../assets/images/minifiedLogos/pimotki.png';
+
+import rencamiLogoUrl from './../assets/images/minifiedLogos/rencami_short.png';
 
 import siedemOczekLogoUrl from './../assets/images/minifiedLogos/7oczek.jpg';
 import siedemOczekLogoUrlAvif from './../assets/images/minifiedLogos/7oczek.avif';
@@ -300,7 +310,7 @@ export const hallMapConfig: HallMapType = {
       ]
     },
     {
-      height: 4,
+      height: 3,
       stands: [
         {
           width: 26,
@@ -321,6 +331,11 @@ export const hallMapConfig: HallMapType = {
     },
     {
       stands: [
+        {
+          color: 'empty',
+          height: 1,
+          width: 4
+        },
         {
           width: 5,
           height: 3,
@@ -551,7 +566,10 @@ export const hallMapConfig: HallMapType = {
           height: 2,
           color: 'taken2',
           index: 'M5',
-          who: 'Rencami'
+          who: 'Rencami',
+          picture: {
+            fallbackUrl: rencamiLogoUrl
+          }
         },
         {
           width: 3,
@@ -591,6 +609,26 @@ export const hallMapConfig: HallMapType = {
     },
     {
       stands: [
+        {
+          width: 3,
+          height: 2,
+          color: 'taken2',
+          index: 'M7',
+          who: 'KnittedCoffee',
+          picture: {
+            fallbackUrl: knittedCoffeeLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: knittedCoffeeLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: knittedCoffeeLogoUrlAvif
+              }
+            ]
+          }
+        },
         {
           width: 5,
           height: 3,
@@ -728,14 +766,40 @@ export const hallMapConfig: HallMapType = {
           height: 2.5,
           color: 'taken2',
           index: 'S22',
-          who: 'Liloppi'
+          who: 'Liloppi',
+          picture: {
+            fallbackUrl: liloppiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: liloppiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: liloppiLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken2',
           index: 'S23',
-          who: 'Liloppi'
+          who: 'Liloppi',
+          picture: {
+            fallbackUrl: liloppiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: liloppiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: liloppiLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 5,
