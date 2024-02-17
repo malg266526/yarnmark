@@ -28,8 +28,8 @@ export const en: TranslationsShape = {
         "Toruń, Warsaw, Gdańsk, Wrocław...finally it's time for wool fair near Wawel Castle. Cracow enters 2024 with a knitting step. Come with us!",
       linksBelow: 'Below you will find few links that will help you plan your time in our beautiful city.',
       tickets: {
-        text: 'Ticket will be available starting 14.02.2024',
-        mobileTitle: 'Tickets (available starting 14.02.2024)'
+        text: 'Tickets',
+        mobileTitle: 'Tickets'
       },
       vendors: {
         mobileTitle: 'Vendors',
