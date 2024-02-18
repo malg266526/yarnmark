@@ -2,7 +2,6 @@ import { htmlPlugin } from '@jgoz/esbuild-plugin-html';
 
 export const config = {
   entryPoints: ['./src/index.tsx'],
-  sourcemap: true,
   bundle: true,
   outdir: 'dist',
   treeShaking: true,
