@@ -1,7 +1,10 @@
 import { config } from './esbuild.config.mjs';
 import { createServer } from 'esbuild-server';
 
-createServer(config, {
+createServer({
+  ...config,
+  sourcemap: true
+}, {
   port: 8090,
   open: true,
   injectLiveReload: true,
