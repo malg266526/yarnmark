@@ -32,18 +32,14 @@ import uwolnijPomyslyUrlAvif from './../assets/images/workshops/uwolnijpomysly.a
 import uwolnijPomyslyUrl from './../assets/images/workshops/uwolnijpomysly.jpg';
 import uwolnijPomyslyWebp from './../assets/images/workshops/uwolnijpomysly.webp';
 
-import doRanyPrzylozUrlAvif from './../assets/images/workshops/doranyprzyloz.avif';
-import doRanyPrzylozUrl from './../assets/images/workshops/doranyprzyloz.jpg';
-import doRanyPrzylozUrlWebp from './../assets/images/workshops/doranyprzyloz.webp';
-
 import Carousel from 'react-multi-carousel';
+import { Link } from '../components/Link';
+import { FontSize } from '../styles/font-size';
+import { ScreenSize } from '../styles/screeen-size';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 import ewaUrlAvif from './../assets/images/workshops/ewa.avif';
 import ewaUrl from './../assets/images/workshops/ewa.jpg';
-import { ScreenSize } from '../styles/screeen-size';
-import { Link } from '../components/Link';
-import { FontSize } from '../styles/font-size';
 
 const responsive = {
   superLargeDesktop: {
@@ -433,7 +429,7 @@ export const WorkshopsSchedule = () => {
           </TextContent>
         </PlannerCard>
 
-        <PlannerCard>
+        {/*         <PlannerCard>
           <Ribbon>
             <Text>15:20 - 18:20</Text>
           </Ribbon>
@@ -465,7 +461,7 @@ export const WorkshopsSchedule = () => {
               {t('workshops.buyTicket')}
             </WorkshopLink>
           </TextContent>
-        </PlannerCard>
+        </PlannerCard> */}
       </Carousel>
     ),
     3: (

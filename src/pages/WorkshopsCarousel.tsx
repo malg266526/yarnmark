@@ -31,18 +31,14 @@ import uwolnijPomyslyUrlAvif from './../assets/images/workshops/uwolnijpomysly.a
 import uwolnijPomyslyUrl from './../assets/images/workshops/uwolnijpomysly.jpg';
 import uwolnijPomyslyWebp from './../assets/images/workshops/uwolnijpomysly.webp';
 
-import doRanyPrzylozUrlAvif from './../assets/images/workshops/doranyprzyloz.avif';
-import doRanyPrzylozUrl from './../assets/images/workshops/doranyprzyloz.jpg';
-import doRanyPrzylozUrlWebp from './../assets/images/workshops/doranyprzyloz.webp';
-
 import ewaUrlAvif from './../assets/images/workshops/ewa.avif';
 import ewaUrl from './../assets/images/workshops/ewa.jpg';
 
 import knittingSvgUrl from '../assets/images/skein3.svg';
-import { usePhone, useTablet } from './usePhone';
-import { ScreenSize } from '../styles/screeen-size';
 import { RowLayout } from '../components/RowLayout';
 import { FontSize } from '../styles/font-size';
+import { ScreenSize } from '../styles/screeen-size';
+import { usePhone, useTablet } from './usePhone';
 
 export const Title = styled.h3`
   font-size: ${FontSize.xl};
@@ -413,50 +409,6 @@ export const WorkshopsCarousel = () => {
                     <NoTopMarginText>{t('workshops.freeYourIdeas.booklet')}</NoTopMarginText>
                     <NoTopMarginText>{t('workshops.freeYourIdeas.takeFreeMind')}</NoTopMarginText>
                     <NoTopMarginText>{t('workshops.freeYourIdeas.seeYou')}</NoTopMarginText>
-                  </FlexColumnLayout>
-                </ScrollableContent>
-              </Carousel.Caption>
-            </Item>
-          </Carousel.Item>
-
-          <Carousel.Item>
-            <Item>
-              <Picture
-                picture={{
-                  fallbackUrl: doRanyPrzylozUrl,
-                  sources: [
-                    {
-                      type: 'image/webp',
-                      url: doRanyPrzylozUrlWebp
-                    },
-                    {
-                      type: 'image/avif',
-                      url: doRanyPrzylozUrlAvif
-                    }
-                  ]
-                }}
-                alt="doranyprzyloz"
-                width={180}
-                style={logoStyle}
-              />
-
-              <Carousel.Caption>
-                <Title>{t('workshops.doRanyPrzyloz.topic')}</Title>
-                <RowLayout justify="center" gap="none">
-                  <NoTopMarginText>{t('workshops.tutor')} </NoTopMarginText>
-                  <a href="https://www.instagram.com/doranyprzyloz" target="_blank" rel="noreferrer">
-                    I'M UNIQUE Katarzyna Faliszek
-                  </a>
-                </RowLayout>
-
-                <ScrollableContent>
-                  <FlexColumnLayout gap="xs" padding="none">
-                    <ResponsiveText>{t('workshops.doRanyPrzyloz.intro')}</ResponsiveText>
-                    <NoTopMarginText>{t('workshops.doRanyPrzyloz.macrame')}</NoTopMarginText>
-                    <NoTopMarginText>{t('workshops.doRanyPrzyloz.macrameOnTheHoop')}</NoTopMarginText>
-                    <NoTopMarginText>{t('workshops.doRanyPrzyloz.example')}</NoTopMarginText>
-                    <NoTopMarginText>{t('workshops.doRanyPrzyloz.forBeginners')}</NoTopMarginText>
-                    <NoTopMarginText>{t('workshops.doRanyPrzyloz.invite')}</NoTopMarginText>
                   </FlexColumnLayout>
                 </ScrollableContent>
               </Carousel.Caption>
