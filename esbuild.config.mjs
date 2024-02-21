@@ -20,15 +20,17 @@ export const config = {
       watch: true
     }),
     htmlPlugin({
-      files: [{
-        define: {
-          hash: new Date().getTime().toString(),
-        },
-        filename: 'index.html',
-        entryPoints,
-        htmlTemplate: 'public/index.html',
-        hash: true,
-      }],
+      files: [
+        {
+          define: {
+            hash: new Date().getTime().toString()
+          },
+          filename: 'index.html',
+          entryPoints,
+          htmlTemplate: 'public/index.html',
+          hash: true
+        }
+      ]
     })
   ],
   loader: {
