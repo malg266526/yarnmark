@@ -240,7 +240,7 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'S5',
           height: 4,
-          who: 'BawełnianyFilament & MalinowyKos',
+          who: 'Bawełniany Filament & Malinowy Kos',
           picture: {
             fallbackUrl: bawelnianyFilamentLogoUrl,
             sources: [
@@ -530,7 +530,7 @@ export const hallMapConfig: HallMapType = {
           height: 2,
           color: 'taken2',
           index: 'M2',
-          who: 'PaciorkowceIWisielce'
+          who: 'Paciorkowce I Wisielce'
         },
         {
           width: 3,
@@ -542,7 +542,7 @@ export const hallMapConfig: HallMapType = {
           height: 2,
           color: 'taken',
           index: 'M3',
-          who: 'NaSztukiStudio',
+          who: 'Na Sztuki Studio',
           picture: {
             fallbackUrl: naSztukiStudioLogoUrl
           }
@@ -552,7 +552,7 @@ export const hallMapConfig: HallMapType = {
           height: 2,
           color: 'taken2',
           index: 'M4',
-          who: 'TheKnittingBox',
+          who: 'The Knitting Box',
           picture: {
             fallbackUrl: theKnittingBoxLogoUrl
           }
@@ -577,7 +577,7 @@ export const hallMapConfig: HallMapType = {
           height: 2,
           color: 'taken',
           index: 'M6',
-          who: 'HankaMiZrobiła',
+          who: 'Hanka Mi Zrobiła',
           picture: {
             fallbackUrl: hankaMiZrobilaLogoUrl,
             sources: [
@@ -615,7 +615,7 @@ export const hallMapConfig: HallMapType = {
           height: 2,
           color: 'taken2',
           index: 'M7',
-          who: 'KnittedCoffee',
+          who: 'Knitted Coffee',
           picture: {
             fallbackUrl: knittedCoffeeLogoUrl,
             sources: [
@@ -893,14 +893,14 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           height: 4,
           index: 'S27',
-          who: 'FuroraYarns'
+          who: 'Furora Yarns'
         },
         {
           width: 2.5,
           color: 'taken',
           height: 4,
           index: 'S28',
-          who: 'FuroraYarns'
+          who: 'Furora Yarns'
         },
         {
           width: 2.5,

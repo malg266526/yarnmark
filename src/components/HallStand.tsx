@@ -35,7 +35,8 @@ const StandText = styled.h5`
 const StandIndex = styled.h4`
   text-align: center;
   margin: 0;
-  font-size: ${FontSize.md};
+  font-size: 10px; //${FontSize.xs};
+  overflow-wrap: anywhere;
 `;
 
 const HallStandOverlay = styled.div`
@@ -88,14 +89,14 @@ type HallStandProps = {
 
 export const HallStand = ({ stand, height }: HallStandProps) => {
   const isPhone = usePhone();
-  const multiplier = isPhone ? 13 : 20;
+  const multiplier = isPhone ? 13 : 24;
 
   return (
     <HallStandLayout width={stand.width} height={stand.height || height} color={stand.color} multiplier={multiplier}>
       {stand.who && <HallStandOverlay />}
 
       <div>
-        <StandIndex>{stand.index}</StandIndex>
+        <StandIndex>{stand.who}</StandIndex>
         <StandText>{stand.text}</StandText>
       </div>
 
@@ -106,8 +107,8 @@ export const HallStand = ({ stand, height }: HallStandProps) => {
         </TextWrapper>
       )}
 
-      <HallLogo picture={stand.picture} alt={stand.who} width={stand.extraPicture ? 22 : 36} />
-      {stand.extraPicture && <HallLogo picture={stand.extraPicture} alt={stand.who} width={22} />}
+      {/*  <HallLogo picture={stand.picture} alt={stand.who} width={stand.extraPicture ? 22 : 36} />
+      {stand.extraPicture && <HallLogo picture={stand.extraPicture} alt={stand.who} width={22} />} */}
     </HallStandLayout>
   );
 };
