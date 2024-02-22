@@ -137,15 +137,16 @@ export const hallMapConfig: HallMapType = {
       height: 5,
       stands: [
         {
-          width: 2,
+          width: 2.5,
           color: 'empty',
           text: 'Wejście'
         },
         {
-          width: 3,
-          color: 'premium',
-          index: 'P1',
-          height: 5
+          width: 2.5,
+          color: 'taken2',
+          index: 'S31',
+          height: 4,
+          who: 'Woolniej'
         },
         {
           width: 2.5,
