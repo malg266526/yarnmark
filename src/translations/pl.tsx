@@ -114,7 +114,8 @@ export const pl = {
       title: 'Harmonogram warsztatów',
       room1: 'Sala lustrzana',
       room2: 'Sala szermiercza',
-      room3: 'Sala konferencyjna'
+      room3: 'Sala konferencyjna',
+      soldOut: 'Wyprzedane'
     },
     infoForVendorsPage: {
       title: 'Informacje dla wystawców',

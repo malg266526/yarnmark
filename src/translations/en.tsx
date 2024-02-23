@@ -112,7 +112,8 @@ export const en: TranslationsShape = {
       title: 'Workshops schedule',
       room1: 'Mirrors room',
       room2: 'Fencing room',
-      room3: 'Conference room'
+      room3: 'Conference room',
+      soldOut: 'Sold out'
     },
     infoForVendorsPage: {
       title: 'Information for vendors',
