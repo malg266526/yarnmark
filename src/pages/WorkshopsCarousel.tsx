@@ -157,6 +157,40 @@ export const WorkshopsCarousel = () => {
             <Item>
               <Picture
                 picture={{
+                  fallbackUrl: ludArtUrl,
+                  sources: [
+                    {
+                      type: 'image/webp',
+                      url: ludArtUrlWebp
+                    },
+                    {
+                      type: 'image/avif',
+                      url: ludArtUrlAvif
+                    }
+                  ]
+                }}
+                alt="ludart"
+                width={180}
+                style={logoStyle}
+              />
+
+              <Carousel.Caption>
+                <Title>{t('workshops.colorfulEmbroidery')}</Title>
+                <h4>{t('workshops.colorfulEmbroideryInspirations')}</h4>
+                <NoTopMarginText>{t('workshops.tutor')} Lud-art</NoTopMarginText>
+
+                <ScrollableContent>
+                  <ResponsiveText>{t('workshops.ludartDescription')}</ResponsiveText>
+                  <NoTopMarginText>{t('workshops.ludartDescription2')}</NoTopMarginText>
+                </ScrollableContent>
+              </Carousel.Caption>
+            </Item>
+          </Carousel.Item>
+
+          <Carousel.Item>
+            <Item>
+              <Picture
+                picture={{
                   fallbackUrl: haftowaBabaUrl,
                   sources: [
                     {
@@ -190,40 +224,6 @@ export const WorkshopsCarousel = () => {
                     <NoTopMarginText>{t('workshops.haftowaBabaDescription3')}</NoTopMarginText>
                     <NoTopMarginText>{t('workshops.haftowaBabaDescription4')}</NoTopMarginText>
                   </FlexColumnLayout>
-                </ScrollableContent>
-              </Carousel.Caption>
-            </Item>
-          </Carousel.Item>
-
-          <Carousel.Item>
-            <Item>
-              <Picture
-                picture={{
-                  fallbackUrl: ludArtUrl,
-                  sources: [
-                    {
-                      type: 'image/webp',
-                      url: ludArtUrlWebp
-                    },
-                    {
-                      type: 'image/avif',
-                      url: ludArtUrlAvif
-                    }
-                  ]
-                }}
-                alt="ludart"
-                width={180}
-                style={logoStyle}
-              />
-
-              <Carousel.Caption>
-                <Title>{t('workshops.colorfulEmbroidery')}</Title>
-                <h4>{t('workshops.colorfulEmbroideryInspirations')}</h4>
-                <NoTopMarginText>{t('workshops.tutor')} Lud-art</NoTopMarginText>
-
-                <ScrollableContent>
-                  <ResponsiveText>{t('workshops.ludartDescription')}</ResponsiveText>
-                  <NoTopMarginText>{t('workshops.ludartDescription2')}</NoTopMarginText>
                 </ScrollableContent>
               </Carousel.Caption>
             </Item>

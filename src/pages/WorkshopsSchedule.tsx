@@ -121,6 +121,10 @@ const Text = styled.p`
   margin-bottom: 0;
 `;
 
+const SoldOutInfo = styled(Text)`
+  color: ${Colors.soldOutRed};
+`;
+
 const WorkshopLink = styled(Link)`
   font-size: ${FontSize.md};
   padding: 0;
@@ -386,12 +390,7 @@ export const WorkshopsSchedule = () => {
 
           <TextContent>
             <TextH2>{t('workshops.knitolog.topic')}</TextH2>
-            <Text>{t('workshops.price')}: 150zł</Text>
-            <WorkshopLink
-              to="https://wloczykijki.pl/pl/p/Warsztaty-Zaprojektuj-swoj-sweter-na-drutach-/2839"
-              target="_blank">
-              {t('workshops.buyTicket')}
-            </WorkshopLink>
+            <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
           </TextContent>
         </PlannerCard>
 

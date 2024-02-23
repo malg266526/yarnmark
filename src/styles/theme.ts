@@ -30,7 +30,9 @@ export const Colors = {
   snow: '#f9f9f9',
   linen: '#faf0e6',
 
-  pink: '#FF91A4'
+  pink: '#FF91A4',
+
+  soldOutRed: '#b20000'
 };
 
 export const Theme = {
