@@ -1,9 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { rgba } from 'polished';
+import knittingSvgUrl from '../assets/images/skein3.svg';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
-import knittingSvgUrl from '../assets/images/skein3.svg';
 
 type FrameWidth = `${number}${'px' | '%'}`;
 
