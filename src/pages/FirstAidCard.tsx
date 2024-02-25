@@ -13,13 +13,14 @@ import { Icon as IconifyIcon } from '@iconify/react';
 import firstAidIcon from './../assets/backgrounds/firstAid.svg';
 import { ScreenSize } from '../styles/screeen-size';
 import { useTablet } from './usePhone';
+import { DropShadow, Radius } from '../styles/cards';
 
 const Root = styled.div`
   display: flex;
   z-index: 1;
   background-color: white;
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
+  box-shadow: ${DropShadow.md};
+  border-radius: ${Radius.lg};
   width: 600px;
   height: 600px;
   position: relative;

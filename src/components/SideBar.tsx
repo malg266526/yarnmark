@@ -22,7 +22,6 @@ const Link = styled(HashLink)`
   &:hover {
     cursor: pointer;
     color: ${Colors.goldLight};
-    /* background: linear-gradient(90deg, rgba(44, 82, 155, 1) 0%, rgba(255, 255, 255, 0) 80%); */
   }
 `;
 

@@ -618,7 +618,7 @@ export const MainPage = () => {
         padding="xl"
         align="center"
         direction="column">
-        <TextWrapper align="center">
+        <TextWrapper align="center" marginBottom="lg">
           <Title>{t('scheduleBand.title')}</Title>
         </TextWrapper>
 

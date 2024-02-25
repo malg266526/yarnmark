@@ -39,6 +39,7 @@ import { RowLayout } from '../components/RowLayout';
 import { FontSize } from '../styles/font-size';
 import { ScreenSize } from '../styles/screeen-size';
 import { usePhone, useTablet } from './usePhone';
+import { DropShadow, Radius } from '../styles/cards';
 
 export const Title = styled.h3`
   font-size: ${FontSize.xl};
@@ -49,7 +50,7 @@ export const Title = styled.h3`
 const Root = styled.div`
   display: inline-block;
   width: 90%;
-  box-shadow: 2px 2px 15px 0px rgba(121, 59, 59, 0.25);
+  box-shadow: ${DropShadow.md};
   border: 1px solid darkgray;
   align-self: center;
   background-color: white;
@@ -63,7 +64,7 @@ const Item = styled.div`
   min-height: 600px;
   background-color: white;
   color: black;
-  border-radius: 4px;
+  border-radius: ${Radius.lg};
   padding: ${Spacings.lg} ${Spacings.md} ${Spacings.md} ${Spacings.md};
   align-items: center;
   position: relative;
@@ -123,10 +124,11 @@ const ScrollableContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-height: 500px;
+  overflow-y: auto;
 
   @media (max-width: ${ScreenSize.smallPc}) {
-    height: 300px;
-    overflow-y: auto;
+    max-height: 300px;
   }
 `;
 
@@ -142,7 +144,7 @@ export const WorkshopsCarousel = () => {
     left: '50%',
     transform: 'translateX(-50%)'
   };
-  const logoStyle = isTablet ? mobileStyle : { opacity: '0.45' };
+  const logoStyle = isTablet ? mobileStyle : { opacity: 0.9 };
 
   return (
     <BlobBackground>
