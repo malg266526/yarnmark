@@ -40,6 +40,7 @@ import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 import ewaUrlAvif from './../assets/images/workshops/ewa.avif';
 import ewaUrl from './../assets/images/workshops/ewa.jpg';
+import { DropShadow, Radius } from '../styles/cards';
 
 const responsive = {
   superLargeDesktop: {
@@ -77,12 +78,12 @@ type WorkshopRoom = 1 | 2 | 3;
 const PlannerCard = styled.div`
   display: flex;
   flex-direction: column;
-  border-radius: 4px;
+  border-radius: ${Radius.lg};
   align-items: center;
   border: 2px solid darkgray;
   margin-top: ${Spacings.md};
   position: relative;
-  box-shadow: 2px 2px 15px 0px rgba(121, 59, 59, 0.25);
+  box-shadow: ${DropShadow.md};
   width: 300px;
   height: 360px;
   justify-content: space-between;
@@ -100,6 +101,7 @@ const TextContent = styled.div`
   justify-content: space-around;
   width: 100%;
   padding-bottom: ${Spacings.md};
+  border-radius: ${Radius.lg};
   align-items: center;
 `;
 
