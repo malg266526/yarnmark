@@ -1,8 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 import styled, { css } from 'styled-components';
-import { Spacings } from '../styles/spacings';
-import { Colors } from '../styles/theme';
 import { DropShadow, Radius } from '../styles/cards';
+import { Spacings } from '../styles/spacings';
 
 export interface TabRootProps {
   active?: boolean;
@@ -16,7 +15,6 @@ const TabRoot = styled.div<{ active?: boolean }>`
   padding: ${Spacings.sm};
   cursor: pointer;
 
-  background: white;
   border-radius: 4px;
 
   border-top: 2px solid transparent;
@@ -33,9 +31,8 @@ const TabRoot = styled.div<{ active?: boolean }>`
   ${({ active }) =>
     active &&
     css`
-      border-color: ${Colors.chocolate};
-      background: ${Colors.veryLightGray};
-      border-bottom: 1px solid darkgray;
+      background: white;
+      border-bottom: 2px solid darkgray;
     `};
 `;
 

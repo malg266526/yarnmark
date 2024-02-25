@@ -2,23 +2,15 @@ export const Colors = {
   text: '#151414',
 
   gold: 'gold',
-
-  honeyMustard: '#ae8d4a', //174,141,74
-  spruce: '#095e41', // 9, 94, 65
   goldLight: '#c3a25d',
+
   pinball: '#d3d3d3',
   white: 'white',
   ruinedSmores: '#0f0e17',
-  yellow: '#ffbb2e',
-
-  green1: '#216f16',
-  green2: 'rgb(197, 255, 201)',
-  green3: '#084400',
   grayLight: '#f9f9f9',
 
   veryLightWarm: '#FDF0E4',
   veryLightGray: '#f4f4f4',
-  chocolate: '#5e5349',
 
   beige1: '#dac9bd',
   beige2: '#b9aa9d',
@@ -28,11 +20,30 @@ export const Colors = {
   pastelGray: '#d7c9c0',
   isabelline: '#f7f0f0',
   snow: '#f9f9f9',
+  darkSnow: '#ECEBEB',
   linen: '#faf0e6',
 
   pink: '#FF91A4',
 
   soldOutRed: '#b20000'
+};
+
+export const TextColors = {
+  primary: '#151414',
+  secondary: '#793B3B'
+};
+
+export const BrownScale = {
+  50: '#FFFDFC',
+  100: '#FDF0E4',
+  200: '#E6D8CC',
+  300: '#D0C1B4',
+  400: '#B9AA9D',
+  500: '#A29487',
+  600: '#8C7E72',
+  700: '#75685D',
+  800: '#5E5349',
+  900: '#483E36'
 };
 
 export const Theme = {

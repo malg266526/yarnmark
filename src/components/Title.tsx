@@ -2,7 +2,11 @@ import styled, { css } from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { FontSize } from '../styles/font-size';
 
-export const TextWrapper = styled.div<{ align?: 'center' | 'left' | 'center'; marginTop?: keyof typeof Spacings }>`
+export const TextWrapper = styled.div<{
+  align?: 'center' | 'left' | 'center';
+  marginTop?: keyof typeof Spacings;
+  marginBottom?: keyof typeof Spacings;
+}>`
   ${({ align }) =>
     align &&
     css`
@@ -13,6 +17,12 @@ export const TextWrapper = styled.div<{ align?: 'center' | 'left' | 'center'; ma
     marginTop &&
     css`
       margin-top: ${Spacings[marginTop]};
+    `};
+
+  ${({ marginBottom }) =>
+    marginBottom &&
+    css`
+      margin-bottom: ${Spacings[marginBottom]};
     `};
 `;
 
