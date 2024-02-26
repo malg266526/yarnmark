@@ -453,7 +453,7 @@ export const Drawer = styled.div<{ isOpen: boolean }>`
   justify-content: space-between;
   flex-direction: column;
   padding: ${Spacings.md};
-  transition: all 0.7s ease;
+  transition: all 0.7s ease-in-out;
 
   transform: ${({ isOpen }) => (isOpen ? `translateX(100%)` : undefined)};
 `;
