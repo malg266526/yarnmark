@@ -179,7 +179,7 @@ export const MobilePicture = styled.picture`
   }
 `;
 
-export const Picture = styled.picture<{ clipped?: boolean }>`
+export const MainBackground = styled.picture<{ clipped?: boolean }>`
   position: absolute;
   left: 0;
   top: 0;

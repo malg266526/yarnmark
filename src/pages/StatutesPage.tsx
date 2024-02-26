@@ -20,7 +20,7 @@ import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.j
 import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
 import { StyledPageContent } from './InfoForVendorsPage.styled';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { Menu, MenuBackground, Picture } from './MainPage.styled';
+import { Menu, MenuBackground, MainBackground } from './MainPage.styled';
 import { usePhone } from './usePhone';
 
 const StatuteTitle = styled(Title)`
@@ -114,10 +114,10 @@ export const StatutesPage = () => {
       )}
 
       <Band size="sm" justify="flex-start" narrowContent="auto" padding="md">
-        <Picture>
+        <MainBackground>
           <source srcSet={woolsAvifLandscape} type="image/avif" />
           <img src={woolsWebpLandscape} alt="wool" />
-        </Picture>
+        </MainBackground>
 
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
