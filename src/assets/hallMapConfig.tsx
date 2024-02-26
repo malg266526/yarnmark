@@ -20,6 +20,10 @@ import brioszkaLogoUrl from './../assets/images/minifiedLogos/brioszka.png';
 import brioszkaLogoUrlAvif from './../assets/images/minifiedLogos/brioszka.avif';
 import brioszkaLogoUrlWebp from './../assets/images/minifiedLogos/brioszka.webp';
 
+import coloridoLogoUrl from './../assets/images/minifiedLogos/colorido.avif';
+import coloridoLogoUrlAvif from './../assets/images/minifiedLogos/colorido.avif';
+import coloridoLogoUrlWebp from './../assets/images/minifiedLogos/colorido.webp';
+
 import dyeDyeDoneLogoUrlAvif from './../assets/images/minifiedLogos/dyedyedone.avif';
 import dyeDyeDoneLogoUrl from './../assets/images/minifiedLogos/dyedyedone.png';
 import dyeDyeDoneLogoUrlWebp from './../assets/images/minifiedLogos/dyedyedone.webp';
@@ -71,6 +75,10 @@ import motkomaniaLogoUrlAvif from './../assets/images/minifiedLogos/motkomania.a
 import motkomaniaLogoUrlWebp from './../assets/images/minifiedLogos/motkomania.webp';
 
 import naSztukiStudioLogoUrl from './../assets/images/minifiedLogos/nasztukistudio.png';
+
+import paciorkowceLogoUrl from './../assets/images/minifiedLogos/paciorkowce.jpg';
+import paciorkowceLogoUrlAvif from './../assets/images/minifiedLogos/paciorkowce.avif';
+import paciorkowceLogoUrlWebp from './../assets/images/minifiedLogos/paciorkowce.webp';
 
 import pimotkiLogoUrl from './../assets/images/minifiedLogos/pimotki.png';
 
@@ -530,7 +538,20 @@ export const hallMapConfig: HallMapType = {
           height: 2,
           color: 'taken2',
           index: 'M2',
-          who: 'PaciorkowceIWisielce'
+          who: 'PaciorkowceIWisielce',
+          picture: {
+            fallbackUrl: paciorkowceLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: paciorkowceLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: paciorkowceLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 3,
@@ -879,7 +900,20 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           height: 4,
           index: 'S25',
-          who: 'Colorido'
+          who: 'Colorido',
+          picture: {
+            fallbackUrl: coloridoLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: coloridoLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: coloridoLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 2.5,
