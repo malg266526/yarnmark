@@ -20,6 +20,10 @@ import brioszkaLogoUrl from './../assets/images/minifiedLogos/brioszka.png';
 import brioszkaLogoUrlAvif from './../assets/images/minifiedLogos/brioszka.avif';
 import brioszkaLogoUrlWebp from './../assets/images/minifiedLogos/brioszka.webp';
 
+import coloridoLogoUrl from './../assets/images/minifiedLogos/colorido.avif';
+import coloridoLogoUrlAvif from './../assets/images/minifiedLogos/colorido.avif';
+import coloridoLogoUrlWebp from './../assets/images/minifiedLogos/colorido.webp';
+
 import dyeDyeDoneLogoUrlAvif from './../assets/images/minifiedLogos/dyedyedone.avif';
 import dyeDyeDoneLogoUrl from './../assets/images/minifiedLogos/dyedyedone.png';
 import dyeDyeDoneLogoUrlWebp from './../assets/images/minifiedLogos/dyedyedone.webp';
@@ -71,6 +75,10 @@ import motkomaniaLogoUrlAvif from './../assets/images/minifiedLogos/motkomania.a
 import motkomaniaLogoUrlWebp from './../assets/images/minifiedLogos/motkomania.webp';
 
 import naSztukiStudioLogoUrl from './../assets/images/minifiedLogos/nasztukistudio.png';
+
+import paciorkowceLogoUrl from './../assets/images/minifiedLogos/paciorkowce.jpg';
+import paciorkowceLogoUrlAvif from './../assets/images/minifiedLogos/paciorkowce.avif';
+import paciorkowceLogoUrlWebp from './../assets/images/minifiedLogos/paciorkowce.webp';
 
 import siedemOczekLogoUrl from './../assets/images/minifiedLogos/7oczek.jpg';
 import siedemOczekLogoUrlAvif from './../assets/images/minifiedLogos/7oczek.avif';
@@ -200,6 +208,26 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: brioszkaLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://colorido.sklep.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={100}
+          alt="colorido"
+          picture={{
+            fallbackUrl: coloridoLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: coloridoLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: coloridoLogoUrlAvif
               }
             ]
           }}
@@ -452,6 +480,26 @@ export const VendorsList = () => {
 
       <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
         <img width={100} src={naSztukiStudioLogoUrl} alt="nasztukistudio_logo" />
+      </Link>
+
+      <Link to="https://www.facebook.com/paciorkowceiwisielce/" target="_blank" rel="noreferrer">
+        <Picture
+          width={84}
+          alt="paciorkowceiwisielce_logo"
+          picture={{
+            fallbackUrl: paciorkowceLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: paciorkowceLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: paciorkowceLogoUrlAvif
+              }
+            ]
+          }}
+        />
       </Link>
 
       <Link to="https://pimotki.pl/" target="_blank" rel="noreferrer">
