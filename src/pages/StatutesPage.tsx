@@ -1,13 +1,19 @@
+import { Icon as IconifyIcon } from '@iconify/react';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Header } from '../App.styled';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import { Band } from '../components/Band';
+import { BurgerMenu } from '../components/BurgerMenu';
+import { Curtain } from '../components/Curtain';
 import { Link } from '../components/Link';
 import { NiceBox } from '../components/NiceBox';
+import { SideBar } from '../components/SideBar';
 import { TextWrapper, Title } from '../components/Title';
+import { FontSize } from '../styles/font-size';
 import { Spacings } from '../styles/spacings';
-import { Colors } from '../styles/theme';
+import { BrownScale } from '../styles/theme';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import sweatersBackgroundUrlAvif from './../assets/backgrounds/sweaters_background.avif';
 import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.jpg';
@@ -16,12 +22,6 @@ import { StyledPageContent } from './InfoForVendorsPage.styled';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { Menu, MenuBackground, Picture } from './MainPage.styled';
 import { usePhone } from './usePhone';
-import { Curtain } from '../components/Curtain';
-import { SideBar } from '../components/SideBar';
-import { Header } from '../App.styled';
-import { BurgerMenu } from '../components/BurgerMenu';
-import { Icon as IconifyIcon } from '@iconify/react';
-import { FontSize } from '../styles/font-size';
 
 const StatuteTitle = styled(Title)`
   font-size: ${FontSize.xl};
@@ -128,7 +128,13 @@ export const StatutesPage = () => {
         </Band.Slot>
       </Band>
 
-      <Band size="lg" justify="flex-start" narrowContent="auto" padding="lg" variant="background" color={Colors.linen}>
+      <Band
+        size="lg"
+        justify="flex-start"
+        narrowContent="auto"
+        padding="lg"
+        variant="background"
+        color={BrownScale[100]}>
         <Card>
           <TextWrapper>
             <StatuteTitle>Regulamin Krakoskiego Yarnmarku Wełny</StatuteTitle>

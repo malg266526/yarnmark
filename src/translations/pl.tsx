@@ -283,6 +283,9 @@ export const pl = {
         invite:
           'Na zajęcia zapraszam także każdego, kto potrzebuje więcej kreatywności w swoim życiu, albo po prostu chciałby miło spędzić czas.'
       }
+    },
+    firstAidBand: {
+      saveTheLife: 'Już teraz możesz uratować czyjeś życie'
     }
   }
 };

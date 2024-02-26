@@ -1,19 +1,18 @@
+import { Icon as IconifyIcon } from '@iconify/react';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Text } from './MainPage.styled';
+import { Picture } from '../components/Picture';
+import { Title } from '../components/Title';
+import { TransparentButton } from '../components/TransparentButton';
+import { DropShadow, Radius } from '../styles/cards';
+import { ScreenSize } from '../styles/screeen-size';
 import { Spacings } from '../styles/spacings';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import PierwszaPomocUrlAvif from './../assets/images/workshops/pierwszapomoc.avif';
 import PierwszaPomocUrl from './../assets/images/workshops/pierwszapomoc.jpg';
 import PierwszaPomocUrlWebp from './../assets/images/workshops/pierwszapomoc.webp';
-import { Picture } from '../components/Picture';
-import { Title } from '../components/Title';
-import { TransparentButton } from '../components/TransparentButton';
-import { Icon as IconifyIcon } from '@iconify/react';
-import firstAidIcon from './../assets/backgrounds/firstAid.svg';
-import { ScreenSize } from '../styles/screeen-size';
+import { Text } from './MainPage.styled';
 import { useTablet } from './usePhone';
-import { DropShadow, Radius } from '../styles/cards';
 
 const Root = styled.div`
   display: flex;
@@ -125,7 +124,6 @@ export const FirstAidCard = () => {
             width={isTablet ? 180 : 100}
             style={logoStyle}
           />
-          <TransparentIcon src={firstAidIcon} width={160} alt="first_aid_icon" />
 
           <TextWrapper>
             <Title>{t('workshops.firstAid')}</Title>

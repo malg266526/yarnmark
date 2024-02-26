@@ -45,6 +45,10 @@ import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import woolsJpgLandscape from '../assets/images/wools2_landscape.jpg';
 
+import olaImageUrlAvif from '../assets/images/pomagamOli.avif';
+import olaImageUrlWebp from '../assets/images/pomagamOli.webp';
+import olaImageUrlJpg from '../assets/images/pomagamOli.jpg';
+
 import { Icon } from '../components/Icon';
 
 import { Band } from '../components/Band';
@@ -69,7 +73,7 @@ import { SubTitle, TextWrapper, Title } from '../components/Title';
 import { VendorsList } from './VendorsList';
 import { WorkshopsCarousel } from './WorkshopsCarousel';
 import { WorkshopsSchedule } from './WorkshopsSchedule';
-import { Colors } from '../styles/theme';
+import { BrownScale, Colors } from '../styles/theme';
 import {
   // ActiveImage,
   AnimatedIconWrapper,
@@ -77,6 +81,7 @@ import {
   BackgroundImage,
   ButtonsLayout,
   CenteredTitle,
+  Drawer,
   LinkWrapper,
   // ButtonsWrapper,
   // CenteredTitle,
@@ -99,7 +104,7 @@ import {
   Typography
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
-import { Picture as DragonPicture } from '../components/Picture';
+import { Picture as OptimalPicture } from '../components/Picture';
 
 // import { FlexColumnLayout } from '../components/FlexColumnLayout';
 
@@ -111,6 +116,7 @@ import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
 import { Carouselge } from '../components/Carouselge';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { CruiseMap } from '../components/CruiseMap';
+import { TransparentButton } from '../components/TransparentButton';
 
 // type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
@@ -197,6 +203,7 @@ export const MainPage = () => {
   //  const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
 
   const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
+  const [isOlaDrawerOpened, setIsOlaDrawerOpened] = useState<boolean>(false);
 
   // const activeButtonToImage = getActiveButtonToImage(t);
 
@@ -497,7 +504,7 @@ export const MainPage = () => {
                 <Text>DziergamyNaPolu x Włóczykijki</Text>
               </div>
 
-              <DragonPicture
+              <OptimalPicture
                 picture={{
                   fallbackUrl: yarnmarkLogoSrc,
                   sources: [
@@ -598,12 +605,61 @@ export const MainPage = () => {
         flexWrap="wrap"
         variant="background"
         justify="space-around"
-        color={Colors.linen}
+        color={BrownScale[100]}
         padding="xl">
-        <Paragraph>
-          <h2>"{t('workshops.firstAidQuote')}"</h2>
-          <h3>Thomas Keneally</h3>
-        </Paragraph>
+        <Drawer isOpen={isOlaDrawerOpened}>
+          <TransparentButton onClick={() => setIsOlaDrawerOpened(false)}>
+            <IconifyIcon icon="mingcute:close-fill" />
+          </TransparentButton>
+
+          <OptimalPicture
+            picture={{
+              fallbackUrl: olaImageUrlJpg,
+              sources: [
+                {
+                  type: 'image/webp',
+                  url: olaImageUrlWebp
+                },
+                {
+                  type: 'image/avif',
+                  url: olaImageUrlAvif
+                }
+              ]
+            }}
+            alt="yarnmark_logo"
+            width={320}
+            style={{ alignSelf: 'center' }}
+          />
+        </Drawer>
+
+        <FlexColumnLayout padding="none" gap="none">
+          <Paragraph>
+            <RowLayout>
+              <TransparentButton onClick={() => setIsOlaDrawerOpened(true)}>
+                <IconifyIcon icon="noto:sos-button" width="88" />
+              </TransparentButton>
+
+              <FlexColumnLayout padding="xs" gap="none" align="flex-start">
+                <Text marginTop="xs">{t('firstAidBand.saveTheLife')}</Text>
+
+                <IconifyIcon
+                  icon="fluent:arrow-reply-20-filled"
+                  width="40"
+                  color="#cf4a4a"
+                  style={{
+                    transform: 'scaleY(-1)',
+                    marginLeft: '18px'
+                  }}
+                />
+              </FlexColumnLayout>
+            </RowLayout>
+          </Paragraph>
+
+          <Paragraph>
+            <h4>"{t('workshops.firstAidQuote')}"</h4>
+            <h5>Thomas Keneally</h5>
+          </Paragraph>
+        </FlexColumnLayout>
 
         <BackgroundIcon src={firstAidIcon} width={500} />
         <FirstAidCard />
