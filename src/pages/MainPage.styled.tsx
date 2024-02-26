@@ -443,7 +443,7 @@ export const LinkWrapper = styled.div`
 export const Drawer = styled.div<{ isOpen: boolean }>`
   position: absolute;
   top: ${Spacings.xl};
-  left: -368px;
+  left: 0;
   background-color: white;
   z-index: 2;
   box-shadow: ${DropShadow.md};
@@ -455,5 +455,5 @@ export const Drawer = styled.div<{ isOpen: boolean }>`
   padding: ${Spacings.md};
   transition: all 0.7s ease-in-out;
 
-  transform: ${({ isOpen }) => (isOpen ? `translateX(100%)` : undefined)};
+  transform: ${({ isOpen }) => (isOpen ? `translateX(0)` : `translateX(-100%)`)};
 `;
