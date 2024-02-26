@@ -278,6 +278,9 @@ export const en: TranslationsShape = {
           'The workshops are aimed at beginners, so you can be sure that you will receive very detailed instructions and you will definitely learn how to weave. Then your imagination will suggest further projects, because I am sure that you will not end with one macrame (your loved ones will also want to have one!)',
         invite: "I'm inviting anyone who needs more creativity in their life or just want to have a nice time."
       }
+    },
+    firstAidBand: {
+      saveTheLife: 'You can save life right now'
     }
   }
 };

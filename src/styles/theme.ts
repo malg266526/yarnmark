@@ -9,9 +9,6 @@ export const Colors = {
   ruinedSmores: '#0f0e17',
   grayLight: '#f9f9f9',
 
-  veryLightWarm: '#FDF0E4',
-  veryLightGray: '#f4f4f4',
-
   beige1: '#dac9bd',
   beige2: '#b9aa9d',
   red1: '#b77866',
@@ -20,10 +17,6 @@ export const Colors = {
   pastelGray: '#d7c9c0',
   isabelline: '#f7f0f0',
   snow: '#f9f9f9',
-  darkSnow: '#ECEBEB',
-  linen: '#faf0e6',
-
-  pink: '#FF91A4',
 
   soldOutRed: '#b20000'
 };
