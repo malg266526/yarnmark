@@ -21,14 +21,14 @@ import ticketJpgSrc from '../assets/images/ticket.jpg';
 // import bigShopImageUrl from '../assets/iconify/bigshop.svg';
 // import burgerImageUrl from '../assets/iconify/burger.svg';
 // import coffeeImageUrl from '../assets/iconify/coffee.svg';
-import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
+import pinBlackImageUrl from '../assets/icons/iconify/pinBlack.svg';
 // import pizzaImageUrl from '../assets/iconify/pizza.svg';
 // import pretzelImageUrl from '../assets/iconify/pretzel.svg';
-import shopImageUrl from '../assets/iconify/shop.svg';
+import shopImageUrl from '../assets/icons/iconify/shop.svg';
 // import shrimpImageUrl from '../assets/iconify/shrimp.svg';
 // import soupImageUrl from '../assets/iconify/soup.svg';
-import ticketImageUrl from '../assets/iconify/ticket.svg';
-import ferryImageUrl from '../assets/iconify/ferry.svg';
+import ticketImageUrl from '../assets/icons/iconify/ticket.svg';
+import ferryImageUrl from '../assets/icons/iconify/ferry.svg';
 
 import knitting2ImageUrl from '../assets/images/knitting2.svg';
 import pinImageUrl from '../assets/images/pin.svg';
