@@ -20,7 +20,7 @@ import brioszkaLogoUrl from './../assets/images/minifiedLogos/brioszka.png';
 import brioszkaLogoUrlAvif from './../assets/images/minifiedLogos/brioszka.avif';
 import brioszkaLogoUrlWebp from './../assets/images/minifiedLogos/brioszka.webp';
 
-import coloridoLogoUrl from './../assets/images/minifiedLogos/colorido.avif';
+import coloridoLogoUrl from './../assets/images/minifiedLogos/colorido.jpg';
 import coloridoLogoUrlAvif from './../assets/images/minifiedLogos/colorido.avif';
 import coloridoLogoUrlWebp from './../assets/images/minifiedLogos/colorido.webp';
 

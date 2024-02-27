@@ -1,9 +1,9 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
-import emailImageUrl from './assets/iconify/email.svg';
-import instagramImageUrl from './assets/iconify/instagram.svg';
-import talkImageUrl from './assets/iconify/talk.svg';
+import emailImageUrl from './assets/icons/iconify/email.svg';
+import instagramImageUrl from './assets/icons/iconify/instagram.svg';
+import talkImageUrl from './assets/icons/iconify/talk.svg';
 import { TextWrapper, Title } from './components/Title';
 import { Icon } from './components/Icon';
 import { MinimalistLayout } from './components/MinimalistLayout';
