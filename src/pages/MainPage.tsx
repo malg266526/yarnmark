@@ -112,7 +112,7 @@ import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.j
 import sweatersBackgroundUrlAvif from './../assets/backgrounds/sweaters_background.avif';
 import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
 
-import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
+import firstAidIcon from './../assets/icons/firstAid_woman.svg';
 import { Carouselge } from '../components/Carouselge';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { CruiseMap } from '../components/CruiseMap';

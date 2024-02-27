@@ -12,6 +12,7 @@ import styled, { css } from 'styled-components';
 import { Icon as IconifyIcon } from '@iconify/react';
 import skeinIconSrc from '../assets/images/skein3.svg';
 import { Spacings } from '../styles/spacings';
+import { Radius } from '../styles/cards';
 
 type VisibleIndex = {
   index: number;
@@ -240,6 +241,7 @@ const ItemRoot = styled.div<{ icon?: boolean }>`
   box-shadow: 8px 8px 14px 0px rgba(66, 68, 90, 1);
   padding: ${Spacings.md};
   word-break: break-word;
+  border-radius: ${Radius.md};
   -webkit-backface-visibility: hidden;
 
   ${({ icon }) =>
