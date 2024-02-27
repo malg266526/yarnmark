@@ -21,16 +21,16 @@ import ticketJpgSrc from '../assets/images/ticket.jpg';
 // import bigShopImageUrl from '../assets/iconify/bigshop.svg';
 // import burgerImageUrl from '../assets/iconify/burger.svg';
 // import coffeeImageUrl from '../assets/iconify/coffee.svg';
-import pinBlackImageUrl from '../assets/icons/iconify/pinBlack.svg';
+import pinBlackImageUrl from '../assets/icons/icon_map_marker.svg';
 // import pizzaImageUrl from '../assets/iconify/pizza.svg';
 // import pretzelImageUrl from '../assets/iconify/pretzel.svg';
-import shopImageUrl from '../assets/icons/iconify/shop.svg';
+import shopImageUrl from '../assets/icons/icon_store.svg';
 // import shrimpImageUrl from '../assets/iconify/shrimp.svg';
 // import soupImageUrl from '../assets/iconify/soup.svg';
-import ticketImageUrl from '../assets/icons/iconify/ticket.svg';
-import ferryImageUrl from '../assets/icons/iconify/ferry.svg';
+import ticketImageUrl from '../assets/icons/emoji_admission_tickets.svg';
+import ferryImageUrl from '../assets/icons/emoji_ship.svg';
 
-import knitting2ImageUrl from '../assets/images/knitting2.svg';
+import sheepImageUrl from '../assets/images/sheep.svg';
 import pinImageUrl from '../assets/images/pin.svg';
 
 import halaAvifImageSrc from '../assets/images/hala.avif';
@@ -286,21 +286,21 @@ export const MainPage = () => {
         <FunnyButton
           mobileSlot={t('buttonsBand.tickets.mobileTitle')}
           ref={ticketsFunnyButtonRef}
-          icon={<Icon size="xl" zIndex={0} src={ticketImageUrl} />}
+          icon={<Icon size="44px" zIndex={0} src={ticketImageUrl} />}
           text={t('buttonsBand.tickets.text')}
           onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}
         />
         <FunnyButton
           mobileSlot={t('buttonsBand.vendors.mobileTitle')}
           ref={vendorsFunnyButtonRef}
-          icon={<Icon size="xl" zIndex={0} src={shopImageUrl} />}
+          icon={<Icon size="44px" zIndex={0} src={shopImageUrl} />}
           text={t('buttonsBand.vendors.text')}
           onClick={() => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
         />
         <FunnyButton
           mobileSlot={t('buttonsBand.location.mobileTitle')}
           ref={geoFunnyButtonRef}
-          icon={<Icon size="xl" zIndex={0} src={pinBlackImageUrl} />}
+          icon={<Icon size="44px" zIndex={0} src={pinBlackImageUrl} />}
           text={t('buttonsBand.location.text')}
           onClick={() => spotBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
         />
@@ -313,7 +313,7 @@ export const MainPage = () => {
         <FunnyButton
           mobileSlot={t('buttonsBand.cruiseButton')}
           ref={shipFunnyButtonRef}
-          icon={<Icon size="xl" zIndex={0} src={ferryImageUrl} />}
+          icon={<Icon size="44px" zIndex={0} src={ferryImageUrl} />}
           text={t('buttonsBand.cruiseButton')}
           onClick={() => cruiseTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
         />
@@ -527,13 +527,13 @@ export const MainPage = () => {
       </Band>
 
       {isPhone ? (
-        <MobileBasicInfoSection zIndex={1} backgroundUrl={knitting2ImageUrl}>
+        <MobileBasicInfoSection zIndex={1} backgroundUrl={sheepImageUrl}>
           {mobileInfoSection}
           {infoSectionButtons}
         </MobileBasicInfoSection>
       ) : (
         <Band size="md" variant="background" color={Colors.pastelGray} padding="xl" narrowContent="fixed">
-          <BackgroundImage src={knitting2ImageUrl} alt="wool_skeins_background" />
+          <BackgroundImage src={sheepImageUrl} alt="wool_skeins_background" />
 
           <SectionWrapper>
             {pcInfoSection}

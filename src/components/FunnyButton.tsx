@@ -30,7 +30,7 @@ export const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid black;
+  // border: 2px solid black;
   padding: ${Spacings.sm};
   border-radius: 50%;
 `;
@@ -96,16 +96,12 @@ const Root = styled.div<{ active?: boolean }>`
   }
 `;
 
-const MobileSlot = styled.div`
+/* const MobileSlot = styled.div`
   margin-bottom: ${Spacings.xs};
   display: block;
   text-align: center;
   width: 120px;
-
-  /*   @media (max-width: ${ScreenSize.phone}) {
-    display: block;
-  } */
-`;
+`; */
 
 export interface FunnyButtonProps {
   icon: React.ReactNode;
@@ -116,15 +112,14 @@ export interface FunnyButtonProps {
 }
 
 // eslint-disable-next-line react/display-name
-export const FunnyButton = React.forwardRef<HTMLDivElement, FunnyButtonProps>(
-  ({ icon, onClick, active, mobileSlot }, ref) => (
-    <div>
-      <Root onClick={onClick} active={active} ref={ref}>
-        <IconWrapper2>
-          <IconWrapper>{icon}</IconWrapper>
-        </IconWrapper2>
+export const FunnyButton = React.forwardRef<HTMLDivElement, FunnyButtonProps>(({ icon, onClick, active }, ref) => (
+  <div>
+    <Root onClick={onClick} active={active} ref={ref}>
+      <IconWrapper2>
+        <IconWrapper>{icon}</IconWrapper>
+      </IconWrapper2>
 
-        {/*         {text && (
+      {/*         {text && (
           <TextWrapper>
             <KnittingIconWrapper>
               <Icon size="xl" src={knittingImageUrl} />
@@ -132,9 +127,8 @@ export const FunnyButton = React.forwardRef<HTMLDivElement, FunnyButtonProps>(
             {text}
           </TextWrapper>
         )} */}
-      </Root>
+    </Root>
 
-      <MobileSlot>{mobileSlot}</MobileSlot>
-    </div>
-  )
-);
+    {/* <MobileSlot>{mobileSlot}</MobileSlot> */}
+  </div>
+));

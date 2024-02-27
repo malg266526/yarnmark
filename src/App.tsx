@@ -1,8 +1,8 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
-import emailImageUrl from './assets/icons/iconify/email.svg';
-import instagramImageUrl from './assets/icons/iconify/instagram.svg';
+import emailImageUrl from './assets/icons/icon_email.svg';
+import instagramImageUrl from './assets/icons/icon_instagram.svg';
 import talkImageUrl from './assets/icons/iconify/talk.svg';
 import { TextWrapper, Title } from './components/Title';
 import { Icon } from './components/Icon';
