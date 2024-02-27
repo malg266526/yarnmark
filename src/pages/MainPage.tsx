@@ -95,7 +95,7 @@ import {
   MobilePicture,
   Paragraph,
   // PhotosLayout,
-  Picture,
+  MainBackground,
   SecondaryButton,
   SectionWrapper,
   StyledPageContent,
@@ -104,7 +104,7 @@ import {
   Typography
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
-import { Picture as OptimalPicture } from '../components/Picture';
+import { Picture } from '../components/Picture';
 
 // import { FlexColumnLayout } from '../components/FlexColumnLayout';
 
@@ -480,11 +480,11 @@ export const MainPage = () => {
       )}
 
       <Band size="xl" padding="xl" justify="flex-start">
-        <Picture>
+        <MainBackground>
           <source srcSet={woolsAvifLandscape} type="image/avif" />
           <source srcSet={woolsWebpLandscape} type="image/webp" />
           <img src={woolsJpgLandscape} alt="wool" />
-        </Picture>
+        </MainBackground>
 
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg" marginTop="lg">
@@ -504,7 +504,7 @@ export const MainPage = () => {
                 <Text>DziergamyNaPolu x Włóczykijki</Text>
               </div>
 
-              <OptimalPicture
+              <Picture
                 picture={{
                   fallbackUrl: yarnmarkLogoSrc,
                   sources: [
@@ -612,7 +612,7 @@ export const MainPage = () => {
             <IconifyIcon icon="mingcute:close-fill" />
           </TransparentButton>
 
-          <OptimalPicture
+          <Picture
             picture={{
               fallbackUrl: olaImageUrlJpg,
               sources: [
@@ -636,7 +636,13 @@ export const MainPage = () => {
           <Paragraph>
             <RowLayout>
               <TransparentButton onClick={() => setIsOlaDrawerOpened(true)}>
-                <IconifyIcon icon="noto:sos-button" width="88" />
+                <IconifyIcon
+                  icon="noto:sos-button"
+                  width="88"
+                  style={{
+                    filter: 'drop-shadow(2px 2px 15px rgba(255, 71, 62, 0.7))'
+                  }}
+                />
               </TransparentButton>
 
               <FlexColumnLayout padding="xs" gap="none" align="flex-start">

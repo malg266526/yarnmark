@@ -9,7 +9,7 @@ import { Spacings } from '../styles/spacings';
 import { BrownScale, Colors } from '../styles/theme';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
-import { CenteredTitle, Picture, Text, Menu, MenuBackground } from './MainPage.styled';
+import { CenteredTitle, MainBackground, Text, Menu, MenuBackground } from './MainPage.styled';
 import { Link } from '../components/Link';
 import { usePhone } from './usePhone';
 import { Hall } from '../components/Hall';
@@ -160,10 +160,10 @@ export const InfoForVendorsPage = () => {
       )}
 
       <Band size="lg" justify="flex-start" narrowContent="fixed" padding="md">
-        <Picture>
+        <MainBackground>
           <source srcSet={woolsAvifLandscape} type="image/avif" />
           <img src={woolsWebpLandscape} alt="wool" />
-        </Picture>
+        </MainBackground>
 
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
