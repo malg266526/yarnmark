@@ -11,6 +11,7 @@ import { Icon as IconifyIcon } from '@iconify/react';
 
 const DropdownTitle = styled(Button)`
   color: ${Colors.text};
+  min-width: 100px;
   ${linkStyle}
 
   &::after {
