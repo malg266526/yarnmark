@@ -13,7 +13,10 @@ export const pl = {
       aboutUs: 'O nas',
       stands: 'Stoiska',
       statutes: 'Regulamin',
-      tickets: 'Bilety'
+      tickets: 'Bilety',
+      entranceTicket: 'Bilety wstępu',
+      workshopTickets: 'Warsztaty',
+      cruiseTickets: 'Bilety rejsowe'
     },
     welcomeBand: {
       invitation: 'Serdecznie zapraszamy na I edycję targów wełny w stolicy Małopolski!',

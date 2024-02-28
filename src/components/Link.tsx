@@ -1,9 +1,20 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import yarnSvgUrl from '../assets/images/skein3.svg';
 import { HashLink, HashLinkProps } from 'react-router-hash-link';
+import styled, { css } from 'styled-components';
+import yarnSvgUrl from '../assets/images/skein3.svg';
+import { Radius } from '../styles/cards';
 import { FontSize } from '../styles/font-size';
+
+export const linkStyle = css`
+  padding: 10px 8px;
+  border-radius: ${Radius.md};
+  font-size: ${FontSize.lg};
+  font-weight: 300;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+`;
 
 const StyledLink = styled(HashLink)<{ color?: string }>`
   ${({ color }) =>
@@ -11,13 +22,8 @@ const StyledLink = styled(HashLink)<{ color?: string }>`
     css`
       color: ${color};
     `};
-  font-size: ${FontSize.lg};
-  padding: 10px 8px;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  font-weight: 300;
-  position: relative;
+
+  ${linkStyle}
 
   &:hover:after,
   &:hover:before {

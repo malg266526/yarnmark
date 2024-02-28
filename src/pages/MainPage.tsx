@@ -116,7 +116,8 @@ import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
 import { Carouselge } from '../components/Carouselge';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { CruiseMap } from '../components/CruiseMap';
-import { TransparentButton } from '../components/TransparentButton';
+import { Button } from '../components/Button';
+import { MenuItem } from '../components/MenuItem';
 
 // type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
@@ -440,40 +441,49 @@ export const MainPage = () => {
 
           <Menu>
             <MenuBackground>
-              <Link color="black" to="/">
+              <MenuItem
+                subLinks={[
+                  {
+                    to: '#vendors',
+                    name: t('menu.vendors')
+                  },
+                  {
+                    to: '#workshops',
+                    name: t('menu.workshops')
+                  },
+                  {
+                    to: '#cruise',
+                    name: t('menu.cruise')
+                  },
+                  {
+                    to: '#footer',
+                    name: t('menu.contact')
+                  }
+                ]}>
                 Yarnmark
-              </Link>
+              </MenuItem>
 
-              <Link color="black" to="#vendors">
-                {t('menu.vendors')}
-              </Link>
-
-              <Link
-                target="_blank"
-                color="black"
-                to="https://wloczykijki.pl/pl_PL/i/Krakoski-Yarnmark-Welny/41?preview=true">
+              <MenuItem
+                subLinks={[
+                  {
+                    to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
+                    name: t('menu.entranceTicket')
+                  },
+                  {
+                    to: 'https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358',
+                    name: t('menu.workshopTickets')
+                  },
+                  {
+                    to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833',
+                    name: t('menu.cruiseTickets')
+                  }
+                ]}>
                 {t('menu.tickets')}
-              </Link>
+              </MenuItem>
 
-              <Link color="black" to="/info-for-vendors">
-                {t('menu.infoForVendors')}
-              </Link>
+              <MenuItem to="/info-for-vendors">{t('menu.infoForVendors')}</MenuItem>
 
-              <Link to="#workshops" color="black">
-                {t('menu.workshops')}
-              </Link>
-
-              <Link to="#cruise" color="black">
-                {t('menu.cruise')}
-              </Link>
-
-              <Link color="black" to="/statutes">
-                {t('menu.statutes')}
-              </Link>
-
-              <Link color="black" to="#footer">
-                {t('menu.contact')}
-              </Link>
+              <MenuItem to="/statutes">{t('menu.statutes')}</MenuItem>
             </MenuBackground>
           </Menu>
         </>
@@ -608,9 +618,9 @@ export const MainPage = () => {
         color={BrownScale[100]}
         padding="xl">
         <Drawer isOpen={isOlaDrawerOpened}>
-          <TransparentButton onClick={() => setIsOlaDrawerOpened(false)}>
+          <Button onClick={() => setIsOlaDrawerOpened(false)}>
             <IconifyIcon icon="mingcute:close-fill" />
-          </TransparentButton>
+          </Button>
 
           <Picture
             picture={{
@@ -635,7 +645,7 @@ export const MainPage = () => {
         <FlexColumnLayout padding="none" gap="none">
           <Paragraph>
             <RowLayout>
-              <TransparentButton onClick={() => setIsOlaDrawerOpened(true)}>
+              <Button onClick={() => setIsOlaDrawerOpened(true)}>
                 <IconifyIcon
                   icon="noto:sos-button"
                   width="88"
@@ -643,7 +653,7 @@ export const MainPage = () => {
                     filter: 'drop-shadow(2px 2px 15px rgba(255, 71, 62, 0.7))'
                   }}
                 />
-              </TransparentButton>
+              </Button>
 
               <FlexColumnLayout padding="xs" gap="none" align="flex-start">
                 <Text marginTop="xs">{t('firstAidBand.saveTheLife')}</Text>
