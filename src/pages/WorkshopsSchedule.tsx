@@ -362,9 +362,11 @@ export const WorkshopsSchedule = () => {
           <TextContent>
             <SmallTextH2>{t('workshops.labolens.title')}</SmallTextH2>
             <Text>{t('workshops.price')}: 130zł</Text>
-            {/*             <WorkshopLink to="https://wloczykijki.pl/pl/p/Warsztaty-Uwolnij-pomysly-/2840" target="_blank">
+            <WorkshopLink
+              to="https://wloczykijki.pl/pl_PL/p/Warsztaty-Uchwyc-piekno-rekodziela-w-obiektywie-warsztaty-z-fotografii-produktowej/2838?preview=true"
+              target="_blank">
               {t('workshops.buyTicket')}
-            </WorkshopLink> */}
+            </WorkshopLink>
           </TextContent>
         </PlannerCard>
       </Carousel>
