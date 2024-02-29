@@ -232,40 +232,53 @@ export const WorkshopsCarousel = () => {
 
           <Carousel.Item>
             <Item>
-              <Picture
-                picture={{
-                  fallbackUrl: labolensUrl,
-                  sources: [
-                    {
-                      type: 'image/webp',
-                      url: labolensUrlWebp
-                    },
-                    {
-                      type: 'image/avif',
-                      url: labolensUrlAvif
-                    }
-                  ]
-                }}
-                alt="labolens_photo"
-                width={180}
-                style={logoStyle}
-              />
-
               <Carousel.Caption>
-                <Title>{t('workshops.labolens.title')}</Title>
-                <RowLayout justify="center" gap="none">
-                  <NoTopMarginText>{t('workshops.tutor')}</NoTopMarginText>
-                  <a href="https://labolens.com/" target="_blank" rel="noreferrer">
-                    Labolens - Paweł Petrzak
-                  </a>
-                </RowLayout>
+                <ReverseContent>
+                  <Picture
+                    picture={{
+                      fallbackUrl: labolensUrl,
+                      sources: [
+                        {
+                          type: 'image/webp',
+                          url: labolensUrlWebp
+                        },
+                        {
+                          type: 'image/avif',
+                          url: labolensUrlAvif
+                        }
+                      ]
+                    }}
+                    alt="labolens_photo"
+                    width={180}
+                    style={logoStyle}
+                  />
+                  <div>
+                    <Title>{t('workshops.labolens.title')}</Title>
+
+                    <RowLayout justify="center" gap="none">
+                      <NoTopMarginText>{t('workshops.tutor')} </NoTopMarginText>
+                      <a href="https://labolens.com/" target="_blank" rel="noreferrer">
+                        Labolens - Paweł Petrzak
+                      </a>
+                    </RowLayout>
+                  </div>
+                </ReverseContent>
 
                 <ScrollableContent>
                   <FlexColumnLayout gap="xs" padding="none">
                     <ResponsiveText>{t('workshops.labolens.intro')}</ResponsiveText>
-                    <NoTopMarginText>{t('workshops.labolens.schedule1')}</NoTopMarginText>
-                    <NoTopMarginText>{t('workshops.labolens.schedule2')}</NoTopMarginText>
-                    <NoTopMarginText>{t('workshops.labolens.schedule3')}</NoTopMarginText>
+                    <NoTopMarginText>{t('workshops.labolens.schedule')}</NoTopMarginText>
+                    <ul>
+                      <li>
+                        <NoTopMarginText>{t('workshops.labolens.schedule1')}</NoTopMarginText>
+                      </li>
+                      <li>
+                        <NoTopMarginText>{t('workshops.labolens.schedule2')}</NoTopMarginText>
+                      </li>
+                      <li>
+                        <NoTopMarginText>{t('workshops.labolens.schedule3')}</NoTopMarginText>
+                      </li>
+                    </ul>
                   </FlexColumnLayout>
                 </ScrollableContent>
               </Carousel.Caption>

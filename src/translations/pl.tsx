@@ -186,11 +186,11 @@ export const pl = {
         schedule:
           'Warsztaty z fotografii produktowej to doskonała okazja dla osób zainteresowanych fotografowaniem, szczególnie w kontekście promocji produktów. W trakcie tych warsztatów uczestnicy mogą nauczyć się wielu przydatnych umiejętności, w tym:',
         schedule1:
-          '- podstawowych zasad kompozycji fotograficznej. Dowiedzą się, jak prawidłowo komponować zdjęcia produktów, aby wyróżnić ich najważniejsze cechy i przyciągnąć uwagę potencjalnych odbiorców',
+          'podstawowych zasad kompozycji fotograficznej. Dowiedzą się, jak prawidłowo komponować zdjęcia produktów, aby wyróżnić ich najważniejsze cechy i przyciągnąć uwagę potencjalnych odbiorców',
         schedule2:
-          '- wykorzystania oświetlenia. Będą mieli okazję nauczyć się, jak manipulować światłem, aby uzyskać odpowiednią atmosferę i eksponować produkt w najlepszym świetle',
+          'wykorzystania oświetlenia. Będą mieli okazję nauczyć się, jak manipulować światłem, aby uzyskać odpowiednią atmosferę i eksponować produkt w najlepszym świetle',
         schedule3:
-          '- wykorzystania różnych sprzętów. Oprócz pracy z aparatem fotograficznym, uczestnicy będą również mogli eksperymentować z wykorzystaniem telefonu komórkowego do robienia wysokiej jakości zdjęć produktowych, co jest szczególnie istotne w erze mediów społecznościowych.'
+          'wykorzystania różnych sprzętów. Oprócz pracy z aparatem fotograficznym, uczestnicy będą również mogli eksperymentować z wykorzystaniem telefonu komórkowego do robienia wysokiej jakości zdjęć produktowych, co jest szczególnie istotne w erze mediów społecznościowych.'
       },
       tutor: 'Prowadzący: ',
       buyTicket: 'Kup bilet',
