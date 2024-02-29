@@ -175,6 +175,19 @@ export const en: TranslationsShape = {
       taken: 'Reserved'
     },
     workshops: {
+      labolens: {
+        title: 'Capture the beauty of handicraft through the lens - product photography workshops',
+        intro:
+          'In a world where photography becomes not only an art, but also a way of capturing beauty, emotions and history. Working in the heart of Malopolska, I surround myself with an inspiring environment, which becomes the background for many of my photographs. I invite you to my workshops on handmade product photography.',
+        schedule:
+          'Product photography workshops are an excellent opportunity for people interested in photography, especially for product promotion. During these workshops, participants can learn many useful skills, including:',
+        schedule1:
+          '- basic principles of photographic composition. They will learn how to properly compose product photos to highlight their most important features and attract the attention of potential recipients',
+        schedule2:
+          '- lighting use. They will have the opportunity to learn how to manipulate light to create the right atmosphere and display the product in the best light',
+        schedule3:
+          '- use of various equipment. In addition to working with a camera, participants will also be able to experiment with using a mobile phone to take high-quality product photos, which is especially important in the era of social media.'
+      },
       tutor: 'Tutor: ',
       buyTicket: 'Buy a ticket',
       firstAid: 'First aid',

@@ -31,6 +31,10 @@ import uwolnijPomyslyUrlAvif from './../assets/images/workshops/uwolnijpomysly.a
 import uwolnijPomyslyUrl from './../assets/images/workshops/uwolnijpomysly.jpg';
 import uwolnijPomyslyWebp from './../assets/images/workshops/uwolnijpomysly.webp';
 
+import labolensUrlAvif from './../assets/images/workshops/labolens.avif';
+import labolensUrl from './../assets/images/workshops/labolens.jpg';
+import labolensUrlWebp from './../assets/images/workshops/labolens.webp';
+
 import ewaUrlAvif from './../assets/images/workshops/ewa.avif';
 import ewaUrl from './../assets/images/workshops/ewa.jpg';
 
@@ -159,6 +163,43 @@ export const WorkshopsCarousel = () => {
             <Item>
               <Picture
                 picture={{
+                  fallbackUrl: woolankaUrl,
+                  sources: [
+                    {
+                      type: 'image/webp',
+                      url: woolankaUrlWebp
+                    },
+                    {
+                      type: 'image/avif',
+                      url: woolankaUrlAvif
+                    }
+                  ]
+                }}
+                alt="woolanka"
+                width={180}
+                style={logoStyle}
+              />
+
+              <Carousel.Caption>
+                <Title>{t('workshops.decorativeKnitting')}</Title>
+                <RowLayout justify="center" gap="none">
+                  <NoTopMarginText>{t('workshops.tutor')} </NoTopMarginText>
+                  <a href="https://www.instagram.com/woolanka" target="_blank" rel="noreferrer">
+                    WOOLANKA Anna Kaleta
+                  </a>
+                </RowLayout>
+
+                <ScrollableContent>
+                  <ResponsiveText>{t('workshops.decorativeKnittingDescription')}</ResponsiveText>
+                </ScrollableContent>
+              </Carousel.Caption>
+            </Item>
+          </Carousel.Item>
+
+          <Carousel.Item>
+            <Item>
+              <Picture
+                picture={{
                   fallbackUrl: ludArtUrl,
                   sources: [
                     {
@@ -189,6 +230,47 @@ export const WorkshopsCarousel = () => {
             </Item>
           </Carousel.Item>
 
+          <Carousel.Item>
+            <Item>
+              <Picture
+                picture={{
+                  fallbackUrl: labolensUrl,
+                  sources: [
+                    {
+                      type: 'image/webp',
+                      url: labolensUrlWebp
+                    },
+                    {
+                      type: 'image/avif',
+                      url: labolensUrlAvif
+                    }
+                  ]
+                }}
+                alt="labolens_photo"
+                width={180}
+                style={logoStyle}
+              />
+
+              <Carousel.Caption>
+                <Title>{t('workshops.labolens.title')}</Title>
+                <RowLayout justify="center" gap="none">
+                  <NoTopMarginText>{t('workshops.tutor')}</NoTopMarginText>
+                  <a href="https://labolens.com/" target="_blank" rel="noreferrer">
+                    Labolens - Paweł Petrzak
+                  </a>
+                </RowLayout>
+
+                <ScrollableContent>
+                  <FlexColumnLayout gap="xs" padding="none">
+                    <ResponsiveText>{t('workshops.labolens.intro')}</ResponsiveText>
+                    <NoTopMarginText>{t('workshops.labolens.schedule1')}</NoTopMarginText>
+                    <NoTopMarginText>{t('workshops.labolens.schedule2')}</NoTopMarginText>
+                    <NoTopMarginText>{t('workshops.labolens.schedule3')}</NoTopMarginText>
+                  </FlexColumnLayout>
+                </ScrollableContent>
+              </Carousel.Caption>
+            </Item>
+          </Carousel.Item>
           <Carousel.Item>
             <Item>
               <Picture
@@ -226,43 +308,6 @@ export const WorkshopsCarousel = () => {
                     <NoTopMarginText>{t('workshops.haftowaBabaDescription3')}</NoTopMarginText>
                     <NoTopMarginText>{t('workshops.haftowaBabaDescription4')}</NoTopMarginText>
                   </FlexColumnLayout>
-                </ScrollableContent>
-              </Carousel.Caption>
-            </Item>
-          </Carousel.Item>
-
-          <Carousel.Item>
-            <Item>
-              <Picture
-                picture={{
-                  fallbackUrl: woolankaUrl,
-                  sources: [
-                    {
-                      type: 'image/webp',
-                      url: woolankaUrlWebp
-                    },
-                    {
-                      type: 'image/avif',
-                      url: woolankaUrlAvif
-                    }
-                  ]
-                }}
-                alt="woolanka"
-                width={180}
-                style={logoStyle}
-              />
-
-              <Carousel.Caption>
-                <Title>{t('workshops.decorativeKnitting')}</Title>
-                <RowLayout justify="center" gap="none">
-                  <NoTopMarginText>{t('workshops.tutor')} </NoTopMarginText>
-                  <a href="https://www.instagram.com/woolanka" target="_blank" rel="noreferrer">
-                    WOOLANKA Anna Kaleta
-                  </a>
-                </RowLayout>
-
-                <ScrollableContent>
-                  <ResponsiveText>{t('workshops.decorativeKnittingDescription')}</ResponsiveText>
                 </ScrollableContent>
               </Carousel.Caption>
             </Item>

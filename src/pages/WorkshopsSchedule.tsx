@@ -32,6 +32,10 @@ import uwolnijPomyslyUrlAvif from './../assets/images/workshops/uwolnijpomysly.a
 import uwolnijPomyslyUrl from './../assets/images/workshops/uwolnijpomysly.jpg';
 import uwolnijPomyslyWebp from './../assets/images/workshops/uwolnijpomysly.webp';
 
+import labolensUrlAvif from './../assets/images/workshops/labolens.avif';
+import labolensUrl from './../assets/images/workshops/labolens.jpg';
+import labolensUrlWebp from './../assets/images/workshops/labolens.webp';
+
 import Carousel from 'react-multi-carousel';
 import { Link } from '../components/Link';
 import { PlannerCard } from '../components/PlannerCard';
@@ -333,6 +337,34 @@ export const WorkshopsSchedule = () => {
             <WorkshopLink to="https://wloczykijki.pl/pl/p/Warsztaty-Uwolnij-pomysly-/2840" target="_blank">
               {t('workshops.buyTicket')}
             </WorkshopLink>
+          </TextContent>
+        </PlannerCard>
+
+        <PlannerCard time="15:20 - 18:20">
+          <Picture
+            picture={{
+              fallbackUrl: labolensUrl,
+              sources: [
+                {
+                  type: 'image/webp',
+                  url: labolensUrlWebp
+                },
+                {
+                  type: 'image/avif',
+                  url: labolensUrlAvif
+                }
+              ]
+            }}
+            alt="labolens"
+            width={120}
+          />
+
+          <TextContent>
+            <SmallTextH2>{t('workshops.labolens.title')}</SmallTextH2>
+            <Text>{t('workshops.price')}: 130zł</Text>
+            {/*             <WorkshopLink to="https://wloczykijki.pl/pl/p/Warsztaty-Uwolnij-pomysly-/2840" target="_blank">
+              {t('workshops.buyTicket')}
+            </WorkshopLink> */}
           </TextContent>
         </PlannerCard>
       </Carousel>

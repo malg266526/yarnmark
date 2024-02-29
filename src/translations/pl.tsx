@@ -179,6 +179,19 @@ export const pl = {
       taken: 'Miejsce zarezerwowane'
     },
     workshops: {
+      labolens: {
+        title: 'Uchwyć piękno rękodzieła w obiektywnie - warsztaty z fotografii produktowej',
+        intro:
+          'W świecie, gdzie fotografia staje się nie tylko sztuką, lecz także sposobem uchwycenia piękna, emocji i historii. Pracując w sercu Małopolski otaczam się inspirującym otoczeniem, które staje się tłem dla wielu moich fotografii. Zapraszam Cię na moje warsztaty z rękodzielniczej fotografii produktowej.',
+        schedule:
+          'Warsztaty z fotografii produktowej to doskonała okazja dla osób zainteresowanych fotografowaniem, szczególnie w kontekście promocji produktów. W trakcie tych warsztatów uczestnicy mogą nauczyć się wielu przydatnych umiejętności, w tym:',
+        schedule1:
+          '- podstawowych zasad kompozycji fotograficznej. Dowiedzą się, jak prawidłowo komponować zdjęcia produktów, aby wyróżnić ich najważniejsze cechy i przyciągnąć uwagę potencjalnych odbiorców',
+        schedule2:
+          '- wykorzystania oświetlenia. Będą mieli okazję nauczyć się, jak manipulować światłem, aby uzyskać odpowiednią atmosferę i eksponować produkt w najlepszym świetle',
+        schedule3:
+          '- wykorzystania różnych sprzętów. Oprócz pracy z aparatem fotograficznym, uczestnicy będą również mogli eksperymentować z wykorzystaniem telefonu komórkowego do robienia wysokiej jakości zdjęć produktowych, co jest szczególnie istotne w erze mediów społecznościowych.'
+      },
       tutor: 'Prowadzący: ',
       buyTicket: 'Kup bilet',
       firstAid: 'Pierwsza pomoc',
