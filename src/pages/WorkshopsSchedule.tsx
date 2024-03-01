@@ -193,10 +193,7 @@ export const WorkshopsSchedule = () => {
 
           <TextContent>
             <TextH2>{t('workshops.firstAid')}</TextH2>
-            <Text>{t('workshops.price')}: 10zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/p/Warsztaty-Pierwsza-pomoc-/2834" target="_blank">
-              {t('workshops.buyTicket')}
-            </WorkshopLink>
+            <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
           </TextContent>
         </PlannerCard>
 

@@ -62,6 +62,10 @@ import maniaChomikujeLogoUrl from './../assets/images/minifiedLogos/mania.png';
 import maniaChomikujeLogoUrlAvif from './../assets/images/minifiedLogos/mania.avif';
 import maniaChomikujeLogoUrlWebp from './../assets/images/minifiedLogos/mania.webp';
 
+import martinslabLogoUrl from './../assets/images/minifiedLogos/martinslab.jpg';
+import martinslabLogoUrlAvif from './../assets/images/minifiedLogos/martinslab.avif';
+import martinslabLogoUrlWebp from './../assets/images/minifiedLogos/martinslab.webp';
+
 import missKnitskiLogoUrl from './../assets/images/minifiedLogos/missknitski.png';
 import missKnitskiLogoUrlAvif from './../assets/images/minifiedLogos/missknitski.avif';
 import missKnitskiLogoUrlWebp from './../assets/images/minifiedLogos/missknitski.webp';
@@ -920,7 +924,20 @@ export const hallMapConfig: HallMapType = {
           color: 'taken2',
           height: 4,
           index: 'S26',
-          who: "Martin's Lab"
+          who: "Martin's Lab",
+          picture: {
+            fallbackUrl: martinslabLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: martinslabLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: martinslabLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 2.5,
