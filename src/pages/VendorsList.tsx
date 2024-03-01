@@ -62,6 +62,10 @@ import maniaChomikujeLogoUrl from './../assets/images/minifiedLogos/mania.png';
 import maniaChomikujeLogoUrlAvif from './../assets/images/minifiedLogos/mania.avif';
 import maniaChomikujeLogoUrlWebp from './../assets/images/minifiedLogos/mania.webp';
 
+import martinslabLogoUrl from './../assets/images/minifiedLogos/martinslab_long.jpg';
+import martinslabLogoUrlAvif from './../assets/images/minifiedLogos/martinslab_long.avif';
+import martinslabLogoUrlWebp from './../assets/images/minifiedLogos/martinslab_long.webp';
+
 import missKnitskiLogoUrl from './../assets/images/minifiedLogos/missknitski.png';
 import missKnitskiLogoUrlAvif from './../assets/images/minifiedLogos/missknitski.avif';
 import missKnitskiLogoUrlWebp from './../assets/images/minifiedLogos/missknitski.webp';
@@ -412,6 +416,26 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: maniaChomikujeLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://www.martinslab.com/" target="_blank" rel="noreferrer">
+        <Picture
+          width={120}
+          alt="martinslab_logo"
+          picture={{
+            fallbackUrl: martinslabLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: martinslabLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: martinslabLogoUrlAvif
               }
             ]
           }}
