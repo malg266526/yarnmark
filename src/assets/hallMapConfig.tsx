@@ -514,7 +514,7 @@ export const hallMapConfig: HallMapType = {
       stands: [
         {
           width: 4,
-          height: 5,
+          height: 3,
           color: 'empty'
         },
         {
@@ -621,6 +621,18 @@ export const hallMapConfig: HallMapType = {
           width: 4,
           height: 2,
           color: 'empty'
+        },
+        {
+          width: 3,
+          height: 2,
+          color: 'small1',
+          index: 'M8'
+        },
+        {
+          width: 3,
+          height: 2,
+          color: 'small2',
+          index: 'M9'
         }
       ]
     },
@@ -975,8 +987,9 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 3,
-          color: 'premium',
-          index: 'P7'
+          color: 'taken',
+          index: 'P7',
+          who: 'Lusia knits'
         },
         {
           width: 5,
