@@ -311,7 +311,7 @@ export const hallMapConfig: HallMapType = {
       ]
     },
     {
-      height: 3,
+      height: 2,
       stands: [
         {
           width: 26,
@@ -334,7 +334,7 @@ export const hallMapConfig: HallMapType = {
       stands: [
         {
           color: 'empty',
-          height: 1,
+          height: 2,
           width: 4
         },
         {
@@ -611,8 +611,8 @@ export const hallMapConfig: HallMapType = {
     {
       stands: [
         {
-          width: 3,
-          height: 2,
+          width: 2,
+          height: 3,
           color: 'taken2',
           index: 'M7',
           who: 'Knitted Coffee',
