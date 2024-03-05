@@ -138,53 +138,51 @@ export const InfoForVendorsPage = () => {
       )}
 
       {!isPhone && (
-        <>
-          <LanguageSwitcher />
+        <Menu>
+          <MenuBackground>
+            <MenuItem to="/">Yarnmark</MenuItem>
 
-          <Menu>
-            <MenuBackground>
-              <MenuItem to="/">Yarnmark</MenuItem>
+            <MenuItem
+              subLinks={[
+                {
+                  to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
+                  name: t('menu.entranceTicket'),
+                  target: '_blank'
+                },
+                {
+                  to: 'https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358',
+                  name: t('menu.workshopTickets'),
+                  target: '_blank'
+                },
+                {
+                  to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833',
+                  name: t('menu.cruiseTickets'),
+                  target: '_blank'
+                }
+              ]}>
+              {t('menu.tickets')}
+            </MenuItem>
 
-              <MenuItem
-                subLinks={[
-                  {
-                    to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
-                    name: t('menu.entranceTicket'),
-                    target: '_blank'
-                  },
-                  {
-                    to: 'https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358',
-                    name: t('menu.workshopTickets'),
-                    target: '_blank'
-                  },
-                  {
-                    to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833',
-                    name: t('menu.cruiseTickets'),
-                    target: '_blank'
-                  }
-                ]}>
-                {t('menu.tickets')}
-              </MenuItem>
+            <MenuItem
+              subLinks={[
+                {
+                  to: '#stands',
+                  name: t('menu.stands')
+                },
 
-              <MenuItem
-                subLinks={[
-                  {
-                    to: '#stands',
-                    name: t('menu.stands')
-                  },
+                {
+                  to: '#footer',
+                  name: t('menu.contact')
+                }
+              ]}>
+              {t('menu.infoForVendors')}
+            </MenuItem>
 
-                  {
-                    to: '#footer',
-                    name: t('menu.contact')
-                  }
-                ]}>
-                {t('menu.infoForVendors')}
-              </MenuItem>
+            <MenuItem to="/statutes">{t('menu.statutes')}</MenuItem>
 
-              <MenuItem to="/statutes">{t('menu.statutes')}</MenuItem>
-            </MenuBackground>
-          </Menu>
-        </>
+            <LanguageSwitcher />
+          </MenuBackground>
+        </Menu>
       )}
 
       <Band size="lg" justify="flex-start" narrowContent="fixed" padding="md">

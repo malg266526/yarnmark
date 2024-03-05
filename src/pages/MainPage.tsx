@@ -436,60 +436,58 @@ export const MainPage = () => {
       )}
 
       {!isPhone && (
-        <>
-          <LanguageSwitcher />
+        <Menu>
+          <MenuBackground>
+            <MenuItem
+              subLinks={[
+                {
+                  to: '#vendors',
+                  name: t('menu.vendors')
+                },
+                {
+                  to: '#workshops',
+                  name: t('menu.workshops')
+                },
+                {
+                  to: '#cruise',
+                  name: t('menu.cruise')
+                },
+                {
+                  to: '#footer',
+                  name: t('menu.contact')
+                }
+              ]}>
+              Yarnmark
+            </MenuItem>
 
-          <Menu>
-            <MenuBackground>
-              <MenuItem
-                subLinks={[
-                  {
-                    to: '#vendors',
-                    name: t('menu.vendors')
-                  },
-                  {
-                    to: '#workshops',
-                    name: t('menu.workshops')
-                  },
-                  {
-                    to: '#cruise',
-                    name: t('menu.cruise')
-                  },
-                  {
-                    to: '#footer',
-                    name: t('menu.contact')
-                  }
-                ]}>
-                Yarnmark
-              </MenuItem>
+            <MenuItem
+              subLinks={[
+                {
+                  to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
+                  name: t('menu.entranceTicket'),
+                  target: '_blank'
+                },
+                {
+                  to: 'https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358',
+                  name: t('menu.workshopTickets'),
+                  target: '_blank'
+                },
+                {
+                  to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833',
+                  name: t('menu.cruiseTickets'),
+                  target: '_blank'
+                }
+              ]}>
+              {t('menu.tickets')}
+            </MenuItem>
 
-              <MenuItem
-                subLinks={[
-                  {
-                    to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
-                    name: t('menu.entranceTicket'),
-                    target: '_blank'
-                  },
-                  {
-                    to: 'https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358',
-                    name: t('menu.workshopTickets'),
-                    target: '_blank'
-                  },
-                  {
-                    to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833',
-                    name: t('menu.cruiseTickets'),
-                    target: '_blank'
-                  }
-                ]}>
-                {t('menu.tickets')}
-              </MenuItem>
+            <MenuItem to="/info-for-vendors">{t('menu.infoForVendors')}</MenuItem>
 
-              <MenuItem to="/info-for-vendors">{t('menu.infoForVendors')}</MenuItem>
+            <MenuItem to="/statutes">{t('menu.statutes')}</MenuItem>
 
-              <MenuItem to="/statutes">{t('menu.statutes')}</MenuItem>
-            </MenuBackground>
-          </Menu>
-        </>
+            <LanguageSwitcher />
+          </MenuBackground>
+        </Menu>
       )}
 
       <Band size="xl" padding="xl" justify="flex-start">

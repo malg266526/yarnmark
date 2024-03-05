@@ -19,7 +19,7 @@ export const StyledPageContent = styled(PageContent)`
   }
 
   ${LanguageSwitcher} {
-    position: absolute;
+    /*     position: absolute;
     z-index: 1;
     top: 0;
     right: ${Spacings.md};
@@ -27,7 +27,7 @@ export const StyledPageContent = styled(PageContent)`
     @media (max-width: ${ScreenSize.phone}) {
       top: initial;
       bottom: 0;
-    }
+    } */
   }
 `;
 
