@@ -45,7 +45,7 @@ export const de: TranslationsShape = {
     },
     spotBand: {
       title: 'Wo?',
-      address: 'die Avenue Marszałka Ferdynanda Focha 40',
+      address: 'die Alee Marszałka Ferdynanda Focha 40',
       description: `Die 100-jährige Jubiläumshalle von KS Cracovia 1906 befindet sich im grünen Herzen von Krakau, in der Nähe des Erholungsgebiets Błonia, direkt an der Aleja Marszałka Ferdynanda Foch..\n
       Ein großer Vorteil dieser Lage ist die gute Verkehrsanbindung – Sie können von jedem Ort aus mit öffentlichen oder privaten Verkehrsmitteln 
       dorthin gelangen.`,
@@ -53,13 +53,13 @@ export const de: TranslationsShape = {
         'Öffis-Nutzer können die Buslinie (direkte Anbindung) und die Straßenbahnlinie nutzen, müssen aber mit einem kurzen Spaziergang über die Blonie Wiesen rechnen.',
       list: 'Die folgende Liste zeigt die Zufahrtsmöglichkeiten vom Krakauer Hauptbahnhof:',
       option1:
-        '- Buslinie <strong>152</strong>, Haltestelle <strong>TEATR SŁOWACKIEGO</strong> (6 6 Minuten zu Fuß vom Bahnhof entfernt) → Richtung Friedhof Olszanica → Haltestelle <strong>INSTYTUT REUMATOLOGII</strong>',
+        '- Buslinie <strong>152</strong>, Haltestelle <strong>TEATR SŁOWACKIEGO</strong> (6 Minuten zu Fuß vom Bahnhof entfernt) → Richtung Friedhof Olszanica → Haltestelle <strong>INSTYTUT REUMATOLOGII</strong>',
       option2:
         '- Buslinie <strong>192</strong>, Haltestelle <strong>POLITECHNIKA</strong> (7 Minuten Fußweg vom Bahnhof entfernt) → Richtung Olszanica Bory → Haltestelle <strong>INSTYTUT REUMATOLOGII</strong>',
       option3:
-        '- Straßenbahnlinie <strong>20</strong> (Strecke von der Mały Płaszów-Schleife), Beginn: Haltestelle <strong>TEATR SŁOWACKIEGO</strong> (6 Minuten zu Fuß vom Bahnhof entfernt) → Richtung Cichy Kącik → Haltestelle <strong>PARK JORDANA</strong> (10 Minuten zu Fuß von der Haltestelle über die Wiesen zur HALA Cracovia)',
+        '- Straßenbahnlinie <strong>20</strong> (Strecke von der Mały Płaszów-Schleife), Beginn: Haltestelle <strong>TEATR SŁOWACKIEGO</strong> (6 Minuten zu Fuß vom Bahnhof entfernt) → Richtung Cichy Kącik → Haltestelle <strong>PARK JORDANA</strong> (10 Minuten zu Fuß von der Haltestelle über die Błonia Wiesen zur HALA Cracovia)',
       option4:
-        '- Straßenbahnlinie <strong>1</strong>, (Strecke von der Wańkowicz-Schleife) hält am nähesten zum Zentrum: <strong>HAUPTPOST</strong>, <strong>PLAC WSZYSTKICH ŚWIĘTYCH</strong>,  → Richtung Cichy Kącik → Haltestelle <strong>PARK JORDANA</strong> (10 Minuten zu Fuß von der Haltestelle vor Błonia bis HALA Cracovia)',
+        '- Straßenbahnlinie <strong>1</strong>, (Strecke von der Wańkowicz-Schleife) hält am nähesten zum Zentrum: <strong>HAUPTPOST</strong>, <strong>PLAC WSZYSTKICH ŚWIĘTYCH</strong>,  → Richtung Cichy Kącik → Haltestelle <strong>PARK JORDANA</strong> (10 Minuten zu Fuß von der Haltestelle über die Błonia Wiesen bis HALA Cracovia)',
       byCar:
         'Neben dem Gebäude befindet sich ein kleiner Parkplatz, der am Veranstaltungstag für Besucher unserer Messe kostenfrei zur Verfügung steht. Sollte sich herausstellen, dass dieser Parkplatz nicht ausreicht, gibt es einen öffentlichen Parkplatz in der Nähe (bei Bezogródek Tropical Spot Food), der 24 Stunden am Tag geöffnet ist (kostenpflichtig).',
       howToGetToUs: 'Wie kommen Sie zu uns?',
@@ -145,7 +145,7 @@ export const de: TranslationsShape = {
       marketing: {
         title: 'Marketing',
         sendLogos:
-          'Wir empfehlen Ihnen, Ihr Logo an die E-Mail-Adresse <strong>krakoski.yarnmark.welny@gmail.com</strong>, zu senden. Wir werden es in der Registerkarte „Aussteller“ platzieren und auf diese Weise die Stricker darüber informieren, dass Sie bei uns sein werden.'
+          'Wir empfehlen Ihnen, Ihr Logo an die E-Mail-Adresse <strong>krakoski.yarnmark.welny@gmail.com</strong>, zu senden. Wir werden es in der Registerkarte „Aussteller“ platzieren und auf diese Weise die Stricker/inen darüber informieren, dass Sie bei uns sein werden.'
       },
       stands: {
         title: 'Stands'
