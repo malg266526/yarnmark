@@ -621,8 +621,8 @@ export const hallMapConfig: HallMapType = {
           width: 4,
           height: 2,
           color: 'empty'
-        }
-        /*         {
+        },
+        {
           width: 3,
           height: 2,
           color: 'small1',
@@ -633,7 +633,7 @@ export const hallMapConfig: HallMapType = {
           height: 2,
           color: 'small2',
           index: 'M9'
-        } */
+        }
       ]
     },
     {

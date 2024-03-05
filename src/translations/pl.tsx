@@ -298,7 +298,7 @@ export const pl = {
       }
     },
     firstAidBand: {
-      saveTheLife: 'Już teraz możesz uratować czyjeś życie'
+      saveTheLife: 'Kliknij i sprawdź jak już teraz możesz uratować życie'
     }
   }
 };

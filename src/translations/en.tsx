@@ -293,7 +293,7 @@ export const en: TranslationsShape = {
       }
     },
     firstAidBand: {
-      saveTheLife: 'You can save life right now'
+      saveTheLife: 'Click and save life right now'
     }
   }
 };
