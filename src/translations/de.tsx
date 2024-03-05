@@ -114,7 +114,8 @@ export const de: TranslationsShape = {
       title: 'Workshop-Zeitplan',
       room1: 'Spiegelsaal',
       room2: 'Fechtraum',
-      room3: 'Konferenzraum'
+      room3: 'Konferenzraum',
+      soldOut: 'Ausverkauft'
     },
     infoForVendorsPage: {
       title: 'Informationen für Aussteller',
@@ -178,6 +179,19 @@ export const de: TranslationsShape = {
       taken: 'Platz reserviert'
     },
     workshops: {
+      labolens: {
+        title: 'Capture the beauty of handicraft through the lens - product photography workshops',
+        intro:
+          'In a world where photography becomes not only an art, but also a way of capturing beauty, emotions and history. Working in the heart of Malopolska, I surround myself with an inspiring environment, which becomes the background for many of my photographs. I invite you to my workshops on handmade product photography.',
+        schedule:
+          'Product photography workshops are an excellent opportunity for people interested in photography, especially for product promotion. During these workshops, participants can learn many useful skills, including:',
+        schedule1:
+          'basic principles of photographic composition. They will learn how to properly compose product photos to highlight their most important features and attract the attention of potential recipients',
+        schedule2:
+          'lighting use. They will have the opportunity to learn how to manipulate light to create the right atmosphere and display the product in the best light',
+        schedule3:
+          'use of various equipment. In addition to working with a camera, participants will also be able to experiment with using a mobile phone to take high-quality product photos, which is especially important in the era of social media.'
+      },
       tutor: 'Tutor: ',
       buyTicket: 'kauf ein Ticket',
       firstAid: 'Erste Hilfe',
@@ -281,6 +295,9 @@ export const de: TranslationsShape = {
           'The workshops are aimed at beginners, so you can be sure that you will receive very detailed instructions and you will definitely learn how to weave. Then your imagination will suggest further projects, because I am sure that you will not end with one macrame (your loved ones will also want to have one!)',
         invite: "I'm inviting anyone who needs more creativity in their life or just want to have a nice time."
       }
+    },
+    firstAidBand: {
+      saveTheLife: 'You can save life right now'
     }
   }
 };
