@@ -7,7 +7,7 @@ import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import { Band } from '../components/Band';
 import { BurgerMenu } from '../components/BurgerMenu';
 import { Curtain } from '../components/Curtain';
-import { Link } from '../components/Link';
+import { MenuItem } from '../components/MenuItem';
 import { NiceBox } from '../components/NiceBox';
 import { SideBar } from '../components/SideBar';
 import { TextWrapper, Title } from '../components/Title';
@@ -20,7 +20,7 @@ import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.j
 import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
 import { StyledPageContent } from './InfoForVendorsPage.styled';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { Menu, MenuBackground, MainBackground } from './MainPage.styled';
+import { MainBackground, Menu, MenuBackground } from './MainPage.styled';
 import { usePhone } from './usePhone';
 
 const StatuteTitle = styled(Title)`
@@ -97,17 +97,29 @@ export const StatutesPage = () => {
 
           <Menu>
             <MenuBackground>
-              <Link color="black" to="/">
-                Yarnmark
-              </Link>
+              <MenuItem to="/">Yarnmark</MenuItem>
 
-              <Link color="black" to="/info-for-vendors">
-                {t('menu.infoForVendors')}
-              </Link>
+              <MenuItem
+                subLinks={[
+                  {
+                    to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
+                    name: t('menu.entranceTicket')
+                  },
+                  {
+                    to: 'https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358',
+                    name: t('menu.workshopTickets')
+                  },
+                  {
+                    to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833',
+                    name: t('menu.cruiseTickets')
+                  }
+                ]}>
+                {t('menu.tickets')}
+              </MenuItem>
 
-              <Link color="black" to="#footer">
-                {t('menu.contact')}
-              </Link>
+              <MenuItem to="/info-for-vendors">{t('menu.infoForVendors')}</MenuItem>
+
+              <MenuItem to="/statutes">{t('menu.statutes')}</MenuItem>
             </MenuBackground>
           </Menu>
         </>
