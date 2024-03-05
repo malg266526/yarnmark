@@ -1,7 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 import styled, { css } from 'styled-components';
+import { DropShadow, Radius } from '../styles/cards';
 import { Spacings } from '../styles/spacings';
-import { Colors } from '../styles/theme';
 
 export interface TabRootProps {
   active?: boolean;
@@ -15,7 +15,6 @@ const TabRoot = styled.div<{ active?: boolean }>`
   padding: ${Spacings.sm};
   cursor: pointer;
 
-  background: white;
   border-radius: 4px;
 
   border-top: 2px solid transparent;
@@ -32,9 +31,8 @@ const TabRoot = styled.div<{ active?: boolean }>`
   ${({ active }) =>
     active &&
     css`
-      border-color: ${Colors.chocolate};
-      background: ${Colors.veryLightGray};
-      border-bottom: 1px solid darkgray;
+      background: white;
+      border-bottom: 2px solid darkgray;
     `};
 `;
 
@@ -58,12 +56,12 @@ const Tab = ({ onClick, ...rest }: TabProps) => {
 
 const Content = styled.div`
   background: white;
-  border-radius: 4px;
+  border-radius: ${Radius.lg};
   padding: ${Spacings.md};
   width: 100%;
   flex: 1 1 auto;
 
-  box-shadow: 2px 2px 15px 0px rgba(121, 59, 59, 0.25);
+  box-shadow: ${DropShadow.md};
 `;
 
 export const Tabs = Object.assign(

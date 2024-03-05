@@ -6,10 +6,10 @@ import { Band } from '../components/Band';
 import { NiceBox } from '../components/NiceBox';
 import { TextWrapper, Title } from '../components/Title';
 import { Spacings } from '../styles/spacings';
-import { Colors } from '../styles/theme';
+import { BrownScale, Colors } from '../styles/theme';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
-import { CenteredTitle, Picture, Text, Menu, MenuBackground } from './MainPage.styled';
+import { CenteredTitle, MainBackground, Text, Menu, MenuBackground } from './MainPage.styled';
 import { Link } from '../components/Link';
 import { usePhone } from './usePhone';
 import { Hall } from '../components/Hall';
@@ -160,10 +160,10 @@ export const InfoForVendorsPage = () => {
       )}
 
       <Band size="lg" justify="flex-start" narrowContent="fixed" padding="md">
-        <Picture>
+        <MainBackground>
           <source srcSet={woolsAvifLandscape} type="image/avif" />
           <img src={woolsWebpLandscape} alt="wool" />
-        </Picture>
+        </MainBackground>
 
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
@@ -235,7 +235,7 @@ export const InfoForVendorsPage = () => {
         variant="background"
         justify={isPhone ? 'center' : 'space-evenly'}
         align="center"
-        color={Colors.linen}
+        color={BrownScale[100]}
         padding="xl">
         <TextWrapper>
           <CenteredTitle>{t('infoForVendorsPage.parking.title')}</CenteredTitle>
@@ -271,7 +271,7 @@ export const InfoForVendorsPage = () => {
         size="sm"
         justify={isPhone ? 'center' : 'space-evenly'}
         variant="background"
-        color={Colors.linen}
+        color={BrownScale[100]}
         padding="xl">
         <TextWrapper>
           <CenteredTitle>{t('infoForVendorsPage.stands.title')}</CenteredTitle>

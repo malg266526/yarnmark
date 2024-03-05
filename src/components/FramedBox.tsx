@@ -1,9 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { rgba } from 'polished';
+import knittingSvgUrl from '../assets/images/skein3.svg';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
-import knittingSvgUrl from '../assets/images/skein3.svg';
 
 type FrameWidth = `${number}${'px' | '%'}`;
 
@@ -24,8 +23,6 @@ const Root = styled.div`
     z-index: 0;
     background: black;
     background: linear-gradient(15deg, #a48a78 0%, ${Colors.beige1} 40%);
-    /* box-shadow: 3px 3px 3px 3px ${rgba(Colors.green2, 0.8)}; */
-    /* background: radial-gradient(circle at 100%, #d7c9c0, #a48a78 90%, #a48a78 100%); */
   }
 `;
 

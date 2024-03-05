@@ -20,6 +20,10 @@ import brioszkaLogoUrl from './../assets/images/minifiedLogos/brioszka.png';
 import brioszkaLogoUrlAvif from './../assets/images/minifiedLogos/brioszka.avif';
 import brioszkaLogoUrlWebp from './../assets/images/minifiedLogos/brioszka.webp';
 
+import coloridoLogoUrl from './../assets/images/minifiedLogos/colorido.avif';
+import coloridoLogoUrlAvif from './../assets/images/minifiedLogos/colorido.avif';
+import coloridoLogoUrlWebp from './../assets/images/minifiedLogos/colorido.webp';
+
 import dyeDyeDoneLogoUrlAvif from './../assets/images/minifiedLogos/dyedyedone.avif';
 import dyeDyeDoneLogoUrl from './../assets/images/minifiedLogos/dyedyedone.png';
 import dyeDyeDoneLogoUrlWebp from './../assets/images/minifiedLogos/dyedyedone.webp';
@@ -32,11 +36,19 @@ import hankaMiZrobilaLogoUrl from './../assets/images/minifiedLogos/hankamizrobi
 import hankaMiZrobilaLogoUrlAvif from './../assets/images/minifiedLogos/hankamizrobila.avif';
 import hankaMiZrobilaLogoUrlWebp from './../assets/images/minifiedLogos/hankamizrobila.webp';
 
+import knittedCoffeeLogoUrl from './../assets/images/minifiedLogos/knitted.jpg';
+import knittedCoffeeLogoUrlAvif from './../assets/images/minifiedLogos/knitted.avif';
+import knittedCoffeeLogoUrlWebp from './../assets/images/minifiedLogos/knitted.webp';
+
 import knitPlLogoUrl from './../assets/images/minifiedLogos/knitpl.png';
 import knitPlLogoUrlAvif from './../assets/images/minifiedLogos/knitpl.avif';
 import knitPlLogoUrlWebp from './../assets/images/minifiedLogos/knitpl.webp';
 
 import kokonkiLogoUrl from './../assets/images/minifiedLogos/kokonki.png';
+
+import liloppiLogoUrl from './../assets/images/minifiedLogos/liloppi.jpg';
+import liloppiLogoUrlAvif from './../assets/images/minifiedLogos/liloppi.avif';
+import liloppiLogoUrlWebp from './../assets/images/minifiedLogos/liloppi.webp';
 
 import madoboLogoUrl from './../assets/images/minifiedLogos/madobo.png';
 import madoboLogoUrlAvif from './../assets/images/minifiedLogos/madobo.avif';
@@ -49,6 +61,10 @@ import malinowyKosLogoUrlWebp from './../assets/images/minifiedLogos/malinowyKos
 import maniaChomikujeLogoUrl from './../assets/images/minifiedLogos/mania.png';
 import maniaChomikujeLogoUrlAvif from './../assets/images/minifiedLogos/mania.avif';
 import maniaChomikujeLogoUrlWebp from './../assets/images/minifiedLogos/mania.webp';
+
+import martinslabLogoUrl from './../assets/images/minifiedLogos/martinslab_long.jpg';
+import martinslabLogoUrlAvif from './../assets/images/minifiedLogos/martinslab_long.avif';
+import martinslabLogoUrlWebp from './../assets/images/minifiedLogos/martinslab_long.webp';
 
 import missKnitskiLogoUrl from './../assets/images/minifiedLogos/missknitski.png';
 import missKnitskiLogoUrlAvif from './../assets/images/minifiedLogos/missknitski.avif';
@@ -64,6 +80,10 @@ import motkomaniaLogoUrlWebp from './../assets/images/minifiedLogos/motkomania.w
 
 import naSztukiStudioLogoUrl from './../assets/images/minifiedLogos/nasztukistudio.png';
 
+import paciorkowceLogoUrl from './../assets/images/minifiedLogos/paciorkowce.jpg';
+import paciorkowceLogoUrlAvif from './../assets/images/minifiedLogos/paciorkowce.avif';
+import paciorkowceLogoUrlWebp from './../assets/images/minifiedLogos/paciorkowce.webp';
+
 import siedemOczekLogoUrl from './../assets/images/minifiedLogos/7oczek.jpg';
 import siedemOczekLogoUrlAvif from './../assets/images/minifiedLogos/7oczek.avif';
 import siedemOczekLogoUrlWebp from './../assets/images/minifiedLogos/7oczek.webp';
@@ -71,6 +91,8 @@ import siedemOczekLogoUrlWebp from './../assets/images/minifiedLogos/7oczek.webp
 import strikkeLogoUrl from './../assets/images/minifiedLogos/strikke.png';
 
 import pimotkiLogoUrl from './../assets/images/minifiedLogos/pimotki.png';
+
+import rencamiLogoUrl from './../assets/images/minifiedLogos/rencami.png';
 
 import timeToKnitLogoUrl from './../assets/images/minifiedLogos/timetoknit.png';
 import timeToKnitLogoUrlAvif from './../assets/images/minifiedLogos/timetoknit.avif';
@@ -196,6 +218,26 @@ export const VendorsList = () => {
         />
       </Link>
 
+      <Link to="https://colorido.sklep.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={100}
+          alt="colorido"
+          picture={{
+            fallbackUrl: coloridoLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: coloridoLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: coloridoLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
       <Link to="https://www.dyedyedone.com/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -256,6 +298,26 @@ export const VendorsList = () => {
         />
       </Link>
 
+      <Link to="https://knittedcoffee.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={100}
+          alt="knitted_coffee_logo"
+          picture={{
+            fallbackUrl: knittedCoffeeLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: knittedCoffeeLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: knittedCoffeeLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
       <Link to="https://knitpl.com/" target="_blank" rel="noreferrer">
         <Picture
           width={90}
@@ -278,6 +340,26 @@ export const VendorsList = () => {
 
       <Link to="https://kokonki.pl/" target="_blank" rel="noreferrer">
         <img width={120} src={kokonkiLogoUrl} alt="kokonki_logo" />
+      </Link>
+
+      <Link to="https://liloppi.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={120}
+          alt="liloppi_logo"
+          picture={{
+            fallbackUrl: liloppiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: liloppiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: liloppiLogoUrlAvif
+              }
+            ]
+          }}
+        />
       </Link>
 
       <Link to="https://madobo.pl" target="_blank" rel="noreferrer">
@@ -334,6 +416,26 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: maniaChomikujeLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://www.martinslab.com/" target="_blank" rel="noreferrer">
+        <Picture
+          width={120}
+          alt="martinslab_logo"
+          picture={{
+            fallbackUrl: martinslabLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: martinslabLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: martinslabLogoUrlAvif
               }
             ]
           }}
@@ -404,12 +506,36 @@ export const VendorsList = () => {
         <img width={100} src={naSztukiStudioLogoUrl} alt="nasztukistudio_logo" />
       </Link>
 
+      <Link to="https://www.facebook.com/paciorkowceiwisielce/" target="_blank" rel="noreferrer">
+        <Picture
+          width={84}
+          alt="paciorkowceiwisielce_logo"
+          picture={{
+            fallbackUrl: paciorkowceLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: paciorkowceLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: paciorkowceLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
       <Link to="https://pimotki.pl/" target="_blank" rel="noreferrer">
         <img width={100} src={pimotkiLogoUrl} alt="pimotki_logo" />
       </Link>
 
+      <Link to="https://rencami.pl/" target="_blank" rel="noreferrer">
+        <img width={110} src={rencamiLogoUrl} alt="rencami_logo" />
+      </Link>
+
       <Link to="https://strikke.pl/" target="_blank" rel="noreferrer">
-        <img width={150} src={strikkeLogoUrl} alt="Strikke" />
+        <img width={150} src={strikkeLogoUrl} alt="Strikke_logo" />
       </Link>
 
       <Link to="https://7oczek.pl/pl/" target="_blank" rel="noreferrer">

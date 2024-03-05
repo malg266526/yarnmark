@@ -18,8 +18,8 @@
   "author": "JM & MT",
   "license": "ISC",
   "devDependencies": {
+    "@craftamap/esbuild-plugin-html": "0.6.1",
     "@iconify/react": "4.1.1",
-    "@jgoz/esbuild-plugin-html": "1.0.5",
     "@types/argv": "0.0.5",
     "@types/bytes": "3.1.1",
     "@types/node": "20.6.1",

@@ -20,6 +20,10 @@ import brioszkaLogoUrl from './../assets/images/minifiedLogos/brioszka.png';
 import brioszkaLogoUrlAvif from './../assets/images/minifiedLogos/brioszka.avif';
 import brioszkaLogoUrlWebp from './../assets/images/minifiedLogos/brioszka.webp';
 
+import coloridoLogoUrl from './../assets/images/minifiedLogos/colorido.jpg';
+import coloridoLogoUrlAvif from './../assets/images/minifiedLogos/colorido.avif';
+import coloridoLogoUrlWebp from './../assets/images/minifiedLogos/colorido.webp';
+
 import dyeDyeDoneLogoUrlAvif from './../assets/images/minifiedLogos/dyedyedone.avif';
 import dyeDyeDoneLogoUrl from './../assets/images/minifiedLogos/dyedyedone.png';
 import dyeDyeDoneLogoUrlWebp from './../assets/images/minifiedLogos/dyedyedone.webp';
@@ -32,11 +36,19 @@ import hankaMiZrobilaLogoUrl from './../assets/images/minifiedLogos/hankamizrobi
 import hankaMiZrobilaLogoUrlAvif from './../assets/images/minifiedLogos/hankamizrobila.avif';
 import hankaMiZrobilaLogoUrlWebp from './../assets/images/minifiedLogos/hankamizrobila.webp';
 
+import knittedCoffeeLogoUrl from './../assets/images/minifiedLogos/knitted.jpg';
+import knittedCoffeeLogoUrlAvif from './../assets/images/minifiedLogos/knitted.avif';
+import knittedCoffeeLogoUrlWebp from './../assets/images/minifiedLogos/knitted.webp';
+
 import knitPlLogoUrl from './../assets/images/minifiedLogos/knitpl.png';
 import knitPlLogoUrlAvif from './../assets/images/minifiedLogos/knitpl.avif';
 import knitPlLogoUrlWebp from './../assets/images/minifiedLogos/knitpl.webp';
 
 import kokonkiLogoUrl from './../assets/images/minifiedLogos/kokonki.png';
+
+import liloppiLogoUrl from './../assets/images/minifiedLogos/liloppi.jpg';
+import liloppiLogoUrlAvif from './../assets/images/minifiedLogos/liloppi.avif';
+import liloppiLogoUrlWebp from './../assets/images/minifiedLogos/liloppi.webp';
 
 import madoboLogoUrl from './../assets/images/minifiedLogos/madobo.png';
 import madoboLogoUrlAvif from './../assets/images/minifiedLogos/madobo.avif';
@@ -49,6 +61,10 @@ import malinowyKosLogoUrlWebp from './../assets/images/minifiedLogos/malinowyKos
 import maniaChomikujeLogoUrl from './../assets/images/minifiedLogos/mania.png';
 import maniaChomikujeLogoUrlAvif from './../assets/images/minifiedLogos/mania.avif';
 import maniaChomikujeLogoUrlWebp from './../assets/images/minifiedLogos/mania.webp';
+
+import martinslabLogoUrl from './../assets/images/minifiedLogos/martinslab.jpg';
+import martinslabLogoUrlAvif from './../assets/images/minifiedLogos/martinslab.avif';
+import martinslabLogoUrlWebp from './../assets/images/minifiedLogos/martinslab.webp';
 
 import missKnitskiLogoUrl from './../assets/images/minifiedLogos/missknitski.png';
 import missKnitskiLogoUrlAvif from './../assets/images/minifiedLogos/missknitski.avif';
@@ -64,7 +80,13 @@ import motkomaniaLogoUrlWebp from './../assets/images/minifiedLogos/motkomania.w
 
 import naSztukiStudioLogoUrl from './../assets/images/minifiedLogos/nasztukistudio.png';
 
+import paciorkowceLogoUrl from './../assets/images/minifiedLogos/paciorkowce.jpg';
+import paciorkowceLogoUrlAvif from './../assets/images/minifiedLogos/paciorkowce.avif';
+import paciorkowceLogoUrlWebp from './../assets/images/minifiedLogos/paciorkowce.webp';
+
 import pimotkiLogoUrl from './../assets/images/minifiedLogos/pimotki.png';
+
+import rencamiLogoUrl from './../assets/images/minifiedLogos/rencami_short.png';
 
 import siedemOczekLogoUrl from './../assets/images/minifiedLogos/7oczek.jpg';
 import siedemOczekLogoUrlAvif from './../assets/images/minifiedLogos/7oczek.avif';
@@ -127,15 +149,16 @@ export const hallMapConfig: HallMapType = {
       height: 5,
       stands: [
         {
-          width: 2,
+          width: 2.5,
           color: 'empty',
           text: 'Wejście'
         },
         {
-          width: 3,
-          color: 'premium',
-          index: 'P1',
-          height: 5
+          width: 2.5,
+          color: 'taken2',
+          index: 'S31',
+          height: 4,
+          who: 'Woolniej'
         },
         {
           width: 2.5,
@@ -300,7 +323,7 @@ export const hallMapConfig: HallMapType = {
       ]
     },
     {
-      height: 4,
+      height: 3,
       stands: [
         {
           width: 26,
@@ -321,6 +344,11 @@ export const hallMapConfig: HallMapType = {
     },
     {
       stands: [
+        {
+          color: 'empty',
+          height: 1,
+          width: 4
+        },
         {
           width: 5,
           height: 3,
@@ -486,7 +514,7 @@ export const hallMapConfig: HallMapType = {
       stands: [
         {
           width: 4,
-          height: 5,
+          height: 3,
           color: 'empty'
         },
         {
@@ -514,7 +542,20 @@ export const hallMapConfig: HallMapType = {
           height: 2,
           color: 'taken2',
           index: 'M2',
-          who: 'PaciorkowceIWisielce'
+          who: 'PaciorkowceIWisielce',
+          picture: {
+            fallbackUrl: paciorkowceLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: paciorkowceLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: paciorkowceLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 3,
@@ -551,7 +592,10 @@ export const hallMapConfig: HallMapType = {
           height: 2,
           color: 'taken2',
           index: 'M5',
-          who: 'Rencami'
+          who: 'Rencami',
+          picture: {
+            fallbackUrl: rencamiLogoUrl
+          }
         },
         {
           width: 3,
@@ -578,6 +622,18 @@ export const hallMapConfig: HallMapType = {
           height: 2,
           color: 'empty'
         }
+        /*         {
+          width: 3,
+          height: 2,
+          color: 'small1',
+          index: 'M8'
+        },
+        {
+          width: 3,
+          height: 2,
+          color: 'small2',
+          index: 'M9'
+        } */
       ]
     },
     {
@@ -591,6 +647,26 @@ export const hallMapConfig: HallMapType = {
     },
     {
       stands: [
+        {
+          width: 3,
+          height: 2,
+          color: 'taken2',
+          index: 'M7',
+          who: 'KnittedCoffee',
+          picture: {
+            fallbackUrl: knittedCoffeeLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: knittedCoffeeLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: knittedCoffeeLogoUrlAvif
+              }
+            ]
+          }
+        },
         {
           width: 5,
           height: 3,
@@ -728,14 +804,40 @@ export const hallMapConfig: HallMapType = {
           height: 2.5,
           color: 'taken2',
           index: 'S22',
-          who: 'Liloppi'
+          who: 'Liloppi',
+          picture: {
+            fallbackUrl: liloppiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: liloppiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: liloppiLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken2',
           index: 'S23',
-          who: 'Liloppi'
+          who: 'Liloppi',
+          picture: {
+            fallbackUrl: liloppiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: liloppiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: liloppiLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 5,
@@ -814,14 +916,40 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           height: 4,
           index: 'S25',
-          who: 'Colorido'
+          who: 'Colorido',
+          picture: {
+            fallbackUrl: coloridoLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: coloridoLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: coloridoLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 2.5,
           color: 'taken2',
           height: 4,
           index: 'S26',
-          who: "Martin's Lab"
+          who: "Martin's Lab",
+          picture: {
+            fallbackUrl: martinslabLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: martinslabLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: martinslabLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 2.5,
@@ -859,8 +987,9 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 3,
-          color: 'premium',
-          index: 'P7'
+          color: 'taken',
+          index: 'P7',
+          who: 'Lusia knits'
         },
         {
           width: 5,

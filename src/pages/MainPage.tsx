@@ -34,8 +34,8 @@ import knitting2ImageUrl from '../assets/images/knitting2.svg';
 import pinImageUrl from '../assets/images/pin.svg';
 
 import halaAvifImageSrc from '../assets/images/hala.avif';
-import halaJfifImageSrc from '../assets/images/hala.jfif';
-import halaJpgImageSrc from '../assets/images/hala_quality.jpg';
+import halaWebpImageSrc from '../assets/images/hala.webp';
+import halaJpgImageSrc from '../assets/images/hala.jpg';
 import yarnmarkLogoSrc from '../assets/images/yarnmark_logo.jpg';
 import yarnmarkLogoSrcAvif from '../assets/images/yarnmark_logo.avif';
 import yarnmarkLogoSrcWebp from '../assets/images/yarnmark_logo.webp';
@@ -43,6 +43,12 @@ import yarnmarkLogoSrcWebp from '../assets/images/yarnmark_logo.webp';
 // import wawelImageSrc from '../assets/images/wawel.jpg';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
+import woolsJpgLandscape from '../assets/images/wools2_landscape.jpg';
+
+import olaImageUrlAvif from '../assets/images/pomagamOli.avif';
+import olaImageUrlWebp from '../assets/images/pomagamOli.webp';
+import olaImageUrlJpg from '../assets/images/pomagamOli.jpg';
+
 import { Icon } from '../components/Icon';
 
 import { Band } from '../components/Band';
@@ -67,7 +73,7 @@ import { SubTitle, TextWrapper, Title } from '../components/Title';
 import { VendorsList } from './VendorsList';
 import { WorkshopsCarousel } from './WorkshopsCarousel';
 import { WorkshopsSchedule } from './WorkshopsSchedule';
-import { Colors } from '../styles/theme';
+import { BrownScale, Colors } from '../styles/theme';
 import {
   // ActiveImage,
   AnimatedIconWrapper,
@@ -75,6 +81,7 @@ import {
   BackgroundImage,
   ButtonsLayout,
   CenteredTitle,
+  Drawer,
   LinkWrapper,
   // ButtonsWrapper,
   // CenteredTitle,
@@ -88,7 +95,7 @@ import {
   MobilePicture,
   Paragraph,
   // PhotosLayout,
-  Picture,
+  MainBackground,
   SecondaryButton,
   SectionWrapper,
   StyledPageContent,
@@ -97,7 +104,7 @@ import {
   Typography
 } from './MainPage.styled';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
-import { Picture as DragonPicture } from '../components/Picture';
+import { Picture } from '../components/Picture';
 
 // import { FlexColumnLayout } from '../components/FlexColumnLayout';
 
@@ -109,6 +116,7 @@ import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
 import { Carouselge } from '../components/Carouselge';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { CruiseMap } from '../components/CruiseMap';
+import { TransparentButton } from '../components/TransparentButton';
 
 // type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
@@ -195,6 +203,7 @@ export const MainPage = () => {
   //  const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
 
   const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
+  const [isOlaDrawerOpened, setIsOlaDrawerOpened] = useState<boolean>(false);
 
   // const activeButtonToImage = getActiveButtonToImage(t);
 
@@ -352,7 +361,7 @@ export const MainPage = () => {
       <>
         <MobilePicture>
           <source srcSet={halaAvifImageSrc} type="image/avif" />
-          <source srcSet={halaJfifImageSrc} type="image/jpeg" />
+          <source srcSet={halaWebpImageSrc} type="image/webp" />
           <img loading="lazy" src={halaJpgImageSrc} alt="hala 100-lecia" />
           <MobileLocationButtonWrapper>{eventLocationButton}</MobileLocationButtonWrapper>
         </MobilePicture>
@@ -471,10 +480,11 @@ export const MainPage = () => {
       )}
 
       <Band size="xl" padding="xl" justify="flex-start">
-        <Picture>
+        <MainBackground>
           <source srcSet={woolsAvifLandscape} type="image/avif" />
-          <img src={woolsWebpLandscape} alt="wool" />
-        </Picture>
+          <source srcSet={woolsWebpLandscape} type="image/webp" />
+          <img src={woolsJpgLandscape} alt="wool" />
+        </MainBackground>
 
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg" marginTop="lg">
@@ -494,7 +504,7 @@ export const MainPage = () => {
                 <Text>DziergamyNaPolu x Włóczykijki</Text>
               </div>
 
-              <DragonPicture
+              <Picture
                 picture={{
                   fallbackUrl: yarnmarkLogoSrc,
                   sources: [
@@ -544,7 +554,7 @@ export const MainPage = () => {
           background={
             <Band.Picture>
               <source srcSet={halaAvifImageSrc} type="image/avif" />
-              <source srcSet={halaJfifImageSrc} type="image/jpeg" />
+              <source srcSet={halaWebpImageSrc} type="image/webp" />
               <img src={halaJpgImageSrc} alt="hala cracovii" />
             </Band.Picture>
           }>
@@ -595,12 +605,67 @@ export const MainPage = () => {
         flexWrap="wrap"
         variant="background"
         justify="space-around"
-        color={Colors.linen}
+        color={BrownScale[100]}
         padding="xl">
-        <Paragraph>
-          <h2>"{t('workshops.firstAidQuote')}"</h2>
-          <h3>Thomas Keneally</h3>
-        </Paragraph>
+        <Drawer isOpen={isOlaDrawerOpened}>
+          <TransparentButton onClick={() => setIsOlaDrawerOpened(false)}>
+            <IconifyIcon icon="mingcute:close-fill" />
+          </TransparentButton>
+
+          <Picture
+            picture={{
+              fallbackUrl: olaImageUrlJpg,
+              sources: [
+                {
+                  type: 'image/webp',
+                  url: olaImageUrlWebp
+                },
+                {
+                  type: 'image/avif',
+                  url: olaImageUrlAvif
+                }
+              ]
+            }}
+            alt="yarnmark_logo"
+            width={320}
+            style={{ alignSelf: 'center' }}
+          />
+        </Drawer>
+
+        <FlexColumnLayout padding="none" gap="none">
+          <Paragraph>
+            <RowLayout>
+              <TransparentButton onClick={() => setIsOlaDrawerOpened(true)}>
+                <IconifyIcon
+                  icon="noto:sos-button"
+                  width="88"
+                  style={{
+                    filter: 'drop-shadow(2px 2px 15px rgba(255, 71, 62, 0.7))'
+                  }}
+                />
+              </TransparentButton>
+
+              <FlexColumnLayout padding="xs" gap="none" align="flex-start">
+                <Text marginTop="xs">{t('firstAidBand.saveTheLife')}</Text>
+
+                <IconifyIcon
+                  icon="fluent:arrow-reply-20-filled"
+                  width="40"
+                  color="#cf4a4a"
+                  style={{
+                    transform: 'scaleY(-1)',
+                    marginLeft: '18px'
+                  }}
+                />
+              </FlexColumnLayout>
+            </RowLayout>
+          </Paragraph>
+
+          <Paragraph>
+            <h4>"{t('workshops.firstAidQuote')}"</h4>
+            <h5>Thomas Keneally</h5>
+          </Paragraph>
+        </FlexColumnLayout>
 
         <BackgroundIcon src={firstAidIcon} width={500} />
         <FirstAidCard />
@@ -615,7 +680,7 @@ export const MainPage = () => {
         padding="xl"
         align="center"
         direction="column">
-        <TextWrapper align="center">
+        <TextWrapper align="center" marginBottom="lg">
           <Title>{t('scheduleBand.title')}</Title>
         </TextWrapper>
 

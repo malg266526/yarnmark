@@ -1,17 +1,36 @@
-import { htmlPlugin } from '@jgoz/esbuild-plugin-html';
+import { htmlPlugin } from '@craftamap/esbuild-plugin-html';
+import { copy } from 'esbuild-plugin-copy';
+
+const entryPoints = ['src/index.tsx'];
 
 export const config = {
-  entryPoints: ['./src/index.tsx'],
-  sourcemap: true,
+  entryPoints,
   bundle: true,
   outdir: 'dist',
   treeShaking: true,
   target: 'es2019',
   metafile: true,
   plugins: [
+    copy({
+      resolveFrom: 'cwd',
+      assets: {
+        from: ['./public/*'],
+        to: ['./dist']
+      },
+      watch: true
+    }),
     htmlPlugin({
-      template: './src/index.html',
-      scriptPlacement: ''
+      files: [
+        {
+          define: {
+            hash: new Date().getTime().toString()
+          },
+          filename: 'index.html',
+          entryPoints,
+          htmlTemplate: 'public/index.html',
+          hash: true
+        }
+      ]
     })
   ],
   loader: {
