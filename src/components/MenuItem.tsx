@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useState, useEffect, useRef, RefObject } from 'react';
 import { HashLinkProps } from 'react-router-hash-link';
 import styled, { css } from 'styled-components';
 import { Link, linkStyle } from './Link';
@@ -51,7 +51,6 @@ const DropdownItemsBackground = styled.div`
   align-items: center;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.65), #ffffff);
   padding: ${Spacings.md};
-  // gap: ${Spacings.sm};
   border-bottom-left-radius: ${Radius.md};
   border-bottom-right-radius: ${Radius.md};
 `;
@@ -60,11 +59,27 @@ const SubLink = styled(Link)`
   font-size: ${FontSize.md};
 `;
 
+const useOutsideAlerter = (ref: RefObject<HTMLDivElement>, onClickOutside: () => void) => {
+  useEffect(() => {
+    function handleClickOutside(event: any) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        onClickOutside();
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [onClickOutside, ref]);
+};
+
 type DropdownMenuItem = {
   children?: ReactNode;
   subLinks?: {
     to: HashLinkProps['to'];
     name: string;
+    target?: HashLinkProps['target'];
   }[];
 };
 
@@ -72,6 +87,11 @@ type MenuItemType = HashLinkProps | DropdownMenuItem;
 
 export const MenuItem = ({ children, ...props }: MenuItemType) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const onClickOutside = () => setIsDropdownOpen(false);
+
+  const wrapperRef = useRef(null);
+  useOutsideAlerter(wrapperRef, onClickOutside);
 
   const onToggle = () => {
     setIsDropdownOpen((prev) => !prev);
@@ -91,9 +111,9 @@ export const MenuItem = ({ children, ...props }: MenuItemType) => {
           />
         </DropdownTitle>
         {isDropdownOpen && (
-          <DropdownItemsBackground>
+          <DropdownItemsBackground ref={wrapperRef}>
             {props.subLinks?.map((subLink, index) => (
-              <SubLink key={index} to={subLink.to} color="black">
+              <SubLink key={index} to={subLink.to} color="black" target={subLink.target}>
                 {subLink.name}
               </SubLink>
             ))}

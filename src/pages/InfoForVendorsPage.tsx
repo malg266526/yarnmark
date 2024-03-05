@@ -149,15 +149,18 @@ export const InfoForVendorsPage = () => {
                 subLinks={[
                   {
                     to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
-                    name: t('menu.entranceTicket')
+                    name: t('menu.entranceTicket'),
+                    target: '_blank'
                   },
                   {
                     to: 'https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358',
-                    name: t('menu.workshopTickets')
+                    name: t('menu.workshopTickets'),
+                    target: '_blank'
                   },
                   {
                     to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833',
-                    name: t('menu.cruiseTickets')
+                    name: t('menu.cruiseTickets'),
+                    target: '_blank'
                   }
                 ]}>
                 {t('menu.tickets')}
