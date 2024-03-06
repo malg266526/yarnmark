@@ -625,14 +625,16 @@ export const hallMapConfig: HallMapType = {
         {
           width: 3,
           height: 2,
-          color: 'small1',
-          index: 'M8'
+          color: 'taken',
+          index: 'M8',
+          who: 'Ani sploty'
         },
         {
           width: 3,
           height: 2,
-          color: 'small2',
-          index: 'M9'
+          color: 'taken2',
+          index: 'M9',
+          who: 'Włóczkomaniaczka'
         }
       ]
     },
@@ -989,7 +991,7 @@ export const hallMapConfig: HallMapType = {
           width: 3,
           color: 'taken',
           index: 'P7',
-          who: 'Lusia knits'
+          who: 'Lusia knits & Floral Fiber Fusion'
         },
         {
           width: 5,
