@@ -20,13 +20,17 @@ import brioszkaLogoUrl from './../assets/images/minifiedLogos/brioszka.png';
 import brioszkaLogoUrlAvif from './../assets/images/minifiedLogos/brioszka.avif';
 import brioszkaLogoUrlWebp from './../assets/images/minifiedLogos/brioszka.webp';
 
-import coloridoLogoUrl from './../assets/images/minifiedLogos/colorido.avif';
+import coloridoLogoUrl from './../assets/images/minifiedLogos/colorido.jpg';
 import coloridoLogoUrlAvif from './../assets/images/minifiedLogos/colorido.avif';
 import coloridoLogoUrlWebp from './../assets/images/minifiedLogos/colorido.webp';
 
 import dyeDyeDoneLogoUrlAvif from './../assets/images/minifiedLogos/dyedyedone.avif';
 import dyeDyeDoneLogoUrl from './../assets/images/minifiedLogos/dyedyedone.png';
 import dyeDyeDoneLogoUrlWebp from './../assets/images/minifiedLogos/dyedyedone.webp';
+
+import floralFiberLogoUrlAvif from './../assets/images/minifiedLogos/floralfiber.avif';
+import floralFiberLogoUrl from './../assets/images/minifiedLogos/floralfiber.jpg';
+import floralFiberLogoUrlWebp from './../assets/images/minifiedLogos/floralfiber.webp';
 
 import gaboWoolLogoUrl from './../assets/images/minifiedLogos/gabowool.png';
 import gaboWoolLogoUrlAvif from './../assets/images/minifiedLogos/gabowool.avif';
@@ -49,6 +53,10 @@ import kokonkiLogoUrl from './../assets/images/minifiedLogos/kokonki.png';
 import liloppiLogoUrl from './../assets/images/minifiedLogos/liloppi.jpg';
 import liloppiLogoUrlAvif from './../assets/images/minifiedLogos/liloppi.avif';
 import liloppiLogoUrlWebp from './../assets/images/minifiedLogos/liloppi.webp';
+
+import lusiaLogoUrl from './../assets/images/minifiedLogos/lusiaknits.jpg';
+import lusiaLogoUrlAvif from './../assets/images/minifiedLogos/lusiaknits.avif';
+import lusiaLogoUrlWebp from './../assets/images/minifiedLogos/lusiaknits.webp';
 
 import madoboLogoUrl from './../assets/images/minifiedLogos/madobo.png';
 import madoboLogoUrlAvif from './../assets/images/minifiedLogos/madobo.avif';
@@ -103,6 +111,10 @@ import theKnittingBoxLogoUrl from './../assets/images/minifiedLogos/theknittingb
 import welnaBawelnaLogoUrl from './../assets/images/minifiedLogos/WelnaBawelna.jpg';
 import welnaBawelnaLogoUrlAvif from './../assets/images/minifiedLogos/WelnaBawelna.avif';
 import welnaBawelnaLogoUrlWebp from './../assets/images/minifiedLogos/WelnaBawelna.webp';
+
+import wloczkomaniaczkaLogoUrl from './../assets/images/minifiedLogos/wloczkomaniaczka.jpg';
+import wloczkomaniaczkaLogoUrlAvif from './../assets/images/minifiedLogos/wloczkomaniaczka.avif';
+import wloczkomaniaczkaLogoUrlWebp from './../assets/images/minifiedLogos/wloczkomaniaczka.webp';
 
 import wloczykijkiLogoUrl from './../assets/images/minifiedLogos/wloczykijki.png';
 import wloczykijkiLogoUrlAvif from './../assets/images/minifiedLogos/wloczykijki.avif';
@@ -258,6 +270,26 @@ export const VendorsList = () => {
         />
       </Link>
 
+      <Link to="https://www.instagram.com/floralfiber_fusion/" target="_blank" rel="noreferrer">
+        <Picture
+          width={100}
+          alt="floralfiberfusion_logo"
+          picture={{
+            fallbackUrl: floralFiberLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: floralFiberLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: floralFiberLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
       <Link to="https://www.gabowool.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={130}
@@ -356,6 +388,26 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: liloppiLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://www.instagram.com/lusia.knits/" target="_blank" rel="noreferrer">
+        <Picture
+          width={90}
+          alt="lusiaknits_logo"
+          picture={{
+            fallbackUrl: lusiaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: lusiaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: lusiaLogoUrlAvif
               }
             ]
           }}
@@ -596,6 +648,26 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: welnaBawelnaLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://wloczkomaniaczka.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={110}
+          alt="wloczkomaniaczka_logo"
+          picture={{
+            fallbackUrl: wloczkomaniaczkaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: wloczkomaniaczkaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: wloczkomaniaczkaLogoUrlAvif
               }
             ]
           }}

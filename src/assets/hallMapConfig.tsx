@@ -28,6 +28,10 @@ import dyeDyeDoneLogoUrlAvif from './../assets/images/minifiedLogos/dyedyedone.a
 import dyeDyeDoneLogoUrl from './../assets/images/minifiedLogos/dyedyedone.png';
 import dyeDyeDoneLogoUrlWebp from './../assets/images/minifiedLogos/dyedyedone.webp';
 
+import floralFiberLogoUrlAvif from './../assets/images/minifiedLogos/floralfiber.avif';
+import floralFiberLogoUrl from './../assets/images/minifiedLogos/floralfiber.jpg';
+import floralFiberLogoUrlWebp from './../assets/images/minifiedLogos/floralfiber.webp';
+
 import gaboWoolLogoUrl from './../assets/images/minifiedLogos/gabowool.png';
 import gaboWoolLogoUrlAvif from './../assets/images/minifiedLogos/gabowool.avif';
 import gaboWoolLogoUrlWebp from './../assets/images/minifiedLogos/gabowool.webp';
@@ -49,6 +53,10 @@ import kokonkiLogoUrl from './../assets/images/minifiedLogos/kokonki.png';
 import liloppiLogoUrl from './../assets/images/minifiedLogos/liloppi.jpg';
 import liloppiLogoUrlAvif from './../assets/images/minifiedLogos/liloppi.avif';
 import liloppiLogoUrlWebp from './../assets/images/minifiedLogos/liloppi.webp';
+
+import lusiaLogoUrl from './../assets/images/minifiedLogos/lusiaknits.jpg';
+import lusiaLogoUrlAvif from './../assets/images/minifiedLogos/lusiaknits.avif';
+import lusiaLogoUrlWebp from './../assets/images/minifiedLogos/lusiaknits.webp';
 
 import madoboLogoUrl from './../assets/images/minifiedLogos/madobo.png';
 import madoboLogoUrlAvif from './../assets/images/minifiedLogos/madobo.avif';
@@ -103,6 +111,10 @@ import theKnittingBoxLogoUrl from './../assets/images/minifiedLogos/theknittingb
 import welnaBawelnaLogoUrl from './../assets/images/minifiedLogos/WelnaBawelna.jpg';
 import welnaBawelnaLogoUrlAvif from './../assets/images/minifiedLogos/WelnaBawelna.avif';
 import welnaBawelnaLogoUrlWebp from './../assets/images/minifiedLogos/WelnaBawelna.webp';
+
+import wloczkomaniaczkaLogoUrl from './../assets/images/minifiedLogos/wloczkomaniaczka.jpg';
+import wloczkomaniaczkaLogoUrlAvif from './../assets/images/minifiedLogos/wloczkomaniaczka.avif';
+import wloczkomaniaczkaLogoUrlWebp from './../assets/images/minifiedLogos/wloczkomaniaczka.webp';
 
 import woollalaLogoUrl from './../assets/images/minifiedLogos/woollala.png';
 import woollalaLogoUrlWebp from './../assets/images/minifiedLogos/woollala.webp';
@@ -634,7 +646,20 @@ export const hallMapConfig: HallMapType = {
           height: 2,
           color: 'taken2',
           index: 'M9',
-          who: 'Włóczkomaniaczka'
+          who: 'Włóczkomaniaczka',
+          picture: {
+            fallbackUrl: wloczkomaniaczkaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: wloczkomaniaczkaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: wloczkomaniaczkaLogoUrlAvif
+              }
+            ]
+          }
         }
       ]
     },
@@ -991,7 +1016,33 @@ export const hallMapConfig: HallMapType = {
           width: 3,
           color: 'taken',
           index: 'P7',
-          who: 'Lusia knits & Floral Fiber Fusion'
+          who: 'Lusia knits & Floral Fiber Fusion',
+          picture: {
+            fallbackUrl: lusiaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: lusiaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: lusiaLogoUrlAvif
+              }
+            ]
+          },
+          extraPicture: {
+            fallbackUrl: floralFiberLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: floralFiberLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: floralFiberLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 5,
