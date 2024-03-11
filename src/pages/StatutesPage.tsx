@@ -72,18 +72,42 @@ export const StatutesPage = () => {
               Yarnmark
             </SideBar.LinkEntry>
 
+            <SideBar.LinkEntry
+              target="_blank"
+              to="https://wloczykijki.pl/pl_PL/i/Krakoski-Yarnmark-Welny/41?preview=true"
+              onClick={closeSideBar}
+              subLinks={[
+                {
+                  to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
+                  name: t('menu.entranceTicket'),
+                  target: '_blank',
+                  icon: <IconifyIcon icon="streamline:tickets" width="24" />
+                },
+                {
+                  to: 'https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358',
+                  name: t('menu.workshopTickets'),
+                  target: '_blank',
+                  icon: <IconifyIcon icon="streamline:tickets" width="24" />
+                },
+                {
+                  to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833',
+                  name: t('menu.cruiseTickets'),
+                  target: '_blank',
+                  icon: <IconifyIcon icon="streamline:tickets" width="24" />
+                }
+              ]}>
+              <IconifyIcon icon="streamline:tickets" width="24" />
+              {t('menu.tickets')}
+            </SideBar.LinkEntry>
+
             <SideBar.LinkEntry onClick={closeSideBar} to="/info-for-vendors">
               <IconifyIcon icon="material-symbols:info-outline" width="24" />
               {t('menu.infoForVendors')}
             </SideBar.LinkEntry>
 
-            <SideBar.LinkEntry
-              to="#footer"
-              onClick={() => {
-                closeSideBar();
-              }}>
-              <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
-              {t('menu.contact')}
+            <SideBar.LinkEntry to="/statutes" onClick={closeSideBar}>
+              <IconifyIcon icon="mdi:document-sign" width="24" />
+              {t('menu.statutes')}
             </SideBar.LinkEntry>
 
             <LanguageSwitcher />

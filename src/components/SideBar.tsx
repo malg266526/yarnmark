@@ -16,13 +16,32 @@ const LinkTitle = styled.div`
   gap: ${Spacings.sm};
 `;
 
-const Link = styled(HashLink)`
+const DropdownLink = styled.div`
   flex-direction: column;
   text-decoration: none;
   padding: 8px 8px;
   color: ${Colors.white};
   font-size: ${FontSize.xl};
   border-radius: 4px;
+  display: flex;
+  gap: ${Spacings.sm};
+  background: rgba(0, 0, 0, 0);
+  transition: all 150ms ease-in-out;
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+    color: ${Colors.goldLight};
+  }
+`;
+
+const Link = styled(HashLink)`
+  text-decoration: none;
+  padding: 8px 8px;
+  color: ${Colors.white};
+  font-size: ${FontSize.xl};
+  border-radius: 4px;
+  align-items: center;
   display: flex;
   gap: ${Spacings.sm};
   background: rgba(0, 0, 0, 0);
@@ -56,20 +75,12 @@ export interface LinkEntryProps extends HashLinkProps {
 
 const LinkEntry = ({ to, onClick, target, children, subLinks, ...rest }: LinkEntryProps) => {
   const navigate = useNavigate();
-  // const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  return (
-    <Link
-      to={to}
+  return subLinks ? (
+    <DropdownLink
       onClick={(event: React.MouseEvent) => {
-        if (target !== EXTERNAL_TARGET && to && !to.toString().includes(SCROLL_URL)) {
-          event.preventDefault();
-          navigate(to);
-        }
-
         onClick?.(event);
-      }}
-      {...rest}>
+      }}>
       <LinkTitle>{children}</LinkTitle>
 
       <Submenu>
@@ -80,6 +91,19 @@ const LinkEntry = ({ to, onClick, target, children, subLinks, ...rest }: LinkEnt
           </Sublink>
         ))}
       </Submenu>
+    </DropdownLink>
+  ) : (
+    <Link
+      to={to}
+      onClick={(event: React.MouseEvent) => {
+        if (target !== EXTERNAL_TARGET && to && !to.toString().includes(SCROLL_URL)) {
+          event.preventDefault();
+          navigate(to);
+        }
+        onClick?.(event);
+      }}
+      {...rest}>
+      {children}
     </Link>
   );
 };
