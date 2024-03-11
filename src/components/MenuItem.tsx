@@ -24,8 +24,8 @@ const DropdownTitle = styled(Button)`
     width: 100%;
     background: #000;
     ${({ color }) =>
-      color &&
-      css`
+    color &&
+    css`
         background: ${Colors.text};
       `};
     opacity: 0;
@@ -43,7 +43,7 @@ const Dropdown = styled.div`
   position: relative;
 `;
 
-const DropdownItemsBackground = styled.div`
+const DropdownItemsBackground = styled.div<{ visible: boolean }>`
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -53,6 +53,17 @@ const DropdownItemsBackground = styled.div`
   padding: ${Spacings.md};
   border-bottom-left-radius: ${Radius.md};
   border-bottom-right-radius: ${Radius.md};
+
+  transition: all 150ms ease-in-out;
+  transform: scale(0.7) translate(0, -80px);
+  opacity: 0;
+  pointer-events: none;
+
+  ${({ visible }) => visible && css`
+    transform: scale(1) translate(0, 0);
+    opacity: 1;
+    pointer-events: auto;
+  `};
 `;
 
 const SubLink = styled(Link)`
@@ -106,19 +117,18 @@ export const MenuItem = ({ children, ...props }: MenuItemType) => {
             icon="mingcute:down-line"
             style={{
               transform: isDropdownOpen ? 'rotate(180deg)' : 'rotate(0)',
-              transition: 'all 1ms ease-in-out'
+              transition: 'all 150ms ease-in-out'
             }}
           />
         </DropdownTitle>
-        {isDropdownOpen && (
-          <DropdownItemsBackground>
-            {props.subLinks?.map((subLink, index) => (
-              <SubLink key={index} to={subLink.to} color="black" target={subLink.target}>
-                {subLink.name}
-              </SubLink>
-            ))}
-          </DropdownItemsBackground>
-        )}
+
+        <DropdownItemsBackground visible={isDropdownOpen} >
+          {props.subLinks?.map((subLink, index) => (
+            <SubLink key={index} to={subLink.to} color="black" target={subLink.target}>
+              {subLink.name}
+            </SubLink>
+          ))}
+        </DropdownItemsBackground>
       </Dropdown>
     );
   }
