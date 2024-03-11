@@ -11,7 +11,7 @@ type HallLogoProps = {
   picture?: PictureType;
   alt?: string;
   width?: number;
-}; 
+};
 
 export const HallLogo = ({ picture, alt, width }: HallLogoProps) => {
   const isPhone = usePhone();
