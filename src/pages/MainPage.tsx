@@ -383,20 +383,59 @@ export const MainPage = () => {
           </Header>
 
           <SideBar roundedCorners="left" active={burgerActive}>
-            <SideBar.LinkEntry to="/" onClick={closeSideBar}>
+            <SideBar.LinkEntry
+              to="/"
+              onClick={closeSideBar}
+              subLinks={[
+                {
+                  to: '#vendors',
+                  name: t('menu.vendors'),
+                  icon: <IconifyIcon icon="bi:shop" width="24" />
+                },
+                {
+                  to: '#workshops',
+                  name: t('menu.workshops'),
+                  icon: <IconifyIcon icon="icons8:student" width="24" />
+                },
+                {
+                  to: '#cruise',
+                  name: t('menu.cruise'),
+                  icon: <IconifyIcon icon="clarity:ferry-solid" width="24" />
+                },
+                {
+                  to: '#footer',
+                  name: t('menu.contact'),
+                  icon: <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
+                }
+              ]}>
               <IconifyIcon icon="game-icons:wool" width="24" />
               Yarnmark
-            </SideBar.LinkEntry>
-
-            <SideBar.LinkEntry to="#vendors" onClick={closeSideBar}>
-              <IconifyIcon icon="bi:shop" width="24" />
-              {t('menu.vendors')}
             </SideBar.LinkEntry>
 
             <SideBar.LinkEntry
               target="_blank"
               to="https://wloczykijki.pl/pl_PL/i/Krakoski-Yarnmark-Welny/41?preview=true"
-              onClick={closeSideBar}>
+              onClick={closeSideBar}
+              subLinks={[
+                {
+                  to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
+                  name: t('menu.entranceTicket'),
+                  target: '_blank',
+                  icon: <IconifyIcon icon="streamline:tickets" width="24" />
+                },
+                {
+                  to: 'https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358',
+                  name: t('menu.workshopTickets'),
+                  target: '_blank',
+                  icon: <IconifyIcon icon="streamline:tickets" width="24" />
+                },
+                {
+                  to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833',
+                  name: t('menu.cruiseTickets'),
+                  target: '_blank',
+                  icon: <IconifyIcon icon="streamline:tickets" width="24" />
+                }
+              ]}>
               <IconifyIcon icon="streamline:tickets" width="24" />
               {t('menu.tickets')}
             </SideBar.LinkEntry>
@@ -406,28 +445,9 @@ export const MainPage = () => {
               {t('menu.infoForVendors')}
             </SideBar.LinkEntry>
 
-            <SideBar.LinkEntry to="#workshops" onClick={closeSideBar}>
-              <IconifyIcon icon="icons8:student" width="24" />
-              {t('menu.workshops')}
-            </SideBar.LinkEntry>
-
-            <SideBar.LinkEntry to="#cruise" onClick={closeSideBar}>
-              <IconifyIcon icon="clarity:ferry-solid" width="24" />
-              {t('menu.cruise')}
-            </SideBar.LinkEntry>
-
             <SideBar.LinkEntry to="/statutes" onClick={closeSideBar}>
               <IconifyIcon icon="mdi:document-sign" width="24" />
               {t('menu.statutes')}
-            </SideBar.LinkEntry>
-
-            <SideBar.LinkEntry
-              to="#footer"
-              onClick={() => {
-                closeSideBar();
-              }}>
-              <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
-              {t('menu.contact')}
             </SideBar.LinkEntry>
 
             <LanguageSwitcher />

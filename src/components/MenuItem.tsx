@@ -99,7 +99,7 @@ export const MenuItem = ({ children, ...props }: MenuItemType) => {
 
   if ('subLinks' in props) {
     return (
-      <Dropdown>
+      <Dropdown ref={wrapperRef}>
         <DropdownTitle onClick={onToggle}>
           {children}
           <IconifyIcon
@@ -111,7 +111,7 @@ export const MenuItem = ({ children, ...props }: MenuItemType) => {
           />
         </DropdownTitle>
         {isDropdownOpen && (
-          <DropdownItemsBackground ref={wrapperRef}>
+          <DropdownItemsBackground>
             {props.subLinks?.map((subLink, index) => (
               <SubLink key={index} to={subLink.to} color="black" target={subLink.target}>
                 {subLink.name}

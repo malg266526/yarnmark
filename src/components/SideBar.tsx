@@ -1,19 +1,29 @@
 import React, { ReactNode } from 'react';
-import styled, { css } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { HashLink, HashLinkProps } from 'react-router-hash-link';
+import styled, { css } from 'styled-components';
+import { FontSize } from '../styles/font-size';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
-import { HashLink, HashLinkProps } from 'react-router-hash-link';
-import { FontSize } from '../styles/font-size';
+
+const Submenu = styled.div`
+  padding-left: ${Spacings.lg};
+`;
+
+const LinkTitle = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${Spacings.sm};
+`;
 
 const Link = styled(HashLink)`
+  flex-direction: column;
   text-decoration: none;
   padding: 8px 8px;
   color: ${Colors.white};
   font-size: ${FontSize.xl};
   border-radius: 4px;
   display: flex;
-  align-items: center;
   gap: ${Spacings.sm};
   background: rgba(0, 0, 0, 0);
   transition: all 150ms ease-in-out;
@@ -25,15 +35,28 @@ const Link = styled(HashLink)`
   }
 `;
 
+const Sublink = styled(Link)`
+  flex-direction: row;
+  align-items: center;
+  font-size: ${FontSize.lg};
+`;
+
 const EXTERNAL_TARGET = '_blank';
 const SCROLL_URL = '#';
 
 export interface LinkEntryProps extends HashLinkProps {
   onClick?: React.MouseEventHandler;
+  subLinks?: {
+    to: HashLinkProps['to'];
+    name: string;
+    target?: HashLinkProps['target'];
+    icon: ReactNode;
+  }[];
 }
 
-const LinkEntry = ({ to, onClick, target, ...rest }: LinkEntryProps) => {
+const LinkEntry = ({ to, onClick, target, children, subLinks, ...rest }: LinkEntryProps) => {
   const navigate = useNavigate();
+  // const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
     <Link
@@ -46,8 +69,18 @@ const LinkEntry = ({ to, onClick, target, ...rest }: LinkEntryProps) => {
 
         onClick?.(event);
       }}
-      {...rest}
-    />
+      {...rest}>
+      <LinkTitle>{children}</LinkTitle>
+
+      <Submenu>
+        {subLinks?.map((subLink, index) => (
+          <Sublink key={index} to={subLink.to} target={subLink.target}>
+            {subLink.icon}
+            {subLink.name}
+          </Sublink>
+        ))}
+      </Submenu>
+    </Link>
   );
 };
 
