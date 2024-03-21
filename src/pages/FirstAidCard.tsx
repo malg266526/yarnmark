@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Picture } from '../components/Picture';
 import { Title } from '../components/Title';
-import { TransparentButton } from '../components/TransparentButton';
+import { Button } from '../components/Button';
 import { DropShadow, Radius } from '../styles/cards';
 import { ScreenSize } from '../styles/screeen-size';
 import { Spacings } from '../styles/spacings';
@@ -55,7 +55,7 @@ const TextWrapper = styled.div`
   text-align: center;
 `;
 
-const UnderlineButton = styled(TransparentButton)<{ isActive?: boolean }>`
+const UnderlineButton = styled(Button)<{ isActive?: boolean }>`
   padding: ${Spacings.xs};
   border-bottom: 2px solid black;
   background-color: ${({ isActive }) => (isActive ? '#EFFFE8' : 'transparent')};
@@ -81,12 +81,12 @@ export const FirstAidCard = () => {
     <Root>
       {showPlan ? (
         <TrainingPlan>
-          <TransparentButton onClick={() => setShowPlan(false)}>
+          <Button onClick={() => setShowPlan(false)}>
             <IconifyIcon
               icon="ion:arrow-back-outline"
               width={24}
               style={{ marginBottom: `${Spacings.md}` }}></IconifyIcon>
-          </TransparentButton>
+          </Button>
 
           <h3>{t('workshops.trainingPlan')}</h3>
           <Text bold>1. {t('workshops.firstAidLessons.lesson1')}</Text>

@@ -5,7 +5,7 @@ import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
 
 export const StyledPageContent = styled(PageContent)`
-  ${LanguageSwitcher} {
+  /*   ${LanguageSwitcher} {
     position: absolute;
     z-index: 1;
     top: 0;
@@ -15,5 +15,5 @@ export const StyledPageContent = styled(PageContent)`
       top: initial;
       bottom: 0;
     }
-  }
+  } */
 `;

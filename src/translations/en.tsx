@@ -13,7 +13,10 @@ export const en: TranslationsShape = {
       aboutUs: 'About us',
       stands: 'Stands',
       statutes: 'Statute',
-      tickets: 'Tickets'
+      tickets: 'Tickets',
+      entranceTicket: 'Entrance tickets',
+      workshopTickets: 'Workshops tickets',
+      cruiseTickets: 'Cruise tickets'
     },
     welcomeBand: {
       invitation: 'We heartily invite you for I edition of wool fair in capital of Malopolska!',
