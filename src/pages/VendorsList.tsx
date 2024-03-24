@@ -4,9 +4,16 @@ import { Spacings } from '../styles/spacings';
 import { Link } from '../components/Link';
 import { ScreenSize } from '../styles/screeen-size';
 
+import alemasztocudneLogoUrl from './../assets/images/minifiedLogos/alemasztocudne.jpg';
+import alemasztocudneLogoUrlAvif from './../assets/images/minifiedLogos/alemasztocudne.avif';
+import alemasztocudneLogoUrlWebp from './../assets/images/minifiedLogos/alemasztocudne.webp';
+
 import animotkiLogoUrl from './../assets/images/minifiedLogos/animotki.png';
 import animotkiLogoUrlAvif from './../assets/images/minifiedLogos/animotki.avif';
 import animotkiLogoUrlWebp from './../assets/images/minifiedLogos/animotki.webp';
+
+import anisplotyLogoUrl from './../assets/images/minifiedLogos/anisploty.jpg';
+import anisplotyLogoUrlAvif from './../assets/images/minifiedLogos/anisploty.avif';
 
 import bawelnianyFilamentLogoUrl from './../assets/images/minifiedLogos/bawelnianyfilament.jpg';
 import bawelnianyFilamentLogoUrlAvif from './../assets/images/minifiedLogos/bawelnianyfilament.avif';
@@ -127,6 +134,10 @@ import woolloopLogoUrl from './../assets/images/minifiedLogos/woolloop.png';
 import woolloopLogoUrlAvif from './../assets/images/minifiedLogos/woolloop.avif';
 import woolloopLogoUrlWebp from './../assets/images/minifiedLogos/woolloop.webp';
 
+import woolniejLogoUrl from './../assets/images/minifiedLogos/woolniej.jpg';
+import woolniejLogoUrlAvif from './../assets/images/minifiedLogos/woolniej.avif';
+import woolniejLogoUrlWebp from './../assets/images/minifiedLogos/woolniej.webp';
+
 import wooloveLogoUrl from './../assets/images/minifiedLogos/woolove.png';
 import wooloveLogoUrlAvif from './../assets/images/minifiedLogos/woolove.avif';
 import wooloveLogoUrlWebp from './../assets/images/minifiedLogos/woolove.webp';
@@ -164,6 +175,42 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: animotkiLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://judytamarcol.pl/alemasztocudne/" target="_blank" rel="noreferrer">
+        <Picture
+          width={100}
+          alt="alemasztocudne_logo"
+          picture={{
+            fallbackUrl: alemasztocudneLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: alemasztocudneLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: alemasztocudneLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://www.instagram.com/ani_sploty/" target="_blank" rel="noreferrer">
+        <Picture
+          width={80}
+          alt="anisploty_logo"
+          picture={{
+            fallbackUrl: anisplotyLogoUrl,
+            sources: [
+              {
+                type: 'image/avif',
+                url: anisplotyLogoUrlAvif
               }
             ]
           }}
@@ -724,6 +771,26 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: woolloopLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://www.instagram.com/woolniej.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={80}
+          alt="woolniej_logo"
+          picture={{
+            fallbackUrl: woolniejLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: woolniejLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: woolniejLogoUrlAvif
               }
             ]
           }}

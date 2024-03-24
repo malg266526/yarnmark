@@ -8,6 +8,9 @@ import animotkiLogoUrl from './../assets/images/minifiedLogos/animotki.png';
 import animotkiLogoUrlAvif from './../assets/images/minifiedLogos/animotki.avif';
 import animotkiLogoUrlWebp from './../assets/images/minifiedLogos/animotki.webp';
 
+import anisplotyLogoUrl from './../assets/images/minifiedLogos/anisploty.jpg';
+import anisplotyLogoUrlAvif from './../assets/images/minifiedLogos/anisploty.avif';
+
 import bawelnianyFilamentLogoUrl from './../assets/images/minifiedLogos/bawelnianyfilament.jpg';
 import bawelnianyFilamentLogoUrlAvif from './../assets/images/minifiedLogos/bawelnianyfilament.avif';
 import bawelnianyFilamentLogoUrlWebp from './../assets/images/minifiedLogos/bawelnianyfilament.webp';
@@ -123,9 +126,17 @@ import woolloopLogoUrl from './../assets/images/minifiedLogos/woolloop.png';
 import woolloopLogoUrlAvif from './../assets/images/minifiedLogos/woolloop.avif';
 import woolloopLogoUrlWebp from './../assets/images/minifiedLogos/woolloop.webp';
 
+import woolniejLogoUrl from './../assets/images/minifiedLogos/woolniej.jpg';
+import woolniejLogoUrlAvif from './../assets/images/minifiedLogos/woolniej.avif';
+import woolniejLogoUrlWebp from './../assets/images/minifiedLogos/woolniej.webp';
+
 import wooloveLogoUrl from './../assets/images/minifiedLogos/woolove.png';
 import wooloveLogoUrlAvif from './../assets/images/minifiedLogos/woolove.avif';
 import wooloveLogoUrlWebp from './../assets/images/minifiedLogos/woolove.webp';
+
+import alemasztocudneLogoUrl from './../assets/images/minifiedLogos/alemasztocudne.jpg';
+import alemasztocudneLogoUrlAvif from './../assets/images/minifiedLogos/alemasztocudne.avif';
+import alemasztocudneLogoUrlWebp from './../assets/images/minifiedLogos/alemasztocudne.webp';
 
 import { PictureType } from '../components/Picture';
 
@@ -170,7 +181,20 @@ export const hallMapConfig: HallMapType = {
           color: 'taken2',
           index: 'S31',
           height: 4,
-          who: 'Woolniej'
+          who: 'Woolniej',
+          picture: {
+            fallbackUrl: woolniejLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: woolniejLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: woolniejLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 2.5,
@@ -639,7 +663,16 @@ export const hallMapConfig: HallMapType = {
           height: 2,
           color: 'taken',
           index: 'M8',
-          who: 'Ani sploty'
+          who: 'Ani sploty',
+          picture: {
+            fallbackUrl: anisplotyLogoUrl,
+            sources: [
+              {
+                type: 'image/avif',
+                url: anisplotyLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 3,
@@ -916,7 +949,20 @@ export const hallMapConfig: HallMapType = {
           color: 'taken',
           index: 'S30',
           height: 4,
-          who: 'Ale masz to cudne!'
+          who: 'Ale masz to cudne!',
+          picture: {
+            fallbackUrl: alemasztocudneLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: alemasztocudneLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: alemasztocudneLogoUrlAvif
+              }
+            ]
+          }
         },
         {
           width: 2.5,
