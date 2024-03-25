@@ -1,12 +1,11 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { HallStandType } from '../assets/hallMapConfig';
+import { HallLightColors, HallStandType } from '../assets/hallMapConfig';
 import { usePhone } from '../pages/usePhone';
-import { Spacings } from '../styles/spacings';
-import { Colors, HallColors } from '../styles/theme';
-import { HallLogo } from './HallLogo';
-import { KnittingIconOnHover } from './KnittingIconOnHover';
 import { FontSize } from '../styles/font-size';
+import { Spacings } from '../styles/spacings';
+import { Colors } from '../styles/theme';
+import { KnittingIconOnHover } from './KnittingIconOnHover';
 
 const wrapperTranslation = `translate(-50%, 0px)`;
 
@@ -61,7 +60,7 @@ const hoverStyles = css`
 const HallStandLayout = styled.div<{
   width?: number;
   height?: number;
-  color?: keyof typeof HallColors;
+  color?: keyof typeof HallLightColors;
   multiplier: number;
 }>`
   display: flex;
@@ -70,7 +69,7 @@ const HallStandLayout = styled.div<{
   width: ${({ width, multiplier }) => (width ? `${width * multiplier}px` : 'initial')};
   height: ${({ height, multiplier }) => (height ? `${height * multiplier}px` : 'initial')};
 
-  background-color: ${({ color }) => HallColors[color || 'empty']};
+  background-color: ${({ color }) => HallLightColors[color || 'empty']};
   align-items: center;
   justify-content: space-evenly;
 

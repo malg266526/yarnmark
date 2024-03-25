@@ -9,20 +9,19 @@ import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
-import { CenteredTitle, Picture, Text, Menu, MenuBackground } from './MainPage.styled';
-import { Link } from '../components/Link';
-import { usePhone } from './usePhone';
-import { Hall } from '../components/Hall';
-import { HallLegend } from '../components/HallLegend';
-import { BurgerMenu } from '../components/BurgerMenu';
-import { Header } from '../App.styled';
-import { SideBar } from '../components/SideBar';
 import { Icon as IconifyIcon } from '@iconify/react';
-import { ScreenSize } from '../styles/screeen-size';
 import { Trans } from 'react-i18next';
+import { Header } from '../App.styled';
+import { BurgerMenu } from '../components/BurgerMenu';
 import { Curtain } from '../components/Curtain';
-import { LanguageSwitcher } from './LanguageSwitcher';
+import { Hall } from '../components/Hall';
+import { Link } from '../components/Link';
+import { SideBar } from '../components/SideBar';
+import { ScreenSize } from '../styles/screeen-size';
 import { StyledPageContent } from './InfoForVendorsPage.styled';
+import { LanguageSwitcher } from './LanguageSwitcher';
+import { CenteredTitle, Menu, MenuBackground, Picture, Text } from './MainPage.styled';
+import { usePhone } from './usePhone';
 
 export const FlexLayout = styled.div`
   display: flex;
@@ -66,7 +65,7 @@ export const TitleWrapper = styled.div`
 `;
 
 export const HallWrapper = styled.div`
-  min-width: 45%;
+  // min-width: 45%;
   justify-content: space-between;
   display: flex;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
@@ -279,7 +278,6 @@ export const InfoForVendorsPage = () => {
 
         <HallWrapper>
           <Hall />
-          <HallLegend />
         </HallWrapper>
       </Band>
     </StyledPageContent>

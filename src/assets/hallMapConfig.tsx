@@ -1,73 +1,71 @@
-import { HallColors } from '../styles/theme';
-
-import wloczykijkiLogoUrl from './../assets/images/minifiedLogos/but.jpg';
 import wloczykijkiLogoUrlAvif from './../assets/images/minifiedLogos/but.avif';
+import wloczykijkiLogoUrl from './../assets/images/minifiedLogos/but.jpg';
 import wloczykijkiLogoUrlWebp from './../assets/images/minifiedLogos/but.webp';
 
-import animotkiLogoUrl from './../assets/images/minifiedLogos/animotki.png';
 import animotkiLogoUrlAvif from './../assets/images/minifiedLogos/animotki.avif';
+import animotkiLogoUrl from './../assets/images/minifiedLogos/animotki.png';
 import animotkiLogoUrlWebp from './../assets/images/minifiedLogos/animotki.webp';
 
-import bawelnianyFilamentLogoUrl from './../assets/images/minifiedLogos/bawelnianyfilament.jpg';
 import bawelnianyFilamentLogoUrlAvif from './../assets/images/minifiedLogos/bawelnianyfilament.avif';
+import bawelnianyFilamentLogoUrl from './../assets/images/minifiedLogos/bawelnianyfilament.jpg';
 import bawelnianyFilamentLogoUrlWebp from './../assets/images/minifiedLogos/bawelnianyfilament.webp';
 
-import bifernoLogoUrl from './../assets/images/minifiedLogos/biferno.png';
 import bifernoLogoUrlAvif from './../assets/images/minifiedLogos/biferno.avif';
+import bifernoLogoUrl from './../assets/images/minifiedLogos/biferno.png';
 import bifernoLogoUrlWebp from './../assets/images/minifiedLogos/biferno.webp';
 
-import brioszkaLogoUrl from './../assets/images/minifiedLogos/brioszka.png';
 import brioszkaLogoUrlAvif from './../assets/images/minifiedLogos/brioszka.avif';
+import brioszkaLogoUrl from './../assets/images/minifiedLogos/brioszka.png';
 import brioszkaLogoUrlWebp from './../assets/images/minifiedLogos/brioszka.webp';
 
 import dyeDyeDoneLogoUrlAvif from './../assets/images/minifiedLogos/dyedyedone.avif';
 import dyeDyeDoneLogoUrl from './../assets/images/minifiedLogos/dyedyedone.png';
 import dyeDyeDoneLogoUrlWebp from './../assets/images/minifiedLogos/dyedyedone.webp';
 
-import gaboWoolLogoUrl from './../assets/images/minifiedLogos/gabowool.png';
 import gaboWoolLogoUrlAvif from './../assets/images/minifiedLogos/gabowool.avif';
+import gaboWoolLogoUrl from './../assets/images/minifiedLogos/gabowool.png';
 import gaboWoolLogoUrlWebp from './../assets/images/minifiedLogos/gabowool.webp';
 
-import hankaMiZrobilaLogoUrl from './../assets/images/minifiedLogos/hankamizrobila.png';
 import hankaMiZrobilaLogoUrlAvif from './../assets/images/minifiedLogos/hankamizrobila.avif';
+import hankaMiZrobilaLogoUrl from './../assets/images/minifiedLogos/hankamizrobila.png';
 import hankaMiZrobilaLogoUrlWebp from './../assets/images/minifiedLogos/hankamizrobila.webp';
 
-import knittedCoffeeLogoUrl from './../assets/images/minifiedLogos/knitted.jpg';
 import knittedCoffeeLogoUrlAvif from './../assets/images/minifiedLogos/knitted.avif';
+import knittedCoffeeLogoUrl from './../assets/images/minifiedLogos/knitted.jpg';
 import knittedCoffeeLogoUrlWebp from './../assets/images/minifiedLogos/knitted.webp';
 
-import knitPlLogoUrl from './../assets/images/minifiedLogos/knitpl.png';
 import knitPlLogoUrlAvif from './../assets/images/minifiedLogos/knitpl.avif';
+import knitPlLogoUrl from './../assets/images/minifiedLogos/knitpl.png';
 import knitPlLogoUrlWebp from './../assets/images/minifiedLogos/knitpl.webp';
 
 import kokonkiLogoUrl from './../assets/images/minifiedLogos/kokonki.png';
 
-import liloppiLogoUrl from './../assets/images/minifiedLogos/liloppi.jpg';
 import liloppiLogoUrlAvif from './../assets/images/minifiedLogos/liloppi.avif';
+import liloppiLogoUrl from './../assets/images/minifiedLogos/liloppi.jpg';
 import liloppiLogoUrlWebp from './../assets/images/minifiedLogos/liloppi.webp';
 
-import madoboLogoUrl from './../assets/images/minifiedLogos/madobo.png';
 import madoboLogoUrlAvif from './../assets/images/minifiedLogos/madobo.avif';
+import madoboLogoUrl from './../assets/images/minifiedLogos/madobo.png';
 import madoboLogoUrlWebp from './../assets/images/minifiedLogos/madobo.webp';
 
-import malinowyKosLogoUrl from './../assets/images/minifiedLogos/malinowyKos.png';
 import malinowyKosLogoUrlAvif from './../assets/images/minifiedLogos/malinowyKos.avif';
+import malinowyKosLogoUrl from './../assets/images/minifiedLogos/malinowyKos.png';
 import malinowyKosLogoUrlWebp from './../assets/images/minifiedLogos/malinowyKos.webp';
 
-import maniaChomikujeLogoUrl from './../assets/images/minifiedLogos/mania.png';
 import maniaChomikujeLogoUrlAvif from './../assets/images/minifiedLogos/mania.avif';
+import maniaChomikujeLogoUrl from './../assets/images/minifiedLogos/mania.png';
 import maniaChomikujeLogoUrlWebp from './../assets/images/minifiedLogos/mania.webp';
 
-import missKnitskiLogoUrl from './../assets/images/minifiedLogos/missknitski.png';
 import missKnitskiLogoUrlAvif from './../assets/images/minifiedLogos/missknitski.avif';
+import missKnitskiLogoUrl from './../assets/images/minifiedLogos/missknitski.png';
 import missKnitskiLogoUrlWebp from './../assets/images/minifiedLogos/missknitski.webp';
 
-import mokoszaLogoUrl from './../assets/images/minifiedLogos/mokosza.png';
 import mokoszaLogoUrlAvif from './../assets/images/minifiedLogos/mokosza.avif';
+import mokoszaLogoUrl from './../assets/images/minifiedLogos/mokosza.png';
 import mokoszaLogoUrlWebp from './../assets/images/minifiedLogos/mokosza.webp';
 
-import motkomaniaLogoUrl from './../assets/images/minifiedLogos/motkomania.jpg';
 import motkomaniaLogoUrlAvif from './../assets/images/minifiedLogos/motkomania.avif';
+import motkomaniaLogoUrl from './../assets/images/minifiedLogos/motkomania.jpg';
 import motkomaniaLogoUrlWebp from './../assets/images/minifiedLogos/motkomania.webp';
 
 import naSztukiStudioLogoUrl from './../assets/images/minifiedLogos/nasztukistudio.png';
@@ -76,8 +74,8 @@ import pimotkiLogoUrl from './../assets/images/minifiedLogos/pimotki.png';
 
 import rencamiLogoUrl from './../assets/images/minifiedLogos/rencami_short.png';
 
-import siedemOczekLogoUrl from './../assets/images/minifiedLogos/7oczek.jpg';
 import siedemOczekLogoUrlAvif from './../assets/images/minifiedLogos/7oczek.avif';
+import siedemOczekLogoUrl from './../assets/images/minifiedLogos/7oczek.jpg';
 import siedemOczekLogoUrlWebp from './../assets/images/minifiedLogos/7oczek.webp';
 
 import strikkeLogoUrl from './../assets/images/minifiedLogos/strikke.png';
@@ -88,19 +86,19 @@ import timeToKnitLogoUrlWebp from './../assets/images/minifiedLogos/timetoknit.w
 
 import theKnittingBoxLogoUrl from './../assets/images/minifiedLogos/theknittingbox.png';
 
-import welnaBawelnaLogoUrl from './../assets/images/minifiedLogos/WelnaBawelna.jpg';
 import welnaBawelnaLogoUrlAvif from './../assets/images/minifiedLogos/WelnaBawelna.avif';
+import welnaBawelnaLogoUrl from './../assets/images/minifiedLogos/WelnaBawelna.jpg';
 import welnaBawelnaLogoUrlWebp from './../assets/images/minifiedLogos/WelnaBawelna.webp';
 
 import woollalaLogoUrl from './../assets/images/minifiedLogos/woollala.png';
 import woollalaLogoUrlWebp from './../assets/images/minifiedLogos/woollala.webp';
 
-import woolloopLogoUrl from './../assets/images/minifiedLogos/woolloop.png';
 import woolloopLogoUrlAvif from './../assets/images/minifiedLogos/woolloop.avif';
+import woolloopLogoUrl from './../assets/images/minifiedLogos/woolloop.png';
 import woolloopLogoUrlWebp from './../assets/images/minifiedLogos/woolloop.webp';
 
-import wooloveLogoUrl from './../assets/images/minifiedLogos/woolove.png';
 import wooloveLogoUrlAvif from './../assets/images/minifiedLogos/woolove.avif';
+import wooloveLogoUrl from './../assets/images/minifiedLogos/woolove.png';
 import wooloveLogoUrlWebp from './../assets/images/minifiedLogos/woolove.webp';
 
 import { PictureType } from '../components/Picture';
@@ -110,7 +108,7 @@ export type HallStandType = {
   height?: number;
 
   text?: string;
-  color: keyof typeof HallColors;
+  color: keyof typeof HallLightColors;
   index?: number | string;
   who?: string;
 
@@ -131,6 +129,12 @@ type HallMapType = {
   bottomRows: HallLineType[];
 };
 
+export const HallLightColors = {
+  even: '#ffdfa9',
+  uneven: '#F6C7B3',
+  empty: '#f5faf6' //
+};
+
 export const hallMapConfig: HallMapType = {
   topRows: [
     {
@@ -143,14 +147,14 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'taken2',
+          color: 'even',
           index: 'S31',
           height: 4,
           who: 'Woolniej'
         },
         {
           width: 2.5,
-          color: 'taken',
+          color: 'uneven',
           index: 'S1',
           height: 4,
           who: 'Biferno',
@@ -170,7 +174,7 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'taken',
+          color: 'uneven',
           index: 'S2',
           height: 4,
           who: 'Biferno',
@@ -197,7 +201,7 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'taken',
+          color: 'even',
           index: 'S3',
           height: 4,
           who: 'KnitPl',
@@ -217,7 +221,7 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'taken2',
+          color: 'uneven',
           index: 'S4',
           height: 4,
           who: 'Mokosza',
@@ -237,7 +241,7 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'taken',
+          color: 'even',
           index: 'S5',
           height: 4,
           who: 'Bawełniany Filament & Malinowy Kos',
@@ -270,7 +274,7 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'taken2',
+          color: 'uneven',
           index: 'S6',
           height: 4,
           who: 'Brioszka',
@@ -290,7 +294,7 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'taken',
+          color: 'even',
           index: 'S7',
           height: 4,
           who: 'Madobo',
@@ -340,7 +344,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 5,
           height: 3,
-          color: 'taken',
+          color: 'even',
           index: 'P2',
           who: 'GaboWool',
           picture: {
@@ -360,7 +364,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken2',
+          color: 'uneven',
           index: 'S8',
           who: 'Pimotki',
           picture: {
@@ -370,7 +374,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken2',
+          color: 'uneven',
           index: 'S9',
           who: 'Pimotki',
           picture: {
@@ -380,7 +384,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken',
+          color: 'even',
           index: 'S10',
           who: 'Kokonki',
           picture: {
@@ -390,7 +394,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken',
+          color: 'even',
           index: 'S11',
           who: 'Kokonki',
           picture: {
@@ -400,7 +404,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken2',
+          color: 'uneven',
           index: 'S12',
           who: 'TimeToKnit',
           picture: {
@@ -420,7 +424,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken',
+          color: 'even',
           index: 'S13',
           who: 'Strikke',
           picture: {
@@ -430,7 +434,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken2',
+          color: 'uneven',
           index: 'S14',
           who: 'WełnaBawełna',
           picture: {
@@ -450,7 +454,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken2',
+          color: 'uneven',
           index: 'S15',
           who: 'WełnaBawełna',
           picture: {
@@ -470,7 +474,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 5,
           height: 3,
-          color: 'taken',
+          color: 'even',
           index: 'P3',
           who: 'DyeDyeDone',
           picture: {
@@ -508,7 +512,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 3,
           height: 2,
-          color: 'taken',
+          color: 'even',
           index: 'M1',
           who: 'Woolove',
           picture: {
@@ -528,7 +532,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 3,
           height: 2,
-          color: 'taken2',
+          color: 'uneven',
           index: 'M2',
           who: 'Paciorkowce I Wisielce'
         },
@@ -540,7 +544,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 3,
           height: 2,
-          color: 'taken',
+          color: 'even',
           index: 'M3',
           who: 'Na Sztuki Studio',
           picture: {
@@ -550,7 +554,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 3,
           height: 2,
-          color: 'taken2',
+          color: 'uneven',
           index: 'M4',
           who: 'The Knitting Box',
           picture: {
@@ -565,7 +569,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 3,
           height: 2,
-          color: 'taken2',
+          color: 'uneven',
           index: 'M5',
           who: 'Rencami',
           picture: {
@@ -575,7 +579,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 3,
           height: 2,
-          color: 'taken',
+          color: 'even',
           index: 'M6',
           who: 'Hanka Mi Zrobiła',
           picture: {
@@ -613,7 +617,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 2,
           height: 3,
-          color: 'taken2',
+          color: 'uneven',
           index: 'M7',
           who: 'Knitted Coffee',
           picture: {
@@ -633,7 +637,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 5,
           height: 3,
-          color: 'taken',
+          color: 'even',
           index: 'P4',
           who: 'Włóczykijki',
           picture: {
@@ -653,7 +657,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken2',
+          color: 'uneven',
           index: 'S16',
           who: 'Woollala',
           picture: {
@@ -669,7 +673,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken2',
+          color: 'uneven',
           index: 'S17',
           who: 'Woollala',
           picture: {
@@ -685,7 +689,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken',
+          color: 'even',
           index: 'S18',
           who: '7oczek',
           picture: {
@@ -705,7 +709,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken',
+          color: 'even',
           index: 'S19',
           who: '7Oczek',
           picture: {
@@ -725,7 +729,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken2',
+          color: 'uneven',
           index: 'S20',
           who: 'MissKnitski',
           picture: {
@@ -745,7 +749,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken',
+          color: 'even',
           index: 'S21',
           who: 'Woolloop',
           picture: {
@@ -765,7 +769,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken2',
+          color: 'uneven',
           index: 'S22',
           who: 'Liloppi',
           picture: {
@@ -785,7 +789,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken2',
+          color: 'uneven',
           index: 'S23',
           who: 'Liloppi',
           picture: {
@@ -805,7 +809,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 5,
           height: 3,
-          color: 'taken',
+          color: 'even',
           index: 'P5',
           who: 'Motkomania',
           picture: {
@@ -849,14 +853,14 @@ export const hallMapConfig: HallMapType = {
       stands: [
         {
           width: 2.5,
-          color: 'taken',
+          color: 'even',
           index: 'S30',
           height: 4,
           who: 'Ale masz to cudne!'
         },
         {
           width: 2.5,
-          color: 'taken2',
+          color: 'uneven',
           height: 4,
           index: 'S24',
           who: 'Mania Chomikuje',
@@ -876,35 +880,35 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'taken',
+          color: 'even',
           height: 4,
           index: 'S25',
           who: 'Colorido'
         },
         {
           width: 2.5,
-          color: 'taken2',
+          color: 'uneven',
           height: 4,
           index: 'S26',
           who: "Martin's Lab"
         },
         {
           width: 2.5,
-          color: 'taken',
+          color: 'even',
           height: 4,
           index: 'S27',
           who: 'Furora Yarns'
         },
         {
           width: 2.5,
-          color: 'taken',
+          color: 'even',
           height: 4,
           index: 'S28',
           who: 'Furora Yarns'
         },
         {
           width: 2.5,
-          color: 'taken2',
+          color: 'uneven',
           height: 4,
           index: 'S29',
           who: 'Animotki',
@@ -924,7 +928,7 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 3,
-          color: 'taken',
+          color: 'even',
           index: 'P7',
           who: 'Lusia Knits'
         },
