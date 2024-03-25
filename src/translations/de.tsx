@@ -70,27 +70,27 @@ export const de: TranslationsShape = {
     },
     cashmereTicketsBand: {
       title: 'Cashmere tickets',
-      beautifulCruise: 'Beautiful cruise on the Knitting-ship!',
+      beautifulCruise: 'Machen Sie eine wunderschöne Kreuzfahrt mit dem “Strickschiff”!',
       map: {
         cruise: 'Knitting cruise on Vistula River',
         info: 'Cruise information',
-        startAndStop: 'Place of departure and end of the cruise:',
-        time: 'Cruise time:',
+        startAndStop: 'Abfahrtsort und Ende der Kreuzfahrt:',
+        time: 'Kreuzfahrtzeit:',
         price: 'Preis',
         priceIncludesYarnmarkTicket:
-          'The price includes an entry ticket to the <strong>Krakoski Yarnmark Wełny 2024</strong>',
+          'Im Preis ist eine Eintrittskarte zur <strong>Krakauer Yarnmarkt 2024</strong> Messe enthalten',
         route: 'Route:'
       },
-      invitation: 'We heartily invite you for an unforgettable cruise on the charming Vistula River in Cracow.',
-      ship: 'We want the deck of the "Legend" ship to become a stage for knitting together, creating unique moments and making new knitting acquaintances.',
+      invitation: 'Wir laden Sie zu einer unvergesslichen Kreuzfahrt auf der bezaubernden Weichsel in Krakau ein.',
+      ship: 'Wir möchten, dass das Deck des Schiffes „Legenda“ zur Bühne wird, auf der man gemeinsam stricken, einzigartige Momente schaffen und neue Strickbekanntschaften knüpfen kann.',
       prosecco: {
-        title: 'Relax!',
+        title: 'Entspannung!',
         intro:
-          'A ship cruise on the Vistula River in Cracow is not only a awesome way to spend time, but also a great way to relax and see the city from a different side.',
+          'Eine Bootsfahrt auf der Weichsel in Krakau ist nicht nur eine attraktive Art, Zeit zu verbringen, sondern auch eine tolle Möglichkeit, sich zu entspannen und die Stadt von einer anderen Seite zu sehen.',
         description:
-          'During the cruise, we will offer you a glass of Prosecco (or a non-alcoholic drink), thus adding a touch of luxury to the atmosphere.'
+          'Während der Kreuzfahrt werden Sie mit einem Glas Prosecco (oder einem Erfrischungsgetränk) verwöhnt, was der Atmosphäre einen Hauch von Luxus verleiht.'
       },
-      buyTickets: 'kauf ein Ticket',
+      buyTickets: 'Tickets können Sie hier kaufen',
       tickets: 'Tickets'
     },
     vendorsPage: {
