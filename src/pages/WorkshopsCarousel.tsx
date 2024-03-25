@@ -31,6 +31,10 @@ import uwolnijPomyslyUrlAvif from './../assets/images/workshops/uwolnijpomysly.a
 import uwolnijPomyslyUrl from './../assets/images/workshops/uwolnijpomysly.jpg';
 import uwolnijPomyslyWebp from './../assets/images/workshops/uwolnijpomysly.webp';
 
+import labolensUrlAvif from './../assets/images/workshops/labolens.avif';
+import labolensUrl from './../assets/images/workshops/labolens.jpg';
+import labolensUrlWebp from './../assets/images/workshops/labolens.webp';
+
 import ewaUrlAvif from './../assets/images/workshops/ewa.avif';
 import ewaUrl from './../assets/images/workshops/ewa.jpg';
 
@@ -39,6 +43,7 @@ import { RowLayout } from '../components/RowLayout';
 import { FontSize } from '../styles/font-size';
 import { ScreenSize } from '../styles/screeen-size';
 import { usePhone, useTablet } from './usePhone';
+import { DropShadow, Radius } from '../styles/cards';
 
 export const Title = styled.h3`
   font-size: ${FontSize.xl};
@@ -49,7 +54,7 @@ export const Title = styled.h3`
 const Root = styled.div`
   display: inline-block;
   width: 90%;
-  box-shadow: 2px 2px 15px 0px rgba(121, 59, 59, 0.25);
+  box-shadow: ${DropShadow.md};
   border: 1px solid darkgray;
   align-self: center;
   background-color: white;
@@ -63,7 +68,7 @@ const Item = styled.div`
   min-height: 600px;
   background-color: white;
   color: black;
-  border-radius: 4px;
+  border-radius: ${Radius.lg};
   padding: ${Spacings.lg} ${Spacings.md} ${Spacings.md} ${Spacings.md};
   align-items: center;
   position: relative;
@@ -123,10 +128,11 @@ const ScrollableContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-height: 500px;
+  overflow-y: auto;
 
   @media (max-width: ${ScreenSize.smallPc}) {
-    height: 300px;
-    overflow-y: auto;
+    max-height: 300px;
   }
 `;
 
@@ -142,7 +148,7 @@ export const WorkshopsCarousel = () => {
     left: '50%',
     transform: 'translateX(-50%)'
   };
-  const logoStyle = isTablet ? mobileStyle : { opacity: '0.45' };
+  const logoStyle = isTablet ? mobileStyle : { opacity: 0.9 };
 
   return (
     <BlobBackground>
@@ -157,39 +163,34 @@ export const WorkshopsCarousel = () => {
             <Item>
               <Picture
                 picture={{
-                  fallbackUrl: haftowaBabaUrl,
+                  fallbackUrl: woolankaUrl,
                   sources: [
                     {
                       type: 'image/webp',
-                      url: haftowaBabaUrlWebp
+                      url: woolankaUrlWebp
                     },
                     {
                       type: 'image/avif',
-                      url: haftowaBabaUrlAvif
+                      url: woolankaUrlAvif
                     }
                   ]
                 }}
-                alt="haftowababa_logo"
+                alt="woolanka"
                 width={180}
                 style={logoStyle}
               />
 
               <Carousel.Caption>
-                <Title>{t('workshops.woolEmbroidery')}</Title>
+                <Title>{t('workshops.decorativeKnitting')}</Title>
                 <RowLayout justify="center" gap="none">
                   <NoTopMarginText>{t('workshops.tutor')} </NoTopMarginText>
-                  <a href="https://www.instagram.com/haftowababa/" target="_blank" rel="noreferrer">
-                    Haftowa Baba
+                  <a href="https://www.instagram.com/woolanka" target="_blank" rel="noreferrer">
+                    WOOLANKA Anna Kaleta
                   </a>
                 </RowLayout>
 
                 <ScrollableContent>
-                  <FlexColumnLayout gap="xs" padding="none">
-                    <ResponsiveText>{t('workshops.haftowaBabaDescription1')}</ResponsiveText>
-                    <NoTopMarginText>{t('workshops.haftowaBabaDescription2')}</NoTopMarginText>
-                    <NoTopMarginText>{t('workshops.haftowaBabaDescription3')}</NoTopMarginText>
-                    <NoTopMarginText>{t('workshops.haftowaBabaDescription4')}</NoTopMarginText>
-                  </FlexColumnLayout>
+                  <ResponsiveText>{t('workshops.decorativeKnittingDescription')}</ResponsiveText>
                 </ScrollableContent>
               </Carousel.Caption>
             </Item>
@@ -231,36 +232,95 @@ export const WorkshopsCarousel = () => {
 
           <Carousel.Item>
             <Item>
+              <Carousel.Caption>
+                <ReverseContent>
+                  <Picture
+                    picture={{
+                      fallbackUrl: labolensUrl,
+                      sources: [
+                        {
+                          type: 'image/webp',
+                          url: labolensUrlWebp
+                        },
+                        {
+                          type: 'image/avif',
+                          url: labolensUrlAvif
+                        }
+                      ]
+                    }}
+                    alt="labolens_photo"
+                    width={180}
+                    style={logoStyle}
+                  />
+                  <div>
+                    <Title>{t('workshops.labolens.title')}</Title>
+
+                    <RowLayout justify="center" gap="none">
+                      <NoTopMarginText>{t('workshops.tutor')} </NoTopMarginText>
+                      <a href="https://labolens.com/" target="_blank" rel="noreferrer">
+                        Labolens - Paweł Petrzak
+                      </a>
+                    </RowLayout>
+                  </div>
+                </ReverseContent>
+
+                <ScrollableContent>
+                  <FlexColumnLayout gap="xs" padding="none">
+                    <ResponsiveText>{t('workshops.labolens.intro')}</ResponsiveText>
+                    <NoTopMarginText>{t('workshops.labolens.schedule')}</NoTopMarginText>
+                    <ul>
+                      <li>
+                        <NoTopMarginText>{t('workshops.labolens.schedule1')}</NoTopMarginText>
+                      </li>
+                      <li>
+                        <NoTopMarginText>{t('workshops.labolens.schedule2')}</NoTopMarginText>
+                      </li>
+                      <li>
+                        <NoTopMarginText>{t('workshops.labolens.schedule3')}</NoTopMarginText>
+                      </li>
+                    </ul>
+                  </FlexColumnLayout>
+                </ScrollableContent>
+              </Carousel.Caption>
+            </Item>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Item>
               <Picture
                 picture={{
-                  fallbackUrl: woolankaUrl,
+                  fallbackUrl: haftowaBabaUrl,
                   sources: [
                     {
                       type: 'image/webp',
-                      url: woolankaUrlWebp
+                      url: haftowaBabaUrlWebp
                     },
                     {
                       type: 'image/avif',
-                      url: woolankaUrlAvif
+                      url: haftowaBabaUrlAvif
                     }
                   ]
                 }}
-                alt="woolanka"
+                alt="haftowababa_logo"
                 width={180}
                 style={logoStyle}
               />
 
               <Carousel.Caption>
-                <Title>{t('workshops.decorativeKnitting')}</Title>
+                <Title>{t('workshops.woolEmbroidery')}</Title>
                 <RowLayout justify="center" gap="none">
                   <NoTopMarginText>{t('workshops.tutor')} </NoTopMarginText>
-                  <a href="https://www.instagram.com/woolanka" target="_blank" rel="noreferrer">
-                    WOOLANKA Anna Kaleta
+                  <a href="https://www.instagram.com/haftowababa/" target="_blank" rel="noreferrer">
+                    Haftowa Baba
                   </a>
                 </RowLayout>
 
                 <ScrollableContent>
-                  <ResponsiveText>{t('workshops.decorativeKnittingDescription')}</ResponsiveText>
+                  <FlexColumnLayout gap="xs" padding="none">
+                    <ResponsiveText>{t('workshops.haftowaBabaDescription1')}</ResponsiveText>
+                    <NoTopMarginText>{t('workshops.haftowaBabaDescription2')}</NoTopMarginText>
+                    <NoTopMarginText>{t('workshops.haftowaBabaDescription3')}</NoTopMarginText>
+                    <NoTopMarginText>{t('workshops.haftowaBabaDescription4')}</NoTopMarginText>
+                  </FlexColumnLayout>
                 </ScrollableContent>
               </Carousel.Caption>
             </Item>

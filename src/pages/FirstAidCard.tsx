@@ -1,25 +1,25 @@
+import { Icon as IconifyIcon } from '@iconify/react';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Text } from './MainPage.styled';
+import { Picture } from '../components/Picture';
+import { Title } from '../components/Title';
+import { Button } from '../components/Button';
+import { DropShadow, Radius } from '../styles/cards';
+import { ScreenSize } from '../styles/screeen-size';
 import { Spacings } from '../styles/spacings';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import PierwszaPomocUrlAvif from './../assets/images/workshops/pierwszapomoc.avif';
 import PierwszaPomocUrl from './../assets/images/workshops/pierwszapomoc.jpg';
 import PierwszaPomocUrlWebp from './../assets/images/workshops/pierwszapomoc.webp';
-import { Picture } from '../components/Picture';
-import { Title } from '../components/Title';
-import { TransparentButton } from '../components/TransparentButton';
-import { Icon as IconifyIcon } from '@iconify/react';
-import firstAidIcon from './../assets/backgrounds/firstAid.svg';
-import { ScreenSize } from '../styles/screeen-size';
+import { Text } from './MainPage.styled';
 import { useTablet } from './usePhone';
 
 const Root = styled.div`
   display: flex;
   z-index: 1;
   background-color: white;
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
+  box-shadow: ${DropShadow.md};
+  border-radius: ${Radius.lg};
   width: 600px;
   height: 600px;
   position: relative;
@@ -55,7 +55,7 @@ const TextWrapper = styled.div`
   text-align: center;
 `;
 
-const UnderlineButton = styled(TransparentButton)<{ isActive?: boolean }>`
+const UnderlineButton = styled(Button)<{ isActive?: boolean }>`
   padding: ${Spacings.xs};
   border-bottom: 2px solid black;
   background-color: ${({ isActive }) => (isActive ? '#EFFFE8' : 'transparent')};
@@ -81,12 +81,12 @@ export const FirstAidCard = () => {
     <Root>
       {showPlan ? (
         <TrainingPlan>
-          <TransparentButton onClick={() => setShowPlan(false)}>
+          <Button onClick={() => setShowPlan(false)}>
             <IconifyIcon
               icon="ion:arrow-back-outline"
               width={24}
               style={{ marginBottom: `${Spacings.md}` }}></IconifyIcon>
-          </TransparentButton>
+          </Button>
 
           <h3>{t('workshops.trainingPlan')}</h3>
           <Text bold>1. {t('workshops.firstAidLessons.lesson1')}</Text>
@@ -124,7 +124,6 @@ export const FirstAidCard = () => {
             width={isTablet ? 180 : 100}
             style={logoStyle}
           />
-          <TransparentIcon src={firstAidIcon} width={160} alt="first_aid_icon" />
 
           <TextWrapper>
             <Title>{t('workshops.firstAid')}</Title>

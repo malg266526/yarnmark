@@ -7,6 +7,7 @@ import { PageContent } from '../components/PageContent';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { Link } from '../components/Link';
 import { FontSize } from '../styles/font-size';
+import { DropShadow, Radius } from '../styles/cards';
 
 export const StyledPageContent = styled(PageContent)`
   ${Carouselge} {
@@ -18,7 +19,7 @@ export const StyledPageContent = styled(PageContent)`
   }
 
   ${LanguageSwitcher} {
-    position: absolute;
+    /*     position: absolute;
     z-index: 1;
     top: 0;
     right: ${Spacings.md};
@@ -26,7 +27,7 @@ export const StyledPageContent = styled(PageContent)`
     @media (max-width: ${ScreenSize.phone}) {
       top: initial;
       bottom: 0;
-    }
+    } */
   }
 `;
 
@@ -178,7 +179,7 @@ export const MobilePicture = styled.picture`
   }
 `;
 
-export const Picture = styled.picture<{ clipped?: boolean }>`
+export const MainBackground = styled.picture<{ clipped?: boolean }>`
   position: absolute;
   left: 0;
   top: 0;
@@ -419,7 +420,7 @@ export const WorkshopsWrapper = styled.div`
 `;
 
 export const Paragraph = styled.div`
-  max-width: 400px;
+  max-width: 460px;
 
   padding: ${Spacings.md};
 `;
@@ -427,7 +428,7 @@ export const Paragraph = styled.div`
 export const BackgroundIcon = styled.img`
   position: absolute;
   top: 400px;
-  left: 160px;
+  left: 120px;
   opacity: 0.75;
 
   @media (max-width: ${ScreenSize.tablet}) {
@@ -437,4 +438,22 @@ export const BackgroundIcon = styled.img`
 
 export const LinkWrapper = styled.div`
   margin-left: -8px;
+`;
+
+export const Drawer = styled.div<{ isOpen: boolean }>`
+  position: absolute;
+  top: ${Spacings.xl};
+  left: 0;
+  background-color: white;
+  z-index: 2;
+  box-shadow: ${DropShadow.md};
+  border-radius: ${Radius.md};
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: ${Spacings.md};
+  transition: all 0.7s ease-in-out;
+
+  transform: ${({ isOpen }) => (isOpen ? `translateX(0)` : `translateX(-100%)`)};
 `;

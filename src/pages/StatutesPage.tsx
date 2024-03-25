@@ -1,27 +1,27 @@
+import { Icon as IconifyIcon } from '@iconify/react';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Header } from '../App.styled';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import { Band } from '../components/Band';
-import { Link } from '../components/Link';
+import { BurgerMenu } from '../components/BurgerMenu';
+import { Curtain } from '../components/Curtain';
+import { MenuItem } from '../components/MenuItem';
 import { NiceBox } from '../components/NiceBox';
+import { SideBar } from '../components/SideBar';
 import { TextWrapper, Title } from '../components/Title';
+import { FontSize } from '../styles/font-size';
 import { Spacings } from '../styles/spacings';
-import { Colors } from '../styles/theme';
+import { BrownScale } from '../styles/theme';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import sweatersBackgroundUrlAvif from './../assets/backgrounds/sweaters_background.avif';
 import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.jpg';
 import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
 import { StyledPageContent } from './InfoForVendorsPage.styled';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { Menu, MenuBackground, Picture } from './MainPage.styled';
+import { MainBackground, Menu, MenuBackground } from './MainPage.styled';
 import { usePhone } from './usePhone';
-import { Curtain } from '../components/Curtain';
-import { SideBar } from '../components/SideBar';
-import { Header } from '../App.styled';
-import { BurgerMenu } from '../components/BurgerMenu';
-import { Icon as IconifyIcon } from '@iconify/react';
-import { FontSize } from '../styles/font-size';
 
 const StatuteTitle = styled(Title)`
   font-size: ${FontSize.xl};
@@ -72,18 +72,42 @@ export const StatutesPage = () => {
               Yarnmark
             </SideBar.LinkEntry>
 
+            <SideBar.LinkEntry
+              target="_blank"
+              to="https://wloczykijki.pl/pl_PL/i/Krakoski-Yarnmark-Welny/41?preview=true"
+              onClick={closeSideBar}
+              subLinks={[
+                {
+                  to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
+                  name: t('menu.entranceTicket'),
+                  target: '_blank',
+                  icon: <IconifyIcon icon="streamline:tickets" width="24" />
+                },
+                {
+                  to: 'https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358',
+                  name: t('menu.workshopTickets'),
+                  target: '_blank',
+                  icon: <IconifyIcon icon="streamline:tickets" width="24" />
+                },
+                {
+                  to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833',
+                  name: t('menu.cruiseTickets'),
+                  target: '_blank',
+                  icon: <IconifyIcon icon="streamline:tickets" width="24" />
+                }
+              ]}>
+              <IconifyIcon icon="streamline:tickets" width="24" />
+              {t('menu.tickets')}
+            </SideBar.LinkEntry>
+
             <SideBar.LinkEntry onClick={closeSideBar} to="/info-for-vendors">
               <IconifyIcon icon="material-symbols:info-outline" width="24" />
               {t('menu.infoForVendors')}
             </SideBar.LinkEntry>
 
-            <SideBar.LinkEntry
-              to="#footer"
-              onClick={() => {
-                closeSideBar();
-              }}>
-              <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
-              {t('menu.contact')}
+            <SideBar.LinkEntry to="/statutes" onClick={closeSideBar}>
+              <IconifyIcon icon="mdi:document-sign" width="24" />
+              {t('menu.statutes')}
             </SideBar.LinkEntry>
 
             <LanguageSwitcher />
@@ -92,32 +116,45 @@ export const StatutesPage = () => {
       )}
 
       {!isPhone && (
-        <>
-          <LanguageSwitcher />
+        <Menu>
+          <MenuBackground>
+            <MenuItem to="/">Yarnmark</MenuItem>
 
-          <Menu>
-            <MenuBackground>
-              <Link color="black" to="/">
-                Yarnmark
-              </Link>
+            <MenuItem
+              subLinks={[
+                {
+                  to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
+                  name: t('menu.entranceTicket'),
+                  target: '_blank'
+                },
+                {
+                  to: 'https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358',
+                  name: t('menu.workshopTickets'),
+                  target: '_blank'
+                },
+                {
+                  to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833',
+                  name: t('menu.cruiseTickets'),
+                  target: '_blank'
+                }
+              ]}>
+              {t('menu.tickets')}
+            </MenuItem>
 
-              <Link color="black" to="/info-for-vendors">
-                {t('menu.infoForVendors')}
-              </Link>
+            <MenuItem to="/info-for-vendors">{t('menu.infoForVendors')}</MenuItem>
 
-              <Link color="black" to="#footer">
-                {t('menu.contact')}
-              </Link>
-            </MenuBackground>
-          </Menu>
-        </>
+            <MenuItem to="/statutes">{t('menu.statutes')}</MenuItem>
+
+            <LanguageSwitcher />
+          </MenuBackground>
+        </Menu>
       )}
 
       <Band size="sm" justify="flex-start" narrowContent="auto" padding="md">
-        <Picture>
+        <MainBackground>
           <source srcSet={woolsAvifLandscape} type="image/avif" />
           <img src={woolsWebpLandscape} alt="wool" />
-        </Picture>
+        </MainBackground>
 
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">
@@ -128,7 +165,13 @@ export const StatutesPage = () => {
         </Band.Slot>
       </Band>
 
-      <Band size="lg" justify="flex-start" narrowContent="auto" padding="lg" variant="background" color={Colors.linen}>
+      <Band
+        size="lg"
+        justify="flex-start"
+        narrowContent="auto"
+        padding="lg"
+        variant="background"
+        color={BrownScale[100]}>
         <Card>
           <TextWrapper>
             <StatuteTitle>Regulamin Krakoskiego Yarnmarku Wełny</StatuteTitle>

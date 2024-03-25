@@ -4,9 +4,16 @@ import { Spacings } from '../styles/spacings';
 import { Link } from '../components/Link';
 import { ScreenSize } from '../styles/screeen-size';
 
+import alemasztocudneLogoUrl from './../assets/images/minifiedLogos/alemasztocudne.jpg';
+import alemasztocudneLogoUrlAvif from './../assets/images/minifiedLogos/alemasztocudne.avif';
+import alemasztocudneLogoUrlWebp from './../assets/images/minifiedLogos/alemasztocudne.webp';
+
 import animotkiLogoUrl from './../assets/images/minifiedLogos/animotki.png';
 import animotkiLogoUrlAvif from './../assets/images/minifiedLogos/animotki.avif';
 import animotkiLogoUrlWebp from './../assets/images/minifiedLogos/animotki.webp';
+
+import anisplotyLogoUrl from './../assets/images/minifiedLogos/anisploty.jpg';
+import anisplotyLogoUrlAvif from './../assets/images/minifiedLogos/anisploty.avif';
 
 import bawelnianyFilamentLogoUrl from './../assets/images/minifiedLogos/bawelnianyfilament.jpg';
 import bawelnianyFilamentLogoUrlAvif from './../assets/images/minifiedLogos/bawelnianyfilament.avif';
@@ -20,9 +27,17 @@ import brioszkaLogoUrl from './../assets/images/minifiedLogos/brioszka.png';
 import brioszkaLogoUrlAvif from './../assets/images/minifiedLogos/brioszka.avif';
 import brioszkaLogoUrlWebp from './../assets/images/minifiedLogos/brioszka.webp';
 
+import coloridoLogoUrl from './../assets/images/minifiedLogos/colorido.jpg';
+import coloridoLogoUrlAvif from './../assets/images/minifiedLogos/colorido.avif';
+import coloridoLogoUrlWebp from './../assets/images/minifiedLogos/colorido.webp';
+
 import dyeDyeDoneLogoUrlAvif from './../assets/images/minifiedLogos/dyedyedone.avif';
 import dyeDyeDoneLogoUrl from './../assets/images/minifiedLogos/dyedyedone.png';
 import dyeDyeDoneLogoUrlWebp from './../assets/images/minifiedLogos/dyedyedone.webp';
+
+import floralFiberLogoUrlAvif from './../assets/images/minifiedLogos/floralfiber.avif';
+import floralFiberLogoUrl from './../assets/images/minifiedLogos/floralfiber.jpg';
+import floralFiberLogoUrlWebp from './../assets/images/minifiedLogos/floralfiber.webp';
 
 import gaboWoolLogoUrl from './../assets/images/minifiedLogos/gabowool.png';
 import gaboWoolLogoUrlAvif from './../assets/images/minifiedLogos/gabowool.avif';
@@ -46,6 +61,10 @@ import liloppiLogoUrl from './../assets/images/minifiedLogos/liloppi.jpg';
 import liloppiLogoUrlAvif from './../assets/images/minifiedLogos/liloppi.avif';
 import liloppiLogoUrlWebp from './../assets/images/minifiedLogos/liloppi.webp';
 
+import lusiaLogoUrl from './../assets/images/minifiedLogos/lusiaknits.jpg';
+import lusiaLogoUrlAvif from './../assets/images/minifiedLogos/lusiaknits.avif';
+import lusiaLogoUrlWebp from './../assets/images/minifiedLogos/lusiaknits.webp';
+
 import madoboLogoUrl from './../assets/images/minifiedLogos/madobo.png';
 import madoboLogoUrlAvif from './../assets/images/minifiedLogos/madobo.avif';
 import madoboLogoUrlWebp from './../assets/images/minifiedLogos/madobo.webp';
@@ -57,6 +76,10 @@ import malinowyKosLogoUrlWebp from './../assets/images/minifiedLogos/malinowyKos
 import maniaChomikujeLogoUrl from './../assets/images/minifiedLogos/mania.png';
 import maniaChomikujeLogoUrlAvif from './../assets/images/minifiedLogos/mania.avif';
 import maniaChomikujeLogoUrlWebp from './../assets/images/minifiedLogos/mania.webp';
+
+import martinslabLogoUrl from './../assets/images/minifiedLogos/martinslab_long.jpg';
+import martinslabLogoUrlAvif from './../assets/images/minifiedLogos/martinslab_long.avif';
+import martinslabLogoUrlWebp from './../assets/images/minifiedLogos/martinslab_long.webp';
 
 import missKnitskiLogoUrl from './../assets/images/minifiedLogos/missknitski.png';
 import missKnitskiLogoUrlAvif from './../assets/images/minifiedLogos/missknitski.avif';
@@ -71,6 +94,10 @@ import motkomaniaLogoUrlAvif from './../assets/images/minifiedLogos/motkomania.a
 import motkomaniaLogoUrlWebp from './../assets/images/minifiedLogos/motkomania.webp';
 
 import naSztukiStudioLogoUrl from './../assets/images/minifiedLogos/nasztukistudio.png';
+
+import paciorkowceLogoUrl from './../assets/images/minifiedLogos/paciorkowce.jpg';
+import paciorkowceLogoUrlAvif from './../assets/images/minifiedLogos/paciorkowce.avif';
+import paciorkowceLogoUrlWebp from './../assets/images/minifiedLogos/paciorkowce.webp';
 
 import siedemOczekLogoUrl from './../assets/images/minifiedLogos/7oczek.jpg';
 import siedemOczekLogoUrlAvif from './../assets/images/minifiedLogos/7oczek.avif';
@@ -92,6 +119,10 @@ import welnaBawelnaLogoUrl from './../assets/images/minifiedLogos/WelnaBawelna.j
 import welnaBawelnaLogoUrlAvif from './../assets/images/minifiedLogos/WelnaBawelna.avif';
 import welnaBawelnaLogoUrlWebp from './../assets/images/minifiedLogos/WelnaBawelna.webp';
 
+import wloczkomaniaczkaLogoUrl from './../assets/images/minifiedLogos/wloczkomaniaczka.jpg';
+import wloczkomaniaczkaLogoUrlAvif from './../assets/images/minifiedLogos/wloczkomaniaczka.avif';
+import wloczkomaniaczkaLogoUrlWebp from './../assets/images/minifiedLogos/wloczkomaniaczka.webp';
+
 import wloczykijkiLogoUrl from './../assets/images/minifiedLogos/wloczykijki.png';
 import wloczykijkiLogoUrlAvif from './../assets/images/minifiedLogos/wloczykijki.avif';
 import wloczykijkiLogoUrlWebp from './../assets/images/minifiedLogos/wloczykijki.webp';
@@ -102,6 +133,10 @@ import woollalaLogoUrlWebp from './../assets/images/minifiedLogos/woollala.webp'
 import woolloopLogoUrl from './../assets/images/minifiedLogos/woolloop.png';
 import woolloopLogoUrlAvif from './../assets/images/minifiedLogos/woolloop.avif';
 import woolloopLogoUrlWebp from './../assets/images/minifiedLogos/woolloop.webp';
+
+import woolniejLogoUrl from './../assets/images/minifiedLogos/woolniej.jpg';
+import woolniejLogoUrlAvif from './../assets/images/minifiedLogos/woolniej.avif';
+import woolniejLogoUrlWebp from './../assets/images/minifiedLogos/woolniej.webp';
 
 import wooloveLogoUrl from './../assets/images/minifiedLogos/woolove.png';
 import wooloveLogoUrlAvif from './../assets/images/minifiedLogos/woolove.avif';
@@ -140,6 +175,42 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: animotkiLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://judytamarcol.pl/alemasztocudne/" target="_blank" rel="noreferrer">
+        <Picture
+          width={100}
+          alt="alemasztocudne_logo"
+          picture={{
+            fallbackUrl: alemasztocudneLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: alemasztocudneLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: alemasztocudneLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://www.instagram.com/ani_sploty/" target="_blank" rel="noreferrer">
+        <Picture
+          width={80}
+          alt="anisploty_logo"
+          picture={{
+            fallbackUrl: anisplotyLogoUrl,
+            sources: [
+              {
+                type: 'image/avif',
+                url: anisplotyLogoUrlAvif
               }
             ]
           }}
@@ -206,6 +277,26 @@ export const VendorsList = () => {
         />
       </Link>
 
+      <Link to="https://colorido.sklep.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={100}
+          alt="colorido"
+          picture={{
+            fallbackUrl: coloridoLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: coloridoLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: coloridoLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
       <Link to="https://www.dyedyedone.com/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -220,6 +311,26 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: dyeDyeDoneLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://www.instagram.com/floralfiber_fusion/" target="_blank" rel="noreferrer">
+        <Picture
+          width={100}
+          alt="floralfiberfusion_logo"
+          picture={{
+            fallbackUrl: floralFiberLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: floralFiberLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: floralFiberLogoUrlAvif
               }
             ]
           }}
@@ -330,6 +441,26 @@ export const VendorsList = () => {
         />
       </Link>
 
+      <Link to="https://www.instagram.com/lusia.knits/" target="_blank" rel="noreferrer">
+        <Picture
+          width={90}
+          alt="lusiaknits_logo"
+          picture={{
+            fallbackUrl: lusiaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: lusiaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: lusiaLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
       <Link to="https://madobo.pl" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -384,6 +515,26 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: maniaChomikujeLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://www.martinslab.com/" target="_blank" rel="noreferrer">
+        <Picture
+          width={120}
+          alt="martinslab_logo"
+          picture={{
+            fallbackUrl: martinslabLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: martinslabLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: martinslabLogoUrlAvif
               }
             ]
           }}
@@ -452,6 +603,26 @@ export const VendorsList = () => {
 
       <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
         <img width={100} src={naSztukiStudioLogoUrl} alt="nasztukistudio_logo" />
+      </Link>
+
+      <Link to="https://www.facebook.com/paciorkowceiwisielce/" target="_blank" rel="noreferrer">
+        <Picture
+          width={84}
+          alt="paciorkowceiwisielce_logo"
+          picture={{
+            fallbackUrl: paciorkowceLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: paciorkowceLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: paciorkowceLogoUrlAvif
+              }
+            ]
+          }}
+        />
       </Link>
 
       <Link to="https://pimotki.pl/" target="_blank" rel="noreferrer">
@@ -530,6 +701,26 @@ export const VendorsList = () => {
         />
       </Link>
 
+      <Link to="https://wloczkomaniaczka.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={110}
+          alt="wloczkomaniaczka_logo"
+          picture={{
+            fallbackUrl: wloczkomaniaczkaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: wloczkomaniaczkaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: wloczkomaniaczkaLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
       <Link to="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={150}
@@ -580,6 +771,26 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: woolloopLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://www.instagram.com/woolniej.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={80}
+          alt="woolniej_logo"
+          picture={{
+            fallbackUrl: woolniejLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: woolniejLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: woolniejLogoUrlAvif
               }
             ]
           }}

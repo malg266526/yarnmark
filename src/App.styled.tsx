@@ -10,7 +10,7 @@ export const Header = styled.header`
   justify-content: center;
   padding: ${Spacings.sm};
   width: 100%;
-  background: ${Colors.green3};
+  background: ${Colors.beige2};
   z-index: 100;
 
   @media (max-width: ${ScreenSize.phone}) {

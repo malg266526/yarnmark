@@ -13,7 +13,10 @@ export const pl = {
       aboutUs: 'O nas',
       stands: 'Stoiska',
       statutes: 'Regulamin',
-      tickets: 'Bilety'
+      tickets: 'Bilety',
+      entranceTicket: 'Bilety wstępu',
+      workshopTickets: 'Warsztaty',
+      cruiseTickets: 'Bilety rejsowe'
     },
     welcomeBand: {
       invitation: 'Serdecznie zapraszamy na I edycję targów wełny w stolicy Małopolski!',
@@ -114,13 +117,15 @@ export const pl = {
       title: 'Harmonogram warsztatów',
       room1: 'Sala lustrzana',
       room2: 'Sala szermiercza',
-      room3: 'Sala konferencyjna'
+      room3: 'Sala konferencyjna',
+      soldOut: 'Wyprzedane'
     },
     infoForVendorsPage: {
       title: 'Informacje dla wystawców',
       invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w I edycji Krakoskiego Yarnmarku Wełny!',
       organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was',
       hallInfo: {
+        title: 'Hala',
         area: 'Mamy do dyspozycji powierzchnię 1142m2.',
         openHours:
           'Wejście na halę w celu rozłożenia stoiska będzie możliwe od godz. 5:00. Na miejscu będą panowie portierzy.',
@@ -178,6 +183,19 @@ export const pl = {
       taken: 'Miejsce zarezerwowane'
     },
     workshops: {
+      labolens: {
+        title: 'Uchwyć piękno rękodzieła w obiektywnie - warsztaty z fotografii produktowej',
+        intro:
+          'W świecie, gdzie fotografia staje się nie tylko sztuką, lecz także sposobem uchwycenia piękna, emocji i historii. Pracując w sercu Małopolski otaczam się inspirującym otoczeniem, które staje się tłem dla wielu moich fotografii. Zapraszam Cię na moje warsztaty z rękodzielniczej fotografii produktowej.',
+        schedule:
+          'Warsztaty z fotografii produktowej to doskonała okazja dla osób zainteresowanych fotografowaniem, szczególnie w kontekście promocji produktów. W trakcie tych warsztatów uczestnicy mogą nauczyć się wielu przydatnych umiejętności, w tym:',
+        schedule1:
+          'podstawowych zasad kompozycji fotograficznej. Dowiedzą się, jak prawidłowo komponować zdjęcia produktów, aby wyróżnić ich najważniejsze cechy i przyciągnąć uwagę potencjalnych odbiorców',
+        schedule2:
+          'wykorzystania oświetlenia. Będą mieli okazję nauczyć się, jak manipulować światłem, aby uzyskać odpowiednią atmosferę i eksponować produkt w najlepszym świetle',
+        schedule3:
+          'wykorzystania różnych sprzętów. Oprócz pracy z aparatem fotograficznym, uczestnicy będą również mogli eksperymentować z wykorzystaniem telefonu komórkowego do robienia wysokiej jakości zdjęć produktowych, co jest szczególnie istotne w erze mediów społecznościowych.'
+      },
       tutor: 'Prowadzący: ',
       buyTicket: 'Kup bilet',
       firstAid: 'Pierwsza pomoc',
@@ -282,6 +300,9 @@ export const pl = {
         invite:
           'Na zajęcia zapraszam także każdego, kto potrzebuje więcej kreatywności w swoim życiu, albo po prostu chciałby miło spędzić czas.'
       }
+    },
+    firstAidBand: {
+      saveTheLife: 'Kliknij i sprawdź jak już teraz możesz uratować życie'
     }
   }
 };
