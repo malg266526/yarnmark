@@ -60,7 +60,7 @@ const LanguageText = styled.p<{ isSelected: boolean }>`
   }
 `;
 
-export type LanguageOption = 'pl' | 'en';
+export type LanguageOption = 'pl' | 'en' | 'de';
 
 export const LanguageSwitcher = styled((props: { className?: string }) => {
   const [, i18n] = useTranslation('common');
@@ -80,6 +80,10 @@ export const LanguageSwitcher = styled((props: { className?: string }) => {
       <Paragraph>|</Paragraph>
       <Button onClick={() => onChangeLanguageClicked('en')} selected={language === 'en'}>
         <LanguageText isSelected={language === 'en'}>EN</LanguageText>
+      </Button>
+      <Paragraph>|</Paragraph>
+      <Button onClick={() => onChangeLanguageClicked('de')} selected={language === 'de'}>
+        <LanguageText isSelected={language === 'de'}>DE</LanguageText>
       </Button>
     </Root>
   );
