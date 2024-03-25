@@ -8,6 +8,7 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 import { Link } from '../components/Link';
 import { FontSize } from '../styles/font-size';
 import { DropShadow, Radius } from '../styles/cards';
+import { Picture } from '../components/Picture';
 
 export const StyledPageContent = styled(PageContent)`
   ${Carouselge} {
@@ -346,6 +347,17 @@ export const ActiveImage = styled.img`
   }
 `;
 
+export const ActivePicture = styled(Picture)`
+  max-height: 300px;
+  max-width: 100%;
+  object-fit: contain;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    width: 100%;
+    max-width: 100%;
+  }
+`;
+
 export const ImageContentLayout = styled.div`
   max-width: 700px;
   display: flex;
@@ -460,4 +472,5 @@ export const Drawer = styled.div<{ isOpen: boolean }>`
 
 export const ImageWrapperColumn = styled(TextWrapper)`
   max-width: 50%;
+  padding-top: ${Spacings.md};
 `;

@@ -171,7 +171,11 @@ export const en: TranslationsShape = {
       grandeAppetitoDescription:
         'Coś dla fanów kuchni włoskiej. Znajdziecie tutaj szeroki wybór dań, od pizzy wypiekanej w piecu opalanym drewnem, przez ręcznie wyrabiane makarony, owoce morza, po jagnięcinę czy wołowinę. Klimatu wnętrzom dodaje włoska muzyka. W środku również kącik dla dzieci',
       piastowskaDescription: 'Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej',
-      knittedCoffeeDescription: 'On the event you can drink tasty coffee made by Tarasa from Knitted Coffee'
+      knittedCoffeeDescription: 'On the event you can drink tasty coffee made by Tarasa from Knitted Coffee',
+      discount15: 'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: -15% na wszystkie dania z karty.',
+      discount10: 'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: -10% na zamówienie.',
+      coffeehouse:
+        'Na samej hali znajduje się również kawiarnia, gdzie możecie napić się kawy, zjeść kanapkę czy zakupić wodę'
     },
     hallMap: {
       premiumStand: 'Premium spot 5x3m',

@@ -18,8 +18,8 @@ import ticketAvifSrc from '../assets/images/ticket.avif';
 import ticketJpgSrc from '../assets/images/ticket.jpg';
 import ticketWebpSrc from '../assets/images/ticket.webp';
 
-import knittedCoffeeLogoUrl from './../assets/images/minifiedLogos/knitted.jpg';
 import knittedCoffeeLogoUrlAvif from './../assets/images/minifiedLogos/knitted.avif';
+import knittedCoffeeLogoUrl from './../assets/images/minifiedLogos/knitted.jpg';
 import knittedCoffeeLogoUrlWebp from './../assets/images/minifiedLogos/knitted.webp';
 
 // import burgerImageUrl from '../assets/iconify/burger.svg';
@@ -34,6 +34,7 @@ import turkeyImageUrl from '../assets/iconify/turkey.svg';
 // import soupImageUrl from '../assets/iconify/soup.svg';
 import ticketImageUrl from '../assets/iconify/ticket.svg';
 // import musselImageUrl from '../assets/iconify/mussel.svg';
+import cupcakeImageUrl from '../assets/iconify/cupcake.svg';
 
 import knitting2ImageUrl from '../assets/images/knitting2.svg';
 import pinImageUrl from '../assets/images/pin.svg';
@@ -45,8 +46,8 @@ import yarnmarkLogoSrcAvif from '../assets/images/yarnmark_logo.avif';
 import yarnmarkLogoSrc from '../assets/images/yarnmark_logo.jpg';
 import yarnmarkLogoSrcWebp from '../assets/images/yarnmark_logo.webp';
 
-import wawelImageSrc from '../assets/images/wawel.jpg';
 import bistroImageSrc from '../assets/images/bistro_photo.jpg';
+import wawelImageSrc from '../assets/images/wawel.jpg';
 
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsJpgLandscape from '../assets/images/wools2_landscape.jpg';
@@ -111,9 +112,21 @@ import { WorkshopsCarousel } from './WorkshopsCarousel';
 import { WorkshopsSchedule } from './WorkshopsSchedule';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
 
-import bistrobloniaLogoUrl from './../assets/images/minifiedLogos/bistroblonia.jpg';
 import bistrobloniaLogoUrlAvif from './../assets/images/minifiedLogos/bistroblonia.avif';
+import bistrobloniaLogoUrl from './../assets/images/minifiedLogos/bistroblonia.jpg';
 import bistrobloniaLogoUrlWebp from './../assets/images/minifiedLogos/bistroblonia.webp';
+
+import grandeAppetitoLogoUrlAvif from './../assets/images/minifiedLogos/GrandeAppetito.avif';
+import grandeAppetitoLogoUrl from './../assets/images/minifiedLogos/GrandeAppetito.jpg';
+import grandeAppetitoLogoUrlWebp from './../assets/images/minifiedLogos/GrandeAppetito.webp';
+
+import grandeAppetitoUrlAvif from './../assets/images/minifiedLogos/grande_photo.avif';
+import grandeAppetitoUrl from './../assets/images/minifiedLogos/grande_photo.jpg';
+import grandeAppetitoUrlWebp from './../assets/images/minifiedLogos/grande_photo.webp';
+
+import halaLogoUrlAvif from './../assets/images/minifiedLogos/halalogo.avif';
+import halaLogoUrl from './../assets/images/minifiedLogos/halalogo.jpg';
+import halaLogoUrlWebp from './../assets/images/minifiedLogos/halalogo.webp';
 
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
 
@@ -132,12 +145,13 @@ type ActiveButtonType =
   | 'gospodaNaPiastowskiej'
   | 'bistroblonia'
   | 'grandeappetito'
+  | 'coffeehouse'
   | 'knittedCoffee';
 
 type ActiveButtonToImageConfig = Record<
   ActiveButtonType,
   {
-    image: string;
+    image: ReactNode;
     text: ReactNode;
     secondaryText?: ReactNode;
   }
@@ -147,7 +161,7 @@ type ActiveButtonToImageFunction = (t: (key: UnprefixedTranslationKeys) => strin
 
 const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
   foodtruckBezogródek: {
-    image: wawelImageSrc,
+    image: <ActiveImage src={wawelImageSrc} />,
     text: (
       <FlexColumnLayout gap="sm" padding="none">
         {t('foodBand.bezogrodekDescription')}
@@ -158,8 +172,8 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
     )
   },
   bistroblonia: {
-    image: bistroImageSrc,
-    secondaryText: 'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: -15% na wszystkie dania z karty.',
+    image: <ActiveImage src={bistroImageSrc} />,
+    secondaryText: t('foodBand.discount15'),
     text: (
       <FlexColumnLayout gap="sm" padding="none">
         <Picture
@@ -187,9 +201,45 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
     )
   },
   grandeappetito: {
-    image: wawelImageSrc,
+    image: (
+      <Picture
+        width={240}
+        alt="grandeappetito_logo"
+        picture={{
+          fallbackUrl: grandeAppetitoUrl,
+          sources: [
+            {
+              type: 'image/webp',
+              url: grandeAppetitoUrlWebp
+            },
+            {
+              type: 'image/avif',
+              url: grandeAppetitoUrlAvif
+            }
+          ]
+        }}
+      />
+    ),
+    secondaryText: t('foodBand.discount10'),
     text: (
       <FlexColumnLayout gap="sm" padding="none">
+        <Picture
+          width={160}
+          alt="grandeappetito_logo"
+          picture={{
+            fallbackUrl: grandeAppetitoLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: grandeAppetitoLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: grandeAppetitoLogoUrlAvif
+              }
+            ]
+          }}
+        />
         {t('foodBand.grandeAppetitoDescription')}
         <a href="https://grande-appetito.pl/menu/" target="_blank" rel="noreferrer">
           {t('foodBand.checkMenu')}
@@ -198,7 +248,7 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
     )
   },
   gospodaNaPiastowskiej: {
-    image: wawelImageSrc,
+    image: <ActiveImage src={bistroImageSrc} />,
     text: (
       <FlexColumnLayout gap="sm" padding="none">
         {t('foodBand.piastowskaDescription')}
@@ -209,11 +259,11 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
     )
   },
   knittedCoffee: {
-    image: wawelImageSrc,
+    image: <ActiveImage src={bistroImageSrc} />,
     text: (
       <FlexColumnLayout gap="sm" padding="none">
         <Picture
-          width={100}
+          width={140}
           alt="knitted_coffee_logo"
           picture={{
             fallbackUrl: knittedCoffeeLogoUrl,
@@ -230,6 +280,31 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
           }}
         />
         {t('foodBand.knittedCoffeeDescription')}
+      </FlexColumnLayout>
+    )
+  },
+  coffeehouse: {
+    image: <IconifyIcon icon="noto:teapot" width="288" height="188" />,
+    text: (
+      <FlexColumnLayout gap="sm" padding="none">
+        <Picture
+          width={240}
+          alt="hala_logo"
+          picture={{
+            fallbackUrl: halaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: halaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: halaLogoUrlAvif
+              }
+            ]
+          }}
+        />
+        {t('foodBand.coffeehouse')}
       </FlexColumnLayout>
     )
   }
@@ -919,12 +994,19 @@ export const MainPage = () => {
               onClick={() => setActiveButton('knittedCoffee')}>
               Knitted Coffee
             </ImageButton>
+
+            <ImageButton
+              active={activeButton === 'coffeehouse'}
+              icon={<Icon size="xl" src={cupcakeImageUrl} />}
+              onClick={() => setActiveButton('coffeehouse')}>
+              Kawiarnia na hali
+            </ImageButton>
           </ButtonsWrapper>
 
           <FramedBox padding="md">
             <ImageContentLayout>
               <FlexColumnLayout>
-                <ActiveImage src={activeButtonToImage[activeButton].image} />
+                {activeButtonToImage[activeButton].image}
                 <TextWrapper>{activeButtonToImage[activeButton].secondaryText}</TextWrapper>
               </FlexColumnLayout>
 
