@@ -170,7 +170,7 @@ export const de: TranslationsShape = {
         '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów',
       lookHere: 'See here',
       checkMenu: 'See menu here',
-      pinoGardenDescription: 'Fans of italian food and seafood will find Pino Garden opposite of event',
+      bistroBloniaDescription: 'Fans of italian food and seafood will find Pino Garden opposite of event',
       pretzelDescription: 'Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka',
       piastowskaDescription: 'Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej',
       knittedCoffeeDescription: 'On the event you can drink tasty coffee made by Tarasa from Knitted Coffee'

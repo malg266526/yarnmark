@@ -337,7 +337,7 @@ export const AnimatedIconWrapper = styled.div`
 
 export const ActiveImage = styled.img`
   max-height: 300px;
-  max-width: 50%;
+  max-width: 100%;
   object-fit: contain;
 
   @media (max-width: ${ScreenSize.phone}) {
@@ -456,4 +456,8 @@ export const Drawer = styled.div<{ isOpen: boolean }>`
   transition: all 0.7s ease-in-out;
 
   transform: ${({ isOpen }) => (isOpen ? `translateX(0)` : `translateX(-100%)`)};
+`;
+
+export const ImageWrapperColumn = styled(TextWrapper)`
+  max-width: 50%;
 `;

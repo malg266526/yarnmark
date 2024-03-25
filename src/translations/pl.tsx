@@ -171,11 +171,13 @@ export const pl = {
         '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów',
       lookHere: 'Zobacz tutaj',
       checkMenu: 'Zobacz menu tutaj',
-      pinoGardenDescription: 'Fani włoskiej kuchni i owoców morza naprzeciwko hali znajdą Pino Garden',
+      bistroBloniaDescription:
+        "Błonia Bistro to projekt na kulinarnej mapie Krakowa, łączący nowoczesne podejście do kuchni, szacunek do produktu i różnorodnych preferencji kulinarnych gości. Niedawno uruchomiliśmy autorską Cukiernię, której małe słodkie dzieła można codzienne spróbować a'la carte, a selekcja win i oferta koktajlowa zachęca także do niezobowiązujących wieczorów. W Błonia Bistro liczy się gościnność i relaks- tu każdy znajdzie coś dla siebie!",
       pretzelDescription: 'Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka',
       piastowskaDescription: 'Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej',
       knittedCoffeeDescription: 'Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee'
     },
+
     hallMap: {
       premiumStand: 'Miejsce Premium 5x3m',
       standardStand: 'Miejsce Standard 4x2,5m',
