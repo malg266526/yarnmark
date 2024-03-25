@@ -15,14 +15,12 @@ import { Header } from '../App.styled';
 import { BurgerMenu } from '../components/BurgerMenu';
 import { Curtain } from '../components/Curtain';
 import { Hall } from '../components/Hall';
-import { Link } from '../components/Link';
-import { HallLegend } from '../components/HallLegend';
 import { MenuItem } from '../components/MenuItem';
 import { SideBar } from '../components/SideBar';
 import { ScreenSize } from '../styles/screeen-size';
 import { StyledPageContent } from './InfoForVendorsPage.styled';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { CenteredTitle, MainBackground, Menu, MenuBackground, Text, Picture } from './MainPage.styled';
+import { CenteredTitle, MainBackground, Menu, MenuBackground, Text } from './MainPage.styled';
 import { usePhone } from './usePhone';
 
 export const FlexLayout = styled.div`

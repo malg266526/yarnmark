@@ -71,7 +71,6 @@ import maniaChomikujeLogoUrlAvif from './../assets/images/minifiedLogos/mania.av
 import maniaChomikujeLogoUrl from './../assets/images/minifiedLogos/mania.png';
 import maniaChomikujeLogoUrlWebp from './../assets/images/minifiedLogos/mania.webp';
 
-
 import martinslabLogoUrl from './../assets/images/minifiedLogos/martinslab.jpg';
 import martinslabLogoUrlAvif from './../assets/images/minifiedLogos/martinslab.avif';
 import martinslabLogoUrlWebp from './../assets/images/minifiedLogos/martinslab.webp';
@@ -666,7 +665,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 3,
           height: 2,
-          color: 'taken',
+          color: 'even',
           index: 'M8',
           who: 'Ani sploty',
           picture: {
@@ -682,7 +681,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 3,
           height: 2,
-          color: 'taken2',
+          color: 'uneven',
           index: 'M9',
           who: 'Włóczkomaniaczka',
           picture: {
