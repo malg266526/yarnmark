@@ -457,3 +457,10 @@ export const Drawer = styled.div<{ isOpen: boolean }>`
 
   transform: ${({ isOpen }) => (isOpen ? `translateX(0)` : `translateX(-100%)`)};
 `;
+
+export const VendorsMapDrawer = styled(Drawer)<{ isOpen: boolean }>`
+  left: unset;
+  right: -${Spacings.xl};
+  transition: all 0.4s ease-in-out;
+  transform: ${({ isOpen }) => (isOpen ? `translateX(0)` : `translateX(100%)`)};
+`;
