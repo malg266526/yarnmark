@@ -168,7 +168,8 @@ export const en: TranslationsShape = {
       lookHere: 'See here',
       checkMenu: 'See menu here',
       bistroBloniaDescription: 'Fans of italian food and seafood will find Pino Garden opposite of event',
-      pretzelDescription: 'Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka',
+      grandeAppetitoDescription:
+        'Coś dla fanów kuchni włoskiej. Znajdziecie tutaj szeroki wybór dań, od pizzy wypiekanej w piecu opalanym drewnem, przez ręcznie wyrabiane makarony, owoce morza, po jagnięcinę czy wołowinę. Klimatu wnętrzom dodaje włoska muzyka. W środku również kącik dla dzieci',
       piastowskaDescription: 'Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej',
       knittedCoffeeDescription: 'On the event you can drink tasty coffee made by Tarasa from Knitted Coffee'
     },

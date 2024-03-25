@@ -173,9 +173,10 @@ export const pl = {
       checkMenu: 'Zobacz menu tutaj',
       bistroBloniaDescription:
         "Błonia Bistro to projekt na kulinarnej mapie Krakowa, łączący nowoczesne podejście do kuchni, szacunek do produktu i różnorodnych preferencji kulinarnych gości. Niedawno uruchomiliśmy autorską Cukiernię, której małe słodkie dzieła można codzienne spróbować a'la carte, a selekcja win i oferta koktajlowa zachęca także do niezobowiązujących wieczorów. W Błonia Bistro liczy się gościnność i relaks- tu każdy znajdzie coś dla siebie!",
-      pretzelDescription: 'Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka',
       piastowskaDescription: 'Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej',
-      knittedCoffeeDescription: 'Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee'
+      knittedCoffeeDescription: 'Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee',
+      grandeAppetitoDescription:
+        'Coś dla fanów kuchni włoskiej. Znajdziecie tutaj szeroki wybór dań, od pizzy wypiekanej w piecu opalanym drewnem, przez ręcznie wyrabiane makarony i owoce morza, po jagnięcinę czy wołowinę. Klimatu wnętrzom dodaje włoska muzyka. W środku również kącik dla dzieci.'
     },
 
     hallMap: {

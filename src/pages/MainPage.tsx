@@ -29,10 +29,11 @@ import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
 import pizzaImageUrl from '../assets/iconify/pizza.svg';
 // import pretzelImageUrl from '../assets/iconify/pretzel.svg';
 import shopImageUrl from '../assets/iconify/shop.svg';
-// import shrimpImageUrl from '../assets/iconify/shrimp.svg';
+import shrimpImageUrl from '../assets/iconify/shrimp.svg';
 import turkeyImageUrl from '../assets/iconify/turkey.svg';
-import soupImageUrl from '../assets/iconify/soup.svg';
+// import soupImageUrl from '../assets/iconify/soup.svg';
 import ticketImageUrl from '../assets/iconify/ticket.svg';
+// import musselImageUrl from '../assets/iconify/mussel.svg';
 
 import knitting2ImageUrl from '../assets/images/knitting2.svg';
 import pinImageUrl from '../assets/images/pin.svg';
@@ -126,7 +127,12 @@ import { CruiseMap } from '../components/CruiseMap';
 import { MenuItem } from '../components/MenuItem';
 import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
 
-type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'bistroblonia' | 'precel' | 'knittedCoffee';
+type ActiveButtonType =
+  | 'foodtruckBezogródek'
+  | 'gospodaNaPiastowskiej'
+  | 'bistroblonia'
+  | 'grandeappetito'
+  | 'knittedCoffee';
 
 type ActiveButtonToImageConfig = Record<
   ActiveButtonType,
@@ -180,11 +186,14 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
       </FlexColumnLayout>
     )
   },
-  precel: {
+  grandeappetito: {
     image: wawelImageSrc,
     text: (
       <FlexColumnLayout gap="sm" padding="none">
-        {t('foodBand.pretzelDescription')}
+        {t('foodBand.grandeAppetitoDescription')}
+        <a href="https://grande-appetito.pl/menu/" target="_blank" rel="noreferrer">
+          {t('foodBand.checkMenu')}
+        </a>
       </FlexColumnLayout>
     )
   },
@@ -887,11 +896,18 @@ export const MainPage = () => {
             </ImageButton>
 
             <ImageButton
+              active={activeButton === 'grandeappetito'}
+              onClick={() => setActiveButton('grandeappetito')}
+              icon={<Icon size="xl" src={shrimpImageUrl} />}>
+              Grande Appetito
+            </ImageButton>
+
+            {/*           <ImageButton
               active={activeButton === 'gospodaNaPiastowskiej'}
               onClick={() => setActiveButton('gospodaNaPiastowskiej')}
               icon={<Icon size="xl" src={soupImageUrl} />}>
               Gospoda na Piastowskiej
-            </ImageButton>
+            </ImageButton> */}
 
             {/*          <ImageButton onClick={() => setActiveButton('precel')} icon={<Icon size="xl" src={pretzelImageUrl} />}>
               Krakowskie obwarzanki
