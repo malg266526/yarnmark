@@ -26,7 +26,7 @@ const TextWrapper = styled.div`
 `;
 
 const StandText = styled.h5`
-  font-size: ${FontSize.xs};
+  font-size: ${FontSize.sm};
   text-align: center;
   margin: 0;
 `;
@@ -34,7 +34,7 @@ const StandText = styled.h5`
 const StandIndex = styled.h4`
   text-align: center;
   margin: 0;
-  font-size: 10px; //${FontSize.xs};
+  font-size: 12px; //${FontSize.xs};
   overflow-wrap: anywhere;
 `;
 
