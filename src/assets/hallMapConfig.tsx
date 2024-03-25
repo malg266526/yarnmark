@@ -137,6 +137,7 @@ import alemasztocudneLogoUrlAvif from './../assets/images/minifiedLogos/alemaszt
 import alemasztocudneLogoUrlWebp from './../assets/images/minifiedLogos/alemasztocudne.webp';
 
 import { PictureType } from '../components/Picture';
+import { BrownScale } from '../styles/theme';
 
 export type HallStandType = {
   width: number;
@@ -165,9 +166,9 @@ type HallMapType = {
 };
 
 export const HallLightColors = {
-  even: '#ffdfa9',
-  uneven: '#F6C7B3',
-  empty: '#f5faf6' //
+  even: BrownScale[100],
+  uneven: '#FFD3D9',
+  empty: BrownScale[50]
 };
 
 export const hallMapConfig: HallMapType = {
@@ -201,7 +202,7 @@ export const hallMapConfig: HallMapType = {
           }
         },
         {
-          width: 2.5,
+          width: 5,
           color: 'uneven',
           index: 'S1',
           height: 4,
@@ -220,27 +221,6 @@ export const hallMapConfig: HallMapType = {
             ]
           }
         },
-        {
-          width: 2.5,
-          color: 'uneven',
-          index: 'S2',
-          height: 4,
-          who: 'Biferno',
-          picture: {
-            fallbackUrl: bifernoLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: bifernoLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: bifernoLogoUrlAvif
-              }
-            ]
-          }
-        },
-
         {
           width: 3.5,
           color: 'empty',
@@ -411,7 +391,7 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 4,
-          height: 2.5,
+          height: 5,
           color: 'uneven',
           index: 'S8',
           who: 'Pimotki',
@@ -421,29 +401,9 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 4,
-          height: 2.5,
-          color: 'uneven',
-          index: 'S9',
-          who: 'Pimotki',
-          picture: {
-            fallbackUrl: pimotkiLogoUrl
-          }
-        },
-        {
-          width: 4,
-          height: 2.5,
+          height: 5,
           color: 'even',
           index: 'S10',
-          who: 'Kokonki',
-          picture: {
-            fallbackUrl: kokonkiLogoUrl
-          }
-        },
-        {
-          width: 4,
-          height: 2.5,
-          color: 'even',
-          index: 'S11',
           who: 'Kokonki',
           picture: {
             fallbackUrl: kokonkiLogoUrl
@@ -481,29 +441,9 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 4,
-          height: 2.5,
+          height: 5,
           color: 'uneven',
           index: 'S14',
-          who: 'WełnaBawełna',
-          picture: {
-            fallbackUrl: welnaBawelnaLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: welnaBawelnaLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: welnaBawelnaLogoUrlAvif
-              }
-            ]
-          }
-        },
-        {
-          width: 4,
-          height: 2.5,
-          color: 'uneven',
-          index: 'S15',
           who: 'WełnaBawełna',
           picture: {
             fallbackUrl: welnaBawelnaLogoUrl,
@@ -753,7 +693,7 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 4,
-          height: 2.5,
+          height: 5,
           color: 'uneven',
           index: 'S16',
           who: 'Woollala',
@@ -769,23 +709,7 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 4,
-          height: 2.5,
-          color: 'uneven',
-          index: 'S17',
-          who: 'Woollala',
-          picture: {
-            fallbackUrl: woollalaLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: woollalaLogoUrlWebp
-              }
-            ]
-          }
-        },
-        {
-          width: 4,
-          height: 2.5,
+          height: 5,
           color: 'even',
           index: 'S18',
           who: '7oczek',
@@ -803,26 +727,7 @@ export const hallMapConfig: HallMapType = {
             ]
           }
         },
-        {
-          width: 4,
-          height: 2.5,
-          color: 'even',
-          index: 'S19',
-          who: '7Oczek',
-          picture: {
-            fallbackUrl: siedemOczekLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: siedemOczekLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: siedemOczekLogoUrlAvif
-              }
-            ]
-          }
-        },
+
         {
           width: 4,
           height: 2.5,
@@ -865,29 +770,9 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 4,
-          height: 2.5,
+          height: 5,
           color: 'uneven',
           index: 'S22',
-          who: 'Liloppi',
-          picture: {
-            fallbackUrl: liloppiLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: liloppiLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: liloppiLogoUrlAvif
-              }
-            ]
-          }
-        },
-        {
-          width: 4,
-          height: 2.5,
-          color: 'uneven',
-          index: 'S23',
           who: 'Liloppi',
           picture: {
             fallbackUrl: liloppiLogoUrl,
@@ -1029,17 +914,10 @@ export const hallMapConfig: HallMapType = {
           }
         },
         {
-          width: 2.5,
+          width: 5,
           color: 'even',
           height: 4,
           index: 'S27',
-          who: 'Furora Yarns'
-        },
-        {
-          width: 2.5,
-          color: 'even',
-          height: 4,
-          index: 'S28',
           who: 'Furora Yarns'
         },
         {
