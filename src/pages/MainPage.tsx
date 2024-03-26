@@ -1,22 +1,22 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 
-import mapWebpSrc from '../assets/images/map.webp';
 import mapJpgSrc from '../assets/images/map.jpg';
+import mapWebpSrc from '../assets/images/map.webp';
 
 import wineAvifSrc from '../assets/images/wine.avif';
-import wineWebpSrc from '../assets/images/wine.webp';
 import wineJpgSrc from '../assets/images/wine.jpg';
+import wineWebpSrc from '../assets/images/wine.webp';
 
-import waterWebpSrc from '../assets/images/water.webp';
 import waterJpgSrc from '../assets/images/water.jpg';
+import waterWebpSrc from '../assets/images/water.webp';
 
 import shipAvifSrc from '../assets/images/ship.avif';
 import shipJpgSrc from '../assets/images/ship.jpg';
 
 import ticketAvifSrc from '../assets/images/ticket.avif';
-import ticketWebpSrc from '../assets/images/ticket.webp';
 import ticketJpgSrc from '../assets/images/ticket.jpg';
+import ticketWebpSrc from '../assets/images/ticket.webp';
 
 // import bigShopImageUrl from '../assets/iconify/bigshop.svg';
 // import burgerImageUrl from '../assets/iconify/burger.svg';
@@ -27,27 +27,27 @@ import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
 import shopImageUrl from '../assets/iconify/shop.svg';
 // import shrimpImageUrl from '../assets/iconify/shrimp.svg';
 // import soupImageUrl from '../assets/iconify/soup.svg';
-import ticketImageUrl from '../assets/iconify/ticket.svg';
 import ferryImageUrl from '../assets/iconify/ferry.svg';
+import ticketImageUrl from '../assets/iconify/ticket.svg';
 
 import knitting2ImageUrl from '../assets/images/knitting2.svg';
 import pinImageUrl from '../assets/images/pin.svg';
 
 import halaAvifImageSrc from '../assets/images/hala.avif';
-import halaWebpImageSrc from '../assets/images/hala.webp';
 import halaJpgImageSrc from '../assets/images/hala.jpg';
-import yarnmarkLogoSrc from '../assets/images/yarnmark_logo.jpg';
+import halaWebpImageSrc from '../assets/images/hala.webp';
 import yarnmarkLogoSrcAvif from '../assets/images/yarnmark_logo.avif';
+import yarnmarkLogoSrc from '../assets/images/yarnmark_logo.jpg';
 import yarnmarkLogoSrcWebp from '../assets/images/yarnmark_logo.webp';
 
 // import wawelImageSrc from '../assets/images/wawel.jpg';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
-import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import woolsJpgLandscape from '../assets/images/wools2_landscape.jpg';
+import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 
 import olaImageUrlAvif from '../assets/images/pomagamOli.avif';
-import olaImageUrlWebp from '../assets/images/pomagamOli.webp';
 import olaImageUrlJpg from '../assets/images/pomagamOli.jpg';
+import olaImageUrlWebp from '../assets/images/pomagamOli.webp';
 
 import { Icon } from '../components/Icon';
 
@@ -65,15 +65,13 @@ import { BurgerMenu } from '../components/BurgerMenu';
 // import { FramedBox } from '../components/FramedBox';
 // import { ImageButton } from '../components/ImageButton';
 import { Curtain } from '../components/Curtain';
-import { FirstAidCard } from './FirstAidCard';
-import { LanguageSwitcher } from './LanguageSwitcher';
+import { Picture } from '../components/Picture';
 import { RowLayout } from '../components/RowLayout';
 import { SideBar } from '../components/SideBar';
 import { SubTitle, TextWrapper, Title } from '../components/Title';
-import { VendorsList } from './VendorsList';
-import { WorkshopsCarousel } from './WorkshopsCarousel';
-import { WorkshopsSchedule } from './WorkshopsSchedule';
 import { BrownScale, Colors } from '../styles/theme';
+import { FirstAidCard } from './FirstAidCard';
+import { LanguageSwitcher } from './LanguageSwitcher';
 import {
   // ActiveImage,
   AnimatedIconWrapper,
@@ -83,6 +81,8 @@ import {
   CenteredTitle,
   Drawer,
   LinkWrapper,
+  // PhotosLayout,
+  MainBackground,
   // ButtonsWrapper,
   // CenteredTitle,
   Menu,
@@ -94,30 +94,32 @@ import {
   MobileLocationButtonWrapper,
   MobilePicture,
   Paragraph,
-  // PhotosLayout,
-  MainBackground,
   SecondaryButton,
   SectionWrapper,
   StyledPageContent,
   Text,
   TextH2,
-  Typography
+  Typography,
+  VendorsMapDrawer
 } from './MainPage.styled';
+import { VendorsList } from './VendorsList';
+import { WorkshopsCarousel } from './WorkshopsCarousel';
+import { WorkshopsSchedule } from './WorkshopsSchedule';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
-import { Picture } from '../components/Picture';
 
 // import { FlexColumnLayout } from '../components/FlexColumnLayout';
 
-import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.jpg';
 import sweatersBackgroundUrlAvif from './../assets/backgrounds/sweaters_background.avif';
+import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.jpg';
 import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
 
-import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
-import { Carouselge } from '../components/Carouselge';
-import { FlexColumnLayout } from '../components/FlexColumnLayout';
-import { CruiseMap } from '../components/CruiseMap';
 import { Button } from '../components/Button';
+import { Carouselge } from '../components/Carouselge';
+import { CruiseMap } from '../components/CruiseMap';
+import { FlexColumnLayout } from '../components/FlexColumnLayout';
+import { Hall } from '../components/Hall';
 import { MenuItem } from '../components/MenuItem';
+import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
 
 // type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
 
@@ -205,6 +207,7 @@ export const MainPage = () => {
 
   const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
   const [isOlaDrawerOpened, setIsOlaDrawerOpened] = useState<boolean>(false);
+  const [isVendorsMapShown, showVendorsMap] = useState<boolean>(false);
 
   // const activeButtonToImage = getActiveButtonToImage(t);
 
@@ -603,9 +606,24 @@ export const MainPage = () => {
         padding="xl"
         color={`linear-gradient(to bottom, #eee3de, #fff,  #fff, #fff, #eee3de);`}>
         <Band.Slot flex="auto-grow" size="sm">
-          <TextWrapper align="center">
-            <Title>{t('vendorsPage.title')}</Title>
-          </TextWrapper>
+          <RowLayout>
+            <TextWrapper align="center">
+              <Title>{t('vendorsPage.title')}</Title>
+            </TextWrapper>
+
+            <Button onClick={() => showVendorsMap((prev) => !prev)}>
+              <IconifyIcon icon="fluent-emoji:information" width="48" />
+            </Button>
+          </RowLayout>
+
+          <VendorsMapDrawer isOpen={isVendorsMapShown}>
+            <Button onClick={() => showVendorsMap(false)}>
+              <IconifyIcon icon="mingcute:close-fill" />
+            </Button>
+
+            <Hall multiplier={19} />
+          </VendorsMapDrawer>
+
           <VendorsList />
         </Band.Slot>
       </Band>

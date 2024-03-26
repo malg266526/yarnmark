@@ -6,6 +6,7 @@ import { FontSize } from '../styles/font-size';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 import { KnittingIconOnHover } from './KnittingIconOnHover';
+import { ScreenSize } from '../styles/screeen-size';
 
 const wrapperTranslation = `translate(-50%, 0px)`;
 
@@ -34,8 +35,12 @@ const StandText = styled.h5`
 const StandIndex = styled.h4`
   text-align: center;
   margin: 0;
-  font-size: 12px; //${FontSize.xs};
+  font-size: 10px;
   overflow-wrap: anywhere;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    font-size: ${FontSize.xs};
+  }
 `;
 
 const HallStandOverlay = styled.div`
@@ -84,11 +89,12 @@ type HallStandProps = {
   stand: HallStandType;
   height?: number;
   width?: number;
+  desktopMultiplier?: number;
 };
 
-export const HallStand = ({ stand, height }: HallStandProps) => {
+export const HallStand = ({ stand, height, desktopMultiplier }: HallStandProps) => {
   const isPhone = usePhone();
-  const multiplier = isPhone ? 13 : 24;
+  const multiplier = isPhone ? 13 : desktopMultiplier || 24;
 
   return (
     <HallStandLayout width={stand.width} height={stand.height || height} color={stand.color} multiplier={multiplier}>
