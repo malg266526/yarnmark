@@ -41,16 +41,21 @@ const HallLine = styled.div<{
   align-items: ${({ alignItems }) => alignItems || 'flex-start'};
 `;
 
-export const Hall = () => {
+type HallType = {
+  multiplier?: number;
+};
+
+export const Hall = (props: HallType) => {
   const isPhone = usePhone();
-  const multiplier = isPhone ? 13 : 20;
+  const desktopMultiplier = props.multiplier || 20;
+  const multiplier = isPhone ? 13 : desktopMultiplier;
 
   return (
     <Container>
       {(hallMapConfig.topRows as Line[]).map((row, index) => (
         <HallLine height={row.height} key={index} multiplier={multiplier}>
           {row.stands.map((stand, index) => (
-            <HallStand key={index} stand={stand} height={row.height}></HallStand>
+            <HallStand key={index} stand={stand} height={row.height} desktopMultiplier={desktopMultiplier}></HallStand>
           ))}
         </HallLine>
       ))}
@@ -64,7 +69,11 @@ export const Hall = () => {
             alignItems={index === 5 ? 'flex-end' : 'flex-start'}
             multiplier={multiplier}>
             {column.stands.map((stand, index) => (
-              <HallStand key={index} stand={stand} width={column.width}></HallStand>
+              <HallStand
+                key={index}
+                stand={stand}
+                width={column.width}
+                desktopMultiplier={desktopMultiplier}></HallStand>
             ))}
           </HallLine>
         ))}
@@ -73,7 +82,7 @@ export const Hall = () => {
       {(hallMapConfig.bottomRows as Line[]).map((row, index) => (
         <HallLine height={row.height} key={index} alignItems="flex-end" multiplier={multiplier}>
           {row.stands.map((stand, index) => (
-            <HallStand key={index} stand={stand} height={row.height}></HallStand>
+            <HallStand key={index} stand={stand} height={row.height} desktopMultiplier={desktopMultiplier}></HallStand>
           ))}
         </HallLine>
       ))}

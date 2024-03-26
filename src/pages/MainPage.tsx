@@ -117,6 +117,7 @@ import { Button } from '../components/Button';
 import { Carouselge } from '../components/Carouselge';
 import { CruiseMap } from '../components/CruiseMap';
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
+import { Hall } from '../components/Hall';
 import { MenuItem } from '../components/MenuItem';
 import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
 
@@ -620,24 +621,7 @@ export const MainPage = () => {
               <IconifyIcon icon="mingcute:close-fill" />
             </Button>
 
-            <Picture
-              picture={{
-                fallbackUrl: olaImageUrlJpg,
-                sources: [
-                  {
-                    type: 'image/webp',
-                    url: olaImageUrlWebp
-                  },
-                  {
-                    type: 'image/avif',
-                    url: olaImageUrlAvif
-                  }
-                ]
-              }}
-              alt="yarnmark_logo"
-              width={320}
-              style={{ alignSelf: 'center' }}
-            />
+            <Hall multiplier={19} />
           </VendorsMapDrawer>
 
           <VendorsList />
