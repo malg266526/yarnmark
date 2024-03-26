@@ -33,10 +33,8 @@ import shrimpImageUrl from '../assets/iconify/shrimp.svg';
 import turkeyImageUrl from '../assets/iconify/turkey.svg';
 // import soupImageUrl from '../assets/iconify/soup.svg';
 
-import ticketImageUrl from '../assets/iconify/ticket.svg';
-// import musselImageUrl from '../assets/iconify/mussel.svg';
 import cupcakeImageUrl from '../assets/iconify/cupcake.svg';
-import ferryImageUrl from '../assets/iconify/ferry.svg';
+import ticketImageUrl from '../assets/iconify/ticket.svg';
 
 import knitting2ImageUrl from '../assets/images/knitting2.svg';
 import pinImageUrl from '../assets/images/pin.svg';
@@ -141,11 +139,9 @@ import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_backgrou
 import { Button } from '../components/Button';
 import { Carouselge } from '../components/Carouselge';
 import { CruiseMap } from '../components/CruiseMap';
-import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { Hall } from '../components/Hall';
 import { MenuItem } from '../components/MenuItem';
 import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
-
 type ActiveButtonType =
   | 'foodtruckBezogródek'
   | 'gospodaNaPiastowskiej'

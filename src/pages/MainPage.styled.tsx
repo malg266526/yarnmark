@@ -489,5 +489,4 @@ export const VendorsMapDrawer = styled(Drawer)<{ isOpen: boolean }>`
   @media (max-width: ${ScreenSize.phone}) {
     right: -${Spacings.sm};
   }
-
-
+`;
