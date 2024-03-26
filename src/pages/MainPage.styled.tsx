@@ -474,3 +474,20 @@ export const ImageWrapperColumn = styled(TextWrapper)`
   max-width: 50%;
   padding-top: ${Spacings.md};
 `;
+
+export const VendorsMapDrawer = styled(Drawer)<{ isOpen: boolean }>`
+  left: unset;
+  top: 0;
+  right: -${Spacings.xl};
+  transition: all 0.4s ease-in-out;
+  transform: ${({ isOpen }) => (isOpen ? `translateX(0)` : `translateX(100%)`)};
+
+  @media (max-width: ${ScreenSize.tablet}) {
+    right: -${Spacings.md};
+  }
+
+  @media (max-width: ${ScreenSize.phone}) {
+    right: -${Spacings.sm};
+  }
+
+

@@ -32,9 +32,11 @@ import shopImageUrl from '../assets/iconify/shop.svg';
 import shrimpImageUrl from '../assets/iconify/shrimp.svg';
 import turkeyImageUrl from '../assets/iconify/turkey.svg';
 // import soupImageUrl from '../assets/iconify/soup.svg';
+
 import ticketImageUrl from '../assets/iconify/ticket.svg';
 // import musselImageUrl from '../assets/iconify/mussel.svg';
 import cupcakeImageUrl from '../assets/iconify/cupcake.svg';
+import ferryImageUrl from '../assets/iconify/ferry.svg';
 
 import knitting2ImageUrl from '../assets/images/knitting2.svg';
 import pinImageUrl from '../assets/images/pin.svg';
@@ -92,6 +94,7 @@ import {
   ImageWrapperColumn,
   LayoutWithActiveButton,
   LinkWrapper,
+  // PhotosLayout,
   MainBackground,
   Menu,
   MenuBackground,
@@ -105,7 +108,8 @@ import {
   StyledPageContent,
   Text,
   TextH2,
-  Typography
+  Typography,
+  VendorsMapDrawer
 } from './MainPage.styled';
 import { VendorsList } from './VendorsList';
 import { WorkshopsCarousel } from './WorkshopsCarousel';
@@ -137,6 +141,8 @@ import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_backgrou
 import { Button } from '../components/Button';
 import { Carouselge } from '../components/Carouselge';
 import { CruiseMap } from '../components/CruiseMap';
+import { FlexColumnLayout } from '../components/FlexColumnLayout';
+import { Hall } from '../components/Hall';
 import { MenuItem } from '../components/MenuItem';
 import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
 
@@ -332,6 +338,7 @@ export const MainPage = () => {
 
   const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
   const [isOlaDrawerOpened, setIsOlaDrawerOpened] = useState<boolean>(false);
+  const [isVendorsMapShown, showVendorsMap] = useState<boolean>(false);
 
   const activeButtonToImage = getActiveButtonToImage(t);
 
@@ -730,9 +737,24 @@ export const MainPage = () => {
         padding="xl"
         color={`linear-gradient(to bottom, #eee3de, #fff,  #fff, #fff, #eee3de);`}>
         <Band.Slot flex="auto-grow" size="sm">
-          <TextWrapper align="center">
-            <Title>{t('vendorsPage.title')}</Title>
-          </TextWrapper>
+          <RowLayout>
+            <TextWrapper align="center">
+              <Title>{t('vendorsPage.title')}</Title>
+            </TextWrapper>
+
+            <Button onClick={() => showVendorsMap((prev) => !prev)}>
+              <IconifyIcon icon="fluent-emoji:information" width="48" />
+            </Button>
+          </RowLayout>
+
+          <VendorsMapDrawer isOpen={isVendorsMapShown}>
+            <Button onClick={() => showVendorsMap(false)}>
+              <IconifyIcon icon="mingcute:close-fill" />
+            </Button>
+
+            <Hall multiplier={19} />
+          </VendorsMapDrawer>
+
           <VendorsList />
         </Band.Slot>
       </Band>

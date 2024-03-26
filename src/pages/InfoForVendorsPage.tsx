@@ -15,7 +15,6 @@ import { Header } from '../App.styled';
 import { BurgerMenu } from '../components/BurgerMenu';
 import { Curtain } from '../components/Curtain';
 import { Hall } from '../components/Hall';
-import { HallLegend } from '../components/HallLegend';
 import { MenuItem } from '../components/MenuItem';
 import { SideBar } from '../components/SideBar';
 import { ScreenSize } from '../styles/screeen-size';
@@ -47,7 +46,6 @@ export const PlainInfo = styled.div`
   width: 50%;
   min-height: 100px;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
-  // margin-left: ${Spacings.lg};
 
   @media (max-width: ${ScreenSize.tablet}) {
     max-width: 92%;
@@ -66,12 +64,10 @@ export const TitleWrapper = styled.div`
 `;
 
 export const HallWrapper = styled.div`
-  min-width: 45%;
   justify-content: space-between;
   display: flex;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
   background-color: ${Colors.white};
-  padding: ${Spacings.md};
 
   @media (max-width: ${ScreenSize.tablet}) {
     width: 90%;
@@ -339,7 +335,6 @@ export const InfoForVendorsPage = () => {
 
         <HallWrapper>
           <Hall />
-          <HallLegend />
         </HallWrapper>
       </Band>
     </StyledPageContent>
