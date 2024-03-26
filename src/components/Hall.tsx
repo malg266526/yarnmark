@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { hallMapConfig, HallStandType } from '../assets/hallMapConfig';
 import { usePhone } from '../pages/usePhone';
-import { Spacings } from '../styles/spacings';
 import { HallColors } from '../styles/theme';
 import { HallStand } from './HallStand';
 
@@ -10,7 +9,6 @@ const Container = styled.div`
   display: flex;
   flex: 0;
   flex-direction: column;
-  padding: ${Spacings.xs};
   background-color: ${HallColors.empty};
   align-self: center;
   width: min-content;
