@@ -468,4 +468,8 @@ export const VendorsMapDrawer = styled(Drawer)<{ isOpen: boolean }>`
   @media (max-width: ${ScreenSize.tablet}) {
     right: -${Spacings.md};
   }
+
+  @media (max-width: ${ScreenSize.phone}) {
+    right: -${Spacings.sm};
+  }
 `;

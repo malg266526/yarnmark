@@ -6,6 +6,7 @@ import { FontSize } from '../styles/font-size';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 import { KnittingIconOnHover } from './KnittingIconOnHover';
+import { ScreenSize } from '../styles/screeen-size';
 
 const wrapperTranslation = `translate(-50%, 0px)`;
 
@@ -34,8 +35,12 @@ const StandText = styled.h5`
 const StandIndex = styled.h4`
   text-align: center;
   margin: 0;
-  font-size: 10px; //${FontSize.xs};
+  font-size: 10px;
   overflow-wrap: anywhere;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    font-size: ${FontSize.xs};
+  }
 `;
 
 const HallStandOverlay = styled.div`
