@@ -54,7 +54,7 @@ const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: key
   justify-content: center;
   align-items: center;
 
-  :before {
+  &:before {
     pointer-events: none;
     content: '';
     position: absolute;
