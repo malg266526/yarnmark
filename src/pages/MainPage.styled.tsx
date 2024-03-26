@@ -464,4 +464,8 @@ export const VendorsMapDrawer = styled(Drawer)<{ isOpen: boolean }>`
   right: -${Spacings.xl};
   transition: all 0.4s ease-in-out;
   transform: ${({ isOpen }) => (isOpen ? `translateX(0)` : `translateX(100%)`)};
+
+  @media (max-width: ${ScreenSize.tablet}) {
+    right: -${Spacings.md};
+  }
 `;
