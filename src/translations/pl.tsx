@@ -168,7 +168,7 @@ export const pl = {
     },
     foodBand: {
       bezogrodekDescription:
-        '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów',
+        '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów w foodtruckach.',
       lookHere: 'Zobacz tutaj',
       checkMenu: 'Zobacz menu tutaj',
       bistroBloniaDescription:

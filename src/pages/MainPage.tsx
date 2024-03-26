@@ -22,7 +22,11 @@ import knittedCoffeeLogoUrlAvif from './../assets/images/minifiedLogos/knitted.a
 import knittedCoffeeLogoUrl from './../assets/images/minifiedLogos/knitted.jpg';
 import knittedCoffeeLogoUrlWebp from './../assets/images/minifiedLogos/knitted.webp';
 
-// import burgerImageUrl from '../assets/iconify/burger.svg';
+import bezogrodekLogoUrlAvif from './../assets/images/minifiedLogos/logobezogrodek.avif';
+import bezogrodekLogoUrl from './../assets/images/minifiedLogos/logobezogrodek.jpg';
+import bezogrodekLogoUrlWebp from './../assets/images/minifiedLogos/logobezogrodek.webp';
+
+import burgerImageUrl from '../assets/iconify/burger.svg';
 import coffeeImageUrl from '../assets/iconify/coffee.svg';
 import ferryImageUrl from '../assets/iconify/ferry.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
@@ -47,7 +51,6 @@ import yarnmarkLogoSrc from '../assets/images/yarnmark_logo.jpg';
 import yarnmarkLogoSrcWebp from '../assets/images/yarnmark_logo.webp';
 
 import bistroImageSrc from '../assets/images/bistro_photo.jpg';
-import wawelImageSrc from '../assets/images/wawel.jpg';
 
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsJpgLandscape from '../assets/images/wools2_landscape.jpg';
@@ -129,6 +132,7 @@ import grandeAppetitoUrlWebp from './../assets/images/minifiedLogos/grande_photo
 import halaLogoUrlAvif from './../assets/images/minifiedLogos/halalogo.avif';
 import halaLogoUrl from './../assets/images/minifiedLogos/halalogo.jpg';
 import halaLogoUrlWebp from './../assets/images/minifiedLogos/halalogo.webp';
+import instagramImageUrl from './../assets/iconify/instagram.svg';
 
 import { FlexColumnLayout } from '../components/FlexColumnLayout';
 
@@ -163,12 +167,31 @@ type ActiveButtonToImageFunction = (t: (key: UnprefixedTranslationKeys) => strin
 
 const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
   foodtruckBezogródek: {
-    image: <ActiveImage src={wawelImageSrc} />,
+    image: (
+      <Picture
+        width={240}
+        alt="bezogrodek_logo"
+        picture={{
+          fallbackUrl: bezogrodekLogoUrl,
+          sources: [
+            {
+              type: 'image/webp',
+              url: bezogrodekLogoUrlWebp
+            },
+            {
+              type: 'image/avif',
+              url: bezogrodekLogoUrlAvif
+            }
+          ]
+        }}
+      />
+    ),
     text: (
       <FlexColumnLayout gap="sm" padding="none">
         {t('foodBand.bezogrodekDescription')}
+
         <a href="https://www.instagram.com/bezogrodek/?hl=pl" target="_blank" rel="noreferrer">
-          {t('foodBand.lookHere')}
+          <Icon size="xl" src={instagramImageUrl} />
         </a>
       </FlexColumnLayout>
     )
@@ -195,9 +218,13 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
             ]
           }}
         />
+
         {t('foodBand.bistroBloniaDescription')}
         <a href="https://bloniabistro.pl/wp-content/uploads/2024/02/menu-BB.pdf" target="_blank" rel="noreferrer">
           {t('foodBand.checkMenu')}
+        </a>
+        <a href="https://www.instagram.com/blonia_bistro/?hl=pl" target="_blank" rel="noreferrer">
+          <Icon size="xl" src={instagramImageUrl} />
         </a>
       </FlexColumnLayout>
     )
@@ -246,6 +273,9 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
         <a href="https://grande-appetito.pl/menu/" target="_blank" rel="noreferrer">
           {t('foodBand.checkMenu')}
         </a>
+        <a href="https://www.instagram.com/grande_appetito_ristorante/?hl=pl" target="_blank" rel="noreferrer">
+          <Icon size="xl" src={instagramImageUrl} />
+        </a>
       </FlexColumnLayout>
     )
   },
@@ -282,6 +312,9 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
           }}
         />
         {t('foodBand.knittedCoffeeDescription')}
+        <a href="https://www.instagram.com/knittedcoffee/?hl=pl" target="_blank" rel="noreferrer">
+          <Icon size="xl" src={instagramImageUrl} />
+        </a>
       </FlexColumnLayout>
     )
   },
@@ -330,7 +363,7 @@ export const MainPage = () => {
   const foodFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
 
-  const [activeButton, setActiveButton] = useState<ActiveButtonType>('bistroblonia');
+  const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
 
   const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
   const [isOlaDrawerOpened, setIsOlaDrawerOpened] = useState<boolean>(false);
@@ -974,12 +1007,12 @@ export const MainPage = () => {
 
         <LayoutWithActiveButton>
           <ButtonsWrapper>
-            {/*             <ImageButton
+            <ImageButton
               active={activeButton === 'foodtruckBezogródek'}
               onClick={() => setActiveButton('foodtruckBezogródek')}
               icon={<Icon size="xl" src={burgerImageUrl} />}>
               Food Truck Park Bezogródek
-            </ImageButton> */}
+            </ImageButton>
 
             <ImageButton
               active={activeButton === 'bistroblonia'}
