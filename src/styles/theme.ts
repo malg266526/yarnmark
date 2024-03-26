@@ -51,5 +51,5 @@ export const HallColors = {
   small2: '#b2cbde',
   taken: Colors.pinball,
   taken2: '#dcdcdc',
-  empty: '#e8f4ea' //
+  empty: BrownScale[50] //
 };
