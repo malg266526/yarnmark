@@ -193,6 +193,8 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
         <a href="https://www.instagram.com/bezogrodek/?hl=pl" target="_blank" rel="noreferrer">
           <Icon size="xl" src={instagramImageUrl} />
         </a>
+
+        {t('foodBand.bezogrodekDescription2')}
       </FlexColumnLayout>
     )
   },
@@ -270,6 +272,8 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
           }}
         />
         {t('foodBand.grandeAppetitoDescription')}
+        <p>{t('foodBand.grandeAppetitoDescription2')}</p>
+
         <a href="https://grande-appetito.pl/menu/" target="_blank" rel="noreferrer">
           {t('foodBand.checkMenu')}
         </a>
@@ -469,6 +473,7 @@ export const MainPage = () => {
           onClick={() => spotBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
         />
         <FunnyButton
+          mobileSlot={t('buttonsBand.foodButton')}
           ref={foodFunnyButtonRef}
           icon={<Icon size="xl" zIndex={0} src={pizzaImageUrl} />}
           text={t('buttonsBand.foodButton')}

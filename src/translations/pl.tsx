@@ -168,19 +168,21 @@ export const pl = {
     },
     foodBand: {
       bezogrodekDescription:
-        '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów w foodtruckach.',
+        '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia w foodtruckach oraz możliwość relaksu na leżaczku z drinkiem w dłoni.',
+      bezogrodekDescription2: 'W dniu wydarzenia, za okazaniem Yarnmarkowej opaski, otrzymujecie 20% zniżki na bar.',
       lookHere: 'Zobacz tutaj',
       checkMenu: 'Zobacz menu tutaj',
       bistroBloniaDescription:
         "Błonia Bistro to projekt na kulinarnej mapie Krakowa, łączący nowoczesne podejście do kuchni, szacunek do produktu i różnorodnych preferencji kulinarnych gości. Niedawno uruchomiliśmy autorską Cukiernię, której małe słodkie dzieła można codzienne spróbować a'la carte, a selekcja win i oferta koktajlowa zachęca także do niezobowiązujących wieczorów. W Błonia Bistro liczy się gościnność i relaks- tu każdy znajdzie coś dla siebie!",
-      piastowskaDescription: 'Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej',
-      knittedCoffeeDescription: 'Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee',
+      piastowskaDescription: 'Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej.',
+      knittedCoffeeDescription: 'Na hali będziecie mogli wypić pyszną kawę od Tarasa z Knitted Coffee.',
       grandeAppetitoDescription:
-        'Coś dla fanów kuchni włoskiej. Znajdziecie tutaj szeroki wybór dań, od pizzy wypiekanej w piecu opalanym drewnem, przez ręcznie wyrabiane makarony i owoce morza, po jagnięcinę czy wołowinę. Klimatu wnętrzom dodaje włoska muzyka. W środku również kącik dla dzieci.',
+        'Coś dla fanów kuchni włoskiej. Znajdziecie tutaj szeroki wybór dań, od pizzy wypiekanej w piecu opalanym drewnem, przez ręcznie wyrabiane makarony i owoce morza, po specjał szefa kuchni czyli jeleninę. Klimatu wnętrzom dodaje włoska muzyka. W środku również spory kącik dla dzieci.',
+      grandeAppetitoDescription2: 'Polecamy spróbować creme brulee!',
       discount15: 'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: -15% na wszystkie dania z karty.',
       discount10: 'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: -10% na zamówienie.',
       coffeehouse:
-        'Na samej hali znajduje się również kawiarnia, gdzie możecie napić się kawy, zjeść kanapkę czy zakupić wodę'
+        'Na samej hali znajduje się również kawiarnia, gdzie możecie napić się kawy, zjeść kanapkę czy zakupić wodę.'
     },
     hallMap: {
       premiumStand: 'Miejsce Premium 5x3m',
