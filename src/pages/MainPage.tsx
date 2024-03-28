@@ -94,6 +94,7 @@ import {
   MobileLocationButtonWrapper,
   MobilePicture,
   Paragraph,
+  PulseButton,
   SecondaryButton,
   SectionWrapper,
   StyledPageContent,
@@ -611,9 +612,9 @@ export const MainPage = () => {
               <Title>{t('vendorsPage.title')}</Title>
             </TextWrapper>
 
-            <Button onClick={() => showVendorsMap((prev) => !prev)}>
+            <PulseButton onClick={() => showVendorsMap((prev) => !prev)}>
               <IconifyIcon icon="fluent-emoji:information" width="48" />
-            </Button>
+            </PulseButton>
           </RowLayout>
 
           <VendorsMapDrawer isOpen={isVendorsMapShown}>
