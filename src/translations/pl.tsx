@@ -181,8 +181,7 @@ export const pl = {
       grandeAppetitoDescription2: 'Polecamy spróbować creme brulee!',
       discount15: 'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: -15% na wszystkie dania z karty.',
       discount10: 'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: -10% na zamówienie.',
-      coffeehouse:
-        'Na samej hali znajduje się również kawiarnia, gdzie możecie napić się kawy, zjeść kanapkę czy zakupić wodę.'
+      coffeehouse: 'Na samej hali znajduje się również kawiarnia.' // , gdzie możecie napić się kawy, zjeść kanapkę czy zakupić wodę.
     },
     hallMap: {
       premiumStand: 'Miejsce Premium 5x3m',
