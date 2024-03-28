@@ -167,7 +167,7 @@ export const de: TranslationsShape = {
     },
     foodBand: {
       bezogrodekDescription:
-        '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów',
+        'Food Truck Park Bezogródek is located 150m from the Hall. You will find there a large selection of food in food trucks and the opportunity to relax on a deckchair with a drink in your hand.',
       bezogrodekDescription2: 'W dniu wydarzenia, za okazaniem opaski, otrzymujecie 20% zniżki na bar',
       lookHere: 'See here',
       checkMenu: 'See menu here',

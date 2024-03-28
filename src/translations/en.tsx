@@ -164,20 +164,20 @@ export const en: TranslationsShape = {
     },
     foodBand: {
       bezogrodekDescription:
-        '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów',
+        'Food Truck Park Bezogródek is located 150m from the Hall. You will find there a large selection of food in food trucks and the opportunity to relax on a deckchair with a drink in your hand.',
       bezogrodekDescription2: 'W dniu wydarzenia, za okazaniem opaski, otrzymujecie 20% zniżki na bar',
       lookHere: 'See here',
       checkMenu: 'See menu here',
-      bistroBloniaDescription: 'Fans of italian food and seafood will find Pino Garden opposite of event',
+      bistroBloniaDescription:
+        "Błonia Bistro is a project on the culinary map of Krakow, combining a modern approach to cuisine, respect for the product different culinary preferences of guests. We have recently launched our own patisserie, where you can try small sweet creations a'la carte every day, and the wine selection and cocktail offer also encourages casual evenings. Błonia Bistro is all about hospitality and relaxation - everyone will find something for themselves here!",
       grandeAppetitoDescription:
         'Coś dla fanów kuchni włoskiej. Znajdziecie tutaj szeroki wybór dań, od pizzy wypiekanej w piecu opalanym drewnem, przez ręcznie wyrabiane makarony, owoce morza, po jagnięcinę czy wołowinę. Klimatu wnętrzom dodaje włoska muzyka. W środku również kącik dla dzieci',
-      grandeAppetitoDescription2: 'Polecamy spróbować creme brulee!',
+      grandeAppetitoDescription2: 'We recommend trying creme brulee!',
       piastowskaDescription: 'Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej',
-      knittedCoffeeDescription: 'On the event you can drink tasty coffee made by Tarasa from Knitted Coffee',
+      knittedCoffeeDescription: 'On the event you can drink tasty coffee made by Taras from Knitted Coffee',
       discount15: 'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: -15% na wszystkie dania z karty.',
-      discount10: 'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: -10% na zamówienie.',
-      coffeehouse:
-        'Na samej hali znajduje się również kawiarnia, gdzie możecie napić się kawy, zjeść kanapkę czy zakupić wodę'
+      discount10: 'On the day of the event, a discount for people with a Yarnmark Wool bracelet: -10% on order.',
+      coffeehouse: 'There is also a cafe in the hall itself.'
     },
     hallMap: {
       premiumStand: 'Premium spot 5x3m',
