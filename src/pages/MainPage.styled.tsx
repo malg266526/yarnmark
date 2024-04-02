@@ -283,7 +283,7 @@ export const MenuBackground = styled.div`
 export const AnimatedIconWrapper = styled.div`
   padding-bottom: 20px;
   border-radius: 10px;
-  box-shadow: 0px black;
+  box-shadow: none;
   border: 6px solid transparent;
   transition: all 200ms ease-in-out;
 
@@ -366,10 +366,11 @@ export const ImageContentLayout = styled.div`
   gap: ${Spacings.md};
 
   @media (max-width: ${ScreenSize.phone}) {
-    flex-direction: column;
+    flex-direction: column-reverse;
     flex-wrap: wrap;
-    max-width: 80%;
+    max-width: 100%;
     align-items: center;
+    gap: ${Spacings.md};
   }
 `;
 
@@ -474,6 +475,10 @@ export const Drawer = styled.div<{ isOpen: boolean }>`
 export const ImageWrapperColumn = styled(TextWrapper)`
   max-width: 50%;
   padding-top: ${Spacings.md};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    max-width: 100%;
+  }
 `;
 
 export const VendorsMapDrawer = styled(Drawer)<{ isOpen: boolean }>`

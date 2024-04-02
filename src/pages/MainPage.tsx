@@ -151,7 +151,7 @@ import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
 import { useFirstClick } from '../hooks/useFirstClick';
 
 type ActiveButtonType =
-  | 'foodtruckBezogródek'
+  | 'foodtruckBezogrodek'
   | 'gospodaNaPiastowskiej'
   | 'bistroblonia'
   | 'grandeappetito'
@@ -170,7 +170,7 @@ type ActiveButtonToImageConfig = Record<
 type ActiveButtonToImageFunction = (t: (key: UnprefixedTranslationKeys) => string) => ActiveButtonToImageConfig;
 
 const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
-  foodtruckBezogródek: {
+  foodtruckBezogrodek: {
     image: (
       <Picture
         width={240}
@@ -371,7 +371,7 @@ export const MainPage = () => {
   const foodFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
 
-  const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
+  const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogrodek');
 
   const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
   const [isOlaDrawerOpened, setIsOlaDrawerOpened] = useState<boolean>(false);
@@ -1032,8 +1032,8 @@ export const MainPage = () => {
         <LayoutWithActiveButton>
           <ButtonsWrapper>
             <ImageButton
-              active={activeButton === 'foodtruckBezogródek'}
-              onClick={() => setActiveButton('foodtruckBezogródek')}
+              active={activeButton === 'foodtruckBezogrodek'}
+              onClick={() => setActiveButton('foodtruckBezogrodek')}
               icon={<Icon size="xl" src={burgerImageUrl} />}>
               Food Truck Park Bezogródek
             </ImageButton>
@@ -1080,7 +1080,7 @@ export const MainPage = () => {
 
           <FramedBox padding="md">
             <ImageContentLayout>
-              <FlexColumnLayout>
+              <FlexColumnLayout padding={isPhone ? 'none' : 'md'} gap={isPhone ? 'sm' : 'md'}>
                 {activeButtonToImage[activeButton].image}
                 <TextWrapper>{activeButtonToImage[activeButton].secondaryText}</TextWrapper>
               </FlexColumnLayout>

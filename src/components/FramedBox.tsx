@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import knittingSvgUrl from '../assets/images/skein3.svg';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
+import { ScreenSize } from '../styles/screeen-size';
 
 type FrameWidth = `${number}${'px' | '%'}`;
 
@@ -30,6 +31,11 @@ const OuterRoot = styled.div`
   max-width: 100%;
   padding-left: ${backgroundOffset};
   padding-bottom: ${backgroundOffset};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    max-width: 90%;
+    padding: 0;
+  }
 `;
 
 const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: keyof typeof Spacings }>`
@@ -47,7 +53,7 @@ const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: key
   background: white;
   position: relative;
   z-index: 1;
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
 
   display: flex;
   flex-direction: column;
