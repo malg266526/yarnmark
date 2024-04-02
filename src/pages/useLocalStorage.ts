@@ -23,5 +23,5 @@ export const useLocalStorage = <T>(initialValue: T, key: string, parser: (rawVal
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return [value, setValue] as const;
+  return [value, updateValue] as const;
 };

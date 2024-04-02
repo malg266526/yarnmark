@@ -489,7 +489,11 @@ const pulse = keyframes`
 	}
 `;
 
-export const PulseButton = styled(Button)`
+const pulseAnimation = css`
   animation: ${pulse} 1s infinite;
+`;
+
+export const PulseButton = styled(Button)<{ shouldPulse?: boolean }>`
+  ${({ shouldPulse }) => shouldPulse && pulseAnimation};
   transform: scale(1);
 `;
