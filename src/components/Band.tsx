@@ -12,6 +12,7 @@ export type BandProps = InnerWrapperProps &
     title?: React.ReactNode;
     children?: React.ReactNode;
     align?: 'center' | 'flex-start' | 'initial';
+    overflowX?: 'none' | 'hidden';
   } & (
     | { variant?: 'default' }
     | {
@@ -192,6 +193,12 @@ const BandRoot = styled.div<BandProps>`
   width: 100%;
   display: flex;
   justify-content: center;
+
+  ${(props) =>
+    props.overflowX === 'hidden' &&
+    css`
+      overflow-x: hidden;
+    `}
 
   ${(props) =>
     props.variant === 'background' &&

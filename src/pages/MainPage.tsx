@@ -611,7 +611,8 @@ export const MainPage = () => {
         size="lg"
         variant="background"
         padding="xl"
-        color={`linear-gradient(to bottom, #eee3de, #fff,  #fff, #fff, #eee3de);`}>
+        color={`linear-gradient(to bottom, #eee3de, #fff,  #fff, #fff, #eee3de);`}
+        overflowX="hidden">
         <Band.Slot flex="auto-grow" size="sm">
           <RowLayout>
             <TextWrapper align="center">
