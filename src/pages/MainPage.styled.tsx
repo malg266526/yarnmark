@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { Icon } from '../components/Icon';
 import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
@@ -8,6 +8,7 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 import { Link } from '../components/Link';
 import { FontSize } from '../styles/font-size';
 import { DropShadow, Radius } from '../styles/cards';
+import { Button } from '../components/Button';
 
 export const StyledPageContent = styled(PageContent)`
   ${Carouselge} {
@@ -472,4 +473,27 @@ export const VendorsMapDrawer = styled(Drawer)<{ isOpen: boolean }>`
   @media (max-width: ${ScreenSize.phone}) {
     right: -${Spacings.sm};
   }
+`;
+
+const pulse = keyframes`
+  0% {
+		transform: scale(0.92);
+	}
+
+	70% {
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(0.92);
+	}
+`;
+
+const pulseAnimation = css`
+  animation: ${pulse} 1s infinite;
+`;
+
+export const PulseButton = styled(Button)<{ shouldPulse?: boolean }>`
+  ${({ shouldPulse }) => shouldPulse && pulseAnimation};
+  transform: scale(1);
 `;
