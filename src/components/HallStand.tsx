@@ -80,9 +80,9 @@ const HallStandLayout = styled.div<{
 
   position: relative;
 
-  &:hover {
+  /*   &:hover {
     ${hoverStyles};
-  }
+  } */
 `;
 
 type HallStandProps = {

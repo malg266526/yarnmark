@@ -104,6 +104,7 @@ import {
   MobileLocationButtonWrapper,
   MobilePicture,
   Paragraph,
+  PulseButton,
   SecondaryButton,
   SectionWrapper,
   StyledPageContent,
@@ -146,6 +147,10 @@ import { CruiseMap } from '../components/CruiseMap';
 import { Hall } from '../components/Hall';
 import { MenuItem } from '../components/MenuItem';
 import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
+
+import { useFirstClick } from '../hooks/useFirstClick';
+
+
 type ActiveButtonType =
   | 'foodtruckBezogródek'
   | 'gospodaNaPiastowskiej'
@@ -384,6 +389,11 @@ export const MainPage = () => {
   });
 
   const closeSideBar = () => setBurgerActive(false);
+
+  const { wasClickedBefore: wasVendorsMapClicked, handleClick: handleVendorsMapClick } =
+    useFirstClick('vendorsMapPulse');
+
+  const { wasClickedBefore: wasSosClicked, handleClick: handleSosClick } = useFirstClick('sosPulse');
 
   const eventLocationCard = useMemo(
     () => (
@@ -776,9 +786,14 @@ export const MainPage = () => {
               <Title>{t('vendorsPage.title')}</Title>
             </TextWrapper>
 
-            <Button onClick={() => showVendorsMap((prev) => !prev)}>
+            <PulseButton
+              shouldPulse={!wasVendorsMapClicked}
+              onClick={() => {
+                showVendorsMap((prev) => !prev);
+                handleVendorsMapClick();
+              }}>
               <IconifyIcon icon="fluent-emoji:information" width="48" />
-            </Button>
+            </PulseButton>
           </RowLayout>
 
           <VendorsMapDrawer isOpen={isVendorsMapShown}>
@@ -849,7 +864,12 @@ export const MainPage = () => {
         <FlexColumnLayout padding="none" gap="none">
           <Paragraph>
             <RowLayout>
-              <Button onClick={() => setIsOlaDrawerOpened(true)}>
+              <PulseButton
+                shouldPulse={!wasSosClicked}
+                onClick={() => {
+                  setIsOlaDrawerOpened(true);
+                  handleSosClick();
+                }}>
                 <IconifyIcon
                   icon="noto:sos-button"
                   width="88"
@@ -857,7 +877,7 @@ export const MainPage = () => {
                     filter: 'drop-shadow(2px 2px 15px rgba(255, 71, 62, 0.7))'
                   }}
                 />
-              </Button>
+              </PulseButton>
 
               <FlexColumnLayout padding="xs" gap="none" align="flex-start">
                 <Text marginTop="xs">{t('firstAidBand.saveTheLife')}</Text>

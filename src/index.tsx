@@ -25,9 +25,6 @@ const browserLanguage =
 
 const defaultLanguage = localStorageLanguage ? localStorageLanguage : browserLanguage;
 
-console.log('browserLanguage', browserLanguage);
-console.log('defaultLanguage', defaultLanguage);
-
 i18next.init({
   interpolation: { escapeValue: false }, // React already does escaping
   lng: defaultLanguage,
