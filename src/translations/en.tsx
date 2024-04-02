@@ -164,13 +164,22 @@ export const en: TranslationsShape = {
     },
     foodBand: {
       bezogrodekDescription:
-        '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów',
+        'Food Truck Park Bezogródek is located 150m from the Hall. You will find there a large selection of food in food trucks and the opportunity to relax on a deckchair with a drink in your hand.',
+      bezogrodekDescription2:
+        'On the day of the event, upon showing your wristband, you will receive a 20% discount on the bar.',
       lookHere: 'See here',
       checkMenu: 'See menu here',
-      pinoGardenDescription: 'Fans of italian food and seafood will find Pino Garden opposite of event',
-      pretzelDescription: 'Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka',
+      bistroBloniaDescription:
+        "Błonia Bistro is a project on the culinary map of Krakow, combining a modern approach to cuisine, respect for different culinary preferences of guests. We have recently launched our own patisserie, where you can try small sweet creations a'la carte every day, wine selection and cocktail offer also encourages casual evenings. Błonia Bistro is all about hospitality and relaxation - there is something for everyone!",
+      grandeAppetitoDescription:
+        "Something for fans of Italian cuisine. You will find a wide selection of italian dishes here, from pizza baked in a wood-fired oven, through hand-made pasta and seafood, to the chef's specialty - venison. Atmosphere is enhanced by italian music inside   . There is also a children's corner inside.",
+      grandeAppetitoDescription2: 'We recommend trying creme brulee!',
       piastowskaDescription: 'Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej',
-      knittedCoffeeDescription: 'On the event you can drink tasty coffee made by Tarasa from Knitted Coffee'
+      knittedCoffeeDescription: 'On the event you can drink tasty coffee made by Taras from Knitted Coffee',
+      discount15:
+        'On the day of the event, a discount for people with a Yarnmark Wool bracelet: -15% on all dishes from the menu.',
+      discount10: 'On the day of the event, a discount for people with a Yarnmark Wool bracelet: -10% on order.',
+      coffeehouse: 'There is also a cafe in the hall itself.'
     },
     hallMap: {
       premiumStand: 'Premium spot 5x3m',

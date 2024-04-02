@@ -15,13 +15,13 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
       modules: true
-    }
+    },
   },
+  ignorePatterns: ["./.eslintrc.js"],
   env: {
     browser: true
   },
   settings: {
-    'import/extensions': ['.tsx', '.ts'],
     "import/resolver": {
       "node": {
         "extensions": [
@@ -31,7 +31,7 @@ module.exports = {
         ]
       }
     },
-    'import/ignore': ['node_modules'],
+    'import/ignore': ['node_modules', "./.eslintrc.js"],
     'import/parsers': {
       '@typescript-eslint/parser': ['.js', '.jsx', '.ts', '.tsx']
     },

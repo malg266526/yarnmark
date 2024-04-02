@@ -8,6 +8,7 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 import { Link } from '../components/Link';
 import { FontSize } from '../styles/font-size';
 import { DropShadow, Radius } from '../styles/cards';
+import { Picture } from '../components/Picture';
 import { Button } from '../components/Button';
 
 export const StyledPageContent = styled(PageContent)`
@@ -282,7 +283,7 @@ export const MenuBackground = styled.div`
 export const AnimatedIconWrapper = styled.div`
   padding-bottom: 20px;
   border-radius: 10px;
-  box-shadow: 0px black;
+  box-shadow: none;
   border: 6px solid transparent;
   transition: all 200ms ease-in-out;
 
@@ -338,7 +339,18 @@ export const AnimatedIconWrapper = styled.div`
 
 export const ActiveImage = styled.img`
   max-height: 300px;
-  max-width: 50%;
+  max-width: 100%;
+  object-fit: contain;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    width: 100%;
+    max-width: 100%;
+  }
+`;
+
+export const ActivePicture = styled(Picture)`
+  max-height: 300px;
+  max-width: 100%;
   object-fit: contain;
 
   @media (max-width: ${ScreenSize.phone}) {
@@ -354,10 +366,11 @@ export const ImageContentLayout = styled.div`
   gap: ${Spacings.md};
 
   @media (max-width: ${ScreenSize.phone}) {
-    flex-direction: column;
+    flex-direction: column-reverse;
     flex-wrap: wrap;
-    max-width: 80%;
+    max-width: 100%;
     align-items: center;
+    gap: ${Spacings.md};
   }
 `;
 
@@ -457,6 +470,15 @@ export const Drawer = styled.div<{ isOpen: boolean }>`
   transition: all 0.7s ease-in-out;
 
   transform: ${({ isOpen }) => (isOpen ? `translateX(0)` : `translateX(-100%)`)};
+`;
+
+export const ImageWrapperColumn = styled(TextWrapper)`
+  max-width: 50%;
+  padding-top: ${Spacings.md};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    max-width: 100%;
+  }
 `;
 
 export const VendorsMapDrawer = styled(Drawer)<{ isOpen: boolean }>`

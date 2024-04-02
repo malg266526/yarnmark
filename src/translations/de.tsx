@@ -167,13 +167,20 @@ export const de: TranslationsShape = {
     },
     foodBand: {
       bezogrodekDescription:
-        '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia i napojów',
+        'Food Truck Park Bezogródek is located 150m from the Hall. You will find there a large selection of food in food trucks and the opportunity to relax on a deckchair with a drink in your hand.',
+      bezogrodekDescription2: 'W dniu wydarzenia, za okazaniem opaski, otrzymujecie 20% zniżki na bar',
       lookHere: 'See here',
       checkMenu: 'See menu here',
-      pinoGardenDescription: 'Fans of italian food and seafood will find Pino Garden opposite of event',
-      pretzelDescription: 'Przed halą będzie można również zakupić, a jakże, krakoskiego obwarzanka',
+      bistroBloniaDescription: 'Fans of italian food and seafood will find Pino Garden opposite of event',
+      grandeAppetitoDescription:
+        'Coś dla fanów kuchni włoskiej. Znajdziecie tutaj szeroki wybór dań, od pizzy wypiekanej w piecu opalanym drewnem, przez ręcznie wyrabiane makarony, owoce morza, po jagnięcinę czy wołowinę. Klimatu wnętrzom dodaje włoska muzyka. W środku również kącik dla dzieci',
+      grandeAppetitoDescription2: 'Polecamy spróbować creme brulee!',
       piastowskaDescription: 'Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej',
-      knittedCoffeeDescription: 'On the event you can drink tasty coffee made by Tarasa from Knitted Coffee'
+      knittedCoffeeDescription: 'On the event you can drink tasty coffee made by Tarasa from Knitted Coffee',
+      discount15: 'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: -15% na wszystkie dania z karty.',
+      discount10: 'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: -10% na zamówienie.',
+      coffeehouse:
+        'Na samej hali znajduje się również kawiarnia, gdzie możecie napić się kawy, zjeść kanapkę czy zakupić wodę'
     },
     hallMap: {
       premiumStand: 'Premium Platz 5x3m',

@@ -1,5 +1,5 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
+import React, { ReactNode, useCallback, useMemo, useRef, useState } from 'react';
+import { UnprefixedTranslationKeys, useTypedTranslation } from '../translations/useTypedTranslation';
 
 import mapJpgSrc from '../assets/images/map.jpg';
 import mapWebpSrc from '../assets/images/map.webp';
@@ -18,16 +18,26 @@ import ticketAvifSrc from '../assets/images/ticket.avif';
 import ticketJpgSrc from '../assets/images/ticket.jpg';
 import ticketWebpSrc from '../assets/images/ticket.webp';
 
-// import bigShopImageUrl from '../assets/iconify/bigshop.svg';
-// import burgerImageUrl from '../assets/iconify/burger.svg';
-// import coffeeImageUrl from '../assets/iconify/coffee.svg';
+import knittedCoffeeLogoUrlAvif from './../assets/images/minifiedLogos/knitted.avif';
+import knittedCoffeeLogoUrl from './../assets/images/minifiedLogos/knitted.jpg';
+import knittedCoffeeLogoUrlWebp from './../assets/images/minifiedLogos/knitted.webp';
+
+import bezogrodekLogoUrlAvif from './../assets/images/minifiedLogos/logobezogrodek.avif';
+import bezogrodekLogoUrl from './../assets/images/minifiedLogos/logobezogrodek.jpg';
+import bezogrodekLogoUrlWebp from './../assets/images/minifiedLogos/logobezogrodek.webp';
+
+import burgerImageUrl from '../assets/iconify/burger.svg';
+import coffeeImageUrl from '../assets/iconify/coffee.svg';
+import ferryImageUrl from '../assets/iconify/ferry.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
-// import pizzaImageUrl from '../assets/iconify/pizza.svg';
+import pizzaImageUrl from '../assets/iconify/pizza.svg';
 // import pretzelImageUrl from '../assets/iconify/pretzel.svg';
 import shopImageUrl from '../assets/iconify/shop.svg';
-// import shrimpImageUrl from '../assets/iconify/shrimp.svg';
+import shrimpImageUrl from '../assets/iconify/shrimp.svg';
+import turkeyImageUrl from '../assets/iconify/turkey.svg';
 // import soupImageUrl from '../assets/iconify/soup.svg';
-import ferryImageUrl from '../assets/iconify/ferry.svg';
+
+import cupcakeImageUrl from '../assets/iconify/cupcake.svg';
 import ticketImageUrl from '../assets/iconify/ticket.svg';
 
 import knitting2ImageUrl from '../assets/images/knitting2.svg';
@@ -40,7 +50,8 @@ import yarnmarkLogoSrcAvif from '../assets/images/yarnmark_logo.avif';
 import yarnmarkLogoSrc from '../assets/images/yarnmark_logo.jpg';
 import yarnmarkLogoSrcWebp from '../assets/images/yarnmark_logo.webp';
 
-// import wawelImageSrc from '../assets/images/wawel.jpg';
+import bistroImageSrc from '../assets/images/bistro_photo.jpg';
+
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsJpgLandscape from '../assets/images/wools2_landscape.jpg';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
@@ -55,16 +66,15 @@ import { Band } from '../components/Band';
 import { FunnyButton } from '../components/FunnyButton';
 import { Link } from '../components/Link';
 import { NiceBox } from '../components/NiceBox';
-// import { PhotoFrame } from '../components/PhotoBox';
 import { usePhone } from './usePhone';
 
 import { Icon as IconifyIcon } from '@iconify/react';
 import { Trans } from 'react-i18next';
 import { Header } from '../App.styled';
 import { BurgerMenu } from '../components/BurgerMenu';
-// import { FramedBox } from '../components/FramedBox';
-// import { ImageButton } from '../components/ImageButton';
 import { Curtain } from '../components/Curtain';
+import { FramedBox } from '../components/FramedBox';
+import { ImageButton } from '../components/ImageButton';
 import { Picture } from '../components/Picture';
 import { RowLayout } from '../components/RowLayout';
 import { SideBar } from '../components/SideBar';
@@ -73,21 +83,21 @@ import { BrownScale, Colors } from '../styles/theme';
 import { FirstAidCard } from './FirstAidCard';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import {
-  // ActiveImage,
+  ActiveImage,
   AnimatedIconWrapper,
   BackgroundIcon,
   BackgroundImage,
   ButtonsLayout,
+  ButtonsWrapper,
   CenteredTitle,
   Drawer,
+  ImageContentLayout,
+  ImageWrapperColumn,
+  LayoutWithActiveButton,
   LinkWrapper,
   // PhotosLayout,
   MainBackground,
-  // ButtonsWrapper,
-  // CenteredTitle,
   Menu,
-  // ImageContentLayout,
-  // LayoutWithActiveButton,
   MenuBackground,
   MobileBasicInfoSection,
   MobileInfoSectionWrapper,
@@ -108,7 +118,24 @@ import { WorkshopsCarousel } from './WorkshopsCarousel';
 import { WorkshopsSchedule } from './WorkshopsSchedule';
 import { useRootIntersectionObserver } from './useRootIntersectionObserver';
 
-// import { FlexColumnLayout } from '../components/FlexColumnLayout';
+import bistrobloniaLogoUrlAvif from './../assets/images/minifiedLogos/bistroblonia.avif';
+import bistrobloniaLogoUrl from './../assets/images/minifiedLogos/bistroblonia.jpg';
+import bistrobloniaLogoUrlWebp from './../assets/images/minifiedLogos/bistroblonia.webp';
+
+import grandeAppetitoLogoUrlAvif from './../assets/images/minifiedLogos/GrandeAppetito.avif';
+import grandeAppetitoLogoUrl from './../assets/images/minifiedLogos/GrandeAppetito.jpg';
+import grandeAppetitoLogoUrlWebp from './../assets/images/minifiedLogos/GrandeAppetito.webp';
+
+import grandeAppetitoUrlAvif from './../assets/images/minifiedLogos/grande_photo.avif';
+import grandeAppetitoUrl from './../assets/images/minifiedLogos/grande_photo.jpg';
+import grandeAppetitoUrlWebp from './../assets/images/minifiedLogos/grande_photo.webp';
+
+import halaLogoUrlAvif from './../assets/images/minifiedLogos/halalogo.avif';
+import halaLogoUrl from './../assets/images/minifiedLogos/halalogo.jpg';
+import halaLogoUrlWebp from './../assets/images/minifiedLogos/halalogo.webp';
+import instagramImageUrl from './../assets/iconify/instagram.svg';
+
+import { FlexColumnLayout } from '../components/FlexColumnLayout';
 
 import sweatersBackgroundUrlAvif from './../assets/backgrounds/sweaters_background.avif';
 import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.jpg';
@@ -117,57 +144,151 @@ import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_backgrou
 import { Button } from '../components/Button';
 import { Carouselge } from '../components/Carouselge';
 import { CruiseMap } from '../components/CruiseMap';
-import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { Hall } from '../components/Hall';
 import { MenuItem } from '../components/MenuItem';
 import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
+
 import { useFirstClick } from '../hooks/useFirstClick';
 
-// type ActiveButtonType = 'foodtruckBezogródek' | 'gospodaNaPiastowskiej' | 'pinoGarden' | 'precel' | 'knittedCoffee';
+type ActiveButtonType =
+  | 'foodtruckBezogrodek'
+  | 'gospodaNaPiastowskiej'
+  | 'bistroblonia'
+  | 'grandeappetito'
+  | 'coffeehouse'
+  | 'knittedCoffee';
 
-/* type ActiveButtonToImageConfig = Record<
+type ActiveButtonToImageConfig = Record<
   ActiveButtonType,
   {
-    image: string;
+    image: ReactNode;
     text: ReactNode;
+    secondaryText?: ReactNode;
   }
->; */
+>;
 
-// type ActiveButtonToImageFunction = (t: (key: UnprefixedTranslationKeys) => string) => ActiveButtonToImageConfig;
+type ActiveButtonToImageFunction = (t: (key: UnprefixedTranslationKeys) => string) => ActiveButtonToImageConfig;
 
-/* const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
-  foodtruckBezogródek: {
-    image: wawelImageSrc,
+const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
+  foodtruckBezogrodek: {
+    image: (
+      <Picture
+        width={240}
+        alt="bezogrodek_logo"
+        picture={{
+          fallbackUrl: bezogrodekLogoUrl,
+          sources: [
+            {
+              type: 'image/webp',
+              url: bezogrodekLogoUrlWebp
+            },
+            {
+              type: 'image/avif',
+              url: bezogrodekLogoUrlAvif
+            }
+          ]
+        }}
+      />
+    ),
     text: (
       <FlexColumnLayout gap="sm" padding="none">
         {t('foodBand.bezogrodekDescription')}
+
         <a href="https://www.instagram.com/bezogrodek/?hl=pl" target="_blank" rel="noreferrer">
-          {t('foodBand.lookHere')}
+          <Icon size="xl" src={instagramImageUrl} />
         </a>
+
+        {t('foodBand.bezogrodekDescription2')}
       </FlexColumnLayout>
     )
   },
-  pinoGarden: {
-    image: wawelImageSrc,
+  bistroblonia: {
+    image: <ActiveImage src={bistroImageSrc} />,
+    secondaryText: t('foodBand.discount15'),
     text: (
       <FlexColumnLayout gap="sm" padding="none">
-        {t('foodBand.pinoGardenDescription')}
-        <a href="https://pinogarden.pl/kategoria/karta-menu" target="_blank" rel="noreferrer">
+        <Picture
+          width={120}
+          alt="bistroblonia_logo"
+          picture={{
+            fallbackUrl: bistrobloniaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: bistrobloniaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: bistrobloniaLogoUrlAvif
+              }
+            ]
+          }}
+        />
+
+        {t('foodBand.bistroBloniaDescription')}
+        <a href="https://bloniabistro.pl/wp-content/uploads/2024/02/menu-BB.pdf" target="_blank" rel="noreferrer">
           {t('foodBand.checkMenu')}
         </a>
+        <a href="https://www.instagram.com/blonia_bistro/?hl=pl" target="_blank" rel="noreferrer">
+          <Icon size="xl" src={instagramImageUrl} />
+        </a>
       </FlexColumnLayout>
     )
   },
-  precel: {
-    image: wawelImageSrc,
+  grandeappetito: {
+    image: (
+      <Picture
+        width={240}
+        alt="grandeappetito_logo"
+        picture={{
+          fallbackUrl: grandeAppetitoUrl,
+          sources: [
+            {
+              type: 'image/webp',
+              url: grandeAppetitoUrlWebp
+            },
+            {
+              type: 'image/avif',
+              url: grandeAppetitoUrlAvif
+            }
+          ]
+        }}
+      />
+    ),
+    secondaryText: t('foodBand.discount10'),
     text: (
       <FlexColumnLayout gap="sm" padding="none">
-        {t('foodBand.pretzelDescription')}
+        <Picture
+          width={160}
+          alt="grandeappetito_logo"
+          picture={{
+            fallbackUrl: grandeAppetitoLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: grandeAppetitoLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: grandeAppetitoLogoUrlAvif
+              }
+            ]
+          }}
+        />
+        {t('foodBand.grandeAppetitoDescription')}
+        <p>{t('foodBand.grandeAppetitoDescription2')}</p>
+
+        <a href="https://grande-appetito.pl/menu/" target="_blank" rel="noreferrer">
+          {t('foodBand.checkMenu')}
+        </a>
+        <a href="https://www.instagram.com/grande_appetito_ristorante/?hl=pl" target="_blank" rel="noreferrer">
+          <Icon size="xl" src={instagramImageUrl} />
+        </a>
       </FlexColumnLayout>
     )
   },
   gospodaNaPiastowskiej: {
-    image: wawelImageSrc,
+    image: <ActiveImage src={bistroImageSrc} />,
     text: (
       <FlexColumnLayout gap="sm" padding="none">
         {t('foodBand.piastowskaDescription')}
@@ -178,14 +299,59 @@ import { useFirstClick } from '../hooks/useFirstClick';
     )
   },
   knittedCoffee: {
-    image: wawelImageSrc,
+    image: <IconifyIcon icon="openmoji:roasted-coffee-bean" width="288" height="188" />,
     text: (
       <FlexColumnLayout gap="sm" padding="none">
+        <Picture
+          width={140}
+          alt="knitted_coffee_logo"
+          picture={{
+            fallbackUrl: knittedCoffeeLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: knittedCoffeeLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: knittedCoffeeLogoUrlAvif
+              }
+            ]
+          }}
+        />
         {t('foodBand.knittedCoffeeDescription')}
+        <a href="https://www.instagram.com/knittedcoffee/?hl=pl" target="_blank" rel="noreferrer">
+          <Icon size="xl" src={instagramImageUrl} />
+        </a>
+      </FlexColumnLayout>
+    )
+  },
+  coffeehouse: {
+    image: <IconifyIcon icon="noto:teapot" width="288" height="188" />,
+    text: (
+      <FlexColumnLayout gap="sm" padding="none">
+        <Picture
+          width={240}
+          alt="hala_logo"
+          picture={{
+            fallbackUrl: halaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: halaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: halaLogoUrlAvif
+              }
+            ]
+          }}
+        />
+        {t('foodBand.coffeehouse')}
       </FlexColumnLayout>
     )
   }
-}); */
+});
 
 export const MainPage = () => {
   const t = useTypedTranslation();
@@ -197,21 +363,21 @@ export const MainPage = () => {
   const vendorsBandRef = useRef<HTMLDivElement | null>(null);
   const spotBandRef = useRef<HTMLDivElement | null>(null);
   const cruiseTicketsBandRef = useRef<HTMLDivElement | null>(null);
-  // const foodBandRef = useRef<HTMLDivElement | null>(null);
+  const foodBandRef = useRef<HTMLDivElement | null>(null);
 
   const ticketsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const vendorsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const geoFunnyButtonRef = useRef<HTMLDivElement | null>(null);
-  // const foodFunnyButtonRef = useRef<HTMLDivElement | null>(null);
+  const foodFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
 
-  //  const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogródek');
+  const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogrodek');
 
   const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
   const [isOlaDrawerOpened, setIsOlaDrawerOpened] = useState<boolean>(false);
   const [isVendorsMapShown, showVendorsMap] = useState<boolean>(false);
 
-  // const activeButtonToImage = getActiveButtonToImage(t);
+  const activeButtonToImage = getActiveButtonToImage(t);
 
   const observerCallback = useCallback(() => {}, []);
 
@@ -315,12 +481,13 @@ export const MainPage = () => {
           text={t('buttonsBand.location.text')}
           onClick={() => spotBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
         />
-        {/*             <FunnyButton
-        ref={foodFunnyButtonRef}
-        icon={<Icon size="xl" zIndex={0} src={pizzaImageUrl} />}
-        text={t('buttonsBand.foodButton')}
-        onClick={() => foodBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
-      /> */}
+        <FunnyButton
+          mobileSlot={t('buttonsBand.foodButton')}
+          ref={foodFunnyButtonRef}
+          icon={<Icon size="xl" zIndex={0} src={pizzaImageUrl} />}
+          text={t('buttonsBand.foodButton')}
+          onClick={() => foodBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
+        />
         <FunnyButton
           mobileSlot={t('buttonsBand.cruiseButton')}
           ref={shipFunnyButtonRef}
@@ -860,52 +1027,72 @@ export const MainPage = () => {
         </Band.Slot>
       </Band>
 
-      {/*       <Band ref={foodBandRef} size="md" variant="background" color={Colors.snow} padding="xl">
+      <Band ref={foodBandRef} size="md" variant="background" color={BrownScale[200]} padding="xl">
         <CenteredTitle>Gdzie zjeść?</CenteredTitle>
 
         <LayoutWithActiveButton>
           <ButtonsWrapper>
             <ImageButton
-              active={activeButton === 'foodtruckBezogródek'}
-              onClick={() => setActiveButton('foodtruckBezogródek')}
+              active={activeButton === 'foodtruckBezogrodek'}
+              onClick={() => setActiveButton('foodtruckBezogrodek')}
               icon={<Icon size="xl" src={burgerImageUrl} />}>
               Food Truck Park Bezogródek
             </ImageButton>
 
-            {/*             <ImageButton
-              active={activeButton === 'pinoGarden'}
-              onClick={() => setActiveButton('pinoGarden')}
-              icon={<Icon size="xl" src={shrimpImageUrl} />}>
-              Pino Garden
+            <ImageButton
+              active={activeButton === 'bistroblonia'}
+              onClick={() => setActiveButton('bistroblonia')}
+              icon={<Icon size="xl" src={turkeyImageUrl} />}>
+              Bistro Błonia
             </ImageButton>
 
             <ImageButton
+              active={activeButton === 'grandeappetito'}
+              onClick={() => setActiveButton('grandeappetito')}
+              icon={<Icon size="xl" src={shrimpImageUrl} />}>
+              Grande Appetito
+            </ImageButton>
+
+            {/*           <ImageButton
               active={activeButton === 'gospodaNaPiastowskiej'}
               onClick={() => setActiveButton('gospodaNaPiastowskiej')}
               icon={<Icon size="xl" src={soupImageUrl} />}>
               Gospoda na Piastowskiej
-            </ImageButton>
+            </ImageButton> */}
 
-            <ImageButton onClick={() => setActiveButton('precel')} icon={<Icon size="xl" src={pretzelImageUrl} />}>
+            {/*          <ImageButton onClick={() => setActiveButton('precel')} icon={<Icon size="xl" src={pretzelImageUrl} />}>
               Krakowskie obwarzanki
-            </ImageButton>
+            </ImageButton> */}
 
             <ImageButton
               active={activeButton === 'knittedCoffee'}
               icon={<Icon size="xl" src={coffeeImageUrl} />}
               onClick={() => setActiveButton('knittedCoffee')}>
               Knitted Coffee
-            </ImageButton> */}
-      {/*           </ButtonsWrapper>
+            </ImageButton>
+
+            <ImageButton
+              active={activeButton === 'coffeehouse'}
+              icon={<Icon size="xl" src={cupcakeImageUrl} />}
+              onClick={() => setActiveButton('coffeehouse')}>
+              Kawiarnia na hali
+            </ImageButton>
+          </ButtonsWrapper>
 
           <FramedBox padding="md">
             <ImageContentLayout>
-              <ActiveImage src={activeButtonToImage[activeButton].image} />
-              <TextWrapper>{activeButtonToImage[activeButton].text}</TextWrapper>
+              <FlexColumnLayout padding={isPhone ? 'none' : 'md'} gap={isPhone ? 'sm' : 'md'}>
+                {activeButtonToImage[activeButton].image}
+                <TextWrapper>{activeButtonToImage[activeButton].secondaryText}</TextWrapper>
+              </FlexColumnLayout>
+
+              <ImageWrapperColumn>
+                <TextWrapper>{activeButtonToImage[activeButton].text}</TextWrapper>
+              </ImageWrapperColumn>
             </ImageContentLayout>
           </FramedBox>
         </LayoutWithActiveButton>
-      </Band> */}
+      </Band>
     </StyledPageContent>
   );
 };
