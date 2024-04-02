@@ -150,7 +150,6 @@ import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
 
 import { useFirstClick } from '../hooks/useFirstClick';
 
-
 type ActiveButtonType =
   | 'foodtruckBezogródek'
   | 'gospodaNaPiastowskiej'
