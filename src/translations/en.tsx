@@ -169,7 +169,7 @@ export const en: TranslationsShape = {
       lookHere: 'See here',
       checkMenu: 'See menu here',
       bistroBloniaDescription:
-        "Błonia Bistro is a project on the culinary map of Krakow, combining a modern approach to cuisine, respect for the product different culinary preferences of guests. We have recently launched our own patisserie, where you can try small sweet creations a'la carte every day, and the wine selection and cocktail offer also encourages casual evenings. Błonia Bistro is all about hospitality and relaxation - everyone will find something for themselves here!",
+        "Błonia Bistro is a project on the culinary map of Krakow, combining a modern approach to cuisine, respect for different culinary preferences of guests. We have recently launched our own patisserie, where you can try small sweet creations a'la carte every day, wine selection and cocktail offer also encourages casual evenings. Błonia Bistro is all about hospitality and relaxation - there is something for everyone!",
       grandeAppetitoDescription:
         'Coś dla fanów kuchni włoskiej. Znajdziecie tutaj szeroki wybór dań, od pizzy wypiekanej w piecu opalanym drewnem, przez ręcznie wyrabiane makarony, owoce morza, po jagnięcinę czy wołowinę. Klimatu wnętrzom dodaje włoska muzyka. W środku również kącik dla dzieci',
       grandeAppetitoDescription2: 'We recommend trying creme brulee!',
