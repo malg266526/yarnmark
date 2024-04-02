@@ -7,7 +7,7 @@ export const useFirstClick = (key: string) => {
 
   const handleClick = () => {
     if (!wasClickedBefore) {
-      setWasClickedBefore(true);
+      setWasClickedBefore(false);
     }
   };
 
