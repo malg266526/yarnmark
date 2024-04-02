@@ -299,7 +299,7 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
     )
   },
   knittedCoffee: {
-    image: <ActiveImage src={bistroImageSrc} />,
+    image: <IconifyIcon icon="openmoji:roasted-coffee-bean" width="288" height="188" />,
     text: (
       <FlexColumnLayout gap="sm" padding="none">
         <Picture
