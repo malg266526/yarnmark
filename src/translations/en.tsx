@@ -172,7 +172,7 @@ export const en: TranslationsShape = {
       bistroBloniaDescription:
         "Błonia Bistro is a project on the culinary map of Krakow, combining a modern approach to cuisine, respect for the product different culinary preferences of guests. We have recently launched our own patisserie, where you can try small sweet creations a'la carte every day, and the wine selection and cocktail offer also encourages casual evenings. Błonia Bistro is all about hospitality and relaxation - everyone will find something for themselves here!",
       grandeAppetitoDescription:
-        "Something for fans of Italian cuisine. You will find a wide selection of italian dishes here, from pizza baked in a wood-fired oven, through hand-made pasta and seafood, to the chef's specialty - venison. Italian music sounds inside. There is also a children's corner inside.",
+        "Something for fans of Italian cuisine. You will find a wide selection of italian dishes here, from pizza baked in a wood-fired oven, through hand-made pasta and seafood, to the chef's specialty - venison. Atmosphere is enhanced by italian music inside   . There is also a children's corner inside.",
       grandeAppetitoDescription2: 'We recommend trying creme brulee!',
       piastowskaDescription: 'Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej',
       knittedCoffeeDescription: 'On the event you can drink tasty coffee made by Taras from Knitted Coffee',
