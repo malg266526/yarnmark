@@ -198,13 +198,15 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
           <Icon size="xl" src={instagramImageUrl} />
         </a>
 
-        {t('foodBand.bezogrodekDescription2')}
+        <p>
+          <Trans i18nKey="foodBand.bezogrodekDescription2" />
+        </p>
       </FlexColumnLayout>
     )
   },
   bistroblonia: {
     image: <ActiveImage src={bistroImageSrc} />,
-    secondaryText: t('foodBand.discount15'),
+    secondaryText: <Trans i18nKey="foodBand.discount15" />,
     text: (
       <FlexColumnLayout gap="sm" padding="none">
         <Picture
@@ -255,7 +257,7 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
         }}
       />
     ),
-    secondaryText: t('foodBand.discount10'),
+    secondaryText: <Trans i18nKey="foodBand.discount10" />,
     text: (
       <FlexColumnLayout gap="sm" padding="none">
         <Picture

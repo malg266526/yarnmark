@@ -45,7 +45,7 @@ export const PlainInfo = styled.div`
   max-width: 50%;
   width: 50%;
   min-height: 100px;
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
 
   @media (max-width: ${ScreenSize.tablet}) {
     max-width: 92%;
@@ -66,7 +66,7 @@ export const TitleWrapper = styled.div`
 export const HallWrapper = styled.div`
   justify-content: space-between;
   display: flex;
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
   background-color: ${Colors.white};
 
   @media (max-width: ${ScreenSize.tablet}) {

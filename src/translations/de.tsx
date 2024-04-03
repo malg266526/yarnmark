@@ -168,7 +168,7 @@ export const de: TranslationsShape = {
     foodBand: {
       bezogrodekDescription:
         'Food Truck Park Bezogródek is located 150m from the Hall. You will find there a large selection of food in food trucks and the opportunity to relax on a deckchair with a drink in your hand.',
-      bezogrodekDescription2: 'W dniu wydarzenia, za okazaniem opaski, otrzymujecie 20% zniżki na bar',
+      bezogrodekDescription2: 'W dniu wydarzenia, za okazaniem opaski, otrzymujecie <strong>20%</strong> zniżki na bar',
       lookHere: 'See here',
       checkMenu: 'See menu here',
       bistroBloniaDescription: 'Fans of italian food and seafood will find Pino Garden opposite of event',
@@ -177,8 +177,10 @@ export const de: TranslationsShape = {
       grandeAppetitoDescription2: 'Polecamy spróbować creme brulee!',
       piastowskaDescription: 'Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej',
       knittedCoffeeDescription: 'On the event you can drink tasty coffee made by Tarasa from Knitted Coffee',
-      discount15: 'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: -15% na wszystkie dania z karty.',
-      discount10: 'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: -10% na zamówienie.',
+      discount15:
+        'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: <strong>-15%</strong> na wszystkie dania z karty.',
+      discount10:
+        'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: <strong>-10%</strong> na zamówienie.',
       coffeehouse:
         'Na samej hali znajduje się również kawiarnia, gdzie możecie napić się kawy, zjeść kanapkę czy zakupić wodę'
     },

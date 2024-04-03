@@ -169,7 +169,8 @@ export const pl = {
     foodBand: {
       bezogrodekDescription:
         '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia w foodtruckach oraz możliwość relaksu na leżaczku z drinkiem w dłoni.',
-      bezogrodekDescription2: 'W dniu wydarzenia, za okazaniem Yarnmarkowej opaski, otrzymujecie 20% zniżki na bar.',
+      bezogrodekDescription2:
+        'W dniu wydarzenia, za okazaniem Yarnmarkowej opaski, otrzymujecie <strong>20%</strong> zniżki na bar.',
       lookHere: 'Zobacz tutaj',
       checkMenu: 'Zobacz menu tutaj',
       bistroBloniaDescription:
@@ -179,8 +180,10 @@ export const pl = {
       grandeAppetitoDescription:
         'Coś dla fanów kuchni włoskiej. Znajdziecie tutaj szeroki wybór dań, od pizzy wypiekanej w piecu opalanym drewnem, przez ręcznie wyrabiane makarony i owoce morza, po specjał szefa kuchni czyli jeleninę. Klimatu wnętrzom dodaje włoska muzyka. W środku również spory kącik dla dzieci.',
       grandeAppetitoDescription2: 'Polecamy spróbować creme brulee!',
-      discount15: 'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: -15% na wszystkie dania z karty.',
-      discount10: 'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: -10% na zamówienie.',
+      discount15:
+        'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: <strong>-15%</strong> na wszystkie dania z karty.',
+      discount10:
+        'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: <strong>-10%</strong> na zamówienie.',
       coffeehouse: 'Na samej hali znajduje się również kawiarnia.' // , gdzie możecie napić się kawy, zjeść kanapkę czy zakupić wodę.
     },
     hallMap: {
@@ -292,20 +295,6 @@ export const pl = {
           'Oczywiście pokażę, jak ratować zgubione oczka lub naprawiać proste błędy. Postaram się odpowiedzieć na nurtujące pytania.',
         forBeginners:
           'Grupa dla początkujących, zaczynających przygodę z drutami, jak i dla tych co chcą nabrać pewności w swoich robótkach'
-      },
-      doRanyPrzyloz: {
-        topic: 'Warsztaty makramy',
-        intro: 'Przyjdź, a nauczę Cię pleść makramy zupełnie od zera!',
-        macrame:
-          'Makrama to ponadczasowa przygoda, która co chwilę wraca. Plotło się je w starożytności, plotły nasze babcie, a teraz pleciemy my.',
-        macrameOnTheHoop:
-          'Na warsztatach samodzielnie wykonasz makramę na obręczy, która będzie się składała z najpopularniejszych splotów używanych w tej technice.',
-        example:
-          'Dzięki przykładowej pracy, którą przyniosę ze sobą łatwiej będzie Ci podążać za etapami i poznać najważniejsze wskazówki dotyczące tej techniki. Swój projekt oczywiście będziesz mogła/mógł dowolnie modyfikować, jeśli tylko poczujesz się na tyle pewnie.',
-        forBeginners:
-          'Warsztaty skierowane są do osób początkujących, więc możesz mieć pewność, że otrzymasz bardzo szczegółowe instrukcje i na pewno nauczysz się pleść. Potem wyobraźnia podpowie Ci następne projekty, bo jestem pewna, że na jednej makramie się nie skończy (Twoi bliscy też będą chcieli taką mieć!).',
-        invite:
-          'Na zajęcia zapraszam także każdego, kto potrzebuje więcej kreatywności w swoim życiu, albo po prostu chciałby miło spędzić czas.'
       }
     },
     firstAidBand: {
