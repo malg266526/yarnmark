@@ -580,6 +580,11 @@ export const MainPage = () => {
                   icon: <IconifyIcon icon="clarity:ferry-solid" width="24" />
                 },
                 {
+                  to: '#food',
+                  name: t('buttonsBand.foodButton'),
+                  icon: <IconifyIcon icon="uil:pizza-slice" width="24" />
+                },
+                {
                   to: '#footer',
                   name: t('menu.contact'),
                   icon: <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
@@ -648,6 +653,10 @@ export const MainPage = () => {
                 {
                   to: '#cruise',
                   name: t('menu.cruise')
+                },
+                {
+                  to: '#food',
+                  name: t('buttonsBand.foodButton')
                 },
                 {
                   to: '#footer',
@@ -1027,7 +1036,7 @@ export const MainPage = () => {
         </Band.Slot>
       </Band>
 
-      <Band ref={foodBandRef} size="md" variant="background" color={BrownScale[200]} padding="xl">
+      <Band id="food" ref={foodBandRef} size="md" variant="background" color={BrownScale[200]} padding="xl">
         <CenteredTitle>Gdzie zjeść?</CenteredTitle>
 
         <LayoutWithActiveButton>
