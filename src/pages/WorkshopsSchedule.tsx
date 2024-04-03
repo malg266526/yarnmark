@@ -274,10 +274,7 @@ export const WorkshopsSchedule = () => {
 
           <TextContent>
             <TextH2>{t('workshops.colorfulEmbroidery')}</TextH2>
-            <Text>{t('workshops.price')}: 70zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/p/Warsztaty-Haft-krakowski-kolorowy/2836" target="_blank">
-              {t('workshops.buyTicket')}
-            </WorkshopLink>
+            <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
           </TextContent>
         </PlannerCard>
       </Carousel>
