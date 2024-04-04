@@ -195,7 +195,11 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
       <FlexColumnLayout gap="sm" padding="none">
         {t('foodBand.bezogrodekDescription')}
 
-        <a href="https://www.instagram.com/bezogrodek/?hl=pl" target="_blank" rel="noreferrer">
+        <a
+          href="https://www.instagram.com/bezogrodek/?hl=pl"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="See bezogrodek instagram">
           <Icon size="xl" src={instagramImageUrl} />
         </a>
 
@@ -232,7 +236,11 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
         <a href="https://bloniabistro.pl/wp-content/uploads/2024/02/menu-BB.pdf" target="_blank" rel="noreferrer">
           {t('foodBand.checkMenu')}
         </a>
-        <a href="https://www.instagram.com/blonia_bistro/?hl=pl" target="_blank" rel="noreferrer">
+        <a
+          href="https://www.instagram.com/blonia_bistro/?hl=pl"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="See Bistro Błonia instagram">
           <Icon size="xl" src={instagramImageUrl} />
         </a>
       </FlexColumnLayout>
@@ -284,7 +292,11 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
         <a href="https://grande-appetito.pl/menu/" target="_blank" rel="noreferrer">
           {t('foodBand.checkMenu')}
         </a>
-        <a href="https://www.instagram.com/grande_appetito_ristorante/?hl=pl" target="_blank" rel="noreferrer">
+        <a
+          href="https://www.instagram.com/grande_appetito_ristorante/?hl=pl"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="See Grande appetito instagram">
           <Icon size="xl" src={instagramImageUrl} />
         </a>
       </FlexColumnLayout>
@@ -740,6 +752,7 @@ export const MainPage = () => {
                 }}
                 alt="yarnmark_logo"
                 width={156}
+                height={212}
               />
             </RowLayout>
           </NiceBox>
@@ -803,7 +816,8 @@ export const MainPage = () => {
               onClick={() => {
                 showVendorsMap((prev) => !prev);
                 handleVendorsMapClick();
-              }}>
+              }}
+              aria-label="vendors-map-button">
               <IconifyIcon icon="fluent-emoji:information" width="48" />
             </PulseButton>
           </RowLayout>
@@ -849,7 +863,7 @@ export const MainPage = () => {
         color={BrownScale[100]}
         padding="xl">
         <Drawer isOpen={isOlaDrawerOpened}>
-          <Button onClick={() => setIsOlaDrawerOpened(false)}>
+          <Button aria-label="close-drawer-button" onClick={() => setIsOlaDrawerOpened(false)}>
             <IconifyIcon icon="mingcute:close-fill" />
           </Button>
 
@@ -878,6 +892,7 @@ export const MainPage = () => {
           <Paragraph>
             <RowLayout>
               <PulseButton
+                aria-label="pomagam-oli-button"
                 shouldPulse={!wasSosClicked}
                 onClick={() => {
                   setIsOlaDrawerOpened(true);
@@ -914,7 +929,7 @@ export const MainPage = () => {
           </Paragraph>
         </FlexColumnLayout>
 
-        <BackgroundIcon src={firstAidIcon} width={500} />
+        <BackgroundIcon src={firstAidIcon} width={500} alt="first-aid-image" />
         <FirstAidCard />
       </Band>
 

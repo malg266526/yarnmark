@@ -630,6 +630,7 @@ export const VendorsList = () => {
       <Link to="https://www.facebook.com/paciorkowceiwisielce/" target="_blank" rel="noreferrer">
         <Picture
           width={84}
+          height={96}
           alt="paciorkowceiwisielce_logo"
           picture={{
             fallbackUrl: paciorkowceLogoUrl,

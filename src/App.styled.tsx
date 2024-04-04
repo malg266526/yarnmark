@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { BurgerMenu } from './components/BurgerMenu';
 import { ScreenSize } from './styles/screeen-size';
 import { Spacings } from './styles/spacings';
-import { Colors } from './styles/theme';
+import { Colors, TextColors } from './styles/theme';
 import { FontSize } from './styles/font-size';
 
 export const Header = styled.header`
@@ -97,4 +97,8 @@ export const RightBackgroundImage = styled.img<{ src: string }>`
 export const TransparentText = styled.h2`
   font-size: ${FontSize.xs};
   color: transparent;
+`;
+
+export const VanillaLink = styled.a`
+  color: ${TextColors.primary};
 `;

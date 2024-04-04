@@ -135,6 +135,7 @@ export const WorkshopsSchedule = () => {
             }}
             alt="ewa"
             width={120}
+            height={120}
             style={{ borderRadius: '100%' }}
           />
 
@@ -160,6 +161,7 @@ export const WorkshopsSchedule = () => {
             }}
             alt="ewa"
             width={120}
+            height={120}
             style={{ borderRadius: '100%' }}
           />
 
@@ -189,6 +191,7 @@ export const WorkshopsSchedule = () => {
             }}
             alt="firstAid"
             width={120}
+            height={120}
           />
 
           <TextContent>
@@ -214,6 +217,7 @@ export const WorkshopsSchedule = () => {
             }}
             alt="firstAid"
             width={120}
+            height={120}
           />
 
           <TextContent>
@@ -242,6 +246,7 @@ export const WorkshopsSchedule = () => {
             }}
             alt="firstAid"
             width={120}
+            height={120}
           />
 
           <TextContent>
@@ -269,6 +274,7 @@ export const WorkshopsSchedule = () => {
               ]
             }}
             alt="ludart"
+            width={132}
             height={120}
           />
 
@@ -298,6 +304,7 @@ export const WorkshopsSchedule = () => {
             }}
             alt="knitolog"
             width={120}
+            height={120}
           />
 
           <TextContent>
@@ -323,6 +330,7 @@ export const WorkshopsSchedule = () => {
             }}
             alt="uwolnijpomysly"
             width={120}
+            height={120}
           />
 
           <TextContent>
@@ -351,6 +359,7 @@ export const WorkshopsSchedule = () => {
             }}
             alt="labolens"
             width={120}
+            height={120}
           />
 
           <TextContent>
@@ -384,6 +393,7 @@ export const WorkshopsSchedule = () => {
             }}
             alt="woolanka"
             width={120}
+            height={120}
           />
 
           <TextContent>
@@ -412,6 +422,7 @@ export const WorkshopsSchedule = () => {
             }}
             alt="haftowababa_logo"
             width={120}
+            height={120}
           />
 
           <TextContent>
@@ -437,6 +448,7 @@ export const WorkshopsSchedule = () => {
             }}
             alt="woolanka"
             width={120}
+            height={115}
           />
 
           <TextContent>
