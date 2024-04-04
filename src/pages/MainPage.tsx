@@ -1055,7 +1055,14 @@ export const MainPage = () => {
         </Band.Slot>
       </Band>
 
-      <Band id="food" ref={foodBandRef} size="md" variant="background" color={BrownScale[200]} padding="xl">
+      <Band
+        direction="column"
+        id="food"
+        ref={foodBandRef}
+        size="md"
+        variant="background"
+        color={BrownScale[200]}
+        padding="xl">
         <CenteredTitle>Gdzie zjeść?</CenteredTitle>
 
         <LayoutWithActiveButton>

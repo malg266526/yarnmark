@@ -65,7 +65,7 @@ const flexTypeToCss: Record<FlexType, RuleSet<object>> = {
     flex: 1 0 auto;
   `,
   'auto-shrink': css`
-    flex: 0.5 1 0px;
+    flex: 0.5 1 0;
   `
 };
 
