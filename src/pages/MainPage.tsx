@@ -174,6 +174,7 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
     image: (
       <Picture
         width={240}
+        height={240}
         alt="bezogrodek_logo"
         picture={{
           fallbackUrl: bezogrodekLogoUrl,
@@ -868,6 +869,7 @@ export const MainPage = () => {
             }}
             alt="yarnmark_logo"
             width={320}
+            height={450}
             style={{ alignSelf: 'center' }}
           />
         </Drawer>
