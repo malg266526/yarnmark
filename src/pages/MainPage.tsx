@@ -824,7 +824,7 @@ export const MainPage = () => {
 
           <VendorsMapDrawer isOpen={isVendorsMapShown}>
             <Button onClick={() => showVendorsMap(false)}>
-              <IconifyIcon icon="mingcute:close-fill" />
+              <IconifyIcon icon="mingcute:close-fill" aria-label="close-vendors-map-button" />
             </Button>
 
             <Hall multiplier={19} />
