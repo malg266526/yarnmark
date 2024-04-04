@@ -164,6 +164,7 @@ export const VendorsList = () => {
       <Link to="https://animotki.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={120}
+          height={63}
           alt="animotki"
           picture={{
             fallbackUrl: animotkiLogoUrl,
@@ -184,6 +185,7 @@ export const VendorsList = () => {
       <Link to="https://judytamarcol.pl/alemasztocudne/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
+          height={100}
           alt="alemasztocudne_logo"
           picture={{
             fallbackUrl: alemasztocudneLogoUrl,
@@ -204,6 +206,7 @@ export const VendorsList = () => {
       <Link to="https://www.instagram.com/ani_sploty/" target="_blank" rel="noreferrer">
         <Picture
           width={80}
+          height={106}
           alt="anisploty_logo"
           picture={{
             fallbackUrl: anisplotyLogoUrl,
@@ -220,6 +223,7 @@ export const VendorsList = () => {
       <Link to="https://www.facebook.com/bawelnianyfilament/" target="_blank" rel="noreferrer">
         <Picture
           width={110}
+          height={110}
           alt="bawelnianyfilament"
           picture={{
             fallbackUrl: bawelnianyFilamentLogoUrl,
@@ -240,6 +244,7 @@ export const VendorsList = () => {
       <Link to="https://biferno.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
+          height={83}
           alt="biferno"
           picture={{
             fallbackUrl: bifernoLogoUrl,
@@ -260,6 +265,7 @@ export const VendorsList = () => {
       <Link to="https://brioszka.com.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
+          height={100}
           alt="brioszka"
           picture={{
             fallbackUrl: brioszkaLogoUrl,
@@ -280,6 +286,7 @@ export const VendorsList = () => {
       <Link to="https://colorido.sklep.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
+          height={100}
           alt="colorido"
           picture={{
             fallbackUrl: coloridoLogoUrl,
@@ -300,6 +307,7 @@ export const VendorsList = () => {
       <Link to="https://www.dyedyedone.com/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
+          height={100}
           alt="dyedyedone"
           picture={{
             fallbackUrl: dyeDyeDoneLogoUrl,
@@ -320,6 +328,7 @@ export const VendorsList = () => {
       <Link to="https://www.instagram.com/floralfiber_fusion/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
+          height={100}
           alt="floralfiberfusion_logo"
           picture={{
             fallbackUrl: floralFiberLogoUrl,
@@ -340,6 +349,7 @@ export const VendorsList = () => {
       <Link to="https://www.gabowool.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={130}
+          height={130}
           alt="gabowool"
           picture={{
             fallbackUrl: gaboWoolLogoUrl,
@@ -360,6 +370,7 @@ export const VendorsList = () => {
       <Link to="https://hankamizrobila.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
+          height={100}
           alt="hankamizrobila"
           picture={{
             fallbackUrl: hankaMiZrobilaLogoUrl,
@@ -380,6 +391,7 @@ export const VendorsList = () => {
       <Link to="https://knittedcoffee.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
+          height={56}
           alt="knitted_coffee_logo"
           picture={{
             fallbackUrl: knittedCoffeeLogoUrl,
@@ -400,6 +412,7 @@ export const VendorsList = () => {
       <Link to="https://knitpl.com/" target="_blank" rel="noreferrer">
         <Picture
           width={90}
+          height={90}
           alt="knitpl"
           picture={{
             fallbackUrl: knitPlLogoUrl,
@@ -418,12 +431,13 @@ export const VendorsList = () => {
       </Link>
 
       <Link to="https://kokonki.pl/" target="_blank" rel="noreferrer">
-        <img width={120} src={kokonkiLogoUrl} alt="kokonki_logo" />
+        <img width={120} height={120} src={kokonkiLogoUrl} alt="kokonki_logo" />
       </Link>
 
       <Link to="https://liloppi.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={120}
+          height={72}
           alt="liloppi_logo"
           picture={{
             fallbackUrl: liloppiLogoUrl,
@@ -444,6 +458,7 @@ export const VendorsList = () => {
       <Link to="https://www.instagram.com/lusia.knits/" target="_blank" rel="noreferrer">
         <Picture
           width={90}
+          height={90}
           alt="lusiaknits_logo"
           picture={{
             fallbackUrl: lusiaLogoUrl,
@@ -464,6 +479,7 @@ export const VendorsList = () => {
       <Link to="https://madobo.pl" target="_blank" rel="noreferrer">
         <Picture
           width={100}
+          height={100}
           alt="madobo_logo"
           picture={{
             fallbackUrl: madoboLogoUrl,
@@ -484,6 +500,7 @@ export const VendorsList = () => {
       <Link to="https://malinowykos.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
+          height={95}
           alt="malinowykos_logo"
           picture={{
             fallbackUrl: malinowyKosLogoUrl,
@@ -504,6 +521,7 @@ export const VendorsList = () => {
       <Link to="https://www.facebook.com/groups/1020511551665421/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
+          height={62}
           alt="maniachomikuje"
           picture={{
             fallbackUrl: maniaChomikujeLogoUrl,
@@ -524,6 +542,7 @@ export const VendorsList = () => {
       <Link to="https://www.martinslab.com/" target="_blank" rel="noreferrer">
         <Picture
           width={120}
+          height={60}
           alt="martinslab_logo"
           picture={{
             fallbackUrl: martinslabLogoUrl,
@@ -544,6 +563,7 @@ export const VendorsList = () => {
       <Link to="https://www.missknitski.com/sklep/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
+          height={100}
           alt="missknitski"
           picture={{
             fallbackUrl: missKnitskiLogoUrl,
@@ -564,6 +584,7 @@ export const VendorsList = () => {
       <Link to="https://mokosza.com/" target="_blank" rel="noreferrer">
         <Picture
           width={120}
+          height={47}
           alt="mokosza"
           picture={{
             fallbackUrl: mokoszaLogoUrl,
@@ -584,6 +605,7 @@ export const VendorsList = () => {
       <Link to="https://motkomania.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={160}
+          height={72}
           alt="motkomania"
           picture={{
             fallbackUrl: motkomaniaLogoUrl,
@@ -602,12 +624,13 @@ export const VendorsList = () => {
       </Link>
 
       <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
-        <img width={100} src={naSztukiStudioLogoUrl} alt="nasztukistudio_logo" />
+        <img width={100} height={130} src={naSztukiStudioLogoUrl} alt="nasztukistudio_logo" />
       </Link>
 
       <Link to="https://www.facebook.com/paciorkowceiwisielce/" target="_blank" rel="noreferrer">
         <Picture
           width={84}
+          height={96}
           alt="paciorkowceiwisielce_logo"
           picture={{
             fallbackUrl: paciorkowceLogoUrl,
@@ -626,20 +649,21 @@ export const VendorsList = () => {
       </Link>
 
       <Link to="https://pimotki.pl/" target="_blank" rel="noreferrer">
-        <img width={100} src={pimotkiLogoUrl} alt="pimotki_logo" />
+        <img width={100} height={74} src={pimotkiLogoUrl} alt="pimotki_logo" />
       </Link>
 
       <Link to="https://rencami.pl/" target="_blank" rel="noreferrer">
-        <img width={110} src={rencamiLogoUrl} alt="rencami_logo" />
+        <img width={110} height={20} src={rencamiLogoUrl} alt="rencami_logo" />
       </Link>
 
       <Link to="https://strikke.pl/" target="_blank" rel="noreferrer">
-        <img width={150} src={strikkeLogoUrl} alt="Strikke_logo" />
+        <img width={150} height={60} src={strikkeLogoUrl} alt="Strikke_logo" />
       </Link>
 
       <Link to="https://7oczek.pl/pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
+          height={115}
           alt="7Oczek_logo"
           picture={{
             fallbackUrl: siedemOczekLogoUrl,
@@ -660,6 +684,7 @@ export const VendorsList = () => {
       <Link to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
         <Picture
           width={100}
+          height={90}
           alt="timetoknit"
           picture={{
             fallbackUrl: timeToKnitLogoUrl,
@@ -678,12 +703,13 @@ export const VendorsList = () => {
       </Link>
 
       <Link to="https://theknittingbox.pl" target="_blank" rel="noreferrer">
-        <img width={180} src={theKnittingBoxLogoUrl} alt="theknittingbox" />
+        <img width={180} height={180} src={theKnittingBoxLogoUrl} alt="theknittingbox" />
       </Link>
 
       <Link to="https://welnabawelna.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={140}
+          height={140}
           alt="welnabawelna"
           picture={{
             fallbackUrl: welnaBawelnaLogoUrl,
@@ -704,6 +730,7 @@ export const VendorsList = () => {
       <Link to="https://wloczkomaniaczka.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={110}
+          height={110}
           alt="wloczkomaniaczka_logo"
           picture={{
             fallbackUrl: wloczkomaniaczkaLogoUrl,
@@ -724,6 +751,7 @@ export const VendorsList = () => {
       <Link to="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={150}
+          height={55}
           alt="wloczykijki_logo"
           picture={{
             fallbackUrl: wloczykijkiLogoUrl,
@@ -744,6 +772,7 @@ export const VendorsList = () => {
       <Link to="https://www.woollala.com" target="_blank" rel="noreferrer">
         <Picture
           width={150}
+          height={105}
           alt="woollala"
           picture={{
             fallbackUrl: woollalaLogoUrl,
@@ -760,6 +789,7 @@ export const VendorsList = () => {
       <Link to="https://woolloop.pl" target="_blank" rel="noreferrer">
         <Picture
           width={100}
+          height={100}
           alt="woolloop"
           picture={{
             fallbackUrl: woolloopLogoUrl,
@@ -780,6 +810,7 @@ export const VendorsList = () => {
       <Link to="https://www.instagram.com/woolniej.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={80}
+          height={115}
           alt="woolniej_logo"
           picture={{
             fallbackUrl: woolniejLogoUrl,
@@ -800,6 +831,7 @@ export const VendorsList = () => {
       <Link to="https://www.woolove.pl" target="_blank" rel="noreferrer">
         <Picture
           width={100}
+          height={100}
           alt="woolove"
           picture={{
             fallbackUrl: wooloveLogoUrl,

@@ -293,19 +293,6 @@ export const de: TranslationsShape = {
           'Obviously, I will show you how to save lost stitches or fix simple mistakes. I will try my best to answer your questions.',
         forBeginners:
           'A group for beginners who are starting their adventure with knitting, as well as for those who want to gain confidence in their knitting'
-      },
-      doRanyPrzyloz: {
-        topic: 'Macrame workshops',
-        intro: 'Come and I will teach you how to weave macrame from scratch!',
-        macrame:
-          'Macrame is a timeless journey that comes back again and again. They used to be weaved in ancient times, our grandmothers weaved them, and now we weave them.',
-        macrameOnTheHoop:
-          'During the workshops, you will make a macrame on a hoop yourself, which will consist of the most popular weaves used in this technique.',
-        example:
-          'Thanks to the sample work that I will bring with me, it will be easier for you to follow the steps and learn the most important tips for this technique. Of course, you will be able to modify your project as you wish, if you feel confident enough.',
-        forBeginners:
-          'The workshops are aimed at beginners, so you can be sure that you will receive very detailed instructions and you will definitely learn how to weave. Then your imagination will suggest further projects, because I am sure that you will not end with one macrame (your loved ones will also want to have one!)',
-        invite: "I'm inviting anyone who needs more creativity in their life or just want to have a nice time."
       }
     },
     firstAidBand: {

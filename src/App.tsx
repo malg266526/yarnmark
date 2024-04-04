@@ -9,7 +9,7 @@ import { Icon } from './components/Icon';
 import { MinimalistLayout } from './components/MinimalistLayout';
 import { RowLayout } from './components/RowLayout';
 
-import { Root, Footer, RightBackgroundImage, TransparentText } from './App.styled';
+import { Root, Footer, RightBackgroundImage, TransparentText, VanillaLink } from './App.styled';
 import { InfoForVendorsPage } from './pages/InfoForVendorsPage';
 import { MainPage } from './pages/MainPage';
 import { useTypedTranslation } from './translations/useTypedTranslation';
@@ -79,19 +79,19 @@ export const App = () => {
               krakoski.yarnmark.welny@gmail.com
             </RowLayout>
 
-            <a href="https://www.instagram.com/dziergamynapolu/" target="_blank" rel="noreferrer">
+            <VanillaLink href="https://www.instagram.com/dziergamynapolu/" target="_blank" rel="noreferrer">
               <RowLayout>
                 <Icon size="xl" src={instagramImageUrl} />
                 @dziergamynapolu
               </RowLayout>
-            </a>
+            </VanillaLink>
 
-            <a href="https://www.instagram.com/wloczykijki_sklep/" target="_blank" rel="noreferrer">
+            <VanillaLink href="https://www.instagram.com/wloczykijki_sklep/" target="_blank" rel="noreferrer">
               <RowLayout>
                 <Icon size="xl" src={instagramImageUrl} />
                 @wloczykijki_sklep
               </RowLayout>
-            </a>
+            </VanillaLink>
 
             <RightBackgroundImage src={talkImageUrl} alt="talk_icon" />
             <TransparentText>Dziewiarskie targi welny krakow 2024</TransparentText>

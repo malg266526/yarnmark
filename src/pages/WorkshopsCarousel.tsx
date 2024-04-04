@@ -157,8 +157,10 @@ export const WorkshopsCarousel = () => {
           interval={90000}
           variant="dark"
           fade
-          prevIcon={<img src={knittingSvgUrl} alt="knittingIcon" width={40} />}
-          nextIcon={<img src={knittingSvgUrl} alt="knittingIcon" width={40} style={{ transform: 'scaleX(-1)' }} />}>
+          prevIcon={<img src={knittingSvgUrl} alt="knittingIcon" width={40} height={40} />}
+          nextIcon={
+            <img src={knittingSvgUrl} alt="knittingIcon" width={40} height={40} style={{ transform: 'scaleX(-1)' }} />
+          }>
           <Carousel.Item>
             <Item>
               <Picture
@@ -177,6 +179,7 @@ export const WorkshopsCarousel = () => {
                 }}
                 alt="woolanka"
                 width={180}
+                height={180}
                 style={logoStyle}
               />
 

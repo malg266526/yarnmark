@@ -42,7 +42,7 @@ const MainContent = styled.div`
 
 export const TransparentIcon = styled.img`
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   right: 20px;
   opacity: 0.2;
 `;
@@ -122,6 +122,7 @@ export const FirstAidCard = () => {
             }}
             alt="firstaid"
             width={isTablet ? 180 : 100}
+            height={isTablet ? 180 : 100}
             style={logoStyle}
           />
 
