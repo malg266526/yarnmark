@@ -28,7 +28,7 @@ export const CruiseMap = () => {
 
       <FlexColumnLayout gap="sm" padding="none" align="flex-start">
         <TextH2>{t('cashmereTicketsBand.map.time')}</TextH2>
-        <Text marginTop="none">17:00 – 19:00</Text>
+        <Text marginTop="none">17:30 – 19:30</Text>
       </FlexColumnLayout>
 
       <FlexColumnLayout gap="sm" padding="none" align="flex-start">
