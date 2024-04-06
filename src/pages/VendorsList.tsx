@@ -39,6 +39,10 @@ import floralFiberLogoUrlAvif from './../assets/images/minifiedLogos/floralfiber
 import floralFiberLogoUrl from './../assets/images/minifiedLogos/floralfiber.jpg';
 import floralFiberLogoUrlWebp from './../assets/images/minifiedLogos/floralfiber.webp';
 
+import furoraLogoUrlAvif from './../assets/images/minifiedLogos/furora.avif';
+import furoraLogoUrl from './../assets/images/minifiedLogos/furora.jpg';
+import furoraLogoUrlWebp from './../assets/images/minifiedLogos/furora.webp';
+
 import gaboWoolLogoUrl from './../assets/images/minifiedLogos/gabowool.png';
 import gaboWoolLogoUrlAvif from './../assets/images/minifiedLogos/gabowool.avif';
 import gaboWoolLogoUrlWebp from './../assets/images/minifiedLogos/gabowool.webp';
@@ -340,6 +344,27 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: floralFiberLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </Link>
+
+      <Link to="https://frra.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={160}
+          height={70}
+          alt="furora_yarns_logo"
+          picture={{
+            fallbackUrl: furoraLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: furoraLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: furoraLogoUrlAvif
               }
             ]
           }}

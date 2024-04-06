@@ -22,6 +22,10 @@ import knittedCoffeeLogoUrlAvif from './../assets/images/minifiedLogos/knitted.a
 import knittedCoffeeLogoUrl from './../assets/images/minifiedLogos/knitted.jpg';
 import knittedCoffeeLogoUrlWebp from './../assets/images/minifiedLogos/knitted.webp';
 
+import knittedCoffeeUrlAvif from './../assets/images/minifiedLogos/knitted2.avif';
+import knittedCoffeeUrl from './../assets/images/minifiedLogos/knitted2.jpg';
+import knittedCoffeeUrlWebp from './../assets/images/minifiedLogos/knitted2.webp';
+
 import bezogrodekLogoUrlAvif from './../assets/images/minifiedLogos/logobezogrodek.avif';
 import bezogrodekLogoUrl from './../assets/images/minifiedLogos/logobezogrodek.jpg';
 import bezogrodekLogoUrlWebp from './../assets/images/minifiedLogos/logobezogrodek.webp';
@@ -314,7 +318,25 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
     )
   },
   knittedCoffee: {
-    image: <IconifyIcon icon="openmoji:roasted-coffee-bean" width="288" height="188" />,
+    image: (
+      <Picture
+        width={240}
+        alt="knitted_coffee"
+        picture={{
+          fallbackUrl: knittedCoffeeUrl,
+          sources: [
+            {
+              type: 'image/webp',
+              url: knittedCoffeeUrlWebp
+            },
+            {
+              type: 'image/avif',
+              url: knittedCoffeeUrlAvif
+            }
+          ]
+        }}
+      />
+    ),
     text: (
       <FlexColumnLayout gap="sm" padding="none">
         <Picture
