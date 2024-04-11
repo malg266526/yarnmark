@@ -652,24 +652,9 @@ export const hallMapConfig: HallMapType = {
     {
       stands: [
         {
-          width: 2,
-          height: 3,
-          color: 'uneven',
-          index: 'M7',
-          who: 'Knitted Coffee',
-          picture: {
-            fallbackUrl: knittedCoffeeLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: knittedCoffeeLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: knittedCoffeeLogoUrlAvif
-              }
-            ]
-          }
+          width: 4,
+          height: 2,
+          color: 'empty'
         },
         {
           width: 5,
@@ -807,22 +792,38 @@ export const hallMapConfig: HallMapType = {
               }
             ]
           }
-        }
-      ]
-    },
-    {
-      stands: [
+        },
         {
-          width: 1,
-          height: 26,
+          width: 4,
+          height: 2,
           color: 'empty'
+        },
+        {
+          width: 2,
+          height: 3,
+          color: 'uneven',
+          index: 'M7',
+          who: 'Knitted Coffee',
+          picture: {
+            fallbackUrl: knittedCoffeeLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: knittedCoffeeLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: knittedCoffeeLogoUrlAvif
+              }
+            ]
+          }
         }
       ]
     }
   ],
   bottomRows: [
     {
-      height: 4,
+      height: 1,
       stands: [
         {
           width: 26,
