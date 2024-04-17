@@ -20,7 +20,7 @@ export const pl = {
     },
     welcomeBand: {
       invitation: 'Serdecznie zapraszamy na I edycję targów wełny w stolicy Małopolski!',
-      where: 'Yarnmark odbędzie się 27/04/2024r. o godz. 10:00, w Hali 100-lecia KS Cracovia',
+      where: 'Yarnmark odbędzie się 27/04/2024r. w godzinach 10:00 - 18:00, w Hali 100-lecia KS Cracovia',
       haveFun:
         'Mamy nadzieję, że będzie to dla Was dzień nie tylko zakupowego szaleństwa i udanych łowów, ale również integracji, wspólnego dziergania na trybunach i dobrej zabawy.',
       seeYou: 'Do zobaczenia!'
