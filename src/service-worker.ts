@@ -5,7 +5,7 @@
 const sw = self as ServiceWorkerGlobalScope;
 
 const CacheName = {
-  preload: 'precache-v1',
+  preload: 'preload',
   runtime: 'runtime'
 };
 
@@ -62,21 +62,15 @@ const precacheStrategy = {
 // The install handler takes care of precaching the resources we always need.
 sw.addEventListener('install', (event) => {
   event.waitUntil(
-    cleanAllCache([CacheName.preload, CacheName.runtime]).then(() =>
-      precacheStrategy.jsCssHtml().then(() => sw.skipWaiting())
-    )
+    cleanAllCache([CacheName.preload])
+      .then(() => sw.skipWaiting())
+      .then(() => {
+        precacheStrategy.jsCssHtml();
+      })
   );
 });
 
-sw.addEventListener('activate', () => {
-  // event.waitUntil(
-  //   (async () => {
-  //     if (sw.registration.navigationPreload) {
-  //       await sw.registration.navigationPreload.enable();
-  //     }
-  //   })(),
-  // );
-});
+sw.addEventListener('activate', () => { });
 
 function cleanAllCache(cacheNames: string[]) {
   return Promise.all(cacheNames.map((name) => caches.delete(name)));
@@ -86,9 +80,11 @@ function getAllCacheKeys(cacheName: string) {
   return caches.open(cacheName).then((cache) => cache.keys());
 }
 
+const removeQueryFromUrl = (url: string) => url.replace(/\.(js|css)\?[0-9]*$/, '.$1');
+
 const respondStrategy = {
-  networkFirst: (request) =>
-    caches.match(request).then((cachedResponse) =>
+  networkFirst: ({ request }) =>
+    caches.match(removeQueryFromUrl(request.url)).then((cachedResponse) =>
       caches.open(CacheName.runtime).then((cache) =>
         fetch(request)
           .then((response) => cache.put(request, response.clone()).then(() => response))
@@ -98,20 +94,14 @@ const respondStrategy = {
               return cachedResponse;
             }
 
-            return Promise.all([getAllCacheKeys(CacheName.preload), getAllCacheKeys(CacheName.runtime)]).then(
-              ([k1, k2]) => {
-                console.error(
-                  `Failed to retrieve cache on home / index :: ${k1.toString()} :: ${k2.toString()} :: originalError :: ${error.toString()}`
-                );
-                throw new Error(
-                  `Failed to retrieve cache on home / index :: ${k1.toString()} :: ${k2.toString()} :: originalError :: ${error.toString()}`
-                );
-              }
+            console.error(
+              `Failed to retrieve cache on ${request.url} :: originalError :: ${error.toString()}`
             );
+            throw new Error(error);
           })
       )
     ),
-  cacheFirst: (request) =>
+  cacheFirst: ({ request }) =>
     caches.match(request).then((cachedResponse) =>
       caches.open(CacheName.runtime).then((cache) => {
         if (cachedResponse) {
@@ -121,12 +111,14 @@ const respondStrategy = {
         return fetch(request).then((response) => cache.put(request, response.clone()).then(() => response));
       })
     )
-} satisfies Record<string, (request: Request) => Promise<Response>>;
+} satisfies Record<string, (event: FetchEvent) => Promise<Response>>;
 
 sw.addEventListener('fetch', (event) => {
   if (event.request.url.startsWith(self.location.origin)) {
-    event.respondWith(respondStrategy.networkFirst(event.request));
+    event.respondWith(respondStrategy.networkFirst(event));
+  } else {
+    console.info('Ignoring cache for', event.request.url);
   }
 });
 
-export {};
+export { };
