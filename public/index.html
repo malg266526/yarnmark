@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <script src="./service-worker-loader.js?<%- define.hash %>" />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-K1CRQVKKLS"></script>
   <script>
@@ -15,19 +16,10 @@
     })
   </script>
 
-  <script>
-    // if ('serviceWorker' in navigator) {
-    //   window.addEventListener('load', () => {
-    //     navigator.serviceWorker.register('/service-worker.js?<%- define.hash %>');
-    //   });
-    // }
+
   </script>
 
   <title>Krakoski Yarnmark Wełny</title>
-  <!-- 
-  <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self' 'unsafe-inline' fonts.googleapis.com fonts.gstatic.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; script-src 'self' 'unsafe-inline' fonts.gstatic.com" />
- -->
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Krakoski Yarnmark Welny - dziewiarskie targi welny Krakow 2024" />
