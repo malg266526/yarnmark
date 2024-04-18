@@ -184,7 +184,9 @@ export const pl = {
         'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: <strong>-15%</strong> na wszystkie dania z karty.',
       discount10:
         'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: <strong>-10%</strong> na zamówienie.',
-      coffeehouse: 'Na samej hali znajduje się również kawiarnia.' // , gdzie możecie napić się kawy, zjeść kanapkę czy zakupić wodę.
+      coffeehouse:
+        'Na samej hali znajduje się również kawiarnia, gdzie możecie napić się kawy i lemoniady czy zjeść przekąskę typu frytki. ' +
+        'W dniu wydarzenia dostępna będzie także zupa. Jeśli pogoda będzie nam sprzyjać, przy kawiarni będzie otwarty taras z leżakami.'
     },
     hallMap: {
       premiumStand: 'Miejsce Premium 5x3m',

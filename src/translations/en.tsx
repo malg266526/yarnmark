@@ -180,7 +180,8 @@ export const en: TranslationsShape = {
         'On the day of the event, a discount for people with a Yarnmark Wool bracelet: <strong>-15%</strong> on all dishes from the menu.',
       discount10:
         'On the day of the event, a discount for people with a Yarnmark Wool bracelet: <strong>-10%</strong> on order.',
-      coffeehouse: 'There is also a cafe in the hall itself.'
+      coffeehouse:
+        'There is also a cafe in the hall itself, where you can drink coffee and lemonade or eat a snack such as fries. Soup will also be available on the day of the event. If the weather is good, there will be an open terrace with deckchairs next to the café.'
     },
     hallMap: {
       premiumStand: 'Premium spot 5x3m',
