@@ -5,8 +5,7 @@
 const sw = self as ServiceWorkerGlobalScope;
 
 const CacheName = {
-  preload: 'precache-v1',
-  runtime: 'runtime'
+  runtime: 'runtime-v2'
 };
 
 // A list of local resources we always want to be cached.
@@ -35,23 +34,23 @@ const fetchOutputInfoData = () =>
     });
 
 const precacheStrategy = {
-  html: () => Promise.all(PRECACHE_URLS.map((url) => caches.open(CacheName.preload).then((cache) => cache.add(url)))),
+  html: () => Promise.all(PRECACHE_URLS.map((url) => caches.open(CacheName.runtime).then((cache) => cache.add(url)))),
   jsCssHtml: () =>
-    Promise.all(PRECACHE_URLS.map((url) => caches.open(CacheName.preload).then((cache) => cache.add(url))))
+    Promise.all(PRECACHE_URLS.map((url) => caches.open(CacheName.runtime).then((cache) => cache.add(url))))
       .then(() => fetchOutputInfoData())
       .then((data) => {
-        return Promise.all(data.files.map((url) => caches.open(CacheName.preload).then((cache) => cache.add(url))));
+        return Promise.all(data.files.map((url) => caches.open(CacheName.runtime).then((cache) => cache.add(url))));
       })
       .catch((error) => {
         console.error(`Error on precaching :: ${error.String()}`);
       }),
   jsCssHtmlAssets: () =>
-    Promise.all(PRECACHE_URLS.map((url) => caches.open(CacheName.preload).then((cache) => cache.add(url))))
+    Promise.all(PRECACHE_URLS.map((url) => caches.open(CacheName.runtime).then((cache) => cache.add(url))))
       .then(() => fetchOutputInfoData())
       .then((data) => {
         return Promise.all([
-          ...data.files.map((url) => caches.open(CacheName.preload).then((cache) => cache.add(url))),
-          ...data.assets.map((url) => caches.open(CacheName.preload).then((cache) => cache.add(url)))
+          ...data.files.map((url) => caches.open(CacheName.runtime).then((cache) => cache.add(url))),
+          ...data.assets.map((url) => caches.open(CacheName.runtime).then((cache) => cache.add(url)))
         ]);
       })
       .catch((error) => {
@@ -60,58 +59,48 @@ const precacheStrategy = {
 } satisfies Record<string, () => Promise<void | void[]>>;
 
 // The install handler takes care of precaching the resources we always need.
-sw.addEventListener('install', (event) => {
+sw.addEventListener('install', () => {
+  sw.skipWaiting();
+  void precacheStrategy.jsCssHtml();
+});
+
+sw.addEventListener('activate', (event) => {
   event.waitUntil(
-    cleanAllCache([CacheName.preload, CacheName.runtime]).then(() =>
-      precacheStrategy.jsCssHtml().then(() => sw.skipWaiting())
+    caches.keys().then((keys) =>
+      Promise.all(
+        keys.map((key) => {
+          if (key !== CacheName.runtime) {
+            return caches.delete(key);
+          }
+          return Promise.resolve();
+        })
+      )
     )
   );
 });
 
-sw.addEventListener('activate', () => {
-  // event.waitUntil(
-  //   (async () => {
-  //     if (sw.registration.navigationPreload) {
-  //       await sw.registration.navigationPreload.enable();
-  //     }
-  //   })(),
-  // );
-});
-
-function cleanAllCache(cacheNames: string[]) {
-  return Promise.all(cacheNames.map((name) => caches.delete(name)));
-}
-
-function getAllCacheKeys(cacheName: string) {
-  return caches.open(cacheName).then((cache) => cache.keys());
-}
-
 const respondStrategy = {
-  networkFirst: (request) =>
-    caches.match(request).then((cachedResponse) =>
+  networkFirst: ({ request }) =>
+    caches.match(request, { ignoreSearch: true }).then((cachedResponse) =>
       caches.open(CacheName.runtime).then((cache) =>
         fetch(request)
-          .then((response) => cache.put(request, response.clone()).then(() => response))
+          .then((response) =>
+            Promise.resolve()
+              .then(() => cache.delete(request, { ignoreSearch: true }))
+              .then(() => cache.put(request, response.clone()).then(() => response))
+          )
           .catch((error) => {
             if (cachedResponse) {
               console.info(`Serving cached version :: ${request.url}`);
               return cachedResponse;
             }
 
-            return Promise.all([getAllCacheKeys(CacheName.preload), getAllCacheKeys(CacheName.runtime)]).then(
-              ([k1, k2]) => {
-                console.error(
-                  `Failed to retrieve cache on home / index :: ${k1.toString()} :: ${k2.toString()} :: originalError :: ${error.toString()}`
-                );
-                throw new Error(
-                  `Failed to retrieve cache on home / index :: ${k1.toString()} :: ${k2.toString()} :: originalError :: ${error.toString()}`
-                );
-              }
-            );
+            console.error(`Failed to retrieve cache on ${request.url} :: originalError :: ${error.toString()}`);
+            throw new Error(error);
           })
       )
     ),
-  cacheFirst: (request) =>
+  cacheFirst: ({ request }) =>
     caches.match(request).then((cachedResponse) =>
       caches.open(CacheName.runtime).then((cache) => {
         if (cachedResponse) {
@@ -121,11 +110,11 @@ const respondStrategy = {
         return fetch(request).then((response) => cache.put(request, response.clone()).then(() => response));
       })
     )
-} satisfies Record<string, (request: Request) => Promise<Response>>;
+} satisfies Record<string, (event: FetchEvent) => Promise<Response>>;
 
 sw.addEventListener('fetch', (event) => {
   if (event.request.url.startsWith(self.location.origin)) {
-    event.respondWith(respondStrategy.networkFirst(event.request));
+    event.respondWith(respondStrategy.networkFirst(event));
   }
 });
 
