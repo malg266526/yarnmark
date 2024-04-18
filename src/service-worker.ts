@@ -76,6 +76,7 @@ function cleanAllCache(cacheNames: string[]) {
   return Promise.all(cacheNames.map((name) => caches.delete(name)));
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function getAllCacheKeys(cacheName: string) {
   return caches.open(cacheName).then((cache) => cache.keys());
 }
