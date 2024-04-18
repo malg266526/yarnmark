@@ -70,7 +70,7 @@ sw.addEventListener('install', (event) => {
   );
 });
 
-sw.addEventListener('activate', () => { });
+sw.addEventListener('activate', () => {});
 
 function cleanAllCache(cacheNames: string[]) {
   return Promise.all(cacheNames.map((name) => caches.delete(name)));
@@ -94,9 +94,7 @@ const respondStrategy = {
               return cachedResponse;
             }
 
-            console.error(
-              `Failed to retrieve cache on ${request.url} :: originalError :: ${error.toString()}`
-            );
+            console.error(`Failed to retrieve cache on ${request.url} :: originalError :: ${error.toString()}`);
             throw new Error(error);
           })
       )
@@ -121,4 +119,4 @@ sw.addEventListener('fetch', (event) => {
   }
 });
 
-export { };
+export {};
