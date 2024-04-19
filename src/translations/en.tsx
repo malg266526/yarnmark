@@ -166,7 +166,7 @@ export const en: TranslationsShape = {
       bezogrodekDescription:
         'Food Truck Park Bezogródek is located 150m from the Hall. You will find there a large selection of food in food trucks and the opportunity to relax on a deckchair with a drink in your hand.',
       bezogrodekDescription2:
-        'On the day of the event, upon showing your wristband, you will receive a <strong>20%</strong> discount on the bar.',
+        'On the day of the event, upon showing your wristband, you will receive a <strong>20%</strong> discount on the bar and on Thai ice cream, hot dogs, toasted sandwitches, Belgian fries and pizza.',
       lookHere: 'See here',
       checkMenu: 'See menu here',
       bistroBloniaDescription:
@@ -180,7 +180,8 @@ export const en: TranslationsShape = {
         'On the day of the event, a discount for people with a Yarnmark Wool bracelet: <strong>-15%</strong> on all dishes from the menu.',
       discount10:
         'On the day of the event, a discount for people with a Yarnmark Wool bracelet: <strong>-10%</strong> on order.',
-      coffeehouse: 'There is also a cafe in the hall itself.'
+      coffeehouse:
+        'There is also a cafe in the hall itself, where you can drink a coffee and lemonade or eat a snack such as fries. Soup will also be available on the day of the event. If the weather is good, there will be an open terrace with deckchairs next to the café.'
     },
     hallMap: {
       premiumStand: 'Premium spot 5x3m',
