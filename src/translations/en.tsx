@@ -166,7 +166,7 @@ export const en: TranslationsShape = {
       bezogrodekDescription:
         'Food Truck Park Bezogródek is located 150m from the Hall. You will find there a large selection of food in food trucks and the opportunity to relax on a deckchair with a drink in your hand.',
       bezogrodekDescription2:
-        'On the day of the event, upon showing your wristband, you will receive a <strong>20%</strong> discount on the bar and on Thai ice cream, hot dogs, toasted sandwitches, Belgian fries and pizza.',
+        'On the day of the event, upon showing your wristband, you will receive a <strong>20%</strong> discount on the bar and on Thai ice cream, hot dogs, baguette sandwitches, Belgian fries and pizza.',
       lookHere: 'See here',
       checkMenu: 'See menu here',
       bistroBloniaDescription:
