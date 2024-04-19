@@ -170,7 +170,7 @@ export const pl = {
       bezogrodekDescription:
         '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia w foodtruckach oraz możliwość relaksu na leżaczku z drinkiem w dłoni.',
       bezogrodekDescription2:
-        'W dniu wydarzenia, za okazaniem Yarnmarkowej opaski, otrzymujecie <strong>20%</strong> zniżki na bar.',
+        'W dniu wydarzenia, za okazaniem Yarnmarkowej opaski, otrzymujecie <strong>20%</strong> zniżki na bar oraz na lody tajskie, hot dogi, zapiekanki, frytki belgijskie i pizzę.',
       lookHere: 'Zobacz tutaj',
       checkMenu: 'Zobacz menu tutaj',
       bistroBloniaDescription:
