@@ -185,11 +185,18 @@ export const StatutesPage = () => {
                 Cracovii (dalej “Hala”) w godzinach od 10:00 do 18:00
               </li>
               <li>
-                Wstęp na Yarnmark jest biletowany. Bilety można zakupić jedynie on-line w cenie:
+                Wstęp na Yarnmark jest biletowany. Bilety można zakupić on-line w cenie:
                 <ul>
                   <li>30 zł standard (25 zł od 14.02.2024r do 29.02.2024r)</li>
                   <li>130 zł premium</li>
                 </ul>
+                <ol type="a">
+                  <li>Możliwość zakupienia biletów drogą elektroniczną kończy się 26.04 o godzinie 18:00</li>
+                  <li>
+                    W dniu Yarnmarku będzie możliwość zakupienia biletów na miejscu u Organizatora. Płatność za pomocą
+                    bliku, karty lub gotówką
+                  </li>
+                </ol>
               </li>
               <li>Na Halę mogą bezpłatnie wejść dzieci do 10 roku życia pod opieką rodzica lub opiekuna.</li>
               <li>
