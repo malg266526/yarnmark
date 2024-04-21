@@ -17,6 +17,7 @@ import { Colors } from './styles/theme';
 import { StatutesPage } from './pages/StatutesPage';
 import { FontToScreenSize } from './styles/font-to-screen-size';
 import { ScreenSize } from './styles/screeen-size';
+import { HallMapPage } from './pages/HallMapPage';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -66,6 +67,7 @@ export const App = () => {
           <Route path="/home" element={<MainPage />} />
           <Route path="/info-for-vendors" element={<InfoForVendorsPage />} />
           <Route path="/statutes" element={<StatutesPage />} />
+          <Route path="/hall" element={<HallMapPage />} />
         </Routes>
 
         <Footer id="footer">

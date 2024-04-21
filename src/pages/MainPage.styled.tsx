@@ -82,7 +82,7 @@ export const SecondaryButton = styled.button`
   font-size: ${FontSize.lg};
   font-weight: 600;
   text-decoration: underline;
-  margin-top: ${Spacings.md};
+  margin-top: ${Spacings.sm};
   background-color: transparent;
   border: none;
 `;

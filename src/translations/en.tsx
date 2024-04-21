@@ -43,7 +43,8 @@ export const en: TranslationsShape = {
         text: 'Where are we and how to get there?'
       },
       foodButton: 'Where to eat?',
-      cruiseButton: 'Join our knitting-ship party!'
+      cruiseButton: 'Join our knitting-ship party!',
+      hallMap: 'Hall map'
     },
     spotBand: {
       title: 'Where?',

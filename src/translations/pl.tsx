@@ -43,7 +43,8 @@ export const pl = {
         mobileTitle: 'Jak dojechać?'
       },
       foodButton: 'Gdzie zjeść?',
-      cruiseButton: 'Dołącz do imprezy na dziergostatku!'
+      cruiseButton: 'Dołącz do imprezy na dziergostatku!',
+      hallMap: 'Mapa hali'
     },
     spotBand: {
       title: 'Gdzie?',

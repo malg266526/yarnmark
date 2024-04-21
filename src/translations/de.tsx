@@ -44,7 +44,8 @@ export const de: TranslationsShape = {
         text: 'Wo sind wir und wie kommst du dorthin?'
       },
       foodButton: 'Wo sollen wir essen?',
-      cruiseButton: 'Machen Sie mit bei unserer Strickschiff-Party!'
+      cruiseButton: 'Machen Sie mit bei unserer Strickschiff-Party!',
+      hallMap: 'Halleplan'
     },
     spotBand: {
       title: 'Wo?',

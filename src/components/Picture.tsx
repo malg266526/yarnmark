@@ -6,7 +6,7 @@ export type PictureType = {
 };
 
 type PictureProps = {
-  width?: number;
+  width?: `${number}%` | `${number}px` | number;
   height?: number;
   alt: string;
   picture: PictureType;
