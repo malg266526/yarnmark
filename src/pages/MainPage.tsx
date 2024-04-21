@@ -668,6 +668,11 @@ export const MainPage = () => {
               {t('menu.tickets')}
             </SideBar.LinkEntry>
 
+            <SideBar.LinkEntry onClick={closeSideBar} to="/hall" target="_blank">
+              <IconifyIcon icon="gis:world-map" width="24" />
+              {t('buttonsBand.hallMap')}
+            </SideBar.LinkEntry>
+
             <SideBar.LinkEntry onClick={closeSideBar} to="/info-for-vendors">
               <IconifyIcon icon="material-symbols:info-outline" width="24" />
               {t('menu.infoForVendors')}
@@ -731,6 +736,10 @@ export const MainPage = () => {
                 }
               ]}>
               {t('menu.tickets')}
+            </MenuItem>
+
+            <MenuItem to="/hall" target="_blank">
+              {t('buttonsBand.hallMap')}
             </MenuItem>
 
             <MenuItem to="/info-for-vendors">{t('menu.infoForVendors')}</MenuItem>
