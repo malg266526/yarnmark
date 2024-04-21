@@ -33,7 +33,7 @@ const Card = styled.div`
   background-color: white;
   padding: ${Spacings.md};
   border-radius: 4px;
-  box-shadow: 2px 2px 15px 0px rgba(121, 59, 59, 0.25);
+  box-shadow: 2px 2px 15px 0 rgba(121, 59, 59, 0.25);
   flex: 1 1 auto;
   z-index: 0;
   flex-direction: column;
