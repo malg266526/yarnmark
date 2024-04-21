@@ -539,7 +539,7 @@ export const MainPage = () => {
           ref={hallMapFunnyButtonRef}
           icon={<Icon size="xl" zIndex={0} src={mapImageUrl} />}
           text={t('buttonsBand.hallMap')}
-          onClick={() => window.open('http://localhost:8090/hall', '_blank')}
+          onClick={() => window.open('/hall', '_blank')}
         />
       </ButtonsLayout>
     ),
