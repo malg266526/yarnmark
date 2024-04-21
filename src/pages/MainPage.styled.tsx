@@ -497,22 +497,6 @@ export const VendorsMapDrawer = styled(Drawer)<{ isOpen: boolean }>`
   }
 `;
 
-export const HallMapDrawer = styled(Drawer)<{ isOpen: boolean }>`
-  left: unset;
-  top: 0;
-  right: 0;
-  transition: all 0.4s ease-in-out;
-  transform: ${({ isOpen }) => (isOpen ? `translateX(0)` : `translateX(100%)`)};
-
-  @media (max-width: ${ScreenSize.tablet}) {
-    right: -${Spacings.md};
-  }
-
-  @media (max-width: ${ScreenSize.phone}) {
-    right: -${Spacings.sm};
-  }
-`;
-
 const pulse = keyframes`
   0% {
 		transform: scale(0.92);
