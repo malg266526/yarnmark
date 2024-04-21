@@ -33,6 +33,7 @@ import bezogrodekLogoUrlWebp from './../assets/images/minifiedLogos/logobezogrod
 import burgerImageUrl from '../assets/iconify/burger.svg';
 import coffeeImageUrl from '../assets/iconify/coffee.svg';
 import ferryImageUrl from '../assets/iconify/ferry.svg';
+import mapImageUrl from '../assets/iconify/worldmap.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
 import pizzaImageUrl from '../assets/iconify/pizza.svg';
 // import pretzelImageUrl from '../assets/iconify/pretzel.svg';
@@ -40,7 +41,6 @@ import shopImageUrl from '../assets/iconify/shop.svg';
 import shrimpImageUrl from '../assets/iconify/shrimp.svg';
 import turkeyImageUrl from '../assets/iconify/turkey.svg';
 // import soupImageUrl from '../assets/iconify/soup.svg';
-
 import cupcakeImageUrl from '../assets/iconify/cupcake.svg';
 import ticketImageUrl from '../assets/iconify/ticket.svg';
 
@@ -99,7 +99,6 @@ import {
   ImageWrapperColumn,
   LayoutWithActiveButton,
   LinkWrapper,
-  // PhotosLayout,
   MainBackground,
   Menu,
   MenuBackground,
@@ -407,6 +406,7 @@ export const MainPage = () => {
   const geoFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const foodFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
+  const hallMapFunnyButtonRef = useRef<HTMLDivElement | null>(null);
 
   const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogrodek');
 
@@ -438,7 +438,9 @@ export const MainPage = () => {
           <Title>{t('spotBand.title')}</Title>
         </TextWrapper>
         <Text>{t('spotBand.address')}</Text>
+
         <Text>{t('spotBand.description')}</Text>
+
         {!isSpotOpened && (
           <SecondaryButton onClick={() => setIsSpotOpened(true)}>{t('spotBand.howToGetToUs')}</SecondaryButton>
         )}
@@ -531,6 +533,13 @@ export const MainPage = () => {
           icon={<Icon size="xl" zIndex={0} src={ferryImageUrl} />}
           text={t('buttonsBand.cruiseButton')}
           onClick={() => cruiseTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
+        />
+        <FunnyButton
+          mobileSlot={t('buttonsBand.hallMap')}
+          ref={hallMapFunnyButtonRef}
+          icon={<Icon size="xl" zIndex={0} src={mapImageUrl} />}
+          text={t('buttonsBand.hallMap')}
+          onClick={() => window.open('http://localhost:8090/hall', '_blank')}
         />
       </ButtonsLayout>
     ),
@@ -787,7 +796,13 @@ export const MainPage = () => {
           {infoSectionButtons}
         </MobileBasicInfoSection>
       ) : (
-        <Band size="md" variant="background" color={Colors.pastelGray} padding="xl" narrowContent="fixed">
+        <Band
+          size="md"
+          variant="background"
+          color={Colors.pastelGray}
+          padding="xl"
+          narrowContent="fixed"
+          overflowX="hidden">
           <BackgroundImage src={knitting2ImageUrl} alt="wool_skeins_background" />
 
           <SectionWrapper>

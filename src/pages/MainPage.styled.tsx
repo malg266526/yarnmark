@@ -82,7 +82,7 @@ export const SecondaryButton = styled.button`
   font-size: ${FontSize.lg};
   font-weight: 600;
   text-decoration: underline;
-  margin-top: ${Spacings.md};
+  margin-top: ${Spacings.sm};
   background-color: transparent;
   border: none;
 `;
@@ -485,6 +485,22 @@ export const VendorsMapDrawer = styled(Drawer)<{ isOpen: boolean }>`
   left: unset;
   top: 0;
   right: -${Spacings.xl};
+  transition: all 0.4s ease-in-out;
+  transform: ${({ isOpen }) => (isOpen ? `translateX(0)` : `translateX(100%)`)};
+
+  @media (max-width: ${ScreenSize.tablet}) {
+    right: -${Spacings.md};
+  }
+
+  @media (max-width: ${ScreenSize.phone}) {
+    right: -${Spacings.sm};
+  }
+`;
+
+export const HallMapDrawer = styled(Drawer)<{ isOpen: boolean }>`
+  left: unset;
+  top: 0;
+  right: 0;
   transition: all 0.4s ease-in-out;
   transform: ${({ isOpen }) => (isOpen ? `translateX(0)` : `translateX(100%)`)};
 

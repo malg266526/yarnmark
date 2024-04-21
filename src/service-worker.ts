@@ -59,12 +59,11 @@ const precacheStrategy = {
 } satisfies Record<string, () => Promise<void | void[]>>;
 
 // The install handler takes care of precaching the resources we always need.
-sw.addEventListener('install', () => {
-  sw.skipWaiting();
-  void precacheStrategy.jsCssHtml();
-});
+sw.addEventListener('install', () => {});
 
 sw.addEventListener('activate', (event) => {
+  void precacheStrategy.jsCssHtml();
+
   event.waitUntil(
     caches.keys().then((keys) =>
       Promise.all(
@@ -82,23 +81,27 @@ sw.addEventListener('activate', (event) => {
 const respondStrategy = {
   networkFirst: ({ request }) =>
     caches.match(request, { ignoreSearch: true }).then((cachedResponse) =>
-      caches.open(CacheName.runtime).then((cache) =>
-        fetch(request)
-          .then((response) =>
+      caches
+        .open(CacheName.runtime)
+        .then((cache) =>
+          fetch(request).then((response) =>
             Promise.resolve()
               .then(() => cache.delete(request, { ignoreSearch: true }))
-              .then(() => cache.put(request, response.clone()).then(() => response))
+              .then(() => {
+                return cache.put(request, response.clone());
+              })
+              .then(() => response)
           )
-          .catch((error) => {
-            if (cachedResponse) {
-              console.info(`Serving cached version :: ${request.url}`);
-              return cachedResponse;
-            }
+        )
+        .catch((error) => {
+          if (cachedResponse) {
+            console.info(`Serving cached version :: ${request.url}`);
+            return cachedResponse;
+          }
 
-            console.error(`Failed to retrieve cache on ${request.url} :: originalError :: ${error.toString()}`);
-            throw new Error(error);
-          })
-      )
+          console.error(`Failed to retrieve cache on ${request.url} :: originalError :: ${error.toString()}`);
+          throw new Error(error);
+        })
     ),
   cacheFirst: ({ request }) =>
     caches.match(request).then((cachedResponse) =>
@@ -113,7 +116,7 @@ const respondStrategy = {
 } satisfies Record<string, (event: FetchEvent) => Promise<Response>>;
 
 sw.addEventListener('fetch', (event) => {
-  if (event.request.url.startsWith(self.location.origin)) {
+  if (event.request.url.startsWith(self.location.origin) && !event.request.url.includes('esbuild-livereload')) {
     event.respondWith(respondStrategy.networkFirst(event));
   }
 });
