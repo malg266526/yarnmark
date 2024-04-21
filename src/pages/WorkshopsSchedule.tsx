@@ -141,10 +141,7 @@ export const WorkshopsSchedule = () => {
 
           <TextContent>
             <TextH2>{t('workshops.ewa.topic')}</TextH2>
-            <Text>{t('workshops.price')}: 30zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/p/Warsztaty-Zielone-druty-/2835" target="_blank">
-              {t('workshops.buyTicket')}
-            </WorkshopLink>
+            <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
           </TextContent>
         </PlannerCard>
 
@@ -167,10 +164,7 @@ export const WorkshopsSchedule = () => {
 
           <TextContent>
             <TextH2>{t('workshops.ewa.topic')}</TextH2>
-            <Text>{t('workshops.price')}: 30zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/p/Warsztaty-Zielone-druty-/2835" target="_blank">
-              {t('workshops.buyTicket')}
-            </WorkshopLink>
+            <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
           </TextContent>
         </PlannerCard>
 
