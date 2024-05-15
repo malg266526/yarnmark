@@ -26,6 +26,8 @@ export const pl = {
       seeYou: 'Do zobaczenia!'
     },
     buttonsBand: {
+      thankYou: 'Dziękujemy za Waszą obecność!',
+      fillTheSurvey: 'Zapraszamy do podzielenia się Waszą opinią na temat Yarnmarku w <0>ankiecie</0> ',
       firstEvent: 'Pierwsze takie wydarzenie w Krakowie!',
       otherCities:
         'Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na targi wełny pod Wawelem. Kraków wchodzi w 2024 rok dziewiarskim krokiem. Chodźże z nami!',

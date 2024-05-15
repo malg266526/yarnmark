@@ -32,17 +32,17 @@ import bezogrodekLogoUrlWebp from './../assets/images/minifiedLogos/logobezogrod
 
 import burgerImageUrl from '../assets/iconify/burger.svg';
 import coffeeImageUrl from '../assets/iconify/coffee.svg';
-import ferryImageUrl from '../assets/iconify/ferry.svg';
+/*import ferryImageUrl from '../assets/iconify/ferry.svg';
 import mapImageUrl from '../assets/iconify/worldmap.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
-import pizzaImageUrl from '../assets/iconify/pizza.svg';
+import pizzaImageUrl from '../assets/iconify/pizza.svg';*/
 // import pretzelImageUrl from '../assets/iconify/pretzel.svg';
-import shopImageUrl from '../assets/iconify/shop.svg';
+// import shopImageUrl from '../assets/iconify/shop.svg';
 import shrimpImageUrl from '../assets/iconify/shrimp.svg';
 import turkeyImageUrl from '../assets/iconify/turkey.svg';
 // import soupImageUrl from '../assets/iconify/soup.svg';
 import cupcakeImageUrl from '../assets/iconify/cupcake.svg';
-import ticketImageUrl from '../assets/iconify/ticket.svg';
+// import ticketImageUrl from '../assets/iconify/ticket.svg';
 
 import knitting2ImageUrl from '../assets/images/knitting2.svg';
 import pinImageUrl from '../assets/images/pin.svg';
@@ -67,7 +67,7 @@ import olaImageUrlWebp from '../assets/images/pomagamOli.webp';
 import { Icon } from '../components/Icon';
 
 import { Band } from '../components/Band';
-import { FunnyButton } from '../components/FunnyButton';
+// import { FunnyButton } from '../components/FunnyButton';
 import { Link } from '../components/Link';
 import { NiceBox } from '../components/NiceBox';
 import { usePhone } from './usePhone';
@@ -91,7 +91,7 @@ import {
   AnimatedIconWrapper,
   BackgroundIcon,
   BackgroundImage,
-  ButtonsLayout,
+  // ButtonsLayout,
   ButtonsWrapper,
   CenteredTitle,
   Drawer,
@@ -402,11 +402,11 @@ export const MainPage = () => {
   const foodBandRef = useRef<HTMLDivElement | null>(null);
 
   const ticketsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
-  const vendorsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
+  /*  const vendorsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const geoFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const foodFunnyButtonRef = useRef<HTMLDivElement | null>(null);
   const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
-  const hallMapFunnyButtonRef = useRef<HTMLDivElement | null>(null);
+  const hallMapFunnyButtonRef = useRef<HTMLDivElement | null>(null);*/
 
   const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogrodek');
 
@@ -496,6 +496,7 @@ export const MainPage = () => {
 
   const [selectedIndex, setSelectedIndex] = useState(0);
 
+  /*
   const infoSectionButtons = useMemo(
     () => (
       <ButtonsLayout>
@@ -545,18 +546,25 @@ export const MainPage = () => {
     ),
     [t]
   );
+*/
 
   const pcInfoSection = useMemo(
     () => (
       <MobileInfoSectionWrapper>
         <Typography size="xxl" weight="bold" paddingBottom="md">
-          {t('buttonsBand.firstEvent')}
+          {t('buttonsBand.thankYou')}
         </Typography>
+
         <Typography size="lg" weight="regular" paddingBottom="sm">
-          {t('buttonsBand.otherCities')}
-        </Typography>
-        <Typography size="lg" weight="regular">
-          {t('buttonsBand.linksBelow')}
+          <Trans
+            i18nKey="buttonsBand.fillTheSurvey"
+            components={[
+              <Link
+                target="_blank"
+                to="https://docs.google.com/forms/d/e/1FAIpQLSciBZoXDEmQdk4wCmWJC3Bg7ME4O6EfyYg1b9gpF0N01DXwTg/viewform"
+              />
+            ]}
+          />
         </Typography>
       </MobileInfoSectionWrapper>
     ),
@@ -566,14 +574,20 @@ export const MainPage = () => {
   const mobileInfoSection = useMemo(
     () => (
       <MobileInfoSectionWrapper>
-        <Typography size="lg" weight="bold" paddingBottom="md">
-          {t('buttonsBand.firstEvent')}
+        <Typography size="xxl" weight="bold" paddingBottom="md">
+          {t('buttonsBand.thankYou')}
         </Typography>
-        <Typography size="md" weight="regular" paddingBottom="sm">
-          {t('buttonsBand.otherCities')}
-        </Typography>
-        <Typography size="md" weight="regular">
-          {t('buttonsBand.linksBelow')}
+
+        <Typography size="lg" weight="regular" paddingBottom="sm">
+          <Trans
+            i18nKey="buttonsBand.fillTheSurvey"
+            components={[
+              <Link
+                target="_blank"
+                to="https://docs.google.com/forms/d/e/1FAIpQLSciBZoXDEmQdk4wCmWJC3Bg7ME4O6EfyYg1b9gpF0N01DXwTg/viewform"
+              />
+            ]}
+          />
         </Typography>
       </MobileInfoSectionWrapper>
     ),
@@ -802,7 +816,7 @@ export const MainPage = () => {
       {isPhone ? (
         <MobileBasicInfoSection zIndex={1} backgroundUrl={knitting2ImageUrl}>
           {mobileInfoSection}
-          {infoSectionButtons}
+          {/* {infoSectionButtons} */}
         </MobileBasicInfoSection>
       ) : (
         <Band
@@ -816,7 +830,7 @@ export const MainPage = () => {
 
           <SectionWrapper>
             {pcInfoSection}
-            {infoSectionButtons}
+            {/* {infoSectionButtons} */}
           </SectionWrapper>
         </Band>
       )}
