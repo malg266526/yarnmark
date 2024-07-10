@@ -7,7 +7,6 @@ import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import { Band } from '../components/Band';
 import { BurgerMenu } from '../components/BurgerMenu';
 import { Curtain } from '../components/Curtain';
-import { MenuItem } from '../components/MenuItem';
 import { NiceBox } from '../components/NiceBox';
 import { SideBar } from '../components/SideBar';
 import { TextWrapper, Title } from '../components/Title';
@@ -20,8 +19,9 @@ import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.j
 import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
 import { StyledPageContent } from './InfoForVendorsPage.styled';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { MainBackground, Menu, MenuBackground } from './MainPage.styled';
+import { MainBackground } from './MainPage.styled';
 import { usePhone } from './usePhone';
+import { Menu } from '../components/menu/Menu';
 
 const StatuteTitle = styled(Title)`
   font-size: ${FontSize.xl};
@@ -117,10 +117,10 @@ export const StatutesPage = () => {
 
       {!isPhone && (
         <Menu>
-          <MenuBackground>
-            <MenuItem to="/">Yarnmark</MenuItem>
+          <Menu.Background>
+            <Menu.Item to="/">Yarnmark</Menu.Item>
 
-            <MenuItem
+            <Menu.Item
               subLinks={[
                 {
                   to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
@@ -139,14 +139,14 @@ export const StatutesPage = () => {
                 }
               ]}>
               {t('menu.tickets')}
-            </MenuItem>
+            </Menu.Item>
 
-            <MenuItem to="/info-for-vendors">{t('menu.infoForVendors')}</MenuItem>
+            <Menu.Item to="/info-for-vendors">{t('menu.infoForVendors')}</Menu.Item>
 
-            <MenuItem to="/statutes">{t('menu.statutes')}</MenuItem>
+            <Menu.Item to="/statutes">{t('menu.statutes')}</Menu.Item>
 
             <LanguageSwitcher />
-          </MenuBackground>
+          </Menu.Background>
         </Menu>
       )}
 

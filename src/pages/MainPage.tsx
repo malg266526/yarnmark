@@ -100,8 +100,6 @@ import {
   LayoutWithActiveButton,
   LinkWrapper,
   MainBackground,
-  Menu,
-  MenuBackground,
   MobileBasicInfoSection,
   MobileInfoSectionWrapper,
   MobileLocationButtonWrapper,
@@ -148,10 +146,10 @@ import { Button } from '../components/Button';
 import { Carouselge } from '../components/Carouselge';
 import { CruiseMap } from '../components/CruiseMap';
 import { Hall } from '../components/Hall';
-import { MenuItem } from '../components/MenuItem';
 import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
 
 import { useFirstClick } from '../hooks/useFirstClick';
+import { Menu } from '../components/menu/Menu';
 
 type ActiveButtonType =
   | 'foodtruckBezogrodek'
@@ -704,8 +702,8 @@ export const MainPage = () => {
 
       {!isPhone && (
         <Menu>
-          <MenuBackground>
-            <MenuItem
+          <Menu.Background>
+            <Menu.Item
               subLinks={[
                 {
                   to: '#vendors',
@@ -729,9 +727,9 @@ export const MainPage = () => {
                 }
               ]}>
               Yarnmark
-            </MenuItem>
+            </Menu.Item>
 
-            <MenuItem
+            <Menu.Item
               subLinks={[
                 {
                   to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
@@ -750,18 +748,18 @@ export const MainPage = () => {
                 }
               ]}>
               {t('menu.tickets')}
-            </MenuItem>
+            </Menu.Item>
 
-            <MenuItem to="/hall" target="_blank">
+            <Menu.Item to="/hall" target="_blank">
               {t('buttonsBand.hallMap')}
-            </MenuItem>
+            </Menu.Item>
 
-            <MenuItem to="/info-for-vendors">{t('menu.infoForVendors')}</MenuItem>
+            <Menu.Item to="/info-for-vendors">{t('menu.infoForVendors')}</Menu.Item>
 
-            <MenuItem to="/statutes">{t('menu.statutes')}</MenuItem>
+            <Menu.Item to="/statutes">{t('menu.statutes')}</Menu.Item>
 
             <LanguageSwitcher />
-          </MenuBackground>
+          </Menu.Background>
         </Menu>
       )}
 

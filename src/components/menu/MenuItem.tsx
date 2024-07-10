@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { HashLinkProps } from 'react-router-hash-link';
-import { Dropdown } from './Dropdown';
-import { Link } from './Link';
+import { Dropdown } from '../Dropdown';
+import { Link } from '../Link';
 
 type DropdownMenuItem = {
   children?: ReactNode;

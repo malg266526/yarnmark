@@ -66,6 +66,7 @@ const DropdownItemsBackground = styled.div<{ visible: boolean }>`
       transform: scale(1) translate(0, 0);
       opacity: 1;
       pointer-events: auto;
+      z-index: 10;
     `};
 `;
 

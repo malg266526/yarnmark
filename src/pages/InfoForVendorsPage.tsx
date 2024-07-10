@@ -15,13 +15,13 @@ import { Header } from '../App.styled';
 import { BurgerMenu } from '../components/BurgerMenu';
 import { Curtain } from '../components/Curtain';
 import { Hall } from '../components/Hall';
-import { MenuItem } from '../components/MenuItem';
 import { SideBar } from '../components/SideBar';
 import { ScreenSize } from '../styles/screeen-size';
 import { StyledPageContent } from './InfoForVendorsPage.styled';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { CenteredTitle, MainBackground, Menu, MenuBackground, Text } from './MainPage.styled';
+import { CenteredTitle, MainBackground, Text } from './MainPage.styled';
 import { usePhone } from './usePhone';
+import { Menu } from '../components/menu/Menu';
 
 export const FlexLayout = styled.div`
   display: flex;
@@ -169,10 +169,10 @@ export const InfoForVendorsPage = () => {
 
       {!isPhone && (
         <Menu>
-          <MenuBackground>
-            <MenuItem to="/">Yarnmark</MenuItem>
+          <Menu.Background>
+            <Menu.Item to="/">Yarnmark</Menu.Item>
 
-            <MenuItem
+            <Menu.Item
               subLinks={[
                 {
                   to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
@@ -191,9 +191,9 @@ export const InfoForVendorsPage = () => {
                 }
               ]}>
               {t('menu.tickets')}
-            </MenuItem>
+            </Menu.Item>
 
-            <MenuItem
+            <Menu.Item
               subLinks={[
                 {
                   to: '#stands',
@@ -206,12 +206,12 @@ export const InfoForVendorsPage = () => {
                 }
               ]}>
               {t('menu.infoForVendors')}
-            </MenuItem>
+            </Menu.Item>
 
-            <MenuItem to="/statutes">{t('menu.statutes')}</MenuItem>
+            <Menu.Item to="/statutes">{t('menu.statutes')}</Menu.Item>
 
             <LanguageSwitcher />
-          </MenuBackground>
+          </Menu.Background>
         </Menu>
       )}
 
