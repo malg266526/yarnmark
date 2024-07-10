@@ -35,8 +35,6 @@ import coffeeImageUrl from '../../assets/iconify/coffee.svg';
 import shrimpImageUrl from '../../assets/iconify/shrimp.svg';
 import turkeyImageUrl from '../../assets/iconify/turkey.svg';
 import cupcakeImageUrl from '../../assets/iconify/cupcake.svg';
-
-import knitting2ImageUrl from '../../assets/images/knitting2.svg';
 import pinImageUrl from '../../assets/images/pin.svg';
 
 import halaAvifImageSrc from '../../assets/images/hala.avif';
@@ -81,7 +79,6 @@ import {
   ActiveImage,
   AnimatedIconWrapper,
   BackgroundIcon,
-  BackgroundImage,
   ButtonsWrapper,
   CenteredTitle,
   Drawer,
@@ -92,14 +89,11 @@ import {
   MainBackground,
   Menu,
   MenuBackground,
-  MobileBasicInfoSection,
-  MobileInfoSectionWrapper,
   MobileLocationButtonWrapper,
   MobilePicture,
   Paragraph,
   PulseButton,
   SecondaryButton,
-  SectionWrapper,
   StyledPageContent,
   Text,
   TextH2,
@@ -482,52 +476,6 @@ export const MainPage = () => {
 
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const pcInfoSection = useMemo(
-    () => (
-      <MobileInfoSectionWrapper>
-        <Typography size="xxl" weight="bold" paddingBottom="md">
-          {t('buttonsBand.thankYou')}
-        </Typography>
-
-        <Typography size="lg" weight="regular" paddingBottom="sm">
-          <Trans
-            i18nKey="buttonsBand.fillTheSurvey"
-            components={[
-              <Link
-                target="_blank"
-                to="https://docs.google.com/forms/d/e/1FAIpQLSciBZoXDEmQdk4wCmWJC3Bg7ME4O6EfyYg1b9gpF0N01DXwTg/viewform"
-              />
-            ]}
-          />
-        </Typography>
-      </MobileInfoSectionWrapper>
-    ),
-    [t]
-  );
-
-  const mobileInfoSection = useMemo(
-    () => (
-      <MobileInfoSectionWrapper>
-        <Typography size="xxl" weight="bold" paddingBottom="md">
-          {t('buttonsBand.thankYou')}
-        </Typography>
-
-        <Typography size="lg" weight="regular" paddingBottom="sm">
-          <Trans
-            i18nKey="buttonsBand.fillTheSurvey"
-            components={[
-              <Link
-                target="_blank"
-                to="https://docs.google.com/forms/d/e/1FAIpQLSciBZoXDEmQdk4wCmWJC3Bg7ME4O6EfyYg1b9gpF0N01DXwTg/viewform"
-              />
-            ]}
-          />
-        </Typography>
-      </MobileInfoSectionWrapper>
-    ),
-    [t]
-  );
-
   const mobileEventLocationBand = useMemo(
     () => (
       <>
@@ -748,24 +696,6 @@ export const MainPage = () => {
       </Band>
 
       <FunnyButtonsSection />
-
-      {isPhone ? (
-        <MobileBasicInfoSection zIndex={1} backgroundUrl={knitting2ImageUrl}>
-          {mobileInfoSection}
-        </MobileBasicInfoSection>
-      ) : (
-        <Band
-          size="md"
-          variant="background"
-          color={Colors.pastelGray}
-          padding="xl"
-          narrowContent="fixed"
-          overflowX="hidden">
-          <BackgroundImage src={knitting2ImageUrl} alt="wool_skeins_background" />
-
-          <SectionWrapper>{pcInfoSection}</SectionWrapper>
-        </Band>
-      )}
 
       {isPhone ? (
         mobileEventLocationBand
