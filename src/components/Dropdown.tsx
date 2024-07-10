@@ -50,7 +50,8 @@ const DropdownItemsBackground = styled.div<{ visible: boolean }>`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.9));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
   padding: ${Spacings.md};
   border-bottom-left-radius: ${Radius.md};
   border-bottom-right-radius: ${Radius.md};
