@@ -11,7 +11,7 @@ import { RowLayout } from './components/RowLayout';
 
 import { Root, Footer, RightBackgroundImage, TransparentText, VanillaLink } from './App.styled';
 import { InfoForVendorsPage } from './pages/InfoForVendorsPage';
-import { MainPage } from './pages/MainPage';
+import { MainPage } from './pages/main-page/MainPage';
 import { useTypedTranslation } from './translations/useTypedTranslation';
 import { Colors } from './styles/theme';
 import { StatutesPage } from './pages/StatutesPage';

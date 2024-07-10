@@ -11,7 +11,7 @@ import { useTypedTranslation } from '../translations/useTypedTranslation';
 import PierwszaPomocUrlAvif from './../assets/images/workshops/pierwszapomoc.avif';
 import PierwszaPomocUrl from './../assets/images/workshops/pierwszapomoc.jpg';
 import PierwszaPomocUrlWebp from './../assets/images/workshops/pierwszapomoc.webp';
-import { Text } from './MainPage.styled';
+import { Text } from './main-page/MainPage.styled';
 import { useTablet } from './usePhone';
 
 const Root = styled.div`
