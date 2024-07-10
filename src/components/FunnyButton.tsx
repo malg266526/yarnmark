@@ -101,15 +101,10 @@ const MobileSlot = styled.div`
   display: block;
   text-align: center;
   width: 120px;
-
-  /*   @media (max-width: ${ScreenSize.phone}) {
-    display: block;
-  } */
 `;
 
 export interface FunnyButtonProps {
   icon: React.ReactNode;
-  mobileSlot?: React.ReactNode;
   text?: React.ReactNode;
   onClick?: () => void;
   active?: boolean;
@@ -117,24 +112,15 @@ export interface FunnyButtonProps {
 
 // eslint-disable-next-line react/display-name
 export const FunnyButton = React.forwardRef<HTMLDivElement, FunnyButtonProps>(
-  ({ icon, onClick, active, mobileSlot }, ref) => (
+  ({ icon, onClick, active, text }, ref) => (
     <div>
       <Root onClick={onClick} active={active} ref={ref}>
         <IconWrapper2>
           <IconWrapper>{icon}</IconWrapper>
         </IconWrapper2>
-
-        {/*         {text && (
-          <TextWrapper>
-            <KnittingIconWrapper>
-              <Icon size="xl" src={knittingImageUrl} />
-            </KnittingIconWrapper>
-            {text}
-          </TextWrapper>
-        )} */}
       </Root>
 
-      <MobileSlot>{mobileSlot}</MobileSlot>
+      <MobileSlot>{text}</MobileSlot>
     </div>
   )
 );
