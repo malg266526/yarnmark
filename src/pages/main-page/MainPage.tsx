@@ -100,7 +100,7 @@ import {
   Typography,
   VendorsMapDrawer
 } from './MainPage.styled';
-import { VendorsList } from '../VendorsList';
+import { VendorsList } from './VendorsList';
 import { WorkshopsCarousel } from '../WorkshopsCarousel';
 import { WorkshopsSchedule } from '../WorkshopsSchedule';
 import { useRootIntersectionObserver } from '../useRootIntersectionObserver';
@@ -137,6 +137,8 @@ import firstAidIcon from '../../assets/backgrounds/firstAid3.svg';
 
 import { useFirstClick } from '../../hooks/useFirstClick';
 import { FunnyButtonsSection } from './FunnyButtonsSection';
+import { InvitationBand } from './InvitationBand';
+import { VendorsSection } from './VendorsSection';
 
 type ActiveButtonType =
   | 'foodtruckBezogrodek'
@@ -647,53 +649,7 @@ export const MainPage = () => {
         </Menu>
       )}
 
-      <Band size="xl" padding="xl" justify="flex-start">
-        <MainBackground>
-          <source srcSet={woolsAvifLandscape} type="image/avif" />
-          <source srcSet={woolsWebpLandscape} type="image/webp" />
-          <img src={woolsJpgLandscape} alt="wool" />
-        </MainBackground>
-
-        <Band.Slot>
-          <NiceBox overflowSize="10px" width="500px" padding="lg" marginTop="lg">
-            <TextWrapper>
-              <Title>Krakoski Yarnmark Wełny</Title>
-            </TextWrapper>
-
-            <TextH2>{t('welcomeBand.invitation')}</TextH2>
-            <Text>{t('welcomeBand.where')}</Text>
-            <Text align="justify" marginBottom="md">
-              {t('welcomeBand.haveFun')}
-            </Text>
-
-            <RowLayout gap="sm">
-              <div>
-                <Text>{t('welcomeBand.seeYou')}</Text>
-                <Text>DziergamyNaPolu x Włóczykijki</Text>
-              </div>
-
-              <Picture
-                picture={{
-                  fallbackUrl: yarnmarkLogoSrc,
-                  sources: [
-                    {
-                      type: 'image/webp',
-                      url: yarnmarkLogoSrcWebp
-                    },
-                    {
-                      type: 'image/avif',
-                      url: yarnmarkLogoSrcAvif
-                    }
-                  ]
-                }}
-                alt="yarnmark_logo"
-                width={156}
-                height={212}
-              />
-            </RowLayout>
-          </NiceBox>
-        </Band.Slot>
-      </Band>
+      <InvitationBand />
 
       <FunnyButtonsSection />
 
@@ -719,42 +675,7 @@ export const MainPage = () => {
         </Band>
       )}
 
-      <Band
-        id="vendors"
-        ref={vendorsBandRef}
-        size="lg"
-        variant="background"
-        padding="xl"
-        color={`linear-gradient(to bottom, #eee3de, #fff,  #fff, #fff, #eee3de);`}
-        overflowX="hidden">
-        <Band.Slot flex="auto-grow" size="sm">
-          <RowLayout>
-            <TextWrapper align="center">
-              <Title>{t('vendorsPage.title')}</Title>
-            </TextWrapper>
-
-            <PulseButton
-              shouldPulse={!wasVendorsMapClicked}
-              onClick={() => {
-                showVendorsMap((prev) => !prev);
-                handleVendorsMapClick();
-              }}
-              aria-label="vendors-map-button">
-              <IconifyIcon icon="fluent-emoji:information" width="48" />
-            </PulseButton>
-          </RowLayout>
-
-          <VendorsMapDrawer isOpen={isVendorsMapShown}>
-            <Button onClick={() => showVendorsMap(false)}>
-              <IconifyIcon icon="mingcute:close-fill" aria-label="close-vendors-map-button" />
-            </Button>
-
-            <Hall multiplier={19} />
-          </VendorsMapDrawer>
-
-          <VendorsList />
-        </Band.Slot>
-      </Band>
+      <VendorsSection ref={vendorsBandRef} />
 
       <Band
         id="workshops"

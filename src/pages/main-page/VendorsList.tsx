@@ -1,152 +1,152 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Spacings } from '../styles/spacings';
-import { Link } from '../components/Link';
-import { ScreenSize } from '../styles/screeen-size';
+import { Spacings } from '../../styles/spacings';
+import { Link } from '../../components/Link';
+import { ScreenSize } from '../../styles/screeen-size';
 
-import alemasztocudneLogoUrl from './../assets/images/minifiedLogos/alemasztocudne.jpg';
-import alemasztocudneLogoUrlAvif from './../assets/images/minifiedLogos/alemasztocudne.avif';
-import alemasztocudneLogoUrlWebp from './../assets/images/minifiedLogos/alemasztocudne.webp';
+import alemasztocudneLogoUrl from '../../assets/images/minifiedLogos/alemasztocudne.jpg';
+import alemasztocudneLogoUrlAvif from '../../assets/images/minifiedLogos/alemasztocudne.avif';
+import alemasztocudneLogoUrlWebp from '../../assets/images/minifiedLogos/alemasztocudne.webp';
 
-import animotkiLogoUrl from './../assets/images/minifiedLogos/animotki.png';
-import animotkiLogoUrlAvif from './../assets/images/minifiedLogos/animotki.avif';
-import animotkiLogoUrlWebp from './../assets/images/minifiedLogos/animotki.webp';
+import animotkiLogoUrl from '../../assets/images/minifiedLogos/animotki.png';
+import animotkiLogoUrlAvif from '../../assets/images/minifiedLogos/animotki.avif';
+import animotkiLogoUrlWebp from '../../assets/images/minifiedLogos/animotki.webp';
 
-import anisplotyLogoUrl from './../assets/images/minifiedLogos/anisploty.jpg';
-import anisplotyLogoUrlAvif from './../assets/images/minifiedLogos/anisploty.avif';
+import anisplotyLogoUrl from '../../assets/images/minifiedLogos/anisploty.jpg';
+import anisplotyLogoUrlAvif from '../../assets/images/minifiedLogos/anisploty.avif';
 
-import bawelnianyFilamentLogoUrl from './../assets/images/minifiedLogos/bawelnianyfilament.jpg';
-import bawelnianyFilamentLogoUrlAvif from './../assets/images/minifiedLogos/bawelnianyfilament.avif';
-import bawelnianyFilamentLogoUrlWebp from './../assets/images/minifiedLogos/bawelnianyfilament.webp';
+import bawelnianyFilamentLogoUrl from '../../assets/images/minifiedLogos/bawelnianyfilament.jpg';
+import bawelnianyFilamentLogoUrlAvif from '../../assets/images/minifiedLogos/bawelnianyfilament.avif';
+import bawelnianyFilamentLogoUrlWebp from '../../assets/images/minifiedLogos/bawelnianyfilament.webp';
 
-import bifernoLogoUrl from './../assets/images/minifiedLogos/biferno.png';
-import bifernoLogoUrlAvif from './../assets/images/minifiedLogos/biferno.avif';
-import bifernoLogoUrlWebp from './../assets/images/minifiedLogos/biferno.webp';
+import bifernoLogoUrl from '../../assets/images/minifiedLogos/biferno.png';
+import bifernoLogoUrlAvif from '../../assets/images/minifiedLogos/biferno.avif';
+import bifernoLogoUrlWebp from '../../assets/images/minifiedLogos/biferno.webp';
 
-import brioszkaLogoUrl from './../assets/images/minifiedLogos/brioszka.png';
-import brioszkaLogoUrlAvif from './../assets/images/minifiedLogos/brioszka.avif';
-import brioszkaLogoUrlWebp from './../assets/images/minifiedLogos/brioszka.webp';
+import brioszkaLogoUrl from '../../assets/images/minifiedLogos/brioszka.png';
+import brioszkaLogoUrlAvif from '../../assets/images/minifiedLogos/brioszka.avif';
+import brioszkaLogoUrlWebp from '../../assets/images/minifiedLogos/brioszka.webp';
 
-import coloridoLogoUrl from './../assets/images/minifiedLogos/colorido.jpg';
-import coloridoLogoUrlAvif from './../assets/images/minifiedLogos/colorido.avif';
-import coloridoLogoUrlWebp from './../assets/images/minifiedLogos/colorido.webp';
+import coloridoLogoUrl from '../../assets/images/minifiedLogos/colorido.jpg';
+import coloridoLogoUrlAvif from '../../assets/images/minifiedLogos/colorido.avif';
+import coloridoLogoUrlWebp from '../../assets/images/minifiedLogos/colorido.webp';
 
-import dyeDyeDoneLogoUrlAvif from './../assets/images/minifiedLogos/dyedyedone.avif';
-import dyeDyeDoneLogoUrl from './../assets/images/minifiedLogos/dyedyedone.png';
-import dyeDyeDoneLogoUrlWebp from './../assets/images/minifiedLogos/dyedyedone.webp';
+import dyeDyeDoneLogoUrlAvif from '../../assets/images/minifiedLogos/dyedyedone.avif';
+import dyeDyeDoneLogoUrl from '../../assets/images/minifiedLogos/dyedyedone.png';
+import dyeDyeDoneLogoUrlWebp from '../../assets/images/minifiedLogos/dyedyedone.webp';
 
-import floralFiberLogoUrlAvif from './../assets/images/minifiedLogos/floralfiber.avif';
-import floralFiberLogoUrl from './../assets/images/minifiedLogos/floralfiber.jpg';
-import floralFiberLogoUrlWebp from './../assets/images/minifiedLogos/floralfiber.webp';
+import floralFiberLogoUrlAvif from '../../assets/images/minifiedLogos/floralfiber.avif';
+import floralFiberLogoUrl from '../../assets/images/minifiedLogos/floralfiber.jpg';
+import floralFiberLogoUrlWebp from '../../assets/images/minifiedLogos/floralfiber.webp';
 
-import furoraLogoUrlAvif from './../assets/images/minifiedLogos/furora.avif';
-import furoraLogoUrl from './../assets/images/minifiedLogos/furora.jpg';
-import furoraLogoUrlWebp from './../assets/images/minifiedLogos/furora.webp';
+import furoraLogoUrlAvif from '../../assets/images/minifiedLogos/furora.avif';
+import furoraLogoUrl from '../../assets/images/minifiedLogos/furora.jpg';
+import furoraLogoUrlWebp from '../../assets/images/minifiedLogos/furora.webp';
 
-import gaboWoolLogoUrl from './../assets/images/minifiedLogos/gabowool.png';
-import gaboWoolLogoUrlAvif from './../assets/images/minifiedLogos/gabowool.avif';
-import gaboWoolLogoUrlWebp from './../assets/images/minifiedLogos/gabowool.webp';
+import gaboWoolLogoUrl from '../../assets/images/minifiedLogos/gabowool.png';
+import gaboWoolLogoUrlAvif from '../../assets/images/minifiedLogos/gabowool.avif';
+import gaboWoolLogoUrlWebp from '../../assets/images/minifiedLogos/gabowool.webp';
 
-import hankaMiZrobilaLogoUrl from './../assets/images/minifiedLogos/hankamizrobila.png';
-import hankaMiZrobilaLogoUrlAvif from './../assets/images/minifiedLogos/hankamizrobila.avif';
-import hankaMiZrobilaLogoUrlWebp from './../assets/images/minifiedLogos/hankamizrobila.webp';
+import hankaMiZrobilaLogoUrl from '../../assets/images/minifiedLogos/hankamizrobila.png';
+import hankaMiZrobilaLogoUrlAvif from '../../assets/images/minifiedLogos/hankamizrobila.avif';
+import hankaMiZrobilaLogoUrlWebp from '../../assets/images/minifiedLogos/hankamizrobila.webp';
 
-import knittedCoffeeLogoUrl from './../assets/images/minifiedLogos/knitted.jpg';
-import knittedCoffeeLogoUrlAvif from './../assets/images/minifiedLogos/knitted.avif';
-import knittedCoffeeLogoUrlWebp from './../assets/images/minifiedLogos/knitted.webp';
+import knittedCoffeeLogoUrl from '../../assets/images/minifiedLogos/knitted.jpg';
+import knittedCoffeeLogoUrlAvif from '../../assets/images/minifiedLogos/knitted.avif';
+import knittedCoffeeLogoUrlWebp from '../../assets/images/minifiedLogos/knitted.webp';
 
-import knitPlLogoUrl from './../assets/images/minifiedLogos/knitpl.png';
-import knitPlLogoUrlAvif from './../assets/images/minifiedLogos/knitpl.avif';
-import knitPlLogoUrlWebp from './../assets/images/minifiedLogos/knitpl.webp';
+import knitPlLogoUrl from '../../assets/images/minifiedLogos/knitpl.png';
+import knitPlLogoUrlAvif from '../../assets/images/minifiedLogos/knitpl.avif';
+import knitPlLogoUrlWebp from '../../assets/images/minifiedLogos/knitpl.webp';
 
-import kokonkiLogoUrl from './../assets/images/minifiedLogos/kokonki.png';
+import kokonkiLogoUrl from '../../assets/images/minifiedLogos/kokonki.png';
 
-import liloppiLogoUrl from './../assets/images/minifiedLogos/liloppi.jpg';
-import liloppiLogoUrlAvif from './../assets/images/minifiedLogos/liloppi.avif';
-import liloppiLogoUrlWebp from './../assets/images/minifiedLogos/liloppi.webp';
+import liloppiLogoUrl from '../../assets/images/minifiedLogos/liloppi.jpg';
+import liloppiLogoUrlAvif from '../../assets/images/minifiedLogos/liloppi.avif';
+import liloppiLogoUrlWebp from '../../assets/images/minifiedLogos/liloppi.webp';
 
-import lusiaLogoUrl from './../assets/images/minifiedLogos/lusiaknits.jpg';
-import lusiaLogoUrlAvif from './../assets/images/minifiedLogos/lusiaknits.avif';
-import lusiaLogoUrlWebp from './../assets/images/minifiedLogos/lusiaknits.webp';
+import lusiaLogoUrl from '../../assets/images/minifiedLogos/lusiaknits.jpg';
+import lusiaLogoUrlAvif from '../../assets/images/minifiedLogos/lusiaknits.avif';
+import lusiaLogoUrlWebp from '../../assets/images/minifiedLogos/lusiaknits.webp';
 
-import madoboLogoUrl from './../assets/images/minifiedLogos/madobo.png';
-import madoboLogoUrlAvif from './../assets/images/minifiedLogos/madobo.avif';
-import madoboLogoUrlWebp from './../assets/images/minifiedLogos/madobo.webp';
+import madoboLogoUrl from '../../assets/images/minifiedLogos/madobo.png';
+import madoboLogoUrlAvif from '../../assets/images/minifiedLogos/madobo.avif';
+import madoboLogoUrlWebp from '../../assets/images/minifiedLogos/madobo.webp';
 
-import malinowyKosLogoUrl from './../assets/images/minifiedLogos/malinowyKos.png';
-import malinowyKosLogoUrlAvif from './../assets/images/minifiedLogos/malinowyKos.avif';
-import malinowyKosLogoUrlWebp from './../assets/images/minifiedLogos/malinowyKos.webp';
+import malinowyKosLogoUrl from '../../assets/images/minifiedLogos/malinowyKos.png';
+import malinowyKosLogoUrlAvif from '../../assets/images/minifiedLogos/malinowyKos.avif';
+import malinowyKosLogoUrlWebp from '../../assets/images/minifiedLogos/malinowyKos.webp';
 
-import maniaChomikujeLogoUrl from './../assets/images/minifiedLogos/mania.png';
-import maniaChomikujeLogoUrlAvif from './../assets/images/minifiedLogos/mania.avif';
-import maniaChomikujeLogoUrlWebp from './../assets/images/minifiedLogos/mania.webp';
+import maniaChomikujeLogoUrl from '../../assets/images/minifiedLogos/mania.png';
+import maniaChomikujeLogoUrlAvif from '../../assets/images/minifiedLogos/mania.avif';
+import maniaChomikujeLogoUrlWebp from '../../assets/images/minifiedLogos/mania.webp';
 
-import martinslabLogoUrl from './../assets/images/minifiedLogos/martinslab_long.jpg';
-import martinslabLogoUrlAvif from './../assets/images/minifiedLogos/martinslab_long.avif';
-import martinslabLogoUrlWebp from './../assets/images/minifiedLogos/martinslab_long.webp';
+import martinslabLogoUrl from '../../assets/images/minifiedLogos/martinslab_long.jpg';
+import martinslabLogoUrlAvif from '../../assets/images/minifiedLogos/martinslab_long.avif';
+import martinslabLogoUrlWebp from '../../assets/images/minifiedLogos/martinslab_long.webp';
 
-import missKnitskiLogoUrl from './../assets/images/minifiedLogos/missknitski.png';
-import missKnitskiLogoUrlAvif from './../assets/images/minifiedLogos/missknitski.avif';
-import missKnitskiLogoUrlWebp from './../assets/images/minifiedLogos/missknitski.webp';
+import missKnitskiLogoUrl from '../../assets/images/minifiedLogos/missknitski.png';
+import missKnitskiLogoUrlAvif from '../../assets/images/minifiedLogos/missknitski.avif';
+import missKnitskiLogoUrlWebp from '../../assets/images/minifiedLogos/missknitski.webp';
 
-import mokoszaLogoUrl from './../assets/images/minifiedLogos/mokosza.png';
-import mokoszaLogoUrlAvif from './../assets/images/minifiedLogos/mokosza.avif';
-import mokoszaLogoUrlWebp from './../assets/images/minifiedLogos/mokosza.webp';
+import mokoszaLogoUrl from '../../assets/images/minifiedLogos/mokosza.png';
+import mokoszaLogoUrlAvif from '../../assets/images/minifiedLogos/mokosza.avif';
+import mokoszaLogoUrlWebp from '../../assets/images/minifiedLogos/mokosza.webp';
 
-import motkomaniaLogoUrl from './../assets/images/minifiedLogos/motkomania.jpg';
-import motkomaniaLogoUrlAvif from './../assets/images/minifiedLogos/motkomania.avif';
-import motkomaniaLogoUrlWebp from './../assets/images/minifiedLogos/motkomania.webp';
+import motkomaniaLogoUrl from '../../assets/images/minifiedLogos/motkomania.jpg';
+import motkomaniaLogoUrlAvif from '../../assets/images/minifiedLogos/motkomania.avif';
+import motkomaniaLogoUrlWebp from '../../assets/images/minifiedLogos/motkomania.webp';
 
-import naSztukiStudioLogoUrl from './../assets/images/minifiedLogos/nasztukistudio.png';
+import naSztukiStudioLogoUrl from '../../assets/images/minifiedLogos/nasztukistudio.png';
 
-import paciorkowceLogoUrl from './../assets/images/minifiedLogos/paciorkowce.jpg';
-import paciorkowceLogoUrlAvif from './../assets/images/minifiedLogos/paciorkowce.avif';
-import paciorkowceLogoUrlWebp from './../assets/images/minifiedLogos/paciorkowce.webp';
+import paciorkowceLogoUrl from '../../assets/images/minifiedLogos/paciorkowce.jpg';
+import paciorkowceLogoUrlAvif from '../../assets/images/minifiedLogos/paciorkowce.avif';
+import paciorkowceLogoUrlWebp from '../../assets/images/minifiedLogos/paciorkowce.webp';
 
-import siedemOczekLogoUrl from './../assets/images/minifiedLogos/7oczek.jpg';
-import siedemOczekLogoUrlAvif from './../assets/images/minifiedLogos/7oczek.avif';
-import siedemOczekLogoUrlWebp from './../assets/images/minifiedLogos/7oczek.webp';
+import siedemOczekLogoUrl from '../../assets/images/minifiedLogos/7oczek.jpg';
+import siedemOczekLogoUrlAvif from '../../assets/images/minifiedLogos/7oczek.avif';
+import siedemOczekLogoUrlWebp from '../../assets/images/minifiedLogos/7oczek.webp';
 
-import strikkeLogoUrl from './../assets/images/minifiedLogos/strikke.png';
+import strikkeLogoUrl from '../../assets/images/minifiedLogos/strikke.png';
 
-import pimotkiLogoUrl from './../assets/images/minifiedLogos/pimotki.png';
+import pimotkiLogoUrl from '../../assets/images/minifiedLogos/pimotki.png';
 
-import rencamiLogoUrl from './../assets/images/minifiedLogos/rencami.png';
+import rencamiLogoUrl from '../../assets/images/minifiedLogos/rencami.png';
 
-import timeToKnitLogoUrl from './../assets/images/minifiedLogos/timetoknit.png';
-import timeToKnitLogoUrlAvif from './../assets/images/minifiedLogos/timetoknit.avif';
-import timeToKnitLogoUrlWebp from './../assets/images/minifiedLogos/timetoknit.webp';
+import timeToKnitLogoUrl from '../../assets/images/minifiedLogos/timetoknit.png';
+import timeToKnitLogoUrlAvif from '../../assets/images/minifiedLogos/timetoknit.avif';
+import timeToKnitLogoUrlWebp from '../../assets/images/minifiedLogos/timetoknit.webp';
 
-import theKnittingBoxLogoUrl from './../assets/images/minifiedLogos/theknittingbox.png';
+import theKnittingBoxLogoUrl from '../../assets/images/minifiedLogos/theknittingbox.png';
 
-import welnaBawelnaLogoUrl from './../assets/images/minifiedLogos/WelnaBawelna.jpg';
-import welnaBawelnaLogoUrlAvif from './../assets/images/minifiedLogos/WelnaBawelna.avif';
-import welnaBawelnaLogoUrlWebp from './../assets/images/minifiedLogos/WelnaBawelna.webp';
+import welnaBawelnaLogoUrl from '../../assets/images/minifiedLogos/WelnaBawelna.jpg';
+import welnaBawelnaLogoUrlAvif from '../../assets/images/minifiedLogos/WelnaBawelna.avif';
+import welnaBawelnaLogoUrlWebp from '../../assets/images/minifiedLogos/WelnaBawelna.webp';
 
-import wloczkomaniaczkaLogoUrl from './../assets/images/minifiedLogos/wloczkomaniaczka.jpg';
-import wloczkomaniaczkaLogoUrlAvif from './../assets/images/minifiedLogos/wloczkomaniaczka.avif';
-import wloczkomaniaczkaLogoUrlWebp from './../assets/images/minifiedLogos/wloczkomaniaczka.webp';
+import wloczkomaniaczkaLogoUrl from '../../assets/images/minifiedLogos/wloczkomaniaczka.jpg';
+import wloczkomaniaczkaLogoUrlAvif from '../../assets/images/minifiedLogos/wloczkomaniaczka.avif';
+import wloczkomaniaczkaLogoUrlWebp from '../../assets/images/minifiedLogos/wloczkomaniaczka.webp';
 
-import wloczykijkiLogoUrl from './../assets/images/minifiedLogos/wloczykijki.png';
-import wloczykijkiLogoUrlAvif from './../assets/images/minifiedLogos/wloczykijki.avif';
-import wloczykijkiLogoUrlWebp from './../assets/images/minifiedLogos/wloczykijki.webp';
+import wloczykijkiLogoUrl from '../../assets/images/minifiedLogos/wloczykijki.png';
+import wloczykijkiLogoUrlAvif from '../../assets/images/minifiedLogos/wloczykijki.avif';
+import wloczykijkiLogoUrlWebp from '../../assets/images/minifiedLogos/wloczykijki.webp';
 
-import woollalaLogoUrl from './../assets/images/minifiedLogos/woollala.png';
-import woollalaLogoUrlWebp from './../assets/images/minifiedLogos/woollala.webp';
+import woollalaLogoUrl from '../../assets/images/minifiedLogos/woollala.png';
+import woollalaLogoUrlWebp from '../../assets/images/minifiedLogos/woollala.webp';
 
-import woolloopLogoUrl from './../assets/images/minifiedLogos/woolloop.png';
-import woolloopLogoUrlAvif from './../assets/images/minifiedLogos/woolloop.avif';
-import woolloopLogoUrlWebp from './../assets/images/minifiedLogos/woolloop.webp';
+import woolloopLogoUrl from '../../assets/images/minifiedLogos/woolloop.png';
+import woolloopLogoUrlAvif from '../../assets/images/minifiedLogos/woolloop.avif';
+import woolloopLogoUrlWebp from '../../assets/images/minifiedLogos/woolloop.webp';
 
-import woolniejLogoUrl from './../assets/images/minifiedLogos/woolniej.jpg';
-import woolniejLogoUrlAvif from './../assets/images/minifiedLogos/woolniej.avif';
-import woolniejLogoUrlWebp from './../assets/images/minifiedLogos/woolniej.webp';
+import woolniejLogoUrl from '../../assets/images/minifiedLogos/woolniej.jpg';
+import woolniejLogoUrlAvif from '../../assets/images/minifiedLogos/woolniej.avif';
+import woolniejLogoUrlWebp from '../../assets/images/minifiedLogos/woolniej.webp';
 
-import wooloveLogoUrl from './../assets/images/minifiedLogos/woolove.png';
-import wooloveLogoUrlAvif from './../assets/images/minifiedLogos/woolove.avif';
-import wooloveLogoUrlWebp from './../assets/images/minifiedLogos/woolove.webp';
+import wooloveLogoUrl from '../../assets/images/minifiedLogos/woolove.png';
+import wooloveLogoUrlAvif from '../../assets/images/minifiedLogos/woolove.avif';
+import wooloveLogoUrlWebp from '../../assets/images/minifiedLogos/woolove.webp';
 
-import { Picture } from '../components/Picture';
+import { Picture } from '../../components/Picture';
 
 export const Grid = styled.div`
   display: flex;
