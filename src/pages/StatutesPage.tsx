@@ -118,9 +118,9 @@ export const StatutesPage = () => {
       {!isPhone && (
         <Menu>
           <Menu.Background>
-            <Menu.Item to="/">Yarnmark</Menu.Item>
+            <Menu.LinkItem to="/">Yarnmark</Menu.LinkItem>
 
-            <Menu.Item
+            <Menu.DropdownItem
               subLinks={[
                 {
                   to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
@@ -139,11 +139,11 @@ export const StatutesPage = () => {
                 }
               ]}>
               {t('menu.tickets')}
-            </Menu.Item>
+            </Menu.DropdownItem>
 
-            <Menu.Item to="/info-for-vendors">{t('menu.infoForVendors')}</Menu.Item>
+            <Menu.LinkItem to="/info-for-vendors">{t('menu.infoForVendors')}</Menu.LinkItem>
 
-            <Menu.Item to="/statutes">{t('menu.statutes')}</Menu.Item>
+            <Menu.LinkItem to="/statutes">{t('menu.statutes')}</Menu.LinkItem>
 
             <LanguageSwitcher />
           </Menu.Background>

@@ -14,21 +14,15 @@ type DropdownMenuItem = {
   }[];
 };
 
-type MenuItemType = HashLinkProps | DropdownMenuItem;
+const MenuDropdownItem = ({ children, subLinks }: DropdownMenuItem) => (
+  <Dropdown options={subLinks}>{children}</Dropdown>
+);
 
-const MenuItem = ({ children, ...props }: MenuItemType) => {
-  if ('subLinks' in props) {
-    return <Dropdown options={props.subLinks}>{children}</Dropdown>;
-  }
-
-  if ('to' in props) {
-    return (
-      <Link target={props.target} color="black" to={props.to}>
-        {children}
-      </Link>
-    );
-  }
-};
+const MenuLinkItem = ({ children, target, to }: HashLinkProps) => (
+  <Link target={target} color="black" to={to}>
+    {children}
+  </Link>
+);
 
 const Background = styled.div`
   max-width: 100%;
@@ -63,6 +57,7 @@ export const Menu = Object.assign(
   `,
   {
     Background,
-    Item: MenuItem
+    LinkItem: MenuLinkItem,
+    DropdownItem: MenuDropdownItem
   }
 );

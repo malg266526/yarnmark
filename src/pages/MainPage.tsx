@@ -703,7 +703,7 @@ export const MainPage = () => {
       {!isPhone && (
         <Menu>
           <Menu.Background>
-            <Menu.Item
+            <Menu.DropdownItem
               subLinks={[
                 {
                   to: '#vendors',
@@ -727,9 +727,9 @@ export const MainPage = () => {
                 }
               ]}>
               Yarnmark
-            </Menu.Item>
+            </Menu.DropdownItem>
 
-            <Menu.Item
+            <Menu.DropdownItem
               subLinks={[
                 {
                   to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
@@ -748,15 +748,15 @@ export const MainPage = () => {
                 }
               ]}>
               {t('menu.tickets')}
-            </Menu.Item>
+            </Menu.DropdownItem>
 
-            <Menu.Item to="/hall" target="_blank">
+            <Menu.LinkItem to="/hall" target="_blank">
               {t('buttonsBand.hallMap')}
-            </Menu.Item>
+            </Menu.LinkItem>
 
-            <Menu.Item to="/info-for-vendors">{t('menu.infoForVendors')}</Menu.Item>
+            <Menu.LinkItem to="/info-for-vendors">{t('menu.infoForVendors')}</Menu.LinkItem>
 
-            <Menu.Item to="/statutes">{t('menu.statutes')}</Menu.Item>
+            <Menu.LinkItem to="/statutes">{t('menu.statutes')}</Menu.LinkItem>
 
             <LanguageSwitcher />
           </Menu.Background>

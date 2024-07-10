@@ -170,9 +170,9 @@ export const InfoForVendorsPage = () => {
       {!isPhone && (
         <Menu>
           <Menu.Background>
-            <Menu.Item to="/">Yarnmark</Menu.Item>
+            <Menu.LinkItem to="/">Yarnmark</Menu.LinkItem>
 
-            <Menu.Item
+            <Menu.DropdownItem
               subLinks={[
                 {
                   to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
@@ -191,9 +191,9 @@ export const InfoForVendorsPage = () => {
                 }
               ]}>
               {t('menu.tickets')}
-            </Menu.Item>
+            </Menu.DropdownItem>
 
-            <Menu.Item
+            <Menu.DropdownItem
               subLinks={[
                 {
                   to: '#stands',
@@ -206,9 +206,9 @@ export const InfoForVendorsPage = () => {
                 }
               ]}>
               {t('menu.infoForVendors')}
-            </Menu.Item>
+            </Menu.DropdownItem>
 
-            <Menu.Item to="/statutes">{t('menu.statutes')}</Menu.Item>
+            <Menu.LinkItem to="/statutes">{t('menu.statutes')}</Menu.LinkItem>
 
             <LanguageSwitcher />
           </Menu.Background>
