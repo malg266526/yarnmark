@@ -44,25 +44,25 @@ export const FunnyButtonsSection = () => {
           ref={vendorsFunnyButtonRef}
           icon={<Icon size="xl" zIndex={0} src={shopImageUrl} />}
           text={t('buttonsBand.vendors.text')}
-          // onClick={() => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => (window.location.href = '/home#vendors')}
         />
         <FunnyButton
           ref={geoFunnyButtonRef}
           icon={<Icon size="xl" zIndex={0} src={pinBlackImageUrl} />}
           text={t('buttonsBand.location.text')}
-          // onClick={() => spotBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => (window.location.href = '/home#location')}
         />
         <FunnyButton
           ref={foodFunnyButtonRef}
           icon={<Icon size="xl" zIndex={0} src={pizzaImageUrl} />}
           text={t('buttonsBand.foodButton')}
-          // onClick={() => foodBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => (window.location.href = '/home#food')}
         />
         <FunnyButton
           icon={<Icon size="xl" zIndex={0} src={ferryImageUrl} />}
           text={t('buttonsBand.cruiseButton')}
           ref={shipFunnyButtonRef}
-          // onClick={() => cruiseTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => (window.location.href = '/home#cruise')}
         />
         <FunnyButton
           ref={hallMapFunnyButtonRef}
