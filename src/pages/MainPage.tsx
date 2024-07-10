@@ -149,7 +149,7 @@ import { Hall } from '../components/Hall';
 import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
 
 import { useFirstClick } from '../hooks/useFirstClick';
-import { Menu } from '../components/menu/Menu';
+import { Menu } from '../components/Menu';
 
 type ActiveButtonType =
   | 'foodtruckBezogrodek'

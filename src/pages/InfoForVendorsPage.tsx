@@ -21,7 +21,7 @@ import { StyledPageContent } from './InfoForVendorsPage.styled';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { CenteredTitle, MainBackground, Text } from './MainPage.styled';
 import { usePhone } from './usePhone';
-import { Menu } from '../components/menu/Menu';
+import { Menu } from '../components/Menu';
 
 export const FlexLayout = styled.div`
   display: flex;

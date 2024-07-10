@@ -21,7 +21,7 @@ import { StyledPageContent } from './InfoForVendorsPage.styled';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { MainBackground } from './MainPage.styled';
 import { usePhone } from './usePhone';
-import { Menu } from '../components/menu/Menu';
+import { Menu } from '../components/Menu';
 
 const StatuteTitle = styled(Title)`
   font-size: ${FontSize.xl};
