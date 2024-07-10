@@ -5,9 +5,9 @@ import { ScreenSize } from '../../styles/screeen-size';
 import { Carouselge } from '../../components/Carouselge';
 import { PageContent } from '../../components/PageContent';
 import { LanguageSwitcher } from '../LanguageSwitcher';
+import { Link } from '../../components/Link';
 import { FontSize } from '../../styles/font-size';
 import { DropShadow, Radius } from '../../styles/cards';
-import { Picture } from '../../components/Picture';
 import { Button } from '../../components/Button';
 
 export const StyledPageContent = styled(PageContent)`
@@ -17,18 +17,6 @@ export const StyledPageContent = styled(PageContent)`
     @media (max-width: ${ScreenSize.tablet}) {
       width: 100%;
     }
-  }
-
-  ${LanguageSwitcher} {
-    /*     position: absolute;
-    z-index: 1;
-    top: 0;
-    right: ${Spacings.md};
-
-    @media (max-width: ${ScreenSize.phone}) {
-      top: initial;
-      bottom: 0;
-    } */
   }
 `;
 
@@ -123,11 +111,6 @@ export const Typography = styled.div<{
     css`
       padding-bottom: ${Spacings[paddingBottom]};
     `};
-`;
-
-export const MobileInfoSectionWrapper = styled.div`
-  position: relative;
-  z-index: 1;
 `;
 
 export const MobileBasicInfoSection = styled.div<{ backgroundUrl: string; zIndex?: number }>`
@@ -295,7 +278,6 @@ export const AnimatedIconWrapper = styled.div`
   }
 
   > ${Icon} {
-    /* cubic-bezier(.72,2.04,.68,.87) */
     animation: 1s ease-in-out infinite alternate running jump2;
     cursor: pointer;
   }
@@ -306,17 +288,6 @@ export const AnimatedIconWrapper = styled.div`
 `;
 
 export const ActiveImage = styled.img`
-  max-height: 300px;
-  max-width: 100%;
-  object-fit: contain;
-
-  @media (max-width: ${ScreenSize.phone}) {
-    width: 100%;
-    max-width: 100%;
-  }
-`;
-
-export const ActivePicture = styled(Picture)`
   max-height: 300px;
   max-width: 100%;
   object-fit: contain;
@@ -377,28 +348,11 @@ export const LayoutWithActiveButton = styled.div`
   gap: ${Spacings.lg};
   flex-wrap: wrap;
 
-  > ${ButtonsWrapper} {
-    /* flex: 1 0 auto; */
-  }
-
   @media (max-width: ${ScreenSize.tablet}) {
     margin-top: ${Spacings.md};
     flex-direction: column;
     max-width: 100vw;
   }
-`;
-
-export const AbsoluteWrapper = styled.div`
-  position: absolute;
-  bottom: 80px;
-  right: 80px;
-  opacity: 0.5;
-  filter: grayscale(0.5);
-`;
-
-export const WorkshopsWrapper = styled.div`
-  width: 100%;
-  padding: 0 ${Spacings.xxl};
 `;
 
 export const Paragraph = styled.div`
