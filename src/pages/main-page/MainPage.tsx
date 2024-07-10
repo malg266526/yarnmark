@@ -32,17 +32,9 @@ import bezogrodekLogoUrlWebp from '../../assets/images/minifiedLogos/logobezogro
 
 import burgerImageUrl from '../../assets/iconify/burger.svg';
 import coffeeImageUrl from '../../assets/iconify/coffee.svg';
-/*import ferryImageUrl from '../assets/iconify/ferry.svg';
-import mapImageUrl from '../assets/iconify/worldmap.svg';
-import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
-import pizzaImageUrl from '../assets/iconify/pizza.svg';*/
-// import pretzelImageUrl from '../assets/iconify/pretzel.svg';
-// import shopImageUrl from '../assets/iconify/shop.svg';
 import shrimpImageUrl from '../../assets/iconify/shrimp.svg';
 import turkeyImageUrl from '../../assets/iconify/turkey.svg';
-// import soupImageUrl from '../assets/iconify/soup.svg';
 import cupcakeImageUrl from '../../assets/iconify/cupcake.svg';
-// import ticketImageUrl from '../assets/iconify/ticket.svg';
 
 import knitting2ImageUrl from '../../assets/images/knitting2.svg';
 import pinImageUrl from '../../assets/images/pin.svg';
@@ -67,7 +59,6 @@ import olaImageUrlWebp from '../../assets/images/pomagamOli.webp';
 import { Icon } from '../../components/Icon';
 
 import { Band } from '../../components/Band';
-// import { FunnyButton } from '../components/FunnyButton';
 import { Link } from '../../components/Link';
 import { NiceBox } from '../../components/NiceBox';
 import { usePhone } from '../usePhone';
@@ -91,7 +82,6 @@ import {
   AnimatedIconWrapper,
   BackgroundIcon,
   BackgroundImage,
-  // ButtonsLayout,
   ButtonsWrapper,
   CenteredTitle,
   Drawer,
@@ -152,6 +142,7 @@ import { MenuItem } from '../../components/MenuItem';
 import firstAidIcon from '../../assets/backgrounds/firstAid3.svg';
 
 import { useFirstClick } from '../../hooks/useFirstClick';
+import { FunnyButtonsSection } from './FunnyButtonsSection';
 
 type ActiveButtonType =
   | 'foodtruckBezogrodek'
@@ -402,11 +393,6 @@ export const MainPage = () => {
   const foodBandRef = useRef<HTMLDivElement | null>(null);
 
   const ticketsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
-  /*  const vendorsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
-  const geoFunnyButtonRef = useRef<HTMLDivElement | null>(null);
-  const foodFunnyButtonRef = useRef<HTMLDivElement | null>(null);
-  const shipFunnyButtonRef = useRef<HTMLDivElement | null>(null);
-  const hallMapFunnyButtonRef = useRef<HTMLDivElement | null>(null);*/
 
   const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogrodek');
 
@@ -495,58 +481,6 @@ export const MainPage = () => {
   );
 
   const [selectedIndex, setSelectedIndex] = useState(0);
-
-  /*
-  const infoSectionButtons = useMemo(
-    () => (
-      <ButtonsLayout>
-        <FunnyButton
-          mobileSlot={t('buttonsBand.tickets.mobileTitle')}
-          ref={ticketsFunnyButtonRef}
-          icon={<Icon size="xl" zIndex={0} src={ticketImageUrl} />}
-          text={t('buttonsBand.tickets.text')}
-          onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}
-        />
-        <FunnyButton
-          mobileSlot={t('buttonsBand.vendors.mobileTitle')}
-          ref={vendorsFunnyButtonRef}
-          icon={<Icon size="xl" zIndex={0} src={shopImageUrl} />}
-          text={t('buttonsBand.vendors.text')}
-          onClick={() => vendorsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
-        />
-        <FunnyButton
-          mobileSlot={t('buttonsBand.location.mobileTitle')}
-          ref={geoFunnyButtonRef}
-          icon={<Icon size="xl" zIndex={0} src={pinBlackImageUrl} />}
-          text={t('buttonsBand.location.text')}
-          onClick={() => spotBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
-        />
-        <FunnyButton
-          mobileSlot={t('buttonsBand.foodButton')}
-          ref={foodFunnyButtonRef}
-          icon={<Icon size="xl" zIndex={0} src={pizzaImageUrl} />}
-          text={t('buttonsBand.foodButton')}
-          onClick={() => foodBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
-        />
-        <FunnyButton
-          mobileSlot={t('buttonsBand.cruiseButton')}
-          ref={shipFunnyButtonRef}
-          icon={<Icon size="xl" zIndex={0} src={ferryImageUrl} />}
-          text={t('buttonsBand.cruiseButton')}
-          onClick={() => cruiseTicketsBandRef.current?.scrollIntoView({ behavior: 'smooth' })}
-        />
-        <FunnyButton
-          mobileSlot={t('buttonsBand.hallMap')}
-          ref={hallMapFunnyButtonRef}
-          icon={<Icon size="xl" zIndex={0} src={mapImageUrl} />}
-          text={t('buttonsBand.hallMap')}
-          onClick={() => window.open('/hall', '_blank')}
-        />
-      </ButtonsLayout>
-    ),
-    [t]
-  );
-*/
 
   const pcInfoSection = useMemo(
     () => (
@@ -813,10 +747,11 @@ export const MainPage = () => {
         </Band.Slot>
       </Band>
 
+      <FunnyButtonsSection />
+
       {isPhone ? (
         <MobileBasicInfoSection zIndex={1} backgroundUrl={knitting2ImageUrl}>
           {mobileInfoSection}
-          {/* {infoSectionButtons} */}
         </MobileBasicInfoSection>
       ) : (
         <Band
@@ -828,10 +763,7 @@ export const MainPage = () => {
           overflowX="hidden">
           <BackgroundImage src={knitting2ImageUrl} alt="wool_skeins_background" />
 
-          <SectionWrapper>
-            {pcInfoSection}
-            {/* {infoSectionButtons} */}
-          </SectionWrapper>
+          <SectionWrapper>{pcInfoSection}</SectionWrapper>
         </Band>
       )}
 
