@@ -28,9 +28,7 @@ export const de: TranslationsShape = {
     buttonsBand: {
       thankYou: 'Thank you for your presence!',
       fillTheSurvey: 'We kindly invite you to share your opinion about Yarnmark in the <0>survey</0>',
-      firstEvent: 'Das ist das allererste Event dieser Art in Krakaw!',
-      otherCities:
-        'Torun,Warschav, Danzig, Breslav Endlich ist Zeit für die Wollmesse an der Wavel. Krakau startet im Strickschritt ins Jahr 2024. Komm mit uns!',
+      anotherEdition: 'Przed nami kolejna edycja targów pod Wawelem!',
       linksBelow:
         'Unten findest du einige Links, die dir bei der Planung deiner Zeit in unserer schönen Stadt helfen werden',
       tickets: {

@@ -28,10 +28,9 @@ export const pl = {
     buttonsBand: {
       thankYou: 'Dziękujemy za Waszą obecność!',
       fillTheSurvey: 'Zapraszamy do podzielenia się Waszą opinią na temat Yarnmarku w <0>ankiecie</0> ',
-      firstEvent: 'Pierwsze takie wydarzenie w Krakowie!',
-      otherCities:
-        'Toruń, Warszawa, Gdańsk, Wrocław... wreszcie nadszedł czas na targi wełny pod Wawelem. Kraków wchodzi w 2024 rok dziewiarskim krokiem. Chodźże z nami!',
-      linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
+      anotherEdition: 'Przed nami kolejna edycja targów pod Wawelem!',
+      linksBelow:
+        'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka! Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
       tickets: {
         text: 'Bilety',
         mobileTitle: 'Bilety'

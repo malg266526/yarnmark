@@ -13,11 +13,9 @@ import pinBlackImageUrl from '../../assets/iconify/pinBlack.svg';
 import pizzaImageUrl from '../../assets/iconify/pizza.svg';
 import ferryImageUrl from '../../assets/iconify/ferry.svg';
 import mapImageUrl from '../../assets/iconify/worldmap.svg';
-import { Trans } from 'react-i18next';
-import { Link } from '../../components/Link';
 import styled from 'styled-components';
 
-const MobileInfoSectionWrapper = styled.div`
+const InfoSectionWrapper = styled.div`
   position: relative;
   z-index: 1;
 `;
@@ -77,43 +75,16 @@ export const FunnyButtonsSection = () => {
     [t]
   );
 
-  const mobileInfoSection = useMemo(
-    () => (
-      <MobileInfoSectionWrapper>
+  return isPhone ? (
+    <MobileBasicInfoSection zIndex={1} backgroundUrl={knitting2ImageUrl}>
+      <InfoSectionWrapper>
         <Typography size="lg" weight="bold" paddingBottom="md">
-          {t('buttonsBand.firstEvent')}
-        </Typography>
-        <Typography size="md" weight="regular" paddingBottom="sm">
-          {t('buttonsBand.otherCities')}
+          {t('buttonsBand.anotherEdition')}
         </Typography>
         <Typography size="md" weight="regular">
           {t('buttonsBand.linksBelow')}
         </Typography>
-      </MobileInfoSectionWrapper>
-    ),
-    [t]
-  );
-
-  const pcInfoSection = useMemo(
-    () => (
-      <MobileInfoSectionWrapper>
-        <Typography size="xxl" weight="bold" paddingBottom="md">
-          {t('buttonsBand.firstEvent')}
-        </Typography>
-        <Typography size="lg" weight="regular" paddingBottom="sm">
-          {t('buttonsBand.otherCities')}
-        </Typography>
-        <Typography size="lg" weight="regular">
-          {t('buttonsBand.linksBelow')}
-        </Typography>
-      </MobileInfoSectionWrapper>
-    ),
-    [t]
-  );
-
-  return isPhone ? (
-    <MobileBasicInfoSection zIndex={1} backgroundUrl={knitting2ImageUrl}>
-      {mobileInfoSection}
+      </InfoSectionWrapper>
       {infoSectionButtons}
     </MobileBasicInfoSection>
   ) : (
@@ -127,7 +98,14 @@ export const FunnyButtonsSection = () => {
       <BackgroundImage src={knitting2ImageUrl} alt="wool_skeins_background" />
 
       <SectionWrapper>
-        {pcInfoSection}
+        <InfoSectionWrapper>
+          <Typography size="xxl" weight="bold" paddingBottom="md">
+            {t('buttonsBand.anotherEdition')}
+          </Typography>
+          <Typography size="lg" weight="regular">
+            {t('buttonsBand.linksBelow')}
+          </Typography>
+        </InfoSectionWrapper>
         {infoSectionButtons}
       </SectionWrapper>
     </Band>
