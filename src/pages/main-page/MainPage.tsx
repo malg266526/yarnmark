@@ -40,15 +40,8 @@ import pinImageUrl from '../../assets/images/pin.svg';
 import halaAvifImageSrc from '../../assets/images/hala.avif';
 import halaJpgImageSrc from '../../assets/images/hala.jpg';
 import halaWebpImageSrc from '../../assets/images/hala.webp';
-import yarnmarkLogoSrcAvif from '../../assets/images/yarnmark_logo.avif';
-import yarnmarkLogoSrc from '../../assets/images/yarnmark_logo.jpg';
-import yarnmarkLogoSrcWebp from '../../assets/images/yarnmark_logo.webp';
 
 import bistroImageSrc from '../../assets/images/bistro_photo.jpg';
-
-import woolsAvifLandscape from '../../assets/images/wools2_landscape.avif';
-import woolsJpgLandscape from '../../assets/images/wools2_landscape.jpg';
-import woolsWebpLandscape from '../../assets/images/wools2_landscape.webp';
 
 import olaImageUrlAvif from '../../assets/images/pomagamOli.avif';
 import olaImageUrlJpg from '../../assets/images/pomagamOli.jpg';
@@ -86,7 +79,6 @@ import {
   ImageWrapperColumn,
   LayoutWithActiveButton,
   LinkWrapper,
-  MainBackground,
   Menu,
   MenuBackground,
   MobileLocationButtonWrapper,
@@ -97,10 +89,8 @@ import {
   StyledPageContent,
   Text,
   TextH2,
-  Typography,
-  VendorsMapDrawer
+  Typography
 } from './MainPage.styled';
-import { VendorsList } from './VendorsList';
 import { WorkshopsCarousel } from '../WorkshopsCarousel';
 import { WorkshopsSchedule } from '../WorkshopsSchedule';
 import { useRootIntersectionObserver } from '../useRootIntersectionObserver';
@@ -131,7 +121,6 @@ import sweatersBackgroundUrlWebp from '../../assets/backgrounds/sweaters_backgro
 import { Button } from '../../components/Button';
 import { Carouselge } from '../../components/Carouselge';
 import { CruiseMap } from '../../components/CruiseMap';
-import { Hall } from '../../components/Hall';
 import { MenuItem } from '../../components/MenuItem';
 import firstAidIcon from '../../assets/backgrounds/firstAid3.svg';
 
@@ -394,7 +383,6 @@ export const MainPage = () => {
 
   const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
   const [isOlaDrawerOpened, setIsOlaDrawerOpened] = useState<boolean>(false);
-  const [isVendorsMapShown, showVendorsMap] = useState<boolean>(false);
 
   const activeButtonToImage = getActiveButtonToImage(t);
 
@@ -407,9 +395,6 @@ export const MainPage = () => {
   });
 
   const closeSideBar = () => setBurgerActive(false);
-
-  const { wasClickedBefore: wasVendorsMapClicked, handleClick: handleVendorsMapClick } =
-    useFirstClick('vendorsMapPulse');
 
   const { wasClickedBefore: wasSosClicked, handleClick: handleSosClick } = useFirstClick('sosPulse');
 
