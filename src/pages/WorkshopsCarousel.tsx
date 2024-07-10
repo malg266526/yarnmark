@@ -5,7 +5,7 @@ import { FlexColumnLayout } from '../components/FlexColumnLayout';
 import { Picture } from '../components/Picture';
 import { Spacings } from '../styles/spacings';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
-import { Text } from './MainPage.styled';
+import { Text } from './main-page/MainPage.styled';
 
 import haftowaBabaUrlAvif from './../assets/images/workshops/haftowa.avif';
 import haftowaBabaUrl from './../assets/images/workshops/haftowa.jpg';

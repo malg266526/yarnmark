@@ -20,7 +20,7 @@ import { SideBar } from '../components/SideBar';
 import { ScreenSize } from '../styles/screeen-size';
 import { StyledPageContent } from './InfoForVendorsPage.styled';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { CenteredTitle, MainBackground, Menu, MenuBackground, Text } from './MainPage.styled';
+import { CenteredTitle, MainBackground, Menu, MenuBackground, Text } from './main-page/MainPage.styled';
 import { usePhone } from './usePhone';
 
 export const FlexLayout = styled.div`

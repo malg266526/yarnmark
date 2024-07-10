@@ -1,15 +1,15 @@
 import styled, { css, keyframes } from 'styled-components';
-import { Icon } from '../components/Icon';
-import { Spacings } from '../styles/spacings';
-import { ScreenSize } from '../styles/screeen-size';
-import { Carouselge } from '../components/Carouselge';
-import { PageContent } from '../components/PageContent';
-import { LanguageSwitcher } from './LanguageSwitcher';
-import { Link } from '../components/Link';
-import { FontSize } from '../styles/font-size';
-import { DropShadow, Radius } from '../styles/cards';
-import { Picture } from '../components/Picture';
-import { Button } from '../components/Button';
+import { Icon } from '../../components/Icon';
+import { Spacings } from '../../styles/spacings';
+import { ScreenSize } from '../../styles/screeen-size';
+import { Carouselge } from '../../components/Carouselge';
+import { PageContent } from '../../components/PageContent';
+import { LanguageSwitcher } from '../LanguageSwitcher';
+import { Link } from '../../components/Link';
+import { FontSize } from '../../styles/font-size';
+import { DropShadow, Radius } from '../../styles/cards';
+import { Picture } from '../../components/Picture';
+import { Button } from '../../components/Button';
 
 export const StyledPageContent = styled(PageContent)`
   ${Carouselge} {

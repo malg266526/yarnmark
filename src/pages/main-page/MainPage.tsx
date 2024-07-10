@@ -1,91 +1,91 @@
 import React, { ReactNode, useCallback, useMemo, useRef, useState } from 'react';
-import { UnprefixedTranslationKeys, useTypedTranslation } from '../translations/useTypedTranslation';
+import { UnprefixedTranslationKeys, useTypedTranslation } from '../../translations/useTypedTranslation';
 
-import mapJpgSrc from '../assets/images/map.jpg';
-import mapWebpSrc from '../assets/images/map.webp';
+import mapJpgSrc from '../../assets/images/map.jpg';
+import mapWebpSrc from '../../assets/images/map.webp';
 
-import wineAvifSrc from '../assets/images/wine.avif';
-import wineJpgSrc from '../assets/images/wine.jpg';
-import wineWebpSrc from '../assets/images/wine.webp';
+import wineAvifSrc from '../../assets/images/wine.avif';
+import wineJpgSrc from '../../assets/images/wine.jpg';
+import wineWebpSrc from '../../assets/images/wine.webp';
 
-import waterJpgSrc from '../assets/images/water.jpg';
-import waterWebpSrc from '../assets/images/water.webp';
+import waterJpgSrc from '../../assets/images/water.jpg';
+import waterWebpSrc from '../../assets/images/water.webp';
 
-import shipAvifSrc from '../assets/images/ship.avif';
-import shipJpgSrc from '../assets/images/ship.jpg';
+import shipAvifSrc from '../../assets/images/ship.avif';
+import shipJpgSrc from '../../assets/images/ship.jpg';
 
-import ticketAvifSrc from '../assets/images/ticket.avif';
-import ticketJpgSrc from '../assets/images/ticket.jpg';
-import ticketWebpSrc from '../assets/images/ticket.webp';
+import ticketAvifSrc from '../../assets/images/ticket.avif';
+import ticketJpgSrc from '../../assets/images/ticket.jpg';
+import ticketWebpSrc from '../../assets/images/ticket.webp';
 
-import knittedCoffeeLogoUrlAvif from './../assets/images/minifiedLogos/knitted.avif';
-import knittedCoffeeLogoUrl from './../assets/images/minifiedLogos/knitted.jpg';
-import knittedCoffeeLogoUrlWebp from './../assets/images/minifiedLogos/knitted.webp';
+import knittedCoffeeLogoUrlAvif from '../../assets/images/minifiedLogos/knitted.avif';
+import knittedCoffeeLogoUrl from '../../assets/images/minifiedLogos/knitted.jpg';
+import knittedCoffeeLogoUrlWebp from '../../assets/images/minifiedLogos/knitted.webp';
 
-import knittedCoffeeUrlAvif from './../assets/images/minifiedLogos/knitted2.avif';
-import knittedCoffeeUrl from './../assets/images/minifiedLogos/knitted2.jpg';
-import knittedCoffeeUrlWebp from './../assets/images/minifiedLogos/knitted2.webp';
+import knittedCoffeeUrlAvif from '../../assets/images/minifiedLogos/knitted2.avif';
+import knittedCoffeeUrl from '../../assets/images/minifiedLogos/knitted2.jpg';
+import knittedCoffeeUrlWebp from '../../assets/images/minifiedLogos/knitted2.webp';
 
-import bezogrodekLogoUrlAvif from './../assets/images/minifiedLogos/logobezogrodek.avif';
-import bezogrodekLogoUrl from './../assets/images/minifiedLogos/logobezogrodek.jpg';
-import bezogrodekLogoUrlWebp from './../assets/images/minifiedLogos/logobezogrodek.webp';
+import bezogrodekLogoUrlAvif from '../../assets/images/minifiedLogos/logobezogrodek.avif';
+import bezogrodekLogoUrl from '../../assets/images/minifiedLogos/logobezogrodek.jpg';
+import bezogrodekLogoUrlWebp from '../../assets/images/minifiedLogos/logobezogrodek.webp';
 
-import burgerImageUrl from '../assets/iconify/burger.svg';
-import coffeeImageUrl from '../assets/iconify/coffee.svg';
+import burgerImageUrl from '../../assets/iconify/burger.svg';
+import coffeeImageUrl from '../../assets/iconify/coffee.svg';
 /*import ferryImageUrl from '../assets/iconify/ferry.svg';
 import mapImageUrl from '../assets/iconify/worldmap.svg';
 import pinBlackImageUrl from '../assets/iconify/pinBlack.svg';
 import pizzaImageUrl from '../assets/iconify/pizza.svg';*/
 // import pretzelImageUrl from '../assets/iconify/pretzel.svg';
 // import shopImageUrl from '../assets/iconify/shop.svg';
-import shrimpImageUrl from '../assets/iconify/shrimp.svg';
-import turkeyImageUrl from '../assets/iconify/turkey.svg';
+import shrimpImageUrl from '../../assets/iconify/shrimp.svg';
+import turkeyImageUrl from '../../assets/iconify/turkey.svg';
 // import soupImageUrl from '../assets/iconify/soup.svg';
-import cupcakeImageUrl from '../assets/iconify/cupcake.svg';
+import cupcakeImageUrl from '../../assets/iconify/cupcake.svg';
 // import ticketImageUrl from '../assets/iconify/ticket.svg';
 
-import knitting2ImageUrl from '../assets/images/knitting2.svg';
-import pinImageUrl from '../assets/images/pin.svg';
+import knitting2ImageUrl from '../../assets/images/knitting2.svg';
+import pinImageUrl from '../../assets/images/pin.svg';
 
-import halaAvifImageSrc from '../assets/images/hala.avif';
-import halaJpgImageSrc from '../assets/images/hala.jpg';
-import halaWebpImageSrc from '../assets/images/hala.webp';
-import yarnmarkLogoSrcAvif from '../assets/images/yarnmark_logo.avif';
-import yarnmarkLogoSrc from '../assets/images/yarnmark_logo.jpg';
-import yarnmarkLogoSrcWebp from '../assets/images/yarnmark_logo.webp';
+import halaAvifImageSrc from '../../assets/images/hala.avif';
+import halaJpgImageSrc from '../../assets/images/hala.jpg';
+import halaWebpImageSrc from '../../assets/images/hala.webp';
+import yarnmarkLogoSrcAvif from '../../assets/images/yarnmark_logo.avif';
+import yarnmarkLogoSrc from '../../assets/images/yarnmark_logo.jpg';
+import yarnmarkLogoSrcWebp from '../../assets/images/yarnmark_logo.webp';
 
-import bistroImageSrc from '../assets/images/bistro_photo.jpg';
+import bistroImageSrc from '../../assets/images/bistro_photo.jpg';
 
-import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
-import woolsJpgLandscape from '../assets/images/wools2_landscape.jpg';
-import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
+import woolsAvifLandscape from '../../assets/images/wools2_landscape.avif';
+import woolsJpgLandscape from '../../assets/images/wools2_landscape.jpg';
+import woolsWebpLandscape from '../../assets/images/wools2_landscape.webp';
 
-import olaImageUrlAvif from '../assets/images/pomagamOli.avif';
-import olaImageUrlJpg from '../assets/images/pomagamOli.jpg';
-import olaImageUrlWebp from '../assets/images/pomagamOli.webp';
+import olaImageUrlAvif from '../../assets/images/pomagamOli.avif';
+import olaImageUrlJpg from '../../assets/images/pomagamOli.jpg';
+import olaImageUrlWebp from '../../assets/images/pomagamOli.webp';
 
-import { Icon } from '../components/Icon';
+import { Icon } from '../../components/Icon';
 
-import { Band } from '../components/Band';
+import { Band } from '../../components/Band';
 // import { FunnyButton } from '../components/FunnyButton';
-import { Link } from '../components/Link';
-import { NiceBox } from '../components/NiceBox';
-import { usePhone } from './usePhone';
+import { Link } from '../../components/Link';
+import { NiceBox } from '../../components/NiceBox';
+import { usePhone } from '../usePhone';
 
 import { Icon as IconifyIcon } from '@iconify/react';
 import { Trans } from 'react-i18next';
-import { Header } from '../App.styled';
-import { BurgerMenu } from '../components/BurgerMenu';
-import { Curtain } from '../components/Curtain';
-import { FramedBox } from '../components/FramedBox';
-import { ImageButton } from '../components/ImageButton';
-import { Picture } from '../components/Picture';
-import { RowLayout } from '../components/RowLayout';
-import { SideBar } from '../components/SideBar';
-import { SubTitle, TextWrapper, Title } from '../components/Title';
-import { BrownScale, Colors } from '../styles/theme';
-import { FirstAidCard } from './FirstAidCard';
-import { LanguageSwitcher } from './LanguageSwitcher';
+import { Header } from '../../App.styled';
+import { BurgerMenu } from '../../components/BurgerMenu';
+import { Curtain } from '../../components/Curtain';
+import { FramedBox } from '../../components/FramedBox';
+import { ImageButton } from '../../components/ImageButton';
+import { Picture } from '../../components/Picture';
+import { RowLayout } from '../../components/RowLayout';
+import { SideBar } from '../../components/SideBar';
+import { SubTitle, TextWrapper, Title } from '../../components/Title';
+import { BrownScale, Colors } from '../../styles/theme';
+import { FirstAidCard } from '../FirstAidCard';
+import { LanguageSwitcher } from '../LanguageSwitcher';
 import {
   ActiveImage,
   AnimatedIconWrapper,
@@ -116,42 +116,42 @@ import {
   Typography,
   VendorsMapDrawer
 } from './MainPage.styled';
-import { VendorsList } from './VendorsList';
-import { WorkshopsCarousel } from './WorkshopsCarousel';
-import { WorkshopsSchedule } from './WorkshopsSchedule';
-import { useRootIntersectionObserver } from './useRootIntersectionObserver';
+import { VendorsList } from '../VendorsList';
+import { WorkshopsCarousel } from '../WorkshopsCarousel';
+import { WorkshopsSchedule } from '../WorkshopsSchedule';
+import { useRootIntersectionObserver } from '../useRootIntersectionObserver';
 
-import bistrobloniaLogoUrlAvif from './../assets/images/minifiedLogos/bistroblonia.avif';
-import bistrobloniaLogoUrl from './../assets/images/minifiedLogos/bistroblonia.jpg';
-import bistrobloniaLogoUrlWebp from './../assets/images/minifiedLogos/bistroblonia.webp';
+import bistrobloniaLogoUrlAvif from '../../assets/images/minifiedLogos/bistroblonia.avif';
+import bistrobloniaLogoUrl from '../../assets/images/minifiedLogos/bistroblonia.jpg';
+import bistrobloniaLogoUrlWebp from '../../assets/images/minifiedLogos/bistroblonia.webp';
 
-import grandeAppetitoLogoUrlAvif from './../assets/images/minifiedLogos/GrandeAppetito.avif';
-import grandeAppetitoLogoUrl from './../assets/images/minifiedLogos/GrandeAppetito.jpg';
-import grandeAppetitoLogoUrlWebp from './../assets/images/minifiedLogos/GrandeAppetito.webp';
+import grandeAppetitoLogoUrlAvif from '../../assets/images/minifiedLogos/GrandeAppetito.avif';
+import grandeAppetitoLogoUrl from '../../assets/images/minifiedLogos/GrandeAppetito.jpg';
+import grandeAppetitoLogoUrlWebp from '../../assets/images/minifiedLogos/GrandeAppetito.webp';
 
-import grandeAppetitoUrlAvif from './../assets/images/minifiedLogos/grande_photo.avif';
-import grandeAppetitoUrl from './../assets/images/minifiedLogos/grande_photo.jpg';
-import grandeAppetitoUrlWebp from './../assets/images/minifiedLogos/grande_photo.webp';
+import grandeAppetitoUrlAvif from '../../assets/images/minifiedLogos/grande_photo.avif';
+import grandeAppetitoUrl from '../../assets/images/minifiedLogos/grande_photo.jpg';
+import grandeAppetitoUrlWebp from '../../assets/images/minifiedLogos/grande_photo.webp';
 
-import halaLogoUrlAvif from './../assets/images/minifiedLogos/halalogo.avif';
-import halaLogoUrl from './../assets/images/minifiedLogos/halalogo.jpg';
-import halaLogoUrlWebp from './../assets/images/minifiedLogos/halalogo.webp';
-import instagramImageUrl from './../assets/iconify/instagram.svg';
+import halaLogoUrlAvif from '../../assets/images/minifiedLogos/halalogo.avif';
+import halaLogoUrl from '../../assets/images/minifiedLogos/halalogo.jpg';
+import halaLogoUrlWebp from '../../assets/images/minifiedLogos/halalogo.webp';
+import instagramImageUrl from '../../assets/iconify/instagram.svg';
 
-import { FlexColumnLayout } from '../components/FlexColumnLayout';
+import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 
-import sweatersBackgroundUrlAvif from './../assets/backgrounds/sweaters_background.avif';
-import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.jpg';
-import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
+import sweatersBackgroundUrlAvif from '../../assets/backgrounds/sweaters_background.avif';
+import sweatersBackgroundUrl from '../../assets/backgrounds/sweaters_background.jpg';
+import sweatersBackgroundUrlWebp from '../../assets/backgrounds/sweaters_background.webp';
 
-import { Button } from '../components/Button';
-import { Carouselge } from '../components/Carouselge';
-import { CruiseMap } from '../components/CruiseMap';
-import { Hall } from '../components/Hall';
-import { MenuItem } from '../components/MenuItem';
-import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
+import { Button } from '../../components/Button';
+import { Carouselge } from '../../components/Carouselge';
+import { CruiseMap } from '../../components/CruiseMap';
+import { Hall } from '../../components/Hall';
+import { MenuItem } from '../../components/MenuItem';
+import firstAidIcon from '../../assets/backgrounds/firstAid3.svg';
 
-import { useFirstClick } from '../hooks/useFirstClick';
+import { useFirstClick } from '../../hooks/useFirstClick';
 
 type ActiveButtonType =
   | 'foodtruckBezogrodek'

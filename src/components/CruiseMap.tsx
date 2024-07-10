@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Text, Typography } from '../pages/MainPage.styled';
+import { Text, Typography } from '../pages/main-page/MainPage.styled';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import { FlexColumnLayout } from './FlexColumnLayout';
 import { FontSize } from '../styles/font-size';

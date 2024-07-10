@@ -20,7 +20,7 @@ import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.j
 import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
 import { StyledPageContent } from './InfoForVendorsPage.styled';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { MainBackground, Menu, MenuBackground } from './MainPage.styled';
+import { MainBackground, Menu, MenuBackground } from './main-page/MainPage.styled';
 import { usePhone } from './usePhone';
 
 const StatuteTitle = styled(Title)`
