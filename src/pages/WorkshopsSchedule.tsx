@@ -168,7 +168,7 @@ export const WorkshopsSchedule = () => {
           </TextContent>
         </PlannerCard>
 
-         <PlannerCard time="12:00 - 13:00">
+        <PlannerCard time="12:00 - 13:00">
           <Picture
             picture={{
               fallbackUrl: pierwszaPomocUrl,
