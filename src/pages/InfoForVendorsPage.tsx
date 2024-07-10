@@ -169,49 +169,47 @@ export const InfoForVendorsPage = () => {
 
       {!isPhone && (
         <Menu>
-          <Menu.Background>
-            <Menu.LinkItem to="/">Yarnmark</Menu.LinkItem>
+          <Menu.LinkItem to="/">Yarnmark</Menu.LinkItem>
 
-            <Menu.DropdownItem
-              subLinks={[
-                {
-                  to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
-                  name: t('menu.entranceTicket'),
-                  target: '_blank'
-                },
-                {
-                  to: 'https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358',
-                  name: t('menu.workshopTickets'),
-                  target: '_blank'
-                },
-                {
-                  to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833',
-                  name: t('menu.cruiseTickets'),
-                  target: '_blank'
-                }
-              ]}>
-              {t('menu.tickets')}
-            </Menu.DropdownItem>
+          <Menu.DropdownItem
+            subLinks={[
+              {
+                to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
+                name: t('menu.entranceTicket'),
+                target: '_blank'
+              },
+              {
+                to: 'https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358',
+                name: t('menu.workshopTickets'),
+                target: '_blank'
+              },
+              {
+                to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833',
+                name: t('menu.cruiseTickets'),
+                target: '_blank'
+              }
+            ]}>
+            {t('menu.tickets')}
+          </Menu.DropdownItem>
 
-            <Menu.DropdownItem
-              subLinks={[
-                {
-                  to: '#stands',
-                  name: t('menu.stands')
-                },
+          <Menu.DropdownItem
+            subLinks={[
+              {
+                to: '#stands',
+                name: t('menu.stands')
+              },
 
-                {
-                  to: '#footer',
-                  name: t('menu.contact')
-                }
-              ]}>
-              {t('menu.infoForVendors')}
-            </Menu.DropdownItem>
+              {
+                to: '#footer',
+                name: t('menu.contact')
+              }
+            ]}>
+            {t('menu.infoForVendors')}
+          </Menu.DropdownItem>
 
-            <Menu.LinkItem to="/statutes">{t('menu.statutes')}</Menu.LinkItem>
+          <Menu.LinkItem to="/statutes">{t('menu.statutes')}</Menu.LinkItem>
 
-            <LanguageSwitcher />
-          </Menu.Background>
+          <LanguageSwitcher />
         </Menu>
       )}
 
