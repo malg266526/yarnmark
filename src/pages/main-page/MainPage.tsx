@@ -30,12 +30,6 @@ import bezogrodekLogoUrlAvif from '../../assets/images/minifiedLogos/logobezogro
 import bezogrodekLogoUrl from '../../assets/images/minifiedLogos/logobezogrodek.jpg';
 import bezogrodekLogoUrlWebp from '../../assets/images/minifiedLogos/logobezogrodek.webp';
 
-import burgerImageUrl from '../../assets/iconify/burger.svg';
-import coffeeImageUrl from '../../assets/iconify/coffee.svg';
-import shrimpImageUrl from '../../assets/iconify/shrimp.svg';
-import turkeyImageUrl from '../../assets/iconify/turkey.svg';
-import cupcakeImageUrl from '../../assets/iconify/cupcake.svg';
-
 import bistroImageSrc from '../../assets/images/bistro_photo.jpg';
 
 import olaImageUrlAvif from '../../assets/images/pomagamOli.avif';
@@ -53,8 +47,6 @@ import { Trans } from 'react-i18next';
 import { Header } from '../../App.styled';
 import { BurgerMenu } from '../../components/BurgerMenu';
 import { Curtain } from '../../components/Curtain';
-import { FramedBox } from '../../components/FramedBox';
-import { ImageButton } from '../../components/ImageButton';
 import { Picture } from '../../components/Picture';
 import { RowLayout } from '../../components/RowLayout';
 import { SideBar } from '../../components/SideBar';
@@ -65,12 +57,7 @@ import { LanguageSwitcher } from '../LanguageSwitcher';
 import {
   ActiveImage,
   BackgroundIcon,
-  ButtonsWrapper,
-  CenteredTitle,
   Drawer,
-  ImageContentLayout,
-  ImageWrapperColumn,
-  LayoutWithActiveButton,
   LinkWrapper,
   Menu,
   MenuBackground,
@@ -115,6 +102,7 @@ import { VendorsSection } from './VendorsSection';
 import { LocationSection } from './LocationSection';
 import { WorkshopsBand } from './workshops/WorkshopsBand';
 import { WorkshopsScheduleBand } from './workshops/WorkshopsScheduleBand';
+import { FoodBand } from './FoodBand';
 
 type ActiveButtonType =
   | 'foodtruckBezogrodek'
@@ -360,15 +348,10 @@ export const MainPage = () => {
   const pageContentRef = useRef<HTMLDivElement | null>(null);
 
   const cruiseTicketsBandRef = useRef<HTMLDivElement | null>(null);
-  const foodBandRef = useRef<HTMLDivElement | null>(null);
 
   const ticketsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
 
-  const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogrodek');
-
   const [isOlaDrawerOpened, setIsOlaDrawerOpened] = useState<boolean>(false);
-
-  const activeButtonToImage = getActiveButtonToImage(t);
 
   const observerCallback = useCallback(() => {}, []);
 
@@ -735,79 +718,7 @@ export const MainPage = () => {
         </Band.Slot>
       </Band>
 
-      <Band
-        direction="column"
-        id="food"
-        ref={foodBandRef}
-        size="md"
-        variant="background"
-        color={BrownScale[200]}
-        padding="xl">
-        <CenteredTitle>Gdzie zjeść?</CenteredTitle>
-
-        <LayoutWithActiveButton>
-          <ButtonsWrapper>
-            <ImageButton
-              active={activeButton === 'foodtruckBezogrodek'}
-              onClick={() => setActiveButton('foodtruckBezogrodek')}
-              icon={<Icon size="xl" src={burgerImageUrl} />}>
-              Food Truck Park Bezogródek
-            </ImageButton>
-
-            <ImageButton
-              active={activeButton === 'bistroblonia'}
-              onClick={() => setActiveButton('bistroblonia')}
-              icon={<Icon size="xl" src={turkeyImageUrl} />}>
-              Bistro Błonia
-            </ImageButton>
-
-            <ImageButton
-              active={activeButton === 'grandeappetito'}
-              onClick={() => setActiveButton('grandeappetito')}
-              icon={<Icon size="xl" src={shrimpImageUrl} />}>
-              Grande Appetito
-            </ImageButton>
-
-            {/*           <ImageButton
-              active={activeButton === 'gospodaNaPiastowskiej'}
-              onClick={() => setActiveButton('gospodaNaPiastowskiej')}
-              icon={<Icon size="xl" src={soupImageUrl} />}>
-              Gospoda na Piastowskiej
-            </ImageButton> */}
-
-            {/*          <ImageButton onClick={() => setActiveButton('precel')} icon={<Icon size="xl" src={pretzelImageUrl} />}>
-              Krakowskie obwarzanki
-            </ImageButton> */}
-
-            <ImageButton
-              active={activeButton === 'knittedCoffee'}
-              icon={<Icon size="xl" src={coffeeImageUrl} />}
-              onClick={() => setActiveButton('knittedCoffee')}>
-              Knitted Coffee
-            </ImageButton>
-
-            <ImageButton
-              active={activeButton === 'coffeehouse'}
-              icon={<Icon size="xl" src={cupcakeImageUrl} />}
-              onClick={() => setActiveButton('coffeehouse')}>
-              Kawiarnia na hali
-            </ImageButton>
-          </ButtonsWrapper>
-
-          <FramedBox padding="md">
-            <ImageContentLayout>
-              <FlexColumnLayout padding={isPhone ? 'none' : 'md'} gap={isPhone ? 'sm' : 'md'}>
-                {activeButtonToImage[activeButton].image}
-                <TextWrapper>{activeButtonToImage[activeButton].secondaryText}</TextWrapper>
-              </FlexColumnLayout>
-
-              <ImageWrapperColumn>
-                <TextWrapper>{activeButtonToImage[activeButton].text}</TextWrapper>
-              </ImageWrapperColumn>
-            </ImageContentLayout>
-          </FramedBox>
-        </LayoutWithActiveButton>
-      </Band>
+      <FoodBand />
     </StyledPageContent>
   );
 };
