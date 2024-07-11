@@ -6,11 +6,15 @@ import { Icon as IconifyIcon } from '@iconify/react';
 import { Button } from '../../components/Button';
 import { Hall } from '../../components/Hall';
 import { VendorsList } from './VendorsList';
-import React, { forwardRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { useFirstClick } from '../../hooks/useFirstClick';
 
-export const VendorsSection = forwardRef<HTMLDivElement>((props, ref) => {
+type VendorsSectionType = {
+  id: string;
+};
+
+export const VendorsSection = ({ id }: VendorsSectionType) => {
   const t = useTypedTranslation();
 
   const [isVendorsMapShown, showVendorsMap] = useState<boolean>(false);
@@ -20,8 +24,7 @@ export const VendorsSection = forwardRef<HTMLDivElement>((props, ref) => {
 
   return (
     <Band
-      id="vendors"
-      ref={ref}
+      id={id}
       size="lg"
       variant="background"
       padding="xl"
@@ -56,6 +59,4 @@ export const VendorsSection = forwardRef<HTMLDivElement>((props, ref) => {
       </Band.Slot>
     </Band>
   );
-});
-
-VendorsSection.displayName = 'VendorsSection';
+};
