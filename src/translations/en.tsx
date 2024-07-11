@@ -28,9 +28,7 @@ export const en: TranslationsShape = {
     buttonsBand: {
       thankYou: 'Thank you for your presence!',
       fillTheSurvey: 'We kindly invite you to share your opinion about Yarnmark in the <0>survey</0>',
-      firstEvent: 'The first such event in Cracow!',
-      otherCities:
-        "Toruń, Warsaw, Gdańsk, Wrocław...finally it's time for wool fair near Wawel Castle. Cracow enters 2024 with a knitting step. Come with us!",
+      anotherEdition: 'The next edition of the Wool Fair in Cracow is ahead of us!',
       linksBelow: 'Below you will find few links that will help you plan your time in our beautiful city.',
       tickets: {
         text: 'Tickets',
@@ -67,7 +65,8 @@ export const en: TranslationsShape = {
       byCar:
         "Near the building there is a small parking lot, that on the day of the event will be free of charge for the fair participants. If the parking won't be enough, there is a public parking close to it (next to Bezogródek Tropical Spot Food) open 24h/7 (paid).",
       howToGetToUs: 'How to get to us?',
-      accessibleByCar: 'Accessible by car'
+      accessibleByCar: 'Accessible by car',
+      googleMaps: 'How to get to the fair with google maps'
     },
     cashmereTicketsBand: {
       title: 'Cashmere tickets',

@@ -19,7 +19,7 @@ import { SideBar } from '../components/SideBar';
 import { ScreenSize } from '../styles/screeen-size';
 import { StyledPageContent } from './InfoForVendorsPage.styled';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { CenteredTitle, MainBackground, Text } from './MainPage.styled';
+import { CenteredTitle, MainBackground, Text } from './main-page/MainPage.styled';
 import { usePhone } from './usePhone';
 import { Menu } from '../components/Menu';
 

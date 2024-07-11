@@ -28,9 +28,7 @@ export const de: TranslationsShape = {
     buttonsBand: {
       thankYou: 'Thank you for your presence!',
       fillTheSurvey: 'We kindly invite you to share your opinion about Yarnmark in the <0>survey</0>',
-      firstEvent: 'Das ist das allererste Event dieser Art in Krakaw!',
-      otherCities:
-        'Torun,Warschav, Danzig, Breslav Endlich ist Zeit für die Wollmesse an der Wavel. Krakau startet im Strickschritt ins Jahr 2024. Komm mit uns!',
+      anotherEdition: 'Przed nami kolejna edycja targów pod Wawelem!',
       linksBelow:
         'Unten findest du einige Links, die dir bei der Planung deiner Zeit in unserer schönen Stadt helfen werden',
       tickets: {
@@ -69,7 +67,8 @@ export const de: TranslationsShape = {
       byCar:
         'Neben dem Gebäude befindet sich ein kleiner Parkplatz, der am Veranstaltungstag für Besucher unserer Messe kostenfrei zur Verfügung steht. Sollte sich herausstellen, dass dieser Parkplatz nicht ausreicht, gibt es einen öffentlichen Parkplatz in der Nähe (bei Bezogródek Tropical Spot Food), der 24 Stunden am Tag geöffnet ist (kostenpflichtig).',
       howToGetToUs: 'Wie kommen Sie zu uns?',
-      accessibleByCar: 'Mit dem Auto'
+      accessibleByCar: 'Mit dem Auto',
+      googleMaps: 'How to get to the fair with google maps'
     },
     cashmereTicketsBand: {
       title: 'Cashmere tickets',

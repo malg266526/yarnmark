@@ -1,49 +1,49 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import styled from 'styled-components';
-import { FlexColumnLayout } from '../components/FlexColumnLayout';
-import { Picture } from '../components/Picture';
-import { Spacings } from '../styles/spacings';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
-import { Text } from './MainPage.styled';
+import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
+import { Picture } from '../../../components/Picture';
+import { Spacings } from '../../../styles/spacings';
+import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { Text } from '../MainPage.styled';
 
-import haftowaBabaUrlAvif from './../assets/images/workshops/haftowa.avif';
-import haftowaBabaUrl from './../assets/images/workshops/haftowa.jpg';
-import haftowaBabaUrlWebp from './../assets/images/workshops/haftowa.webp';
+import haftowaBabaUrlAvif from '../../../assets/images/workshops/haftowa.avif';
+import haftowaBabaUrl from '../../../assets/images/workshops/haftowa.jpg';
+import haftowaBabaUrlWebp from '../../../assets/images/workshops/haftowa.webp';
 
-import woolankaUrlAvif from './../assets/images/workshops/woolanka.avif';
-import woolankaUrl from './../assets/images/workshops/woolanka.jpg';
-import woolankaUrlWebp from './../assets/images/workshops/woolanka.webp';
+import woolankaUrlAvif from '../../../assets/images/workshops/woolanka.avif';
+import woolankaUrl from '../../../assets/images/workshops/woolanka.jpg';
+import woolankaUrlWebp from '../../../assets/images/workshops/woolanka.webp';
 
-import raffiaUrlAvif from './../assets/images/workshops/rafia.avif';
-import raffiaUrl from './../assets/images/workshops/rafia.jpg';
-import raffiaUrlWebp from './../assets/images/workshops/rafia.webp';
+import raffiaUrlAvif from '../../../assets/images/workshops/rafia.avif';
+import raffiaUrl from '../../../assets/images/workshops/rafia.jpg';
+import raffiaUrlWebp from '../../../assets/images/workshops/rafia.webp';
 
-import ludArtUrlAvif from './../assets/images/workshops/ludart.avif';
-import ludArtUrl from './../assets/images/workshops/ludart.jpg';
-import ludArtUrlWebp from './../assets/images/workshops/ludart.webp';
+import ludArtUrlAvif from '../../../assets/images/workshops/ludart.avif';
+import ludArtUrl from '../../../assets/images/workshops/ludart.jpg';
+import ludArtUrlWebp from '../../../assets/images/workshops/ludart.webp';
 
-import knitologUrlAvif from './../assets/images/workshops/knitolog.avif';
-import knitologUrl from './../assets/images/workshops/knitolog.jpg';
-import knitologUrlWebp from './../assets/images/workshops/knitolog.webp';
+import knitologUrlAvif from '../../../assets/images/workshops/knitolog.avif';
+import knitologUrl from '../../../assets/images/workshops/knitolog.jpg';
+import knitologUrlWebp from '../../../assets/images/workshops/knitolog.webp';
 
-import uwolnijPomyslyUrlAvif from './../assets/images/workshops/uwolnijpomysly.avif';
-import uwolnijPomyslyUrl from './../assets/images/workshops/uwolnijpomysly.jpg';
-import uwolnijPomyslyWebp from './../assets/images/workshops/uwolnijpomysly.webp';
+import uwolnijPomyslyUrlAvif from '../../../assets/images/workshops/uwolnijpomysly.avif';
+import uwolnijPomyslyUrl from '../../../assets/images/workshops/uwolnijpomysly.jpg';
+import uwolnijPomyslyWebp from '../../../assets/images/workshops/uwolnijpomysly.webp';
 
-import labolensUrlAvif from './../assets/images/workshops/labolens.avif';
-import labolensUrl from './../assets/images/workshops/labolens.jpg';
-import labolensUrlWebp from './../assets/images/workshops/labolens.webp';
+import labolensUrlAvif from '../../../assets/images/workshops/labolens.avif';
+import labolensUrl from '../../../assets/images/workshops/labolens.jpg';
+import labolensUrlWebp from '../../../assets/images/workshops/labolens.webp';
 
-import ewaUrlAvif from './../assets/images/workshops/ewa.avif';
-import ewaUrl from './../assets/images/workshops/ewa.jpg';
+import ewaUrlAvif from '../../../assets/images/workshops/ewa.avif';
+import ewaUrl from '../../../assets/images/workshops/ewa.jpg';
 
-import knittingSvgUrl from '../assets/images/skein3.svg';
-import { RowLayout } from '../components/RowLayout';
-import { FontSize } from '../styles/font-size';
-import { ScreenSize } from '../styles/screeen-size';
-import { usePhone, useTablet } from './usePhone';
-import { DropShadow, Radius } from '../styles/cards';
+import knittingSvgUrl from '../../../assets/images/skein3.svg';
+import { RowLayout } from '../../../components/RowLayout';
+import { FontSize } from '../../../styles/font-size';
+import { ScreenSize } from '../../../styles/screeen-size';
+import { usePhone, useTablet } from '../../usePhone';
+import { DropShadow, Radius } from '../../../styles/cards';
 
 export const Title = styled.h3`
   font-size: ${FontSize.xl};
