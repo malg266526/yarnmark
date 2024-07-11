@@ -1,5 +1,4 @@
 import styled, { css, keyframes } from 'styled-components';
-import { Icon } from '../../components/Icon';
 import { Spacings } from '../../styles/spacings';
 import { ScreenSize } from '../../styles/screeen-size';
 import { Carouselge } from '../../components/Carouselge';
@@ -138,12 +137,6 @@ export const MobileBasicInfoSection = styled.div<{ backgroundUrl: string; zIndex
   }
 `;
 
-export const MobileLocationButtonWrapper = styled.div`
-  position: absolute;
-  top: 50%;
-  transform: translate(10%, -50%);
-`;
-
 export const MobilePicture = styled.picture`
   position: relative;
   width: 100%;
@@ -247,62 +240,6 @@ export const MenuBackground = styled.div`
   justify-content: flex-end;
   align-items: center;
   background: linear-gradient(90deg, rgba(44, 82, 155, 0) 30px, rgb(255, 255, 255) 50%);
-`;
-
-export const AnimatedIconWrapper = styled.div`
-  padding-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: none;
-  border: 6px solid transparent;
-  transition: all 200ms ease-in-out;
-
-  &:hover {
-    box-shadow:
-      1px 1px 5px 1px #333,
-      inset 1px 1px 5px 1px #333;
-    border-color: white;
-  }
-
-  @keyframes jump {
-    0% {
-      transform: translate(0, 0);
-    }
-
-    5% {
-      transform: translate(0, -100px);
-    }
-
-    10% {
-      transform: translate(0, 0);
-    }
-
-    100% {
-      transform: translate(0, 0);
-    }
-  }
-
-  @keyframes jump2 {
-    0% {
-      transform: translate(0, 0);
-    }
-
-    40% {
-      transform: translate(0, 0);
-    }
-
-    100% {
-      transform: translate(0, -50px);
-    }
-  }
-
-  > ${Icon} {
-    animation: 1s ease-in-out infinite alternate running jump2;
-    cursor: pointer;
-  }
-
-  > ${Icon}:hover {
-    animation-play-state: paused;
-  }
 `;
 
 export const ActiveImage = styled.img`

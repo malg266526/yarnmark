@@ -1,4 +1,4 @@
-import React, { ReactNode, useCallback, useMemo, useRef, useState } from 'react';
+import React, { ReactNode, useCallback, useRef, useState } from 'react';
 import { UnprefixedTranslationKeys, useTypedTranslation } from '../../translations/useTypedTranslation';
 
 import mapJpgSrc from '../../assets/images/map.jpg';
@@ -35,11 +35,6 @@ import coffeeImageUrl from '../../assets/iconify/coffee.svg';
 import shrimpImageUrl from '../../assets/iconify/shrimp.svg';
 import turkeyImageUrl from '../../assets/iconify/turkey.svg';
 import cupcakeImageUrl from '../../assets/iconify/cupcake.svg';
-import pinImageUrl from '../../assets/images/pin.svg';
-
-import halaAvifImageSrc from '../../assets/images/hala.avif';
-import halaJpgImageSrc from '../../assets/images/hala.jpg';
-import halaWebpImageSrc from '../../assets/images/hala.webp';
 
 import bistroImageSrc from '../../assets/images/bistro_photo.jpg';
 
@@ -51,7 +46,6 @@ import { Icon } from '../../components/Icon';
 
 import { Band } from '../../components/Band';
 import { Link } from '../../components/Link';
-import { NiceBox } from '../../components/NiceBox';
 import { usePhone } from '../usePhone';
 
 import { Icon as IconifyIcon } from '@iconify/react';
@@ -64,13 +58,12 @@ import { ImageButton } from '../../components/ImageButton';
 import { Picture } from '../../components/Picture';
 import { RowLayout } from '../../components/RowLayout';
 import { SideBar } from '../../components/SideBar';
-import { SubTitle, TextWrapper, Title } from '../../components/Title';
+import { TextWrapper, Title } from '../../components/Title';
 import { BrownScale, Colors } from '../../styles/theme';
 import { FirstAidCard } from '../FirstAidCard';
 import { LanguageSwitcher } from '../LanguageSwitcher';
 import {
   ActiveImage,
-  AnimatedIconWrapper,
   BackgroundIcon,
   ButtonsWrapper,
   CenteredTitle,
@@ -81,11 +74,8 @@ import {
   LinkWrapper,
   Menu,
   MenuBackground,
-  MobileLocationButtonWrapper,
-  MobilePicture,
   Paragraph,
   PulseButton,
-  SecondaryButton,
   StyledPageContent,
   Text,
   TextH2,
@@ -128,6 +118,7 @@ import { useFirstClick } from '../../hooks/useFirstClick';
 import { FunnyButtonsSection } from './FunnyButtonsSection';
 import { InvitationBand } from './InvitationBand';
 import { VendorsSection } from './VendorsSection';
+import { LocationSection } from './LocationSection';
 
 type ActiveButtonType =
   | 'foodtruckBezogrodek'
@@ -372,8 +363,6 @@ export const MainPage = () => {
 
   const pageContentRef = useRef<HTMLDivElement | null>(null);
 
-  const vendorsBandRef = useRef<HTMLDivElement | null>(null);
-  const spotBandRef = useRef<HTMLDivElement | null>(null);
   const cruiseTicketsBandRef = useRef<HTMLDivElement | null>(null);
   const foodBandRef = useRef<HTMLDivElement | null>(null);
 
@@ -381,7 +370,6 @@ export const MainPage = () => {
 
   const [activeButton, setActiveButton] = useState<ActiveButtonType>('foodtruckBezogrodek');
 
-  const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
   const [isOlaDrawerOpened, setIsOlaDrawerOpened] = useState<boolean>(false);
 
   const activeButtonToImage = getActiveButtonToImage(t);
@@ -398,86 +386,7 @@ export const MainPage = () => {
 
   const { wasClickedBefore: wasSosClicked, handleClick: handleSosClick } = useFirstClick('sosPulse');
 
-  const eventLocationCard = useMemo(
-    () => (
-      <NiceBox width="500px" padding="lg">
-        <TextWrapper align="center">
-          <Title>{t('spotBand.title')}</Title>
-        </TextWrapper>
-        <Text>{t('spotBand.address')}</Text>
-
-        <Text>{t('spotBand.description')}</Text>
-
-        {!isSpotOpened && (
-          <SecondaryButton onClick={() => setIsSpotOpened(true)}>{t('spotBand.howToGetToUs')}</SecondaryButton>
-        )}
-        {isSpotOpened && (
-          <>
-            <TextWrapper align="center" marginTop="md">
-              <SubTitle>{t('spotBand.howToGetToUs')}</SubTitle>
-            </TextWrapper>
-            <Text>{t('spotBand.publicTransport')}</Text>
-            <Text>{t('spotBand.list')}</Text>
-            <Text>
-              <Trans i18nKey="spotBand.option1" />
-            </Text>
-            <Text>
-              <Trans i18nKey="spotBand.option2" />
-            </Text>
-            <Text>
-              <Trans i18nKey="spotBand.option3" />
-            </Text>
-            <Text>
-              <Trans i18nKey="spotBand.option4" />
-            </Text>
-
-            <TextWrapper align="center" marginTop="md">
-              <SubTitle>{t('spotBand.accessibleByCar')}</SubTitle>
-            </TextWrapper>
-            <Text>{t('spotBand.byCar')}</Text>
-
-            <p>
-              fot: <a href="https://halacracovii.pl/">https://halacracovii.pl/</a>{' '}
-            </p>
-          </>
-        )}
-      </NiceBox>
-    ),
-    [isSpotOpened, setIsSpotOpened, t]
-  );
-
-  const eventLocationButton = useMemo(
-    () => (
-      <a
-        target="_blank"
-        rel="noreferrer"
-        aria-label="jak dotrzeć na targi z google maps"
-        href="https://www.google.pl/maps/@50.0572998,19.9107716,3a,75y,214.48h,88.44t/data=!3m6!1e1!3m4!1sVVYRGhxvt5uE6gsr_G7cwA!2e0!7i16384!8i8192?entry=ttu">
-        <AnimatedIconWrapper>
-          <Icon size="200px" src={pinImageUrl} dropShadow />
-        </AnimatedIconWrapper>
-      </a>
-    ),
-    []
-  );
-
   const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const mobileEventLocationBand = useMemo(
-    () => (
-      <>
-        <MobilePicture>
-          <source srcSet={halaAvifImageSrc} type="image/avif" />
-          <source srcSet={halaWebpImageSrc} type="image/webp" />
-          <img loading="lazy" src={halaJpgImageSrc} alt="hala 100-lecia" />
-          <MobileLocationButtonWrapper>{eventLocationButton}</MobileLocationButtonWrapper>
-        </MobilePicture>
-
-        {eventLocationCard}
-      </>
-    ),
-    [eventLocationCard, eventLocationButton]
-  );
 
   return (
     <StyledPageContent ref={pageContentRef} variant="wide" padding="none">
@@ -638,29 +547,9 @@ export const MainPage = () => {
 
       <FunnyButtonsSection />
 
-      {isPhone ? (
-        mobileEventLocationBand
-      ) : (
-        <Band
-          justify="space-around"
-          ref={spotBandRef}
-          size="xl"
-          padding="sm"
-          variant="background-image"
-          background={
-            <Band.Picture>
-              <source srcSet={halaAvifImageSrc} type="image/avif" />
-              <source srcSet={halaWebpImageSrc} type="image/webp" />
-              <img src={halaJpgImageSrc} alt="hala cracovii" />
-            </Band.Picture>
-          }>
-          <Band.Slot>{eventLocationButton}</Band.Slot>
+      <LocationSection id="location" />
 
-          <Band.Slot>{eventLocationCard}</Band.Slot>
-        </Band>
-      )}
-
-      <VendorsSection ref={vendorsBandRef} />
+      <VendorsSection id="vendors" />
 
       <Band
         id="workshops"
