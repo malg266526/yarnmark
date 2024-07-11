@@ -308,7 +308,11 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
   }
 });
 
-export const FoodBand = () => {
+type FoodBandType = {
+  id: string;
+};
+
+export const FoodBand = ({ id }: FoodBandType) => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
 
@@ -317,7 +321,7 @@ export const FoodBand = () => {
   const activeButtonToImage = getActiveButtonToImage(t);
 
   return (
-    <Band direction="column" id="food" size="md" variant="background" color={BrownScale[200]} padding="xl">
+    <Band direction="column" id={id} size="md" variant="background" color={BrownScale[200]} padding="xl">
       <CenteredTitle>Gdzie zjeść?</CenteredTitle>
 
       <LayoutWithActiveButton>
