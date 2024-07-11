@@ -1,13 +1,6 @@
 import { Band } from '../../components/Band';
 import { BrownScale } from '../../styles/theme';
-import {
-  ActiveImage,
-  ButtonsWrapper,
-  CenteredTitle,
-  ImageContentLayout,
-  ImageWrapperColumn,
-  LayoutWithActiveButton
-} from './MainPage.styled';
+import { ButtonsWrapper, CenteredTitle, ImageContentLayout, ImageWrapperColumn } from './MainPage.styled';
 import { ImageButton } from '../../components/ImageButton';
 import { Icon } from '../../components/Icon';
 import burgerImageUrl from '../../assets/iconify/burger.svg';
@@ -47,6 +40,9 @@ import halaLogoUrl from '../../assets/images/minifiedLogos/halalogo.jpg';
 import halaLogoUrlWebp from '../../assets/images/minifiedLogos/halalogo.webp';
 import halaLogoUrlAvif from '../../assets/images/minifiedLogos/halalogo.avif';
 import { UnprefixedTranslationKeys, useTypedTranslation } from '../../translations/useTypedTranslation';
+import styled from 'styled-components';
+import { ScreenSize } from '../../styles/screeen-size';
+import { Spacings } from '../../styles/spacings';
 
 type ActiveButtonType =
   | 'foodtruckBezogrodek'
@@ -64,6 +60,34 @@ type ActiveButtonToImageConfig = Record<
     secondaryText?: ReactNode;
   }
 >;
+
+export const ActiveImage = styled.img`
+  max-height: 300px;
+  max-width: 100%;
+  object-fit: contain;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    width: 100%;
+    max-width: 100%;
+  }
+`;
+
+export const LayoutWithActiveButton = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: ${Spacings.xs};
+  max-width: 100%;
+  gap: ${Spacings.lg};
+  flex-wrap: wrap;
+
+  @media (max-width: ${ScreenSize.tablet}) {
+    margin-top: ${Spacings.md};
+    flex-direction: column;
+    max-width: 100vw;
+  }
+`;
 
 type ActiveButtonToImageFunction = (t: (key: UnprefixedTranslationKeys) => string) => ActiveButtonToImageConfig;
 
