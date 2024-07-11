@@ -125,17 +125,21 @@ const EventLocationCard = () => {
   );
 };
 
-const EventLocationButton = () => (
-  <a
-    target="_blank"
-    rel="noreferrer"
-    aria-label="jak dotrzeć na targi z google maps"
-    href="https://www.google.pl/maps/@50.0572998,19.9107716,3a,75y,214.48h,88.44t/data=!3m6!1e1!3m4!1sVVYRGhxvt5uE6gsr_G7cwA!2e0!7i16384!8i8192?entry=ttu">
-    <AnimatedIconWrapper>
-      <Icon size="200px" src={pinImageUrl} dropShadow />
-    </AnimatedIconWrapper>
-  </a>
-);
+const EventLocationButton = () => {
+  const t = useTypedTranslation();
+
+  return (
+    <a
+      target="_blank"
+      rel="noreferrer"
+      aria-label={t('spotBand.googleMaps')}
+      href="https://www.google.pl/maps/@50.0572998,19.9107716,3a,75y,214.48h,88.44t/data=!3m6!1e1!3m4!1sVVYRGhxvt5uE6gsr_G7cwA!2e0!7i16384!8i8192?entry=ttu">
+      <AnimatedIconWrapper>
+        <Icon size="200px" src={pinImageUrl} dropShadow />
+      </AnimatedIconWrapper>
+    </a>
+  );
+};
 
 type LocationSectionType = {
   id: string;

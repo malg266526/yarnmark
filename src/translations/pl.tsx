@@ -67,7 +67,8 @@ export const pl = {
       byCar:
         'Przy budynku znajduje się niewielki parking, który w dniu wydarzenia będzie bezpłatny dla odwiedzających nasze targi. Jeżeli ten parking okaże się nie wystarczający, to w niewielkiej odległości znajduje parking publiczny (przy Bezogródek Tropical Spot Food) czynny całą dobę (płatny). ',
       howToGetToUs: 'Jak do nas dojechać?',
-      accessibleByCar: 'Dojazd samochodem'
+      accessibleByCar: 'Dojazd samochodem',
+      googleMaps: 'Jak dotrzeć na targi z google maps'
     },
     cashmereTicketsBand: {
       title: 'Bilety kaszmirowe',
