@@ -224,17 +224,6 @@ export const PhotosLayout = styled.div`
   }
 `;
 
-export const ActiveImage = styled.img`
-  max-height: 300px;
-  max-width: 100%;
-  object-fit: contain;
-
-  @media (max-width: ${ScreenSize.phone}) {
-    width: 100%;
-    max-width: 100%;
-  }
-`;
-
 export const ImageContentLayout = styled.div`
   max-width: 700px;
   display: flex;
@@ -272,23 +261,6 @@ export const ButtonsWrapper = styled.div`
 export const TextWrapper = styled.div`
   @media (max-width: ${ScreenSize.phone}) {
     flex-wrap: wrap;
-  }
-`;
-
-export const LayoutWithActiveButton = styled.div`
-  display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: space-evenly;
-  padding: ${Spacings.xs};
-  max-width: 100%;
-  gap: ${Spacings.lg};
-  flex-wrap: wrap;
-
-  @media (max-width: ${ScreenSize.tablet}) {
-    margin-top: ${Spacings.md};
-    flex-direction: column;
-    max-width: 100vw;
   }
 `;
 
