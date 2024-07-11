@@ -3,8 +3,6 @@ import { Spacings } from '../../styles/spacings';
 import { ScreenSize } from '../../styles/screeen-size';
 import { Carouselge } from '../../components/Carouselge';
 import { PageContent } from '../../components/PageContent';
-import { LanguageSwitcher } from '../LanguageSwitcher';
-import { Link } from '../../components/Link';
 import { FontSize } from '../../styles/font-size';
 import { DropShadow, Radius } from '../../styles/cards';
 import { Button } from '../../components/Button';

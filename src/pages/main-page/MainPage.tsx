@@ -42,8 +42,6 @@ import {
   BackgroundIcon,
   Drawer,
   LinkWrapper,
-  Menu,
-  MenuBackground,
   Paragraph,
   PulseButton,
   StyledPageContent,
@@ -58,7 +56,6 @@ import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { Button } from '../../components/Button';
 import { Carouselge } from '../../components/Carouselge';
 import { CruiseMap } from '../../components/CruiseMap';
-import { MenuItem } from '../../components/MenuItem';
 import firstAidIcon from '../../assets/backgrounds/firstAid3.svg';
 
 import { useFirstClick } from '../../hooks/useFirstClick';
@@ -69,6 +66,7 @@ import { LocationSection } from './LocationSection';
 import { WorkshopsBand } from './workshops/WorkshopsBand';
 import { WorkshopsScheduleBand } from './workshops/WorkshopsScheduleBand';
 import { FoodBand } from './FoodBand';
+import { Menu } from '../../components/Menu';
 
 export const MainPage = () => {
   const t = useTypedTranslation();
