@@ -65,7 +65,8 @@ export const en: TranslationsShape = {
       byCar:
         "Near the building there is a small parking lot, that on the day of the event will be free of charge for the fair participants. If the parking won't be enough, there is a public parking close to it (next to Bezogródek Tropical Spot Food) open 24h/7 (paid).",
       howToGetToUs: 'How to get to us?',
-      accessibleByCar: 'Accessible by car'
+      accessibleByCar: 'Accessible by car',
+      googleMaps: 'How to get to the fair with google maps'
     },
     cashmereTicketsBand: {
       title: 'Cashmere tickets',
