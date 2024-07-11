@@ -5,7 +5,6 @@ import { ScreenSize } from '../styles/screeen-size';
 import { Carouselge } from '../components/Carouselge';
 import { PageContent } from '../components/PageContent';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { Link } from '../components/Link';
 import { FontSize } from '../styles/font-size';
 import { DropShadow, Radius } from '../styles/cards';
 import { Picture } from '../components/Picture';
@@ -247,37 +246,6 @@ export const PhotosLayout = styled.div`
   @media (max-width: ${ScreenSize.tablet}) {
     width: initial;
   }
-`;
-
-export const Menu = styled.div`
-  position: absolute;
-  width: 100%;
-  max-width: 100%;
-  top: 100px;
-  left: 0;
-  z-index: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex: 1 1 auto;
-
-  @media (max-width: ${ScreenSize.tablet}) {
-    padding-right: 0;
-  }
-
-  ${Link} {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-`;
-
-export const MenuBackground = styled.div`
-  max-width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  background: linear-gradient(90deg, rgba(44, 82, 155, 0) 30px, rgb(255, 255, 255) 50%);
 `;
 
 export const AnimatedIconWrapper = styled.div`

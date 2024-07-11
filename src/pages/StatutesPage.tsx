@@ -7,7 +7,6 @@ import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import { Band } from '../components/Band';
 import { BurgerMenu } from '../components/BurgerMenu';
 import { Curtain } from '../components/Curtain';
-import { MenuItem } from '../components/MenuItem';
 import { NiceBox } from '../components/NiceBox';
 import { SideBar } from '../components/SideBar';
 import { TextWrapper, Title } from '../components/Title';
@@ -20,8 +19,9 @@ import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.j
 import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
 import { StyledPageContent } from './InfoForVendorsPage.styled';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { MainBackground, Menu, MenuBackground } from './MainPage.styled';
+import { MainBackground } from './MainPage.styled';
 import { usePhone } from './usePhone';
+import { Menu } from '../components/Menu';
 
 const StatuteTitle = styled(Title)`
   font-size: ${FontSize.xl};
@@ -117,36 +117,34 @@ export const StatutesPage = () => {
 
       {!isPhone && (
         <Menu>
-          <MenuBackground>
-            <MenuItem to="/">Yarnmark</MenuItem>
+          <Menu.LinkItem to="/">Yarnmark</Menu.LinkItem>
 
-            <MenuItem
-              subLinks={[
-                {
-                  to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
-                  name: t('menu.entranceTicket'),
-                  target: '_blank'
-                },
-                {
-                  to: 'https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358',
-                  name: t('menu.workshopTickets'),
-                  target: '_blank'
-                },
-                {
-                  to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833',
-                  name: t('menu.cruiseTickets'),
-                  target: '_blank'
-                }
-              ]}>
-              {t('menu.tickets')}
-            </MenuItem>
+          <Menu.DropdownItem
+            subLinks={[
+              {
+                to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
+                name: t('menu.entranceTicket'),
+                target: '_blank'
+              },
+              {
+                to: 'https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358',
+                name: t('menu.workshopTickets'),
+                target: '_blank'
+              },
+              {
+                to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833',
+                name: t('menu.cruiseTickets'),
+                target: '_blank'
+              }
+            ]}>
+            {t('menu.tickets')}
+          </Menu.DropdownItem>
 
-            <MenuItem to="/info-for-vendors">{t('menu.infoForVendors')}</MenuItem>
+          <Menu.LinkItem to="/info-for-vendors">{t('menu.infoForVendors')}</Menu.LinkItem>
 
-            <MenuItem to="/statutes">{t('menu.statutes')}</MenuItem>
+          <Menu.LinkItem to="/statutes">{t('menu.statutes')}</Menu.LinkItem>
 
-            <LanguageSwitcher />
-          </MenuBackground>
+          <LanguageSwitcher />
         </Menu>
       )}
 

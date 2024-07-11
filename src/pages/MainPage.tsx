@@ -100,8 +100,6 @@ import {
   LayoutWithActiveButton,
   LinkWrapper,
   MainBackground,
-  Menu,
-  MenuBackground,
   MobileBasicInfoSection,
   MobileInfoSectionWrapper,
   MobileLocationButtonWrapper,
@@ -148,10 +146,10 @@ import { Button } from '../components/Button';
 import { Carouselge } from '../components/Carouselge';
 import { CruiseMap } from '../components/CruiseMap';
 import { Hall } from '../components/Hall';
-import { MenuItem } from '../components/MenuItem';
 import firstAidIcon from './../assets/backgrounds/firstAid3.svg';
 
 import { useFirstClick } from '../hooks/useFirstClick';
+import { Menu } from '../components/Menu';
 
 type ActiveButtonType =
   | 'foodtruckBezogrodek'
@@ -704,64 +702,62 @@ export const MainPage = () => {
 
       {!isPhone && (
         <Menu>
-          <MenuBackground>
-            <MenuItem
-              subLinks={[
-                {
-                  to: '#vendors',
-                  name: t('menu.vendors')
-                },
-                {
-                  to: '#workshops',
-                  name: t('menu.workshops')
-                },
-                {
-                  to: '#cruise',
-                  name: t('menu.cruise')
-                },
-                {
-                  to: '#food',
-                  name: t('buttonsBand.foodButton')
-                },
-                {
-                  to: '#footer',
-                  name: t('menu.contact')
-                }
-              ]}>
-              Yarnmark
-            </MenuItem>
+          <Menu.DropdownItem
+            subLinks={[
+              {
+                to: '#vendors',
+                name: t('menu.vendors')
+              },
+              {
+                to: '#workshops',
+                name: t('menu.workshops')
+              },
+              {
+                to: '#cruise',
+                name: t('menu.cruise')
+              },
+              {
+                to: '#food',
+                name: t('buttonsBand.foodButton')
+              },
+              {
+                to: '#footer',
+                name: t('menu.contact')
+              }
+            ]}>
+            Yarnmark
+          </Menu.DropdownItem>
 
-            <MenuItem
-              subLinks={[
-                {
-                  to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
-                  name: t('menu.entranceTicket'),
-                  target: '_blank'
-                },
-                {
-                  to: 'https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358',
-                  name: t('menu.workshopTickets'),
-                  target: '_blank'
-                },
-                {
-                  to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833',
-                  name: t('menu.cruiseTickets'),
-                  target: '_blank'
-                }
-              ]}>
-              {t('menu.tickets')}
-            </MenuItem>
+          <Menu.DropdownItem
+            subLinks={[
+              {
+                to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
+                name: t('menu.entranceTicket'),
+                target: '_blank'
+              },
+              {
+                to: 'https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358',
+                name: t('menu.workshopTickets'),
+                target: '_blank'
+              },
+              {
+                to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833',
+                name: t('menu.cruiseTickets'),
+                target: '_blank'
+              }
+            ]}>
+            {t('menu.tickets')}
+          </Menu.DropdownItem>
 
-            <MenuItem to="/hall" target="_blank">
-              {t('buttonsBand.hallMap')}
-            </MenuItem>
+          <Menu.LinkItem to="/hall" target="_blank">
+            {t('buttonsBand.hallMap')}
+          </Menu.LinkItem>
 
-            <MenuItem to="/info-for-vendors">{t('menu.infoForVendors')}</MenuItem>
+          <Menu.LinkItem to="/info-for-vendors">{t('menu.infoForVendors')}</Menu.LinkItem>
 
-            <MenuItem to="/statutes">{t('menu.statutes')}</MenuItem>
+          <Menu.LinkItem to="/statutes">{t('menu.statutes')}</Menu.LinkItem>
 
-            <LanguageSwitcher />
-          </MenuBackground>
+          <LanguageSwitcher />
         </Menu>
       )}
 
