@@ -19,7 +19,7 @@ import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.j
 import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
 import { StyledPageContent } from './InfoForVendorsPage.styled';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { MainBackground } from './MainPage.styled';
+import { MainBackground } from './main-page/MainPage.styled';
 import { usePhone } from './usePhone';
 import { Menu } from '../components/Menu';
 
