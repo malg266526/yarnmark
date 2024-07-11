@@ -58,8 +58,8 @@ import { ImageButton } from '../../components/ImageButton';
 import { Picture } from '../../components/Picture';
 import { RowLayout } from '../../components/RowLayout';
 import { SideBar } from '../../components/SideBar';
-import { TextWrapper, Title } from '../../components/Title';
-import { BrownScale, Colors } from '../../styles/theme';
+import { TextWrapper } from '../../components/Title';
+import { BrownScale } from '../../styles/theme';
 import { FirstAidCard } from '../FirstAidCard';
 import { LanguageSwitcher } from '../LanguageSwitcher';
 import {
@@ -81,8 +81,6 @@ import {
   TextH2,
   Typography
 } from './MainPage.styled';
-import { WorkshopsCarousel } from '../WorkshopsCarousel';
-import { WorkshopsSchedule } from '../WorkshopsSchedule';
 import { useRootIntersectionObserver } from '../useRootIntersectionObserver';
 
 import bistrobloniaLogoUrlAvif from '../../assets/images/minifiedLogos/bistroblonia.avif';
@@ -104,10 +102,6 @@ import instagramImageUrl from '../../assets/iconify/instagram.svg';
 
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 
-import sweatersBackgroundUrlAvif from '../../assets/backgrounds/sweaters_background.avif';
-import sweatersBackgroundUrl from '../../assets/backgrounds/sweaters_background.jpg';
-import sweatersBackgroundUrlWebp from '../../assets/backgrounds/sweaters_background.webp';
-
 import { Button } from '../../components/Button';
 import { Carouselge } from '../../components/Carouselge';
 import { CruiseMap } from '../../components/CruiseMap';
@@ -119,6 +113,8 @@ import { FunnyButtonsSection } from './FunnyButtonsSection';
 import { InvitationBand } from './InvitationBand';
 import { VendorsSection } from './VendorsSection';
 import { LocationSection } from './LocationSection';
+import { WorkshopsBand } from './workshops/WorkshopsBand';
+import { WorkshopsScheduleBand } from './workshops/WorkshopsScheduleBand';
 
 type ActiveButtonType =
   | 'foodtruckBezogrodek'
@@ -551,24 +547,7 @@ export const MainPage = () => {
 
       <VendorsSection id="vendors" />
 
-      <Band
-        id="workshops"
-        gap="md"
-        size="lg"
-        justify="center"
-        padding="xl"
-        direction="column"
-        variant="background-image"
-        background={
-          <Band.Picture>
-            <source srcSet={sweatersBackgroundUrlAvif} type="image/avif" />
-            <source srcSet={sweatersBackgroundUrlWebp} type="image/webp" />
-            <img src={sweatersBackgroundUrl} alt="wool background" style={{ objectFit: 'cover' }} />
-          </Band.Picture>
-        }>
-        <CenteredTitle>{t('workshopsBand.title')}</CenteredTitle>
-        <WorkshopsCarousel />
-      </Band>
+      <WorkshopsBand id="workshops" />
 
       <Band
         id="firstaid"
@@ -650,21 +629,7 @@ export const MainPage = () => {
         <FirstAidCard />
       </Band>
 
-      <Band
-        id="schedule"
-        size="lg"
-        variant="background"
-        justify="space-between"
-        color={Colors.snow}
-        padding="xl"
-        align="center"
-        direction="column">
-        <TextWrapper align="center" marginBottom="lg">
-          <Title>{t('scheduleBand.title')}</Title>
-        </TextWrapper>
-
-        <WorkshopsSchedule />
-      </Band>
+      <WorkshopsScheduleBand id="schedule" />
 
       <Band
         id="cruise"

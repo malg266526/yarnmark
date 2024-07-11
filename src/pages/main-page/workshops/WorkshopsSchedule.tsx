@@ -1,49 +1,49 @@
 import React, { ReactNode, useState } from 'react';
 import styled from 'styled-components';
-import { Picture } from '../components/Picture';
-import { Tabs } from '../components/Tabs';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
+import { Picture } from '../../../components/Picture';
+import { Tabs } from '../../../components/Tabs';
+import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 
-import pierwszaPomocUrlAvif from './../assets/images/workshops/pierwszapomoc.avif';
-import pierwszaPomocUrl from './../assets/images/workshops/pierwszapomoc.jpg';
-import pierwszaPomocUrlWebp from './../assets/images/workshops/pierwszapomoc.webp';
+import pierwszaPomocUrlAvif from '../../../assets/images/workshops/pierwszapomoc.avif';
+import pierwszaPomocUrl from '../../../assets/images/workshops/pierwszapomoc.jpg';
+import pierwszaPomocUrlWebp from '../../../assets/images/workshops/pierwszapomoc.webp';
 
-import woolankaUrlAvif from './../assets/images/workshops/woolanka.avif';
-import woolankaUrl from './../assets/images/workshops/woolanka.jpg';
-import woolankaUrlWebp from './../assets/images/workshops/woolanka.webp';
+import woolankaUrlAvif from '../../../assets/images/workshops/woolanka.avif';
+import woolankaUrl from '../../../assets/images/workshops/woolanka.jpg';
+import woolankaUrlWebp from '../../../assets/images/workshops/woolanka.webp';
 
-import haftowaBabaUrlAvif from './../assets/images/workshops/haftowa.avif';
-import haftowaBabaUrl from './../assets/images/workshops/haftowa.jpg';
-import haftowaBabaUrlWebp from './../assets/images/workshops/haftowa.webp';
+import haftowaBabaUrlAvif from '../../../assets/images/workshops/haftowa.avif';
+import haftowaBabaUrl from '../../../assets/images/workshops/haftowa.jpg';
+import haftowaBabaUrlWebp from '../../../assets/images/workshops/haftowa.webp';
 
-import knitologUrlAvif from './../assets/images/workshops/knitolog.avif';
-import knitologUrl from './../assets/images/workshops/knitolog.jpg';
-import knitologUrlWebp from './../assets/images/workshops/knitolog.webp';
+import knitologUrlAvif from '../../../assets/images/workshops/knitolog.avif';
+import knitologUrl from '../../../assets/images/workshops/knitolog.jpg';
+import knitologUrlWebp from '../../../assets/images/workshops/knitolog.webp';
 
-import raffiaUrlAvif from './../assets/images/workshops/rafia.avif';
-import raffiaUrl from './../assets/images/workshops/rafia.jpg';
-import raffiaUrlWebp from './../assets/images/workshops/rafia.webp';
+import raffiaUrlAvif from '../../../assets/images/workshops/rafia.avif';
+import raffiaUrl from '../../../assets/images/workshops/rafia.jpg';
+import raffiaUrlWebp from '../../../assets/images/workshops/rafia.webp';
 
-import ludArtUrlAvif from './../assets/images/workshops/ludart.avif';
-import ludArtUrl from './../assets/images/workshops/ludart.jpg';
-import ludArtUrlWebp from './../assets/images/workshops/ludart.webp';
+import ludArtUrlAvif from '../../../assets/images/workshops/ludart.avif';
+import ludArtUrl from '../../../assets/images/workshops/ludart.jpg';
+import ludArtUrlWebp from '../../../assets/images/workshops/ludart.webp';
 
-import uwolnijPomyslyUrlAvif from './../assets/images/workshops/uwolnijpomysly.avif';
-import uwolnijPomyslyUrl from './../assets/images/workshops/uwolnijpomysly.jpg';
-import uwolnijPomyslyWebp from './../assets/images/workshops/uwolnijpomysly.webp';
+import uwolnijPomyslyUrlAvif from '../../../assets/images/workshops/uwolnijpomysly.avif';
+import uwolnijPomyslyUrl from '../../../assets/images/workshops/uwolnijpomysly.jpg';
+import uwolnijPomyslyWebp from '../../../assets/images/workshops/uwolnijpomysly.webp';
 
-import labolensUrlAvif from './../assets/images/workshops/labolens.avif';
-import labolensUrl from './../assets/images/workshops/labolens.jpg';
-import labolensUrlWebp from './../assets/images/workshops/labolens.webp';
+import labolensUrlAvif from '../../../assets/images/workshops/labolens.avif';
+import labolensUrl from '../../../assets/images/workshops/labolens.jpg';
+import labolensUrlWebp from '../../../assets/images/workshops/labolens.webp';
 
 import Carousel from 'react-multi-carousel';
-import { Link } from '../components/Link';
-import { PlannerCard } from '../components/PlannerCard';
-import { FontSize } from '../styles/font-size';
-import { Spacings } from '../styles/spacings';
-import { Colors, TextColors } from '../styles/theme';
-import ewaUrlAvif from './../assets/images/workshops/ewa.avif';
-import ewaUrl from './../assets/images/workshops/ewa.jpg';
+import { Link } from '../../../components/Link';
+import { PlannerCard } from '../../../components/PlannerCard';
+import { FontSize } from '../../../styles/font-size';
+import { Spacings } from '../../../styles/spacings';
+import { Colors, TextColors } from '../../../styles/theme';
+import ewaUrlAvif from '../../../assets/images/workshops/ewa.avif';
+import ewaUrl from '../../../assets/images/workshops/ewa.jpg';
 
 const responsive = {
   superLargeDesktop: {
