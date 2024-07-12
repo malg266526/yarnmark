@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledPageContent } from './InfoForVendorsPage.styled';
+import { StyledPageContent } from './info-for-vendors/InfoForVendorsPage.styled';
 import { MainBackground } from './main-page/MainPage.styled';
 import { Band } from '../components/Band';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';

@@ -9,7 +9,7 @@ import olaImageUrlAvif from '../../../assets/images/pomagamOli.avif';
 import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
 import { RowLayout } from '../../../components/RowLayout';
 import firstAidIcon from '../../../assets/backgrounds/firstAid3.svg';
-import { FirstAidCard } from '../../FirstAidCard';
+import { FirstAidCard } from '../FirstAidCard';
 import { Band } from '../../../components/Band';
 import React, { useState } from 'react';
 import { useFirstClick } from '../../../hooks/useFirstClick';
