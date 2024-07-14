@@ -45,6 +45,7 @@ export const HallWrapper = styled.div`
     align-self: center;
   }
 
+  // TODO
   @media (max-width: ${ScreenSize.phone}) {
     width: 96%;
   }
