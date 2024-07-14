@@ -1,18 +1,18 @@
 import { Icon as IconifyIcon } from '@iconify/react';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Picture } from '../components/Picture';
-import { Title } from '../components/Title';
-import { Button } from '../components/Button';
-import { DropShadow, Radius } from '../styles/cards';
-import { ScreenSize } from '../styles/screeen-size';
-import { Spacings } from '../styles/spacings';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
-import PierwszaPomocUrlAvif from './../assets/images/workshops/pierwszapomoc.avif';
-import PierwszaPomocUrl from './../assets/images/workshops/pierwszapomoc.jpg';
-import PierwszaPomocUrlWebp from './../assets/images/workshops/pierwszapomoc.webp';
-import { Text } from './main-page/MainPage.styled';
-import { useTablet } from './usePhone';
+import { Picture } from '../../components/Picture';
+import { Title } from '../../components/Title';
+import { Button } from '../../components/Button';
+import { DropShadow, Radius } from '../../styles/cards';
+import { ScreenSize } from '../../styles/screeen-size';
+import { Spacings } from '../../styles/spacings';
+import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import PierwszaPomocUrlAvif from '../../assets/images/workshops/pierwszapomoc.avif';
+import PierwszaPomocUrl from '../../assets/images/workshops/pierwszapomoc.jpg';
+import PierwszaPomocUrlWebp from '../../assets/images/workshops/pierwszapomoc.webp';
+import { Text } from './MainPage.styled';
+import { useTablet } from '../usePhone';
 
 const Root = styled.div`
   display: flex;

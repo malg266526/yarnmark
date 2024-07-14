@@ -10,7 +10,7 @@ import { MinimalistLayout } from './components/MinimalistLayout';
 import { RowLayout } from './components/RowLayout';
 
 import { Root, Footer, RightBackgroundImage, TransparentText, VanillaLink } from './App.styled';
-import { InfoForVendorsPage } from './pages/InfoForVendorsPage';
+import { InfoForVendorsPage } from './pages/info-for-vendors/InfoForVendorsPage';
 import { MainPage } from './pages/main-page/MainPage';
 import { useTypedTranslation } from './translations/useTypedTranslation';
 import { Colors } from './styles/theme';
