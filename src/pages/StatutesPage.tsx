@@ -17,7 +17,7 @@ import { useTypedTranslation } from '../translations/useTypedTranslation';
 import sweatersBackgroundUrlAvif from './../assets/backgrounds/sweaters_background.avif';
 import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.jpg';
 import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
-import { StyledPageContent } from './InfoForVendorsPage.styled';
+import { StyledPageContent } from './info-for-vendors/InfoForVendorsPage.styled';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { MainBackground } from './main-page/MainPage.styled';
 import { usePhone } from './usePhone';
