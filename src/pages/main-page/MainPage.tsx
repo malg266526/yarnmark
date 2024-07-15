@@ -3,16 +3,17 @@ import React, { useCallback, useRef } from 'react';
 import { StyledPageContent } from './MainPage.styled';
 import { useRootIntersectionObserver } from '../useRootIntersectionObserver';
 
-import { FunnyButtonsSection } from './FunnyButtonsSection';
+import { FunnyButtonsBand } from './FunnyButtonsBand';
 import { InvitationBand } from './InvitationBand';
-import { VendorsSection } from './VendorsSection';
-import { LocationSection } from './LocationSection';
+import { VendorsBand } from './VendorsBand';
+import { LocationBand } from './LocationBand';
 import { WorkshopsBand } from './workshops/WorkshopsBand';
 import { WorkshopsScheduleBand } from './workshops/WorkshopsScheduleBand';
 import { FoodBand } from './FoodBand';
 import { FirstAidBand } from './workshops/FirstAidBand';
 import { CruiseBand } from './CruiseBand';
 import { MainPageMenu } from './MainPageMenu';
+import { LastEditionBand } from './LastEditionBand';
 
 export const MainPage = () => {
   const pageContentRef = useRef<HTMLDivElement | null>(null);
@@ -33,11 +34,11 @@ export const MainPage = () => {
 
       <InvitationBand />
 
-      <FunnyButtonsSection />
+      <FunnyButtonsBand />
 
-      <LocationSection id="location" />
+      <LocationBand id="location" />
 
-      <VendorsSection id="vendors" />
+      <VendorsBand id="vendors" />
 
       <WorkshopsBand id="workshops" />
 
@@ -48,6 +49,8 @@ export const MainPage = () => {
       <CruiseBand id="cruise" />
 
       <FoodBand id="food" />
+
+      <LastEditionBand id="lastEdition" />
     </StyledPageContent>
   );
 };

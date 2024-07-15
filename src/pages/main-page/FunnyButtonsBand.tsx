@@ -20,7 +20,7 @@ const InfoSectionWrapper = styled.div`
   z-index: 1;
 `;
 
-export const FunnyButtonsSection = () => {
+export const FunnyButtonsBand = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
 
@@ -111,3 +111,4 @@ export const FunnyButtonsSection = () => {
     </Band>
   );
 };
+

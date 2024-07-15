@@ -50,6 +50,11 @@ export const MainPageMenu = () => {
               icon: <IconifyIcon icon="uil:pizza-slice" width="24" />
             },
             {
+              to: '#lastEdition',
+              name: 'Yarnmark 2024',
+              icon: <IconifyIcon icon="material-symbols:party-mode-rounded" width="24" />
+            },
+            {
               to: '#footer',
               name: t('menu.contact'),
               icon: <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
@@ -124,6 +129,10 @@ export const MainPageMenu = () => {
           {
             to: '#food',
             name: t('buttonsBand.foodButton')
+          },
+          {
+            to: '#lastEdition',
+            name: 'Yarnmark 2024'
           },
           {
             to: '#footer',

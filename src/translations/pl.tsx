@@ -25,9 +25,16 @@ export const pl = {
         'Mamy nadzieję, że będzie to dla Was dzień nie tylko zakupowego szaleństwa i udanych łowów, ale również integracji, wspólnego dziergania na trybunach i dobrej zabawy.',
       seeYou: 'Do zobaczenia!'
     },
+    previousEdition: {
+      thankYou: 'Dziękujemy za Waszą obecność na Yarnmarku 2024!',
+      fillTheSurvey: 'Zapraszamy do podzielenia się Waszą opinią na temat Yarnmarku 2024 w <0>ankiecie</0> ',
+      yarnmarkShop: 'Yarnmarkowe souveniry:',
+      yarnmarkGallery: 'Yarnmarkowa galeria:',
+      yarnmarkBag: 'Plecako-torba',
+      photosBy: 'Fotki od',
+      savedStories: 'w relacji wyróżnionej'
+    },
     buttonsBand: {
-      thankYou: 'Dziękujemy za Waszą obecność!',
-      fillTheSurvey: 'Zapraszamy do podzielenia się Waszą opinią na temat Yarnmarku w <0>ankiecie</0> ',
       anotherEdition: 'Przed nami kolejna edycja targów pod Wawelem!',
       linksBelow:
         'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka! Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
