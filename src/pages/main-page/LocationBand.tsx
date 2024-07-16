@@ -145,7 +145,7 @@ type LocationSectionType = {
   id: string;
 };
 
-export const LocationSection = ({ id }: LocationSectionType) => {
+export const LocationBand = ({ id }: LocationSectionType) => {
   const isPhone = usePhone();
 
   return isPhone ? (

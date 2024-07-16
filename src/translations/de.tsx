@@ -25,9 +25,16 @@ export const de: TranslationsShape = {
         'Wir hoffen, dass dies nicht nur ein Tag voller Shopping-Wahnsinn und erfolgreicher Jagd auf wunderschöne Garne, sondern auch der Integration, des gemeinsamen Strickens und des guten Spaßes wird.',
       seeYou: 'Auf Wiedersehen!'
     },
+    previousEdition: {
+      thankYou: 'Thank you for your presence at Yarnmark 2024!',
+      fillTheSurvey: 'We kindly invite you to share your opinion about Yarnmark 2024 in the <0>survey</0>',
+      yarnmarkShop: 'Yarnmarkowe souveniry:',
+      yarnmarkGallery: 'Yarnmarkowa Galeria',
+      yarnmarkBag: 'Plecako-torba',
+      photosBy: 'Fotki od',
+      savedStories: 'w relacji wyróżnionej'
+    },
     buttonsBand: {
-      thankYou: 'Thank you for your presence!',
-      fillTheSurvey: 'We kindly invite you to share your opinion about Yarnmark in the <0>survey</0>',
       anotherEdition: 'Przed nami kolejna edycja targów pod Wawelem!',
       linksBelow:
         'Unten findest du einige Links, die dir bei der Planung deiner Zeit in unserer schönen Stadt helfen werden',
