@@ -3,47 +3,13 @@ import styled from 'styled-components';
 import { Picture } from '../../../components/Picture';
 import { Tabs } from '../../../components/Tabs';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
-
-import pierwszaPomocUrlAvif from '../../../assets/images/workshops/pierwszapomoc.avif';
-import pierwszaPomocUrl from '../../../assets/images/workshops/pierwszapomoc.jpg';
-import pierwszaPomocUrlWebp from '../../../assets/images/workshops/pierwszapomoc.webp';
-
-import woolankaUrlAvif from '../../../assets/images/workshops/woolanka.avif';
-import woolankaUrl from '../../../assets/images/workshops/woolanka.jpg';
-import woolankaUrlWebp from '../../../assets/images/workshops/woolanka.webp';
-
-import haftowaBabaUrlAvif from '../../../assets/images/workshops/haftowa.avif';
-import haftowaBabaUrl from '../../../assets/images/workshops/haftowa.jpg';
-import haftowaBabaUrlWebp from '../../../assets/images/workshops/haftowa.webp';
-
-import knitologUrlAvif from '../../../assets/images/workshops/knitolog.avif';
-import knitologUrl from '../../../assets/images/workshops/knitolog.jpg';
-import knitologUrlWebp from '../../../assets/images/workshops/knitolog.webp';
-
-import raffiaUrlAvif from '../../../assets/images/workshops/rafia.avif';
-import raffiaUrl from '../../../assets/images/workshops/rafia.jpg';
-import raffiaUrlWebp from '../../../assets/images/workshops/rafia.webp';
-
-import ludArtUrlAvif from '../../../assets/images/workshops/ludart.avif';
-import ludArtUrl from '../../../assets/images/workshops/ludart.jpg';
-import ludArtUrlWebp from '../../../assets/images/workshops/ludart.webp';
-
-import uwolnijPomyslyUrlAvif from '../../../assets/images/workshops/uwolnijpomysly.avif';
-import uwolnijPomyslyUrl from '../../../assets/images/workshops/uwolnijpomysly.jpg';
-import uwolnijPomyslyWebp from '../../../assets/images/workshops/uwolnijpomysly.webp';
-
-import labolensUrlAvif from '../../../assets/images/workshops/labolens.avif';
-import labolensUrl from '../../../assets/images/workshops/labolens.jpg';
-import labolensUrlWebp from '../../../assets/images/workshops/labolens.webp';
-
 import Carousel from 'react-multi-carousel';
 import { Link } from '../../../components/Link';
 import { PlannerCard } from '../../../components/PlannerCard';
 import { FontSize } from '../../../styles/font-size';
 import { Spacings } from '../../../styles/spacings';
 import { Colors, TextColors } from '../../../styles/theme';
-import ewaUrlAvif from '../../../assets/images/workshops/ewa.avif';
-import ewaUrl from '../../../assets/images/workshops/ewa.jpg';
+import { ScheduleConfig } from './scheduleConfig';
 
 const responsive = {
   superLargeDesktop: {
@@ -94,10 +60,6 @@ export const TextH2 = styled.h2`
   text-align: center;
 `;
 
-const SmallTextH2 = styled(TextH2)`
-  font-size: ${FontSize.md};
-`;
-
 const Text = styled.p`
   font-size: ${FontSize.md};
   font-weight: 400;
@@ -122,337 +84,101 @@ export const WorkshopsSchedule = () => {
   const activeRoomToContent: Record<WorkshopRoom, ReactNode> = {
     1: (
       <Carousel responsive={reponsiveWhenMoreItems} keyBoardControl infinite>
-        <PlannerCard time="9:00 - 10:30">
-          <Picture
-            picture={{
-              fallbackUrl: ewaUrl,
-              sources: [
-                {
-                  type: 'image/avif',
-                  url: ewaUrlAvif
-                }
-              ]
-            }}
-            alt="ewa"
-            width={120}
-            height={120}
-            style={{ borderRadius: '100%' }}
-          />
+        {ScheduleConfig.mirrorsRoom.map((scheduleEntry, index) => (
+          <PlannerCard key={`mirrorsRoom_${index}`} time={scheduleEntry.time}>
+            <Picture
+              picture={{
+                fallbackUrl: scheduleEntry.picture.fallback,
+                sources: scheduleEntry.picture.sources
+              }}
+              alt={t(scheduleEntry.topicKey)}
+              width={120}
+              height={120}
+            />
 
-          <TextContent>
-            <TextH2>{t('workshops.ewa.topic')}</TextH2>
-            <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
-          </TextContent>
-        </PlannerCard>
-
-        <PlannerCard time="10:30 - 12:00">
-          <Picture
-            picture={{
-              fallbackUrl: ewaUrl,
-              sources: [
-                {
-                  type: 'image/avif',
-                  url: ewaUrlAvif
-                }
-              ]
-            }}
-            alt="ewa"
-            width={120}
-            height={120}
-            style={{ borderRadius: '100%' }}
-          />
-
-          <TextContent>
-            <TextH2>{t('workshops.ewa.topic')}</TextH2>
-            <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
-          </TextContent>
-        </PlannerCard>
-
-        <PlannerCard time="12:00 - 13:00">
-          <Picture
-            picture={{
-              fallbackUrl: pierwszaPomocUrl,
-              sources: [
-                {
-                  type: 'image/webp',
-                  url: pierwszaPomocUrlWebp
-                },
-                {
-                  type: 'image/avif',
-                  url: pierwszaPomocUrlAvif
-                }
-              ]
-            }}
-            alt="firstAid"
-            width={120}
-            height={120}
-          />
-
-          <TextContent>
-            <TextH2>{t('workshops.firstAid')}</TextH2>
-            <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
-          </TextContent>
-        </PlannerCard>
-
-        <PlannerCard time="13:15 - 14:15">
-          <Picture
-            picture={{
-              fallbackUrl: pierwszaPomocUrl,
-              sources: [
-                {
-                  type: 'image/webp',
-                  url: pierwszaPomocUrlWebp
-                },
-                {
-                  type: 'image/avif',
-                  url: pierwszaPomocUrlAvif
-                }
-              ]
-            }}
-            alt="firstAid"
-            width={120}
-            height={120}
-          />
-
-          <TextContent>
-            <TextH2>{t('workshops.firstAid')}</TextH2>
-            <Text>{t('workshops.price')}: 10zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/p/Warsztaty-Pierwsza-pomoc-/2834" target="_blank">
-              {t('workshops.buyTicket')}
-            </WorkshopLink>
-          </TextContent>
-        </PlannerCard>
-
-        <PlannerCard time="14:30 - 15:30">
-          <Picture
-            picture={{
-              fallbackUrl: pierwszaPomocUrl,
-              sources: [
-                {
-                  type: 'image/webp',
-                  url: pierwszaPomocUrlWebp
-                },
-                {
-                  type: 'image/avif',
-                  url: pierwszaPomocUrlAvif
-                }
-              ]
-            }}
-            alt="firstAid"
-            width={120}
-            height={120}
-          />
-
-          <TextContent>
-            <TextH2>{t('workshops.firstAid')}</TextH2>
-            <Text>{t('workshops.price')}: 10zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/p/Warsztaty-Pierwsza-pomoc-/2834" target="_blank">
-              {t('workshops.buyTicket')}
-            </WorkshopLink>
-          </TextContent>
-        </PlannerCard>
-
-        <PlannerCard time="15:40 - 18:40">
-          <Picture
-            picture={{
-              fallbackUrl: ludArtUrl,
-              sources: [
-                {
-                  type: 'image/webp',
-                  url: ludArtUrlWebp
-                },
-                {
-                  type: 'image/avif',
-                  url: ludArtUrlAvif
-                }
-              ]
-            }}
-            alt="ludart"
-            width={132}
-            height={120}
-          />
-
-          <TextContent>
-            <TextH2>{t('workshops.colorfulEmbroidery')}</TextH2>
-            <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
-          </TextContent>
-        </PlannerCard>
+            <TextContent>
+              <TextH2>{t(scheduleEntry.topicKey)}</TextH2>
+              {scheduleEntry.isSoldOut ? (
+                <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
+              ) : (
+                <>
+                  <Text>
+                    {t('workshops.price')}: {scheduleEntry.price}zł
+                  </Text>
+                  <WorkshopLink to={scheduleEntry.ticketUrl} target="_blank">
+                    {t('workshops.buyTicket')}
+                  </WorkshopLink>
+                </>
+              )}
+            </TextContent>
+          </PlannerCard>
+        ))}
       </Carousel>
     ),
     2: (
       <Carousel responsive={responsive} keyBoardControl rewindWithAnimation infinite>
-        <PlannerCard time="9:00 - 12:00">
-          <Picture
-            picture={{
-              fallbackUrl: knitologUrl,
-              sources: [
-                {
-                  type: 'image/webp',
-                  url: knitologUrlWebp
-                },
-                {
-                  type: 'image/avif',
-                  url: knitologUrlAvif
-                }
-              ]
-            }}
-            alt="knitolog"
-            width={120}
-            height={120}
-          />
+        {ScheduleConfig.fencingRoom.map((scheduleEntry, index) => (
+          <PlannerCard key={`fencingRoom_${index}`} time={scheduleEntry.time}>
+            <Picture
+              picture={{
+                fallbackUrl: scheduleEntry.picture.fallback,
+                sources: scheduleEntry.picture.sources
+              }}
+              alt={t(scheduleEntry.topicKey)}
+              width={120}
+              height={120}
+            />
 
-          <TextContent>
-            <TextH2>{t('workshops.knitolog.topic')}</TextH2>
-            <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
-          </TextContent>
-        </PlannerCard>
-
-        <PlannerCard time="12:10 - 15:10">
-          <Picture
-            picture={{
-              fallbackUrl: uwolnijPomyslyUrl,
-              sources: [
-                {
-                  type: 'image/webp',
-                  url: uwolnijPomyslyWebp
-                },
-                {
-                  type: 'image/avif',
-                  url: uwolnijPomyslyUrlAvif
-                }
-              ]
-            }}
-            alt="uwolnijpomysly"
-            width={120}
-            height={120}
-          />
-
-          <TextContent>
-            <SmallTextH2>{t('workshops.freeYourIdeas.topic')}</SmallTextH2>
-            <Text>{t('workshops.price')}: 150zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/p/Warsztaty-Uwolnij-pomysly-/2840" target="_blank">
-              {t('workshops.buyTicket')}
-            </WorkshopLink>
-          </TextContent>
-        </PlannerCard>
-
-        <PlannerCard time="15:20 - 18:20">
-          <Picture
-            picture={{
-              fallbackUrl: labolensUrl,
-              sources: [
-                {
-                  type: 'image/webp',
-                  url: labolensUrlWebp
-                },
-                {
-                  type: 'image/avif',
-                  url: labolensUrlAvif
-                }
-              ]
-            }}
-            alt="labolens"
-            width={120}
-            height={120}
-          />
-
-          <TextContent>
-            <SmallTextH2>{t('workshops.labolens.title')}</SmallTextH2>
-            <Text>{t('workshops.price')}: 130zł</Text>
-            <WorkshopLink
-              to="https://wloczykijki.pl/pl_PL/p/Warsztaty-Uchwyc-piekno-rekodziela-w-obiektywie-warsztaty-z-fotografii-produktowej/2838?preview=true"
-              target="_blank">
-              {t('workshops.buyTicket')}
-            </WorkshopLink>
-          </TextContent>
-        </PlannerCard>
+            <TextContent>
+              <TextH2>{t(scheduleEntry.topicKey)}</TextH2>
+              {scheduleEntry.isSoldOut ? (
+                <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
+              ) : (
+                <>
+                  <Text>
+                    {t('workshops.price')}: {scheduleEntry.price}zł
+                  </Text>
+                  <WorkshopLink to={scheduleEntry.ticketUrl} target="_blank">
+                    {t('workshops.buyTicket')}
+                  </WorkshopLink>
+                </>
+              )}
+            </TextContent>
+          </PlannerCard>
+        ))}
       </Carousel>
     ),
     3: (
       <Carousel responsive={responsive} keyBoardControl rewindWithAnimation infinite>
-        <PlannerCard time="9:15 - 12:15">
-          <Picture
-            picture={{
-              fallbackUrl: woolankaUrl,
-              sources: [
-                {
-                  type: 'image/webp',
-                  url: woolankaUrlWebp
-                },
-                {
-                  type: 'image/avif',
-                  url: woolankaUrlAvif
-                }
-              ]
-            }}
-            alt="woolanka"
-            width={120}
-            height={120}
-          />
+        {ScheduleConfig.conferenceRoom.map((scheduleEntry, index) => (
+          <PlannerCard key={`conferenceRoom_${index}`} time={scheduleEntry.time}>
+            <Picture
+              picture={{
+                fallbackUrl: scheduleEntry.picture.fallback,
+                sources: scheduleEntry.picture.sources
+              }}
+              alt={t(scheduleEntry.topicKey)}
+              width={120}
+              height={120}
+            />
 
-          <TextContent>
-            <TextH2>{t('workshops.decorativeKnitting')}</TextH2>
-            <Text>{t('workshops.price')}: 100zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/p/Warsztaty-Dzianiny-ozdobne/2842" target="_blank">
-              {t('workshops.buyTicket')}
-            </WorkshopLink>
-          </TextContent>
-        </PlannerCard>
-
-        <PlannerCard time="12:25 - 15:25">
-          <Picture
-            picture={{
-              fallbackUrl: haftowaBabaUrl,
-              sources: [
-                {
-                  type: 'image/webp',
-                  url: haftowaBabaUrlWebp
-                },
-                {
-                  type: 'image/avif',
-                  url: haftowaBabaUrlAvif
-                }
-              ]
-            }}
-            alt="haftowababa_logo"
-            width={120}
-            height={120}
-          />
-
-          <TextContent>
-            <TextH2>{t('workshops.woolEmbroidery')}</TextH2>
-            <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
-          </TextContent>
-        </PlannerCard>
-
-        <PlannerCard time="15:35 - 18:45">
-          <Picture
-            picture={{
-              fallbackUrl: raffiaUrl,
-              sources: [
-                {
-                  type: 'image/webp',
-                  url: raffiaUrlWebp
-                },
-                {
-                  type: 'image/avif',
-                  url: raffiaUrlAvif
-                }
-              ]
-            }}
-            alt="woolanka"
-            width={120}
-            height={115}
-          />
-
-          <TextContent>
-            <TextH2>{t('workshops.raffia')}</TextH2>
-            <Text>{t('workshops.price')}: 150zł</Text>
-            <WorkshopLink to="https://wloczykijki.pl/pl/p/Warsztaty-Szydelkowanie-z-rafii-/2841" target="_blank">
-              {t('workshops.buyTicket')}
-            </WorkshopLink>
-          </TextContent>
-        </PlannerCard>
+            <TextContent>
+              <TextH2>{t(scheduleEntry.topicKey)}</TextH2>
+              {scheduleEntry.isSoldOut ? (
+                <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
+              ) : (
+                <>
+                  <Text>
+                    {t('workshops.price')}: {scheduleEntry.price}zł
+                  </Text>
+                  <WorkshopLink to={scheduleEntry.ticketUrl} target="_blank">
+                    {t('workshops.buyTicket')}
+                  </WorkshopLink>
+                </>
+              )}
+            </TextContent>
+          </PlannerCard>
+        ))}
       </Carousel>
     )
   };
