@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyledPageContent } from './info-for-vendors/InfoForVendorsPage.styled';
-import { MainBackground } from './main-page/MainPage.styled';
 import { Band } from '../components/Band';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
@@ -17,6 +16,7 @@ import styled from 'styled-components';
 import { ScreenSize } from '../styles/screeen-size';
 import { Spacings } from '../styles/spacings';
 import { usePhone, useTablet } from '../hooks/usePhone';
+import { FullSizePicture } from '../components/FullSizePicture';
 
 const MapWithLegend = styled.div`
   display: flex;
@@ -47,10 +47,10 @@ export const HallMapPage = () => {
   return (
     <StyledPageContent variant="wide" padding="none">
       <Band size="sm" justify="center" narrowContent="auto" padding="md">
-        <MainBackground>
+        <FullSizePicture>
           <source srcSet={woolsAvifLandscape} type="image/avif" />
           <img src={woolsWebpLandscape} alt="wool" />
-        </MainBackground>
+        </FullSizePicture>
 
         <Band.Slot flex="auto-grow" alignItems="center">
           <MapWithLegend>
