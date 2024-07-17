@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-export const FullSizePicture = styled.picture<{ clipped?: boolean }>`
+export const FullSizePicture = styled.picture`
   position: absolute;
   left: 0;
   top: 0;
@@ -19,10 +19,4 @@ export const FullSizePicture = styled.picture<{ clipped?: boolean }>`
     object-fit: cover;
     object-position: top;
   }
-
-  ${({ clipped }) =>
-    clipped &&
-    css`
-      clip-path: polygon(0 0, 70% 0, 40% 100%, 0 100%);
-    `};
 `;
