@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { HallLightColors, HallStandType } from '../assets/hallMapConfig';
-import { usePhone } from '../pages/usePhone';
+import { usePhone } from '../hooks/usePhone';
 import { FontSize } from '../styles/font-size';
 import { Spacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';

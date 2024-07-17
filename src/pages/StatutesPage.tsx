@@ -19,9 +19,9 @@ import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.j
 import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
 import { StyledPageContent } from './info-for-vendors/InfoForVendorsPage.styled';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { MainBackground } from './main-page/MainPage.styled';
-import { usePhone } from './usePhone';
+import { usePhone } from '../hooks/usePhone';
 import { Menu } from '../components/Menu';
+import { FullSizePicture } from '../components/FullSizePicture';
 
 const StatuteTitle = styled(Title)`
   font-size: ${FontSize.xl};
@@ -149,10 +149,10 @@ export const StatutesPage = () => {
       )}
 
       <Band size="sm" justify="flex-start" narrowContent="auto" padding="md">
-        <MainBackground>
+        <FullSizePicture>
           <source srcSet={woolsAvifLandscape} type="image/avif" />
           <img src={woolsWebpLandscape} alt="wool" />
-        </MainBackground>
+        </FullSizePicture>
 
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">

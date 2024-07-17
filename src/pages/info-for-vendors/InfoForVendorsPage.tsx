@@ -9,9 +9,10 @@ import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Trans } from 'react-i18next';
 import { Hall } from '../../components/Hall';
 import { HallWrapper, PlainInfo, StyledPageContent, TitleWrapper } from './InfoForVendorsPage.styled';
-import { CenteredTitle, MainBackground, Text } from '../main-page/MainPage.styled';
-import { usePhone } from '../usePhone';
+import { CenteredTitle, Text } from '../main-page/MainPage.styled';
+import { usePhone } from '../../hooks/usePhone';
 import { Menu } from './Menu';
+import { FullSizePicture } from '../../components/FullSizePicture';
 
 export const InfoForVendorsPage = () => {
   const t = useTypedTranslation();
@@ -24,10 +25,10 @@ export const InfoForVendorsPage = () => {
       <Menu />
 
       <Band size="lg" justify="flex-start" narrowContent="fixed" padding="md">
-        <MainBackground>
+        <FullSizePicture>
           <source srcSet={woolsAvifLandscape} type="image/avif" />
           <img src={woolsWebpLandscape} alt="wool" />
-        </MainBackground>
+        </FullSizePicture>
 
         <Band.Slot>
           <NiceBox overflowSize="10px" width="500px" padding="lg">

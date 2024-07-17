@@ -154,42 +154,6 @@ export const MobilePicture = styled.picture`
   }
 `;
 
-export const MainBackground = styled.picture<{ clipped?: boolean }>`
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
-  max-height: 100%;
-  object-fit: cover;
-  object-position: top;
-
-  > img {
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    object-position: top;
-  }
-
-  ${({ clipped }) =>
-    clipped &&
-    css`
-      clip-path: polygon(0 0, 70% 0, 40% 100%, 0 100%);
-    `};
-
-  > img {
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    object-position: top;
-  }
-`;
-
 export const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -208,18 +172,6 @@ export const BackgroundImage = styled.img<{ src: string }>`
   max-height: 100%;
   opacity: 0.2;
   padding: ${Spacings.xl};
-`;
-
-export const PhotosLayout = styled.div`
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-
-  gap: ${Spacings.md};
-
-  @media (max-width: ${ScreenSize.tablet}) {
-    width: initial;
-  }
 `;
 
 export const ImageContentLayout = styled.div`
@@ -307,22 +259,6 @@ export const ImageWrapperColumn = styled(TextWrapper)`
 
   @media (max-width: ${ScreenSize.phone}) {
     max-width: 100%;
-  }
-`;
-
-export const VendorsMapDrawer = styled(Drawer)<{ isOpen: boolean }>`
-  left: unset;
-  top: 0;
-  right: -${Spacings.xl};
-  transition: all 0.4s ease-in-out;
-  transform: ${({ isOpen }) => (isOpen ? `translateX(0)` : `translateX(100%)`)};
-
-  @media (max-width: ${ScreenSize.tablet}) {
-    right: -${Spacings.md};
-  }
-
-  @media (max-width: ${ScreenSize.phone}) {
-    right: -${Spacings.sm};
   }
 `;
 

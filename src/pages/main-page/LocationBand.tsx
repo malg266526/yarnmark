@@ -4,7 +4,7 @@ import halaWebpImageSrc from '../../assets/images/hala.webp';
 import halaJpgImageSrc from '../../assets/images/hala.jpg';
 import React, { useState } from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { usePhone } from '../usePhone';
+import { usePhone } from '../../hooks/usePhone';
 import { MobilePicture, SecondaryButton, Text } from './MainPage.styled';
 import { NiceBox } from '../../components/NiceBox';
 import { SubTitle, TextWrapper, Title } from '../../components/Title';

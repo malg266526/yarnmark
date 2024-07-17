@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { PictureType } from './Picture';
-import { usePhone } from '../pages/usePhone';
+import { usePhone } from '../hooks/usePhone';
 
 export const Image = styled.img`
   object-fit: contain;

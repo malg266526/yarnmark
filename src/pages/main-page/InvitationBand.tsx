@@ -1,5 +1,5 @@
 import { Band } from '../../components/Band';
-import { MainBackground, Text, TextH2 } from './MainPage.styled';
+import { Text, TextH2 } from './MainPage.styled';
 import woolsAvifLandscape from '../../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../../assets/images/wools2_landscape.webp';
 import woolsJpgLandscape from '../../assets/images/wools2_landscape.jpg';
@@ -12,17 +12,18 @@ import yarnmarkLogoSrcWebp from '../../assets/images/yarnmark_logo.webp';
 import yarnmarkLogoSrcAvif from '../../assets/images/yarnmark_logo.avif';
 import React from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { FullSizePicture } from '../../components/FullSizePicture';
 
 export const InvitationBand = () => {
   const t = useTypedTranslation();
 
   return (
     <Band size="xl" padding="xl" justify="flex-start">
-      <MainBackground>
+      <FullSizePicture>
         <source srcSet={woolsAvifLandscape} type="image/avif" />
         <source srcSet={woolsWebpLandscape} type="image/webp" />
         <img src={woolsJpgLandscape} alt="wool" />
-      </MainBackground>
+      </FullSizePicture>
 
       <Band.Slot>
         <NiceBox overflowSize="10px" width="500px" padding="lg" marginTop="lg">
