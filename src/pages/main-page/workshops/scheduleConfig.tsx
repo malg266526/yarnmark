@@ -27,14 +27,9 @@ import { UnprefixedTranslationKeys } from '../../../translations/useTypedTransla
 import raffiaUrlWebp from '../../../assets/images/workshops/rafia.webp';
 
 type EntryPricing =
-  | {
-      price: number;
-      ticketUrl: string;
-    }
+  | { price: number; ticketUrl: string; isSoldOut?: false }
   | {
       isSoldOut: true;
-      price?: number;
-      ticketUrl?: string;
     };
 
 export type ScheduleEntry = {

@@ -84,28 +84,28 @@ export const WorkshopsSchedule = () => {
   const activeRoomToContent: Record<WorkshopRoom, ReactNode> = {
     1: (
       <Carousel responsive={reponsiveWhenMoreItems} keyBoardControl infinite>
-        {ScheduleConfig.mirrorsRoom.map(({ topicKey, picture, time, isSoldOut, price, ticketUrl }, index) => (
-          <PlannerCard key={`mirrorsRoom_${index}`} time={time}>
+        {ScheduleConfig.mirrorsRoom.map((scheduleEntry, index) => (
+          <PlannerCard key={`mirrorsRoom_${index}`} time={scheduleEntry.time}>
             <Picture
               picture={{
-                fallbackUrl: picture.fallback,
-                sources: picture.sources
+                fallbackUrl: scheduleEntry.picture.fallback,
+                sources: scheduleEntry.picture.sources
               }}
-              alt={t(topicKey)}
+              alt={t(scheduleEntry.topicKey)}
               width={120}
               height={120}
             />
 
             <TextContent>
-              <TextH2>{t(topicKey)}</TextH2>
-              {isSoldOut ? (
+              <TextH2>{t(scheduleEntry.topicKey)}</TextH2>
+              {scheduleEntry.isSoldOut ? (
                 <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
               ) : (
                 <>
                   <Text>
-                    {t('workshops.price')}: {price}zł
+                    {t('workshops.price')}: {scheduleEntry.price}zł
                   </Text>
-                  <WorkshopLink to={ticketUrl} target="_blank">
+                  <WorkshopLink to={scheduleEntry.ticketUrl} target="_blank">
                     {t('workshops.buyTicket')}
                   </WorkshopLink>
                 </>
@@ -117,28 +117,28 @@ export const WorkshopsSchedule = () => {
     ),
     2: (
       <Carousel responsive={responsive} keyBoardControl rewindWithAnimation infinite>
-        {ScheduleConfig.fencingRoom.map(({ topicKey, picture, time, isSoldOut, price, ticketUrl }, index) => (
-          <PlannerCard key={`fencingRoom_${index}`} time={time}>
+        {ScheduleConfig.fencingRoom.map((scheduleEntry, index) => (
+          <PlannerCard key={`fencingRoom_${index}`} time={scheduleEntry.time}>
             <Picture
               picture={{
-                fallbackUrl: picture.fallback,
-                sources: picture.sources
+                fallbackUrl: scheduleEntry.picture.fallback,
+                sources: scheduleEntry.picture.sources
               }}
-              alt={t(topicKey)}
+              alt={t(scheduleEntry.topicKey)}
               width={120}
               height={120}
             />
 
             <TextContent>
-              <TextH2>{t(topicKey)}</TextH2>
-              {isSoldOut ? (
+              <TextH2>{t(scheduleEntry.topicKey)}</TextH2>
+              {scheduleEntry.isSoldOut ? (
                 <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
               ) : (
                 <>
                   <Text>
-                    {t('workshops.price')}: {price}zł
+                    {t('workshops.price')}: {scheduleEntry.price}zł
                   </Text>
-                  <WorkshopLink to={ticketUrl} target="_blank">
+                  <WorkshopLink to={scheduleEntry.ticketUrl} target="_blank">
                     {t('workshops.buyTicket')}
                   </WorkshopLink>
                 </>
@@ -150,28 +150,28 @@ export const WorkshopsSchedule = () => {
     ),
     3: (
       <Carousel responsive={responsive} keyBoardControl rewindWithAnimation infinite>
-        {ScheduleConfig.conferenceRoom.map(({ topicKey, picture, time, isSoldOut, price, ticketUrl }, index) => (
-          <PlannerCard key={`conferenceRoom_${index}`} time={time}>
+        {ScheduleConfig.conferenceRoom.map((scheduleEntry, index) => (
+          <PlannerCard key={`conferenceRoom_${index}`} time={scheduleEntry.time}>
             <Picture
               picture={{
-                fallbackUrl: picture.fallback,
-                sources: picture.sources
+                fallbackUrl: scheduleEntry.picture.fallback,
+                sources: scheduleEntry.picture.sources
               }}
-              alt={t(topicKey)}
+              alt={t(scheduleEntry.topicKey)}
               width={120}
               height={120}
             />
 
             <TextContent>
-              <TextH2>{t(topicKey)}</TextH2>
-              {isSoldOut ? (
+              <TextH2>{t(scheduleEntry.topicKey)}</TextH2>
+              {scheduleEntry.isSoldOut ? (
                 <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
               ) : (
                 <>
                   <Text>
-                    {t('workshops.price')}: {price}zł
+                    {t('workshops.price')}: {scheduleEntry.price}zł
                   </Text>
-                  <WorkshopLink to={ticketUrl} target="_blank">
+                  <WorkshopLink to={scheduleEntry.ticketUrl} target="_blank">
                     {t('workshops.buyTicket')}
                   </WorkshopLink>
                 </>
