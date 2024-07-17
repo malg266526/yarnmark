@@ -1,5 +1,5 @@
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { usePhone } from '../usePhone';
+import { usePhone } from '../../hooks/usePhone';
 import React, { useState } from 'react';
 import { Curtain } from '../../components/Curtain';
 import { Header } from '../../App.styled';

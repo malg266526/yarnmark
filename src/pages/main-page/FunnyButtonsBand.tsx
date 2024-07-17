@@ -4,7 +4,7 @@ import { Band } from '../../components/Band';
 import { Colors } from '../../styles/theme';
 import React, { useMemo, useRef } from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { usePhone } from '../usePhone';
+import { usePhone } from '../../hooks/usePhone';
 import { FunnyButton } from '../../components/FunnyButton';
 import { Icon } from '../../components/Icon';
 import ticketImageUrl from '../../assets/iconify/ticket.svg';

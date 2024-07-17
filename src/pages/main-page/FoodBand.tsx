@@ -12,7 +12,7 @@ import { FramedBox } from '../../components/FramedBox';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { TextWrapper } from '../../components/Title';
 import React, { ReactNode, useState } from 'react';
-import { usePhone } from '../usePhone';
+import { usePhone } from '../../hooks/usePhone';
 import { Picture } from '../../components/Picture';
 import bezogrodekLogoUrl from '../../assets/images/minifiedLogos/logobezogrodek.jpg';
 import bezogrodekLogoUrlWebp from '../../assets/images/minifiedLogos/logobezogrodek.webp';

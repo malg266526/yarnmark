@@ -42,7 +42,7 @@ import knittingSvgUrl from '../../../assets/images/skein3.svg';
 import { RowLayout } from '../../../components/RowLayout';
 import { FontSize } from '../../../styles/font-size';
 import { ScreenSize } from '../../../styles/screeen-size';
-import { usePhone, useTablet } from '../../usePhone';
+import { usePhone, useTablet } from '../../../hooks/usePhone';
 import { DropShadow, Radius } from '../../../styles/cards';
 
 export const Title = styled.h3`

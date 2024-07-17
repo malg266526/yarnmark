@@ -16,7 +16,7 @@ import legendImageUrlWebp from '../assets/images/legenda.webp';
 import styled from 'styled-components';
 import { ScreenSize } from '../styles/screeen-size';
 import { Spacings } from '../styles/spacings';
-import { usePhone, useTablet } from './usePhone';
+import { usePhone, useTablet } from '../hooks/usePhone';
 
 const MapWithLegend = styled.div`
   display: flex;

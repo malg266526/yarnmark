@@ -1,7 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 
 import { StyledPageContent } from './MainPage.styled';
-import { useRootIntersectionObserver } from '../useRootIntersectionObserver';
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 
 import { FunnyButtonsBand } from './FunnyButtonsBand';
 import { InvitationBand } from './InvitationBand';
@@ -22,8 +22,8 @@ export const MainPage = () => {
 
   const observerCallback = useCallback(() => {}, []);
 
-  useRootIntersectionObserver({
-    rootRef: pageContentRef,
+  useIntersectionObserver({
+    containerRef: pageContentRef,
     elementToObserveRef: ticketsFunnyButtonRef,
     callback: observerCallback
   });

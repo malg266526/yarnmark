@@ -1,4 +1,4 @@
-import { useLocalStorage } from '../pages/useLocalStorage';
+import { useLocalStorage } from './useLocalStorage';
 
 const parser = (rawValue: string) => rawValue === 'true';
 

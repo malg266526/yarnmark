@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { Spacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
-import { usePhone } from '../pages/usePhone';
+import { usePhone } from '../hooks/usePhone';
 import { FontSize } from '../styles/font-size';
 
 export const Image = styled.img`

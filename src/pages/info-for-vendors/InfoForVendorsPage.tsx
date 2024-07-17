@@ -10,7 +10,7 @@ import { Trans } from 'react-i18next';
 import { Hall } from '../../components/Hall';
 import { HallWrapper, PlainInfo, StyledPageContent, TitleWrapper } from './InfoForVendorsPage.styled';
 import { CenteredTitle, MainBackground, Text } from '../main-page/MainPage.styled';
-import { usePhone } from '../usePhone';
+import { usePhone } from '../../hooks/usePhone';
 import { Menu } from './Menu';
 
 export const InfoForVendorsPage = () => {

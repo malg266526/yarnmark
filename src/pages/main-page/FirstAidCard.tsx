@@ -12,7 +12,7 @@ import PierwszaPomocUrlAvif from '../../assets/images/workshops/pierwszapomoc.av
 import PierwszaPomocUrl from '../../assets/images/workshops/pierwszapomoc.jpg';
 import PierwszaPomocUrlWebp from '../../assets/images/workshops/pierwszapomoc.webp';
 import { Text } from './MainPage.styled';
-import { useTablet } from '../usePhone';
+import { useTablet } from '../../hooks/usePhone';
 
 const Root = styled.div`
   display: flex;

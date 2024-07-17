@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { hallMapConfig, HallStandType } from '../assets/hallMapConfig';
-import { usePhone } from '../pages/usePhone';
+import { usePhone } from '../hooks/usePhone';
 import { HallColors } from '../styles/theme';
 import { HallStand } from './HallStand';
 

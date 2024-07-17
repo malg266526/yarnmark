@@ -1,16 +1,16 @@
 import React, { useCallback, useEffect, useMemo } from 'react';
 
-export interface UseRootIntersectionObserverParams {
-  rootRef: React.MutableRefObject<HTMLElement | null>;
+export interface UseIntersectionObserverParams {
+  containerRef: React.MutableRefObject<HTMLElement | null>;
   elementToObserveRef: React.MutableRefObject<HTMLElement | null>;
   callback: () => void;
 }
 
-export const useRootIntersectionObserver = ({
-  rootRef,
+export const useIntersectionObserver = ({
+  containerRef,
   elementToObserveRef,
   callback
-}: UseRootIntersectionObserverParams) => {
+}: UseIntersectionObserverParams) => {
   const observerCallback = useCallback(
     (entries: IntersectionObserverEntry[]) => {
       if (entries[0].isIntersecting) {
@@ -24,16 +24,16 @@ export const useRootIntersectionObserver = ({
   const observer = useMemo(
     () =>
       new IntersectionObserver(observerCallback, {
-        root: rootRef.current,
+        root: containerRef.current,
         rootMargin: '0px',
         threshold: 1
       }),
-    [rootRef, observerCallback]
+    [containerRef, observerCallback]
   );
 
   useEffect(() => {
-    if (elementToObserveRef.current && rootRef.current) {
+    if (elementToObserveRef.current && containerRef.current) {
       observer.observe(elementToObserveRef.current);
     }
-  }, [elementToObserveRef, observer, rootRef]);
+  }, [elementToObserveRef, observer, containerRef]);
 };
