@@ -28,7 +28,6 @@ import raffiaUrlWebp from '../../../assets/images/workshops/rafia.webp';
 
 type EntryPricing =
   | {
-      isSoldOut?: false;
       price: number;
       ticketUrl: string;
     }
@@ -45,10 +44,6 @@ export type ScheduleEntry = {
     fallback: string;
     sources?: { type: string; url: string }[];
   };
-
-  isSoldOut?: boolean;
-  price?: number;
-  ticketUrl?: string;
 } & EntryPricing;
 
 const MirrorsRoomConfig: ScheduleEntry[] = [
