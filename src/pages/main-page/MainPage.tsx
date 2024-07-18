@@ -10,7 +10,6 @@ import { LocationBand } from './LocationBand';
 import { WorkshopsBand } from './workshops/WorkshopsBand';
 import { WorkshopsScheduleBand } from './workshops/WorkshopsScheduleBand';
 import { FoodBand } from './FoodBand';
-import { FirstAidBand } from './workshops/FirstAidBand';
 import { CruiseBand } from './CruiseBand';
 import { MainPageMenu } from './MainPageMenu';
 import { LastEditionBand } from './LastEditionBand';
@@ -41,8 +40,6 @@ export const MainPage = () => {
       <VendorsBand id="vendors" />
 
       <WorkshopsBand id="workshops" />
-
-      <FirstAidBand id="firstaid" />
 
       <WorkshopsScheduleBand id="schedule" />
 
