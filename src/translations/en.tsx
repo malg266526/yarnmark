@@ -199,112 +199,25 @@ export const en: TranslationsShape = {
       taken: 'Reserved'
     },
     workshops: {
-      labolens: {
-        title: 'Capture the beauty of handicraft through the lens - product photography workshops',
-        intro:
-          'In a world where photography becomes not only an art, but also a way of capturing beauty, emotions and history. Working in the heart of Malopolska, I surround myself with an inspiring environment, which becomes the background for many of my photographs. I invite you to my workshops on handmade product photography.',
-        schedule:
-          'Product photography workshops are an excellent opportunity for people interested in photography, especially for product promotion. During these workshops, participants can learn many useful skills, including:',
-        schedule1:
-          'basic principles of photographic composition. They will learn how to properly compose product photos to highlight their most important features and attract the attention of potential recipients',
-        schedule2:
-          'lighting use. They will have the opportunity to learn how to manipulate light to create the right atmosphere and display the product in the best light',
-        schedule3:
-          'use of various equipment. In addition to working with a camera, participants will also be able to experiment with using a mobile phone to take high-quality product photos, which is especially important in the era of social media.'
-      },
       tutor: 'Tutor: ',
       buyTicket: 'Buy a ticket',
-      firstAid: 'First aid',
       freeAdmission: 'Free admission',
-      firstAidDescription:
-        'Our first aid demonstrations are interactive events, during which our experienced instructors share knowledge about basic techniques of providing first aid. The shows are adapted to different age groups and advancement levels, so that each participant can gain practical skills that may prove important in life',
-      decorativeKnitting: 'Decorative knitting',
-      decorativeKnittingDescription:
-        'I will show you how to create openwork knits, decorate with cables and jacquard, if there is enough time, I will also show you how to finish them with i-cord. People who want to take part in the workshops should bring straight or circular needles, between 3 and 4 mm, wool appropriate for a given size in 2 colors, preferably contrasting colors, and an cable needle for braids. When it comes to wool, it does not have to be a full skein, we need an amount that will allow us to make a sample of the knitwear we are interested in.',
       price: 'Price',
-      ludartDescription: 'The workshops aim to present the patterns of decorations on Cracow corsets.',
-      ludartDescription2:
-        'During the workshops, participants will have the opportunity to learn the necessary embroidery stitches and embroider on the canvas one of the prepared patterns inspired by the Crakow corsets.',
-      woolEmbroidery: 'Wool embroidery on knitted fabric',
-      haftowaBabaDescription1: 'Do you want to learn how to interestingly decorate hats, scarves, sweaters or gloves?',
-      haftowaBabaDescription2: 'Are you curious about wool embroidery, how to make it and use it in your knits?',
-      haftowaBabaDescription3: 'That workshop is perfect for you!',
-      haftowaBabaDescription4:
-        'We invite you to a wool embroidery lesson. Under my supervision, you will learn several techniques other than the jacquard stitch. I will also show you how to draw a pattern and how to easily create flowers, leaves, inscriptions or simple patterns.',
-      haftowaBabaDescription6:
-        'People who want to take part in the workshops should bring at least two pieces of yarn in different colors and sizes.',
-      colorfulEmbroidery: 'Colorful Cracow embroidery',
-      colorfulEmbroideryInspirations: 'Inspiration from traditional Crakow corsets',
-      colorfulEmbroideryDescription: 'TODO',
-      trainingPlan: 'Schedule',
-      firstAidLessons: {
-        lesson1: 'Hazard recognition and safety',
-        lessonDescription1:
-          'Participants will learn how to recognize potential threats and how to ensure their own safety and the safety of those around them in emergency situations.',
-        lesson2: 'Cardiopulmonary resuscitation (CPR)',
-        lessonDescription2:
-          'Instructors will impart practical skills in performing cardiopulmonary resuscitation using a training manikin.',
-        lesson3: 'Behavior in the event of injuries and accidents',
-        lessonDescription3:
-          'Participants will gain knowledge on how to deal with various types of injuries, including fractures, sprains and burns.',
-        lesson4: 'Using an automatic defibrillator (AED)',
-        lessonDescription4:
-          'Practical training in the use of AEDs, tips on locating devices and their effective use in emergency situations.',
-        lesson5: 'Practical exercises',
-        lessonDescription5:
-          'Participants will have the opportunity to practically apply the acquired knowledge during simulations of various emergency situations.'
-      },
-      firstAidQuote: 'Whoever saves one life, saves the world entire.',
-      raffia: 'Crocheting with raffia - first steps',
-      raffiaDescription:
-        'During the workshops, participants will learn about raffia and techniques of working with it. I will share the knowledge I have gained during several years of working with this fiber. I will be happy to answer any questions you may have. Participants will leave the meeting with a mini bag they have knitted, or part of it. 😉 Participants bring the materials needed for work on their own.',
-      raffiaNeededMaterials: 'Materials needed, which can be purchased in the biferno.pl store:',
-      raffiaGptex: 'Rafia GPTEX - 2 skeins',
-      raffiaCrochet: 'Crochet hook no. 3mm,  3.5mm, 4mm',
-      raffiaStrap: 'Leather strap',
-      raffiaBifernoDiscount:
-        'For each participant, a 15% discount in the Biferno store on the above-mentioned products',
-      knitolog: {
-        topic: 'Design your own sweater',
-        subtopic: '(raglan, from the top, in the round)',
-        plan: 'You will learn:',
-        lesson1: 'how to settle raglan',
-        lesson2: 'how to decrease stitches in a round and work with the Magic Loop method',
-        lesson3: 'how to do japanese short rows',
-        lesson4: 'how to increase stitches in raglan, on the right and left side',
-        lesson5: 'how to make a deeper or shallower neckline',
-        lesson6: 'how to separate the body and sleeves',
-        lesson7: 'how to aesthetically cast on stitches under the armpit',
-        pattern:
-          'Each workshop participant will receive a sweater pattern on which we will work. To take part in the workshops, basic knitting skills are enough.',
-        materialsNeeded: 'Materials needed for the workshop:',
-        wool: 'a skein of yarn approx. 200m in 100g (approx. 100m in 50g)',
-        knittingNeedles: '4.00 mm 80cm circular needles (or the one you like to use to knit sweaters in rounds)',
-        markers: 'stitch markers - 9 pcs.',
-        pinMarkers: 'safety pin markers: 10-12 pcs.'
-      },
-      freeYourIdeas: {
-        topic: 'Unleash your ideas! How to collect and read design inspiration',
+      woolanka: {
+        title: 'Decorative knitting',
         description:
-          'Unleash Ideas are workshops where we literally unleash ideas! My name is Marta, I knit and I love sharing knowledge, so during the meeting I will show you methods to battle creative block, I will tell you where to find inspiration, I will help you create a moodboard and I will give you tips on how to translate it all into a design language. For a few hours we will have creative fun, creating inspiration boards from colorful clippings and sketching original projects on templates.',
-        booklet:
-          'Each participant of the workshop will receive brochures with notes, clippings for creating mood boards and templates for sketching projects.',
-        takeFreeMind: 'Remember to bring an open mind ready for a creative stimulation.',
-        seeYou: 'See you in Cracow!',
-        meetMe: 'Jeśli masz ochotę mnie bardziej poznać to zapraszam na mojego instagrama @marta.kania'
+          'I will show you how to create openwork knits, decorate with cables and jacquard, if there is enough time, I will also show you how to finish them with i-cord. People who want to take part in the workshops should bring straight or circular needles, between 3 and 4 mm, wool appropriate for a given size in 2 colors, preferably contrasting colors, and an cable needle for braids. When it comes to wool, it does not have to be a full skein, we need an amount that will allow us to make a sample of the knitwear we are interested in.'
+      },
+      haftowaBaba: {
+        title: 'Wool embroidery on knitted fabric',
+        description:
+          'Do you want to learn how to interestingly decorate hats, scarves, sweaters or gloves? Are you curious about wool embroidery, how to make it and use it in your knits? That workshop is perfect for you! We invite you to a wool embroidery lesson. Under my supervision, you will learn several techniques other than the jacquard stitch. I will also show you how to draw a pattern and how to easily create flowers, leaves, inscriptions or simple patterns. People who want to take part in the workshops should bring at least two pieces of yarn in different colors and sizes.'
       },
       ewa: {
-        topic: 'The Greeners',
-        misteries: 'During workshops for beginners, I will introduce you to the mystical secrets of knitting.',
-        plan: 'You will learn about the different types of materials we usually work with, I will teach you some techniques for casting on stitches, and you will learn the basics - knit and purl stitches. I will introduce you to the methods of adding and decreasing stitches and finishing the knitted fabric. I will show you knitting accessories that make the life of a knitter easier. I will explain how to read patterns in books and on banners. We will knit a piece of knit together.',
-        debugging:
-          'Obviously, I will show you how to save lost stitches or fix simple mistakes. I will try my best to answer your questions.',
-        forBeginners:
-          'A group for beginners who are starting their adventure with knitting, as well as for those who want to gain confidence in their knitting'
+        title: 'The Greeners',
+        description:
+          'During workshops for beginners, I will introduce you to the mystical secrets of knitting. You will learn about the different types of materials we usually work with, I will teach you some techniques for casting on stitches, and you will learn the basics - knit and purl stitches. I will introduce you to the methods of adding and decreasing stitches and finishing the knitted fabric. I will show you knitting accessories that make the life of a knitter easier. I will explain how to read patterns in books and on banners. We will knit a piece of knit together. Obviously, I will show you how to save lost stitches or fix simple mistakes. I will try my best to answer your questions. A group for beginners who are starting their adventure with knitting, as well as for those who want to gain confidence in their knitting'
       }
-    },
-    firstAidBand: {
-      saveTheLife: 'Click and save life right now'
     }
   }
 };

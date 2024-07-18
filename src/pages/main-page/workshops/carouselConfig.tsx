@@ -21,7 +21,7 @@ export type CarouselEntry = {
 
 export const CarouselConfig: CarouselEntry[] = [
   {
-    title: 'workshops.decorativeKnitting',
+    title: 'workshops.woolanka.title',
     tutor: 'WOOLANKA Anna Kaleta',
     instagramUrl: 'https://www.instagram.com/woolanka',
     picture: {
@@ -37,10 +37,10 @@ export const CarouselConfig: CarouselEntry[] = [
         }
       ]
     },
-    description: 'workshops.decorativeKnittingDescription'
+    description: 'workshops.woolanka.description'
   },
   {
-    title: 'workshops.ewa.topic',
+    title: 'workshops.ewa.title',
     tutor: 'Ewa Głazek',
     instagramUrl: 'https://www.instagram.com/evvoola',
     picture: {
@@ -52,10 +52,10 @@ export const CarouselConfig: CarouselEntry[] = [
         }
       ]
     },
-    description: 'workshops.ewa.misteries'
+    description: 'workshops.ewa.description'
   },
   {
-    title: 'workshops.ewa.topic',
+    title: 'workshops.haftowaBaba.title',
     tutor: 'Haftowa Baba',
     instagramUrl: 'https://www.instagram.com/haftowababa/',
     picture: {
@@ -71,6 +71,6 @@ export const CarouselConfig: CarouselEntry[] = [
         }
       ]
     },
-    description: 'workshops.haftowaBabaDescription1'
+    description: 'workshops.haftowaBaba.description'
   }
 ];

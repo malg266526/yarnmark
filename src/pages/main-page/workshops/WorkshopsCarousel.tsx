@@ -108,7 +108,7 @@ export const WorkshopsCarousel = () => {
                 />
 
                 <Carousel.Caption>
-                  <Title>{t('workshops.decorativeKnitting')}</Title>
+                  <Title>{t(workshop.title)}</Title>
                   <RowLayout justify="center" gap="none">
                     <NoTopMarginText>{t('workshops.tutor')} </NoTopMarginText>
                     <a href={workshop.instagramUrl} target="_blank" rel="noreferrer">
