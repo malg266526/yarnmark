@@ -12,7 +12,7 @@ import { WorkshopsScheduleBand } from './workshops/WorkshopsScheduleBand';
 import { FoodBand } from './FoodBand';
 import { FirstAidBand } from './workshops/FirstAidBand';
 import { CruiseBand } from './CruiseBand';
-import { MainPageMenu } from './MainPageMenu';
+import { Menu } from '../menu/Menu';
 import { LastEditionBand } from './LastEditionBand';
 
 export const MainPage = () => {
@@ -30,7 +30,7 @@ export const MainPage = () => {
 
   return (
     <StyledPageContent ref={pageContentRef} variant="wide" padding="none">
-      <MainPageMenu />
+      <Menu />
 
       <InvitationBand />
 

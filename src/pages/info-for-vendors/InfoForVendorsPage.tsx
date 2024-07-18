@@ -11,8 +11,8 @@ import { Hall } from '../../components/Hall';
 import { HallWrapper, PlainInfo, StyledPageContent, TitleWrapper } from './InfoForVendorsPage.styled';
 import { CenteredTitle, Text } from '../main-page/MainPage.styled';
 import { usePhone } from '../../hooks/usePhone';
-import { Menu } from './Menu';
 import { FullSizePicture } from '../../components/FullSizePicture';
+import { Menu } from "../menu/Menu";
 
 export const InfoForVendorsPage = () => {
   const t = useTypedTranslation();
