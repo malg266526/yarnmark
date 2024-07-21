@@ -43,7 +43,7 @@ export type ScheduleEntry = {
 
 const MirrorsRoomConfig: ScheduleEntry[] = [
   {
-    topicKey: 'workshops.ewa.topic',
+    topicKey: 'workshops.ewa.title',
     time: '9:00 - 10:30',
     picture: {
       fallback: ewaUrl,
@@ -57,7 +57,7 @@ const MirrorsRoomConfig: ScheduleEntry[] = [
     isSoldOut: true
   },
   {
-    topicKey: 'workshops.ewa.topic',
+    topicKey: 'workshops.ewa.title',
     time: '10:30 - 12:00',
     picture: {
       fallback: ewaUrl,
@@ -71,7 +71,7 @@ const MirrorsRoomConfig: ScheduleEntry[] = [
     isSoldOut: true
   },
   {
-    topicKey: 'workshops.firstAid',
+    topicKey: 'workshops.ewa.title',
     time: '12:00 - 13:00',
     picture: {
       fallback: pierwszaPomocUrl,
@@ -89,7 +89,7 @@ const MirrorsRoomConfig: ScheduleEntry[] = [
     isSoldOut: true
   },
   {
-    topicKey: 'workshops.firstAid',
+    topicKey: 'workshops.ewa.title',
     time: '13:15 - 14:15',
     picture: {
       fallback: pierwszaPomocUrl,
@@ -108,7 +108,7 @@ const MirrorsRoomConfig: ScheduleEntry[] = [
     ticketUrl: 'https://wloczykijki.pl/pl/p/Warsztaty-Pierwsza-pomoc-/2834'
   },
   {
-    topicKey: 'workshops.firstAid',
+    topicKey: 'workshops.ewa.title',
     time: '14:30 - 15:30',
     picture: {
       fallback: pierwszaPomocUrl,
@@ -127,7 +127,7 @@ const MirrorsRoomConfig: ScheduleEntry[] = [
     ticketUrl: 'https://wloczykijki.pl/pl/p/Warsztaty-Pierwsza-pomoc-/2834'
   },
   {
-    topicKey: 'workshops.colorfulEmbroidery',
+    topicKey: 'workshops.ewa.title',
     time: '15:40 - 18:40',
     picture: {
       fallback: ludArtUrl,
@@ -148,7 +148,7 @@ const MirrorsRoomConfig: ScheduleEntry[] = [
 
 const FencingRoomConfig: ScheduleEntry[] = [
   {
-    topicKey: 'workshops.knitolog.topic',
+    topicKey: 'workshops.ewa.title',
     time: '9:00 - 10:30',
     picture: {
       fallback: knitologUrl,
@@ -166,7 +166,7 @@ const FencingRoomConfig: ScheduleEntry[] = [
     isSoldOut: true
   },
   {
-    topicKey: 'workshops.freeYourIdeas.topic',
+    topicKey: 'workshops.ewa.title',
     time: '12:10 - 15:10',
     picture: {
       fallback: uwolnijPomyslyUrl,
@@ -185,7 +185,7 @@ const FencingRoomConfig: ScheduleEntry[] = [
     ticketUrl: 'https://wloczykijki.pl/pl/p/Warsztaty-Uwolnij-pomysly-/2840'
   },
   {
-    topicKey: 'workshops.labolens.title',
+    topicKey: 'workshops.ewa.title',
     time: '15:20 - 18:20',
     picture: {
       fallback: labolensUrl,
@@ -208,7 +208,7 @@ const FencingRoomConfig: ScheduleEntry[] = [
 
 const ConferenceRoomConfig: ScheduleEntry[] = [
   {
-    topicKey: 'workshops.decorativeKnitting',
+    topicKey: 'workshops.woolanka.title',
     time: '9:15 - 12:15',
     picture: {
       fallback: woolankaUrl,
@@ -227,7 +227,7 @@ const ConferenceRoomConfig: ScheduleEntry[] = [
     ticketUrl: 'https://wloczykijki.pl/pl/p/Warsztaty-Dzianiny-ozdobne/2842'
   },
   {
-    topicKey: 'workshops.decorativeKnitting',
+    topicKey: 'workshops.haftowaBaba.title',
     time: '12:25 - 15:25',
     picture: {
       fallback: haftowaBabaUrl,
@@ -245,7 +245,7 @@ const ConferenceRoomConfig: ScheduleEntry[] = [
     isSoldOut: true
   },
   {
-    topicKey: 'workshops.raffia',
+    topicKey: 'workshops.ewa.title',
     time: '15:35 - 18:45',
     picture: {
       fallback: raffiaUrl,
