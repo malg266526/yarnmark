@@ -1,6 +1,5 @@
 import { Band } from '../../../components/Band';
 import { Colors } from '../../../styles/theme';
-import { TextWrapper, Title } from '../../../components/Title';
 import { WorkshopsSchedule } from './WorkshopsSchedule';
 import React from 'react';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
