@@ -6,7 +6,7 @@ import { Trans } from 'react-i18next';
 import { Link } from '../../components/Link';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
-import { Typography } from "../../components/Typography";
+import { Typography } from '../../components/Typography';
 
 type LastEditionBandType = {
   id: string;

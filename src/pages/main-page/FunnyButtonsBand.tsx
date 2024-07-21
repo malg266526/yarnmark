@@ -14,7 +14,7 @@ import pizzaImageUrl from '../../assets/iconify/pizza.svg';
 import ferryImageUrl from '../../assets/iconify/ferry.svg';
 import mapImageUrl from '../../assets/iconify/worldmap.svg';
 import styled from 'styled-components';
-import { Typography } from "../../components/Typography";
+import { Typography } from '../../components/Typography';
 
 const InfoSectionWrapper = styled.div`
   position: relative;

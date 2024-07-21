@@ -13,10 +13,7 @@ import { StyledPageContent } from './info-for-vendors/InfoForVendorsPage.styled'
 import { FullSizePicture } from '../components/FullSizePicture';
 import { Menu } from './menu/Menu';
 import { Typography } from '../components/Typography';
-
-const CenteredParagraph = styled.div`
-  text-align: center;
-`;
+import { CenteredParagraph } from '../components/CenteredParagraph';
 
 const Card = styled.div`
   display: flex;

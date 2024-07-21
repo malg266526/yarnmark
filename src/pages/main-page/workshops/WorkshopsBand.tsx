@@ -6,6 +6,7 @@ import { WorkshopsCarousel } from './WorkshopsCarousel';
 import React from 'react';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 import { Typography } from '../../../components/Typography';
+import { CenteredParagraph } from '../../../components/CenteredParagraph';
 
 type WorkshopsBandType = {
   id: string;
@@ -30,9 +31,11 @@ export const WorkshopsBand = ({ id }: WorkshopsBandType) => {
           <img src={sweatersBackgroundUrl} alt="wool background" style={{ objectFit: 'cover' }} />
         </Band.Picture>
       }>
-      <Typography size="xxl" weight="bold">
-        {t('workshopsBand.title')}
-      </Typography>
+      <CenteredParagraph>
+        <Typography size="xxl" weight="bold">
+          {t('workshopsBand.title')}
+        </Typography>
+      </CenteredParagraph>
 
       <WorkshopsCarousel />
     </Band>

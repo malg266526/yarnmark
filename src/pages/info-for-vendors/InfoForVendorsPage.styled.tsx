@@ -23,16 +23,6 @@ export const PlainInfo = styled.div`
   }
 `;
 
-export const TitleWrapper = styled.div`
-  width: 30%;
-
-  @media (max-width: ${ScreenSize.tablet}) {
-    width: 90%;
-    margin-bottom: ${Spacings.md};
-    text-align: center;
-  }
-`;
-
 export const HallWrapper = styled.div`
   justify-content: space-between;
   display: flex;
