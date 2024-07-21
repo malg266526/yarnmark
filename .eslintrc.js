@@ -6,7 +6,7 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
   ],
-  plugins: ['@typescript-eslint', 'prettier', 'import', 'react', 'react-hooks', 'jsx-a11y'],
+  plugins: ['@typescript-eslint', 'import', 'react', 'react-hooks', 'jsx-a11y'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
@@ -47,15 +47,6 @@ module.exports = {
     'no-undef': 0,
     'object-curly-spacing': ["error", "always"],
     'no-debugger': 1,
-    'prettier/prettier': ["error", {
-      "trailingComma": "none",
-      "tabWidth": 2,
-      "semi": true,
-      "singleQuote": true,
-      "bracketSpacing": true,
-      "jsxBracketSameLine": true,
-      "printWidth": 120
-    }],
     'react/no-unescaped-entities': 0,
     'react/jsx-tag-spacing': [
       2,

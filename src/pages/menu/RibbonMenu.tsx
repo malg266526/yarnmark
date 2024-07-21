@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { ScreenSize } from '../styles/screeen-size';
-import { Link } from './Link';
+import { ScreenSize } from '../../styles/screeen-size';
+import { Link } from '../../components/Link';
 import React, { ReactNode } from 'react';
 import { HashLinkProps } from 'react-router-hash-link';
-import { Dropdown } from './Dropdown';
+import { Dropdown } from '../../components/Dropdown';
 
 type DropdownMenuItem = {
   children?: ReactNode;
@@ -59,7 +59,7 @@ type MenuProps = {
   children?: ReactNode;
 };
 
-export const Menu = Object.assign(
+export const RibbonMenu = Object.assign(
   ({ children }: MenuProps) => (
     <MenuLayout>
       <Background>{children}</Background>
@@ -70,3 +70,4 @@ export const Menu = Object.assign(
     DropdownItem: MenuDropdownItem
   }
 );
+
