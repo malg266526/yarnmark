@@ -5,7 +5,7 @@ import { Carouselge } from '../../components/Carouselge';
 import waterWebpSrc from '../../assets/images/water.webp';
 import waterJpgSrc from '../../assets/images/water.jpg';
 import { TextWrapper } from '../../components/Title';
-import { LinkWrapper, Text, TextH2, Typography } from './MainPage.styled';
+import { LinkWrapper, Text, TextH2 } from './MainPage.styled';
 import wineAvifSrc from '../../assets/images/wine.avif';
 import wineWebpSrc from '../../assets/images/wine.webp';
 import wineJpgSrc from '../../assets/images/wine.jpg';
@@ -20,6 +20,7 @@ import mapJpgSrc from '../../assets/images/map.jpg';
 import { CruiseMap } from '../../components/CruiseMap';
 import React, { useState } from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { Typography } from "../../components/Typography";
 
 type CruiseBandType = {
   id: string;

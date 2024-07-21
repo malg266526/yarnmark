@@ -4,7 +4,7 @@ declare module '*.jpg' {
 }
 
 declare module '*.jpeg' {
-  const content: any;
+const content: any;
   export default content;
 }
 

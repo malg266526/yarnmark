@@ -118,7 +118,12 @@ const Root = styled.div<RootProps>`
   }
 `;
 
-const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: keyof typeof Spacings }>`
+const Frame = styled.div<{
+  width?: FrameWidth;
+  height?: FrameWidth;
+  padding: keyof typeof Spacings;
+  gap?: keyof typeof Spacings;
+}>`
   ${({ width }) =>
     width &&
     css`
@@ -135,6 +140,8 @@ const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: key
   }
 
   padding: ${({ padding }) => Spacings[padding]};
+  gap: ${({ gap }) => Spacings[gap || 'none']};
+
   background: white;
   position: relative;
   z-index: 1;
@@ -157,28 +164,23 @@ const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: key
   }
 `;
 
-export interface NiceBoxProps extends Partial<RootProps> {
+export interface SlantingFrameBoxProps extends Partial<RootProps> {
   width?: FrameWidth;
   height?: FrameWidth;
   children?: React.ReactNode;
   padding: keyof typeof Spacings;
   marginTop?: keyof typeof Spacings;
+  gap?: keyof typeof Spacings;
 }
 
-export const NiceBox = ({
+export const SlantingFrameBox = ({
   children,
   overflowLength = '30%',
   overflowSize = '3px',
   marginTop,
   ...rest
-}: NiceBoxProps) => (
+}: SlantingFrameBoxProps) => (
   <Root overflowLength={overflowLength} overflowSize={overflowSize} marginTop={marginTop}>
     <Frame {...rest}>{children}</Frame>
   </Root>
 );
-
-export const WrappedNiceBox = (props: NiceBoxProps) => {
-  <div>
-    <NiceBox {...props} />
-  </div>;
-};

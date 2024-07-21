@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { usePhone } from '../../hooks/usePhone';
 import { MobilePicture, SecondaryButton, Text } from './MainPage.styled';
-import { NiceBox } from '../../components/NiceBox';
+import { SlantingFrameBox } from '../../components/SlantingFrameBox';
 import { SubTitle, TextWrapper, Title } from '../../components/Title';
 import { Trans } from 'react-i18next';
 import { Icon } from '../../components/Icon';
@@ -80,7 +80,7 @@ const EventLocationCard = () => {
   const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
 
   return (
-    <NiceBox width="500px" padding="lg">
+    <SlantingFrameBox width="500px" padding="lg">
       <TextWrapper align="center">
         <Title>{t('spotBand.title')}</Title>
       </TextWrapper>
@@ -121,7 +121,7 @@ const EventLocationCard = () => {
           </p>
         </>
       )}
-    </NiceBox>
+    </SlantingFrameBox>
   );
 };
 

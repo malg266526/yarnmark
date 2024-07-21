@@ -165,7 +165,7 @@ export const en: TranslationsShape = {
           'If you wanna join the great group of our vendors write us an email! Email address: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
         start: 'Spot reservations start on Monday 22.01.2024r. at 12:00 AM',
         where: 'Reservation is done by buying the spot in online shop `Włóczykijki`',
-        buyHere: 'Here you will reserve the spot',
+        buyHere: 'Here you wdsadsaill reserve the spot',
         feedback: 'All data related to payment will be part of feedback confirming spot reservation',
         return:
           'In case of reservation and missing the payment - reservation is cancelled and will be available again for vendors'

@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import { Band } from '../components/Band';
-import { NiceBox } from '../components/NiceBox';
-import { TextWrapper, Title } from '../components/Title';
-import { FontSize } from '../styles/font-size';
+import { SlantingFrameBox } from '../components/SlantingFrameBox';
 import { Spacings } from '../styles/spacings';
 import { BrownScale } from '../styles/theme';
 import sweatersBackgroundUrlAvif from './../assets/backgrounds/sweaters_background.avif';
@@ -14,9 +12,9 @@ import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_backgrou
 import { StyledPageContent } from './info-for-vendors/InfoForVendorsPage.styled';
 import { FullSizePicture } from '../components/FullSizePicture';
 import { Menu } from "./menu/Menu";
+import { Typography } from "../components/Typography";
 
-const StatuteTitle = styled(Title)`
-    font-size: ${FontSize.xl};
+const CenteredParagraph = styled.div`
     text-align: center;
 `;
 
@@ -50,11 +48,13 @@ export const StatutesPage = () => {
                 </FullSizePicture>
 
                 <Band.Slot>
-                    <NiceBox overflowSize="10px" width="500px" padding="lg">
-                        <TextWrapper>
-                            <Title>Regulaminy</Title>
-                        </TextWrapper>
-                    </NiceBox>
+                    <SlantingFrameBox overflowSize="10px" width="500px" padding="lg">
+                        <CenteredParagraph>
+                            <Typography size="xxl" weight="bold">
+                                Regulaminy
+                            </Typography>
+                        </CenteredParagraph>
+                    </SlantingFrameBox>
                 </Band.Slot>
             </Band>
 
@@ -66,10 +66,12 @@ export const StatutesPage = () => {
                 variant="background"
                 color={BrownScale[100]}>
                 <Card>
-                    <TextWrapper>
-                        <StatuteTitle>Regulamin Krakoskiego Yarnmarku Wełny</StatuteTitle>
-                    </TextWrapper>
-
+                    <CenteredParagraph>
+                        <Typography size="xl" weight="bold">
+                            Regulamin Krakoskiego Yarnmarku Wełny
+                        </Typography>
+                    </CenteredParagraph>
+                    
                     <StatuteWrapper>
                         <ol>
                             <li>
@@ -227,9 +229,11 @@ export const StatutesPage = () => {
                     </Band.Picture>
                 }>
                 <Card>
-                    <TextWrapper>
-                        <StatuteTitle>Regulamin Warsztatów</StatuteTitle>
-                    </TextWrapper>
+                    <CenteredParagraph>
+                        <Typography size="xl" weight="bold">
+                            Regulamin Warsztatów
+                        </Typography>
+                    </CenteredParagraph>
 
                     <StatuteWrapper>
                         <ol>

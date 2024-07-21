@@ -17,6 +17,7 @@ export const StyledPageContent = styled(PageContent)`
   }
 `;
 
+
 export const Text = styled.p<{
   marginBottom?: keyof typeof Spacings;
   marginTop?: keyof typeof Spacings;
@@ -84,30 +85,6 @@ export const ButtonsLayout = styled.div`
   @media (max-width: ${ScreenSize.phone}) {
     gap: ${Spacings.md};
   }
-`;
-
-type FontVariant = 'regular' | 'bold' | 'light';
-const fontVariantToWeight: Record<FontVariant, number> = {
-  bold: 600,
-  light: 200,
-  regular: 500
-};
-
-export const Typography = styled.div<{
-  size: keyof typeof FontSize;
-  weight: FontVariant;
-  paddingBottom?: keyof typeof Spacings;
-}>`
-  ${({ size, weight }) => css`
-    font-size: ${FontSize[size]};
-    font-weight: ${fontVariantToWeight[weight]};
-  `};
-
-  ${({ paddingBottom }) =>
-    paddingBottom &&
-    css`
-      padding-bottom: ${Spacings[paddingBottom]};
-    `};
 `;
 
 export const MobileBasicInfoSection = styled.div<{ backgroundUrl: string; zIndex?: number }>`

@@ -10,7 +10,8 @@ export const PlainInfo = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${Colors.white};
-  padding: 0 ${Spacings.md} ${Spacings.md} ${Spacings.md};
+  padding: ${Spacings.md};
+  gap: ${Spacings.sm};
   max-width: 50%;
   width: 50%;
   min-height: 100px;
