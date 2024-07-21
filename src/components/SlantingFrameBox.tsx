@@ -51,7 +51,13 @@ const animationCss = css`
   animation-delay: 3s;
 `;
 
-const Root = styled.div<RootProps>`
+const Root = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const AnimationFrame = styled.div<RootProps>`
   position: relative;
   z-index: 1;
   ${boxShadow};
@@ -118,7 +124,7 @@ const Root = styled.div<RootProps>`
   }
 `;
 
-const Frame = styled.div<{
+const PaperCard = styled.div<{
   width?: FrameWidth;
   height?: FrameWidth;
   padding: keyof typeof Spacings;
@@ -180,7 +186,9 @@ export const SlantingFrameBox = ({
   marginTop,
   ...rest
 }: SlantingFrameBoxProps) => (
-  <Root overflowLength={overflowLength} overflowSize={overflowSize} marginTop={marginTop}>
-    <Frame {...rest}>{children}</Frame>
+  <Root>
+    <AnimationFrame overflowLength={overflowLength} overflowSize={overflowSize} marginTop={marginTop}>
+      <PaperCard {...rest}>{children}</PaperCard>
+    </AnimationFrame>
   </Root>
 );
