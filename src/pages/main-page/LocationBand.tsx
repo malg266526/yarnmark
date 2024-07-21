@@ -5,7 +5,7 @@ import halaJpgImageSrc from '../../assets/images/hala.jpg';
 import React, { useState } from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { usePhone } from '../../hooks/usePhone';
-import { MobilePicture, SecondaryButton, Text } from './MainPage.styled';
+import { MobilePicture, SecondaryButton } from './MainPage.styled';
 import { SlantingFrameBox } from '../../components/SlantingFrameBox';
 import { Trans } from 'react-i18next';
 import { Icon } from '../../components/Icon';

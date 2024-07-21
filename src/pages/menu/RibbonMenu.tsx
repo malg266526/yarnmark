@@ -70,4 +70,3 @@ export const RibbonMenu = Object.assign(
     DropdownItem: MenuDropdownItem
   }
 );
-

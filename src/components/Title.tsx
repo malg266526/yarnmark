@@ -31,8 +31,3 @@ export const Title = styled.h1`
   font-weight: 600;
   margin: 0;
 `;
-
-export const SubTitle = styled.h2`
-  font-size: ${FontSize.lg};
-  font-weight: 600;
-`;

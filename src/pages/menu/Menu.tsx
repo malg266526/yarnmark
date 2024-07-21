@@ -3,16 +3,14 @@ import { usePhone } from '../../hooks/usePhone';
 import React from 'react';
 import { LanguageSwitcher } from '../LanguageSwitcher';
 import { RibbonMenu } from './RibbonMenu';
-import { SideBarMenu } from "./SideBarMenu";
+import { SideBarMenu } from './SideBarMenu';
 
 export const Menu = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
 
   if (isPhone) {
-      return (
-          <SideBarMenu />
-      )
+    return <SideBarMenu />;
   }
 
   return (
@@ -72,17 +70,20 @@ export const Menu = () => {
         {t('buttonsBand.hallMap')}
       </RibbonMenu.LinkItem>
 
-      <RibbonMenu.DropdownItem subLinks={[
+      <RibbonMenu.DropdownItem
+        subLinks={[
           {
-              to: '/info-for-vendors#stands',
-              name: t('menu.stands')
+            to: '/info-for-vendors#stands',
+            name: t('menu.stands')
           },
 
           {
-              to: '/info-for-vendors#footer',
-              name: t('menu.contact')
+            to: '/info-for-vendors#footer',
+            name: t('menu.contact')
           }
-      ]}>{t('menu.infoForVendors')}</RibbonMenu.DropdownItem>
+        ]}>
+        {t('menu.infoForVendors')}
+      </RibbonMenu.DropdownItem>
 
       <RibbonMenu.LinkItem to="/statutes">{t('menu.statutes')}</RibbonMenu.LinkItem>
 
