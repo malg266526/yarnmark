@@ -16,10 +16,14 @@ import styled from 'styled-components';
 import { Typography } from '../../components/Typography';
 import { BandTitle } from '../../components/bands/BandTitle';
 import { SolidBackgroundBand } from '../../components/bands/SolidBackgroundBand';
+import { Spacings } from '../../styles/spacings';
 
 const InfoSectionWrapper = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
   z-index: 1;
+  gap: ${Spacings.md};
 `;
 
 export const FunnyButtonsBand = () => {
