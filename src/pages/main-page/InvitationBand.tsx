@@ -12,21 +12,7 @@ import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Typography } from '../../components/Typography';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { BackgroundImageBand } from '../../components/bands/BackgroundImageBand';
-
-const woolSkeinsPicture = {
-  fallbackUrl: woolsJpgLandscape,
-  sources: [
-    {
-      type: 'image/webp',
-      url: woolsWebpLandscape
-    },
-    {
-      type: 'image/avif',
-      url: woolsAvifLandscape
-    }
-  ],
-  alt: 'wool'
-};
+import { FullSizePicture } from '../../components/FullSizePicture';
 
 const yarnmarkLogoPicture = {
   fallbackUrl: yarnmarkLogoSrc,
@@ -42,11 +28,20 @@ const yarnmarkLogoPicture = {
   ]
 };
 
+const WoolPicture = (
+  <FullSizePicture>
+    <source srcSet={woolsAvifLandscape} type="image/avif" />
+    <source srcSet={woolsWebpLandscape} type="image/avif" />
+
+    <img loading="lazy" src={woolsJpgLandscape} alt="wool skeins" />
+  </FullSizePicture>
+);
+
 export const InvitationBand = () => {
   const t = useTypedTranslation();
 
   return (
-    <BackgroundImageBand picture={woolSkeinsPicture} size="xl" padding="xl">
+    <BackgroundImageBand picture={WoolPicture} size="xl" padding="xl">
       <SlantedCornersBox overflowSize="10px" width="500px" padding="lg" gap="sm">
         <Typography size="xxl" weight="bold">
           Krakoski Yarnmark Wełny

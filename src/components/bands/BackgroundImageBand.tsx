@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components';
 import React, { ReactNode } from 'react';
-import { PictureType } from '../Picture';
-import { FullSizePicture } from '../FullSizePicture';
 import { Spacings } from '../../styles/spacings';
 import { ScreenSize } from '../../styles/screeen-size';
 
@@ -60,9 +58,7 @@ type Align = 'center' | 'flex-start' | 'flex-end';
 interface BackgroundBand {
   id?: string;
   children?: ReactNode;
-  picture: PictureType & {
-    alt: string;
-  };
+  picture: ReactNode;
   // TODO: check if needed - maybe should be unified?
   padding?: keyof typeof Spacings;
   size?: BandSize;
@@ -73,10 +69,7 @@ interface BackgroundBand {
 export const BackgroundImageBand = ({ id, children, picture, ...styles }: BackgroundBand) => {
   return (
     <BandRootLayout id={id} {...styles}>
-      <FullSizePicture>
-        {picture.sources?.map(({ type, url }, index) => <source key={index} srcSet={url} type={type} />)}
-        <img src={picture.fallbackUrl} alt={picture.alt} />
-      </FullSizePicture>
+      {picture}
 
       {children}
     </BandRootLayout>

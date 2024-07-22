@@ -13,6 +13,7 @@ import pinImageUrl from '../../assets/images/pin.svg';
 import styled from 'styled-components';
 import { Typography } from '../../components/Typography';
 import { BackgroundImageBand } from '../../components/bands/BackgroundImageBand';
+import { FullSizePicture } from '../../components/FullSizePicture';
 
 const MobileLocationButtonWrapper = styled.div`
   position: absolute;
@@ -147,20 +148,14 @@ type LocationSectionType = {
   id: string;
 };
 
-const cracoviaHallPicture = {
-  fallbackUrl: halaJpgImageSrc,
-  sources: [
-    {
-      type: 'image/webp',
-      url: halaWebpImageSrc
-    },
-    {
-      type: 'image/avif',
-      url: halaAvifImageSrc
-    }
-  ],
-  alt: 'hala cracovii'
-};
+const CracoviaHallPicture = (
+  <FullSizePicture>
+    <source srcSet={halaAvifImageSrc} type="image/avif" />
+    <source srcSet={halaWebpImageSrc} type="image/avif" />
+
+    <img loading="lazy" src={halaJpgImageSrc} alt="hala 100-lecia" />
+  </FullSizePicture>
+);
 
 export const LocationBand = ({ id }: LocationSectionType) => {
   const isPhone = usePhone();
@@ -185,7 +180,7 @@ export const LocationBand = ({ id }: LocationSectionType) => {
       size="xl"
       padding="xl"
       align="center"
-      picture={cracoviaHallPicture}>
+      picture={CracoviaHallPicture}>
       <EventLocationButton />
 
       <EventLocationCard />
