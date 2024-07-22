@@ -142,10 +142,6 @@ const PaperCard = styled.div<{
       height: ${height};
     `};
 
-  @media (max-width: ${ScreenSize.phone}) {
-    width: 100%;
-  }
-
   padding: ${({ padding }) => Spacings[padding]};
   gap: ${({ gap }) => Spacings[gap || 'none']};
 
@@ -159,6 +155,11 @@ const PaperCard = styled.div<{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    width: 100%;
+    border-radius: 0;
+  }
 
   &:before {
     content: '';
