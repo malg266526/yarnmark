@@ -1,10 +1,11 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { Spacings } from '../styles/spacings';
-import { Colors } from '../styles/theme';
+import { BrownScale, Colors } from '../styles/theme';
 import knittingSvgUrl from '../assets/images/skein3.svg';
 
 import { ScreenSize } from '../styles/screeen-size';
+import { DropShadow, Radius } from '../styles/cards';
 
 type FrameWidth = `${number}${'px' | '%'}`;
 
@@ -148,10 +149,11 @@ const PaperCard = styled.div<{
   padding: ${({ padding }) => Spacings[padding]};
   gap: ${({ gap }) => Spacings[gap || 'none']};
 
-  background: white;
+  background: ${BrownScale[50]};
   position: relative;
   z-index: 1;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: ${DropShadow.card};
+  border-radius: ${Radius.md};
 
   display: flex;
   flex-direction: column;
