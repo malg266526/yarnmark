@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import woolsAvifLandscape from '../../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../../assets/images/wools2_landscape.webp';
 import { Band } from '../../components/Band';
-import { SlantingFrameBox } from '../../components/SlantingFrameBox';
+import { SlantedCornersBox } from '../../components/SlantedCornersBox';
 import { BrownScale, Colors } from '../../styles/theme';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Trans } from 'react-i18next';
@@ -31,7 +31,7 @@ export const InfoForVendorsPage = () => {
         </FullSizePicture>
 
         <Band.Slot>
-          <SlantingFrameBox overflowSize="10px" width="500px" padding="lg">
+          <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
             <FlexColumnLayout align="flex-start" padding="none" gap="sm">
               <Typography size="xxl" weight="bold">
                 {t('infoForVendorsPage.title')}
@@ -40,7 +40,7 @@ export const InfoForVendorsPage = () => {
               <Typography size="md">{t('infoForVendorsPage.invitation')}</Typography>
               <Typography size="md">{t('infoForVendorsPage.organisationInfo')}</Typography>
             </FlexColumnLayout>
-          </SlantingFrameBox>
+          </SlantedCornersBox>
         </Band.Slot>
       </Band>
 

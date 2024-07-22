@@ -79,7 +79,7 @@ export const FunnyButtonsBand = () => {
   return isPhone ? (
     <MobileBasicInfoSection zIndex={1} backgroundUrl={knitting2ImageUrl}>
       <InfoSectionWrapper>
-        <Typography size="lg" weight="bold" paddingBottom="md">
+        <Typography size="lg" weight="bold">
           {t('buttonsBand.anotherEdition')}
         </Typography>
         <Typography size="md" weight="regular">
@@ -100,7 +100,7 @@ export const FunnyButtonsBand = () => {
 
       <SectionWrapper>
         <InfoSectionWrapper>
-          <Typography size="xxl" weight="bold" paddingBottom="md">
+          <Typography size="xxl" weight="bold">
             {t('buttonsBand.anotherEdition')}
           </Typography>
           <Typography size="lg" weight="regular">

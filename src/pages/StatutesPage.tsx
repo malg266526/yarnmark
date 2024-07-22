@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import { Band } from '../components/Band';
-import { SlantingFrameBox } from '../components/SlantingFrameBox';
+import { SlantedCornersBox } from '../components/SlantedCornersBox';
 import { Spacings } from '../styles/spacings';
 import { BrownScale } from '../styles/theme';
 import sweatersBackgroundUrlAvif from './../assets/backgrounds/sweaters_background.avif';
@@ -44,13 +44,13 @@ export const StatutesPage = () => {
         </FullSizePicture>
 
         <Band.Slot>
-          <SlantingFrameBox overflowSize="10px" width="500px" padding="lg">
+          <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
             <CenteredParagraph>
               <Typography size="xxl" weight="bold">
                 Regulaminy
               </Typography>
             </CenteredParagraph>
-          </SlantingFrameBox>
+          </SlantedCornersBox>
         </Band.Slot>
       </Band>
 

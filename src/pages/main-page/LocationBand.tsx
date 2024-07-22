@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { usePhone } from '../../hooks/usePhone';
 import { MobilePicture, SecondaryButton } from './MainPage.styled';
-import { SlantingFrameBox } from '../../components/SlantingFrameBox';
+import { SlantedCornersBox } from '../../components/SlantedCornersBox';
 import { Trans } from 'react-i18next';
 import { Icon } from '../../components/Icon';
 import pinImageUrl from '../../assets/images/pin.svg';
@@ -81,7 +81,7 @@ const EventLocationCard = () => {
   const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
 
   return (
-    <SlantingFrameBox width="500px" padding="lg" gap="sm">
+    <SlantedCornersBox width="500px" padding="lg" gap="sm">
       <Typography size="xl" weight="bold">
         {t('spotBand.title')}
       </Typography>
@@ -123,7 +123,7 @@ const EventLocationCard = () => {
           </p>
         </>
       )}
-    </SlantingFrameBox>
+    </SlantedCornersBox>
   );
 };
 

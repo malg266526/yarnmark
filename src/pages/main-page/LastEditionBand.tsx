@@ -25,15 +25,16 @@ export const LastEditionBand = ({ id }: LastEditionBandType) => {
       narrowContent="auto"
       overflowX="hidden">
       <SectionWrapper>
-        <Typography size="xxl" weight="bold" paddingBottom="md">
+        <Typography size="xxl" weight="bold">
           {t('previousEdition.thankYou')}
         </Typography>
 
-        <Typography size="lg" weight="regular" paddingBottom="sm">
+        <Typography size="lg" weight="regular">
           <Trans
             i18nKey="previousEdition.fillTheSurvey"
             components={[
               <Link
+                key="survey_link"
                 target="_blank"
                 to="https://docs.google.com/forms/d/e/1FAIpQLSciBZoXDEmQdk4wCmWJC3Bg7ME4O6EfyYg1b9gpF0N01DXwTg/viewform"
               />
@@ -41,7 +42,7 @@ export const LastEditionBand = ({ id }: LastEditionBandType) => {
           />
         </Typography>
 
-        <Typography size="xl" weight="bold" paddingBottom="none">
+        <Typography size="xl" weight="bold">
           {t('previousEdition.yarnmarkShop')}
         </Typography>
 
@@ -49,7 +50,7 @@ export const LastEditionBand = ({ id }: LastEditionBandType) => {
           {t('previousEdition.yarnmarkBag')}
         </Link>
 
-        <Typography size="xl" weight="bold" paddingBottom="none">
+        <Typography size="xl" weight="bold">
           {t('previousEdition.yarnmarkGallery')}
         </Typography>
 

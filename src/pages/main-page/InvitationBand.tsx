@@ -1,7 +1,7 @@
 import woolsAvifLandscape from '../../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../../assets/images/wools2_landscape.webp';
 import woolsJpgLandscape from '../../assets/images/wools2_landscape.jpg';
-import { SlantingFrameBox } from '../../components/SlantingFrameBox';
+import { SlantedCornersBox } from '../../components/SlantedCornersBox';
 import { RowLayout } from '../../components/RowLayout';
 import { Picture } from '../../components/Picture';
 import yarnmarkLogoSrc from '../../assets/images/yarnmark_logo.jpg';
@@ -47,7 +47,7 @@ export const InvitationBand = () => {
 
   return (
     <BackgroundImageBand picture={woolSkeinsPicture} size="xl" padding="xl">
-      <SlantingFrameBox overflowSize="10px" width="500px" padding="lg" gap="sm">
+      <SlantedCornersBox overflowSize="10px" width="500px" padding="lg" gap="sm">
         <Typography size="xxl" weight="bold">
           Krakoski Yarnmark Wełny
         </Typography>
@@ -64,7 +64,7 @@ export const InvitationBand = () => {
 
           <Picture picture={yarnmarkLogoPicture} alt="yarnmark_logo" width={156} height={212} />
         </RowLayout>
-      </SlantingFrameBox>
+      </SlantedCornersBox>
     </BackgroundImageBand>
   );
 };
