@@ -10,7 +10,7 @@ import { useTypedTranslation } from '../../translations/useTypedTranslation';
 export const SideBarMenu = () => {
   const t = useTypedTranslation();
 
-  const [burgerActive, setBurgerActive] = useState(true);
+  const [burgerActive, setBurgerActive] = useState(false);
 
   const closeSideBar = () => setBurgerActive(false);
 
