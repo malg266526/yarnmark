@@ -18,9 +18,12 @@ const BandRootLayout = styled.div<{
   size?: BandSize;
   justify?: Justify;
   align?: Align;
+  direction?: 'column' | 'row';
 }>`
   width: 100%;
   display: flex;
+  flex-direction: ${({ direction }) => direction || 'row'};
+
   position: relative;
 
   justify-content: ${({ justify }) => justify || 'flex-start'};
@@ -64,11 +67,12 @@ interface BackgroundBand {
   size?: BandSize;
   justify?: Justify;
   align?: Align;
+  direction?: 'column' | 'row';
 }
 
-export const BackgroundImageBand = ({ id, children, picture, ...styles }: BackgroundBand) => {
+export const BackgroundImageBand = ({ id, children, picture, direction, ...styles }: BackgroundBand) => {
   return (
-    <BandRootLayout id={id} {...styles}>
+    <BandRootLayout id={id} direction={direction} {...styles}>
       {picture}
 
       {children}

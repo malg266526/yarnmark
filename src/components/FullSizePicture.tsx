@@ -12,6 +12,7 @@ export const FullSizePicture = styled.picture<{ filter?: string; opacity?: numbe
   max-height: 100%;
   object-fit: fill;
   object-position: center;
+  z-index: -1;
 
   > img {
     width: 100%;

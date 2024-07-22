@@ -14,6 +14,7 @@ import { FullSizePicture } from '../components/FullSizePicture';
 import { Menu } from './menu/Menu';
 import { Typography } from '../components/Typography';
 import { CenteredParagraph } from '../components/CenteredParagraph';
+import { BackgroundImageBand } from '../components/bands/BackgroundImageBand';
 
 const Card = styled.div`
   display: flex;
@@ -37,22 +38,30 @@ export const StatutesPage = () => {
     <StyledPageContent variant="wide" padding="none">
       <Menu />
 
-      <Band size="sm" justify="flex-start" narrowContent="auto" padding="md">
+      <BackgroundImageBand
+        size="lg"
+        justify="flex-start"
+        align="center"
+        padding="xl"
+        picture={
+          <FullSizePicture>
+            <source srcSet={woolsAvifLandscape} type="image/avif" />
+            <img src={woolsWebpLandscape} alt="wool" />
+          </FullSizePicture>
+        }>
         <FullSizePicture>
           <source srcSet={woolsAvifLandscape} type="image/avif" />
           <img src={woolsWebpLandscape} alt="wool" />
         </FullSizePicture>
 
-        <Band.Slot>
-          <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
-            <CenteredParagraph>
-              <Typography size="xxl" weight="bold">
-                Regulaminy
-              </Typography>
-            </CenteredParagraph>
-          </SlantedCornersBox>
-        </Band.Slot>
-      </Band>
+        <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
+          <CenteredParagraph>
+            <Typography size="xxl" weight="bold">
+              Regulaminy
+            </Typography>
+          </CenteredParagraph>
+        </SlantedCornersBox>
+      </BackgroundImageBand>
 
       <Band
         size="lg"
@@ -175,18 +184,16 @@ export const StatutesPage = () => {
         </Card>
       </Band>
 
-      <Band
+      <BackgroundImageBand
         size="lg"
         justify="flex-start"
-        padding="lg"
-        narrowContent="auto"
-        variant="background-image"
-        background={
-          <Band.Picture>
+        padding="xl"
+        picture={
+          <FullSizePicture>
             <source srcSet={sweatersBackgroundUrlAvif} type="image/avif" />
             <source srcSet={sweatersBackgroundUrlWebp} type="image/webp" />
             <img src={sweatersBackgroundUrl} alt="wool background" style={{ objectFit: 'cover' }} />
-          </Band.Picture>
+          </FullSizePicture>
         }>
         <Card>
           <CenteredParagraph>
@@ -231,7 +238,7 @@ export const StatutesPage = () => {
             </ol>
           </StatuteWrapper>
         </Card>
-      </Band>
+      </BackgroundImageBand>
     </StyledPageContent>
   );
 };
