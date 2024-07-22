@@ -13,6 +13,7 @@ import { FullSizePicture } from '../../components/FullSizePicture';
 import { Menu } from '../menu/Menu';
 import { Typography } from '../../components/Typography';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
+import { BackgroundImageBand } from '../../components/bands/BackgroundImageBand';
 
 export const InfoForVendorsPage = () => {
   const t = useTypedTranslation();
@@ -24,25 +25,28 @@ export const InfoForVendorsPage = () => {
     <StyledPageContent variant="wide" padding="none">
       <Menu />
 
-      <Band size="lg" justify="flex-start" narrowContent="fixed" padding="md">
-        <FullSizePicture>
-          <source srcSet={woolsAvifLandscape} type="image/avif" />
-          <img src={woolsWebpLandscape} alt="wool" />
-        </FullSizePicture>
+      <BackgroundImageBand
+        size="lg"
+        justify="flex-start"
+        align="center"
+        padding="xl"
+        picture={
+          <FullSizePicture>
+            <source srcSet={woolsAvifLandscape} type="image/avif" />
+            <img src={woolsWebpLandscape} alt="wool" />
+          </FullSizePicture>
+        }>
+        <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
+          <FlexColumnLayout align="flex-start" padding="none" gap="sm">
+            <Typography size="xxl" weight="bold">
+              {t('infoForVendorsPage.title')}
+            </Typography>
 
-        <Band.Slot>
-          <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
-            <FlexColumnLayout align="flex-start" padding="none" gap="sm">
-              <Typography size="xxl" weight="bold">
-                {t('infoForVendorsPage.title')}
-              </Typography>
-
-              <Typography size="md">{t('infoForVendorsPage.invitation')}</Typography>
-              <Typography size="md">{t('infoForVendorsPage.organisationInfo')}</Typography>
-            </FlexColumnLayout>
-          </SlantedCornersBox>
-        </Band.Slot>
-      </Band>
+            <Typography size="md">{t('infoForVendorsPage.invitation')}</Typography>
+            <Typography size="md">{t('infoForVendorsPage.organisationInfo')}</Typography>
+          </FlexColumnLayout>
+        </SlantedCornersBox>
+      </BackgroundImageBand>
 
       <Band
         size="sm"

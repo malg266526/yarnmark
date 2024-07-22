@@ -11,7 +11,6 @@ import { Menu } from '../menu/Menu';
 import { LastEditionBand } from './LastEditionBand';
 import { InvitationBand } from './InvitationBand';
 import { LocationBand } from './LocationBand';
-import { CruiseBand_Update } from './CruiseBand_Update';
 
 export const MainPage = () => {
   const pageContentRef = useRef<HTMLDivElement | null>(null);
@@ -43,8 +42,6 @@ export const MainPage = () => {
       <WorkshopsScheduleBand id="schedule" />
 
       <CruiseBand id="cruise" />
-
-      <CruiseBand_Update id="cruise_2" />
 
       <FoodBand id="food" />
 

@@ -41,7 +41,7 @@ export const InvitationBand = () => {
   const t = useTypedTranslation();
 
   return (
-    <BackgroundImageBand picture={WoolPicture} size="xl" padding="xl">
+    <BackgroundImageBand picture={WoolPicture} size="xl" padding="xl" align="center">
       <SlantedCornersBox overflowSize="10px" width="500px" padding="lg" gap="sm">
         <Typography size="xxl" weight="bold">
           Krakoski Yarnmark Wełny
