@@ -145,7 +145,7 @@ const Frame = styled.div<{
   background: white;
   position: relative;
   z-index: 1;
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
 
   display: flex;
   flex-direction: column;
@@ -173,7 +173,7 @@ export interface SlantingFrameBoxProps extends Partial<RootProps> {
   gap?: keyof typeof Spacings;
 }
 
-export const SlantingFrameBox = ({
+export const SlantedCornersBox = ({
   children,
   overflowLength = '30%',
   overflowSize = '3px',

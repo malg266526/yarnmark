@@ -2,7 +2,7 @@ import { Band } from '../../components/Band';
 import woolsAvifLandscape from '../../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../../assets/images/wools2_landscape.webp';
 import woolsJpgLandscape from '../../assets/images/wools2_landscape.jpg';
-import { SlantingFrameBox } from '../../components/SlantingFrameBox';
+import { SlantedCornersBox } from '../../components/SlantedCornersBox';
 import { RowLayout } from '../../components/RowLayout';
 import { Picture } from '../../components/Picture';
 import yarnmarkLogoSrc from '../../assets/images/yarnmark_logo.jpg';
@@ -26,7 +26,7 @@ export const InvitationBand = () => {
       </FullSizePicture>
 
       <Band.Slot>
-        <SlantingFrameBox overflowSize="10px" width="500px" padding="lg" marginTop="lg" gap="sm">
+        <SlantedCornersBox overflowSize="10px" width="500px" padding="lg" marginTop="lg" gap="sm">
           <Typography size="xxl" weight="bold">
             Krakoski Yarnmark Wełny
           </Typography>
@@ -60,7 +60,7 @@ export const InvitationBand = () => {
               height={212}
             />
           </RowLayout>
-        </SlantingFrameBox>
+        </SlantedCornersBox>
       </Band.Slot>
     </Band>
   );
