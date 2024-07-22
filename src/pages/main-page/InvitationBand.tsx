@@ -2,7 +2,6 @@ import woolsAvifLandscape from '../../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../../assets/images/wools2_landscape.webp';
 import woolsJpgLandscape from '../../assets/images/wools2_landscape.jpg';
 import { SlantedCornersBox } from '../../components/SlantedCornersBox';
-import { RowLayout } from '../../components/RowLayout';
 import { Picture } from '../../components/Picture';
 import yarnmarkLogoSrc from '../../assets/images/yarnmark_logo.jpg';
 import yarnmarkLogoSrcWebp from '../../assets/images/yarnmark_logo.webp';
@@ -14,6 +13,16 @@ import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { BackgroundImageBand } from '../../components/bands/BackgroundImageBand';
 import { FullSizePicture } from '../../components/FullSizePicture';
 import { BandTitle } from '../../components/bands/BandTitle';
+import styled from 'styled-components';
+import { Spacings } from '../../styles/spacings';
+
+const SignatureSection = styled(FlexColumnLayout)`
+  margin-top: ${Spacings.md};
+`;
+
+const CardContent = styled(FlexColumnLayout)`
+  padding: ${Spacings.md} 0 0 0;
+`;
 
 const yarnmarkLogoPicture = {
   fallbackUrl: yarnmarkLogoSrc,
@@ -43,21 +52,31 @@ export const InvitationBand = () => {
 
   return (
     <BackgroundImageBand picture={WoolPicture} size="xl" padding="xl" align="center">
-      <SlantedCornersBox overflowSize="10px" width="500px" padding="lg" gap="sm">
-        <BandTitle>Krakoski Yarnmark Wełny</BandTitle>
+      <SlantedCornersBox overflowSize="10px" width="460px" padding="md">
+        <CardContent padding="none" gap="sm">
+          <BandTitle>Krakoski Yarnmark Wełny</BandTitle>
 
-        <Typography size="md">{t('welcomeBand.invitation')}</Typography>
-        <Typography size="md">{t('welcomeBand.where')}</Typography>
-        <Typography size="md">{t('welcomeBand.haveFun')}</Typography>
+          <FlexColumnLayout padding="sm" align="flex-start">
+            <Typography size="md">{t('welcomeBand.invitation')}</Typography>
+            <Typography size="md">{t('welcomeBand.where')}</Typography>
+            <Typography size="md">{t('welcomeBand.haveFun')}</Typography>
 
-        <RowLayout gap="sm">
-          <FlexColumnLayout align="flex-start" gap="sm" padding="none">
-            <Typography size="md">{t('welcomeBand.seeYou')}</Typography>
-            <Typography size="md">DziergamyNaPolu x Włóczykijki</Typography>
+            <SignatureSection align="flex-start" gap="sm" padding="none">
+              <Typography size="md">{t('welcomeBand.seeYou')}</Typography>
+              <Typography size="md">
+                DziergamyNaPolu <br /> & Włóczykijki
+              </Typography>
+            </SignatureSection>
+
+            <Picture
+              picture={yarnmarkLogoPicture}
+              alt="yarnmark_logo"
+              width={156}
+              height={212}
+              style={{ position: 'absolute', bottom: 0, right: Spacings.sm }}
+            />
           </FlexColumnLayout>
-
-          <Picture picture={yarnmarkLogoPicture} alt="yarnmark_logo" width={156} height={212} />
-        </RowLayout>
+        </CardContent>
       </SlantedCornersBox>
     </BackgroundImageBand>
   );
