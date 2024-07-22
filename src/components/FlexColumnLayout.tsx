@@ -7,10 +7,13 @@ export const FlexColumnLayout = styled.div<{
   gap?: keyof typeof Spacings;
   padding?: keyof typeof Spacings;
   align?: string;
+  width?: `${number}%` | `${number}px`;
 }>`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+
+  width: ${({ width }) => width || 'initial'};
 
   gap: ${({ gap }) => Spacings[gap || 'md']};
   padding: ${({ padding }) => Spacings[padding || 'md']};
