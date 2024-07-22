@@ -15,11 +15,18 @@ const bandSizeToHeight: Record<BandSize, string> = {
   xs: '300px'
 };
 
-const BandRootLayout = styled.div<{ padding?: keyof typeof Spacings; size?: BandSize }>`
+const BandRootLayout = styled.div<{
+  padding?: keyof typeof Spacings;
+  size?: BandSize;
+  justify?: Justify;
+  align?: Align;
+}>`
   width: 100%;
   display: flex;
-  // justify-content: center;
   position: relative;
+
+  justify-content: ${({ justify }) => justify || 'flex-start'};
+  align-items: ${({ align }) => align || 'flex-start'};
 
   ${({ size }) =>
     size &&
@@ -46,7 +53,12 @@ const BandRootLayout = styled.div<{ padding?: keyof typeof Spacings; size?: Band
     `};
 `;
 
+// TODO: check if possible to have one base with common/base props for all types of bands
+type Justify = 'center' | 'space-around' | 'space-between' | 'flex-start' | 'space-evenly' | 'flex-end';
+type Align = 'center' | 'flex-start' | 'flex-end';
+
 interface BackgroundBand {
+  id?: string;
   children?: ReactNode;
   picture: PictureType & {
     alt: string;
@@ -54,11 +66,13 @@ interface BackgroundBand {
   // TODO: check if needed - maybe should be unified?
   padding?: keyof typeof Spacings;
   size?: BandSize;
+  justify?: Justify;
+  align?: Align;
 }
 
-export const BackgroundImageBand = ({ children, picture, padding, size }: BackgroundBand) => {
+export const BackgroundImageBand = ({ id, children, picture, ...styles }: BackgroundBand) => {
   return (
-    <BandRootLayout padding={padding} size={size}>
+    <BandRootLayout id={id} {...styles}>
       <FullSizePicture>
         {picture.sources?.map(({ type, url }, index) => <source key={index} srcSet={url} type={type} />)}
         <img src={picture.fallbackUrl} alt={picture.alt} />

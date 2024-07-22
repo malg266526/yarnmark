@@ -2,16 +2,15 @@ import React, { useCallback, useRef } from 'react';
 import { StyledPageContent } from './MainPage.styled';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import { FunnyButtonsBand } from './FunnyButtonsBand';
-import { InvitationBand } from './InvitationBand';
 import { VendorsBand } from './VendorsBand';
-import { LocationBand } from './LocationBand';
 import { WorkshopsBand } from './workshops/WorkshopsBand';
 import { WorkshopsScheduleBand } from './workshops/WorkshopsScheduleBand';
 import { FoodBand } from './FoodBand';
 import { CruiseBand } from './CruiseBand';
 import { Menu } from '../menu/Menu';
 import { LastEditionBand } from './LastEditionBand';
-import { InvitationBand_Update } from './InvitationBand_Update';
+import { InvitationBand } from './InvitationBand';
+import { LocationBand } from './LocationBand';
 
 export const MainPage = () => {
   const pageContentRef = useRef<HTMLDivElement | null>(null);
@@ -31,8 +30,6 @@ export const MainPage = () => {
       <Menu />
 
       <InvitationBand />
-
-      <InvitationBand_Update />
 
       <FunnyButtonsBand />
 
