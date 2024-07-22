@@ -10,7 +10,8 @@ export const PlainInfo = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${Colors.white};
-  padding: 0 ${Spacings.md} ${Spacings.md} ${Spacings.md};
+  padding: ${Spacings.md};
+  gap: ${Spacings.sm};
   max-width: 50%;
   width: 50%;
   min-height: 100px;
@@ -19,16 +20,6 @@ export const PlainInfo = styled.div`
   @media (max-width: ${ScreenSize.tablet}) {
     max-width: 92%;
     width: 92%;
-  }
-`;
-
-export const TitleWrapper = styled.div`
-  width: 30%;
-
-  @media (max-width: ${ScreenSize.tablet}) {
-    width: 90%;
-    margin-bottom: ${Spacings.md};
-    text-align: center;
   }
 `;
 

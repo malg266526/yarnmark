@@ -1,10 +1,8 @@
 import { Band } from '../../components/Band';
-import { Text, TextH2 } from './MainPage.styled';
 import woolsAvifLandscape from '../../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../../assets/images/wools2_landscape.webp';
 import woolsJpgLandscape from '../../assets/images/wools2_landscape.jpg';
-import { NiceBox } from '../../components/NiceBox';
-import { TextWrapper, Title } from '../../components/Title';
+import { SlantedCornersBox } from '../../components/SlantedCornersBox';
 import { RowLayout } from '../../components/RowLayout';
 import { Picture } from '../../components/Picture';
 import yarnmarkLogoSrc from '../../assets/images/yarnmark_logo.jpg';
@@ -13,6 +11,8 @@ import yarnmarkLogoSrcAvif from '../../assets/images/yarnmark_logo.avif';
 import React from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { FullSizePicture } from '../../components/FullSizePicture';
+import { Typography } from '../../components/Typography';
+import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 
 export const InvitationBand = () => {
   const t = useTypedTranslation();
@@ -26,22 +26,20 @@ export const InvitationBand = () => {
       </FullSizePicture>
 
       <Band.Slot>
-        <NiceBox overflowSize="10px" width="500px" padding="lg" marginTop="lg">
-          <TextWrapper>
-            <Title>Krakoski Yarnmark Wełny</Title>
-          </TextWrapper>
+        <SlantedCornersBox overflowSize="10px" width="500px" padding="lg" marginTop="lg" gap="sm">
+          <Typography size="xxl" weight="bold">
+            Krakoski Yarnmark Wełny
+          </Typography>
 
-          <TextH2>{t('welcomeBand.invitation')}</TextH2>
-          <Text>{t('welcomeBand.where')}</Text>
-          <Text align="justify" marginBottom="md">
-            {t('welcomeBand.haveFun')}
-          </Text>
+          <Typography size="md">{t('welcomeBand.invitation')}</Typography>
+          <Typography size="md">{t('welcomeBand.where')}</Typography>
+          <Typography size="md">{t('welcomeBand.haveFun')}</Typography>
 
           <RowLayout gap="sm">
-            <div>
-              <Text>{t('welcomeBand.seeYou')}</Text>
-              <Text>DziergamyNaPolu x Włóczykijki</Text>
-            </div>
+            <FlexColumnLayout align="flex-start" gap="sm" padding="none">
+              <Typography size="md">{t('welcomeBand.seeYou')}</Typography>
+              <Typography size="md">DziergamyNaPolu x Włóczykijki</Typography>
+            </FlexColumnLayout>
 
             <Picture
               picture={{
@@ -62,7 +60,7 @@ export const InvitationBand = () => {
               height={212}
             />
           </RowLayout>
-        </NiceBox>
+        </SlantedCornersBox>
       </Band.Slot>
     </Band>
   );

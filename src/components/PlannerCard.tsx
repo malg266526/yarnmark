@@ -5,6 +5,7 @@ import { FontSize } from '../styles/font-size';
 import { ScreenSize } from '../styles/screeen-size';
 import { Spacings } from '../styles/spacings';
 import { BrownScale } from '../styles/theme';
+import { Typography } from './Typography';
 
 const PlannerCardLayout = styled.div`
   display: flex;
@@ -40,12 +41,6 @@ const Ribbon = styled.div`
   text-align: center;
 `;
 
-const Text = styled.p`
-  font-size: ${FontSize.md};
-  font-weight: 400;
-  margin-bottom: 0;
-`;
-
 type PlannerCardType = {
   time: string;
   children?: ReactNode;
@@ -55,7 +50,7 @@ export const PlannerCard = ({ time, children }: PlannerCardType) => {
   return (
     <PlannerCardLayout>
       <Ribbon>
-        <Text>{time}</Text>
+        <Typography size="md">{time}</Typography>
       </Ribbon>
 
       {children}

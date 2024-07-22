@@ -4,20 +4,13 @@ import styled from 'styled-components';
 import { Picture } from '../../../components/Picture';
 import { Spacings } from '../../../styles/spacings';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
-import { Text } from '../MainPage.styled';
 import knittingSvgUrl from '../../../assets/images/skein3.svg';
 import { RowLayout } from '../../../components/RowLayout';
-import { FontSize } from '../../../styles/font-size';
 import { ScreenSize } from '../../../styles/screeen-size';
 import { useTablet } from '../../../hooks/usePhone';
 import { DropShadow, Radius } from '../../../styles/cards';
 import { CarouselConfig } from './carouselConfig';
-
-export const Title = styled.h3`
-  font-size: ${FontSize.xl};
-  font-weight: 600;
-  margin: 0;
-`;
+import { Typography } from '../../../components/Typography';
 
 const Root = styled.div`
   display: inline-block;
@@ -45,16 +38,6 @@ const Item = styled.div`
 const BlobBackground = styled.div`
   width: 100%;
   text-align: center;
-`;
-
-const ResponsiveText = styled(Text)`
-  @media (max-width: ${ScreenSize.tablet}) {
-    font-size: ${FontSize.md};
-  }
-`;
-
-const NoTopMarginText = styled(ResponsiveText)`
-  margin-top: 0;
 `;
 
 const ScrollableContent = styled.div`
@@ -108,16 +91,18 @@ export const WorkshopsCarousel = () => {
                 />
 
                 <Carousel.Caption>
-                  <Title>{t(workshop.title)}</Title>
+                  <Typography size="xl" weight="bold">
+                    {t(workshop.title)}
+                  </Typography>
                   <RowLayout justify="center" gap="none">
-                    <NoTopMarginText>{t('workshops.tutor')} </NoTopMarginText>
+                    <Typography size="md">{t('workshops.tutor')} </Typography>
                     <a href={workshop.instagramUrl} target="_blank" rel="noreferrer">
                       {workshop.tutor}
                     </a>
                   </RowLayout>
 
                   <ScrollableContent>
-                    <ResponsiveText>{t(workshop.description)}</ResponsiveText>
+                    <Typography size="md">{t(workshop.description)}</Typography>
                   </ScrollableContent>
                 </Carousel.Caption>
               </Item>

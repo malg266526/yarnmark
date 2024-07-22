@@ -4,7 +4,6 @@ import { createGlobalStyle } from 'styled-components';
 import emailImageUrl from './assets/iconify/email.svg';
 import instagramImageUrl from './assets/iconify/instagram.svg';
 import talkImageUrl from './assets/iconify/talk.svg';
-import { TextWrapper, Title } from './components/Title';
 import { Icon } from './components/Icon';
 import { MinimalistLayout } from './components/MinimalistLayout';
 import { RowLayout } from './components/RowLayout';
@@ -18,6 +17,7 @@ import { StatutesPage } from './pages/StatutesPage';
 import { FontToScreenSize } from './styles/font-to-screen-size';
 import { ScreenSize } from './styles/screeen-size';
 import { HallMapPage } from './pages/HallMapPage';
+import { Typography } from './components/Typography';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -36,6 +36,7 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  
   body {
     margin: 0;
     font-family: 'Lexend', sans-serif !important;
@@ -72,9 +73,9 @@ export const App = () => {
 
         <Footer id="footer">
           <MinimalistLayout>
-            <TextWrapper>
-              <Title>{t('contactPage.title')}</Title>
-            </TextWrapper>
+            <Typography size="xl" weight="bold">
+              {t('contactPage.title')}
+            </Typography>
 
             <RowLayout>
               <Icon size="xl" src={emailImageUrl} />

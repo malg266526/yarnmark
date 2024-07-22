@@ -1,11 +1,9 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Spacings } from '../../styles/spacings';
 import { ScreenSize } from '../../styles/screeen-size';
 import { Carouselge } from '../../components/Carouselge';
 import { PageContent } from '../../components/PageContent';
 import { FontSize } from '../../styles/font-size';
-import { DropShadow, Radius } from '../../styles/cards';
-import { Button } from '../../components/Button';
 
 export const StyledPageContent = styled(PageContent)`
   ${Carouselge} {
@@ -15,50 +13,6 @@ export const StyledPageContent = styled(PageContent)`
       width: 100%;
     }
   }
-`;
-
-export const Text = styled.p<{
-  marginBottom?: keyof typeof Spacings;
-  marginTop?: keyof typeof Spacings;
-  align?: 'center' | 'justify';
-  bold?: boolean;
-}>`
-  white-space: break-spaces;
-  margin-top: ${({ marginTop }) => Spacings[marginTop || 'md']};
-  margin-bottom: 0;
-  font-size: ${FontSize.md};
-
-  ${({ bold }) =>
-    bold &&
-    css`
-      font-weight: 600;
-    `};
-
-  ${({ align }) =>
-    align &&
-    css`
-      text-align: ${align};
-    `};
-
-  ${({ marginBottom }) =>
-    marginBottom &&
-    css`
-      margin-bottom: ${Spacings[marginBottom]};
-    `};
-`;
-
-export const TextH2 = styled.h2`
-  font-size: ${FontSize.md};
-  font-weight: 400;
-  margin-top: ${Spacings.md};
-  margin-bottom: 0;
-`;
-
-export const CenteredTitle = styled.h2`
-  font-size: ${FontSize.xxl};
-  font-weight: 600;
-  align-self: center;
-  z-index: 2;
 `;
 
 export const SecondaryButton = styled.button`
@@ -84,30 +38,6 @@ export const ButtonsLayout = styled.div`
   @media (max-width: ${ScreenSize.phone}) {
     gap: ${Spacings.md};
   }
-`;
-
-type FontVariant = 'regular' | 'bold' | 'light';
-const fontVariantToWeight: Record<FontVariant, number> = {
-  bold: 600,
-  light: 200,
-  regular: 500
-};
-
-export const Typography = styled.div<{
-  size: keyof typeof FontSize;
-  weight: FontVariant;
-  paddingBottom?: keyof typeof Spacings;
-}>`
-  ${({ size, weight }) => css`
-    font-size: ${FontSize[size]};
-    font-weight: ${fontVariantToWeight[weight]};
-  `};
-
-  ${({ paddingBottom }) =>
-    paddingBottom &&
-    css`
-      padding-bottom: ${Spacings[paddingBottom]};
-    `};
 `;
 
 export const MobileBasicInfoSection = styled.div<{ backgroundUrl: string; zIndex?: number }>`
@@ -214,43 +144,8 @@ export const TextWrapper = styled.div`
   }
 `;
 
-export const Paragraph = styled.div`
-  max-width: 460px;
-
-  padding: ${Spacings.md};
-`;
-
-export const BackgroundIcon = styled.img`
-  position: absolute;
-  top: 400px;
-  left: 120px;
-  opacity: 0.75;
-
-  @media (max-width: ${ScreenSize.tablet}) {
-    display: none;
-  }
-`;
-
 export const LinkWrapper = styled.div`
   margin-left: -8px;
-`;
-
-export const Drawer = styled.div<{ isOpen: boolean }>`
-  position: absolute;
-  top: ${Spacings.xl};
-  left: 0;
-  background-color: white;
-  z-index: 2;
-  box-shadow: ${DropShadow.md};
-  border-radius: ${Radius.md};
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  flex-direction: column;
-  padding: ${Spacings.md};
-  transition: all 0.7s ease-in-out;
-
-  transform: ${({ isOpen }) => (isOpen ? `translateX(0)` : `translateX(-100%)`)};
 `;
 
 export const ImageWrapperColumn = styled(TextWrapper)`
@@ -260,27 +155,4 @@ export const ImageWrapperColumn = styled(TextWrapper)`
   @media (max-width: ${ScreenSize.phone}) {
     max-width: 100%;
   }
-`;
-
-const pulse = keyframes`
-  0% {
-		transform: scale(0.92);
-	}
-
-	70% {
-		transform: scale(1);
-	}
-
-	100% {
-		transform: scale(0.92);
-	}
-`;
-
-const pulseAnimation = css`
-  animation: ${pulse} 1s infinite;
-`;
-
-export const PulseButton = styled(Button)<{ shouldPulse?: boolean }>`
-  ${({ shouldPulse }) => shouldPulse && pulseAnimation};
-  transform: scale(1);
 `;

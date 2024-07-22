@@ -1,6 +1,6 @@
 import { Band } from '../../components/Band';
 import { BrownScale } from '../../styles/theme';
-import { ButtonsWrapper, CenteredTitle, ImageContentLayout, ImageWrapperColumn } from './MainPage.styled';
+import { ButtonsWrapper, ImageContentLayout, ImageWrapperColumn } from './MainPage.styled';
 import { ImageButton } from '../../components/ImageButton';
 import { Icon } from '../../components/Icon';
 import burgerImageUrl from '../../assets/iconify/burger.svg';
@@ -10,7 +10,6 @@ import coffeeImageUrl from '../../assets/iconify/coffee.svg';
 import cupcakeImageUrl from '../../assets/iconify/cupcake.svg';
 import { FramedBox } from '../../components/FramedBox';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
-import { TextWrapper } from '../../components/Title';
 import React, { ReactNode, useState } from 'react';
 import { usePhone } from '../../hooks/usePhone';
 import { Picture } from '../../components/Picture';
@@ -43,6 +42,8 @@ import { UnprefixedTranslationKeys, useTypedTranslation } from '../../translatio
 import styled from 'styled-components';
 import { ScreenSize } from '../../styles/screeen-size';
 import { Spacings } from '../../styles/spacings';
+import { CenteredParagraph } from '../../components/CenteredParagraph';
+import { Typography } from '../../components/Typography';
 
 type ActiveButtonType =
   | 'foodtruckBezogrodek'
@@ -322,7 +323,11 @@ export const FoodBand = ({ id }: FoodBandType) => {
 
   return (
     <Band direction="column" id={id} size="md" variant="background" color={BrownScale[200]} padding="xl">
-      <CenteredTitle>Gdzie zjeść?</CenteredTitle>
+      <CenteredParagraph>
+        <Typography size="xxl" weight="bold">
+          Gdzie zjeść?
+        </Typography>
+      </CenteredParagraph>
 
       <LayoutWithActiveButton>
         <ButtonsWrapper>
@@ -366,11 +371,11 @@ export const FoodBand = ({ id }: FoodBandType) => {
           <ImageContentLayout>
             <FlexColumnLayout padding={isPhone ? 'none' : 'md'} gap={isPhone ? 'sm' : 'md'}>
               {activeButtonToImage[activeButton].image}
-              <TextWrapper>{activeButtonToImage[activeButton].secondaryText}</TextWrapper>
+              <Typography size="md">{activeButtonToImage[activeButton].secondaryText}</Typography>
             </FlexColumnLayout>
 
             <ImageWrapperColumn>
-              <TextWrapper>{activeButtonToImage[activeButton].text}</TextWrapper>
+              <Typography size="md">{activeButtonToImage[activeButton].text}</Typography>
             </ImageWrapperColumn>
           </ImageContentLayout>
         </FramedBox>

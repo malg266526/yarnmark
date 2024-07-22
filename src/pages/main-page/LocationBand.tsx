@@ -5,13 +5,13 @@ import halaJpgImageSrc from '../../assets/images/hala.jpg';
 import React, { useState } from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { usePhone } from '../../hooks/usePhone';
-import { MobilePicture, SecondaryButton, Text } from './MainPage.styled';
-import { NiceBox } from '../../components/NiceBox';
-import { SubTitle, TextWrapper, Title } from '../../components/Title';
+import { MobilePicture, SecondaryButton } from './MainPage.styled';
+import { SlantedCornersBox } from '../../components/SlantedCornersBox';
 import { Trans } from 'react-i18next';
 import { Icon } from '../../components/Icon';
 import pinImageUrl from '../../assets/images/pin.svg';
 import styled from 'styled-components';
+import { Typography } from '../../components/Typography';
 
 const MobileLocationButtonWrapper = styled.div`
   position: absolute;
@@ -80,48 +80,49 @@ const EventLocationCard = () => {
   const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
 
   return (
-    <NiceBox width="500px" padding="lg">
-      <TextWrapper align="center">
-        <Title>{t('spotBand.title')}</Title>
-      </TextWrapper>
-      <Text>{t('spotBand.address')}</Text>
+    <SlantedCornersBox width="500px" padding="lg" gap="sm">
+      <Typography size="xl" weight="bold">
+        {t('spotBand.title')}
+      </Typography>
 
-      <Text>{t('spotBand.description')}</Text>
+      <Typography size="md">{t('spotBand.address')}</Typography>
+      <Typography size="md">{t('spotBand.description')}</Typography>
 
       {!isSpotOpened && (
         <SecondaryButton onClick={() => setIsSpotOpened(true)}>{t('spotBand.howToGetToUs')}</SecondaryButton>
       )}
       {isSpotOpened && (
         <>
-          <TextWrapper align="center" marginTop="md">
-            <SubTitle>{t('spotBand.howToGetToUs')}</SubTitle>
-          </TextWrapper>
-          <Text>{t('spotBand.publicTransport')}</Text>
-          <Text>{t('spotBand.list')}</Text>
-          <Text>
-            <Trans i18nKey="spotBand.option1" />
-          </Text>
-          <Text>
-            <Trans i18nKey="spotBand.option2" />
-          </Text>
-          <Text>
-            <Trans i18nKey="spotBand.option3" />
-          </Text>
-          <Text>
-            <Trans i18nKey="spotBand.option4" />
-          </Text>
+          <Typography size="lg" weight="bold">
+            {t('spotBand.howToGetToUs')}
+          </Typography>
 
-          <TextWrapper align="center" marginTop="md">
-            <SubTitle>{t('spotBand.accessibleByCar')}</SubTitle>
-          </TextWrapper>
-          <Text>{t('spotBand.byCar')}</Text>
+          <Typography size="md">{t('spotBand.publicTransport')}</Typography>
+          <Typography size="md">{t('spotBand.list')}</Typography>
+          <Typography size="md">
+            <Trans i18nKey="spotBand.option1" />
+          </Typography>
+          <Typography size="md">
+            <Trans i18nKey="spotBand.option2" />
+          </Typography>
+          <Typography size="md">
+            <Trans i18nKey="spotBand.option3" />
+          </Typography>
+          <Typography size="md">
+            <Trans i18nKey="spotBand.option4" />
+          </Typography>
+
+          <Typography size="lg" weight="bold">
+            {t('spotBand.accessibleByCar')}
+          </Typography>
+          <Typography size="md">{t('spotBand.byCar')}</Typography>
 
           <p>
             fot: <a href="https://halacracovii.pl/">https://halacracovii.pl/</a>{' '}
           </p>
         </>
       )}
-    </NiceBox>
+    </SlantedCornersBox>
   );
 };
 

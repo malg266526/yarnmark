@@ -8,8 +8,9 @@ import { Link } from '../../../components/Link';
 import { PlannerCard } from '../../../components/PlannerCard';
 import { FontSize } from '../../../styles/font-size';
 import { Spacings } from '../../../styles/spacings';
-import { Colors, TextColors } from '../../../styles/theme';
+import { Colors } from '../../../styles/theme';
 import { ScheduleConfig } from './scheduleConfig';
+import { Typography } from '../../../components/Typography';
 
 const responsive = {
   superLargeDesktop: {
@@ -53,21 +54,7 @@ const TextContent = styled.div`
   gap: ${Spacings.sm};
 `;
 
-export const TextH2 = styled.h2`
-  font-size: ${FontSize.lg};
-  font-weight: 500;
-  margin-bottom: 0;
-  text-align: center;
-`;
-
-const Text = styled.p`
-  font-size: ${FontSize.md};
-  font-weight: 400;
-  margin-bottom: 0;
-  color: ${TextColors.secondary};
-`;
-
-const SoldOutInfo = styled(Text)`
+const SoldOutInfo = styled.div`
   color: ${Colors.soldOutRed};
 `;
 
@@ -97,14 +84,16 @@ export const WorkshopsSchedule = () => {
             />
 
             <TextContent>
-              <TextH2>{t(scheduleEntry.topicKey)}</TextH2>
+              <Typography size="lg">{t(scheduleEntry.topicKey)}</Typography>
               {scheduleEntry.isSoldOut ? (
-                <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
+                <SoldOutInfo>
+                  <Typography size="md">{t('scheduleBand.soldOut')}</Typography>
+                </SoldOutInfo>
               ) : (
                 <>
-                  <Text>
+                  <Typography size="md">
                     {t('workshops.price')}: {scheduleEntry.price}zł
-                  </Text>
+                  </Typography>
                   <WorkshopLink to={scheduleEntry.ticketUrl} target="_blank">
                     {t('workshops.buyTicket')}
                   </WorkshopLink>
@@ -130,14 +119,16 @@ export const WorkshopsSchedule = () => {
             />
 
             <TextContent>
-              <TextH2>{t(scheduleEntry.topicKey)}</TextH2>
+              <Typography size="lg">{t(scheduleEntry.topicKey)}</Typography>
               {scheduleEntry.isSoldOut ? (
-                <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
+                <SoldOutInfo>
+                  <Typography size="md">{t('scheduleBand.soldOut')}</Typography>
+                </SoldOutInfo>
               ) : (
                 <>
-                  <Text>
+                  <Typography size="md">
                     {t('workshops.price')}: {scheduleEntry.price}zł
-                  </Text>
+                  </Typography>
                   <WorkshopLink to={scheduleEntry.ticketUrl} target="_blank">
                     {t('workshops.buyTicket')}
                   </WorkshopLink>
@@ -163,14 +154,16 @@ export const WorkshopsSchedule = () => {
             />
 
             <TextContent>
-              <TextH2>{t(scheduleEntry.topicKey)}</TextH2>
+              <Typography size="lg">{t(scheduleEntry.topicKey)}</Typography>
               {scheduleEntry.isSoldOut ? (
-                <SoldOutInfo>{t('scheduleBand.soldOut')}</SoldOutInfo>
+                <SoldOutInfo>
+                  <Typography size="md">{t('scheduleBand.soldOut')}</Typography>
+                </SoldOutInfo>
               ) : (
                 <>
-                  <Text>
+                  <Typography size="lg">
                     {t('workshops.price')}: {scheduleEntry.price}zł
-                  </Text>
+                  </Typography>
                   <WorkshopLink to={scheduleEntry.ticketUrl} target="_blank">
                     {t('workshops.buyTicket')}
                   </WorkshopLink>

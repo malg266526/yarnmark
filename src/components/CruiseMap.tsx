@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Text, Typography } from '../pages/main-page/MainPage.styled';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import { FlexColumnLayout } from './FlexColumnLayout';
 import { FontSize } from '../styles/font-size';
+import { Typography } from './Typography';
 
 export const TextH2 = styled.h2`
   font-size: ${FontSize.lg};
@@ -21,14 +21,16 @@ export const CruiseMap = () => {
       </Typography>
 
       <FlexColumnLayout gap="sm" padding="none" align="flex-start">
-        <Text marginTop="none">AQUA FUN </Text>
-        <Text marginTop="none">Bulwar Czerwieński 172/7</Text>
-        <Text marginTop="none">31-069 Kraków</Text>
+        <Typography size="md">AQUA FUN </Typography>
+        <Typography size="md">Bulwar Czerwieński 172/7</Typography>
+        <Typography size="md">31-069 Kraków</Typography>
       </FlexColumnLayout>
 
       <FlexColumnLayout gap="sm" padding="none" align="flex-start">
-        <TextH2>{t('cashmereTicketsBand.map.time')}</TextH2>
-        <Text marginTop="none">17:30 – 19:30</Text>
+        <Typography size="lg" weight="bold">
+          {t('cashmereTicketsBand.map.time')}
+        </Typography>
+        <Typography size="md">17:30 – 19:30</Typography>
       </FlexColumnLayout>
 
       <FlexColumnLayout gap="sm" padding="none" align="flex-start">

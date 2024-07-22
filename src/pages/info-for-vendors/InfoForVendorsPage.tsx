@@ -2,17 +2,17 @@ import React, { useRef } from 'react';
 import woolsAvifLandscape from '../../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../../assets/images/wools2_landscape.webp';
 import { Band } from '../../components/Band';
-import { NiceBox } from '../../components/NiceBox';
-import { TextWrapper, Title } from '../../components/Title';
+import { SlantedCornersBox } from '../../components/SlantedCornersBox';
 import { BrownScale, Colors } from '../../styles/theme';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Trans } from 'react-i18next';
 import { Hall } from '../../components/Hall';
-import { HallWrapper, PlainInfo, StyledPageContent, TitleWrapper } from './InfoForVendorsPage.styled';
-import { CenteredTitle, Text } from '../main-page/MainPage.styled';
+import { HallWrapper, PlainInfo, StyledPageContent } from './InfoForVendorsPage.styled';
 import { usePhone } from '../../hooks/usePhone';
 import { FullSizePicture } from '../../components/FullSizePicture';
-import { Menu } from "../menu/Menu";
+import { Menu } from '../menu/Menu';
+import { Typography } from '../../components/Typography';
+import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 
 export const InfoForVendorsPage = () => {
   const t = useTypedTranslation();
@@ -31,13 +31,16 @@ export const InfoForVendorsPage = () => {
         </FullSizePicture>
 
         <Band.Slot>
-          <NiceBox overflowSize="10px" width="500px" padding="lg">
-            <TextWrapper>
-              <Title>{t('infoForVendorsPage.title')}</Title>
-            </TextWrapper>
-            <Text>{t('infoForVendorsPage.invitation')}</Text>
-            <Text>{t('infoForVendorsPage.organisationInfo')}</Text>
-          </NiceBox>
+          <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
+            <FlexColumnLayout align="flex-start" padding="none" gap="sm">
+              <Typography size="xxl" weight="bold">
+                {t('infoForVendorsPage.title')}
+              </Typography>
+
+              <Typography size="md">{t('infoForVendorsPage.invitation')}</Typography>
+              <Typography size="md">{t('infoForVendorsPage.organisationInfo')}</Typography>
+            </FlexColumnLayout>
+          </SlantedCornersBox>
         </Band.Slot>
       </Band>
 
@@ -48,24 +51,24 @@ export const InfoForVendorsPage = () => {
         align="center"
         color={Colors.isabelline}
         padding="xl">
-        <TitleWrapper>
-          <CenteredTitle>{t('infoForVendorsPage.registration.title')}</CenteredTitle>
-        </TitleWrapper>
+        <Typography size="xxl" weight="bold">
+          {t('infoForVendorsPage.registration.title')}
+        </Typography>
 
         <PlainInfo>
-          <Text>
+          <Typography size="md">
             <Trans i18nKey="infoForVendorsPage.registration.beAVendor" />
-          </Text>
-          <Text>{t('infoForVendorsPage.registration.start')}</Text>
-          <Text>{t('infoForVendorsPage.registration.where')}</Text>
+          </Typography>
+          <Typography size="md">{t('infoForVendorsPage.registration.start')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.registration.where')}</Typography>
           <a
             href="https://wloczykijki.pl/pl_PL/c/Krakoski-Yarnmark-Welny/355?preview=true"
             target="_blank"
             rel="noreferrer">
             {t('infoForVendorsPage.registration.buyHere')}
           </a>
-          <Text>{t('infoForVendorsPage.registration.feedback')}</Text>
-          <Text>{t('infoForVendorsPage.registration.return')}</Text>
+          <Typography size="md">{t('infoForVendorsPage.registration.feedback')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.registration.return')}</Typography>
         </PlainInfo>
       </Band>
 
@@ -77,20 +80,20 @@ export const InfoForVendorsPage = () => {
         align="center"
         color={Colors.snow}
         padding="xl">
-        <TextWrapper>
-          <CenteredTitle>{t('infoForVendorsPage.hallInfo.title')}</CenteredTitle>
-        </TextWrapper>
+        <Typography size="xxl" weight="bold">
+          {t('infoForVendorsPage.hallInfo.title')}
+        </Typography>
 
         <PlainInfo>
-          <Text>{t('infoForVendorsPage.hallInfo.area')}</Text>
-          <Text>{t('infoForVendorsPage.hallInfo.openHours')}</Text>
-          <Text>{t('infoForVendorsPage.hallInfo.ramp')}</Text>
-          <Text>{t('infoForVendorsPage.hallInfo.participants')}</Text>
-          <Text>{t('infoForVendorsPage.hallInfo.stands')}</Text>
-          <Text>{t('infoForVendorsPage.hallInfo.tables')}</Text>
-          <Text>{t('infoForVendorsPage.hallInfo.extensionCords')}</Text>
-          <Text>{t('infoForVendorsPage.hallInfo.socialRoom')}</Text>
-          <Text>{t('infoForVendorsPage.hallInfo.glassWall')}</Text>
+          <Typography size="md">{t('infoForVendorsPage.hallInfo.area')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.hallInfo.openHours')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.hallInfo.ramp')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.hallInfo.participants')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.hallInfo.stands')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.hallInfo.tables')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.hallInfo.extensionCords')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.hallInfo.socialRoom')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.hallInfo.glassWall')}</Typography>
         </PlainInfo>
       </Band>
 
@@ -102,12 +105,12 @@ export const InfoForVendorsPage = () => {
         align="center"
         color={BrownScale[100]}
         padding="xl">
-        <TextWrapper>
-          <CenteredTitle>{t('infoForVendorsPage.parking.title')}</CenteredTitle>
-        </TextWrapper>
+        <Typography size="xxl" weight="bold">
+          {t('infoForVendorsPage.parking.title')}
+        </Typography>
 
         <PlainInfo>
-          <Text>{t('infoForVendorsPage.parking.parkingSpace')}</Text>
+          <Typography size="md">{t('infoForVendorsPage.parking.parkingSpace')}</Typography>
         </PlainInfo>
       </Band>
 
@@ -119,14 +122,14 @@ export const InfoForVendorsPage = () => {
         align="center"
         color={Colors.beige1}
         padding="xl">
-        <TextWrapper>
-          <CenteredTitle>{t('infoForVendorsPage.marketing.title')}</CenteredTitle>
-        </TextWrapper>
+        <Typography size="xxl" weight="bold">
+          {t('infoForVendorsPage.marketing.title')}
+        </Typography>
 
         <PlainInfo>
-          <Text>
+          <Typography size="md">
             <Trans i18nKey="infoForVendorsPage.marketing.sendLogos" />
-          </Text>
+          </Typography>
         </PlainInfo>
       </Band>
 
@@ -138,9 +141,9 @@ export const InfoForVendorsPage = () => {
         variant="background"
         color={BrownScale[100]}
         padding="xl">
-        <TextWrapper>
-          <CenteredTitle>{t('infoForVendorsPage.stands.title')}</CenteredTitle>
-        </TextWrapper>
+        <Typography size="xxl" weight="bold">
+          {t('infoForVendorsPage.stands.title')}
+        </Typography>
 
         <HallWrapper>
           <Hall />

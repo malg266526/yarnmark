@@ -4,8 +4,7 @@ import shipJpgSrc from '../../assets/images/ship.jpg';
 import { Carouselge } from '../../components/Carouselge';
 import waterWebpSrc from '../../assets/images/water.webp';
 import waterJpgSrc from '../../assets/images/water.jpg';
-import { TextWrapper } from '../../components/Title';
-import { LinkWrapper, Text, TextH2, Typography } from './MainPage.styled';
+import { LinkWrapper } from './MainPage.styled';
 import wineAvifSrc from '../../assets/images/wine.avif';
 import wineWebpSrc from '../../assets/images/wine.webp';
 import wineJpgSrc from '../../assets/images/wine.jpg';
@@ -20,6 +19,7 @@ import mapJpgSrc from '../../assets/images/map.jpg';
 import { CruiseMap } from '../../components/CruiseMap';
 import React, { useState } from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { Typography } from '../../components/Typography';
 
 type CruiseBandType = {
   id: string;
@@ -57,14 +57,14 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
               <img src={waterJpgSrc} alt="water visible on the ship" />
             </Carouselge.ItemBackground>
 
-            <TextWrapper>
+            <FlexColumnLayout gap="sm" padding="none" align="flex-start">
               <Typography size="xl" weight="bold">
                 {t('cashmereTicketsBand.beautifulCruise')}
               </Typography>
-            </TextWrapper>
 
-            <TextH2>{t('cashmereTicketsBand.invitation')}</TextH2>
-            <TextH2>{t('cashmereTicketsBand.ship')}</TextH2>
+              <Typography size="md">{t('cashmereTicketsBand.invitation')}</Typography>
+              <Typography size="md">{t('cashmereTicketsBand.ship')}</Typography>
+            </FlexColumnLayout>
           </Carouselge.Item>
 
           <Carouselge.Item>
@@ -76,15 +76,13 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
               <img src={wineJpgSrc} alt="glass of wine" />
             </Carouselge.ItemBackground>
 
-            <TextWrapper>
+            <FlexColumnLayout gap="sm" padding="none" align="flex-start">
               <Typography size="xl" weight="bold">
                 {t('cashmereTicketsBand.prosecco.title')}
               </Typography>
-            </TextWrapper>
 
-            <FlexColumnLayout gap="sm" padding="none" align="flex-start">
-              <Text>{t('cashmereTicketsBand.prosecco.intro')}</Text>
-              <Text>{t('cashmereTicketsBand.prosecco.description')}</Text>
+              <Typography size="md">{t('cashmereTicketsBand.prosecco.intro')}</Typography>
+              <Typography size="md">{t('cashmereTicketsBand.prosecco.description')}</Typography>
             </FlexColumnLayout>
           </Carouselge.Item>
 
@@ -98,11 +96,9 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
             </Carouselge.ItemBackground>
 
             <FlexColumnLayout gap="sm" padding="none" align="flex-start">
-              <TextWrapper>
-                <Typography size="xl" weight="bold">
-                  {t('cashmereTicketsBand.tickets')}
-                </Typography>
-              </TextWrapper>
+              <Typography size="xl" weight="bold">
+                {t('cashmereTicketsBand.tickets')}
+              </Typography>
 
               <LinkWrapper>
                 <Link target="_blank" to="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833">
@@ -114,10 +110,10 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
                 <Typography size="xl" weight="bold">
                   {t('cashmereTicketsBand.map.price')}:
                 </Typography>
-                <Text marginTop="none">130 zł </Text>
-                <Text marginTop="none">
+                <Typography size="md">130 zł </Typography>
+                <Typography size="md">
                   <Trans i18nKey="cashmereTicketsBand.map.priceIncludesYarnmarkTicket" />
-                </Text>
+                </Typography>
               </FlexColumnLayout>
             </FlexColumnLayout>
           </Carouselge.Item>

@@ -1,9 +1,10 @@
 import { Band } from '../../../components/Band';
 import { Colors } from '../../../styles/theme';
-import { TextWrapper, Title } from '../../../components/Title';
 import { WorkshopsSchedule } from './WorkshopsSchedule';
 import React from 'react';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { Typography } from '../../../components/Typography';
+import { CenteredParagraph } from '../../../components/CenteredParagraph';
 
 type WorkshopsScheduleBandType = {
   id: string;
@@ -22,9 +23,11 @@ export const WorkshopsScheduleBand = ({ id }: WorkshopsScheduleBandType) => {
       padding="xl"
       align="center"
       direction="column">
-      <TextWrapper align="center" marginBottom="lg">
-        <Title>{t('scheduleBand.title')}</Title>
-      </TextWrapper>
+      <CenteredParagraph>
+        <Typography size="xxl" weight="bold">
+          {t('scheduleBand.title')}
+        </Typography>
+      </CenteredParagraph>
 
       <WorkshopsSchedule />
     </Band>

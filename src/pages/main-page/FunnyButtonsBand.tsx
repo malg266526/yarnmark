@@ -1,4 +1,4 @@
-import { BackgroundImage, ButtonsLayout, MobileBasicInfoSection, SectionWrapper, Typography } from './MainPage.styled';
+import { BackgroundImage, ButtonsLayout, MobileBasicInfoSection, SectionWrapper } from './MainPage.styled';
 import knitting2ImageUrl from '../../assets/images/knitting2.svg';
 import { Band } from '../../components/Band';
 import { Colors } from '../../styles/theme';
@@ -14,6 +14,7 @@ import pizzaImageUrl from '../../assets/iconify/pizza.svg';
 import ferryImageUrl from '../../assets/iconify/ferry.svg';
 import mapImageUrl from '../../assets/iconify/worldmap.svg';
 import styled from 'styled-components';
+import { Typography } from '../../components/Typography';
 
 const InfoSectionWrapper = styled.div`
   position: relative;
@@ -78,7 +79,7 @@ export const FunnyButtonsBand = () => {
   return isPhone ? (
     <MobileBasicInfoSection zIndex={1} backgroundUrl={knitting2ImageUrl}>
       <InfoSectionWrapper>
-        <Typography size="lg" weight="bold" paddingBottom="md">
+        <Typography size="lg" weight="bold">
           {t('buttonsBand.anotherEdition')}
         </Typography>
         <Typography size="md" weight="regular">
@@ -99,7 +100,7 @@ export const FunnyButtonsBand = () => {
 
       <SectionWrapper>
         <InfoSectionWrapper>
-          <Typography size="xxl" weight="bold" paddingBottom="md">
+          <Typography size="xxl" weight="bold">
             {t('buttonsBand.anotherEdition')}
           </Typography>
           <Typography size="lg" weight="regular">
