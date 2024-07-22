@@ -158,7 +158,6 @@ const PaperCard = styled.div<{
 
   @media (max-width: ${ScreenSize.phone}) {
     width: 100%;
-    border-radius: 0;
   }
 
   &:before {

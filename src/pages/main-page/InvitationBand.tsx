@@ -46,6 +46,36 @@ const yarnmarkLogoPicture = {
   ]
 };
 
+const InvitationCard = () => {
+  const t = useTypedTranslation();
+  const isPhone = usePhone();
+
+  return (
+    <SlantedCornersBox overflowSize="10px" width="460px" padding={isPhone ? 'sm' : 'md'}>
+      <CardContent padding="none" gap="sm">
+        <BandTitle>Krakoski Yarnmark Wełny</BandTitle>
+
+        <FlexColumnLayout padding="sm" align="flex-start" gap="sm">
+          <Typography size="md">{t('welcomeBand.invitation')}</Typography>
+          <Typography size="md">{t('welcomeBand.where')}</Typography>
+          <Typography size="md">{t('welcomeBand.haveFun')}</Typography>
+
+          <BottomSection justify="space-between" gap="none">
+            <SignatureSection align="flex-start" gap="sm" padding="none">
+              <Typography size="md">{t('welcomeBand.seeYou')}</Typography>
+              <Typography size="md">
+                DziergamyNaPolu <br /> & Włóczykijki
+              </Typography>
+            </SignatureSection>
+
+            <Picture picture={yarnmarkLogoPicture} alt="yarnmark_logo" width={156} height={212} />
+          </BottomSection>
+        </FlexColumnLayout>
+      </CardContent>
+    </SlantedCornersBox>
+  );
+};
+
 const WoolPicture = (
   <FullSizePicture>
     <source srcSet={woolsAvifLandscape} type="image/avif" />
@@ -56,33 +86,15 @@ const WoolPicture = (
 );
 
 export const InvitationBand = () => {
-  const t = useTypedTranslation();
   const isPhone = usePhone();
+
+  if (isPhone) {
+    return <InvitationCard />;
+  }
 
   return (
     <BackgroundImageBand picture={WoolPicture} size="xl" padding="xl" align="center">
-      <SlantedCornersBox overflowSize="10px" width="460px" padding={isPhone ? 'sm' : 'md'}>
-        <CardContent padding="none" gap="sm">
-          <BandTitle>Krakoski Yarnmark Wełny</BandTitle>
-
-          <FlexColumnLayout padding="sm" align="flex-start" gap="sm">
-            <Typography size="md">{t('welcomeBand.invitation')}</Typography>
-            <Typography size="md">{t('welcomeBand.where')}</Typography>
-            <Typography size="md">{t('welcomeBand.haveFun')}</Typography>
-
-            <BottomSection justify="space-between" gap="none">
-              <SignatureSection align="flex-start" gap="sm" padding="none">
-                <Typography size="md">{t('welcomeBand.seeYou')}</Typography>
-                <Typography size="md">
-                  DziergamyNaPolu <br /> & Włóczykijki
-                </Typography>
-              </SignatureSection>
-
-              <Picture picture={yarnmarkLogoPicture} alt="yarnmark_logo" width={156} height={212} style={{}} />
-            </BottomSection>
-          </FlexColumnLayout>
-        </CardContent>
-      </SlantedCornersBox>
+      <InvitationCard />
     </BackgroundImageBand>
   );
 };
