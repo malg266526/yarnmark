@@ -44,6 +44,7 @@ import { ScreenSize } from '../../styles/screeen-size';
 import { Spacings } from '../../styles/spacings';
 import { CenteredParagraph } from '../../components/CenteredParagraph';
 import { Typography } from '../../components/Typography';
+import { BandTitle } from '../../components/bands/BandTitle';
 
 type ActiveButtonType =
   | 'foodtruckBezogrodek'
@@ -324,9 +325,7 @@ export const FoodBand = ({ id }: FoodBandType) => {
   return (
     <Band direction="column" id={id} size="md" variant="background" color={BrownScale[200]} padding="xl">
       <CenteredParagraph>
-        <Typography size="xxl" weight="bold">
-          Gdzie zjeść?
-        </Typography>
+        <BandTitle>Gdzie zjeść?</BandTitle>
       </CenteredParagraph>
 
       <LayoutWithActiveButton>

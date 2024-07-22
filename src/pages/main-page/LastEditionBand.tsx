@@ -7,6 +7,7 @@ import { Link } from '../../components/Link';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { Typography } from '../../components/Typography';
+import { BandTitle } from '../../components/bands/BandTitle';
 
 type LastEditionBandType = {
   id: string;
@@ -25,9 +26,7 @@ export const LastEditionBand = ({ id }: LastEditionBandType) => {
       narrowContent="auto"
       overflowX="hidden">
       <SectionWrapper>
-        <Typography size="xxl" weight="bold">
-          {t('previousEdition.thankYou')}
-        </Typography>
+        <BandTitle>{t('previousEdition.thankYou')}</BandTitle>
 
         <Typography size="lg" weight="regular">
           <Trans

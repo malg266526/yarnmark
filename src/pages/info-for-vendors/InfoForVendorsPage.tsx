@@ -14,6 +14,7 @@ import { Menu } from '../menu/Menu';
 import { Typography } from '../../components/Typography';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { BackgroundImageBand } from '../../components/bands/BackgroundImageBand';
+import { BandTitle } from '../../components/bands/BandTitle';
 
 export const InfoForVendorsPage = () => {
   const t = useTypedTranslation();
@@ -38,9 +39,7 @@ export const InfoForVendorsPage = () => {
         }>
         <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
           <FlexColumnLayout align="flex-start" padding="none" gap="sm">
-            <Typography size="xxl" weight="bold">
-              {t('infoForVendorsPage.title')}
-            </Typography>
+            <BandTitle>{t('infoForVendorsPage.title')}</BandTitle>
 
             <Typography size="md">{t('infoForVendorsPage.invitation')}</Typography>
             <Typography size="md">{t('infoForVendorsPage.organisationInfo')}</Typography>

@@ -15,6 +15,7 @@ import { Menu } from './menu/Menu';
 import { Typography } from '../components/Typography';
 import { CenteredParagraph } from '../components/CenteredParagraph';
 import { BackgroundImageBand } from '../components/bands/BackgroundImageBand';
+import { BandTitle } from '../components/bands/BandTitle';
 
 const Card = styled.div`
   display: flex;
@@ -56,9 +57,7 @@ export const StatutesPage = () => {
 
         <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
           <CenteredParagraph>
-            <Typography size="xxl" weight="bold">
-              Regulaminy
-            </Typography>
+            <BandTitle>Regulaminy</BandTitle>
           </CenteredParagraph>
         </SlantedCornersBox>
       </BackgroundImageBand>

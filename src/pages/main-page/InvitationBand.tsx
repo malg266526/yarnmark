@@ -13,6 +13,7 @@ import { Typography } from '../../components/Typography';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { BackgroundImageBand } from '../../components/bands/BackgroundImageBand';
 import { FullSizePicture } from '../../components/FullSizePicture';
+import { BandTitle } from '../../components/bands/BandTitle';
 
 const yarnmarkLogoPicture = {
   fallbackUrl: yarnmarkLogoSrc,
@@ -43,9 +44,7 @@ export const InvitationBand = () => {
   return (
     <BackgroundImageBand picture={WoolPicture} size="xl" padding="xl" align="center">
       <SlantedCornersBox overflowSize="10px" width="500px" padding="lg" gap="sm">
-        <Typography size="xxl" weight="bold">
-          Krakoski Yarnmark Wełny
-        </Typography>
+        <BandTitle>Krakoski Yarnmark Wełny</BandTitle>
 
         <Typography size="md">{t('welcomeBand.invitation')}</Typography>
         <Typography size="md">{t('welcomeBand.where')}</Typography>

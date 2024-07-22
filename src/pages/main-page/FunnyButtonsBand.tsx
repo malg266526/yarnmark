@@ -15,6 +15,7 @@ import ferryImageUrl from '../../assets/iconify/ferry.svg';
 import mapImageUrl from '../../assets/iconify/worldmap.svg';
 import styled from 'styled-components';
 import { Typography } from '../../components/Typography';
+import { BandTitle } from '../../components/bands/BandTitle';
 
 const InfoSectionWrapper = styled.div`
   position: relative;
@@ -100,9 +101,7 @@ export const FunnyButtonsBand = () => {
 
       <SectionWrapper>
         <InfoSectionWrapper>
-          <Typography size="xxl" weight="bold">
-            {t('buttonsBand.anotherEdition')}
-          </Typography>
+          <BandTitle>{t('buttonsBand.anotherEdition')}</BandTitle>
           <Typography size="lg" weight="regular">
             {t('buttonsBand.linksBelow')}
           </Typography>

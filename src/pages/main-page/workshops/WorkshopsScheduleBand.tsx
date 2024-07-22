@@ -3,8 +3,8 @@ import { Colors } from '../../../styles/theme';
 import { WorkshopsSchedule } from './WorkshopsSchedule';
 import React from 'react';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
-import { Typography } from '../../../components/Typography';
 import { CenteredParagraph } from '../../../components/CenteredParagraph';
+import { BandTitle } from '../../../components/bands/BandTitle';
 
 type WorkshopsScheduleBandType = {
   id: string;
@@ -24,9 +24,7 @@ export const WorkshopsScheduleBand = ({ id }: WorkshopsScheduleBandType) => {
       align="center"
       direction="column">
       <CenteredParagraph>
-        <Typography size="xxl" weight="bold">
-          {t('scheduleBand.title')}
-        </Typography>
+        <BandTitle>{t('scheduleBand.title')}</BandTitle>
       </CenteredParagraph>
 
       <WorkshopsSchedule />
