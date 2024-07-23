@@ -6,7 +6,7 @@ import { useOnClickOutside } from '../hooks/useOnClickOutside';
 import { Radius } from '../styles/cards';
 import { FontSize } from '../styles/font-size';
 import { Spacings } from '../styles/spacings';
-import { Colors } from '../styles/theme';
+import { TextColors } from '../styles/theme';
 import { Button } from './Button';
 import { Link, linkStyle } from './Link';
 
@@ -15,7 +15,7 @@ const DropdownLayout = styled.div`
 `;
 
 const DropdownTitle = styled(Button)`
-  color: ${Colors.text};
+  color: ${TextColors.primary};
   min-width: 100px;
   ${linkStyle}
 
@@ -31,7 +31,7 @@ const DropdownTitle = styled(Button)`
     ${({ color }) =>
       color &&
       css`
-        background: ${Colors.text};
+        background: ${TextColors.primary};
       `};
     opacity: 0;
     transition: all 150ms ease-in-out;

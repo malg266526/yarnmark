@@ -1,6 +1,25 @@
-export const Colors = {
-  text: '#151414',
+// TODO: change name when redesign finished
+export const RedesignTheme = {};
 
+export const TextColors = {
+  primary: '#151414',
+  link: '#C0392B'
+};
+
+export const GrayScale = {
+  50: '#FFFFFF',
+  100: '#ECEBEB',
+  200: '#D8D3D3',
+  300: '#C3BCBC',
+  400: '#AFA6A6',
+  500: '#9A9090',
+  600: '#867B7B',
+  700: '#726666',
+  800: '#5D5252',
+  900: '#493F3F'
+};
+
+export const Colors = {
   gold: 'gold',
   goldLight: '#c3a25d',
 
@@ -21,11 +40,6 @@ export const Colors = {
   soldOutRed: '#b20000'
 };
 
-export const TextColors = {
-  primary: '#151414',
-  secondary: '#793B3B'
-};
-
 export const BrownScale = {
   50: '#FFFDFC',
   100: '#FDF0E4',
@@ -37,19 +51,6 @@ export const BrownScale = {
   700: '#75685D',
   800: '#5E5349',
   900: '#483E36'
-};
-
-export const GrayScale = {
-  50: '#FFFFFF',
-  100: '#ECEBEB',
-  200: '#D8D3D3',
-  300: '#C3BCBC',
-  400: '#AFA6A6',
-  500: '#9A9090',
-  600: '#867B7B',
-  700: '#726666',
-  800: '#5D5252',
-  900: '#493F3F'
 };
 
 export const Theme = {

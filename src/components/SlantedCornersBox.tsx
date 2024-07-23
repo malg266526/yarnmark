@@ -72,6 +72,9 @@ const AnimationFrame = styled.div<RootProps>`
   }
 
   &:before {
+    @media (max-width: ${ScreenSize.phone}) {
+      display: none;
+    }
     content: '';
     position: absolute;
     z-index: 0;
@@ -99,6 +102,9 @@ const AnimationFrame = styled.div<RootProps>`
   }
 
   &:after {
+    @media (max-width: ${ScreenSize.phone}) {
+      display: none;
+    }
     content: '';
     position: absolute;
     z-index: 0;

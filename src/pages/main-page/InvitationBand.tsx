@@ -57,14 +57,13 @@ const yarnmarkLogoPicture = {
 
 const InvitationCard = () => {
   const t = useTypedTranslation();
-  const isPhone = usePhone();
 
   return (
     <SlantedCornersBox overflowSize="10px" width="460px" padding="none">
-      <CardContent padding={isPhone ? 'sm' : 'md'} gap="sm">
+      <CardContent padding="md" gap="sm">
         <BandTitle>Krakoski Yarnmark Wełny</BandTitle>
 
-        <FlexColumnLayout padding="sm" align="flex-start" gap="sm">
+        <FlexColumnLayout padding="md" align="flex-start" gap="sm">
           <Typography size="md">{t('welcomeBand.invitation')}</Typography>
           <Typography size="md">{t('welcomeBand.where')}</Typography>
           <Typography size="md">{t('welcomeBand.haveFun')}</Typography>

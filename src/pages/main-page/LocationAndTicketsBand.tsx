@@ -11,10 +11,15 @@ import blueTicketsIconUrl from '../../assets/figmaIcons/blue_tickets_icon.svg';
 import arrowDownIconUrl from '../../assets/figmaIcons/arrow_down_icon.svg';
 import calendarIconUrl from '../../assets/figmaIcons/calendar_icon.svg';
 import styled from 'styled-components';
-import { GrayScale } from '../../styles/theme';
+import { GrayScale, TextColors } from '../../styles/theme';
 
 const InfoColumn = styled(FlexColumnLayout)`
   text-align: center;
+`;
+
+const Link = styled.a`
+  color: ${TextColors.link};
+  text-decoration: none;
 `;
 
 export const LocationAndTicketsBand = () => {
@@ -35,10 +40,10 @@ export const LocationAndTicketsBand = () => {
             <Trans
               i18nKey="location.findUsOnMaps"
               components={[
-                <a
+                <Link
                   key="google_maps"
                   target="_blank"
-                  href="https://www.google.pl/maps/@50.0572998,19.9107716,3a,75y,214.48h,88.44t/data=!3m6!1e1!3m4!1sVVYRGhxvt5uE6gsr_G7cwA!2e0!7i16384!8i8192?entry=ttu"
+                  href="https://www.google.pl/maps/place/Hala+100-lecia+KS+Cracovia+wraz+z+Centrum+Sportu+Niepe%C5%82nosprawnych/@50.0570728,19.9078517,17z/data=!3m1!4b1!4m6!3m5!1s0x47165bdbabf291a1:0x3a0607d5947b7ef2!8m2!3d50.0570694!4d19.9104266!16s%2Fg%2F11f5t43046?entry=ttu"
                   rel="noreferrer"
                 />
               ]}
@@ -57,7 +62,7 @@ export const LocationAndTicketsBand = () => {
           <Typography size="md">
             <Trans
               i18nKey="tickets.cruiseTicketHere"
-              components={[<a key="cruise_tickets_here" href="/home#cruise" />]}
+              components={[<Link key="cruise_tickets_here" href="/home#cruise" />]}
             />
           </Typography>
         </FlexColumnLayout>

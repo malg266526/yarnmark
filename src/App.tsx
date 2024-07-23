@@ -11,7 +11,7 @@ import { Root, Footer, RightBackgroundImage, TransparentText, VanillaLink } from
 import { InfoForVendorsPage } from './pages/info-for-vendors/InfoForVendorsPage';
 import { MainPage } from './pages/main-page/MainPage';
 import { useTypedTranslation } from './translations/useTypedTranslation';
-import { Colors } from './styles/theme';
+import { TextColors } from './styles/theme';
 import { StatutesPage } from './pages/StatutesPage';
 import { FontToScreenSize } from './styles/font-to-screen-size';
 import { ScreenSize } from './styles/screeen-size';
@@ -39,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     font-family: 'Lexend', sans-serif !important;
-    color: ${Colors.text};
+    color: ${TextColors.primary};
     /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; */
   }
 

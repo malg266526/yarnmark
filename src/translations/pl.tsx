@@ -23,7 +23,7 @@ export const pl = {
       cruiseTicketHere: 'Bilet na dziergostatek znajdziesz <0>tu</0>'
     },
     location: {
-      findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0> i na <1>planie</1>'
+      findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>'
     },
     welcomeBand: {
       invitation: 'Serdecznie zapraszamy na I edycję targów wełny w stolicy Małopolski!',
