@@ -17,6 +17,8 @@ import styled from 'styled-components';
 import { Spacings } from '../../styles/spacings';
 import { RowLayout } from '../../components/RowLayout';
 import { usePhone } from '../../hooks/usePhone';
+import { GrayScale } from '../../styles/theme';
+import { ScreenSize } from '../../styles/screeen-size';
 
 const SignatureSection = styled(FlexColumnLayout)`
   margin-bottom: ${Spacings.lg};
@@ -30,6 +32,11 @@ const BottomSection = styled(RowLayout)`
 
 const CardContent = styled(FlexColumnLayout)`
   padding: ${Spacings.md} 0 0 0;
+  background-color: ${GrayScale[50]};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    background-color: ${GrayScale[200]};
+  }
 `;
 
 const yarnmarkLogoPicture = {
@@ -51,8 +58,8 @@ const InvitationCard = () => {
   const isPhone = usePhone();
 
   return (
-    <SlantedCornersBox overflowSize="10px" width="460px" padding={isPhone ? 'sm' : 'md'}>
-      <CardContent padding="none" gap="sm">
+    <SlantedCornersBox overflowSize="10px" width="460px" padding="none">
+      <CardContent padding={isPhone ? 'sm' : 'md'} gap="sm">
         <BandTitle>Krakoski Yarnmark Wełny</BandTitle>
 
         <FlexColumnLayout padding="sm" align="flex-start" gap="sm">

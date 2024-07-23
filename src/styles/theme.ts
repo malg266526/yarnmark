@@ -39,6 +39,19 @@ export const BrownScale = {
   900: '#483E36'
 };
 
+export const GrayScale = {
+  50: '#FFFFFF',
+  100: '#ECEBEB',
+  200: '#D8D3D3',
+  300: '#C3BCBC',
+  400: '#AFA6A6',
+  500: '#9A9090',
+  600: '#867B7B',
+  700: '#726666',
+  800: '#5D5252',
+  900: '#493F3F'
+};
+
 export const Theme = {
   pageContentWidth: '900px'
 };

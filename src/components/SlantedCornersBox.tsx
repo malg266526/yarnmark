@@ -163,8 +163,8 @@ const PaperCard = styled.div<{
   &:before {
     content: '';
     position: absolute;
-    top: calc(${({ padding }) => Spacings[padding]} / 2);
-    left: calc(${({ padding }) => Spacings[padding]} / 2);
+    top: calc(${({ padding }) => Spacings[padding === 'none' ? 'md' : padding]} / 2);
+    left: calc(${({ padding }) => Spacings[padding === 'none' ? 'md' : padding]} / 2);
     width: 26px;
     height: 26px;
     background: url(${knittingSvgUrl}) no-repeat center;
