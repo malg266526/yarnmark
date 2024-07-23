@@ -42,19 +42,15 @@ export const BandRootLayout = styled.div<{
       }
     `};
 
-  ${({ padding }) =>
-    padding &&
-    css`
-      padding: ${Spacings[padding]};
+  padding: ${Spacings.xl};
 
-      @media (max-width: ${ScreenSize.tablet}) {
-        padding: ${Spacings.md} ${Spacings.md};
-      }
+  @media (max-width: ${ScreenSize.tablet}) {
+    padding: ${Spacings.md} ${Spacings.md};
+  }
 
-      @media (max-width: ${ScreenSize.phone}) {
-        padding: ${Spacings.md} 0;
-      }
-    `};
+  @media (max-width: ${ScreenSize.phone}) {
+    padding: 0;
+  }
 
   ${({ maxWidth }) =>
     maxWidth &&

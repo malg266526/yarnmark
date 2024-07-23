@@ -11,8 +11,12 @@ import { Menu } from '../menu/Menu';
 import { LastEditionBand } from './LastEditionBand';
 import { InvitationBand } from './InvitationBand';
 import { LocationBand } from './LocationBand';
+import { usePhone } from '../../hooks/usePhone';
+import { LocationAndTicketsBand } from './LocationAndTicketsBand';
 
 export const MainPage = () => {
+  const isPhone = usePhone();
+
   const pageContentRef = useRef<HTMLDivElement | null>(null);
 
   const ticketsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
@@ -31,9 +35,14 @@ export const MainPage = () => {
 
       <InvitationBand />
 
-      <FunnyButtonsBand />
-
-      <LocationBand id="location" />
+      {isPhone ? (
+        <LocationAndTicketsBand />
+      ) : (
+        <>
+          <FunnyButtonsBand />
+          <LocationBand id="location" />
+        </>
+      )}
 
       <VendorsBand id="vendors" />
 

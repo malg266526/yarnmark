@@ -68,9 +68,13 @@ const AnimationFrame = styled.div<RootProps>`
   @media (max-width: ${ScreenSize.phone}) {
     max-width: 100%;
     overflow: hidden;
+    box-shadow: none;
   }
 
   &:before {
+    @media (max-width: ${ScreenSize.phone}) {
+      display: none;
+    }
     content: '';
     position: absolute;
     z-index: 0;
@@ -98,6 +102,9 @@ const AnimationFrame = styled.div<RootProps>`
   }
 
   &:after {
+    @media (max-width: ${ScreenSize.phone}) {
+      display: none;
+    }
     content: '';
     position: absolute;
     z-index: 0;
@@ -142,10 +149,6 @@ const PaperCard = styled.div<{
       height: ${height};
     `};
 
-  @media (max-width: ${ScreenSize.phone}) {
-    width: 100%;
-  }
-
   padding: ${({ padding }) => Spacings[padding]};
   gap: ${({ gap }) => Spacings[gap || 'none']};
 
@@ -160,11 +163,16 @@ const PaperCard = styled.div<{
   justify-content: center;
   align-items: center;
 
+  @media (max-width: ${ScreenSize.phone}) {
+    width: 100%;
+    box-shadow: none;
+  }
+
   &:before {
     content: '';
     position: absolute;
-    top: calc(${({ padding }) => Spacings[padding]} / 2);
-    left: calc(${({ padding }) => Spacings[padding]} / 2);
+    top: calc(${({ padding }) => Spacings[padding === 'none' ? 'md' : padding]} / 2);
+    left: calc(${({ padding }) => Spacings[padding === 'none' ? 'md' : padding]} / 2);
     width: 26px;
     height: 26px;
     background: url(${knittingSvgUrl}) no-repeat center;
