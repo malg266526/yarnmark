@@ -68,6 +68,7 @@ const AnimationFrame = styled.div<RootProps>`
   @media (max-width: ${ScreenSize.phone}) {
     max-width: 100%;
     overflow: hidden;
+    box-shadow: none;
   }
 
   &:before {
@@ -158,6 +159,7 @@ const PaperCard = styled.div<{
 
   @media (max-width: ${ScreenSize.phone}) {
     width: 100%;
+    box-shadow: none;
   }
 
   &:before {

@@ -19,6 +19,7 @@ import { RowLayout } from '../../components/RowLayout';
 import { usePhone } from '../../hooks/usePhone';
 import { GrayScale } from '../../styles/theme';
 import { ScreenSize } from '../../styles/screeen-size';
+import { Radius } from '../../styles/cards';
 
 const SignatureSection = styled(FlexColumnLayout)`
   margin-bottom: ${Spacings.lg};
@@ -36,6 +37,7 @@ const CardContent = styled(FlexColumnLayout)`
 
   @media (max-width: ${ScreenSize.phone}) {
     background-color: ${GrayScale[200]};
+    border-radius: ${Radius.xl};
   }
 `;
 
