@@ -13,8 +13,6 @@ type VendorsSectionType = {
 export const VendorsBand = ({ id }: VendorsSectionType) => {
   const t = useTypedTranslation();
 
-  //
-
   return (
     <SolidBackgroundBand id={id} size="lg" padding="lg" color={gradient} direction="column" align="center">
       <BandTitle>{t('vendorsPage.title')}</BandTitle>

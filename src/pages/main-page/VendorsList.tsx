@@ -159,17 +159,22 @@ export const Grid = styled.div`
   flex-shrink: 0;
 
   @media (max-width: ${ScreenSize.phone}) {
-    gap: ${Spacings.sm};
+    gap: 20px;
+    padding: 40px 20px;
   }
+`;
+
+const LogoLink = styled(Link)`
+  padding: 0;
 `;
 
 export const VendorsList = () => {
   return (
     <Grid>
-      <Link to="https://animotki.pl/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://animotki.pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={120}
-          height={63}
+          width={100}
+          height={52}
           alt="animotki"
           picture={{
             fallbackUrl: animotkiLogoUrl,
@@ -185,9 +190,9 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://judytamarcol.pl/alemasztocudne/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://judytamarcol.pl/alemasztocudne/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
           height={100}
@@ -206,12 +211,12 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://www.instagram.com/ani_sploty/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://www.instagram.com/ani_sploty/" target="_blank" rel="noreferrer">
         <Picture
-          width={80}
-          height={106}
+          width={78}
+          height={100}
           alt="anisploty_logo"
           picture={{
             fallbackUrl: anisplotyLogoUrl,
@@ -223,12 +228,12 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://www.facebook.com/bawelnianyfilament/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://www.facebook.com/bawelnianyfilament/" target="_blank" rel="noreferrer">
         <Picture
-          width={110}
-          height={110}
+          width={100}
+          height={100}
           alt="bawelnianyfilament"
           picture={{
             fallbackUrl: bawelnianyFilamentLogoUrl,
@@ -244,9 +249,9 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://biferno.pl/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://biferno.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
           height={83}
@@ -265,9 +270,9 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://brioszka.com.pl/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://brioszka.com.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
           height={100}
@@ -286,9 +291,9 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://colorido.sklep.pl/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://colorido.sklep.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
           height={100}
@@ -307,9 +312,9 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://www.dyedyedone.com/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://www.dyedyedone.com/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
           height={100}
@@ -328,9 +333,9 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://www.instagram.com/floralfiber_fusion/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://www.instagram.com/floralfiber_fusion/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
           height={100}
@@ -349,12 +354,12 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://frra.pl/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://frra.pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={160}
-          height={70}
+          width={100}
+          height={43}
           alt="furora_yarns_logo"
           picture={{
             fallbackUrl: furoraLogoUrl,
@@ -370,12 +375,12 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://www.gabowool.pl/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://www.gabowool.pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={130}
-          height={130}
+          width={100}
+          height={100}
           alt="gabowool"
           picture={{
             fallbackUrl: gaboWoolLogoUrl,
@@ -391,9 +396,9 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://hankamizrobila.pl/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://hankamizrobila.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
           height={100}
@@ -412,9 +417,9 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://knittedcoffee.pl/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://knittedcoffee.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
           height={56}
@@ -433,12 +438,12 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://knitpl.com/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://knitpl.com/" target="_blank" rel="noreferrer">
         <Picture
-          width={90}
-          height={90}
+          width={100}
+          height={100}
           alt="knitpl"
           picture={{
             fallbackUrl: knitPlLogoUrl,
@@ -454,16 +459,16 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://kokonki.pl/" target="_blank" rel="noreferrer">
-        <img width={120} height={120} src={kokonkiLogoUrl} alt="kokonki_logo" />
-      </Link>
+      <LogoLink to="https://kokonki.pl/" target="_blank" rel="noreferrer">
+        <img width={100} height={100} src={kokonkiLogoUrl} alt="kokonki_logo" />
+      </LogoLink>
 
-      <Link to="https://liloppi.pl/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://liloppi.pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={120}
-          height={72}
+          width={100}
+          height={56}
           alt="liloppi_logo"
           picture={{
             fallbackUrl: liloppiLogoUrl,
@@ -479,12 +484,12 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://www.instagram.com/lusia.knits/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://www.instagram.com/lusia.knits/" target="_blank" rel="noreferrer">
         <Picture
-          width={90}
-          height={90}
+          width={100}
+          height={100}
           alt="lusiaknits_logo"
           picture={{
             fallbackUrl: lusiaLogoUrl,
@@ -500,9 +505,9 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://madobo.pl" target="_blank" rel="noreferrer">
+      <LogoLink to="https://madobo.pl" target="_blank" rel="noreferrer">
         <Picture
           width={100}
           height={100}
@@ -521,9 +526,9 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://malinowykos.pl/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://malinowykos.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
           height={95}
@@ -542,9 +547,9 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://www.facebook.com/groups/1020511551665421/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://www.facebook.com/groups/1020511551665421/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
           height={62}
@@ -563,12 +568,12 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://www.martinslab.com/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://www.martinslab.com/" target="_blank" rel="noreferrer">
         <Picture
-          width={120}
-          height={60}
+          width={100}
+          height={46}
           alt="martinslab_logo"
           picture={{
             fallbackUrl: martinslabLogoUrl,
@@ -584,9 +589,9 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://www.missknitski.com/sklep/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://www.missknitski.com/sklep/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
           height={100}
@@ -605,12 +610,12 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://mokosza.com/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://mokosza.com/" target="_blank" rel="noreferrer">
         <Picture
-          width={120}
-          height={47}
+          width={100}
+          height={40}
           alt="mokosza"
           picture={{
             fallbackUrl: mokoszaLogoUrl,
@@ -626,12 +631,12 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://motkomania.pl/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://motkomania.pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={160}
-          height={72}
+          width={100}
+          height={42}
           alt="motkomania"
           picture={{
             fallbackUrl: motkomaniaLogoUrl,
@@ -647,16 +652,16 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
-        <img width={100} height={130} src={naSztukiStudioLogoUrl} alt="nasztukistudio_logo" />
-      </Link>
+      <LogoLink to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
+        <img width={80} height={100} src={naSztukiStudioLogoUrl} alt="nasztukistudio_logo" />
+      </LogoLink>
 
-      <Link to="https://www.facebook.com/paciorkowceiwisielce/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://www.facebook.com/paciorkowceiwisielce/" target="_blank" rel="noreferrer">
         <Picture
-          width={84}
-          height={96}
+          width={86}
+          height={100}
           alt="paciorkowceiwisielce_logo"
           picture={{
             fallbackUrl: paciorkowceLogoUrl,
@@ -672,24 +677,24 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://pimotki.pl/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://pimotki.pl/" target="_blank" rel="noreferrer">
         <img width={100} height={74} src={pimotkiLogoUrl} alt="pimotki_logo" />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://rencami.pl/" target="_blank" rel="noreferrer">
-        <img width={110} height={20} src={rencamiLogoUrl} alt="rencami_logo" />
-      </Link>
+      <LogoLink to="https://rencami.pl/" target="_blank" rel="noreferrer">
+        <img width={100} height={18} src={rencamiLogoUrl} alt="rencami_logo" />
+      </LogoLink>
 
-      <Link to="https://strikke.pl/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://strikke.pl/" target="_blank" rel="noreferrer">
         <img width={150} height={60} src={strikkeLogoUrl} alt="Strikke_logo" />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://7oczek.pl/pl/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://7oczek.pl/pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={100}
-          height={115}
+          width={87}
+          height={100}
           alt="7Oczek_logo"
           picture={{
             fallbackUrl: siedemOczekLogoUrl,
@@ -705,9 +710,9 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
+      <LogoLink to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
         <Picture
           width={100}
           height={90}
@@ -726,16 +731,16 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://theknittingbox.pl" target="_blank" rel="noreferrer">
-        <img width={180} height={180} src={theKnittingBoxLogoUrl} alt="theknittingbox" />
-      </Link>
+      <LogoLink to="https://theknittingbox.pl" target="_blank" rel="noreferrer">
+        <img width={100} height={100} src={theKnittingBoxLogoUrl} alt="theknittingbox" />
+      </LogoLink>
 
-      <Link to="https://welnabawelna.pl/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://welnabawelna.pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={140}
-          height={140}
+          width={100}
+          height={100}
           alt="welnabawelna"
           picture={{
             fallbackUrl: welnaBawelnaLogoUrl,
@@ -751,12 +756,12 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://wloczkomaniaczka.pl/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://wloczkomaniaczka.pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={110}
-          height={110}
+          width={100}
+          height={100}
           alt="wloczkomaniaczka_logo"
           picture={{
             fallbackUrl: wloczkomaniaczkaLogoUrl,
@@ -772,12 +777,12 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={150}
-          height={55}
+          width={130}
+          height={42}
           alt="wloczykijki_logo"
           picture={{
             fallbackUrl: wloczykijkiLogoUrl,
@@ -793,12 +798,12 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://www.woollala.com" target="_blank" rel="noreferrer">
+      <LogoLink to="https://www.woollala.com" target="_blank" rel="noreferrer">
         <Picture
-          width={150}
-          height={105}
+          width={100}
+          height={74}
           alt="woollala"
           picture={{
             fallbackUrl: woollalaLogoUrl,
@@ -810,9 +815,9 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://woolloop.pl" target="_blank" rel="noreferrer">
+      <LogoLink to="https://woolloop.pl" target="_blank" rel="noreferrer">
         <Picture
           width={100}
           height={100}
@@ -831,12 +836,12 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://www.instagram.com/woolniej.pl/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://www.instagram.com/woolniej.pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={80}
-          height={115}
+          width={70}
+          height={100}
           alt="woolniej_logo"
           picture={{
             fallbackUrl: woolniejLogoUrl,
@@ -852,9 +857,9 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
 
-      <Link to="https://www.woolove.pl" target="_blank" rel="noreferrer">
+      <LogoLink to="https://www.woolove.pl" target="_blank" rel="noreferrer">
         <Picture
           width={100}
           height={100}
@@ -873,7 +878,7 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </Link>
+      </LogoLink>
     </Grid>
   );
 };
