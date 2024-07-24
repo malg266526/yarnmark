@@ -31,7 +31,7 @@ const BottomSection = styled(RowLayout)`
   margin-top: -${Spacings.md};
 `;
 
-const CardContent = styled(FlexColumnLayout)`
+const Content = styled(FlexColumnLayout)`
   padding: ${Spacings.md} 0 0 0;
   background-color: ${GrayScale[50]};
 
@@ -41,7 +41,7 @@ const CardContent = styled(FlexColumnLayout)`
   }
 `;
 
-const yarnmarkLogoPicture = {
+const yarnmarkLogoPictureConfig = {
   fallbackUrl: yarnmarkLogoSrc,
   sources: [
     {
@@ -60,7 +60,7 @@ const InvitationCard = () => {
 
   return (
     <SlantedCornersBox overflowSize="10px" width="460px" padding="none">
-      <CardContent padding="md" gap="sm">
+      <Content padding="md" gap="sm">
         <BandTitle>Krakoski Yarnmark Wełny</BandTitle>
 
         <FlexColumnLayout padding="md" align="flex-start" gap="sm">
@@ -76,10 +76,10 @@ const InvitationCard = () => {
               </Typography>
             </SignatureSection>
 
-            <Picture picture={yarnmarkLogoPicture} alt="yarnmark_logo" width={156} height={212} />
+            <Picture picture={yarnmarkLogoPictureConfig} alt="yarnmark_logo" width={156} height={212} />
           </BottomSection>
         </FlexColumnLayout>
-      </CardContent>
+      </Content>
     </SlantedCornersBox>
   );
 };
@@ -93,7 +93,11 @@ const WoolPicture = (
   </FullSizePicture>
 );
 
-export const InvitationBand = () => {
+interface InvitationBandProps {
+  id: string;
+}
+
+export const InvitationBand = ({ id }: InvitationBandProps) => {
   const isPhone = usePhone();
 
   if (isPhone) {
@@ -101,7 +105,7 @@ export const InvitationBand = () => {
   }
 
   return (
-    <BackgroundImageBand picture={WoolPicture} size="xl" padding="xl" align="center">
+    <BackgroundImageBand id={id} picture={WoolPicture} size="xl" padding="xl" align="center">
       <InvitationCard />
     </BackgroundImageBand>
   );

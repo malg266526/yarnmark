@@ -22,11 +22,15 @@ const Link = styled.a`
   text-decoration: none;
 `;
 
-export const LocationAndTicketsBand = () => {
+interface CoreInfoBandProps {
+  id: string;
+}
+
+export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
   const t = useTypedTranslation();
 
   return (
-    <SolidBackgroundBand color={GrayScale[50]} size="lg" direction="column" align="center">
+    <SolidBackgroundBand id={id} color={GrayScale[50]} size="lg" direction="column" align="center">
       <InfoColumn align="center" padding="md" width="85%" gap="md">
         <FlexColumnLayout gap="xs" padding="none">
           <Icon size="xxl" zIndex={0} src={calendarIconUrl} />
