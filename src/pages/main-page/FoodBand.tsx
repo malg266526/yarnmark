@@ -1,4 +1,4 @@
-import { BackgroundColors, BrownScale } from '../../styles/theme';
+import { BackgroundColors } from '../../styles/theme';
 import { ButtonsWrapper, ImageContentLayout, ImageWrapperColumn } from './MainPage.styled';
 import { ImageButton } from '../../components/ImageButton';
 import { Icon } from '../../components/Icon';

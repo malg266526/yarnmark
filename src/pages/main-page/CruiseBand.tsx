@@ -19,7 +19,6 @@ import { CruiseMap } from '../../components/CruiseMap';
 import React, { useState } from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Typography } from '../../components/Typography';
-import { BackgroundImageBand } from '../../components/bands/BackgroundImageBand';
 import { FullSizePicture } from '../../components/FullSizePicture';
 import { Band } from '../../components/bands/Band';
 
