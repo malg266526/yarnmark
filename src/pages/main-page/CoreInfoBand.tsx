@@ -33,12 +33,12 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
     <SolidBackgroundBand id={id} color={GrayScale[50]} size="lg" direction="column" align="center">
       <InfoColumn align="center" padding="md" width="85%" gap="md">
         <FlexColumnLayout gap="xs" padding="none">
-          <Icon size="xxl" zIndex={0} src={calendarIconUrl} />
+          <Icon size="lg" zIndex={0} src={calendarIconUrl} />
           <Typography size="md">27/04/2024r. o godz. 10:00</Typography>
         </FlexColumnLayout>
 
         <FlexColumnLayout gap="xs" padding="none">
-          <Icon size="xxl" zIndex={0} src={redMapMarkerIconUrl} />
+          <Icon size="lg" zIndex={0} src={redMapMarkerIconUrl} />
           <Typography size="md">Hala 100-lecia KS Cracovia</Typography>
           <Typography size="md">
             <Trans
@@ -56,13 +56,13 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
         </FlexColumnLayout>
 
         <FlexColumnLayout gap="xs" padding="none">
-          <Icon size="xxl" zIndex={0} src={blueTicketsIconUrl} />
+          <Icon size="lg" zIndex={0} src={blueTicketsIconUrl} />
           <Typography size="md">{t('tickets.buyTicketsAndWorkshops')}</Typography>
-          <Icon size="xxl" zIndex={0} src={arrowDownIconUrl} />
+          <Icon size="lg" zIndex={0} src={arrowDownIconUrl} />
         </FlexColumnLayout>
 
         <FlexColumnLayout gap="xs" padding="none">
-          <Icon size="xxl" zIndex={0} src={shipIconUrl} />
+          <Icon size="lg" zIndex={0} src={shipIconUrl} />
           <Typography size="md">
             <Trans
               i18nKey="tickets.cruiseTicketHere"
