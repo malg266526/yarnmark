@@ -18,6 +18,13 @@ export const en: TranslationsShape = {
       workshopTickets: 'Workshops tickets',
       cruiseTickets: 'Cruise tickets'
     },
+    tickets: {
+      buyTicketsAndWorkshops: 'Kup bilet na targi lub wybierz opcję z warsztatami',
+      cruiseTicketHere: 'Bilet na dziergostatek znajdziesz <0>tu</0>'
+    },
+    location: {
+      findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0> i na <1>planie</1>'
+    },
     welcomeBand: {
       invitation: 'We heartily invite you for I edition of wool fair in capital of Malopolska!',
       where: 'Yarnmark is happening at 27/04/2024 at 10:00 AM, in Hala 100-lecia KS Cracovia',

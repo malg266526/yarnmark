@@ -1,10 +1,11 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { Spacings } from '../styles/spacings';
-import { Colors } from '../styles/theme';
+import { BrownScale, Colors } from '../styles/theme';
 import knittingSvgUrl from '../assets/images/skein3.svg';
 
 import { ScreenSize } from '../styles/screeen-size';
+import { DropShadow, Radius } from '../styles/cards';
 
 type FrameWidth = `${number}${'px' | '%'}`;
 
@@ -51,7 +52,13 @@ const animationCss = css`
   animation-delay: 3s;
 `;
 
-const Root = styled.div<RootProps>`
+const Root = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const AnimationFrame = styled.div<RootProps>`
   position: relative;
   z-index: 1;
   ${boxShadow};
@@ -61,9 +68,13 @@ const Root = styled.div<RootProps>`
   @media (max-width: ${ScreenSize.phone}) {
     max-width: 100%;
     overflow: hidden;
+    box-shadow: none;
   }
 
   &:before {
+    @media (max-width: ${ScreenSize.phone}) {
+      display: none;
+    }
     content: '';
     position: absolute;
     z-index: 0;
@@ -91,6 +102,9 @@ const Root = styled.div<RootProps>`
   }
 
   &:after {
+    @media (max-width: ${ScreenSize.phone}) {
+      display: none;
+    }
     content: '';
     position: absolute;
     z-index: 0;
@@ -118,7 +132,7 @@ const Root = styled.div<RootProps>`
   }
 `;
 
-const Frame = styled.div<{
+const PaperCard = styled.div<{
   width?: FrameWidth;
   height?: FrameWidth;
   padding: keyof typeof Spacings;
@@ -135,28 +149,30 @@ const Frame = styled.div<{
       height: ${height};
     `};
 
-  @media (max-width: ${ScreenSize.phone}) {
-    width: 100%;
-  }
-
   padding: ${({ padding }) => Spacings[padding]};
   gap: ${({ gap }) => Spacings[gap || 'none']};
 
-  background: white;
+  background: ${BrownScale[50]};
   position: relative;
   z-index: 1;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: ${DropShadow.card};
+  border-radius: ${Radius.md};
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+  @media (max-width: ${ScreenSize.phone}) {
+    width: 100%;
+    box-shadow: none;
+  }
+
   &:before {
     content: '';
     position: absolute;
-    top: calc(${({ padding }) => Spacings[padding]} / 2);
-    left: calc(${({ padding }) => Spacings[padding]} / 2);
+    top: calc(${({ padding }) => Spacings[padding === 'none' ? 'md' : padding]} / 2);
+    left: calc(${({ padding }) => Spacings[padding === 'none' ? 'md' : padding]} / 2);
     width: 26px;
     height: 26px;
     background: url(${knittingSvgUrl}) no-repeat center;
@@ -180,7 +196,9 @@ export const SlantedCornersBox = ({
   marginTop,
   ...rest
 }: SlantingFrameBoxProps) => (
-  <Root overflowLength={overflowLength} overflowSize={overflowSize} marginTop={marginTop}>
-    <Frame {...rest}>{children}</Frame>
+  <Root>
+    <AnimationFrame overflowLength={overflowLength} overflowSize={overflowSize} marginTop={marginTop}>
+      <PaperCard {...rest}>{children}</PaperCard>
+    </AnimationFrame>
   </Root>
 );

@@ -80,7 +80,7 @@ interface SlotProps {
 const Slot = styled.div<SlotProps>`
   position: relative;
 
-  ${({ size }) => size && slotSizeToCss[size]};
+  //${({ size }) => size && slotSizeToCss[size]};
 
   ${({ width }) =>
     width &&

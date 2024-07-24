@@ -2,17 +2,21 @@ import React, { useCallback, useRef } from 'react';
 import { StyledPageContent } from './MainPage.styled';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import { FunnyButtonsBand } from './FunnyButtonsBand';
-import { InvitationBand } from './InvitationBand';
 import { VendorsBand } from './VendorsBand';
-import { LocationBand } from './LocationBand';
 import { WorkshopsBand } from './workshops/WorkshopsBand';
 import { WorkshopsScheduleBand } from './workshops/WorkshopsScheduleBand';
 import { FoodBand } from './FoodBand';
 import { CruiseBand } from './CruiseBand';
 import { Menu } from '../menu/Menu';
 import { LastEditionBand } from './LastEditionBand';
+import { InvitationBand } from './InvitationBand';
+import { LocationBand } from './LocationBand';
+import { usePhone } from '../../hooks/usePhone';
+import { LocationAndTicketsBand } from './LocationAndTicketsBand';
 
 export const MainPage = () => {
+  const isPhone = usePhone();
+
   const pageContentRef = useRef<HTMLDivElement | null>(null);
 
   const ticketsFunnyButtonRef = useRef<HTMLDivElement | null>(null);
@@ -31,9 +35,14 @@ export const MainPage = () => {
 
       <InvitationBand />
 
-      <FunnyButtonsBand />
-
-      <LocationBand id="location" />
+      {isPhone ? (
+        <LocationAndTicketsBand />
+      ) : (
+        <>
+          <FunnyButtonsBand />
+          <LocationBand id="location" />
+        </>
+      )}
 
       <VendorsBand id="vendors" />
 

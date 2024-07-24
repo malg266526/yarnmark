@@ -1,4 +1,3 @@
-import { Band } from '../../components/Band';
 import { BrownScale } from '../../styles/theme';
 import { ButtonsWrapper, ImageContentLayout, ImageWrapperColumn } from './MainPage.styled';
 import { ImageButton } from '../../components/ImageButton';
@@ -44,6 +43,8 @@ import { ScreenSize } from '../../styles/screeen-size';
 import { Spacings } from '../../styles/spacings';
 import { CenteredParagraph } from '../../components/CenteredParagraph';
 import { Typography } from '../../components/Typography';
+import { BandTitle } from '../../components/bands/BandTitle';
+import { SolidBackgroundBand } from '../../components/bands/SolidBackgroundBand';
 
 type ActiveButtonType =
   | 'foodtruckBezogrodek'
@@ -76,6 +77,7 @@ export const ActiveImage = styled.img`
 export const LayoutWithActiveButton = styled.div`
   display: flex;
   flex: 1;
+  width: 100%;
   align-items: center;
   justify-content: space-evenly;
   padding: ${Spacings.xs};
@@ -322,11 +324,9 @@ export const FoodBand = ({ id }: FoodBandType) => {
   const activeButtonToImage = getActiveButtonToImage(t);
 
   return (
-    <Band direction="column" id={id} size="md" variant="background" color={BrownScale[200]} padding="xl">
+    <SolidBackgroundBand id={id} size="md" color={BrownScale[200]} padding="xl" direction="column" align="center">
       <CenteredParagraph>
-        <Typography size="xxl" weight="bold">
-          Gdzie zjeść?
-        </Typography>
+        <BandTitle>Gdzie zjeść?</BandTitle>
       </CenteredParagraph>
 
       <LayoutWithActiveButton>
@@ -380,6 +380,6 @@ export const FoodBand = ({ id }: FoodBandType) => {
           </ImageContentLayout>
         </FramedBox>
       </LayoutWithActiveButton>
-    </Band>
+    </SolidBackgroundBand>
   );
 };

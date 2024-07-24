@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import woolsAvifLandscape from '../../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../../assets/images/wools2_landscape.webp';
-import { Band } from '../../components/Band';
 import { SlantedCornersBox } from '../../components/SlantedCornersBox';
 import { BrownScale, Colors } from '../../styles/theme';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
@@ -13,40 +12,41 @@ import { FullSizePicture } from '../../components/FullSizePicture';
 import { Menu } from '../menu/Menu';
 import { Typography } from '../../components/Typography';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
+import { BackgroundImageBand } from '../../components/bands/BackgroundImageBand';
+import { BandTitle } from '../../components/bands/BandTitle';
+import { SolidBackgroundBand } from '../../components/bands/SolidBackgroundBand';
 
 export const InfoForVendorsPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
 
-  const standsBandRef = useRef<HTMLDivElement | null>(null);
-
   return (
     <StyledPageContent variant="wide" padding="none">
       <Menu />
 
-      <Band size="lg" justify="flex-start" narrowContent="fixed" padding="md">
-        <FullSizePicture>
-          <source srcSet={woolsAvifLandscape} type="image/avif" />
-          <img src={woolsWebpLandscape} alt="wool" />
-        </FullSizePicture>
+      <BackgroundImageBand
+        size="lg"
+        justify="flex-start"
+        align="center"
+        padding="xl"
+        picture={
+          <FullSizePicture>
+            <source srcSet={woolsAvifLandscape} type="image/avif" />
+            <img src={woolsWebpLandscape} alt="wool" />
+          </FullSizePicture>
+        }>
+        <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
+          <FlexColumnLayout align="flex-start" padding="none" gap="sm">
+            <BandTitle>{t('infoForVendorsPage.title')}</BandTitle>
 
-        <Band.Slot>
-          <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
-            <FlexColumnLayout align="flex-start" padding="none" gap="sm">
-              <Typography size="xxl" weight="bold">
-                {t('infoForVendorsPage.title')}
-              </Typography>
+            <Typography size="md">{t('infoForVendorsPage.invitation')}</Typography>
+            <Typography size="md">{t('infoForVendorsPage.organisationInfo')}</Typography>
+          </FlexColumnLayout>
+        </SlantedCornersBox>
+      </BackgroundImageBand>
 
-              <Typography size="md">{t('infoForVendorsPage.invitation')}</Typography>
-              <Typography size="md">{t('infoForVendorsPage.organisationInfo')}</Typography>
-            </FlexColumnLayout>
-          </SlantedCornersBox>
-        </Band.Slot>
-      </Band>
-
-      <Band
+      <SolidBackgroundBand
         size="sm"
-        variant="background"
         justify={isPhone ? 'center' : 'space-evenly'}
         align="center"
         color={Colors.isabelline}
@@ -70,12 +70,11 @@ export const InfoForVendorsPage = () => {
           <Typography size="md">{t('infoForVendorsPage.registration.feedback')}</Typography>
           <Typography size="md">{t('infoForVendorsPage.registration.return')}</Typography>
         </PlainInfo>
-      </Band>
+      </SolidBackgroundBand>
 
-      <Band
+      <SolidBackgroundBand
         id="hall"
         size="sm"
-        variant="background"
         justify={isPhone ? 'center' : 'space-evenly'}
         align="center"
         color={Colors.snow}
@@ -95,12 +94,11 @@ export const InfoForVendorsPage = () => {
           <Typography size="md">{t('infoForVendorsPage.hallInfo.socialRoom')}</Typography>
           <Typography size="md">{t('infoForVendorsPage.hallInfo.glassWall')}</Typography>
         </PlainInfo>
-      </Band>
+      </SolidBackgroundBand>
 
-      <Band
+      <SolidBackgroundBand
         id="parking"
         size="sm"
-        variant="background"
         justify={isPhone ? 'center' : 'space-evenly'}
         align="center"
         color={BrownScale[100]}
@@ -112,12 +110,11 @@ export const InfoForVendorsPage = () => {
         <PlainInfo>
           <Typography size="md">{t('infoForVendorsPage.parking.parkingSpace')}</Typography>
         </PlainInfo>
-      </Band>
+      </SolidBackgroundBand>
 
-      <Band
+      <SolidBackgroundBand
         id="marketing"
         size="sm"
-        variant="background"
         justify={isPhone ? 'center' : 'space-evenly'}
         align="center"
         color={Colors.beige1}
@@ -131,14 +128,12 @@ export const InfoForVendorsPage = () => {
             <Trans i18nKey="infoForVendorsPage.marketing.sendLogos" />
           </Typography>
         </PlainInfo>
-      </Band>
+      </SolidBackgroundBand>
 
-      <Band
+      <SolidBackgroundBand
         id="stands"
-        ref={standsBandRef}
         size="sm"
         justify={isPhone ? 'center' : 'space-evenly'}
-        variant="background"
         color={BrownScale[100]}
         padding="xl">
         <Typography size="xxl" weight="bold">
@@ -148,7 +143,7 @@ export const InfoForVendorsPage = () => {
         <HallWrapper>
           <Hall />
         </HallWrapper>
-      </Band>
+      </SolidBackgroundBand>
     </StyledPageContent>
   );
 };

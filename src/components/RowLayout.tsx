@@ -4,7 +4,7 @@ import { Spacings } from '../styles/spacings';
 export const RowLayout = styled.div<{
   wide?: boolean;
   gap?: keyof typeof Spacings;
-  justify?: 'center' | 'space-evenly';
+  justify?: 'center' | 'space-evenly' | 'space-between';
 }>`
   width: ${({ wide }) => (wide ? '100%' : 'initial')};
 

@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
-import { Band } from '../components/Band';
 import { SlantedCornersBox } from '../components/SlantedCornersBox';
 import { Spacings } from '../styles/spacings';
 import { BrownScale } from '../styles/theme';
@@ -14,6 +13,9 @@ import { FullSizePicture } from '../components/FullSizePicture';
 import { Menu } from './menu/Menu';
 import { Typography } from '../components/Typography';
 import { CenteredParagraph } from '../components/CenteredParagraph';
+import { BackgroundImageBand } from '../components/bands/BackgroundImageBand';
+import { BandTitle } from '../components/bands/BandTitle';
+import { SolidBackgroundBand } from '../components/bands/SolidBackgroundBand';
 
 const Card = styled.div`
   display: flex;
@@ -37,30 +39,30 @@ export const StatutesPage = () => {
     <StyledPageContent variant="wide" padding="none">
       <Menu />
 
-      <Band size="sm" justify="flex-start" narrowContent="auto" padding="md">
+      <BackgroundImageBand
+        size="lg"
+        justify="flex-start"
+        align="center"
+        padding="xl"
+        picture={
+          <FullSizePicture>
+            <source srcSet={woolsAvifLandscape} type="image/avif" />
+            <img src={woolsWebpLandscape} alt="wool" />
+          </FullSizePicture>
+        }>
         <FullSizePicture>
           <source srcSet={woolsAvifLandscape} type="image/avif" />
           <img src={woolsWebpLandscape} alt="wool" />
         </FullSizePicture>
 
-        <Band.Slot>
-          <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
-            <CenteredParagraph>
-              <Typography size="xxl" weight="bold">
-                Regulaminy
-              </Typography>
-            </CenteredParagraph>
-          </SlantedCornersBox>
-        </Band.Slot>
-      </Band>
+        <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
+          <CenteredParagraph>
+            <BandTitle>Regulaminy</BandTitle>
+          </CenteredParagraph>
+        </SlantedCornersBox>
+      </BackgroundImageBand>
 
-      <Band
-        size="lg"
-        justify="flex-start"
-        narrowContent="auto"
-        padding="lg"
-        variant="background"
-        color={BrownScale[100]}>
+      <SolidBackgroundBand size="lg" justify="flex-start" padding="xl" color={BrownScale[100]}>
         <Card>
           <CenteredParagraph>
             <Typography size="xl" weight="bold">
@@ -173,20 +175,18 @@ export const StatutesPage = () => {
             </ol>
           </StatuteWrapper>
         </Card>
-      </Band>
+      </SolidBackgroundBand>
 
-      <Band
+      <BackgroundImageBand
         size="lg"
         justify="flex-start"
-        padding="lg"
-        narrowContent="auto"
-        variant="background-image"
-        background={
-          <Band.Picture>
+        padding="xl"
+        picture={
+          <FullSizePicture>
             <source srcSet={sweatersBackgroundUrlAvif} type="image/avif" />
             <source srcSet={sweatersBackgroundUrlWebp} type="image/webp" />
             <img src={sweatersBackgroundUrl} alt="wool background" style={{ objectFit: 'cover' }} />
-          </Band.Picture>
+          </FullSizePicture>
         }>
         <Card>
           <CenteredParagraph>
@@ -231,7 +231,7 @@ export const StatutesPage = () => {
             </ol>
           </StatuteWrapper>
         </Card>
-      </Band>
+      </BackgroundImageBand>
     </StyledPageContent>
   );
 };
