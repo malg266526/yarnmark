@@ -9,10 +9,12 @@ import { FoodBand } from './FoodBand';
 import { CruiseBand } from './CruiseBand';
 import { Menu } from '../menu/Menu';
 import { LastEditionBand } from './LastEditionBand';
-import { InvitationBand } from './InvitationBand';
+import { InvitationCard } from './InvitationCard';
 import { LocationBand } from './LocationBand';
 import { usePhone } from '../../hooks/usePhone';
 import { CoreInfoBand } from './CoreInfoBand';
+import { Band } from '../../components/bands/Band';
+import { WoolPicture } from '../../components/WoolPicture';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -33,12 +35,16 @@ export const MainPage = () => {
     <StyledPageContent ref={pageContentRef} variant="wide" padding="none">
       <Menu />
 
-      <InvitationBand id="invitation" />
-
       {isPhone ? (
-        <CoreInfoBand id="coreInfo" />
+        <>
+          <InvitationCard />
+          <CoreInfoBand id="coreInfo" />
+        </>
       ) : (
         <>
+          <Band.WallPaper id="invitation" picture={<WoolPicture />} size="xl">
+            <InvitationCard />
+          </Band.WallPaper>
           <NavigationBand />
           <LocationBand id="location" />
         </>

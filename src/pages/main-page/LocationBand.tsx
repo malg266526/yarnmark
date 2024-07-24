@@ -1,25 +1,17 @@
-import { Band } from '../../components/Band';
+import { Band } from '../../components/bands/Band';
 import halaAvifImageSrc from '../../assets/images/hala.avif';
 import halaWebpImageSrc from '../../assets/images/hala.webp';
 import halaJpgImageSrc from '../../assets/images/hala.jpg';
 import React, { useState } from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { usePhone } from '../../hooks/usePhone';
-import { MobilePicture, SecondaryButton } from './MainPage.styled';
+import { SecondaryButton } from './MainPage.styled';
 import { SlantedCornersBox } from '../../components/SlantedCornersBox';
 import { Trans } from 'react-i18next';
 import { Icon } from '../../components/Icon';
 import pinImageUrl from '../../assets/images/pin.svg';
 import styled from 'styled-components';
 import { Typography } from '../../components/Typography';
-import { BackgroundImageBand } from '../../components/bands/BackgroundImageBand';
 import { FullSizePicture } from '../../components/FullSizePicture';
-
-const MobileLocationButtonWrapper = styled.div`
-  position: absolute;
-  top: 50%;
-  transform: translate(10%, -50%);
-`;
 
 const AnimatedIconWrapper = styled.div`
   padding-bottom: 20px;
@@ -128,22 +120,6 @@ const EventLocationCard = () => {
   );
 };
 
-const EventLocationButton = () => {
-  const t = useTypedTranslation();
-
-  return (
-    <a
-      target="_blank"
-      rel="noreferrer"
-      aria-label={t('spotBand.googleMaps')}
-      href="https://www.google.pl/maps/@50.0572998,19.9107716,3a,75y,214.48h,88.44t/data=!3m6!1e1!3m4!1sVVYRGhxvt5uE6gsr_G7cwA!2e0!7i16384!8i8192?entry=ttu">
-      <AnimatedIconWrapper>
-        <Icon size="200px" src={pinImageUrl} dropShadow />
-      </AnimatedIconWrapper>
-    </a>
-  );
-};
-
 type LocationSectionType = {
   id: string;
 };
@@ -158,32 +134,21 @@ const CracoviaHallPicture = () => (
 );
 
 export const LocationBand = ({ id }: LocationSectionType) => {
-  const isPhone = usePhone();
+  const t = useTypedTranslation();
 
-  return isPhone ? (
-    <Band id={id}>
-      <MobilePicture>
-        <source srcSet={halaAvifImageSrc} type="image/avif" />
-        <source srcSet={halaWebpImageSrc} type="image/webp" />
-        <img loading="lazy" src={halaJpgImageSrc} alt="hala 100-lecia" />
-        <MobileLocationButtonWrapper>
-          <EventLocationButton />
-        </MobileLocationButtonWrapper>
-      </MobilePicture>
-
-      <EventLocationCard />
-    </Band>
-  ) : (
-    <BackgroundImageBand
-      id={id}
-      justify="space-around"
-      size="xl"
-      padding="xl"
-      align="center"
-      picture={<CracoviaHallPicture />}>
-      <EventLocationButton />
+  return (
+    <Band.WallPaper id={id} justify="space-around" size="xl" picture={<CracoviaHallPicture />}>
+      <a
+        target="_blank"
+        rel="noreferrer"
+        aria-label={t('spotBand.googleMaps')}
+        href="https://www.google.pl/maps/@50.0572998,19.9107716,3a,75y,214.48h,88.44t/data=!3m6!1e1!3m4!1sVVYRGhxvt5uE6gsr_G7cwA!2e0!7i16384!8i8192?entry=ttu">
+        <AnimatedIconWrapper>
+          <Icon size="200px" src={pinImageUrl} dropShadow />
+        </AnimatedIconWrapper>
+      </a>
 
       <EventLocationCard />
-    </BackgroundImageBand>
+    </Band.WallPaper>
   );
 };
