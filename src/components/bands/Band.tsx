@@ -41,6 +41,17 @@ const NarrowColumnBand = ({ id, color, ...props }: CenteredColumnBandProps) => (
   />
 );
 
+interface EmptyBandProps {
+  id: string;
+  children?: ReactNode;
+  justify?: Justify;
+  color: string;
+}
+
+const EmptyBand = ({ id, color, ...props }: EmptyBandProps) => (
+  <SolidBackgroundBand id={id} color={color} size="md" direction="column" align="flex-start" padding="xl" {...props} />
+);
+
 interface BandProps {
   children?: React.ReactNode;
   size?: BandSize;
@@ -49,7 +60,8 @@ interface BandProps {
 
 export const Band = Object.assign(({ children }: BandProps) => <BandRootLayout>{children}</BandRootLayout>, {
   Title: BandTitle,
-  WallPaper: WallPaperBand,
+  Wallpaper: WallPaperBand,
   CenteredColumn: CenteredColumnBand,
-  NarrowColumn: NarrowColumnBand
+  NarrowColumn: NarrowColumnBand,
+  Empty: EmptyBand
 });

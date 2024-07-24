@@ -1,9 +1,7 @@
-// TODO: change name when redesign finished
-export const RedesignTheme = {};
-
 export const BackgroundColors = {
   primary: '#E9E8E8',
-  secondary: 'gba(236, 235, 235, 0.30)' // GrayScale[100] but 30%
+  secondary: 'gba(236, 235, 235, 0.30)', // GrayScale[100] but 30%,
+  gradient: `linear-gradient(180deg, #EAE9E9 1.96%, rgba(244, 243, 243, 0.83) 12.51%, rgba(255, 255, 255, 0.65) 24.29%, #FFF 78.04%, #F3F2F2 91.01%, #EAE9E9 100%);`
 };
 
 export const TextColors = {

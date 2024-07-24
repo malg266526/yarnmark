@@ -72,25 +72,25 @@ export const App = () => {
 
         <Footer id="footer">
           <MinimalistLayout>
-            <Typography size="xl" weight="bold">
+            <Typography size="md" weight="bold">
               {t('contactPage.title')}
             </Typography>
 
             <RowLayout>
-              <Icon size="xl" src={emailImageUrl} />
+              <Icon size="md" src={emailImageUrl} />
               krakoski.yarnmark.welny@gmail.com
             </RowLayout>
 
             <VanillaLink href="https://www.instagram.com/dziergamynapolu/" target="_blank" rel="noreferrer">
               <RowLayout>
-                <Icon size="xl" src={instagramImageUrl} />
+                <Icon size="md" src={instagramImageUrl} />
                 @dziergamynapolu
               </RowLayout>
             </VanillaLink>
 
             <VanillaLink href="https://www.instagram.com/wloczykijki_sklep/" target="_blank" rel="noreferrer">
               <RowLayout>
-                <Icon size="xl" src={instagramImageUrl} />
+                <Icon size="md" src={instagramImageUrl} />
                 @wloczykijki_sklep
               </RowLayout>
             </VanillaLink>

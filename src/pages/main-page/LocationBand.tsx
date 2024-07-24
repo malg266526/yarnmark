@@ -137,7 +137,7 @@ export const LocationBand = ({ id }: LocationSectionType) => {
   const t = useTypedTranslation();
 
   return (
-    <Band.WallPaper id={id} justify="space-around" size="xl" picture={<CracoviaHallPicture />}>
+    <Band.Wallpaper id={id} justify="space-around" size="xl" picture={<CracoviaHallPicture />}>
       <a
         target="_blank"
         rel="noreferrer"
@@ -149,6 +149,6 @@ export const LocationBand = ({ id }: LocationSectionType) => {
       </a>
 
       <EventLocationCard />
-    </Band.WallPaper>
+    </Band.Wallpaper>
   );
 };

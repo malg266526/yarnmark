@@ -1,4 +1,4 @@
-import { BrownScale } from '../../styles/theme';
+import { BackgroundColors, BrownScale } from '../../styles/theme';
 import { ButtonsWrapper, ImageContentLayout, ImageWrapperColumn } from './MainPage.styled';
 import { ImageButton } from '../../components/ImageButton';
 import { Icon } from '../../components/Icon';
@@ -41,10 +41,8 @@ import { UnprefixedTranslationKeys, useTypedTranslation } from '../../translatio
 import styled from 'styled-components';
 import { ScreenSize } from '../../styles/screeen-size';
 import { Spacings } from '../../styles/spacings';
-import { CenteredParagraph } from '../../components/CenteredParagraph';
 import { Typography } from '../../components/Typography';
-import { BandTitle } from '../../components/bands/BandTitle';
-import { SolidBackgroundBand } from '../../components/bands/SolidBackgroundBand';
+import { Band } from '../../components/bands/Band';
 
 type ActiveButtonType =
   | 'foodtruckBezogrodek'
@@ -324,10 +322,8 @@ export const FoodBand = ({ id }: FoodBandType) => {
   const activeButtonToImage = getActiveButtonToImage(t);
 
   return (
-    <SolidBackgroundBand id={id} size="md" color={BrownScale[200]} padding="xl" direction="column" align="center">
-      <CenteredParagraph>
-        <BandTitle>Gdzie zjeść?</BandTitle>
-      </CenteredParagraph>
+    <Band.CenteredColumn id={id} size="md" color={BackgroundColors.primary} padding="xl">
+      <Band.Title>Gdzie zjeść?</Band.Title>
 
       <LayoutWithActiveButton>
         <ButtonsWrapper>
@@ -380,6 +376,6 @@ export const FoodBand = ({ id }: FoodBandType) => {
           </ImageContentLayout>
         </FramedBox>
       </LayoutWithActiveButton>
-    </SolidBackgroundBand>
+    </Band.CenteredColumn>
   );
 };

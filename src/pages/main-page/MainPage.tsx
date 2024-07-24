@@ -42,9 +42,9 @@ export const MainPage = () => {
         </>
       ) : (
         <>
-          <Band.WallPaper id="invitation" picture={<WoolPicture />} size="xl">
+          <Band.Wallpaper id="invitation" picture={<WoolPicture />} size="xl">
             <InvitationCard />
-          </Band.WallPaper>
+          </Band.Wallpaper>
           <NavigationBand />
           <LocationBand id="location" />
         </>
