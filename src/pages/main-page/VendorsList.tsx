@@ -151,11 +151,12 @@ import { Picture } from '../../components/Picture';
 export const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-content: space-around;
   align-items: center;
   justify-content: center;
-  gap: ${Spacings.lg};
-  padding: ${Spacings.md};
+  align-content: center;
+  gap: 40px;
+  padding-top: ${Spacings.md};
+  flex-shrink: 0;
 
   @media (max-width: ${ScreenSize.phone}) {
     gap: ${Spacings.sm};

@@ -16,7 +16,7 @@ export const VendorsBand = ({ id }: VendorsSectionType) => {
   //
 
   return (
-    <SolidBackgroundBand id={id} size="lg" padding="xl" color={gradient} direction="column" align="center">
+    <SolidBackgroundBand id={id} size="lg" padding="lg" color={gradient} direction="column" align="center">
       <BandTitle>{t('vendorsPage.title')}</BandTitle>
 
       <VendorsList />
