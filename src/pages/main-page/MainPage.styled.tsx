@@ -25,21 +25,6 @@ export const SecondaryButton = styled.button`
   border: none;
 `;
 
-export const ButtonsLayout = styled.div`
-  position: relative;
-  z-index: 1;
-  display: flex;
-  gap: ${Spacings.xl};
-  flex: 1 1 auto;
-  // align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-
-  @media (max-width: ${ScreenSize.phone}) {
-    gap: ${Spacings.md};
-  }
-`;
-
 export const MobilePicture = styled.picture`
   position: relative;
   width: 100%;

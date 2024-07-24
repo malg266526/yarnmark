@@ -279,4 +279,4 @@ export const Band = Object.assign(
   }
 );
 
-Band.displayName = 'Band';
+Band.displayName = 'Band2';
