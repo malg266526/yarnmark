@@ -45,6 +45,7 @@ export const HallMapPage = () => {
   return (
     <StyledPageContent variant="wide" padding="none">
       <BackgroundImageBand
+        id="hallMap"
         size="sm"
         justify="center"
         padding="xxl"
