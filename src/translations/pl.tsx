@@ -32,19 +32,16 @@ export const pl = {
         'Mamy nadzieję, że będzie to dla Was dzień nie tylko zakupowego szaleństwa i udanych łowów, ale również integracji, wspólnego dziergania na trybunach i dobrej zabawy.',
       seeYou: 'Do zobaczenia!'
     },
-    previousEdition: {
-      thankYou: 'Dziękujemy za Waszą obecność na Yarnmarku 2024!',
-      fillTheSurvey: 'Zapraszamy do podzielenia się Waszą opinią na temat Yarnmarku 2024 w <0>ankiecie</0> ',
-      yarnmarkShop: 'Yarnmarkowe souveniry:',
-      yarnmarkGallery: 'Yarnmarkowa galeria:',
-      yarnmarkBag: 'Plecako-torba',
-      photosBy: 'Fotki od',
-      savedStories: 'w relacji wyróżnionej'
+    navigationBand: {
+      anotherEdition: 'Przed nami kolejna edycja targów pod Wawelem!',
+      knittingSaturday: 'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka!',
+      linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
+      checkTheVendors: 'Sprawdź z jakimi wystawcami się spotkasz.'
     },
     buttonsBand: {
       anotherEdition: 'Przed nami kolejna edycja targów pod Wawelem!',
-      linksBelow:
-        'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka! Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
+      knittingSaturday: 'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka!',
+      linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
       tickets: {
         text: 'Bilety',
         mobileTitle: 'Bilety'
@@ -60,6 +57,15 @@ export const pl = {
       foodButton: 'Gdzie zjeść?',
       cruiseButton: 'Dołącz do imprezy na dziergostatku!',
       hallMap: 'Mapa hali'
+    },
+    previousEdition: {
+      thankYou: 'Dziękujemy za Waszą obecność na Yarnmarku 2024!',
+      fillTheSurvey: 'Zapraszamy do podzielenia się Waszą opinią na temat Yarnmarku 2024 w <0>ankiecie</0> ',
+      yarnmarkShop: 'Yarnmarkowe souveniry:',
+      yarnmarkGallery: 'Yarnmarkowa galeria:',
+      yarnmarkBag: 'Plecako-torba',
+      photosBy: 'Fotki od',
+      savedStories: 'w relacji wyróżnionej'
     },
     spotBand: {
       title: 'Gdzie?',

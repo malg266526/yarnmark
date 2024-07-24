@@ -42,7 +42,7 @@ export const BandRootLayout = styled.div<{
       }
     `};
 
-  padding: ${Spacings.xl};
+  padding: ${({ padding }) => Spacings[padding || 'xl']};
 
   @media (max-width: ${ScreenSize.tablet}) {
     padding: ${Spacings.md} ${Spacings.md};

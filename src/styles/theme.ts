@@ -1,6 +1,10 @@
 // TODO: change name when redesign finished
 export const RedesignTheme = {};
 
+export const BackgroundColors = {
+  primary: '#E9E8E8'
+};
+
 export const TextColors = {
   primary: '#151414',
   link: '#C0392B'

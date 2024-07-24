@@ -4,6 +4,8 @@ import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { BandTitle } from '../../components/bands/BandTitle';
 import { SolidBackgroundBand } from '../../components/bands/SolidBackgroundBand';
 
+const gradient = `linear-gradient(180deg, #EAE9E9 1.96%, rgba(244, 243, 243, 0.83) 12.51%, rgba(255, 255, 255, 0.65) 24.29%, #FFF 78.04%, #F3F2F2 91.01%, #EAE9E9 100%);`;
+
 type VendorsSectionType = {
   id: string;
 };
@@ -11,14 +13,10 @@ type VendorsSectionType = {
 export const VendorsBand = ({ id }: VendorsSectionType) => {
   const t = useTypedTranslation();
 
+  //
+
   return (
-    <SolidBackgroundBand
-      id={id}
-      size="lg"
-      padding="xl"
-      color={`linear-gradient(to bottom, #eee3de, #fff,  #fff, #fff, #eee3de);`}
-      direction="column"
-      align="center">
+    <SolidBackgroundBand id={id} size="lg" padding="xl" color={gradient} direction="column" align="center">
       <BandTitle>{t('vendorsPage.title')}</BandTitle>
 
       <VendorsList />

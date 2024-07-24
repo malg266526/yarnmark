@@ -32,6 +32,13 @@ export const de: TranslationsShape = {
         'Wir hoffen, dass dies nicht nur ein Tag voller Shopping-Wahnsinn und erfolgreicher Jagd auf wunderschöne Garne, sondern auch der Integration, des gemeinsamen Strickens und des guten Spaßes wird.',
       seeYou: 'Auf Wiedersehen!'
     },
+    navigationBand: {
+      anotherEdition: 'The next edition of the Wool Fair in Cracow is ahead of us!',
+      knittingSaturday: 'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka!',
+      linksBelow:
+        'Unten findest du einige Links, die dir bei der Planung deiner Zeit in unserer schönen Stadt helfen werden',
+      checkTheVendors: 'Schau welche Aussteller du triffst'
+    },
     previousEdition: {
       thankYou: 'Thank you for your presence at Yarnmark 2024!',
       fillTheSurvey: 'We kindly invite you to share your opinion about Yarnmark 2024 in the <0>survey</0>',
@@ -43,6 +50,7 @@ export const de: TranslationsShape = {
     },
     buttonsBand: {
       anotherEdition: 'Przed nami kolejna edycja targów pod Wawelem!',
+      knittingSaturday: 'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka!',
       linksBelow:
         'Unten findest du einige Links, die dir bei der Planung deiner Zeit in unserer schönen Stadt helfen werden',
       tickets: {

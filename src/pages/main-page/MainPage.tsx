@@ -1,7 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 import { StyledPageContent } from './MainPage.styled';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
-import { FunnyButtonsBand } from './FunnyButtonsBand';
+import { NavigationBand } from './NavigationBand';
 import { VendorsBand } from './VendorsBand';
 import { WorkshopsBand } from './workshops/WorkshopsBand';
 import { WorkshopsScheduleBand } from './workshops/WorkshopsScheduleBand';
@@ -39,7 +39,7 @@ export const MainPage = () => {
         <CoreInfoBand id="coreInfo" />
       ) : (
         <>
-          <FunnyButtonsBand />
+          <NavigationBand />
           <LocationBand id="location" />
         </>
       )}

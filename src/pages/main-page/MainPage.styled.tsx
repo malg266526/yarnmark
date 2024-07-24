@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { Spacings } from '../../styles/spacings';
 import { ScreenSize } from '../../styles/screeen-size';
 import { Carouselge } from '../../components/Carouselge';
@@ -40,32 +40,6 @@ export const ButtonsLayout = styled.div`
   }
 `;
 
-export const MobileBasicInfoSection = styled.div<{ backgroundUrl: string; zIndex?: number }>`
-  position: relative;
-  ${({ zIndex }) =>
-    zIndex &&
-    css`
-      z-index: ${zIndex};
-    `};
-
-  padding: ${Spacings.lg};
-  background: #d7c9c0;
-
-  &:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: url(${({ backgroundUrl }) => backgroundUrl});
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 20%;
-    opacity: 0.3;
-  }
-`;
-
 export const MobilePicture = styled.picture`
   position: relative;
   width: 100%;
@@ -90,18 +64,6 @@ export const SectionWrapper = styled.div`
   gap: 20px;
   position: relative;
   z-index: 1;
-`;
-
-export const BackgroundImage = styled.img<{ src: string }>`
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
-  max-height: 100%;
-  opacity: 0.2;
-  padding: ${Spacings.xl};
 `;
 
 export const ImageContentLayout = styled.div`
