@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
-import { Band } from '../components/Band';
 import { SlantedCornersBox } from '../components/SlantedCornersBox';
 import { Spacings } from '../styles/spacings';
 import { BrownScale } from '../styles/theme';
@@ -16,6 +15,7 @@ import { Typography } from '../components/Typography';
 import { CenteredParagraph } from '../components/CenteredParagraph';
 import { BackgroundImageBand } from '../components/bands/BackgroundImageBand';
 import { BandTitle } from '../components/bands/BandTitle';
+import { SolidBackgroundBand } from '../components/bands/SolidBackgroundBand';
 
 const Card = styled.div`
   display: flex;
@@ -62,13 +62,7 @@ export const StatutesPage = () => {
         </SlantedCornersBox>
       </BackgroundImageBand>
 
-      <Band
-        size="lg"
-        justify="flex-start"
-        narrowContent="auto"
-        padding="lg"
-        variant="background"
-        color={BrownScale[100]}>
+      <SolidBackgroundBand size="lg" justify="flex-start" padding="xl" color={BrownScale[100]}>
         <Card>
           <CenteredParagraph>
             <Typography size="xl" weight="bold">
@@ -181,7 +175,7 @@ export const StatutesPage = () => {
             </ol>
           </StatuteWrapper>
         </Card>
-      </Band>
+      </SolidBackgroundBand>
 
       <BackgroundImageBand
         size="lg"

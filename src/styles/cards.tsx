@@ -1,6 +1,7 @@
 export const Radius = {
   md: '4px',
-  lg: '10px'
+  lg: '10px',
+  xl: '16px'
 };
 
 // TODO: change keys

@@ -1,6 +1,5 @@
 import { BackgroundImage, ButtonsLayout, MobileBasicInfoSection, SectionWrapper } from './MainPage.styled';
 import knitting2ImageUrl from '../../assets/images/knitting2.svg';
-import { Band } from '../../components/Band';
 import { Colors } from '../../styles/theme';
 import React, { useMemo, useRef } from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
@@ -16,10 +15,15 @@ import mapImageUrl from '../../assets/iconify/worldmap.svg';
 import styled from 'styled-components';
 import { Typography } from '../../components/Typography';
 import { BandTitle } from '../../components/bands/BandTitle';
+import { SolidBackgroundBand } from '../../components/bands/SolidBackgroundBand';
+import { Spacings } from '../../styles/spacings';
 
 const InfoSectionWrapper = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
   z-index: 1;
+  gap: ${Spacings.md};
 `;
 
 export const FunnyButtonsBand = () => {
@@ -77,26 +81,24 @@ export const FunnyButtonsBand = () => {
     [t]
   );
 
-  return isPhone ? (
-    <MobileBasicInfoSection zIndex={1} backgroundUrl={knitting2ImageUrl}>
-      <InfoSectionWrapper>
-        <Typography size="lg" weight="bold">
-          {t('buttonsBand.anotherEdition')}
-        </Typography>
-        <Typography size="md" weight="regular">
-          {t('buttonsBand.linksBelow')}
-        </Typography>
-      </InfoSectionWrapper>
-      {infoSectionButtons}
-    </MobileBasicInfoSection>
-  ) : (
-    <Band
-      size="md"
-      variant="background"
-      color={Colors.pastelGray}
-      padding="xl"
-      narrowContent="fixed"
-      overflowX="hidden">
+  if (isPhone) {
+    return (
+      <MobileBasicInfoSection zIndex={1} backgroundUrl={knitting2ImageUrl}>
+        <InfoSectionWrapper>
+          <Typography size="lg" weight="bold">
+            {t('buttonsBand.anotherEdition')}
+          </Typography>
+          <Typography size="md" weight="regular">
+            {t('buttonsBand.linksBelow')}
+          </Typography>
+        </InfoSectionWrapper>
+        {infoSectionButtons}
+      </MobileBasicInfoSection>
+    );
+  }
+
+  return (
+    <SolidBackgroundBand size="md" color={Colors.pastelGray} padding="xl" maxWidth="80%" align="center">
       <BackgroundImage src={knitting2ImageUrl} alt="wool_skeins_background" />
 
       <SectionWrapper>
@@ -108,6 +110,6 @@ export const FunnyButtonsBand = () => {
         </InfoSectionWrapper>
         {infoSectionButtons}
       </SectionWrapper>
-    </Band>
+    </SolidBackgroundBand>
   );
 };
