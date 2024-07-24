@@ -1,10 +1,11 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { Spacings } from '../styles/spacings';
-import { Colors } from '../styles/theme';
+import { BrownScale, Colors } from '../styles/theme';
 import knittingSvgUrl from '../assets/images/skein3.svg';
 
 import { ScreenSize } from '../styles/screeen-size';
+import { DropShadow, Radius } from '../styles/cards';
 
 type FrameWidth = `${number}${'px' | '%'}`;
 
@@ -67,9 +68,13 @@ const AnimationFrame = styled.div<RootProps>`
   @media (max-width: ${ScreenSize.phone}) {
     max-width: 100%;
     overflow: hidden;
+    box-shadow: none;
   }
 
   &:before {
+    @media (max-width: ${ScreenSize.phone}) {
+      display: none;
+    }
     content: '';
     position: absolute;
     z-index: 0;
@@ -97,6 +102,9 @@ const AnimationFrame = styled.div<RootProps>`
   }
 
   &:after {
+    @media (max-width: ${ScreenSize.phone}) {
+      display: none;
+    }
     content: '';
     position: absolute;
     z-index: 0;
@@ -141,28 +149,30 @@ const PaperCard = styled.div<{
       height: ${height};
     `};
 
-  @media (max-width: ${ScreenSize.phone}) {
-    width: 100%;
-  }
-
   padding: ${({ padding }) => Spacings[padding]};
   gap: ${({ gap }) => Spacings[gap || 'none']};
 
-  background: white;
+  background: ${BrownScale[50]};
   position: relative;
   z-index: 1;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: ${DropShadow.card};
+  border-radius: ${Radius.md};
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+  @media (max-width: ${ScreenSize.phone}) {
+    width: 100%;
+    box-shadow: none;
+  }
+
   &:before {
     content: '';
     position: absolute;
-    top: calc(${({ padding }) => Spacings[padding]} / 2);
-    left: calc(${({ padding }) => Spacings[padding]} / 2);
+    top: calc(${({ padding }) => Spacings[padding === 'none' ? 'md' : padding]} / 2);
+    left: calc(${({ padding }) => Spacings[padding === 'none' ? 'md' : padding]} / 2);
     width: 26px;
     height: 26px;
     background: url(${knittingSvgUrl}) no-repeat center;

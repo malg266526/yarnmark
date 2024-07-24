@@ -18,6 +18,13 @@ export const pl = {
       workshopTickets: 'Warsztaty',
       cruiseTickets: 'Bilety rejsowe'
     },
+    tickets: {
+      buyTicketsAndWorkshops: 'Kup bilet na targi lub wybierz opcję z warsztatami',
+      cruiseTicketHere: 'Bilet na dziergostatek znajdziesz <0>tu</0>'
+    },
+    location: {
+      findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>'
+    },
     welcomeBand: {
       invitation: 'Serdecznie zapraszamy na I edycję targów wełny w stolicy Małopolski!',
       where: 'Yarnmark odbędzie się 27/04/2024r. w godzinach 10:00 - 18:00, w Hali 100-lecia KS Cracovia',

@@ -4,10 +4,10 @@ import sweatersBackgroundUrl from '../../../assets/backgrounds/sweaters_backgrou
 import { WorkshopsCarousel } from './WorkshopsCarousel';
 import React from 'react';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
-import { Typography } from '../../../components/Typography';
 import { CenteredParagraph } from '../../../components/CenteredParagraph';
 import { BackgroundImageBand } from '../../../components/bands/BackgroundImageBand';
 import { FullSizePicture } from '../../../components/FullSizePicture';
+import { BandTitle } from '../../../components/bands/BandTitle';
 
 type WorkshopsBandType = {
   id: string;
@@ -32,9 +32,7 @@ export const WorkshopsBand = ({ id }: WorkshopsBandType) => {
         </FullSizePicture>
       }>
       <CenteredParagraph>
-        <Typography size="xxl" weight="bold">
-          {t('workshopsBand.title')}
-        </Typography>
+        <BandTitle>{t('workshopsBand.title')}</BandTitle>
       </CenteredParagraph>
 
       <WorkshopsCarousel />
