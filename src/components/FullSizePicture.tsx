@@ -2,6 +2,8 @@ import styled, { css } from 'styled-components';
 
 type ObjectFit = 'cover' | 'contain';
 
+// TODO: FullSizePicture & Picture - consider unification or some other solution
+
 export const FullSizePicture = styled.picture<{ filter?: string; opacity?: number; objectFit?: ObjectFit }>`
   position: absolute;
   left: 0;
@@ -10,8 +12,6 @@ export const FullSizePicture = styled.picture<{ filter?: string; opacity?: numbe
   max-width: 100%;
   height: 100%;
   max-height: 100%;
-  object-fit: fill;
-  object-position: center;
   z-index: -1;
 
   > img {

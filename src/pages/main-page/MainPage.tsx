@@ -12,7 +12,7 @@ import { LastEditionBand } from './LastEditionBand';
 import { InvitationBand } from './InvitationBand';
 import { LocationBand } from './LocationBand';
 import { usePhone } from '../../hooks/usePhone';
-import { LocationAndTicketsBand } from './LocationAndTicketsBand';
+import { CoreInfoBand } from './CoreInfoBand';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -33,10 +33,10 @@ export const MainPage = () => {
     <StyledPageContent ref={pageContentRef} variant="wide" padding="none">
       <Menu />
 
-      <InvitationBand />
+      <InvitationBand id="invitation" />
 
       {isPhone ? (
-        <LocationAndTicketsBand />
+        <CoreInfoBand id="coreInfo" />
       ) : (
         <>
           <FunnyButtonsBand />

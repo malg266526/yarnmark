@@ -25,6 +25,7 @@ export const InfoForVendorsPage = () => {
       <Menu />
 
       <BackgroundImageBand
+        id="infoForVendorsIntro"
         size="lg"
         justify="flex-start"
         align="center"
@@ -46,6 +47,7 @@ export const InfoForVendorsPage = () => {
       </BackgroundImageBand>
 
       <SolidBackgroundBand
+        id="vendorsRegistration"
         size="sm"
         justify={isPhone ? 'center' : 'space-evenly'}
         align="center"

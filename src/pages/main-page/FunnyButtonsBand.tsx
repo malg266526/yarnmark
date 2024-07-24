@@ -98,7 +98,13 @@ export const FunnyButtonsBand = () => {
   }
 
   return (
-    <SolidBackgroundBand size="md" color={Colors.pastelGray} padding="xl" maxWidth="80%" align="center">
+    <SolidBackgroundBand
+      id="mainInfoButtons"
+      size="md"
+      color={Colors.pastelGray}
+      padding="xl"
+      maxWidth="80%"
+      align="center">
       <BackgroundImage src={knitting2ImageUrl} alt="wool_skeins_background" />
 
       <SectionWrapper>

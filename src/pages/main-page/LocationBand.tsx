@@ -148,7 +148,7 @@ type LocationSectionType = {
   id: string;
 };
 
-const CracoviaHallPicture = (
+const CracoviaHallPicture = () => (
   <FullSizePicture>
     <source srcSet={halaAvifImageSrc} type="image/avif" />
     <source srcSet={halaWebpImageSrc} type="image/avif" />
@@ -180,7 +180,7 @@ export const LocationBand = ({ id }: LocationSectionType) => {
       size="xl"
       padding="xl"
       align="center"
-      picture={CracoviaHallPicture}>
+      picture={<CracoviaHallPicture />}>
       <EventLocationButton />
 
       <EventLocationCard />

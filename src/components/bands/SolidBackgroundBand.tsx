@@ -4,7 +4,7 @@ import { Align, BandRootLayout, BandSize, Justify } from './BandRootLayout';
 import styled from 'styled-components';
 
 interface BackgroundBand {
-  id?: string;
+  id: string;
   children?: ReactNode;
   padding?: keyof typeof Spacings;
   size?: BandSize;

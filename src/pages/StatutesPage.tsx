@@ -40,11 +40,13 @@ export const StatutesPage = () => {
       <Menu />
 
       <BackgroundImageBand
+        id="statutes_welcome_band"
         size="lg"
         justify="flex-start"
         align="center"
         padding="xl"
         picture={
+          /*TODO: consider common component*/
           <FullSizePicture>
             <source srcSet={woolsAvifLandscape} type="image/avif" />
             <img src={woolsWebpLandscape} alt="wool" />
@@ -62,7 +64,7 @@ export const StatutesPage = () => {
         </SlantedCornersBox>
       </BackgroundImageBand>
 
-      <SolidBackgroundBand size="lg" justify="flex-start" padding="xl" color={BrownScale[100]}>
+      <SolidBackgroundBand id="yarnmark_statute" size="lg" justify="flex-start" padding="xl" color={BrownScale[100]}>
         <Card>
           <CenteredParagraph>
             <Typography size="xl" weight="bold">
@@ -178,6 +180,7 @@ export const StatutesPage = () => {
       </SolidBackgroundBand>
 
       <BackgroundImageBand
+        id="workshops_statute"
         size="lg"
         justify="flex-start"
         padding="xl"
