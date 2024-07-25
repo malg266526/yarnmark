@@ -1,6 +1,3 @@
-import woolsAvifLandscape from '../../assets/images/wools2_landscape.avif';
-import woolsWebpLandscape from '../../assets/images/wools2_landscape.webp';
-import woolsJpgLandscape from '../../assets/images/wools2_landscape.jpg';
 import { SlantedCornersBox } from '../../components/SlantedCornersBox';
 import { Picture } from '../../components/Picture';
 import yarnmarkLogoSrc from '../../assets/images/yarnmark_logo.jpg';
@@ -10,16 +7,13 @@ import React from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Typography } from '../../components/Typography';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
-import { BackgroundImageBand } from '../../components/bands/BackgroundImageBand';
-import { FullSizePicture } from '../../components/FullSizePicture';
-import { BandTitle } from '../../components/bands/BandTitle';
 import styled from 'styled-components';
 import { Spacings } from '../../styles/spacings';
 import { RowLayout } from '../../components/RowLayout';
-import { usePhone } from '../../hooks/usePhone';
 import { GrayScale } from '../../styles/theme';
 import { ScreenSize } from '../../styles/screeen-size';
 import { Radius } from '../../styles/cards';
+import { Band } from '../../components/bands/Band';
 
 const SignatureSection = styled(FlexColumnLayout)`
   margin-bottom: ${Spacings.lg};
@@ -55,13 +49,13 @@ const yarnmarkLogoPictureConfig = {
   ]
 };
 
-const InvitationCard = () => {
+export const InvitationCard = () => {
   const t = useTypedTranslation();
 
   return (
     <SlantedCornersBox overflowSize="10px" width="460px" padding="none">
       <Content padding="md" gap="sm">
-        <BandTitle>Krakoski Yarnmark Wełny</BandTitle>
+        <Band.Title>Krakoski Yarnmark Wełny</Band.Title>
 
         <FlexColumnLayout padding="md" align="flex-start" gap="sm">
           <Typography size="md">{t('welcomeBand.invitation')}</Typography>
@@ -81,32 +75,5 @@ const InvitationCard = () => {
         </FlexColumnLayout>
       </Content>
     </SlantedCornersBox>
-  );
-};
-
-const WoolPicture = (
-  <FullSizePicture>
-    <source srcSet={woolsAvifLandscape} type="image/avif" />
-    <source srcSet={woolsWebpLandscape} type="image/avif" />
-
-    <img loading="lazy" src={woolsJpgLandscape} alt="wool skeins" />
-  </FullSizePicture>
-);
-
-interface InvitationBandProps {
-  id: string;
-}
-
-export const InvitationBand = ({ id }: InvitationBandProps) => {
-  const isPhone = usePhone();
-
-  if (isPhone) {
-    return <InvitationCard />;
-  }
-
-  return (
-    <BackgroundImageBand id={id} picture={WoolPicture} size="xl" padding="xl" align="center">
-      <InvitationCard />
-    </BackgroundImageBand>
   );
 };

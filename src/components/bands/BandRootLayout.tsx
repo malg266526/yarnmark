@@ -57,9 +57,5 @@ export const BandRootLayout = styled.div<{
     css`
       max-width: ${maxWidth};
       margin: auto;
-
-      @media (max-width: ${ScreenSize.phone}) {
-        max-width: 100%;
-      }
     `};
 `;
