@@ -95,14 +95,14 @@ export const WorkshopsCarousel = () => {
                     {t(workshop.title)}
                   </Typography>
                   <RowLayout justify="center" gap="none">
-                    <Typography size="md">{t('workshops.tutor')} </Typography>
+                    <Typography size="sm">{t('workshops.tutor')} </Typography>
                     <a href={workshop.instagramUrl} target="_blank" rel="noreferrer">
                       {workshop.tutor}
                     </a>
                   </RowLayout>
 
                   <ScrollableContent>
-                    <Typography size="md">{t(workshop.description)}</Typography>
+                    <Typography size="sm">{t(workshop.description)}</Typography>
                   </ScrollableContent>
                 </Carousel.Caption>
               </Item>

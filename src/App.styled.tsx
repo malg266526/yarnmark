@@ -95,7 +95,7 @@ export const RightBackgroundImage = styled.img<{ src: string }>`
 `;
 
 export const TransparentText = styled.h2`
-  font-size: ${FontSize.xs};
+  font-size: ${FontSize.xxs};
   color: transparent;
 `;
 

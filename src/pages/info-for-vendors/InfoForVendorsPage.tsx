@@ -40,8 +40,8 @@ export const InfoForVendorsPage = () => {
           <FlexColumnLayout align="flex-start" padding="none" gap="sm">
             <BandTitle>{t('infoForVendorsPage.title')}</BandTitle>
 
-            <Typography size="md">{t('infoForVendorsPage.invitation')}</Typography>
-            <Typography size="md">{t('infoForVendorsPage.organisationInfo')}</Typography>
+            <Typography size="sm">{t('infoForVendorsPage.invitation')}</Typography>
+            <Typography size="sm">{t('infoForVendorsPage.organisationInfo')}</Typography>
           </FlexColumnLayout>
         </SlantedCornersBox>
       </BackgroundImageBand>
@@ -58,19 +58,19 @@ export const InfoForVendorsPage = () => {
         </Typography>
 
         <PlainInfo>
-          <Typography size="md">
+          <Typography size="sm">
             <Trans i18nKey="infoForVendorsPage.registration.beAVendor" />
           </Typography>
-          <Typography size="md">{t('infoForVendorsPage.registration.start')}</Typography>
-          <Typography size="md">{t('infoForVendorsPage.registration.where')}</Typography>
+          <Typography size="sm">{t('infoForVendorsPage.registration.start')}</Typography>
+          <Typography size="sm">{t('infoForVendorsPage.registration.where')}</Typography>
           <a
             href="https://wloczykijki.pl/pl_PL/c/Krakoski-Yarnmark-Welny/355?preview=true"
             target="_blank"
             rel="noreferrer">
             {t('infoForVendorsPage.registration.buyHere')}
           </a>
-          <Typography size="md">{t('infoForVendorsPage.registration.feedback')}</Typography>
-          <Typography size="md">{t('infoForVendorsPage.registration.return')}</Typography>
+          <Typography size="sm">{t('infoForVendorsPage.registration.feedback')}</Typography>
+          <Typography size="sm">{t('infoForVendorsPage.registration.return')}</Typography>
         </PlainInfo>
       </SolidBackgroundBand>
 
@@ -86,15 +86,15 @@ export const InfoForVendorsPage = () => {
         </Typography>
 
         <PlainInfo>
-          <Typography size="md">{t('infoForVendorsPage.hallInfo.area')}</Typography>
-          <Typography size="md">{t('infoForVendorsPage.hallInfo.openHours')}</Typography>
-          <Typography size="md">{t('infoForVendorsPage.hallInfo.ramp')}</Typography>
-          <Typography size="md">{t('infoForVendorsPage.hallInfo.participants')}</Typography>
-          <Typography size="md">{t('infoForVendorsPage.hallInfo.stands')}</Typography>
-          <Typography size="md">{t('infoForVendorsPage.hallInfo.tables')}</Typography>
-          <Typography size="md">{t('infoForVendorsPage.hallInfo.extensionCords')}</Typography>
-          <Typography size="md">{t('infoForVendorsPage.hallInfo.socialRoom')}</Typography>
-          <Typography size="md">{t('infoForVendorsPage.hallInfo.glassWall')}</Typography>
+          <Typography size="sm">{t('infoForVendorsPage.hallInfo.area')}</Typography>
+          <Typography size="sm">{t('infoForVendorsPage.hallInfo.openHours')}</Typography>
+          <Typography size="sm">{t('infoForVendorsPage.hallInfo.ramp')}</Typography>
+          <Typography size="sm">{t('infoForVendorsPage.hallInfo.participants')}</Typography>
+          <Typography size="sm">{t('infoForVendorsPage.hallInfo.stands')}</Typography>
+          <Typography size="sm">{t('infoForVendorsPage.hallInfo.tables')}</Typography>
+          <Typography size="sm">{t('infoForVendorsPage.hallInfo.extensionCords')}</Typography>
+          <Typography size="sm">{t('infoForVendorsPage.hallInfo.socialRoom')}</Typography>
+          <Typography size="sm">{t('infoForVendorsPage.hallInfo.glassWall')}</Typography>
         </PlainInfo>
       </SolidBackgroundBand>
 
@@ -110,7 +110,7 @@ export const InfoForVendorsPage = () => {
         </Typography>
 
         <PlainInfo>
-          <Typography size="md">{t('infoForVendorsPage.parking.parkingSpace')}</Typography>
+          <Typography size="sm">{t('infoForVendorsPage.parking.parkingSpace')}</Typography>
         </PlainInfo>
       </SolidBackgroundBand>
 
@@ -126,7 +126,7 @@ export const InfoForVendorsPage = () => {
         </Typography>
 
         <PlainInfo>
-          <Typography size="md">
+          <Typography size="sm">
             <Trans i18nKey="infoForVendorsPage.marketing.sendLogos" />
           </Typography>
         </PlainInfo>

@@ -10,12 +10,14 @@ export const Spacings = {
 
 export const RedesignSpacings = {
   none: 0,
-  xs: '4px',
+  xxs: '4px',
+  xs: '10px',
 
   sm: '20px',
   md: '30px',
-  lg: '50px',
+  lg: '40px',
+  xl: '50px',
 
-  xl: '96px',
-  xxl: '108px'
+  xxl: '96px',
+  xxxl: '108px'
 };

@@ -58,8 +58,8 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
               {t('cashmereTicketsBand.beautifulCruise')}
             </Typography>
 
-            <Typography size="md">{t('cashmereTicketsBand.invitation')}</Typography>
-            <Typography size="md">{t('cashmereTicketsBand.ship')}</Typography>
+            <Typography size="sm">{t('cashmereTicketsBand.invitation')}</Typography>
+            <Typography size="sm">{t('cashmereTicketsBand.ship')}</Typography>
           </FlexColumnLayout>
         </Carouselge.Item>
 
@@ -77,8 +77,8 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
               {t('cashmereTicketsBand.prosecco.title')}
             </Typography>
 
-            <Typography size="md">{t('cashmereTicketsBand.prosecco.intro')}</Typography>
-            <Typography size="md">{t('cashmereTicketsBand.prosecco.description')}</Typography>
+            <Typography size="sm">{t('cashmereTicketsBand.prosecco.intro')}</Typography>
+            <Typography size="sm">{t('cashmereTicketsBand.prosecco.description')}</Typography>
           </FlexColumnLayout>
         </Carouselge.Item>
 
@@ -106,8 +106,8 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
               <Typography size="xl" weight="bold">
                 {t('cashmereTicketsBand.map.price')}:
               </Typography>
-              <Typography size="md">130 zł </Typography>
-              <Typography size="md">
+              <Typography size="sm">130 zł </Typography>
+              <Typography size="sm">
                 <Trans i18nKey="cashmereTicketsBand.map.priceIncludesYarnmarkTicket" />
               </Typography>
             </FlexColumnLayout>

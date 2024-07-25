@@ -4,7 +4,7 @@ import { usePhone } from '../../hooks/usePhone';
 import { BackgroundColors, TextColors } from '../../styles/theme';
 import styled from 'styled-components';
 import { ScreenSize } from '../../styles/screeen-size';
-import { Spacings } from '../../styles/spacings';
+import { RedesignSpacings } from '../../styles/spacings';
 
 interface BandTitleProps {
   children?: ReactNode;
@@ -39,8 +39,8 @@ const SecondaryTitleWrapper = styled.div`
   width: 100%;
   align-items: center;
   justify-content: center;
-  background: ${BackgroundColors.smoothGradient};
-  padding: ${Spacings.md} 0;
+  background: ${BackgroundColors.ticketBand};
+  padding: ${RedesignSpacings.sm} 0;
 `;
 
 export const SecondaryBandTitle = ({ children }: BandTitleProps) => (

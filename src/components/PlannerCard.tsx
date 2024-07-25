@@ -25,7 +25,7 @@ const PlannerCardLayout = styled.div`
 `;
 
 const Ribbon = styled.div`
-  font-size: ${FontSize.md};
+  font-size: ${FontSize.sm};
   font-weight: bold;
   color: #fff;
 
@@ -50,7 +50,7 @@ export const PlannerCard = ({ time, children }: PlannerCardType) => {
   return (
     <PlannerCardLayout>
       <Ribbon>
-        <Typography size="md">{time}</Typography>
+        <Typography size="sm">{time}</Typography>
       </Ribbon>
 
       {children}

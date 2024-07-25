@@ -44,7 +44,7 @@ export const MainPage = () => {
           <CoreInfoBand id="coreInfo" />
           <TicketBand />
 
-          <Band.Title>{t('workshopsBand.title')}</Band.Title>
+          <Band.SecondaryTitle>{t('workshopsBand.title')}</Band.SecondaryTitle>
           <WorkshopsBand id="workshops" />
 
           <Band.Title>{t('vendorsPage.title')}</Band.Title>

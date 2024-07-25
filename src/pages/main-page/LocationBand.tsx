@@ -79,8 +79,8 @@ const EventLocationCard = () => {
         {t('spotBand.title')}
       </Typography>
 
-      <Typography size="md">{t('spotBand.address')}</Typography>
-      <Typography size="md">{t('spotBand.description')}</Typography>
+      <Typography size="sm">{t('spotBand.address')}</Typography>
+      <Typography size="sm">{t('spotBand.description')}</Typography>
 
       {!isSpotOpened && (
         <SecondaryButton onClick={() => setIsSpotOpened(true)}>{t('spotBand.howToGetToUs')}</SecondaryButton>
@@ -91,25 +91,25 @@ const EventLocationCard = () => {
             {t('spotBand.howToGetToUs')}
           </Typography>
 
-          <Typography size="md">{t('spotBand.publicTransport')}</Typography>
-          <Typography size="md">{t('spotBand.list')}</Typography>
-          <Typography size="md">
+          <Typography size="sm">{t('spotBand.publicTransport')}</Typography>
+          <Typography size="sm">{t('spotBand.list')}</Typography>
+          <Typography size="sm">
             <Trans i18nKey="spotBand.option1" />
           </Typography>
-          <Typography size="md">
+          <Typography size="sm">
             <Trans i18nKey="spotBand.option2" />
           </Typography>
-          <Typography size="md">
+          <Typography size="sm">
             <Trans i18nKey="spotBand.option3" />
           </Typography>
-          <Typography size="md">
+          <Typography size="sm">
             <Trans i18nKey="spotBand.option4" />
           </Typography>
 
           <Typography size="lg" weight="bold">
             {t('spotBand.accessibleByCar')}
           </Typography>
-          <Typography size="md">{t('spotBand.byCar')}</Typography>
+          <Typography size="sm">{t('spotBand.byCar')}</Typography>
 
           <p>
             fot: <a href="https://halacracovii.pl/">https://halacracovii.pl/</a>{' '}
