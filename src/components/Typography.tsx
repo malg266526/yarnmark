@@ -17,4 +17,5 @@ export const Typography = styled.div<{
     font-size: ${FontSize[size]};
     font-weight: ${fontVariantToWeight[weight || 'regular']};
   `};
+  line-height: 22px;
 `;

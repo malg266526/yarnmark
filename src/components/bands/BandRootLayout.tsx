@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Spacings } from '../../styles/spacings';
+import { RedesignSpacings, Spacings } from '../../styles/spacings';
 import { ScreenSize } from '../../styles/screeen-size';
 
 export type Justify = 'center' | 'space-around' | 'space-between' | 'flex-start' | 'space-evenly' | 'flex-end';
@@ -8,7 +8,7 @@ export type Align = 'center' | 'flex-start' | 'flex-end';
 export type BandSize = 'xl' | 'md' | 'sm' | 'xs' | 'lg';
 
 const bandSizeToHeight: Record<BandSize, string> = {
-  xl: '1000px',
+  xl: '900px',
   lg: '750px',
   md: '600px',
   sm: '450px',
@@ -16,12 +16,13 @@ const bandSizeToHeight: Record<BandSize, string> = {
 };
 
 export const BandRootLayout = styled.div<{
-  padding?: keyof typeof Spacings;
+  padding?: keyof typeof RedesignSpacings;
   size?: BandSize;
   justify?: Justify;
   align?: Align;
   direction?: 'column' | 'row';
   maxWidth?: `${number}%` | `${number}px`;
+  gap?: keyof typeof RedesignSpacings;
 }>`
   width: 100%;
   display: flex;
@@ -31,6 +32,8 @@ export const BandRootLayout = styled.div<{
 
   justify-content: ${({ justify }) => justify || 'flex-start'};
   align-items: ${({ align }) => align || 'flex-start'};
+
+  gap: ${({ gap }) => (gap ? RedesignSpacings[gap] : 'unset')};
 
   ${({ size }) =>
     size &&
@@ -42,14 +45,10 @@ export const BandRootLayout = styled.div<{
       }
     `};
 
-  padding: ${({ padding }) => Spacings[padding || 'xl']};
+  padding: ${({ padding }) => RedesignSpacings[padding || 'xl']};
 
   @media (max-width: ${ScreenSize.tablet}) {
     padding: ${Spacings.md} ${Spacings.md};
-  }
-
-  @media (max-width: ${ScreenSize.phone}) {
-    padding: 0;
   }
 
   ${({ maxWidth }) =>

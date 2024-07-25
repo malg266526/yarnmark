@@ -1,0 +1,5 @@
+bouncy hover on icons buttons
+
+ikonki - kliknij tu
+
+jedzenie - rozszerzany box na mobile + delikatny shadow, mozna wziac ramke z invitation card

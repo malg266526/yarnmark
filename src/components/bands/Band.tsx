@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
 import { BandRootLayout, BandSize, Justify } from './BandRootLayout';
-import { BandTitle } from './BandTitle';
+import { BandTitle, SecondaryBandTitle } from './BandTitle';
 import { BackgroundImageBand } from './BackgroundImageBand';
 import { SolidBackgroundBand } from './SolidBackgroundBand';
-import { Spacings } from '../../styles/spacings';
+import { RedesignSpacings, Spacings } from '../../styles/spacings';
 
 interface WallpaperBand {
   id: string;
@@ -23,6 +23,7 @@ interface CenteredColumnBandProps {
   justify?: Justify;
   color: string;
   padding?: keyof typeof Spacings;
+  gap?: keyof typeof RedesignSpacings;
 }
 
 const CenteredColumnBand = ({ id, color, ...props }: CenteredColumnBandProps) => (
@@ -60,6 +61,7 @@ interface BandProps {
 
 export const Band = Object.assign(({ children }: BandProps) => <BandRootLayout>{children}</BandRootLayout>, {
   Title: BandTitle,
+  SecondaryTitle: SecondaryBandTitle,
   Wallpaper: WallPaperBand,
   CenteredColumn: CenteredColumnBand,
   NarrowColumn: NarrowColumnBand,

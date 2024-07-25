@@ -7,3 +7,15 @@ export const Spacings = {
   xl: '96px',
   xxl: '108px'
 };
+
+export const RedesignSpacings = {
+  none: 0,
+  xs: '4px',
+
+  sm: '20px',
+  md: '30px',
+  lg: '50px',
+
+  xl: '96px',
+  xxl: '108px'
+};
