@@ -4,7 +4,7 @@ import { usePhone } from '../../hooks/usePhone';
 import { BackgroundColors, TextColors } from '../../styles/theme';
 import styled from 'styled-components';
 import { ScreenSize } from '../../styles/screeen-size';
-import { RedesignSpacings, Spacings } from '../../styles/spacings';
+import { RedesignSpacings } from '../../styles/spacings';
 
 interface BandTitleProps {
   children?: ReactNode;
