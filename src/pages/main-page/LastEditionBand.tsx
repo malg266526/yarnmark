@@ -1,13 +1,12 @@
 import { SectionWrapper } from './MainPage.styled';
-import { Colors } from '../../styles/theme';
+import { BackgroundColors } from '../../styles/theme';
 import React from 'react';
 import { Trans } from 'react-i18next';
 import { Link } from '../../components/Link';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { Typography } from '../../components/Typography';
-import { BandTitle } from '../../components/bands/BandTitle';
-import { SolidBackgroundBand } from '../../components/bands/SolidBackgroundBand';
+import { Band } from '../../components/bands/Band';
 
 type LastEditionBandType = {
   id: string;
@@ -17,9 +16,9 @@ export const LastEditionBand = ({ id }: LastEditionBandType) => {
   const t = useTypedTranslation();
 
   return (
-    <SolidBackgroundBand id={id} size="md" color={Colors.pastelGray} padding="xl">
+    <Band.Empty id={id} color={BackgroundColors.gradient}>
       <SectionWrapper>
-        <BandTitle>{t('previousEdition.thankYou')}</BandTitle>
+        <Band.Title>{t('previousEdition.thankYou')}</Band.Title>
 
         <Typography size="lg" weight="regular">
           <Trans
@@ -64,6 +63,6 @@ export const LastEditionBand = ({ id }: LastEditionBandType) => {
           </Link>
         </FlexColumnLayout>
       </SectionWrapper>
-    </SolidBackgroundBand>
+    </Band.Empty>
   );
 };

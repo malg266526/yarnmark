@@ -1,7 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 import { StyledPageContent } from './MainPage.styled';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
-import { FunnyButtonsBand } from './FunnyButtonsBand';
+import { NavigationBand } from './NavigationBand';
 import { VendorsBand } from './VendorsBand';
 import { WorkshopsBand } from './workshops/WorkshopsBand';
 import { WorkshopsScheduleBand } from './workshops/WorkshopsScheduleBand';
@@ -9,10 +9,12 @@ import { FoodBand } from './FoodBand';
 import { CruiseBand } from './CruiseBand';
 import { Menu } from '../menu/Menu';
 import { LastEditionBand } from './LastEditionBand';
-import { InvitationBand } from './InvitationBand';
+import { InvitationCard } from './InvitationCard';
 import { LocationBand } from './LocationBand';
 import { usePhone } from '../../hooks/usePhone';
 import { CoreInfoBand } from './CoreInfoBand';
+import { Band } from '../../components/bands/Band';
+import { WoolPicture } from '../../components/WoolPicture';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -33,13 +35,17 @@ export const MainPage = () => {
     <StyledPageContent ref={pageContentRef} variant="wide" padding="none">
       <Menu />
 
-      <InvitationBand id="invitation" />
-
       {isPhone ? (
-        <CoreInfoBand id="coreInfo" />
+        <>
+          <InvitationCard />
+          <CoreInfoBand id="coreInfo" />
+        </>
       ) : (
         <>
-          <FunnyButtonsBand />
+          <Band.Wallpaper id="invitation" picture={<WoolPicture />} size="xl">
+            <InvitationCard />
+          </Band.Wallpaper>
+          <NavigationBand />
           <LocationBand id="location" />
         </>
       )}

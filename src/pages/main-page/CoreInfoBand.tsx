@@ -1,5 +1,4 @@
 import React from 'react';
-import { SolidBackgroundBand } from '../../components/bands/SolidBackgroundBand';
 import { Typography } from '../../components/Typography';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { Trans } from 'react-i18next';
@@ -12,6 +11,7 @@ import arrowDownIconUrl from '../../assets/figmaIcons/arrow_down_icon.svg';
 import calendarIconUrl from '../../assets/figmaIcons/calendar_icon.svg';
 import styled from 'styled-components';
 import { GrayScale, TextColors } from '../../styles/theme';
+import { Band } from '../../components/bands/Band';
 
 const InfoColumn = styled(FlexColumnLayout)`
   text-align: center;
@@ -30,15 +30,15 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
   const t = useTypedTranslation();
 
   return (
-    <SolidBackgroundBand id={id} color={GrayScale[50]} size="lg" direction="column" align="center">
-      <InfoColumn align="center" padding="md" width="85%" gap="md">
+    <Band.NarrowColumn id={id} color={GrayScale[50]} size="lg">
+      <InfoColumn align="center" padding="md" gap="md">
         <FlexColumnLayout gap="xs" padding="none">
-          <Icon size="xxl" zIndex={0} src={calendarIconUrl} />
+          <Icon size="lg" zIndex={0} src={calendarIconUrl} />
           <Typography size="md">27/04/2024r. o godz. 10:00</Typography>
         </FlexColumnLayout>
 
         <FlexColumnLayout gap="xs" padding="none">
-          <Icon size="xxl" zIndex={0} src={redMapMarkerIconUrl} />
+          <Icon size="lg" zIndex={0} src={redMapMarkerIconUrl} />
           <Typography size="md">Hala 100-lecia KS Cracovia</Typography>
           <Typography size="md">
             <Trans
@@ -56,13 +56,13 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
         </FlexColumnLayout>
 
         <FlexColumnLayout gap="xs" padding="none">
-          <Icon size="xxl" zIndex={0} src={blueTicketsIconUrl} />
+          <Icon size="lg" zIndex={0} src={blueTicketsIconUrl} />
           <Typography size="md">{t('tickets.buyTicketsAndWorkshops')}</Typography>
-          <Icon size="xxl" zIndex={0} src={arrowDownIconUrl} />
+          <Icon size="lg" zIndex={0} src={arrowDownIconUrl} />
         </FlexColumnLayout>
 
         <FlexColumnLayout gap="xs" padding="none">
-          <Icon size="xxl" zIndex={0} src={shipIconUrl} />
+          <Icon size="lg" zIndex={0} src={shipIconUrl} />
           <Typography size="md">
             <Trans
               i18nKey="tickets.cruiseTicketHere"
@@ -71,6 +71,6 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
           </Typography>
         </FlexColumnLayout>
       </InfoColumn>
-    </SolidBackgroundBand>
+    </Band.NarrowColumn>
   );
 };

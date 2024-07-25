@@ -1,4 +1,4 @@
-import { BrownScale } from '../../styles/theme';
+import { BackgroundColors } from '../../styles/theme';
 import { ButtonsWrapper, ImageContentLayout, ImageWrapperColumn } from './MainPage.styled';
 import { ImageButton } from '../../components/ImageButton';
 import { Icon } from '../../components/Icon';
@@ -41,10 +41,8 @@ import { UnprefixedTranslationKeys, useTypedTranslation } from '../../translatio
 import styled from 'styled-components';
 import { ScreenSize } from '../../styles/screeen-size';
 import { Spacings } from '../../styles/spacings';
-import { CenteredParagraph } from '../../components/CenteredParagraph';
 import { Typography } from '../../components/Typography';
-import { BandTitle } from '../../components/bands/BandTitle';
-import { SolidBackgroundBand } from '../../components/bands/SolidBackgroundBand';
+import { Band } from '../../components/bands/Band';
 
 type ActiveButtonType =
   | 'foodtruckBezogrodek'
@@ -125,7 +123,7 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
           target="_blank"
           rel="noreferrer"
           aria-label="See bezogrodek instagram">
-          <Icon size="xl" src={instagramImageUrl} />
+          <Icon size="md" src={instagramImageUrl} />
         </a>
 
         <p>
@@ -166,7 +164,7 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
           target="_blank"
           rel="noreferrer"
           aria-label="See Bistro Błonia instagram">
-          <Icon size="xl" src={instagramImageUrl} />
+          <Icon size="md" src={instagramImageUrl} />
         </a>
       </FlexColumnLayout>
     )
@@ -222,7 +220,7 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
           target="_blank"
           rel="noreferrer"
           aria-label="See Grande appetito instagram">
-          <Icon size="xl" src={instagramImageUrl} />
+          <Icon size="md" src={instagramImageUrl} />
         </a>
       </FlexColumnLayout>
     )
@@ -279,7 +277,7 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
         />
         {t('foodBand.knittedCoffeeDescription')}
         <a href="https://www.instagram.com/knittedcoffee/?hl=pl" target="_blank" rel="noreferrer">
-          <Icon size="xl" src={instagramImageUrl} />
+          <Icon size="md" src={instagramImageUrl} />
         </a>
       </FlexColumnLayout>
     )
@@ -324,44 +322,42 @@ export const FoodBand = ({ id }: FoodBandType) => {
   const activeButtonToImage = getActiveButtonToImage(t);
 
   return (
-    <SolidBackgroundBand id={id} size="md" color={BrownScale[200]} padding="xl" direction="column" align="center">
-      <CenteredParagraph>
-        <BandTitle>Gdzie zjeść?</BandTitle>
-      </CenteredParagraph>
+    <Band.CenteredColumn id={id} size="md" color={BackgroundColors.primary} padding="xl">
+      <Band.Title>Gdzie zjeść?</Band.Title>
 
       <LayoutWithActiveButton>
         <ButtonsWrapper>
           <ImageButton
             active={activeButton === 'foodtruckBezogrodek'}
             onClick={() => setActiveButton('foodtruckBezogrodek')}
-            icon={<Icon size="xl" src={burgerImageUrl} />}>
+            icon={<Icon size="md" src={burgerImageUrl} />}>
             Food Truck Park Bezogródek
           </ImageButton>
 
           <ImageButton
             active={activeButton === 'bistroblonia'}
             onClick={() => setActiveButton('bistroblonia')}
-            icon={<Icon size="xl" src={turkeyImageUrl} />}>
+            icon={<Icon size="md" src={turkeyImageUrl} />}>
             Bistro Błonia
           </ImageButton>
 
           <ImageButton
             active={activeButton === 'grandeappetito'}
             onClick={() => setActiveButton('grandeappetito')}
-            icon={<Icon size="xl" src={shrimpImageUrl} />}>
+            icon={<Icon size="md" src={shrimpImageUrl} />}>
             Grande Appetito
           </ImageButton>
 
           <ImageButton
             active={activeButton === 'knittedCoffee'}
-            icon={<Icon size="xl" src={coffeeImageUrl} />}
+            icon={<Icon size="md" src={coffeeImageUrl} />}
             onClick={() => setActiveButton('knittedCoffee')}>
             Knitted Coffee
           </ImageButton>
 
           <ImageButton
             active={activeButton === 'coffeehouse'}
-            icon={<Icon size="xl" src={cupcakeImageUrl} />}
+            icon={<Icon size="md" src={cupcakeImageUrl} />}
             onClick={() => setActiveButton('coffeehouse')}>
             Kawiarnia na hali
           </ImageButton>
@@ -380,6 +376,6 @@ export const FoodBand = ({ id }: FoodBandType) => {
           </ImageContentLayout>
         </FramedBox>
       </LayoutWithActiveButton>
-    </SolidBackgroundBand>
+    </Band.CenteredColumn>
   );
 };
