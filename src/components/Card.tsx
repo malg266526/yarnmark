@@ -12,9 +12,8 @@ export const Card = styled.div<{
   flex-direction: ${({ flexDirection: direction }) => direction || 'column'};
 
   background-color: white;
+  align-items: center;
 
-  border-radius: 15px;
-  box-shadow:
-    0 2px 2px 0 rgba(0, 0, 0, 0.2),
-    0 2px 5px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 18px;
+  box-shadow: 2px 2px 15px 0px rgba(121, 59, 59, 0.25);
 `;

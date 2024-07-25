@@ -15,6 +15,7 @@ import { usePhone } from '../../hooks/usePhone';
 import { CoreInfoBand } from './CoreInfoBand';
 import { Band } from '../../components/bands/Band';
 import { WoolPicture } from '../../components/WoolPicture';
+import { TicketBand } from './TicketBand';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -39,6 +40,7 @@ export const MainPage = () => {
         <>
           <InvitationCard />
           <CoreInfoBand id="coreInfo" />
+          <TicketBand />
         </>
       ) : (
         <>

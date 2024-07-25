@@ -48,9 +48,9 @@ export const BandRootLayout = styled.div<{
     padding: ${Spacings.md} ${Spacings.md};
   }
 
-  @media (max-width: ${ScreenSize.phone}) {
+  /*  @media (max-width: ${ScreenSize.phone}) {
     padding: 0;
-  }
+  }*/
 
   ${({ maxWidth }) =>
     maxWidth &&
