@@ -14,8 +14,6 @@ export const WorkshopsBand = ({ id }: WorkshopsBandType) => {
 
   return (
     <Band.CenteredColumn id={id} size="lg" justify="center" padding="xl" color={gradient}>
-      <Band.Title>{t('workshopsBand.title')}</Band.Title>
-
       <WorkshopsCarousel />
     </Band.CenteredColumn>
   );

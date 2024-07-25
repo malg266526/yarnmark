@@ -13,8 +13,6 @@ export const VendorsBand = ({ id }: VendorsSectionType) => {
 
   return (
     <Band.CenteredColumn id={id} size="lg" padding="lg" color={BackgroundColors.gradient}>
-      <Band.Title>{t('vendorsPage.title')}</Band.Title>
-
       <VendorsList />
     </Band.CenteredColumn>
   );

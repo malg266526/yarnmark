@@ -1,6 +1,6 @@
 import React from 'react';
 import { Band } from '../../components/bands/Band';
-import { GrayScale } from '../../styles/theme';
+import { BackgroundColors, GrayScale } from '../../styles/theme';
 import { Card } from '../../components/Card';
 import { Typography } from '../../components/Typography';
 import styled from 'styled-components';
@@ -23,7 +23,7 @@ export const TicketBand = () => {
   const t = useTypedTranslation();
 
   return (
-    <Band.CenteredColumn color={GrayScale[100]} id="TicketBand" size="lg" padding="lg">
+    <Band.CenteredColumn color={BackgroundColors.smoothGradient} id="TicketBand" size="lg" padding="lg">
       <TicketCard>
         <TitleWrapper>
           <Band.Title>Bilet wstepu</Band.Title>

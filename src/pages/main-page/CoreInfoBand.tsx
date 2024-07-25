@@ -58,7 +58,6 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
         <FlexColumnLayout gap="xs" padding="none">
           <Icon size="lg" zIndex={0} src={blueTicketsIconUrl} />
           <Typography size="md">{t('tickets.buyTicketsAndWorkshops')}</Typography>
-          <Icon size="lg" zIndex={0} src={arrowDownIconUrl} />
         </FlexColumnLayout>
 
         <FlexColumnLayout gap="xs" padding="none">

@@ -16,9 +16,11 @@ import { CoreInfoBand } from './CoreInfoBand';
 import { Band } from '../../components/bands/Band';
 import { WoolPicture } from '../../components/WoolPicture';
 import { TicketBand } from './TicketBand';
+import { useTypedTranslation } from '../../translations/useTypedTranslation';
 
 export const MainPage = () => {
   const isPhone = usePhone();
+  const t = useTypedTranslation();
 
   const pageContentRef = useRef<HTMLDivElement | null>(null);
 
@@ -41,6 +43,12 @@ export const MainPage = () => {
           <InvitationCard />
           <CoreInfoBand id="coreInfo" />
           <TicketBand />
+
+          <Band.Title>{t('workshopsBand.title')}</Band.Title>
+          <WorkshopsBand id="workshops" />
+
+          <Band.Title>{t('vendorsPage.title')}</Band.Title>
+          <VendorsBand id="vendors" />
         </>
       ) : (
         <>
@@ -49,12 +57,10 @@ export const MainPage = () => {
           </Band.Wallpaper>
           <NavigationBand />
           <LocationBand id="location" />
+          <VendorsBand id="vendors" />
+          <WorkshopsBand id="workshops" />
         </>
       )}
-
-      <VendorsBand id="vendors" />
-
-      <WorkshopsBand id="workshops" />
 
       <WorkshopsScheduleBand id="schedule" />
 
