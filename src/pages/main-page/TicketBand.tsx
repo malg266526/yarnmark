@@ -1,6 +1,6 @@
 import React from 'react';
 import { Band } from '../../components/bands/Band';
-import { BackgroundColors, GrayScale } from '../../styles/theme';
+import { BackgroundColors } from '../../styles/theme';
 import { Card } from '../../components/Card';
 import { Typography } from '../../components/Typography';
 import styled from 'styled-components';

@@ -1,4 +1,4 @@
-import { BackgroundColors } from '../../styles/theme';
+import { BackgroundColors, TextColors } from '../../styles/theme';
 import React from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Icon, sizeToIconWidth } from '../../components/Icon';
@@ -13,6 +13,7 @@ import storeIconUrl from '../../assets/figmaIcons/store_icon.svg';
 import { Button } from '../../components/Button';
 import { Icon as IconifyIcon } from '@iconify/react';
 import { Band } from '../../components/bands/Band';
+import mapIcon from '../../assets/figmaIcons/map_icon.svg';
 
 const InfoSectionWrapper = styled.div`
   position: relative;
@@ -20,6 +21,12 @@ const InfoSectionWrapper = styled.div`
   flex-direction: column;
   z-index: 1;
   gap: ${Spacings.md};
+`;
+
+const IconButton = styled(Button)`
+  max-width: 60px;
+  color: ${TextColors.link};
+  text-align: center;
 `;
 
 export const NavigationBand = () => {
@@ -38,30 +45,36 @@ export const NavigationBand = () => {
         </Typography>
       </InfoSectionWrapper>
 
-      <RowLayout wide justify="center" gap="lg">
-        <Button onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}>
+      <RowLayout wide justify="center" gap="xl">
+        <IconButton onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}>
           <Icon size="xl" zIndex={0} src={blueTicketsIconUrl} />
-        </Button>
+          <Typography size="md">{t('tickets.clickHere')}</Typography>
+        </IconButton>
 
-        <Button onClick={() => (window.location.href = '/home#vendors')}>
+        <IconButton onClick={() => (window.location.href = '/home#vendors')}>
           <Icon size="xl" zIndex={0} src={storeIconUrl} />
-        </Button>
+          <Typography size="md">{t('tickets.clickHere')}</Typography>
+        </IconButton>
 
-        <Button onClick={() => (window.location.href = '/home#location')}>
+        <IconButton onClick={() => (window.location.href = '/home#location')}>
           <Icon size="xl" zIndex={0} src={redMapMarkerIconUrl} />
-        </Button>
+          <Typography size="md">{t('tickets.clickHere')}</Typography>
+        </IconButton>
 
-        <Button onClick={() => (window.location.href = '/home#cruise')}>
+        <IconButton onClick={() => (window.location.href = '/home#cruise')}>
           <Icon size="xl" zIndex={0} src={shipIconUrl} />
-        </Button>
+          <Typography size="md">{t('tickets.clickHere')}</Typography>
+        </IconButton>
 
-        <Button onClick={() => (window.location.href = '/home#food')}>
+        <IconButton onClick={() => (window.location.href = '/home#food')}>
           <IconifyIcon icon="fxemoji:hamburger" width={sizeToIconWidth['xl']}></IconifyIcon>
-        </Button>
+          <Typography size="md">{t('tickets.clickHere')}</Typography>
+        </IconButton>
 
-        <Button onClick={() => window.open('/hall', '_blank')}>
-          <IconifyIcon icon="fxemoji:hamburger" width={sizeToIconWidth['xl']}></IconifyIcon>
-        </Button>
+        <IconButton onClick={() => window.open('/hall', '_blank')}>
+          <Icon size="xl" zIndex={0} src={mapIcon} />
+          <Typography size="md">{t('tickets.clickHere')}</Typography>
+        </IconButton>
       </RowLayout>
     </Band.NarrowColumn>
   );

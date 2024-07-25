@@ -7,7 +7,6 @@ import shipIconUrl from '../../assets/figmaIcons/ship_icon.svg';
 import { Icon } from '../../components/Icon';
 import redMapMarkerIconUrl from '../../assets/figmaIcons/red_map_marker_icon.svg';
 import blueTicketsIconUrl from '../../assets/figmaIcons/blue_tickets_icon.svg';
-import arrowDownIconUrl from '../../assets/figmaIcons/arrow_down_icon.svg';
 import calendarIconUrl from '../../assets/figmaIcons/calendar_icon.svg';
 import styled from 'styled-components';
 import { GrayScale, TextColors } from '../../styles/theme';
