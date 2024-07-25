@@ -59,7 +59,7 @@ const SoldOutInfo = styled.div`
 `;
 
 const WorkshopLink = styled(Link)`
-  font-size: ${FontSize.md};
+  font-size: ${FontSize.sm};
   padding: 0;
 `;
 
@@ -87,11 +87,11 @@ export const WorkshopsSchedule = () => {
               <Typography size="lg">{t(scheduleEntry.topicKey)}</Typography>
               {scheduleEntry.isSoldOut ? (
                 <SoldOutInfo>
-                  <Typography size="md">{t('scheduleBand.soldOut')}</Typography>
+                  <Typography size="sm">{t('scheduleBand.soldOut')}</Typography>
                 </SoldOutInfo>
               ) : (
                 <>
-                  <Typography size="md">
+                  <Typography size="sm">
                     {t('workshops.price')}: {scheduleEntry.price}zł
                   </Typography>
                   <WorkshopLink to={scheduleEntry.ticketUrl} target="_blank">
@@ -122,11 +122,11 @@ export const WorkshopsSchedule = () => {
               <Typography size="lg">{t(scheduleEntry.topicKey)}</Typography>
               {scheduleEntry.isSoldOut ? (
                 <SoldOutInfo>
-                  <Typography size="md">{t('scheduleBand.soldOut')}</Typography>
+                  <Typography size="sm">{t('scheduleBand.soldOut')}</Typography>
                 </SoldOutInfo>
               ) : (
                 <>
-                  <Typography size="md">
+                  <Typography size="sm">
                     {t('workshops.price')}: {scheduleEntry.price}zł
                   </Typography>
                   <WorkshopLink to={scheduleEntry.ticketUrl} target="_blank">
@@ -157,7 +157,7 @@ export const WorkshopsSchedule = () => {
               <Typography size="lg">{t(scheduleEntry.topicKey)}</Typography>
               {scheduleEntry.isSoldOut ? (
                 <SoldOutInfo>
-                  <Typography size="md">{t('scheduleBand.soldOut')}</Typography>
+                  <Typography size="sm">{t('scheduleBand.soldOut')}</Typography>
                 </SoldOutInfo>
               ) : (
                 <>

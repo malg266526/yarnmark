@@ -367,11 +367,11 @@ export const FoodBand = ({ id }: FoodBandType) => {
           <ImageContentLayout>
             <FlexColumnLayout padding={isPhone ? 'none' : 'md'} gap={isPhone ? 'sm' : 'md'}>
               {activeButtonToImage[activeButton].image}
-              <Typography size="md">{activeButtonToImage[activeButton].secondaryText}</Typography>
+              <Typography size="sm">{activeButtonToImage[activeButton].secondaryText}</Typography>
             </FlexColumnLayout>
 
             <ImageWrapperColumn>
-              <Typography size="md">{activeButtonToImage[activeButton].text}</Typography>
+              <Typography size="sm">{activeButtonToImage[activeButton].text}</Typography>
             </ImageWrapperColumn>
           </ImageContentLayout>
         </FramedBox>

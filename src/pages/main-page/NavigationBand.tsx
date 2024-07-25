@@ -37,10 +37,10 @@ export const NavigationBand = () => {
       <InfoSectionWrapper>
         <Typography size="lg">{t('navigationBand.anotherEdition')}</Typography>
 
-        <Typography size="md" weight="regular">
+        <Typography size="sm" weight="regular">
           {t('navigationBand.knittingSaturday')}
         </Typography>
-        <Typography size="md" weight="regular">
+        <Typography size="sm" weight="regular">
           {t('navigationBand.linksBelow')}
         </Typography>
       </InfoSectionWrapper>
@@ -48,32 +48,32 @@ export const NavigationBand = () => {
       <RowLayout wide justify="center" gap="xl">
         <IconButton onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}>
           <Icon size="xl" zIndex={0} src={blueTicketsIconUrl} />
-          <Typography size="md">{t('tickets.clickHere')}</Typography>
+          <Typography size="sm">{t('tickets.clickHere')}</Typography>
         </IconButton>
 
         <IconButton onClick={() => (window.location.href = '/home#vendors')}>
           <Icon size="xl" zIndex={0} src={storeIconUrl} />
-          <Typography size="md">{t('tickets.clickHere')}</Typography>
+          <Typography size="sm">{t('tickets.clickHere')}</Typography>
         </IconButton>
 
         <IconButton onClick={() => (window.location.href = '/home#location')}>
           <Icon size="xl" zIndex={0} src={redMapMarkerIconUrl} />
-          <Typography size="md">{t('tickets.clickHere')}</Typography>
+          <Typography size="sm">{t('tickets.clickHere')}</Typography>
         </IconButton>
 
         <IconButton onClick={() => (window.location.href = '/home#cruise')}>
           <Icon size="xl" zIndex={0} src={shipIconUrl} />
-          <Typography size="md">{t('tickets.clickHere')}</Typography>
+          <Typography size="sm">{t('tickets.clickHere')}</Typography>
         </IconButton>
 
         <IconButton onClick={() => (window.location.href = '/home#food')}>
           <IconifyIcon icon="fxemoji:hamburger" width={sizeToIconWidth['xl']}></IconifyIcon>
-          <Typography size="md">{t('tickets.clickHere')}</Typography>
+          <Typography size="sm">{t('tickets.clickHere')}</Typography>
         </IconButton>
 
         <IconButton onClick={() => window.open('/hall', '_blank')}>
           <Icon size="xl" zIndex={0} src={mapIcon} />
-          <Typography size="md">{t('tickets.clickHere')}</Typography>
+          <Typography size="sm">{t('tickets.clickHere')}</Typography>
         </IconButton>
       </RowLayout>
     </Band.NarrowColumn>

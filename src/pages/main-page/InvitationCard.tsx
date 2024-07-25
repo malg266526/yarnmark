@@ -26,7 +26,7 @@ const Content = styled(FlexColumnLayout)`
 `;
 
 const MiddleSection = styled(FlexColumnLayout)`
-  padding: ${RedesignSpacings.lg} ${RedesignSpacings.md} ${RedesignSpacings.md} ${RedesignSpacings.md};
+  padding: ${RedesignSpacings.xl} ${RedesignSpacings.md} ${RedesignSpacings.md} ${RedesignSpacings.md};
 `;
 
 const SignatureSection = styled(FlexColumnLayout)`
@@ -63,15 +63,15 @@ export const InvitationCard = () => {
         <Band.Title>Krakoski Yarnmark Wełny</Band.Title>
 
         <MiddleSection align="flex-start" gap="sm">
-          <Typography size="md">{t('welcomeBand.invitation')}</Typography>
-          <Typography size="md">{t('welcomeBand.where')}</Typography>
-          <Typography size="md">{t('welcomeBand.haveFun')}</Typography>
+          <Typography size="sm">{t('welcomeBand.invitation')}</Typography>
+          <Typography size="sm">{t('welcomeBand.where')}</Typography>
+          <Typography size="sm">{t('welcomeBand.haveFun')}</Typography>
         </MiddleSection>
 
         <BottomSection justify="space-between" gap="none">
           <SignatureSection align="flex-start" gap="sm" padding="none">
-            <Typography size="md">{t('welcomeBand.seeYou')}</Typography>
-            <Typography size="md">
+            <Typography size="sm">{t('welcomeBand.seeYou')}</Typography>
+            <Typography size="sm">
               DziergamyNaPolu <br /> & Włóczykijki
             </Typography>
           </SignatureSection>

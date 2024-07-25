@@ -19,10 +19,12 @@ export const de: TranslationsShape = {
       cruiseTickets: 'Cruise tickets'
     },
     tickets: {
-      buyTicketsAndWorkshops: 'Kup bilet na targi lub wybierz opcję z warsztatami',
+      buyTicketsAndWorkshops: '<0>Kup</0> bilet na targi lub wybierz opcję z warsztatami',
       cruiseTicketHere: 'Bilet na dziergostatek znajdziesz <0>tu</0>',
       buyTicket: 'Tickets können Sie hier kaufen',
-      clickHere: 'Click here'
+      clickHere: 'Click here',
+      at: 'at',
+      price: 'Preis'
     },
     location: {
       findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0> i na <1>planie</1>'

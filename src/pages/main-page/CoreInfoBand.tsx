@@ -30,16 +30,16 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
 
   return (
     <Band.NarrowColumn id={id} color={GrayScale[50]} size="lg">
-      <InfoColumn align="center" padding="md" gap="md">
+      <InfoColumn align="center" padding="none" gap="lg">
         <FlexColumnLayout gap="xs" padding="none">
           <Icon size="lg" zIndex={0} src={calendarIconUrl} />
-          <Typography size="md">27/04/2024r. o godz. 10:00</Typography>
+          <Typography size="sm">27/04/2024r. o godz. 10:00</Typography>
         </FlexColumnLayout>
 
         <FlexColumnLayout gap="xs" padding="none">
           <Icon size="lg" zIndex={0} src={redMapMarkerIconUrl} />
-          <Typography size="md">Hala 100-lecia KS Cracovia</Typography>
-          <Typography size="md">
+          <Typography size="sm">Hala 100-lecia KS Cracovia</Typography>
+          <Typography size="sm">
             <Trans
               i18nKey="location.findUsOnMaps"
               components={[
@@ -56,12 +56,14 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
 
         <FlexColumnLayout gap="xs" padding="none">
           <Icon size="lg" zIndex={0} src={blueTicketsIconUrl} />
-          <Typography size="md">{t('tickets.buyTicketsAndWorkshops')}</Typography>
+          <Typography size="sm">
+            <Trans i18nKey="tickets.buyTicketsAndWorkshops" components={[<Link key="tickets_url" href="/home" />]} />
+          </Typography>
         </FlexColumnLayout>
 
         <FlexColumnLayout gap="xs" padding="none">
           <Icon size="lg" zIndex={0} src={shipIconUrl} />
-          <Typography size="md">
+          <Typography size="sm">
             <Trans
               i18nKey="tickets.cruiseTicketHere"
               components={[<Link key="cruise_tickets_here" href="/home#cruise" />]}

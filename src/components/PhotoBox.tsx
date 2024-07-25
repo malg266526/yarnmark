@@ -78,7 +78,7 @@ const ImageWrapper = styled.div``;
 
 const Cursive = styled.div`
   text-align: center;
-  font-size: ${FontSize.md};
+  font-size: ${FontSize.sm};
   font-family: cursive;
 `;
 

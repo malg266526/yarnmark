@@ -72,7 +72,7 @@ const DropdownItemsBackground = styled.div<{ visible: boolean }>`
 `;
 
 const SubLink = styled(Link)`
-  font-size: ${FontSize.md};
+  font-size: ${FontSize.sm};
 `;
 
 type DropdownType = {

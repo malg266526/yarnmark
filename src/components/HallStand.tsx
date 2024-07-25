@@ -27,7 +27,7 @@ const TextWrapper = styled.div`
 `;
 
 const StandText = styled.h5`
-  font-size: ${FontSize.sm};
+  font-size: ${FontSize.xs};
   text-align: center;
   margin: 0;
 `;
@@ -39,7 +39,7 @@ const StandIndex = styled.h4`
   overflow-wrap: anywhere;
 
   @media (max-width: ${ScreenSize.phone}) {
-    font-size: ${FontSize.xs};
+    font-size: ${FontSize.xxs};
   }
 `;
 

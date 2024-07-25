@@ -21,16 +21,16 @@ export const CruiseMap = () => {
       </Typography>
 
       <FlexColumnLayout gap="sm" padding="none" align="flex-start">
-        <Typography size="md">AQUA FUN </Typography>
-        <Typography size="md">Bulwar Czerwieński 172/7</Typography>
-        <Typography size="md">31-069 Kraków</Typography>
+        <Typography size="sm">AQUA FUN </Typography>
+        <Typography size="sm">Bulwar Czerwieński 172/7</Typography>
+        <Typography size="sm">31-069 Kraków</Typography>
       </FlexColumnLayout>
 
       <FlexColumnLayout gap="sm" padding="none" align="flex-start">
         <Typography size="lg" weight="bold">
           {t('cashmereTicketsBand.map.time')}
         </Typography>
-        <Typography size="md">17:30 – 19:30</Typography>
+        <Typography size="sm">17:30 – 19:30</Typography>
       </FlexColumnLayout>
 
       <FlexColumnLayout gap="sm" padding="none" align="flex-start">

@@ -19,10 +19,12 @@ export const pl = {
       cruiseTickets: 'Bilety rejsowe'
     },
     tickets: {
-      buyTicketsAndWorkshops: 'Kup bilet na targi lub wybierz opcję z warsztatami',
+      buyTicketsAndWorkshops: '<0>Kup</0> bilet na targi lub wybierz opcję z warsztatami',
       cruiseTicketHere: 'Bilet na dziergostatek znajdziesz <0>tu</0>',
       buyTicket: 'Kup bilet',
-      clickHere: 'Kliknij tu'
+      clickHere: 'Kliknij tu',
+      at: 'godz.',
+      price: 'Koszt'
     },
     location: {
       findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>'

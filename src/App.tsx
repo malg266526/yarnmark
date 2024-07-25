@@ -72,7 +72,7 @@ export const App = () => {
 
         <Footer id="footer">
           <MinimalistLayout>
-            <Typography size="md" weight="bold">
+            <Typography size="sm" weight="bold">
               {t('contactPage.title')}
             </Typography>
 
