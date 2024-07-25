@@ -14,6 +14,7 @@ const TicketCard = styled(Card)`
   height: 500px;
   padding: ${RedesignSpacings.md} ${RedesignSpacings.xs};
   gap: ${RedesignSpacings.md};
+  justify-content: center;
 `;
 
 const TitleWrapper = styled.div`
