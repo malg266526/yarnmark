@@ -22,7 +22,7 @@ export const BandTitle = ({ children }: BandTitleProps) => {
   }
 
   return (
-    <Typography size="xxl" weight="bold">
+    <Typography size="xl" weight="bold">
       {children}
     </Typography>
   );

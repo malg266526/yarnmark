@@ -21,7 +21,8 @@ export const pl = {
     tickets: {
       buyTicketsAndWorkshops: 'Kup bilet na targi lub wybierz opcję z warsztatami',
       cruiseTicketHere: 'Bilet na dziergostatek znajdziesz <0>tu</0>',
-      buyTicket: 'Kup bilet'
+      buyTicket: 'Kup bilet',
+      clickHere: 'Kliknij tu'
     },
     location: {
       findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>'
@@ -36,28 +37,8 @@ export const pl = {
     navigationBand: {
       anotherEdition: 'Przed nami kolejna edycja targów pod Wawelem!',
       knittingSaturday: 'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka!',
-      linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
+      linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście:',
       checkTheVendors: 'Sprawdź z jakimi wystawcami się spotkasz.'
-    },
-    buttonsBand: {
-      anotherEdition: 'Przed nami kolejna edycja targów pod Wawelem!',
-      knittingSaturday: 'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka!',
-      linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
-      tickets: {
-        text: 'Bilety',
-        mobileTitle: 'Bilety'
-      },
-      vendors: {
-        text: 'Sprawdź z jakimi wystawcami się spotkasz',
-        mobileTitle: 'Wystawcy'
-      },
-      location: {
-        text: 'Gdzie jesteśmy i jak tam dojechać?',
-        mobileTitle: 'Jak dojechać?'
-      },
-      foodButton: 'Gdzie zjeść?',
-      cruiseButton: 'Dołącz do imprezy na dziergostatku!',
-      hallMap: 'Mapa hali'
     },
     previousEdition: {
       thankYou: 'Dziękujemy za Waszą obecność na Yarnmarku 2024!',

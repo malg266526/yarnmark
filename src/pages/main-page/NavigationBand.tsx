@@ -1,9 +1,7 @@
 import { BackgroundColors } from '../../styles/theme';
-import React, { useRef } from 'react';
+import React from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { FunnyButton } from '../../components/FunnyButton';
 import { Icon, sizeToIconWidth } from '../../components/Icon';
-import mapImageUrl from '../../assets/iconify/worldmap.svg';
 import styled from 'styled-components';
 import { Typography } from '../../components/Typography';
 import { Spacings } from '../../styles/spacings';
@@ -27,20 +25,16 @@ const InfoSectionWrapper = styled.div`
 export const NavigationBand = () => {
   const t = useTypedTranslation();
 
-  const hallMapFunnyButtonRef = useRef<HTMLDivElement | null>(null);
-
   return (
-    <Band.NarrowColumn id="mainInfoButtons" size="md" color={BackgroundColors.primary}>
+    <Band.NarrowColumn id="mainInfoButtons" size="sm" gap="md" padding="md" color={BackgroundColors.navigationBand}>
       <InfoSectionWrapper>
-        <Band.Title>{t('navigationBand.anotherEdition')}</Band.Title>
-        <Typography size="lg" weight="regular">
+        <Typography size="lg">{t('navigationBand.anotherEdition')}</Typography>
+
+        <Typography size="md" weight="regular">
           {t('navigationBand.knittingSaturday')}
         </Typography>
-        <Typography size="lg" weight="regular">
+        <Typography size="md" weight="regular">
           {t('navigationBand.linksBelow')}
-        </Typography>
-        <Typography size="lg" weight="regular">
-          {t('navigationBand.checkTheVendors')}
         </Typography>
       </InfoSectionWrapper>
 
@@ -65,12 +59,9 @@ export const NavigationBand = () => {
           <IconifyIcon icon="fxemoji:hamburger" width={sizeToIconWidth['xl']}></IconifyIcon>
         </Button>
 
-        <FunnyButton
-          ref={hallMapFunnyButtonRef}
-          icon={<Icon size="md" zIndex={0} src={mapImageUrl} />}
-          text={t('buttonsBand.hallMap')}
-          onClick={() => window.open('/hall', '_blank')}
-        />
+        <Button onClick={() => window.open('/hall', '_blank')}>
+          <IconifyIcon icon="fxemoji:hamburger" width={sizeToIconWidth['xl']}></IconifyIcon>
+        </Button>
       </RowLayout>
     </Band.NarrowColumn>
   );

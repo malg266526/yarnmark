@@ -21,7 +21,8 @@ export const de: TranslationsShape = {
     tickets: {
       buyTicketsAndWorkshops: 'Kup bilet na targi lub wybierz opcję z warsztatami',
       cruiseTicketHere: 'Bilet na dziergostatek znajdziesz <0>tu</0>',
-      buyTicket: 'Tickets können Sie hier kaufen'
+      buyTicket: 'Tickets können Sie hier kaufen',
+      clickHere: 'Click here'
     },
     location: {
       findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0> i na <1>planie</1>'
@@ -37,7 +38,7 @@ export const de: TranslationsShape = {
       anotherEdition: 'The next edition of the Wool Fair in Cracow is ahead of us!',
       knittingSaturday: 'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka!',
       linksBelow:
-        'Unten findest du einige Links, die dir bei der Planung deiner Zeit in unserer schönen Stadt helfen werden',
+        'Unten findest du einige Links, die dir bei der Planung deiner Zeit in unserer schönen Stadt helfen werden:',
       checkTheVendors: 'Schau welche Aussteller du triffst'
     },
     previousEdition: {
@@ -48,27 +49,6 @@ export const de: TranslationsShape = {
       yarnmarkBag: 'Plecako-torba',
       photosBy: 'Fotki od',
       savedStories: 'w relacji wyróżnionej'
-    },
-    buttonsBand: {
-      anotherEdition: 'Przed nami kolejna edycja targów pod Wawelem!',
-      knittingSaturday: 'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka!',
-      linksBelow:
-        'Unten findest du einige Links, die dir bei der Planung deiner Zeit in unserer schönen Stadt helfen werden',
-      tickets: {
-        text: 'Ticket will be available starting 14.02.2024',
-        mobileTitle: 'Tickets'
-      },
-      vendors: {
-        mobileTitle: 'Aussteller',
-        text: 'Schau welche Aussteller du triffst'
-      },
-      location: {
-        mobileTitle: 'Wie man dorthin kommt?',
-        text: 'Wo sind wir und wie kommst du dorthin?'
-      },
-      foodButton: 'Wo sollen wir essen?',
-      cruiseButton: 'Machen Sie mit bei unserer Strickschiff-Party!',
-      hallMap: 'Halleplan'
     },
     spotBand: {
       title: 'Wo?',

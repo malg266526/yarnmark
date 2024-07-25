@@ -36,8 +36,9 @@ export const en: TranslationsShape = {
     navigationBand: {
       anotherEdition: 'The next edition of the Wool Fair in Cracow is ahead of us!',
       knittingSaturday: 'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka!',
-      linksBelow: 'Below you will find few links that will help you plan your time in our beautiful city',
-      checkTheVendors: 'Check which vendors you will meet'
+      linksBelow: 'Below you will find few links that will help you plan your time in our beautiful city:',
+      checkTheVendors: 'Check which vendors you will meet',
+      clickHere: 'Kliknij tu'
     },
     previousEdition: {
       thankYou: 'Thank you for your presence at Yarnmark 2024!',
@@ -47,26 +48,6 @@ export const en: TranslationsShape = {
       yarnmarkBag: 'Plecako-torba',
       photosBy: 'Fotki od',
       savedStories: 'w relacji wyróżnionej'
-    },
-    buttonsBand: {
-      anotherEdition: 'The next edition of the Wool Fair in Cracow is ahead of us!',
-      knittingSaturday: 'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka!',
-      linksBelow: 'Below you will find few links that will help you plan your time in our beautiful city.',
-      tickets: {
-        text: 'Tickets',
-        mobileTitle: 'Tickets'
-      },
-      vendors: {
-        mobileTitle: 'Vendors',
-        text: 'Check which vendors you will meet'
-      },
-      location: {
-        mobileTitle: 'How to get there?',
-        text: 'Where are we and how to get there?'
-      },
-      foodButton: 'Where to eat?',
-      cruiseButton: 'Join our knitting-ship party!',
-      hallMap: 'Hall map'
     },
     spotBand: {
       title: 'Where?',

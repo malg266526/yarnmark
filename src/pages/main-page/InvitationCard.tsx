@@ -10,14 +10,14 @@ import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import styled from 'styled-components';
 import { RedesignSpacings, Spacings } from '../../styles/spacings';
 import { RowLayout } from '../../components/RowLayout';
-import { GrayScale } from '../../styles/theme';
+import { BackgroundColors, GrayScale } from '../../styles/theme';
 import { ScreenSize } from '../../styles/screeen-size';
 import { Radius } from '../../styles/cards';
 import { Band } from '../../components/bands/Band';
 
 const Content = styled(FlexColumnLayout)`
   padding: ${Spacings.lg} ${Spacings.xs} 0 ${Spacings.xs};
-  background-color: ${GrayScale[50]};
+  background-color: ${BackgroundColors.desktopCard};
 
   @media (max-width: ${ScreenSize.phone}) {
     background-color: ${GrayScale[200]};
