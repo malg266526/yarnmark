@@ -41,6 +41,11 @@ export const de: TranslationsShape = {
         'Unten findest du einige Links, die dir bei der Planung deiner Zeit in unserer schönen Stadt helfen werden:',
       checkTheVendors: 'Schau welche Aussteller du triffst'
     },
+    buttonsBand: {
+      foodButton: 'Gdzie zjeść?',
+      cruiseButton: 'Dołącz do imprezy na dziergostatku!',
+      hallMap: 'Mapa hali'
+    },
     previousEdition: {
       thankYou: 'Thank you for your presence at Yarnmark 2024!',
       fillTheSurvey: 'We kindly invite you to share your opinion about Yarnmark 2024 in the <0>survey</0>',

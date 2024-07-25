@@ -37,8 +37,13 @@ export const pl = {
     navigationBand: {
       anotherEdition: 'Przed nami kolejna edycja targów pod Wawelem!',
       knittingSaturday: 'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka!',
-      linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście:',
+      linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
       checkTheVendors: 'Sprawdź z jakimi wystawcami się spotkasz.'
+    },
+    buttonsBand: {
+      foodButton: 'Gdzie zjeść?',
+      cruiseButton: 'Dołącz do imprezy na dziergostatku!',
+      hallMap: 'Mapa hali'
     },
     previousEdition: {
       thankYou: 'Dziękujemy za Waszą obecność na Yarnmarku 2024!',
