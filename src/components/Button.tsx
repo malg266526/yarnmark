@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { TextColors } from '../styles/theme';
 import { FontSize } from '../styles/font-size';
-import { RedesignSpacings, Spacings } from '../styles/spacings';
+import { RedesignSpacings } from '../styles/spacings';
 import { Radius } from '../styles/cards';
 
 export const Button = styled.button`

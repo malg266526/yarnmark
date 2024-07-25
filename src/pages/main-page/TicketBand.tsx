@@ -5,7 +5,7 @@ import { Card } from '../../components/Card';
 import { Typography } from '../../components/Typography';
 import styled from 'styled-components';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
-import { RedesignSpacings, Spacings } from '../../styles/spacings';
+import { RedesignSpacings } from '../../styles/spacings';
 import { CtaButton } from '../../components/Button';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 

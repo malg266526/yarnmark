@@ -2,7 +2,6 @@ import React from 'react';
 import { Typography } from '../../components/Typography';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { Trans } from 'react-i18next';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import shipIconUrl from '../../assets/figmaIcons/ship_icon.svg';
 import { Icon } from '../../components/Icon';
 import redMapMarkerIconUrl from '../../assets/figmaIcons/red_map_marker_icon.svg';
@@ -26,8 +25,6 @@ interface CoreInfoBandProps {
 }
 
 export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
-  const t = useTypedTranslation();
-
   return (
     <Band.NarrowColumn id={id} color={GrayScale[50]} size="lg">
       <InfoColumn align="center" padding="none" gap="lg">
