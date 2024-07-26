@@ -64,7 +64,7 @@ export const MainPage = () => {
           </Band.Wallpaper>
           <NavigationBand />
           <LocationBand id="location" />
-          <Band.CenteredColumn id="vendors" size="lg" padding="lg" color={BackgroundColors.gradient}>
+          <Band.CenteredColumn id="vendors" size="md" padding="xxl" color={BackgroundColors.gradient} justify="center">
             <VendorsList />
           </Band.CenteredColumn>
           <WorkshopsBand id="workshops" />
