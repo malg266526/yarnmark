@@ -12,7 +12,13 @@ export const WorkshopsScheduleBand = ({ id }: WorkshopsScheduleBandType) => {
   const t = useTypedTranslation();
 
   return (
-    <Band.CenteredColumn id={id} size="lg" justify="space-between" color={BackgroundColors.secondary} padding="xl">
+    <Band.CenteredColumn
+      id={id}
+      size="lg"
+      justify="space-between"
+      color={BackgroundColors.secondary}
+      padding="xl"
+      gap="lg">
       <Band.Title>{t('scheduleBand.title')}</Band.Title>
 
       <WorkshopsSchedule />
