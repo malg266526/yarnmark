@@ -2,7 +2,6 @@ import React, { useCallback, useRef } from 'react';
 import { StyledPageContent } from './MainPage.styled';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import { NavigationBand } from './NavigationBand';
-import { VendorsBand } from './VendorsBand';
 import { WorkshopsBand } from './workshops/WorkshopsBand';
 import { WorkshopsScheduleBand } from './workshops/WorkshopsScheduleBand';
 import { FoodBand } from './FoodBand';
@@ -18,6 +17,8 @@ import { WoolPicture } from '../../components/WoolPicture';
 import { TicketBand } from './mobile/TicketBand';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { WorkshopsSchedule } from './workshops/WorkshopsSchedule';
+import { BackgroundColors } from '../../styles/theme';
+import { VendorsList } from './VendorsList';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -50,8 +51,11 @@ export const MainPage = () => {
             <WorkshopsSchedule />
           </Band.Empty>
 
-          <Band.Title>{t('vendorsPage.title')}</Band.Title>
-          <VendorsBand id="vendors" />
+          <Band.SecondaryTitle>{t('vendorsPage.title')}</Band.SecondaryTitle>
+
+          <Band.CenteredColumn id="vendors" size="lg" padding="none" color={BackgroundColors.gradient}>
+            <VendorsList />
+          </Band.CenteredColumn>
         </>
       ) : (
         <>
@@ -60,7 +64,9 @@ export const MainPage = () => {
           </Band.Wallpaper>
           <NavigationBand />
           <LocationBand id="location" />
-          <VendorsBand id="vendors" />
+          <Band.CenteredColumn id="vendors" size="lg" padding="lg" color={BackgroundColors.gradient}>
+            <VendorsList />
+          </Band.CenteredColumn>
           <WorkshopsBand id="workshops" />
           <WorkshopsScheduleBand id="schedule" />
         </>
