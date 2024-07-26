@@ -3,14 +3,12 @@ import { Typography } from '../Typography';
 import React from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import styled from 'styled-components';
-import { RedesignSpacings, Spacings } from '../../styles/spacings';
-import { Colors } from '../../styles/theme';
-import { Link } from '../Link';
-import { FontSize } from '../../styles/font-size';
+import { RedesignSpacings } from '../../styles/spacings';
+import { TextColors } from '../../styles/theme';
 import { ScheduleEntry } from '../../pages/main-page/workshops/scheduleConfig';
 import { Ribbon } from './Ribbon';
 import { DropShadow, Radius } from '../../styles/cards';
-import { FlexColumnLayout } from '../FlexColumnLayout';
+import { CtaButton } from '../Button';
 
 const CardLayout = styled.div`
   display: flex;
@@ -18,9 +16,11 @@ const CardLayout = styled.div`
 
   width: 356px;
   min-width: 356px;
-  height: 440px;
+  height: 475px;
 
   padding: ${RedesignSpacings.md} ${RedesignSpacings.xs};
+
+  gap: ${RedesignSpacings.lg};
 
   border-radius: ${Radius.lg};
   align-items: center;
@@ -28,22 +28,18 @@ const CardLayout = styled.div`
   box-shadow: ${DropShadow.sm};
 `;
 
-const TextContent = styled.div`
+const TicketSection = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   width: 100%;
+  flex-direction: column;
+
+  justify-content: space-around;
   align-items: center;
-  gap: ${Spacings.sm};
+  gap: ${RedesignSpacings.sm};
 `;
 
-const SoldOutInfo = styled.div`
-  color: ${Colors.soldOutRed};
-`;
-
-const WorkshopLink = styled(Link)`
-  font-size: ${FontSize.sm};
-  padding: 0;
+const PriceInfo = styled.div`
+  color: ${TextColors.link};
 `;
 
 interface RibbonCardProps {
@@ -55,40 +51,40 @@ export const RibbonCard = ({ scheduleEntry }: RibbonCardProps) => {
 
   return (
     <CardLayout>
-      <FlexColumnLayout gap="lg" padding="none" width="100%">
-        <Ribbon>
-          <Typography size="xl">{scheduleEntry.time}</Typography>
-        </Ribbon>
+      <Ribbon>
+        <Typography size="lg">{scheduleEntry.time}</Typography>
+      </Ribbon>
 
-        <Picture
-          picture={{
-            fallbackUrl: scheduleEntry.picture.fallback,
-            sources: scheduleEntry.picture.sources
-          }}
-          alt={t(scheduleEntry.topicKey)}
-          width={160}
-          height={160}
-        />
+      <Picture
+        picture={{
+          fallbackUrl: scheduleEntry.picture.fallback,
+          sources: scheduleEntry.picture.sources
+        }}
+        alt={t(scheduleEntry.topicKey)}
+        width={160}
+        height={160}
+      />
 
+      <TicketSection>
         <Typography size="lg">{t(scheduleEntry.topicKey)}</Typography>
-      </FlexColumnLayout>
 
-      <TextContent>
         {scheduleEntry.isSoldOut ? (
-          <SoldOutInfo>
-            <Typography size="sm">{t('scheduleBand.soldOut')}</Typography>
-          </SoldOutInfo>
+          <PriceInfo>
+            <Typography size="md">{t('scheduleBand.soldOut')}</Typography>
+          </PriceInfo>
         ) : (
           <>
-            <Typography size="sm">
-              {t('workshops.price')}: {scheduleEntry.price}zł
-            </Typography>
-            <WorkshopLink to={scheduleEntry.ticketUrl} target="_blank">
+            <PriceInfo>
+              <Typography size="md">
+                {t('workshops.price')}: {scheduleEntry.price}zł
+              </Typography>
+            </PriceInfo>
+            <CtaButton onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}>
               {t('workshops.buyTicket')}
-            </WorkshopLink>
+            </CtaButton>
           </>
         )}
-      </TextContent>
+      </TicketSection>
     </CardLayout>
   );
 };

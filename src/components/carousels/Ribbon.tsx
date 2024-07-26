@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { RedesignSpacings, Spacings } from '../../styles/spacings';
+import { Spacings } from '../../styles/spacings';
 import { BrownScale } from '../../styles/theme';
 
 export const Ribbon = styled.div`
@@ -12,6 +12,6 @@ export const Ribbon = styled.div`
   background: ${BrownScale[900]}; /* the main color */
   width: 85%;
 
-  padding: ${RedesignSpacings.sm} 0;
+  padding: 16px 0;
   text-align: center;
 `;
