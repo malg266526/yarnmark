@@ -4,7 +4,7 @@ import { WorkshopsSchedule } from '../workshops/WorkshopsSchedule';
 
 export const WorkshopsTicketsBand = () => {
   return (
-    <Band.Empty id="workshopsTickets" padding="sm">
+    <Band.Empty id="workshopsTickets" padding="xs">
       <WorkshopsSchedule />
     </Band.Empty>
   );

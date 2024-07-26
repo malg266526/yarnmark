@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Spacings } from '../../styles/spacings';
 import { BrownScale } from '../../styles/theme';
+import { ScreenSize } from '../../styles/screeen-size';
 
 export const Ribbon = styled.div`
   color: #fff;
@@ -14,4 +15,8 @@ export const Ribbon = styled.div`
 
   padding: 16px 0;
   text-align: center;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    width: 100%;
+  }
 `;

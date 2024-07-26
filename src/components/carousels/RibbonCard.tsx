@@ -9,6 +9,7 @@ import { ScheduleEntry } from '../../pages/main-page/workshops/scheduleConfig';
 import { Ribbon } from './Ribbon';
 import { DropShadow, Radius } from '../../styles/cards';
 import { CtaButton } from '../Button';
+import { ScreenSize } from '../../styles/screeen-size';
 
 const CardLayout = styled.div`
   display: flex;
@@ -26,6 +27,13 @@ const CardLayout = styled.div`
   align-items: center;
   position: relative;
   box-shadow: ${DropShadow.sm};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    width: 280px;
+    min-width: 280px;
+
+    padding: ${RedesignSpacings.sm} ${RedesignSpacings.xs};
+  }
 `;
 
 const TicketSection = styled.div`

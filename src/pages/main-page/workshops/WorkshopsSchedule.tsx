@@ -1,30 +1,9 @@
 import React, { ReactNode, useState } from 'react';
 import { Tabs } from '../../../components/Tabs';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
-import Carousel from 'react-multi-carousel';
 import { ScheduleConfig } from './scheduleConfig';
 import { RibbonCard } from '../../../components/carousels/RibbonCard';
-
-const responsive = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 2000 },
-    items: 5
-  },
-  desktop: {
-    breakpoint: { max: 2000, min: 1155 },
-    items: 4
-    //slidesToSlide: 3,
-    // partialVisibilityGutter: 40
-  },
-  tablet: {
-    breakpoint: { max: 1155, min: 640 },
-    items: 2
-  },
-  mobile: {
-    breakpoint: { max: 640, min: 0 },
-    items: 1
-  }
-};
+import { MultiCarousel } from '../../../components/carousels/MultiCarousel';
 
 type WorkshopRoom = 1 | 2 | 3;
 
@@ -35,30 +14,25 @@ export const WorkshopsSchedule = () => {
 
   const activeRoomToContent: Record<WorkshopRoom, ReactNode> = {
     1: (
-      <Carousel
-        responsive={responsive}
-        keyBoardControl
-        infinite
-        removeArrowOnDeviceType={['tablet', 'mobile']}
-        swipeable>
+      <MultiCarousel>
         {ScheduleConfig.mirrorsRoom.map((scheduleEntry, index) => (
           <RibbonCard key={`mirrorsRoom_${index}`} scheduleEntry={scheduleEntry} />
         ))}
-      </Carousel>
+      </MultiCarousel>
     ),
     2: (
-      <Carousel responsive={responsive} keyBoardControl rewindWithAnimation infinite>
+      <MultiCarousel>
         {ScheduleConfig.fencingRoom.map((scheduleEntry, index) => (
           <RibbonCard key={`fencingRoom_${index}`} scheduleEntry={scheduleEntry} />
         ))}
-      </Carousel>
+      </MultiCarousel>
     ),
     3: (
-      <Carousel responsive={responsive} keyBoardControl rewindWithAnimation infinite>
+      <MultiCarousel>
         {ScheduleConfig.conferenceRoom.map((scheduleEntry, index) => (
           <RibbonCard key={`conferenceRoom_${index}`} scheduleEntry={scheduleEntry} />
         ))}
-      </Carousel>
+      </MultiCarousel>
     )
   };
 
