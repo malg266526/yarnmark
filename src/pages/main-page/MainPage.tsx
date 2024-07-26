@@ -17,7 +17,7 @@ import { Band } from '../../components/bands/Band';
 import { WoolPicture } from '../../components/WoolPicture';
 import { TicketBand } from './mobile/TicketBand';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { WorkshopsTicketsBand } from './mobile/WorkshopsTicketsBand';
+import { WorkshopsSchedule } from './workshops/WorkshopsSchedule';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -46,7 +46,9 @@ export const MainPage = () => {
           <TicketBand />
 
           <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
-          <WorkshopsTicketsBand />
+          <Band.Empty id="workshopsTickets" padding="xs">
+            <WorkshopsSchedule />
+          </Band.Empty>
 
           <Band.Title>{t('vendorsPage.title')}</Band.Title>
           <VendorsBand id="vendors" />
