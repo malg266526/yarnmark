@@ -46,11 +46,11 @@ const WorkshopLink = styled(Link)`
   padding: 0;
 `;
 
-interface RibbonCard {
+interface RibbonCardProps {
   scheduleEntry: ScheduleEntry;
 }
 
-export const RibbonCard = ({ scheduleEntry }: RibbonCard) => {
+export const RibbonCard = ({ scheduleEntry }: RibbonCardProps) => {
   const t = useTypedTranslation();
 
   return (

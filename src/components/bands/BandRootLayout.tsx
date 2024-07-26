@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { RedesignSpacings, Spacings } from '../../styles/spacings';
+import { RedesignSpacings } from '../../styles/spacings';
 import { ScreenSize } from '../../styles/screeen-size';
 
 export type Justify = 'center' | 'space-around' | 'space-between' | 'flex-start' | 'space-evenly' | 'flex-end';

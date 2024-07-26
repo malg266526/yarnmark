@@ -15,11 +15,11 @@ const Slides = styled.div`
   overflow: scroll;
 `;
 
-interface MultiCarousel {
+interface MultiCarouselProps {
   children: ReactNode;
 }
 
-export const MultiCarousel = ({ children }: MultiCarousel) => {
+export const MultiCarousel = ({ children }: MultiCarouselProps) => {
   return (
     <Container id="carousel_container">
       <Slides id="carousel_slides">{children}</Slides>
