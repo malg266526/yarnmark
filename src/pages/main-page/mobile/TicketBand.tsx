@@ -1,13 +1,13 @@
 import React from 'react';
-import { Band } from '../../components/bands/Band';
-import { BackgroundColors, TextColors } from '../../styles/theme';
-import { Card } from '../../components/Card';
-import { Typography } from '../../components/Typography';
+import { Band } from '../../../components/bands/Band';
+import { BackgroundColors, TextColors } from '../../../styles/theme';
+import { Card } from '../../../components/Card';
+import { Typography } from '../../../components/Typography';
 import styled from 'styled-components';
-import { FlexColumnLayout } from '../../components/FlexColumnLayout';
-import { RedesignSpacings } from '../../styles/spacings';
-import { CtaButton } from '../../components/Button';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
+import { RedesignSpacings } from '../../../styles/spacings';
+import { CtaButton } from '../../../components/Button';
+import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 
 const TicketCard = styled(Card)`
   width: 100%;

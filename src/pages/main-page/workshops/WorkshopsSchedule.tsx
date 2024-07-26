@@ -178,7 +178,7 @@ export const WorkshopsSchedule = () => {
 
   return (
     <>
-      <Tabs>
+      <Tabs id="tabs">
         <Tabs.Tab onClick={() => setActiveRoom(1)} active={activeRoom === 1}>
           {t('scheduleBand.room1')}
         </Tabs.Tab>

@@ -47,10 +47,6 @@ export const BandRootLayout = styled.div<{
 
   padding: ${({ padding }) => RedesignSpacings[padding || 'xl']};
 
-  @media (max-width: ${ScreenSize.tablet}) {
-    padding: ${Spacings.md} ${Spacings.md};
-  }
-
   ${({ maxWidth }) =>
     maxWidth &&
     css`

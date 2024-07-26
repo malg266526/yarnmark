@@ -1,7 +1,8 @@
 import React, { useCallback, useRef } from 'react';
 import styled, { css } from 'styled-components';
 import { DropShadow, Radius } from '../styles/cards';
-import { Spacings } from '../styles/spacings';
+import { RedesignSpacings, Spacings } from '../styles/spacings';
+import { ScreenSize } from '../styles/screeen-size';
 
 export interface TabRootProps {
   active?: boolean;
@@ -26,6 +27,11 @@ const TabRoot = styled.div<{ active?: boolean }>`
 
   &:hover {
     border-color: black;
+
+    @media (max-width: ${ScreenSize.phone}) {
+      border-color: transparent;
+      border-bottom: 2px solid darkgray;
+    }
   }
 
   ${({ active }) =>
@@ -56,12 +62,16 @@ const Tab = ({ onClick, ...rest }: TabProps) => {
 
 const Content = styled.div`
   background: white;
-  border-radius: ${Radius.lg};
-  padding: ${Spacings.md};
+  padding-top: ${RedesignSpacings.sm};
   width: 100%;
   flex: 1 1 auto;
-
+  border-radius: ${Radius.lg};
   box-shadow: ${DropShadow.md};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    border-radius: 0;
+    box-shadow: none;
+  }
 `;
 
 export const Tabs = Object.assign(

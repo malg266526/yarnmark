@@ -1,12 +1,12 @@
 import React, { ReactNode } from 'react';
-import { Spacings } from '../../styles/spacings';
+import { RedesignSpacings } from '../../styles/spacings';
 import { Align, BandRootLayout, BandSize, Justify } from './BandRootLayout';
 import styled from 'styled-components';
 
 interface BackgroundBand {
   id: string;
   children?: ReactNode;
-  padding?: keyof typeof Spacings;
+  padding?: keyof typeof RedesignSpacings;
   size?: BandSize;
   justify?: Justify;
   align?: Align;

@@ -24,7 +24,8 @@ export const pl = {
       buyTicket: 'Kup bilet',
       clickHere: 'Kliknij tu',
       at: 'godz.',
-      price: 'Koszt'
+      price: 'Koszt',
+      workshopsTickets: 'Bilety na warsztaty'
     },
     location: {
       findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>'

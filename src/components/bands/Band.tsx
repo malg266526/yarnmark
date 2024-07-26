@@ -46,11 +46,20 @@ interface EmptyBandProps {
   id: string;
   children?: ReactNode;
   justify?: Justify;
-  color: string;
+  color?: string;
+  padding?: keyof typeof RedesignSpacings;
 }
 
-const EmptyBand = ({ id, color, ...props }: EmptyBandProps) => (
-  <SolidBackgroundBand id={id} color={color} size="md" direction="column" align="flex-start" padding="xl" {...props} />
+const EmptyBand = ({ id, color, padding, ...props }: EmptyBandProps) => (
+  <SolidBackgroundBand
+    id={id}
+    color={color || 'white'}
+    size="md"
+    direction="column"
+    align="flex-start"
+    padding={padding || 'xl'}
+    {...props}
+  />
 );
 
 interface BandProps {

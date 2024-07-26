@@ -12,11 +12,12 @@ import { LastEditionBand } from './LastEditionBand';
 import { InvitationCard } from './InvitationCard';
 import { LocationBand } from './LocationBand';
 import { usePhone } from '../../hooks/usePhone';
-import { CoreInfoBand } from './CoreInfoBand';
+import { CoreInfoBand } from './mobile/CoreInfoBand';
 import { Band } from '../../components/bands/Band';
 import { WoolPicture } from '../../components/WoolPicture';
-import { TicketBand } from './TicketBand';
+import { TicketBand } from './mobile/TicketBand';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { WorkshopsTicketsBand } from './mobile/WorkshopsTicketsBand';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -44,8 +45,8 @@ export const MainPage = () => {
           <CoreInfoBand id="coreInfo" />
           <TicketBand />
 
-          <Band.SecondaryTitle>{t('workshopsBand.title')}</Band.SecondaryTitle>
-          <WorkshopsBand id="workshops" />
+          <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
+          <WorkshopsTicketsBand />
 
           <Band.Title>{t('vendorsPage.title')}</Band.Title>
           <VendorsBand id="vendors" />
@@ -59,10 +60,9 @@ export const MainPage = () => {
           <LocationBand id="location" />
           <VendorsBand id="vendors" />
           <WorkshopsBand id="workshops" />
+          <WorkshopsScheduleBand id="schedule" />
         </>
       )}
-
-      <WorkshopsScheduleBand id="schedule" />
 
       <CruiseBand id="cruise" />
 

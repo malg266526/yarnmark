@@ -1,15 +1,15 @@
 import React from 'react';
-import { Typography } from '../../components/Typography';
-import { FlexColumnLayout } from '../../components/FlexColumnLayout';
+import { Typography } from '../../../components/Typography';
+import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
 import { Trans } from 'react-i18next';
-import shipIconUrl from '../../assets/figmaIcons/ship_icon.svg';
-import { Icon } from '../../components/Icon';
-import redMapMarkerIconUrl from '../../assets/figmaIcons/red_map_marker_icon.svg';
-import blueTicketsIconUrl from '../../assets/figmaIcons/blue_tickets_icon.svg';
-import calendarIconUrl from '../../assets/figmaIcons/calendar_icon.svg';
+import shipIconUrl from '../../../assets/figmaIcons/ship_icon.svg';
+import { Icon } from '../../../components/Icon';
+import redMapMarkerIconUrl from '../../../assets/figmaIcons/red_map_marker_icon.svg';
+import blueTicketsIconUrl from '../../../assets/figmaIcons/blue_tickets_icon.svg';
+import calendarIconUrl from '../../../assets/figmaIcons/calendar_icon.svg';
 import styled from 'styled-components';
-import { GrayScale, TextColors } from '../../styles/theme';
-import { Band } from '../../components/bands/Band';
+import { GrayScale, TextColors } from '../../../styles/theme';
+import { Band } from '../../../components/bands/Band';
 
 const InfoColumn = styled(FlexColumnLayout)`
   text-align: center;
