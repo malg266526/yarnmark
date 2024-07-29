@@ -1,5 +1,5 @@
 import { BackgroundColors } from '../../styles/theme';
-import { ImageContentLayout, ImageWrapperColumn } from './MainPage.styled';
+import { ImageWrapperColumn } from './MainPage.styled';
 import { ImageButton } from '../../components/ImageButton';
 import { Icon } from '../../components/Icon';
 import burgerImageUrl from '../../assets/iconify/burger.svg';
@@ -40,7 +40,7 @@ import halaLogoUrlAvif from '../../assets/images/minifiedLogos/halalogo.avif';
 import { UnprefixedTranslationKeys, useTypedTranslation } from '../../translations/useTypedTranslation';
 import styled from 'styled-components';
 import { ScreenSize } from '../../styles/screeen-size';
-import { RedesignSpacings, Spacings } from '../../styles/spacings';
+import { RedesignSpacings } from '../../styles/spacings';
 import { Typography } from '../../components/Typography';
 import { Band } from '../../components/bands/Band';
 
@@ -79,13 +79,12 @@ export const LayoutWithActiveButton = styled.div`
   align-items: center;
   justify-content: space-evenly;
   max-width: 100%;
-  gap: ${RedesignSpacings.lg};
   flex-wrap: wrap;
 
   @media (max-width: ${ScreenSize.tablet}) {
-    margin-top: ${RedesignSpacings.md};
     flex-direction: column;
     max-width: 100vw;
+    margin-bottom: ${RedesignSpacings.md};
   }
 `;
 
@@ -97,14 +96,31 @@ export const ButtonsWrapper = styled.div`
   z-index: 1;
   min-width: 250px;
 
+  @media (max-width: ${ScreenSize.tablet}) {
+    margin-bottom: ${RedesignSpacings.md};
+  }
+
   @media (max-width: ${ScreenSize.phone}) {
     flex-direction: row;
     flex-wrap: wrap;
-    margin-bottom: ${Spacings.md};
 
     > * {
       flex: 1 1 auto;
     }
+  }
+`;
+
+export const ImageContentLayout = styled.div`
+  max-width: 600px;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: ${RedesignSpacings.sm};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    max-width: 100%;
+    align-items: center;
   }
 `;
 
@@ -339,10 +355,15 @@ export const FoodBand = ({ id }: FoodBandType) => {
 
   const activeButtonToImage = getActiveButtonToImage(t);
 
-  const rensponsivePadding = isPhone ? 'md' : 'xl';
+  const rensponsivePadding = isPhone ? 'sm' : 'xl';
 
   return (
-    <Band.CenteredColumn id={id} size="md" color={BackgroundColors.navigationBand} padding={rensponsivePadding}>
+    <Band.CenteredColumn
+      id={id}
+      size="md"
+      color={BackgroundColors.navigationBand}
+      padding={rensponsivePadding}
+      gap="md">
       <Band.Title>{t('foodBand.whereToEat')}</Band.Title>
 
       <LayoutWithActiveButton>
@@ -383,7 +404,7 @@ export const FoodBand = ({ id }: FoodBandType) => {
           </ImageButton>
         </ButtonsWrapper>
 
-        <FramedBox padding="md">
+        <FramedBox padding="sm">
           <ImageContentLayout>
             <FlexColumnLayout padding={isPhone ? 'none' : 'md'} gap={isPhone ? 'sm' : 'md'}>
               {activeButtonToImage[activeButton].image}
