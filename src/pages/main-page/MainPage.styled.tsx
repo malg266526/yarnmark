@@ -40,25 +40,6 @@ export const ImageContentLayout = styled.div`
   }
 `;
 
-export const ButtonsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  position: relative;
-  z-index: 1;
-  min-width: 250px;
-
-  @media (max-width: ${ScreenSize.phone}) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-bottom: ${Spacings.md};
-
-    > * {
-      flex: 1 1 auto;
-    }
-  }
-`;
-
 export const TextWrapper = styled.div`
   @media (max-width: ${ScreenSize.phone}) {
     flex-wrap: wrap;

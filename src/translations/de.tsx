@@ -179,6 +179,7 @@ export const de: TranslationsShape = {
       }
     },
     foodBand: {
+      whereToEat: 'Where to eat?',
       bezogrodekDescription:
         'Food Truck Park Bezogródek is located 150m from the Hall. You will find there a large selection of food in food trucks and the opportunity to relax on a deckchair with a drink in your hand.',
       bezogrodekDescription2:

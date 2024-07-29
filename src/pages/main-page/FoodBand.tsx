@@ -1,5 +1,5 @@
 import { BackgroundColors } from '../../styles/theme';
-import { ButtonsWrapper, ImageContentLayout, ImageWrapperColumn } from './MainPage.styled';
+import { ImageContentLayout, ImageWrapperColumn } from './MainPage.styled';
 import { ImageButton } from '../../components/ImageButton';
 import { Icon } from '../../components/Icon';
 import burgerImageUrl from '../../assets/iconify/burger.svg';
@@ -40,7 +40,7 @@ import halaLogoUrlAvif from '../../assets/images/minifiedLogos/halalogo.avif';
 import { UnprefixedTranslationKeys, useTypedTranslation } from '../../translations/useTypedTranslation';
 import styled from 'styled-components';
 import { ScreenSize } from '../../styles/screeen-size';
-import { Spacings } from '../../styles/spacings';
+import { RedesignSpacings, Spacings } from '../../styles/spacings';
 import { Typography } from '../../components/Typography';
 import { Band } from '../../components/bands/Band';
 
@@ -78,15 +78,33 @@ export const LayoutWithActiveButton = styled.div`
   width: 100%;
   align-items: center;
   justify-content: space-evenly;
-  padding: ${Spacings.xs};
   max-width: 100%;
-  gap: ${Spacings.lg};
+  gap: ${RedesignSpacings.lg};
   flex-wrap: wrap;
 
   @media (max-width: ${ScreenSize.tablet}) {
-    margin-top: ${Spacings.md};
+    margin-top: ${RedesignSpacings.md};
     flex-direction: column;
     max-width: 100vw;
+  }
+`;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${RedesignSpacings.xs};
+  position: relative;
+  z-index: 1;
+  min-width: 250px;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: ${Spacings.md};
+
+    > * {
+      flex: 1 1 auto;
+    }
   }
 `;
 
@@ -321,9 +339,11 @@ export const FoodBand = ({ id }: FoodBandType) => {
 
   const activeButtonToImage = getActiveButtonToImage(t);
 
+  const rensponsivePadding = isPhone ? 'md' : 'xl';
+
   return (
-    <Band.CenteredColumn id={id} size="md" color={BackgroundColors.navigationBand} padding="xl">
-      <Band.Title>Gdzie zjeść?</Band.Title>
+    <Band.CenteredColumn id={id} size="md" color={BackgroundColors.navigationBand} padding={rensponsivePadding}>
+      <Band.Title>{t('foodBand.whereToEat')}</Band.Title>
 
       <LayoutWithActiveButton>
         <ButtonsWrapper>

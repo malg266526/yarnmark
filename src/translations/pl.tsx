@@ -180,6 +180,7 @@ export const pl = {
       }
     },
     foodBand: {
+      whereToEat: 'Gdzie zjeść?',
       bezogrodekDescription:
         '150m od Hali znajduje się Food Truck Park Bezogródek. Znajdziecie tam spory wybór jedzenia w foodtruckach oraz możliwość relaksu na leżaczku z drinkiem w dłoni.',
       bezogrodekDescription2:

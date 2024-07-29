@@ -17,7 +17,7 @@ const TextWrapper = styled.div`
   transition: all 300ms cubic-bezier(0.72, 2.04, 0.68, 0.87);
   background: ${Colors.grayLight};
   border-radius: 4px;
-  box-shadow: 1px 1px 3px 0px black;
+  box-shadow: 1px 1px 3px 0 black;
   min-width: 150px;
   min-height: 100px;
   padding: ${Spacings.md};
@@ -63,7 +63,7 @@ export const IconWrapper2 = styled.div`
 
 const hoverStyles = css`
   ${IconWrapper2} {
-    box-shadow: 1px 1px 3px 0px black;
+    box-shadow: 1px 1px 3px 0 black;
   }
 
   ${IconWrapper2}:after {
