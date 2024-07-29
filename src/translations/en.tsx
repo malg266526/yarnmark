@@ -51,8 +51,8 @@ export const en: TranslationsShape = {
     previousEdition: {
       thankYou: 'Thank you for your presence at Yarnmark 2024!',
       fillTheSurvey: 'We kindly invite you to share your opinion about Yarnmark 2024 in the <0>survey</0>',
-      yarnmarkShop: 'Yarnmarkowe souveniry:',
-      yarnmarkGallery: 'Yarnmarkowa Galeria',
+      yarnmarkShop: 'Yarnmark souvenirs:',
+      yarnmarkGallery: 'Yarnmark Gallery:',
       yarnmarkBag: 'Plecako-torba',
       photosBy: 'Fotki od',
       savedStories: 'w relacji wyróżnionej'

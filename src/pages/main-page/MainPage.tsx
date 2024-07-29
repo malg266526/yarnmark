@@ -56,6 +56,14 @@ export const MainPage = () => {
           <Band.CenteredColumn id="vendors" size="lg" padding="none" color={BackgroundColors.gradient}>
             <VendorsList />
           </Band.CenteredColumn>
+
+          <CruiseBand id="cruise" />
+
+          <FoodBand id="food" />
+
+          <Band.Empty id="lastEdition" color={BackgroundColors.primary} padding="sm">
+            <LastEditionBand />
+          </Band.Empty>
         </>
       ) : (
         <>
@@ -69,14 +77,16 @@ export const MainPage = () => {
           </Band.CenteredColumn>
           <WorkshopsBand id="workshops" />
           <WorkshopsScheduleBand id="schedule" />
+
+          <CruiseBand id="cruise" />
+
+          <FoodBand id="food" />
+
+          <Band.CenteredColumn id="lastEdition" color={BackgroundColors.primary} padding="sm" gap="lg">
+            <LastEditionBand />
+          </Band.CenteredColumn>
         </>
       )}
-
-      <CruiseBand id="cruise" />
-
-      <FoodBand id="food" />
-
-      <LastEditionBand id="lastEdition" />
     </StyledPageContent>
   );
 };

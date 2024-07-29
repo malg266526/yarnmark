@@ -52,7 +52,7 @@ export const pl = {
       thankYou: 'Dziękujemy za Waszą obecność na Yarnmarku 2024!',
       fillTheSurvey: 'Zapraszamy do podzielenia się Waszą opinią na temat Yarnmarku 2024 w <0>ankiecie</0> ',
       yarnmarkShop: 'Yarnmarkowe souveniry:',
-      yarnmarkGallery: 'Yarnmarkowa galeria:',
+      yarnmarkGallery: 'Yarnmarkowa Galeria:',
       yarnmarkBag: 'Plecako-torba',
       photosBy: 'Fotki od',
       savedStories: 'w relacji wyróżnionej'

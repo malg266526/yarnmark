@@ -1,68 +1,96 @@
-import { SectionWrapper } from './MainPage.styled';
-import { BackgroundColors } from '../../styles/theme';
 import React from 'react';
-import { Trans } from 'react-i18next';
-import { Link } from '../../components/Link';
+import { SecondaryLink } from '../../components/Link';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { Typography } from '../../components/Typography';
 import { Band } from '../../components/bands/Band';
+import { Picture } from '../../components/Picture';
+import yarnmarkLogoSrc from '../../assets/images/yarnmark_logo.jpg';
+import yarnmarkLogoSrcWebp from '../../assets/images/yarnmark_logo.webp';
+import yarnmarkLogoSrcAvif from '../../assets/images/yarnmark_logo.avif';
+import styled from 'styled-components';
+import { RedesignSpacings } from '../../styles/spacings';
+import { ScreenSize } from '../../styles/screeen-size';
 
-type LastEditionBandType = {
-  id: string;
+const yarnmarkLogoPictureConfig = {
+  fallbackUrl: yarnmarkLogoSrc,
+  sources: [
+    {
+      type: 'image/webp',
+      url: yarnmarkLogoSrcWebp
+    },
+    {
+      type: 'image/avif',
+      url: yarnmarkLogoSrcAvif
+    }
+  ]
 };
 
-export const LastEditionBand = ({ id }: LastEditionBandType) => {
+const Root = styled(FlexColumnLayout)`
+  padding: ${RedesignSpacings.xl} 0;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    padding: ${RedesignSpacings.sm} 0;
+  }
+`;
+
+const LogoSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${RedesignSpacings.sm};
+`;
+
+export const LastEditionBand = () => {
   const t = useTypedTranslation();
 
   return (
-    <Band.Empty id={id} color={BackgroundColors.gradient}>
-      <SectionWrapper>
-        <Band.Title>{t('previousEdition.thankYou')}</Band.Title>
+    <Root align="flex-start" padding="none" gap="lg">
+      <Band.Title>{t('previousEdition.thankYou')}</Band.Title>
 
-        <Typography size="lg" weight="regular">
-          <Trans
-            i18nKey="previousEdition.fillTheSurvey"
-            components={[
-              <Link
-                key="survey_link"
-                target="_blank"
-                to="https://docs.google.com/forms/d/e/1FAIpQLSciBZoXDEmQdk4wCmWJC3Bg7ME4O6EfyYg1b9gpF0N01DXwTg/viewform"
-              />
-            ]}
-          />
-        </Typography>
+      <LogoSection>
+        <Picture picture={yarnmarkLogoPictureConfig} alt="yarnmark_logo" width={45} height={60} />
 
-        <Typography size="xl" weight="bold">
-          {t('previousEdition.yarnmarkShop')}
-        </Typography>
+        <FlexColumnLayout padding="none" gap="xxs" align="flex-start">
+          <Typography size="md" weight="bold">
+            {t('previousEdition.yarnmarkShop')}
+          </Typography>
+          <SecondaryLink
+            to="https://wloczykijki.pl/pl/p/Torba-Krakoski-Yarnmark-Welny/3022"
+            target="_blank"
+            rel="noreferrer">
+            <Typography size="sm">{t('previousEdition.yarnmarkBag')}</Typography>
+          </SecondaryLink>
+        </FlexColumnLayout>
+      </LogoSection>
 
-        <Link to="https://wloczykijki.pl/pl/p/Torba-Krakoski-Yarnmark-Welny/3022" target="_blank" rel="noreferrer">
-          {t('previousEdition.yarnmarkBag')}
-        </Link>
+      <LogoSection>
+        <Picture picture={yarnmarkLogoPictureConfig} alt="yarnmark_logo" width={45} height={60} />
 
-        <Typography size="xl" weight="bold">
-          {t('previousEdition.yarnmarkGallery')}
-        </Typography>
-
-        <FlexColumnLayout gap="sm" align="flex-start" padding="none">
-          <Link
+        <FlexColumnLayout padding="none" gap="xxs" align="flex-start">
+          <Typography size="md" weight="bold">
+            {t('previousEdition.yarnmarkGallery')}
+          </Typography>
+          <SecondaryLink
             to="https://drive.google.com/drive/folders/1GUiZ03Em63k1AHeFiba1KZcAHoB1sm-W?fbclid=IwAR0YPaNF3SeNgZIUctnh1qyyPaOED3RjLUeDnimHs-iHiQKMbCIZgBII_4o"
             target="_blank"
             rel="noreferrer">
-            {t('previousEdition.photosBy')} @czarnagrafka
-          </Link>
-          <Link
+            <Typography size="sm">{t('previousEdition.photosBy')} @czarnagrafka</Typography>
+          </SecondaryLink>
+
+          <SecondaryLink
             to="https://drive.google.com/drive/folders/12orPLbGi9M3qUfVq5XEWNhTixadRFrSJ"
             target="_blank"
             rel="noreferrer">
-            {t('previousEdition.photosBy')} @labolens.photo
-          </Link>
-          <Link to="https://www.instagram.com/ataman_lenswork/" target="_blank" rel="noreferrer">
-            {t('previousEdition.photosBy')} @ataman_lenswork {t('previousEdition.savedStories')}
-          </Link>
+            <Typography size="sm">{t('previousEdition.photosBy')} @labolens.photo</Typography>
+          </SecondaryLink>
+
+          <SecondaryLink to="https://www.instagram.com/ataman_lenswork/" target="_blank" rel="noreferrer">
+            <Typography size="sm">
+              {t('previousEdition.photosBy')} @ataman_lenswork {t('previousEdition.savedStories')}
+            </Typography>
+          </SecondaryLink>
         </FlexColumnLayout>
-      </SectionWrapper>
-    </Band.Empty>
+      </LogoSection>
+    </Root>
   );
 };

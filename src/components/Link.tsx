@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components';
 import yarnSvgUrl from '../assets/images/skein3.svg';
 import { Radius } from '../styles/cards';
 import { FontSize } from '../styles/font-size';
+import { TextColors } from '../styles/theme';
 
 export const linkStyle = css`
   padding: 10px 8px;
@@ -88,3 +89,13 @@ export const Link = styled(({ children, to, target, rel, color, ...rest }: HashL
     </StyledLink>
   );
 })``;
+
+export const SecondaryLink = styled(Link)`
+  color: ${TextColors.link};
+  padding: 0;
+
+  &::after {
+    content: '';
+    display: none;
+  }
+`;

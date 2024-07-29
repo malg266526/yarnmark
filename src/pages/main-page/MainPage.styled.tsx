@@ -25,14 +25,6 @@ export const SecondaryButton = styled.button`
   border: none;
 `;
 
-export const SectionWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  position: relative;
-  z-index: 1;
-`;
-
 export const ImageContentLayout = styled.div`
   max-width: 700px;
   display: flex;

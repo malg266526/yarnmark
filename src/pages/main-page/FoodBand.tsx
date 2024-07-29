@@ -322,7 +322,7 @@ export const FoodBand = ({ id }: FoodBandType) => {
   const activeButtonToImage = getActiveButtonToImage(t);
 
   return (
-    <Band.CenteredColumn id={id} size="md" color={BackgroundColors.primary} padding="xl">
+    <Band.CenteredColumn id={id} size="md" color={BackgroundColors.navigationBand} padding="xl">
       <Band.Title>Gdzie zjeść?</Band.Title>
 
       <LayoutWithActiveButton>
