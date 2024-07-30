@@ -53,7 +53,7 @@ const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: key
   background: white;
   position: relative;
   z-index: 1;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: -10px 13px 0 0 rgba(0, 0, 0, 0.5);
 
   display: flex;
   flex-direction: column;

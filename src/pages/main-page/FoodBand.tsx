@@ -13,7 +13,6 @@ import { Picture } from '../../components/Picture';
 import bezogrodekLogoUrl from '../../assets/images/minifiedLogos/logobezogrodek.jpg';
 import bezogrodekLogoUrlWebp from '../../assets/images/minifiedLogos/logobezogrodek.webp';
 import bezogrodekLogoUrlAvif from '../../assets/images/minifiedLogos/logobezogrodek.avif';
-import instagramImageUrl from '../../assets/iconify/instagram.svg';
 import { Trans } from 'react-i18next';
 import bistrobloniaLogoUrl from '../../assets/images/minifiedLogos/bistroblonia.jpg';
 import bistrobloniaLogoUrlWebp from '../../assets/images/minifiedLogos/bistroblonia.webp';
@@ -30,6 +29,9 @@ import { ScreenSize } from '../../styles/screeen-size';
 import { RedesignSpacings } from '../../styles/spacings';
 import { Typography } from '../../components/Typography';
 import { Band } from '../../components/bands/Band';
+import instagramIconUrl from '../../assets/figmaIcons/instagram_icon.svg';
+import { Icon as IconifyIcon } from '@iconify/react';
+import { RowLayout } from '../../components/RowLayout';
 
 type ActiveButtonType = 'foodtruckBezogrodek' | 'bistroblonia' | 'grandeappetito' | 'coffeehouse';
 
@@ -42,7 +44,7 @@ type ActiveButtonToImageConfig = Record<
     instagramUrl?: string;
     description: ReactNode;
     discount?: ReactNode;
-    menuUrl?: ReactNode;
+    menuUrl?: string;
   }
 >;
 
@@ -96,8 +98,12 @@ export const RestaurantContent = styled.div`
   }
 `;
 
-export const ImageWrapperColumn = styled.div`
+export const LogoColumn = styled.div`
   max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 
   @media (max-width: ${ScreenSize.phone}) {
     max-width: 100%;
@@ -111,8 +117,8 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
   foodtruckBezogrodek: {
     image: (
       <Picture
-        width={240}
-        height={240}
+        width={180}
+        height={180}
         alt="bezogrodek_logo"
         picture={{
           fallbackUrl: bezogrodekLogoUrl,
@@ -138,7 +144,7 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
   bistroblonia: {
     image: (
       <Picture
-        width={120}
+        width={180}
         alt="bistroblonia_logo"
         picture={{
           fallbackUrl: bistrobloniaLogoUrl,
@@ -159,12 +165,13 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
     instagramUrl: 'https://www.instagram.com/blonia_bistro/?hl=pl',
     description: t('foodBand.bistroblonia.description'),
     discount: <Trans i18nKey="foodBand.bistroblonia.discount" />,
-    address: 'al. 3 Maja 55'
+    address: 'al. 3 Maja 55',
+    menuUrl: 'https://bloniabistro.pl/wp-content/uploads/2024/06/Blonia_Bistro-Menu.pdf'
   },
   grandeappetito: {
     image: (
       <Picture
-        width={160}
+        width={200}
         alt="grandeappetito_logo"
         picture={{
           fallbackUrl: grandeAppetitoLogoUrl,
@@ -187,10 +194,11 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
     discount: <Trans i18nKey="foodBand.grandeAppetito.discount" />,
     menuUrl: 'https://grande-appetito.pl/menu/"'
   },
+
   coffeehouse: {
     image: (
       <Picture
-        width={240}
+        width={200}
         alt="hala_logo"
         picture={{
           fallbackUrl: halaLogoUrl,
@@ -275,22 +283,27 @@ export const FoodBand = ({ id }: FoodBandType) => {
               <Typography size="sm">{activeButtonToImage[activeButton].discount}</Typography>
             </FlexColumnLayout>
 
-            <ImageWrapperColumn>
+            <LogoColumn>
               {activeButtonToImage[activeButton].image}
-              {activeButtonToImage[activeButton].instagramUrl && (
-                <a
-                  href={activeButtonToImage[activeButton].instagramUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={activeButtonToImage[activeButton].title}>
-                  <Icon size="md" src={instagramImageUrl} />
-                </a>
-              )}
 
-              <a href="https://grande-appetito.pl/menu/" target="_blank" rel="noreferrer">
-                {t('foodBand.checkMenu')}
-              </a>
-            </ImageWrapperColumn>
+              <RowLayout align="flex-start">
+                {activeButtonToImage[activeButton].instagramUrl && (
+                  <a
+                    href={activeButtonToImage[activeButton].instagramUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={activeButtonToImage[activeButton].title}>
+                    <Icon zIndex={20} size="lg" src={instagramIconUrl} />
+                  </a>
+                )}
+
+                {activeButtonToImage[activeButton].menuUrl && (
+                  <a href={activeButtonToImage[activeButton].menuUrl} target="_blank" rel="noreferrer">
+                    <IconifyIcon color="black" icon="hugeicons:menu-restaurant" width="40" height="40" />
+                  </a>
+                )}
+              </RowLayout>
+            </LogoColumn>
           </RestaurantContent>
         </FramedBox>
       </LayoutWithActiveButton>

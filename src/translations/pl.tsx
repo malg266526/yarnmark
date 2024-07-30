@@ -199,7 +199,7 @@ export const pl = {
           'W dniu wydarzenia zniżka dla osób z bransoletką Yarnmarku Wełny: <strong>-10%</strong> na zamówienie.'
       },
       coffeehouse: {
-        title: 'Cafe on the hall',
+        title: 'Kawiarnia na hali',
         description:
           'Znajdziecie tu kawę, lemoniadę oraz przekąski typu frytki. Jeśli pogoda będzie nam sprzyjać, przy kawiarni będzie otwarty taras z leżakami.'
       }
