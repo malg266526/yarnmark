@@ -25,21 +25,6 @@ export const SecondaryButton = styled.button`
   border: none;
 `;
 
-export const TextWrapper = styled.div`
-  @media (max-width: ${ScreenSize.phone}) {
-    flex-wrap: wrap;
-  }
-`;
-
 export const LinkWrapper = styled.div`
   margin-left: -8px;
-`;
-
-export const ImageWrapperColumn = styled(TextWrapper)`
-  max-width: 50%;
-  padding-top: ${Spacings.md};
-
-  @media (max-width: ${ScreenSize.phone}) {
-    max-width: 100%;
-  }
 `;

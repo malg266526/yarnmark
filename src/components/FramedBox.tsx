@@ -78,6 +78,7 @@ export interface FramedBoxProps {
   height?: FrameWidth;
   children?: React.ReactNode;
   padding: keyof typeof RedesignSpacings;
+  id?: string;
 }
 
 export const FramedBox = ({ children, ...rest }: FramedBoxProps) => (
