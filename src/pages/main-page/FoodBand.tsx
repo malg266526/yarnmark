@@ -7,7 +7,7 @@ import shrimpImageUrl from '../../assets/iconify/shrimp.svg';
 import cupcakeImageUrl from '../../assets/iconify/cupcake.svg';
 import { FramedBox } from '../../components/FramedBox';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useCallback, useRef, useState } from 'react';
 import { usePhone } from '../../hooks/usePhone';
 import { Picture } from '../../components/Picture';
 import bezogrodekLogoUrl from '../../assets/images/minifiedLogos/logobezogrodek.jpg';
@@ -94,7 +94,9 @@ export const RestaurantContent = styled.div`
   @media (max-width: ${ScreenSize.phone}) {
     flex-wrap: wrap;
     max-width: 100%;
+    flex-direction: column;
     align-items: center;
+    gap: ${RedesignSpacings.sm};
   }
 `;
 
@@ -108,6 +110,7 @@ export const LogoColumn = styled.div`
   @media (max-width: ${ScreenSize.phone}) {
     max-width: 100%;
     flex-wrap: wrap;
+    gap: ${RedesignSpacings.sm};
   }
 `;
 
@@ -234,6 +237,19 @@ export const FoodBand = ({ id }: FoodBandType) => {
 
   const rensponsivePadding = isPhone ? 'sm' : 'xl';
 
+  const framedBoxRef = useRef<HTMLDivElement | null>(null);
+
+  const onRestaurantClick = useCallback(
+    (activeRestaurant: ActiveButtonType) => {
+      setActiveButton(activeRestaurant);
+
+      if (isPhone) {
+        framedBoxRef.current?.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+    [isPhone]
+  );
+
   return (
     <Band.CenteredColumn
       id={id}
@@ -247,21 +263,21 @@ export const FoodBand = ({ id }: FoodBandType) => {
         <ButtonsWrapper>
           <ImageButton
             active={activeButton === 'foodtruckBezogrodek'}
-            onClick={() => setActiveButton('foodtruckBezogrodek')}
+            onClick={() => onRestaurantClick('foodtruckBezogrodek')}
             icon={<Icon size="md" src={burgerImageUrl} />}>
             Food Truck Park Bezogródek
           </ImageButton>
 
           <ImageButton
             active={activeButton === 'bistroblonia'}
-            onClick={() => setActiveButton('bistroblonia')}
+            onClick={() => onRestaurantClick('bistroblonia')}
             icon={<Icon size="md" src={turkeyImageUrl} />}>
             Bistro Błonia
           </ImageButton>
 
           <ImageButton
             active={activeButton === 'grandeappetito'}
-            onClick={() => setActiveButton('grandeappetito')}
+            onClick={() => onRestaurantClick('grandeappetito')}
             icon={<Icon size="md" src={shrimpImageUrl} />}>
             Grande Appetito
           </ImageButton>
@@ -269,13 +285,14 @@ export const FoodBand = ({ id }: FoodBandType) => {
           <ImageButton
             active={activeButton === 'coffeehouse'}
             icon={<Icon size="md" src={cupcakeImageUrl} />}
-            onClick={() => setActiveButton('coffeehouse')}>
+            onClick={() => onRestaurantClick('coffeehouse')}
+            ref={framedBoxRef}>
             Kawiarnia na hali
           </ImageButton>
         </ButtonsWrapper>
 
         <FramedBox padding="sm" id="framedBox">
-          <RestaurantContent id="imageContentLayout">
+          <RestaurantContent id="restaurantContent">
             <FlexColumnLayout padding={isPhone ? 'none' : 'md'} gap={isPhone ? 'sm' : 'md'}>
               <Typography size="lg">{activeButtonToImage[activeButton].title}</Typography>
 

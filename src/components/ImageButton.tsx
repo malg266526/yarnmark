@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { RedesignSpacings } from '../styles/spacings';
 import { DropShadow, Radius } from '../styles/cards';
@@ -38,9 +38,13 @@ const ImageButtonLayout = styled.div<{ active?: boolean }>`
   ${({ active }) => active && activeCss};
 `;
 
-export const ImageButton = ({ icon, children, ...rest }: ImageButtonProps) => (
-  <ImageButtonLayout {...rest}>
-    <RoundBorderIcon>{icon}</RoundBorderIcon>
-    {children}
-  </ImageButtonLayout>
+export const ImageButton = forwardRef<HTMLDivElement, ImageButtonProps>(
+  ({ icon, children, ...rest }: ImageButtonProps, ref) => (
+    <ImageButtonLayout ref={ref} {...rest}>
+      <RoundBorderIcon>{icon}</RoundBorderIcon>
+      {children}
+    </ImageButtonLayout>
+  )
 );
+
+ImageButton.displayName = 'ImageButton';
