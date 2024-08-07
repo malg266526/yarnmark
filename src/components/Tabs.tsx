@@ -67,6 +67,7 @@ const Content = styled.div`
   flex: 1 1 auto;
   border-radius: ${Radius.lg};
   box-shadow: ${DropShadow.md};
+  border-top-left-radius: 0;
 
   @media (max-width: ${ScreenSize.phone}) {
     border-radius: 0;
