@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { BandRootLayout, BandSize, Justify } from './BandRootLayout';
-import { BandTitle, SecondaryBandTitle } from './BandTitle';
+import { BandTitle, BeamTitle, SecondaryBandTitle } from './BandTitle';
 import { BackgroundImageBand } from './BackgroundImageBand';
 import { SolidBackgroundBand } from './SolidBackgroundBand';
 import { RedesignSpacings } from '../../styles/spacings';
@@ -75,6 +75,7 @@ interface BandProps {
 export const Band = Object.assign(({ children }: BandProps) => <BandRootLayout>{children}</BandRootLayout>, {
   Title: BandTitle,
   SecondaryTitle: SecondaryBandTitle,
+  BeamTitle: BeamTitle,
   Wallpaper: WallPaperBand,
   CenteredColumn: CenteredColumnBand,
   NarrowColumn: NarrowColumnBand,

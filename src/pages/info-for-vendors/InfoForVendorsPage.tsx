@@ -2,7 +2,7 @@ import React from 'react';
 import woolsAvifLandscape from '../../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../../assets/images/wools2_landscape.webp';
 import { SlantedCornersBox } from '../../components/SlantedCornersBox';
-import { BrownScale, Colors } from '../../styles/theme';
+import { BackgroundColors, BrownScale, Colors } from '../../styles/theme';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Trans } from 'react-i18next';
 import { Hall } from '../../components/Hall';
@@ -15,6 +15,7 @@ import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { BackgroundImageBand } from '../../components/bands/BackgroundImageBand';
 import { BandTitle } from '../../components/bands/BandTitle';
 import { SolidBackgroundBand } from '../../components/bands/SolidBackgroundBand';
+import { Band } from '../../components/bands/Band';
 
 export const InfoForVendorsPage = () => {
   const t = useTypedTranslation();
@@ -46,16 +47,13 @@ export const InfoForVendorsPage = () => {
         </SlantedCornersBox>
       </BackgroundImageBand>
 
-      <SolidBackgroundBand
+      <Band.CenteredColumn
         id="vendorsRegistration"
         size="sm"
         justify={isPhone ? 'center' : 'space-evenly'}
-        align="center"
-        color={Colors.isabelline}
+        color={BackgroundColors.navigationBand}
         padding="xl">
-        <Typography size="xxl" weight="bold">
-          {t('infoForVendorsPage.registration.title')}
-        </Typography>
+        <Band.BeamTitle>{t('infoForVendorsPage.registration.title')}</Band.BeamTitle>
 
         <PlainInfo>
           <Typography size="sm">
@@ -72,7 +70,7 @@ export const InfoForVendorsPage = () => {
           <Typography size="sm">{t('infoForVendorsPage.registration.feedback')}</Typography>
           <Typography size="sm">{t('infoForVendorsPage.registration.return')}</Typography>
         </PlainInfo>
-      </SolidBackgroundBand>
+      </Band.CenteredColumn>
 
       <SolidBackgroundBand
         id="hall"
