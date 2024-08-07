@@ -2,7 +2,7 @@ import React from 'react';
 import woolsAvifLandscape from '../../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../../assets/images/wools2_landscape.webp';
 import { SlantedCornersBox } from '../../components/SlantedCornersBox';
-import { BackgroundColors, BrownScale, Colors } from '../../styles/theme';
+import { BackgroundColors } from '../../styles/theme';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Trans } from 'react-i18next';
 import { Hall } from '../../components/Hall';
@@ -14,7 +14,6 @@ import { Typography } from '../../components/Typography';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { BackgroundImageBand } from '../../components/bands/BackgroundImageBand';
 import { BandTitle } from '../../components/bands/BandTitle';
-import { SolidBackgroundBand } from '../../components/bands/SolidBackgroundBand';
 import { Band } from '../../components/bands/Band';
 import { SecondaryLink } from '../../components/Link';
 
@@ -48,7 +47,13 @@ export const InfoForVendorsPage = () => {
         </SlantedCornersBox>
       </BackgroundImageBand>
 
-      <Band.NarrowColumn id="vendorsRegistration" size="sm" color={BackgroundColors.navigationBand} padding="xl">
+      <Band.NarrowColumn
+        id="vendorsRegistration"
+        gap="lg"
+        size="xs"
+        color={BackgroundColors.navigationBand}
+        stretchOnMobile
+        padding={isPhone ? 'sm' : 'xl'}>
         <Band.BeamTitle>{t('infoForVendorsPage.registration.title')}</Band.BeamTitle>
 
         <PlainInfo>
@@ -72,7 +77,13 @@ export const InfoForVendorsPage = () => {
 
       <Separator />
 
-      <Band.NarrowColumn id="hall" size="sm" color={BackgroundColors.navigationBand} padding="xl">
+      <Band.NarrowColumn
+        id="hall"
+        gap="lg"
+        size="xs"
+        color={BackgroundColors.navigationBand}
+        stretchOnMobile
+        padding={isPhone ? 'sm' : 'xl'}>
         <Band.BeamTitle>{t('infoForVendorsPage.hallInfo.title')}</Band.BeamTitle>
 
         <PlainInfo>
@@ -90,7 +101,13 @@ export const InfoForVendorsPage = () => {
 
       <Separator />
 
-      <Band.NarrowColumn id="parking" size="sm" color={BackgroundColors.navigationBand} padding="xl">
+      <Band.NarrowColumn
+        id="parking"
+        gap="lg"
+        size="xs"
+        color={BackgroundColors.navigationBand}
+        stretchOnMobile
+        padding={isPhone ? 'sm' : 'xl'}>
         <Band.BeamTitle>{t('infoForVendorsPage.parking.title')}</Band.BeamTitle>
 
         <PlainInfo>
@@ -100,7 +117,13 @@ export const InfoForVendorsPage = () => {
 
       <Separator />
 
-      <Band.NarrowColumn id="marketing" size="sm" color={BackgroundColors.navigationBand} padding="xl">
+      <Band.NarrowColumn
+        id="marketing"
+        gap="lg"
+        size="xs"
+        color={BackgroundColors.navigationBand}
+        stretchOnMobile
+        padding={isPhone ? 'sm' : 'xl'}>
         <Band.BeamTitle>{t('infoForVendorsPage.marketing.title')}</Band.BeamTitle>
 
         <PlainInfo>
@@ -112,7 +135,13 @@ export const InfoForVendorsPage = () => {
 
       <Separator />
 
-      <Band.NarrowColumn id="stands" size="sm" color={BackgroundColors.navigationBand} padding="xl">
+      <Band.NarrowColumn
+        id="stands"
+        gap="lg"
+        size="sm"
+        color={BackgroundColors.navigationBand}
+        stretchOnMobile
+        padding={isPhone ? 'sm' : 'xl'}>
         <Band.BeamTitle>{t('infoForVendorsPage.stands.title')}</Band.BeamTitle>
 
         <HallWrapper>

@@ -4,6 +4,7 @@ import { BandTitle, BeamTitle, SecondaryBandTitle } from './BandTitle';
 import { BackgroundImageBand } from './BackgroundImageBand';
 import { SolidBackgroundBand } from './SolidBackgroundBand';
 import { RedesignSpacings } from '../../styles/spacings';
+import { usePhone } from '../../hooks/usePhone';
 
 interface WallpaperBand {
   id: string;
@@ -30,17 +31,25 @@ const CenteredColumnBand = ({ id, color, ...props }: CenteredColumnBandProps) =>
   <SolidBackgroundBand id={id} color={color} direction="column" align="center" {...props} />
 );
 
-const NarrowColumnBand = ({ id, color, ...props }: CenteredColumnBandProps) => (
-  <SolidBackgroundBand
-    id={id}
-    color={color}
-    direction="column"
-    align="center"
-    maxWidth="85%"
-    justify="space-evenly"
-    {...props}
-  />
-);
+type NarrowColumnBandProps = CenteredColumnBandProps & {
+  stretchOnMobile?: boolean;
+};
+
+const NarrowColumnBand = ({ id, color, stretchOnMobile, ...props }: NarrowColumnBandProps) => {
+  const isPhone = usePhone();
+
+  return (
+    <SolidBackgroundBand
+      id={id}
+      color={color}
+      direction="column"
+      align="center"
+      maxWidth={stretchOnMobile && isPhone ? '100%' : '85%'}
+      justify="space-evenly"
+      {...props}
+    />
+  );
+};
 
 const SolidBand = ({ id, color, ...props }: CenteredColumnBandProps) => (
   <SolidBackgroundBand id={id} color={color} align="center" {...props} />
