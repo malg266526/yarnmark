@@ -53,7 +53,7 @@ export const InfoForVendorsPage = () => {
         size="xs"
         color={BackgroundColors.navigationBand}
         stretchOnMobile
-        padding={isPhone ? 'sm' : 'xl'}>
+        padding={isPhone ? 'sm' : 'xxl'}>
         <Band.BeamTitle>{t('infoForVendorsPage.registration.title')}</Band.BeamTitle>
 
         <PlainInfo>
@@ -83,7 +83,7 @@ export const InfoForVendorsPage = () => {
         size="xs"
         color={BackgroundColors.navigationBand}
         stretchOnMobile
-        padding={isPhone ? 'sm' : 'xl'}>
+        padding={isPhone ? 'sm' : 'xxl'}>
         <Band.BeamTitle>{t('infoForVendorsPage.hallInfo.title')}</Band.BeamTitle>
 
         <PlainInfo>
@@ -107,7 +107,7 @@ export const InfoForVendorsPage = () => {
         size="xs"
         color={BackgroundColors.navigationBand}
         stretchOnMobile
-        padding={isPhone ? 'sm' : 'xl'}>
+        padding={isPhone ? 'sm' : 'xxl'}>
         <Band.BeamTitle>{t('infoForVendorsPage.parking.title')}</Band.BeamTitle>
 
         <PlainInfo>
@@ -123,7 +123,7 @@ export const InfoForVendorsPage = () => {
         size="xs"
         color={BackgroundColors.navigationBand}
         stretchOnMobile
-        padding={isPhone ? 'sm' : 'xl'}>
+        padding={isPhone ? 'sm' : 'xxl'}>
         <Band.BeamTitle>{t('infoForVendorsPage.marketing.title')}</Band.BeamTitle>
 
         <PlainInfo>
@@ -141,7 +141,7 @@ export const InfoForVendorsPage = () => {
         size="sm"
         color={BackgroundColors.navigationBand}
         stretchOnMobile
-        padding={isPhone ? 'sm' : 'xl'}>
+        padding={isPhone ? 'sm' : 'xxl'}>
         <Band.BeamTitle>{t('infoForVendorsPage.stands.title')}</Band.BeamTitle>
 
         <HallWrapper>

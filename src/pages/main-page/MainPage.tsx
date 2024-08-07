@@ -75,7 +75,7 @@ export const MainPage = () => {
 
           <LocationBand id="location" />
 
-          <Band.CenteredColumn id="vendors" size="md" padding="xxl" color={BackgroundColors.gradient} justify="center">
+          <Band.CenteredColumn id="vendors" size="md" padding="xxxl" color={BackgroundColors.gradient} justify="center">
             <VendorsList />
           </Band.CenteredColumn>
           <WorkshopsBand id="workshops" />
