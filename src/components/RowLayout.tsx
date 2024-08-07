@@ -1,15 +1,16 @@
 import styled from 'styled-components';
-import { Spacings } from '../styles/spacings';
+import { RedesignSpacings } from '../styles/spacings';
 
 export const RowLayout = styled.div<{
   wide?: boolean;
-  gap?: keyof typeof Spacings;
+  gap?: keyof typeof RedesignSpacings;
   justify?: 'center' | 'space-evenly' | 'space-between';
+  align?: 'center' | 'flex-start';
 }>`
   width: ${({ wide }) => (wide ? '100%' : 'initial')};
 
   display: flex;
-  align-items: center;
+  align-items: ${({ align }) => align || 'center'};
   justify-content: ${({ justify }) => justify || 'space-evenly'};
-  gap: ${({ gap }) => Spacings[gap || 'md']};
+  gap: ${({ gap }) => RedesignSpacings[gap || 'sm']};
 `;

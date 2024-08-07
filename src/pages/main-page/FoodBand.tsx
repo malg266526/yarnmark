@@ -1,76 +1,52 @@
 import { BackgroundColors } from '../../styles/theme';
-import { ButtonsWrapper, ImageContentLayout, ImageWrapperColumn } from './MainPage.styled';
 import { ImageButton } from '../../components/ImageButton';
 import { Icon } from '../../components/Icon';
 import burgerImageUrl from '../../assets/iconify/burger.svg';
 import turkeyImageUrl from '../../assets/iconify/turkey.svg';
 import shrimpImageUrl from '../../assets/iconify/shrimp.svg';
-import coffeeImageUrl from '../../assets/iconify/coffee.svg';
 import cupcakeImageUrl from '../../assets/iconify/cupcake.svg';
 import { FramedBox } from '../../components/FramedBox';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useCallback, useRef, useState } from 'react';
 import { usePhone } from '../../hooks/usePhone';
 import { Picture } from '../../components/Picture';
 import bezogrodekLogoUrl from '../../assets/images/minifiedLogos/logobezogrodek.jpg';
 import bezogrodekLogoUrlWebp from '../../assets/images/minifiedLogos/logobezogrodek.webp';
 import bezogrodekLogoUrlAvif from '../../assets/images/minifiedLogos/logobezogrodek.avif';
-import instagramImageUrl from '../../assets/iconify/instagram.svg';
 import { Trans } from 'react-i18next';
-import bistroImageSrc from '../../assets/images/bistro_photo.jpg';
 import bistrobloniaLogoUrl from '../../assets/images/minifiedLogos/bistroblonia.jpg';
 import bistrobloniaLogoUrlWebp from '../../assets/images/minifiedLogos/bistroblonia.webp';
 import bistrobloniaLogoUrlAvif from '../../assets/images/minifiedLogos/bistroblonia.avif';
-import grandeAppetitoUrl from '../../assets/images/minifiedLogos/grande_photo.jpg';
-import grandeAppetitoUrlWebp from '../../assets/images/minifiedLogos/grande_photo.webp';
-import grandeAppetitoUrlAvif from '../../assets/images/minifiedLogos/grande_photo.avif';
 import grandeAppetitoLogoUrl from '../../assets/images/minifiedLogos/GrandeAppetito.jpg';
 import grandeAppetitoLogoUrlWebp from '../../assets/images/minifiedLogos/GrandeAppetito.webp';
 import grandeAppetitoLogoUrlAvif from '../../assets/images/minifiedLogos/GrandeAppetito.avif';
-import knittedCoffeeUrl from '../../assets/images/minifiedLogos/knitted2.jpg';
-import knittedCoffeeUrlWebp from '../../assets/images/minifiedLogos/knitted2.webp';
-import knittedCoffeeUrlAvif from '../../assets/images/minifiedLogos/knitted2.avif';
-import knittedCoffeeLogoUrl from '../../assets/images/minifiedLogos/knitted.jpg';
-import knittedCoffeeLogoUrlWebp from '../../assets/images/minifiedLogos/knitted.webp';
-import knittedCoffeeLogoUrlAvif from '../../assets/images/minifiedLogos/knitted.avif';
-import { Icon as IconifyIcon } from '@iconify/react';
 import halaLogoUrl from '../../assets/images/minifiedLogos/halalogo.jpg';
 import halaLogoUrlWebp from '../../assets/images/minifiedLogos/halalogo.webp';
 import halaLogoUrlAvif from '../../assets/images/minifiedLogos/halalogo.avif';
 import { UnprefixedTranslationKeys, useTypedTranslation } from '../../translations/useTypedTranslation';
 import styled from 'styled-components';
 import { ScreenSize } from '../../styles/screeen-size';
-import { Spacings } from '../../styles/spacings';
+import { RedesignSpacings } from '../../styles/spacings';
 import { Typography } from '../../components/Typography';
 import { Band } from '../../components/bands/Band';
+import instagramIconUrl from '../../assets/figmaIcons/instagram_icon.svg';
+import { Icon as IconifyIcon } from '@iconify/react';
+import { RowLayout } from '../../components/RowLayout';
 
-type ActiveButtonType =
-  | 'foodtruckBezogrodek'
-  | 'gospodaNaPiastowskiej'
-  | 'bistroblonia'
-  | 'grandeappetito'
-  | 'coffeehouse'
-  | 'knittedCoffee';
+type ActiveButtonType = 'foodtruckBezogrodek' | 'bistroblonia' | 'grandeappetito' | 'coffeehouse';
 
 type ActiveButtonToImageConfig = Record<
   ActiveButtonType,
   {
     image: ReactNode;
-    text: ReactNode;
-    secondaryText?: ReactNode;
+    title: string;
+    address?: ReactNode;
+    instagramUrl?: string;
+    description: ReactNode;
+    discount?: ReactNode;
+    menuUrl?: string;
   }
 >;
-
-export const ActiveImage = styled.img`
-  max-height: 300px;
-  max-width: 100%;
-  object-fit: contain;
-
-  @media (max-width: ${ScreenSize.phone}) {
-    width: 100%;
-    max-width: 100%;
-  }
-`;
 
 export const LayoutWithActiveButton = styled.div`
   display: flex;
@@ -78,15 +54,63 @@ export const LayoutWithActiveButton = styled.div`
   width: 100%;
   align-items: center;
   justify-content: space-evenly;
-  padding: ${Spacings.xs};
   max-width: 100%;
-  gap: ${Spacings.lg};
   flex-wrap: wrap;
 
   @media (max-width: ${ScreenSize.tablet}) {
-    margin-top: ${Spacings.md};
     flex-direction: column;
     max-width: 100vw;
+    margin-bottom: ${RedesignSpacings.md};
+  }
+`;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${RedesignSpacings.xs};
+  position: relative;
+  z-index: 1;
+  min-width: 250px;
+
+  @media (max-width: ${ScreenSize.tablet}) {
+    margin-bottom: ${RedesignSpacings.md};
+  }
+
+  @media (max-width: ${ScreenSize.phone}) {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    > * {
+      flex: 1 1 auto;
+    }
+  }
+`;
+
+export const RestaurantContent = styled.div`
+  max-width: 600px;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    flex-wrap: wrap;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: ${RedesignSpacings.sm};
+  }
+`;
+
+export const LogoColumn = styled.div`
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    max-width: 100%;
+    flex-wrap: wrap;
+    gap: ${RedesignSpacings.sm};
   }
 `;
 
@@ -96,8 +120,8 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
   foodtruckBezogrodek: {
     image: (
       <Picture
-        width={240}
-        height={240}
+        width={180}
+        height={180}
         alt="bezogrodek_logo"
         picture={{
           fallbackUrl: bezogrodekLogoUrl,
@@ -114,198 +138,88 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
         }}
       />
     ),
-    text: (
-      <FlexColumnLayout gap="sm" padding="none">
-        {t('foodBand.bezogrodekDescription')}
-
-        <a
-          href="https://www.instagram.com/bezogrodek/?hl=pl"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="See bezogrodek instagram">
-          <Icon size="md" src={instagramImageUrl} />
-        </a>
-
-        <p>
-          <Trans i18nKey="foodBand.bezogrodekDescription2" />
-        </p>
-      </FlexColumnLayout>
-    )
+    title: 'Bezogródek Tropical Spot',
+    instagramUrl: 'https://www.instagram.com/bezogrodek/?hl=pl',
+    address: 'al. Marszałka Ferdinanda Focha 41',
+    description: t('foodBand.bezogrodek.description'),
+    discount: <Trans i18nKey="foodBand.bezogrodek.discount" />
   },
   bistroblonia: {
-    image: <ActiveImage src={bistroImageSrc} />,
-    secondaryText: <Trans i18nKey="foodBand.discount15" />,
-    text: (
-      <FlexColumnLayout gap="sm" padding="none">
-        <Picture
-          width={120}
-          alt="bistroblonia_logo"
-          picture={{
-            fallbackUrl: bistrobloniaLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: bistrobloniaLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: bistrobloniaLogoUrlAvif
-              }
-            ]
-          }}
-        />
-
-        {t('foodBand.bistroBloniaDescription')}
-        <a href="https://bloniabistro.pl/wp-content/uploads/2024/02/menu-BB.pdf" target="_blank" rel="noreferrer">
-          {t('foodBand.checkMenu')}
-        </a>
-        <a
-          href="https://www.instagram.com/blonia_bistro/?hl=pl"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="See Bistro Błonia instagram">
-          <Icon size="md" src={instagramImageUrl} />
-        </a>
-      </FlexColumnLayout>
-    )
+    image: (
+      <Picture
+        width={180}
+        alt="bistroblonia_logo"
+        picture={{
+          fallbackUrl: bistrobloniaLogoUrl,
+          sources: [
+            {
+              type: 'image/webp',
+              url: bistrobloniaLogoUrlWebp
+            },
+            {
+              type: 'image/avif',
+              url: bistrobloniaLogoUrlAvif
+            }
+          ]
+        }}
+      />
+    ),
+    title: 'Bistro Błonia',
+    instagramUrl: 'https://www.instagram.com/blonia_bistro/?hl=pl',
+    description: t('foodBand.bistroblonia.description'),
+    discount: <Trans i18nKey="foodBand.bistroblonia.discount" />,
+    address: 'al. 3 Maja 55',
+    menuUrl: 'https://bloniabistro.pl/wp-content/uploads/2024/06/Blonia_Bistro-Menu.pdf'
   },
   grandeappetito: {
     image: (
       <Picture
-        width={240}
+        width={200}
         alt="grandeappetito_logo"
         picture={{
-          fallbackUrl: grandeAppetitoUrl,
+          fallbackUrl: grandeAppetitoLogoUrl,
           sources: [
             {
               type: 'image/webp',
-              url: grandeAppetitoUrlWebp
+              url: grandeAppetitoLogoUrlWebp
             },
             {
               type: 'image/avif',
-              url: grandeAppetitoUrlAvif
+              url: grandeAppetitoLogoUrlAvif
             }
           ]
         }}
       />
     ),
-    secondaryText: <Trans i18nKey="foodBand.discount10" />,
-    text: (
-      <FlexColumnLayout gap="sm" padding="none">
-        <Picture
-          width={160}
-          alt="grandeappetito_logo"
-          picture={{
-            fallbackUrl: grandeAppetitoLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: grandeAppetitoLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: grandeAppetitoLogoUrlAvif
-              }
-            ]
-          }}
-        />
-        {t('foodBand.grandeAppetitoDescription')}
-        <p>{t('foodBand.grandeAppetitoDescription2')}</p>
+    title: 'Grande Appetito',
+    instagramUrl: 'https://www.instagram.com/grande_appetito_ristorante/?hl=pl',
+    description: t('foodBand.grandeAppetito.description'),
+    discount: <Trans i18nKey="foodBand.grandeAppetito.discount" />,
+    menuUrl: 'https://grande-appetito.pl/menu/"'
+  },
 
-        <a href="https://grande-appetito.pl/menu/" target="_blank" rel="noreferrer">
-          {t('foodBand.checkMenu')}
-        </a>
-        <a
-          href="https://www.instagram.com/grande_appetito_ristorante/?hl=pl"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="See Grande appetito instagram">
-          <Icon size="md" src={instagramImageUrl} />
-        </a>
-      </FlexColumnLayout>
-    )
-  },
-  gospodaNaPiastowskiej: {
-    image: <ActiveImage src={bistroImageSrc} />,
-    text: (
-      <FlexColumnLayout gap="sm" padding="none">
-        {t('foodBand.piastowskaDescription')}
-        <a href="https://gospodapiastowska.pl/menu/" target="_blank" rel="noreferrer">
-          {t('foodBand.checkMenu')}
-        </a>
-      </FlexColumnLayout>
-    )
-  },
-  knittedCoffee: {
+  coffeehouse: {
     image: (
       <Picture
-        width={240}
-        alt="knitted_coffee"
+        width={200}
+        alt="hala_logo"
         picture={{
-          fallbackUrl: knittedCoffeeUrl,
+          fallbackUrl: halaLogoUrl,
           sources: [
             {
               type: 'image/webp',
-              url: knittedCoffeeUrlWebp
+              url: halaLogoUrlWebp
             },
             {
               type: 'image/avif',
-              url: knittedCoffeeUrlAvif
+              url: halaLogoUrlAvif
             }
           ]
         }}
       />
     ),
-    text: (
-      <FlexColumnLayout gap="sm" padding="none">
-        <Picture
-          width={140}
-          alt="knitted_coffee_logo"
-          picture={{
-            fallbackUrl: knittedCoffeeLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: knittedCoffeeLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: knittedCoffeeLogoUrlAvif
-              }
-            ]
-          }}
-        />
-        {t('foodBand.knittedCoffeeDescription')}
-        <a href="https://www.instagram.com/knittedcoffee/?hl=pl" target="_blank" rel="noreferrer">
-          <Icon size="md" src={instagramImageUrl} />
-        </a>
-      </FlexColumnLayout>
-    )
-  },
-  coffeehouse: {
-    image: <IconifyIcon icon="noto:teapot" width="288" height="188" />,
-    text: (
-      <FlexColumnLayout gap="sm" padding="none">
-        <Picture
-          width={240}
-          alt="hala_logo"
-          picture={{
-            fallbackUrl: halaLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: halaLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: halaLogoUrlAvif
-              }
-            ]
-          }}
-        />
-        {t('foodBand.coffeehouse')}
-      </FlexColumnLayout>
-    )
+    title: t('foodBand.coffeehouse.title'),
+    description: t('foodBand.coffeehouse.description')
   }
 });
 
@@ -321,59 +235,93 @@ export const FoodBand = ({ id }: FoodBandType) => {
 
   const activeButtonToImage = getActiveButtonToImage(t);
 
+  const rensponsivePadding = isPhone ? 'sm' : 'xl';
+
+  const framedBoxRef = useRef<HTMLDivElement | null>(null);
+
+  const onRestaurantClick = useCallback(
+    (activeRestaurant: ActiveButtonType) => {
+      setActiveButton(activeRestaurant);
+
+      if (isPhone) {
+        framedBoxRef.current?.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+    [isPhone]
+  );
+
   return (
-    <Band.CenteredColumn id={id} size="md" color={BackgroundColors.navigationBand} padding="xl">
-      <Band.Title>Gdzie zjeść?</Band.Title>
+    <Band.CenteredColumn
+      id={id}
+      size="md"
+      color={BackgroundColors.navigationBand}
+      padding={rensponsivePadding}
+      gap="md">
+      <Band.Title>{t('foodBand.whereToEat')}</Band.Title>
 
       <LayoutWithActiveButton>
         <ButtonsWrapper>
           <ImageButton
             active={activeButton === 'foodtruckBezogrodek'}
-            onClick={() => setActiveButton('foodtruckBezogrodek')}
+            onClick={() => onRestaurantClick('foodtruckBezogrodek')}
             icon={<Icon size="md" src={burgerImageUrl} />}>
             Food Truck Park Bezogródek
           </ImageButton>
 
           <ImageButton
             active={activeButton === 'bistroblonia'}
-            onClick={() => setActiveButton('bistroblonia')}
+            onClick={() => onRestaurantClick('bistroblonia')}
             icon={<Icon size="md" src={turkeyImageUrl} />}>
             Bistro Błonia
           </ImageButton>
 
           <ImageButton
             active={activeButton === 'grandeappetito'}
-            onClick={() => setActiveButton('grandeappetito')}
+            onClick={() => onRestaurantClick('grandeappetito')}
             icon={<Icon size="md" src={shrimpImageUrl} />}>
             Grande Appetito
           </ImageButton>
 
           <ImageButton
-            active={activeButton === 'knittedCoffee'}
-            icon={<Icon size="md" src={coffeeImageUrl} />}
-            onClick={() => setActiveButton('knittedCoffee')}>
-            Knitted Coffee
-          </ImageButton>
-
-          <ImageButton
             active={activeButton === 'coffeehouse'}
             icon={<Icon size="md" src={cupcakeImageUrl} />}
-            onClick={() => setActiveButton('coffeehouse')}>
+            onClick={() => onRestaurantClick('coffeehouse')}
+            ref={framedBoxRef}>
             Kawiarnia na hali
           </ImageButton>
         </ButtonsWrapper>
 
-        <FramedBox padding="md">
-          <ImageContentLayout>
+        <FramedBox padding="sm" id="framedBox">
+          <RestaurantContent id="restaurantContent">
             <FlexColumnLayout padding={isPhone ? 'none' : 'md'} gap={isPhone ? 'sm' : 'md'}>
-              {activeButtonToImage[activeButton].image}
-              <Typography size="sm">{activeButtonToImage[activeButton].secondaryText}</Typography>
+              <Typography size="lg">{activeButtonToImage[activeButton].title}</Typography>
+
+              <Typography size="sm">{activeButtonToImage[activeButton].description}</Typography>
+              <Typography size="sm">{activeButtonToImage[activeButton].discount}</Typography>
             </FlexColumnLayout>
 
-            <ImageWrapperColumn>
-              <Typography size="sm">{activeButtonToImage[activeButton].text}</Typography>
-            </ImageWrapperColumn>
-          </ImageContentLayout>
+            <LogoColumn>
+              {activeButtonToImage[activeButton].image}
+
+              <RowLayout align="flex-start">
+                {activeButtonToImage[activeButton].instagramUrl && (
+                  <a
+                    href={activeButtonToImage[activeButton].instagramUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={activeButtonToImage[activeButton].title}>
+                    <Icon zIndex={20} size="lg" src={instagramIconUrl} />
+                  </a>
+                )}
+
+                {activeButtonToImage[activeButton].menuUrl && (
+                  <a href={activeButtonToImage[activeButton].menuUrl} target="_blank" rel="noreferrer">
+                    <IconifyIcon color="black" icon="hugeicons:menu-restaurant" width="40" height="40" />
+                  </a>
+                )}
+              </RowLayout>
+            </LogoColumn>
+          </RestaurantContent>
         </FramedBox>
       </LayoutWithActiveButton>
     </Band.CenteredColumn>
