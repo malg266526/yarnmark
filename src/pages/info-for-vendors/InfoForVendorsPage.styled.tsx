@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { PageContent } from '../../components/PageContent';
-import { RedesignSpacings, Spacings } from '../../styles/spacings';
+import { RedesignSpacings } from '../../styles/spacings';
 import { ScreenSize } from '../../styles/screeen-size';
 import { BackgroundColors, Colors } from '../../styles/theme';
 
