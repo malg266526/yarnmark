@@ -8,7 +8,7 @@ import { Trans } from 'react-i18next';
 import { Hall } from '../../components/Hall';
 import { HallWrapper, PlainInfo, StyledPageContent } from './InfoForVendorsPage.styled';
 import { usePhone } from '../../hooks/usePhone';
-import { FullSizePicture } from '../../components/FullSizePicture';
+import { BackgroundPicture } from '../../components/BackgroundPicture';
 import { Menu } from '../menu/Menu';
 import { Typography } from '../../components/Typography';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
@@ -31,10 +31,10 @@ export const InfoForVendorsPage = () => {
         align="center"
         padding="xl"
         picture={
-          <FullSizePicture>
+          <BackgroundPicture>
             <source srcSet={woolsAvifLandscape} type="image/avif" />
             <img src={woolsWebpLandscape} alt="wool" />
-          </FullSizePicture>
+          </BackgroundPicture>
         }>
         <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
           <FlexColumnLayout align="flex-start" padding="none" gap="sm">

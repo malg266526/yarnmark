@@ -8,10 +8,10 @@ export type Align = 'center' | 'flex-start' | 'flex-end';
 export type BandSize = 'xl' | 'md' | 'sm' | 'xs' | 'lg';
 
 const bandSizeToHeight: Record<BandSize, string> = {
-  xl: '900px',
+  xl: '850px',
   lg: '750px',
   md: '600px',
-  sm: '450px',
+  sm: '500px',
   xs: '300px'
 };
 

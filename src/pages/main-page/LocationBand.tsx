@@ -11,7 +11,8 @@ import { Icon } from '../../components/Icon';
 import pinImageUrl from '../../assets/images/pin.svg';
 import styled from 'styled-components';
 import { Typography } from '../../components/Typography';
-import { FullSizePicture } from '../../components/FullSizePicture';
+import { BackgroundPicture } from '../../components/BackgroundPicture';
+import { BackgroundColors } from '../../styles/theme';
 
 const AnimatedIconWrapper = styled.div`
   padding-bottom: 20px;
@@ -124,20 +125,18 @@ type LocationSectionType = {
   id: string;
 };
 
-const CracoviaHallPicture = () => (
-  <FullSizePicture>
-    <source srcSet={halaAvifImageSrc} type="image/avif" />
-    <source srcSet={halaWebpImageSrc} type="image/avif" />
-
-    <img loading="lazy" src={halaJpgImageSrc} alt="hala 100-lecia" />
-  </FullSizePicture>
-);
-
 export const LocationBand = ({ id }: LocationSectionType) => {
   const t = useTypedTranslation();
 
   return (
-    <Band.Wallpaper id={id} justify="space-around" size="xl" picture={<CracoviaHallPicture />}>
+    <Band.Solid id={id} justify="space-around" size="xl" color={BackgroundColors.navigationBand}>
+      <BackgroundPicture size="70%" filter="grayscale(0.2) brightness(1.3) contrast(0.8)">
+        <source srcSet={halaAvifImageSrc} type="image/avif" />
+        <source srcSet={halaWebpImageSrc} type="image/avif" />
+
+        <img loading="lazy" src={halaJpgImageSrc} alt="hala 100-lecia" />
+      </BackgroundPicture>
+
       <a
         target="_blank"
         rel="noreferrer"
@@ -149,6 +148,6 @@ export const LocationBand = ({ id }: LocationSectionType) => {
       </a>
 
       <EventLocationCard />
-    </Band.Wallpaper>
+    </Band.Solid>
   );
 };

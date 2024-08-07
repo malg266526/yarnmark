@@ -3,7 +3,7 @@ import { BandRootLayout, BandSize, Justify } from './BandRootLayout';
 import { BandTitle, SecondaryBandTitle } from './BandTitle';
 import { BackgroundImageBand } from './BackgroundImageBand';
 import { SolidBackgroundBand } from './SolidBackgroundBand';
-import { RedesignSpacings, Spacings } from '../../styles/spacings';
+import { RedesignSpacings } from '../../styles/spacings';
 
 interface WallpaperBand {
   id: string;
@@ -22,7 +22,7 @@ interface CenteredColumnBandProps {
   size?: BandSize;
   justify?: Justify;
   color: string;
-  padding?: keyof typeof Spacings;
+  padding?: keyof typeof RedesignSpacings;
   gap?: keyof typeof RedesignSpacings;
 }
 
@@ -40,6 +40,10 @@ const NarrowColumnBand = ({ id, color, ...props }: CenteredColumnBandProps) => (
     justify="space-evenly"
     {...props}
   />
+);
+
+const SolidBand = ({ id, color, ...props }: CenteredColumnBandProps) => (
+  <SolidBackgroundBand id={id} color={color} align="center" {...props} />
 );
 
 interface EmptyBandProps {
@@ -74,5 +78,6 @@ export const Band = Object.assign(({ children }: BandProps) => <BandRootLayout>{
   Wallpaper: WallPaperBand,
   CenteredColumn: CenteredColumnBand,
   NarrowColumn: NarrowColumnBand,
-  Empty: EmptyBand
+  Empty: EmptyBand,
+  Solid: SolidBand
 });

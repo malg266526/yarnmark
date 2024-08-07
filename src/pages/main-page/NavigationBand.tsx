@@ -4,7 +4,7 @@ import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Icon, sizeToIconWidth } from '../../components/Icon';
 import styled from 'styled-components';
 import { Typography } from '../../components/Typography';
-import { Spacings } from '../../styles/spacings';
+import { RedesignSpacings } from '../../styles/spacings';
 import { RowLayout } from '../../components/RowLayout';
 import redMapMarkerIconUrl from '../../assets/figmaIcons/red_map_marker_icon.svg';
 import blueTicketsIconUrl from '../../assets/figmaIcons/blue_tickets_icon.svg';
@@ -20,7 +20,7 @@ const InfoSectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   z-index: 1;
-  gap: ${Spacings.md};
+  gap: ${RedesignSpacings.md};
 `;
 
 const IconButton = styled(Button)`
@@ -33,19 +33,19 @@ export const NavigationBand = () => {
   const t = useTypedTranslation();
 
   return (
-    <Band.NarrowColumn id="mainInfoButtons" size="sm" gap="md" padding="md" color={BackgroundColors.navigationBand}>
+    <Band.NarrowColumn id="mainInfoButtons" size="sm" gap="md" padding="lg" color={BackgroundColors.navigationBand}>
       <InfoSectionWrapper>
-        <Typography size="lg">{t('navigationBand.anotherEdition')}</Typography>
+        <Typography size="xl">{t('navigationBand.anotherEdition')}</Typography>
 
-        <Typography size="sm" weight="regular">
+        <Typography size="md" weight="regular">
           {t('navigationBand.knittingSaturday')}
         </Typography>
-        <Typography size="sm" weight="regular">
+        <Typography size="md" weight="regular">
           {t('navigationBand.linksBelow')}
         </Typography>
       </InfoSectionWrapper>
 
-      <RowLayout wide justify="center" gap="xl">
+      <RowLayout wide justify="center" gap="xxl">
         <IconButton onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}>
           <Icon size="xl" zIndex={0} src={blueTicketsIconUrl} />
           <Typography size="sm">{t('tickets.clickHere')}</Typography>
