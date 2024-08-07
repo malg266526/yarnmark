@@ -4,15 +4,20 @@ type ObjectFit = 'cover' | 'contain';
 
 // TODO: FullSizePicture & Picture - consider unification or some other solution
 
-export const FullSizePicture = styled.picture<{ filter?: string; opacity?: number; objectFit?: ObjectFit }>`
+export const BackgroundPicture = styled.picture<{
+  size?: `${number}%` | `${number}px`;
+  filter?: string;
+  opacity?: number;
+  objectFit?: ObjectFit;
+}>`
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
+  left: ${({ size }) => (size ? 'unset' : 0)};
+  top: ${({ size }) => (size ? 'unset' : 0)};
+  width: ${({ size }) => size || '100%'};
+  max-width: ${({ size }) => size || '100%'};
+  height: ${({ size }) => (size ? '90%' : '100%')};
   max-height: 100%;
-  z-index: -1;
+  z-index: 0;
 
   > img {
     width: 100%;

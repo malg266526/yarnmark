@@ -9,7 +9,7 @@ import sweatersBackgroundUrlAvif from './../assets/backgrounds/sweaters_backgrou
 import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.jpg';
 import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
 import { StyledPageContent } from './info-for-vendors/InfoForVendorsPage.styled';
-import { FullSizePicture } from '../components/FullSizePicture';
+import { BackgroundPicture } from '../components/BackgroundPicture';
 import { Menu } from './menu/Menu';
 import { Typography } from '../components/Typography';
 import { CenteredParagraph } from '../components/CenteredParagraph';
@@ -47,15 +47,15 @@ export const StatutesPage = () => {
         padding="xl"
         picture={
           /*TODO: consider common component*/
-          <FullSizePicture>
+          <BackgroundPicture>
             <source srcSet={woolsAvifLandscape} type="image/avif" />
             <img src={woolsWebpLandscape} alt="wool" />
-          </FullSizePicture>
+          </BackgroundPicture>
         }>
-        <FullSizePicture>
+        <BackgroundPicture>
           <source srcSet={woolsAvifLandscape} type="image/avif" />
           <img src={woolsWebpLandscape} alt="wool" />
-        </FullSizePicture>
+        </BackgroundPicture>
 
         <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
           <CenteredParagraph>
@@ -185,11 +185,11 @@ export const StatutesPage = () => {
         justify="flex-start"
         padding="xl"
         picture={
-          <FullSizePicture>
+          <BackgroundPicture>
             <source srcSet={sweatersBackgroundUrlAvif} type="image/avif" />
             <source srcSet={sweatersBackgroundUrlWebp} type="image/webp" />
             <img src={sweatersBackgroundUrl} alt="wool background" style={{ objectFit: 'cover' }} />
-          </FullSizePicture>
+          </BackgroundPicture>
         }>
         <Card>
           <CenteredParagraph>

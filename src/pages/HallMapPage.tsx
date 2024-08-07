@@ -13,7 +13,7 @@ import styled from 'styled-components';
 import { ScreenSize } from '../styles/screeen-size';
 import { Spacings } from '../styles/spacings';
 import { usePhone, useTablet } from '../hooks/usePhone';
-import { FullSizePicture } from '../components/FullSizePicture';
+import { BackgroundPicture } from '../components/BackgroundPicture';
 import { BackgroundImageBand } from '../components/bands/BackgroundImageBand';
 
 const MapWithLegend = styled.div`
@@ -50,10 +50,10 @@ export const HallMapPage = () => {
         justify="center"
         padding="xxl"
         picture={
-          <FullSizePicture>
+          <BackgroundPicture>
             <source srcSet={woolsAvifLandscape} type="image/avif" />
             <img src={woolsWebpLandscape} alt="wool" />
-          </FullSizePicture>
+          </BackgroundPicture>
         }>
         <MapWithLegend>
           <Picture

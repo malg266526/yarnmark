@@ -70,8 +70,11 @@ export const MainPage = () => {
           <Band.Wallpaper id="invitation" picture={<WoolPicture />} size="xl">
             <InvitationCard />
           </Band.Wallpaper>
+
           <NavigationBand />
+
           <LocationBand id="location" />
+
           <Band.CenteredColumn id="vendors" size="md" padding="xxl" color={BackgroundColors.gradient} justify="center">
             <VendorsList />
           </Band.CenteredColumn>

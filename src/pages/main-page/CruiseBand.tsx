@@ -19,7 +19,7 @@ import { CruiseMap } from '../../components/CruiseMap';
 import React, { useState } from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Typography } from '../../components/Typography';
-import { FullSizePicture } from '../../components/FullSizePicture';
+import { BackgroundPicture } from '../../components/BackgroundPicture';
 import { Band } from '../../components/bands/Band';
 
 type CruiseBandType = {
@@ -27,10 +27,10 @@ type CruiseBandType = {
 };
 
 const ShipPicture = (
-  <FullSizePicture filter="grayscale(0.2) brightness(1.3) contrast(0.8)" opacity={0.8} objectFit="cover">
+  <BackgroundPicture filter="grayscale(0.2) brightness(1.3) contrast(0.8)" opacity={0.8} objectFit="cover">
     <source srcSet={shipAvifSrc} type="image/avif" />
     <img loading="lazy" src={shipJpgSrc} alt="sailing ship" />
-  </FullSizePicture>
+  </BackgroundPicture>
 );
 
 export const CruiseBand = ({ id }: CruiseBandType) => {
