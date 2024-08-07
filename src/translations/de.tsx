@@ -179,25 +179,29 @@ export const de: TranslationsShape = {
       }
     },
     foodBand: {
-      bezogrodekDescription:
-        'Food Truck Park Bezogródek is located 150m from the Hall. You will find there a large selection of food in food trucks and the opportunity to relax on a deckchair with a drink in your hand.',
-      bezogrodekDescription2:
-        'On the day of the event, upon showing your wristband, you will receive a <strong>20%</strong> discount on the bar and on Thai ice cream, hot dogs, baguette sandwitches, Belgian fries and pizza.',
+      whereToEat: 'Where to eat?',
       lookHere: 'See here',
       checkMenu: 'See menu here',
-      bistroBloniaDescription:
-        "Błonia Bistro is a project on the culinary map of Krakow, combining a modern approach to cuisine, respect for different culinary preferences of guests. We have recently launched our own patisserie, where you can try small sweet creations a'la carte every day, wine selection and cocktail offer also encourages casual evenings. Błonia Bistro is all about hospitality and relaxation - there is something for everyone!",
-      grandeAppetitoDescription:
-        "Something for fans of Italian cuisine. You will find a wide selection of italian dishes here, from pizza baked in a wood-fired oven, through hand-made pasta and seafood, to the chef's specialty - venison. Atmosphere is enhanced by italian music inside   . There is also a children's corner inside.",
-      grandeAppetitoDescription2: 'We recommend trying creme brulee!',
-      piastowskaDescription: 'Miłośnikom polskiej kuchni polecamy Gospodę na Piastowskiej',
-      knittedCoffeeDescription: 'On the event you can drink tasty coffee made by Taras from Knitted Coffee',
-      discount15:
-        'On the day of the event, a discount for people with a Yarnmark Wool bracelet: <strong>-15%</strong> on all dishes from the menu.',
-      discount10:
-        'On the day of the event, a discount for people with a Yarnmark Wool bracelet: <strong>-10%</strong> on order.',
-      coffeehouse:
-        'There is also a cafe in the hall itself, where you can drink a coffee and lemonade or eat a snack such as fries. Soup will also be available on the day of the event. If the weather is good, there will be an open terrace with deckchairs next to the café.'
+      bezogrodek: {
+        description: 'Foodtruck park',
+        discount:
+          'On the day of the event, upon showing your wristband, you will receive a <strong>20%</strong> discount on the bar and on Thai ice cream, hot dogs, baguette sandwitches, Belgian fries and pizza.'
+      },
+      bistroblonia: {
+        description: 'Todo',
+        discount:
+          'On the day of the event, a discount for people with a Yarnmark Wool bracelet: <strong>-15%</strong> on all dishes from the menu.'
+      },
+      grandeAppetito: {
+        description: 'Italian cuisine',
+        discount:
+          'On the day of the event, a discount for people with a Yarnmark Wool bracelet: <strong>-10%</strong> on order..'
+      },
+      coffeehouse: {
+        title: 'Cafe on the hall',
+        description:
+          'You can drink a coffee or a lemonade here and eat a snacks such as fries. If the weather is good, there will be an open terrace with deckchairs next to the café.'
+      }
     },
     hallMap: {
       premiumStand: 'Premium Platz 5x3m',

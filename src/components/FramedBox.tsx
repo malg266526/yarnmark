@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import knittingSvgUrl from '../assets/images/skein3.svg';
-import { Spacings } from '../styles/spacings';
+import { RedesignSpacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 import { ScreenSize } from '../styles/screeen-size';
 
@@ -38,7 +38,7 @@ const OuterRoot = styled.div`
   }
 `;
 
-const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: keyof typeof Spacings }>`
+const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: keyof typeof RedesignSpacings }>`
   ${({ width }) =>
     width &&
     css`
@@ -49,11 +49,11 @@ const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: key
     css`
       height: ${height};
     `};
-  padding: ${({ padding }) => Spacings[padding]};
+  padding: ${({ padding }) => RedesignSpacings[padding]};
   background: white;
   position: relative;
   z-index: 1;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: -10px 13px 0 0 rgba(0, 0, 0, 0.5);
 
   display: flex;
   flex-direction: column;
@@ -77,7 +77,8 @@ export interface FramedBoxProps {
   width?: FrameWidth;
   height?: FrameWidth;
   children?: React.ReactNode;
-  padding: keyof typeof Spacings;
+  padding: keyof typeof RedesignSpacings;
+  id?: string;
 }
 
 export const FramedBox = ({ children, ...rest }: FramedBoxProps) => (

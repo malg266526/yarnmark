@@ -10,14 +10,18 @@ interface BandTitleProps {
   children?: ReactNode;
 }
 
+const CenteredTypography = styled(Typography)`
+  text-align: center;
+`;
+
 export const BandTitle = ({ children }: BandTitleProps) => {
   const isPhone = usePhone();
 
   if (isPhone) {
     return (
-      <Typography size="lg" weight="bold">
+      <CenteredTypography size="lg" weight="bold">
         {children}
-      </Typography>
+      </CenteredTypography>
     );
   }
 

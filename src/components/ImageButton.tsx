@@ -1,7 +1,8 @@
-import React, { ReactNode } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
-import { Spacings } from '../styles/spacings';
-import { IconWrapper, IconWrapper2 } from './FunnyButton';
+import { RedesignSpacings } from '../styles/spacings';
+import { DropShadow, Radius } from '../styles/cards';
+import { RoundBorderIcon } from './RoundBorderIcon';
 
 export interface ImageButtonProps {
   icon: React.ReactNode;
@@ -13,18 +14,18 @@ export interface ImageButtonProps {
 }
 
 const activeCss = css`
-  border: 2px solid black;
+  border: 1px solid black;
   box-shadow: 1px 1px 5px 1px #555;
 `;
 
 const ImageButtonLayout = styled.div<{ active?: boolean }>`
   display: flex;
   align-items: center;
-  padding: ${Spacings.xs};
-  padding-right: ${Spacings.sm};
-  border: 2px solid transparent;
-  border-radius: 10px;
-  box-shadow: 0px black;
+  padding: ${RedesignSpacings.xs};
+  padding-right: ${RedesignSpacings.md};
+  border: 1px solid transparent;
+  border-radius: ${Radius.lg};
+  box-shadow: ${DropShadow.md};
   cursor: pointer;
   word-break: break-word;
 
@@ -37,11 +38,13 @@ const ImageButtonLayout = styled.div<{ active?: boolean }>`
   ${({ active }) => active && activeCss};
 `;
 
-export const ImageButton = ({ icon, children, ...rest }: ImageButtonProps) => (
-  <ImageButtonLayout {...rest}>
-    <IconWrapper2>
-      <IconWrapper>{icon}</IconWrapper>
-    </IconWrapper2>
-    {children}
-  </ImageButtonLayout>
+export const ImageButton = forwardRef<HTMLDivElement, ImageButtonProps>(
+  ({ icon, children, ...rest }: ImageButtonProps, ref) => (
+    <ImageButtonLayout ref={ref} {...rest}>
+      <RoundBorderIcon>{icon}</RoundBorderIcon>
+      {children}
+    </ImageButtonLayout>
+  )
 );
+
+ImageButton.displayName = 'ImageButton';
