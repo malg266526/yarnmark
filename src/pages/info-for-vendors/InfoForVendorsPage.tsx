@@ -2,11 +2,11 @@ import React from 'react';
 import woolsAvifLandscape from '../../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../../assets/images/wools2_landscape.webp';
 import { SlantedCornersBox } from '../../components/SlantedCornersBox';
-import { BrownScale, Colors } from '../../styles/theme';
+import { BackgroundColors } from '../../styles/theme';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Trans } from 'react-i18next';
 import { Hall } from '../../components/Hall';
-import { HallWrapper, PlainInfo, StyledPageContent } from './InfoForVendorsPage.styled';
+import { HallWrapper, PlainInfo, Separator, StyledPageContent } from './InfoForVendorsPage.styled';
 import { usePhone } from '../../hooks/usePhone';
 import { BackgroundPicture } from '../../components/BackgroundPicture';
 import { Menu } from '../menu/Menu';
@@ -14,7 +14,8 @@ import { Typography } from '../../components/Typography';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { BackgroundImageBand } from '../../components/bands/BackgroundImageBand';
 import { BandTitle } from '../../components/bands/BandTitle';
-import { SolidBackgroundBand } from '../../components/bands/SolidBackgroundBand';
+import { Band } from '../../components/bands/Band';
+import { SecondaryLink } from '../../components/Link';
 
 export const InfoForVendorsPage = () => {
   const t = useTypedTranslation();
@@ -46,106 +47,107 @@ export const InfoForVendorsPage = () => {
         </SlantedCornersBox>
       </BackgroundImageBand>
 
-      <SolidBackgroundBand
+      <Band.NarrowColumn
         id="vendorsRegistration"
-        size="sm"
-        justify={isPhone ? 'center' : 'space-evenly'}
-        align="center"
-        color={Colors.isabelline}
-        padding="xl">
-        <Typography size="xxl" weight="bold">
-          {t('infoForVendorsPage.registration.title')}
-        </Typography>
+        gap="lg"
+        size="xs"
+        color={BackgroundColors.navigationBand}
+        stretchOnMobile
+        padding={isPhone ? 'sm' : 'xxl'}>
+        <Band.BeamTitle>{t('infoForVendorsPage.registration.title')}</Band.BeamTitle>
 
         <PlainInfo>
-          <Typography size="sm">
+          <Typography size="md">
             <Trans i18nKey="infoForVendorsPage.registration.beAVendor" />
           </Typography>
-          <Typography size="sm">{t('infoForVendorsPage.registration.start')}</Typography>
-          <Typography size="sm">{t('infoForVendorsPage.registration.where')}</Typography>
-          <a
-            href="https://wloczykijki.pl/pl_PL/c/Krakoski-Yarnmark-Welny/355?preview=true"
+          <Typography size="md">{t('infoForVendorsPage.registration.start')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.registration.where')}</Typography>
+
+          <SecondaryLink
+            to="https://wloczykijki.pl/pl_PL/c/Krakoski-Yarnmark-Welny/355?preview=true"
             target="_blank"
             rel="noreferrer">
-            {t('infoForVendorsPage.registration.buyHere')}
-          </a>
-          <Typography size="sm">{t('infoForVendorsPage.registration.feedback')}</Typography>
-          <Typography size="sm">{t('infoForVendorsPage.registration.return')}</Typography>
-        </PlainInfo>
-      </SolidBackgroundBand>
+            <Typography size="md">{t('infoForVendorsPage.registration.buyHere')}</Typography>
+          </SecondaryLink>
 
-      <SolidBackgroundBand
+          <Typography size="md">{t('infoForVendorsPage.registration.feedback')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.registration.return')}</Typography>
+        </PlainInfo>
+      </Band.NarrowColumn>
+
+      <Separator />
+
+      <Band.NarrowColumn
         id="hall"
-        size="sm"
-        justify={isPhone ? 'center' : 'space-evenly'}
-        align="center"
-        color={Colors.snow}
-        padding="xl">
-        <Typography size="xxl" weight="bold">
-          {t('infoForVendorsPage.hallInfo.title')}
-        </Typography>
+        gap="lg"
+        size="xs"
+        color={BackgroundColors.navigationBand}
+        stretchOnMobile
+        padding={isPhone ? 'sm' : 'xxl'}>
+        <Band.BeamTitle>{t('infoForVendorsPage.hallInfo.title')}</Band.BeamTitle>
 
         <PlainInfo>
-          <Typography size="sm">{t('infoForVendorsPage.hallInfo.area')}</Typography>
-          <Typography size="sm">{t('infoForVendorsPage.hallInfo.openHours')}</Typography>
-          <Typography size="sm">{t('infoForVendorsPage.hallInfo.ramp')}</Typography>
-          <Typography size="sm">{t('infoForVendorsPage.hallInfo.participants')}</Typography>
-          <Typography size="sm">{t('infoForVendorsPage.hallInfo.stands')}</Typography>
-          <Typography size="sm">{t('infoForVendorsPage.hallInfo.tables')}</Typography>
-          <Typography size="sm">{t('infoForVendorsPage.hallInfo.extensionCords')}</Typography>
-          <Typography size="sm">{t('infoForVendorsPage.hallInfo.socialRoom')}</Typography>
-          <Typography size="sm">{t('infoForVendorsPage.hallInfo.glassWall')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.hallInfo.area')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.hallInfo.openHours')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.hallInfo.ramp')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.hallInfo.participants')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.hallInfo.stands')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.hallInfo.tables')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.hallInfo.extensionCords')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.hallInfo.socialRoom')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.hallInfo.glassWall')}</Typography>
         </PlainInfo>
-      </SolidBackgroundBand>
+      </Band.NarrowColumn>
 
-      <SolidBackgroundBand
+      <Separator />
+
+      <Band.NarrowColumn
         id="parking"
-        size="sm"
-        justify={isPhone ? 'center' : 'space-evenly'}
-        align="center"
-        color={BrownScale[100]}
-        padding="xl">
-        <Typography size="xxl" weight="bold">
-          {t('infoForVendorsPage.parking.title')}
-        </Typography>
+        gap="lg"
+        size="xs"
+        color={BackgroundColors.navigationBand}
+        stretchOnMobile
+        padding={isPhone ? 'sm' : 'xxl'}>
+        <Band.BeamTitle>{t('infoForVendorsPage.parking.title')}</Band.BeamTitle>
 
         <PlainInfo>
-          <Typography size="sm">{t('infoForVendorsPage.parking.parkingSpace')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.parking.parkingSpace')}</Typography>
         </PlainInfo>
-      </SolidBackgroundBand>
+      </Band.NarrowColumn>
 
-      <SolidBackgroundBand
+      <Separator />
+
+      <Band.NarrowColumn
         id="marketing"
-        size="sm"
-        justify={isPhone ? 'center' : 'space-evenly'}
-        align="center"
-        color={Colors.beige1}
-        padding="xl">
-        <Typography size="xxl" weight="bold">
-          {t('infoForVendorsPage.marketing.title')}
-        </Typography>
+        gap="lg"
+        size="xs"
+        color={BackgroundColors.navigationBand}
+        stretchOnMobile
+        padding={isPhone ? 'sm' : 'xxl'}>
+        <Band.BeamTitle>{t('infoForVendorsPage.marketing.title')}</Band.BeamTitle>
 
         <PlainInfo>
-          <Typography size="sm">
+          <Typography size="md">
             <Trans i18nKey="infoForVendorsPage.marketing.sendLogos" />
           </Typography>
         </PlainInfo>
-      </SolidBackgroundBand>
+      </Band.NarrowColumn>
 
-      <SolidBackgroundBand
+      <Separator />
+
+      <Band.NarrowColumn
         id="stands"
+        gap="lg"
         size="sm"
-        justify={isPhone ? 'center' : 'space-evenly'}
-        color={BrownScale[100]}
-        padding="xl">
-        <Typography size="xxl" weight="bold">
-          {t('infoForVendorsPage.stands.title')}
-        </Typography>
+        color={BackgroundColors.navigationBand}
+        stretchOnMobile
+        padding={isPhone ? 'sm' : 'xxl'}>
+        <Band.BeamTitle>{t('infoForVendorsPage.stands.title')}</Band.BeamTitle>
 
         <HallWrapper>
           <Hall />
         </HallWrapper>
-      </SolidBackgroundBand>
+      </Band.NarrowColumn>
     </StyledPageContent>
   );
 };

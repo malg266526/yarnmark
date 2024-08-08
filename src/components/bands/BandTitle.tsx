@@ -54,3 +54,21 @@ export const SecondaryBandTitle = ({ children }: BandTitleProps) => (
     </SecondaryTitle>
   </SecondaryTitleWrapper>
 );
+
+const Beam = styled.div`
+  width: 100%;
+  background-color: ${BackgroundColors.beam};
+  color: white;
+  text-align: center;
+  padding: ${RedesignSpacings.xs};
+`;
+
+const BeamTypography = styled(Typography)`
+  line-height: normal;
+`;
+
+export const BeamTitle = ({ children }: BandTitleProps) => (
+  <Beam>
+    <BeamTypography size="xxl">{children}</BeamTypography>
+  </Beam>
+);

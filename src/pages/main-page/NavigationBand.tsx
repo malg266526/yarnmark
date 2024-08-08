@@ -45,7 +45,7 @@ export const NavigationBand = () => {
         </Typography>
       </InfoSectionWrapper>
 
-      <RowLayout wide justify="center" gap="xxl">
+      <RowLayout wide justify="center" gap="xxxl">
         <IconButton onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}>
           <Icon size="xl" zIndex={0} src={blueTicketsIconUrl} />
           <Typography size="sm">{t('tickets.clickHere')}</Typography>

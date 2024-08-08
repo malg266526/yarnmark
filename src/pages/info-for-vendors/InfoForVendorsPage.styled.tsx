@@ -1,26 +1,29 @@
 import styled from 'styled-components';
 import { PageContent } from '../../components/PageContent';
-import { Spacings } from '../../styles/spacings';
+import { RedesignSpacings } from '../../styles/spacings';
 import { ScreenSize } from '../../styles/screeen-size';
-import { Colors } from '../../styles/theme';
+import { BackgroundColors, Colors } from '../../styles/theme';
 
 export const StyledPageContent = styled(PageContent)``;
 
 export const PlainInfo = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: ${Colors.white};
-  padding: ${Spacings.md};
-  gap: ${Spacings.sm};
-  max-width: 50%;
-  width: 50%;
+  gap: ${RedesignSpacings.sm};
+  width: 100%;
   min-height: 100px;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  text-align: justify;
 
   @media (max-width: ${ScreenSize.tablet}) {
     max-width: 92%;
     width: 92%;
   }
+`;
+
+export const Separator = styled.div`
+  width: 100%;
+  height: 0.5px;
+  background-color: ${BackgroundColors.beam};
 `;
 
 export const HallWrapper = styled.div`

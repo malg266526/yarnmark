@@ -17,7 +17,7 @@ export const RedesignSpacings = {
   md: '30px',
   lg: '40px',
   xl: '50px',
+  xxl: '60px',
 
-  xxl: '96px',
-  xxxl: '108px'
+  xxxl: '96px'
 };

@@ -35,8 +35,8 @@ const StyledLink = styled(HashLink)<{ color?: string }>`
   &::before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 0;
+    left: -10px;
+    top: -10px;
     transform: translate(0, 10px);
     height: 20px;
     width: 20px;
@@ -93,6 +93,7 @@ export const Link = styled(({ children, to, target, rel, color, ...rest }: HashL
 export const SecondaryLink = styled(Link)`
   color: ${TextColors.link};
   padding: 0;
+  width: fit-content;
 
   &::after {
     content: '';
