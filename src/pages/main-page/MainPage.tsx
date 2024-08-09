@@ -19,7 +19,6 @@ import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { WorkshopsSchedule } from './workshops/WorkshopsSchedule';
 import { BackgroundColors } from '../../styles/theme';
 import { VendorsList } from './VendorsList';
-import { SideMenu } from '../menu/SideMenu';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -39,7 +38,6 @@ export const MainPage = () => {
 
   return (
     <StyledPageContent ref={pageContentRef} variant="wide" padding="none">
-      <SideMenu />
       <Menu />
 
       {isPhone ? (

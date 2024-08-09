@@ -42,7 +42,7 @@ export const StatutesPage = () => {
       <BackgroundImageBand
         id="statutes_welcome_band"
         size="lg"
-        justify="flex-start"
+        justify="flex-end"
         align="center"
         padding="xl"
         picture={
