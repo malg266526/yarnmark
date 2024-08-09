@@ -1,13 +1,15 @@
 import styled, { css } from 'styled-components';
 
 export const sizeToIconWidth: Record<SizeKey, string> = {
+  xxl: '80px',
   xl: '60px',
   lg: '40px',
   md: '30px',
-  sm: '22px'
+  sm: '22px',
+  xs: '10px'
 };
 
-type SizeKey = 'xl' | 'lg' | 'md' | 'sm';
+type SizeKey = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 
 export interface IconProps {
   size: SizeKey | `${number}${'px' | '%'}`;

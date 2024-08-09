@@ -1,8 +1,5 @@
 import { SlantedCornersBox } from '../../components/SlantedCornersBox';
 import { Picture } from '../../components/Picture';
-import yarnmarkLogoSrc from '../../assets/images/yarnmark_logo.jpg';
-import yarnmarkLogoSrcWebp from '../../assets/images/yarnmark_logo.webp';
-import yarnmarkLogoSrcAvif from '../../assets/images/yarnmark_logo.avif';
 import React from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Typography } from '../../components/Typography';
@@ -14,6 +11,7 @@ import { BackgroundColors, GrayScale } from '../../styles/theme';
 import { ScreenSize } from '../../styles/screeen-size';
 import { Radius } from '../../styles/cards';
 import { Band } from '../../components/bands/Band';
+import { yarnmarkLogoPictureConfig } from '../../assets/yarnmarkLogoPictureConfig';
 
 const Content = styled(FlexColumnLayout)`
   padding: ${Spacings.lg} ${Spacings.xs} 0 ${Spacings.xs};
@@ -39,20 +37,6 @@ const BottomSection = styled(RowLayout)`
   align-items: flex-end;
   margin-top: -${Spacings.md};
 `;
-
-const yarnmarkLogoPictureConfig = {
-  fallbackUrl: yarnmarkLogoSrc,
-  sources: [
-    {
-      type: 'image/webp',
-      url: yarnmarkLogoSrcWebp
-    },
-    {
-      type: 'image/avif',
-      url: yarnmarkLogoSrcAvif
-    }
-  ]
-};
 
 export const InvitationCard = () => {
   const t = useTypedTranslation();

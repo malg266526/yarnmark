@@ -15,6 +15,15 @@ import paintingIcon from '../../assets/figmaIcons/painting_icon.svg';
 import pinEllipseIcon from '../../assets/figmaIcons/pin_ellipse_icon.svg';
 import handshakeIcon from '../../assets/figmaIcons/handshake_icon.svg';
 import contractIcon from '../../assets/figmaIcons/contract_icon.svg';
+import openDrawerIcon from '../../assets/figmaIcons/open_drawer_icon.svg';
+import closeDrawerIcon from '../../assets/figmaIcons/close_drawer_icon.svg';
+import { Picture } from '../../components/Picture';
+import { yarnmarkLogoPictureConfig } from '../../assets/yarnmarkLogoPictureConfig';
+import ellipseLight from '../../assets/figmaIcons/ellipse_light.svg';
+import ellipseMedium from '../../assets/figmaIcons/ellipse_medium.svg';
+import ellipseStrong from '../../assets/figmaIcons/ellipse_strong.svg';
+import { useToggle } from '../../hooks/useToggle';
+import { Button } from '../../components/Button';
 
 const RootLayout = styled.div`
   display: flex;
@@ -48,12 +57,49 @@ const MenuItem = styled.a`
   cursor: pointer;
 `;
 
+const SwitchRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: ${RedesignSpacings.lg} ${RedesignSpacings.xs};
+`;
+
+const Dots = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${RedesignSpacings.xs};
+  padding: ${RedesignSpacings.xs};
+`;
+
 export const SideMenu = () => {
   const t = useTypedTranslation();
+
+  const [isOpen, toggle] = useToggle();
 
   return (
     <RootLayout>
       <Section>
+        <Dots>
+          <Icon size="xs" zIndex={0} src={ellipseLight} />
+          <Icon size="xs" zIndex={0} src={ellipseMedium} />
+          <Icon size="xs" zIndex={0} src={ellipseStrong} />
+        </Dots>
+
+        <SwitchRow>
+          {isOpen ? (
+            <>
+              <Picture picture={yarnmarkLogoPictureConfig} alt="yarnmark_logo" width={40} height={50} />
+              <Button onClick={toggle}>
+                <Icon size="sm" zIndex={0} src={closeDrawerIcon} />
+              </Button>
+            </>
+          ) : (
+            <Button onClick={toggle}>
+              <Icon size="sm" zIndex={0} src={openDrawerIcon} />
+            </Button>
+          )}
+        </SwitchRow>
+
         <MenuItem>
           <Icon size="sm" zIndex={0} src={homeIcon} />
           {t('menu.home')}
