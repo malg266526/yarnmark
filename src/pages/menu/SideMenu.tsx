@@ -100,61 +100,61 @@ export const SideMenu = () => {
           )}
         </SwitchRow>
 
-        <MenuItem>
+        <MenuItem href="/home">
           <Icon size="sm" zIndex={0} src={homeIcon} />
           {t('menu.home')}
         </MenuItem>
       </Section>
 
       <Section>
-        <MenuItem>
+        <MenuItem href="/home#mainInfoButtons">
           <Icon size="sm" zIndex={0} src={infoIcon} />
           {t('menu.whatAndWhere')}
         </MenuItem>
 
-        <MenuItem>
+        <MenuItem href="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832" target="_blank">
           <Icon size="sm" zIndex={0} src={ticketIcon} />
           {t('menu.entranceTicket')}
         </MenuItem>
 
-        <MenuItem>
+        <MenuItem href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358" target="_blank">
           <Icon size="sm" zIndex={0} src={ticketMediumIcon} />
           {t('menu.workshopTickets')}
         </MenuItem>
 
-        <MenuItem>
+        <MenuItem href="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833" target="_blank">
           <Icon size="sm" zIndex={0} src={ticketLightIcon} />
           {t('menu.cruiseTickets')}
         </MenuItem>
 
-        <MenuItem>
+        <MenuItem href="/home#workshops">
           <Icon size="sm" zIndex={0} src={workshopIcons} />
           {t('menu.workshops')}
         </MenuItem>
 
-        <MenuItem>
+        <MenuItem href="/home#vendors">
           <Icon size="sm" zIndex={0} src={shopIcon} />
           {t('menu.vendors')}
         </MenuItem>
 
-        <MenuItem>
+        <MenuItem href="/home#lastEdition">
           <Icon size="sm" zIndex={0} src={paintingIcon} />
           {t('menu.memories')}
         </MenuItem>
       </Section>
 
       <Section>
-        <MenuItem>
+        <MenuItem href="/hall">
           <Icon size="sm" zIndex={0} src={pinEllipseIcon} />
           {t('menu.hallMap')}
         </MenuItem>
 
-        <MenuItem>
+        <MenuItem href="/info-for-vendors#stands">
           <Icon size="sm" zIndex={0} src={handshakeIcon} />
           {t('menu.infoForVendors')}
         </MenuItem>
 
-        <MenuItem>
+        <MenuItem href="/statutes">
           <Icon size="sm" zIndex={0} src={contractIcon} />
           {t('menu.statutes')}
         </MenuItem>
