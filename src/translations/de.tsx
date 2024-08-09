@@ -7,7 +7,6 @@ export const de: TranslationsShape = {
       whatAndWhere: 'What? Where? How?',
       workshops: 'Workshop`s',
       vendors: 'Aussteller',
-      organizers: 'Veranstalter',
       contact: 'Kontakt',
       infoForVendors: 'für Aussteller',
       cruise: 'Knitting-ship',
@@ -17,7 +16,9 @@ export const de: TranslationsShape = {
       tickets: 'Tickets',
       entranceTicket: 'Entrance tickets',
       workshopTickets: 'Workshops tickets',
-      cruiseTickets: 'Cruise tickets'
+      cruiseTickets: 'Cruise tickets',
+      memories: 'Erinnerungen',
+      hallMap: 'Mapa hali'
     },
     tickets: {
       buyTicketsAndWorkshops: '<0>Kup</0> bilet na targi lub wybierz opcję z warsztatami',
@@ -26,7 +27,7 @@ export const de: TranslationsShape = {
       clickHere: 'Click here',
       at: 'at',
       price: 'Preis',
-      workshopsTickets: 'Bilety na warsztaty'
+      workshopsTickets: 'Workshops tickets'
     },
     location: {
       findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0> i na <1>planie</1>'

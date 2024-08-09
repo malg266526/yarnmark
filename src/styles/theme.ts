@@ -17,7 +17,7 @@ export const BackgroundColors = {
 
 export const TextColors = {
   primary: '#151414',
-  accent: '#2D5B0F',
+  accent: '#326213',
   link: '#C0392B'
 };
 

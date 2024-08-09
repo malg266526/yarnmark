@@ -5,9 +5,12 @@ export const pl = {
     menu: {
       home: 'Home',
       whatAndWhere: 'Co? Gdzie? Jak?',
+      entranceTicket: 'Bilety wstępu',
+      workshopTickets: 'Bilety na warsztaty',
+      cruiseTickets: 'Bilety rejsowe',
       workshops: 'Warsztaty',
       vendors: 'Wystawcy',
-      organizers: 'Organizatorzy',
+      memories: 'Wspomnienia',
       contact: 'Kontakt',
       infoForVendors: 'Dla wystawców',
       cruise: 'Dziergostatek',
@@ -15,9 +18,7 @@ export const pl = {
       stands: 'Stoiska',
       statutes: 'Regulamin',
       tickets: 'Bilety',
-      entranceTicket: 'Bilety wstępu',
-      workshopTickets: 'Warsztaty',
-      cruiseTickets: 'Bilety rejsowe'
+      hallMap: 'Mapa hali'
     },
     tickets: {
       buyTicketsAndWorkshops: '<0>Kup</0> bilet na targi lub wybierz opcję z warsztatami',
