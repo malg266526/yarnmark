@@ -4,6 +4,7 @@ export const de: TranslationsShape = {
   translation: {
     menu: {
       home: 'Home',
+      whatAndWhere: 'What? Where? How?',
       workshops: 'Workshop`s',
       vendors: 'Aussteller',
       organizers: 'Veranstalter',

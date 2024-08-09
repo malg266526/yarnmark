@@ -57,7 +57,7 @@ export const SecondaryBandTitle = ({ children }: BandTitleProps) => (
 
 const Beam = styled.div`
   width: 100%;
-  background-color: ${BackgroundColors.beam};
+  background-color: ${BackgroundColors.greenStrong};
   color: white;
   text-align: center;
   padding: ${RedesignSpacings.xs};

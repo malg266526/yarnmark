@@ -4,6 +4,7 @@ export const pl = {
   translation: {
     menu: {
       home: 'Home',
+      whatAndWhere: 'Co? Gdzie? Jak?',
       workshops: 'Warsztaty',
       vendors: 'Wystawcy',
       organizers: 'Organizatorzy',

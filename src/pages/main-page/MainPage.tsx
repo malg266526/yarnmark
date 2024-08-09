@@ -19,6 +19,7 @@ import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { WorkshopsSchedule } from './workshops/WorkshopsSchedule';
 import { BackgroundColors } from '../../styles/theme';
 import { VendorsList } from './VendorsList';
+import { SideMenu } from '../menu/SideMenu';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -38,6 +39,7 @@ export const MainPage = () => {
 
   return (
     <StyledPageContent ref={pageContentRef} variant="wide" padding="none">
+      <SideMenu />
       <Menu />
 
       {isPhone ? (
@@ -67,7 +69,7 @@ export const MainPage = () => {
         </>
       ) : (
         <>
-          <Band.Wallpaper id="invitation" picture={<WoolPicture />} size="xl">
+          <Band.Wallpaper id="invitation" picture={<WoolPicture />} size="xl" justify="flex-end">
             <InvitationCard />
           </Band.Wallpaper>
 

@@ -1,6 +1,7 @@
 export const BackgroundColors = {
   desktopCard: '#F5F5F5',
   navigationBand: 'rgba(233, 232, 232, 0.60);',
+  menu: 'rgba(233, 232, 232, 0.8);',
   ticketBand: '#ECEBEB',
 
   primary: '#E9E8E8',
@@ -9,7 +10,9 @@ export const BackgroundColors = {
 
   smoothGradient: `linear-gradient(180deg, #FFF 0%, #ECEBEB 100%)`,
 
-  beam: '#326213'
+  greenStrong: '#326213',
+  greenMedium: '#A4C365',
+  greenLight: '#F8FFF4'
 };
 
 export const TextColors = {
