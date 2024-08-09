@@ -1,14 +1,12 @@
 export const BackgroundColors = {
   desktopCard: '#F5F5F5',
-  navigationBand: 'rgba(233, 232, 232, 0.60);',
-  menu: 'rgba(233, 232, 232, 0.8);',
+  navigationBand: 'rgba(233, 232, 232, 0.60)',
+  menu: 'rgba(233, 232, 232, 0.8)',
   ticketBand: '#ECEBEB',
 
   primary: '#E9E8E8',
   secondary: 'rgba(236, 235, 235, 0.30)', // GrayScale[100] but 30%,
   gradient: `linear-gradient(180deg, #EAE9E9 1.96%, rgba(244, 243, 243, 0.83) 12.51%, rgba(255, 255, 255, 0.65) 24.29%, #FFF 78.04%, #F3F2F2 91.01%, #EAE9E9 100%);`,
-
-  smoothGradient: `linear-gradient(180deg, #FFF 0%, #ECEBEB 100%)`,
 
   greenStrong: '#326213',
   greenMedium: '#A4C365',
@@ -35,7 +33,6 @@ export const GrayScale = {
 };
 
 export const Colors = {
-  gold: 'gold',
   goldLight: '#c3a25d',
 
   pinball: '#d3d3d3',
@@ -46,13 +43,7 @@ export const Colors = {
   beige1: '#dac9bd',
   beige2: '#b9aa9d',
   red1: '#b77866',
-  red2: '#ff9a7e',
-
-  pastelGray: '#d7c9c0',
-  isabelline: '#f7f0f0',
-  snow: '#f9f9f9',
-
-  soldOutRed: '#b20000'
+  snow: '#f9f9f9'
 };
 
 export const BrownScale = {
