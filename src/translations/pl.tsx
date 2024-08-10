@@ -114,20 +114,6 @@ export const pl = {
     contactPage: {
       title: 'Kontakt'
     },
-    workshopsBand: {
-      title: 'Warsztaty',
-      firstAid: 'Pierwsza pomoc',
-      entertainsAndTeaches: 'Yarnmark bawi, Yarnmark uczy',
-      invitation:
-        'Zapraszamy do wzięcia udziału w warsztatach dziewiarskich i szydełkowych oraz serdecznie zachęcamy do skorzystania z profesjonalnych kursów pierwszej pomocy.',
-      mayTheHealthBeWithYou: 'Niech zdrowie i bezpieczeństwo będą z Wami!',
-      workshop1: 'workshop1',
-      workshop2: 'workshop2',
-      workshop3: 'workshop3',
-      workshop4: 'workshop4',
-      workshop5: 'workshop5',
-      workshop6: 'workshop6'
-    },
     scheduleBand: {
       title: 'Harmonogram warsztatów',
       room1: 'Sala lustrzana',
@@ -213,6 +199,7 @@ export const pl = {
       taken: 'Miejsce zarezerwowane'
     },
     workshops: {
+      title: 'Warsztaty',
       tutor: 'Prowadzący: ',
       buyTicket: 'Kup bilet',
       freeAdmission: 'Wstęp wolny',

@@ -79,7 +79,7 @@ export const MainPage = () => {
             <VendorsList />
           </Band.CenteredColumn>
           <WorkshopsBand id="workshops" />
-          <WorkshopsScheduleBand id="schedule" />
+          {/*<WorkshopsScheduleBand id="schedule" />*/}
 
           <CruiseBand id="cruise" />
 

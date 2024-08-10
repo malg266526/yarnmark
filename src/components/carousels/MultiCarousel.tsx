@@ -5,8 +5,10 @@ import { ScreenSize } from '../../styles/screeen-size';
 
 const Container = styled.div`
   width: 100%;
-  padding: 0 ${RedesignSpacings.md};
+  padding: ${RedesignSpacings.sm} ${RedesignSpacings.md};
   position: relative;
+  min-height: 550px;
+  background-color: white;
 
   @media (max-width: ${ScreenSize.phone}) {
     padding: 0;
@@ -21,7 +23,8 @@ const Slides = styled.div`
   overflow: hidden;
   position: absolute;
   width: 100%;
-  left: 0;
+  top: ${RedesignSpacings.sm};
+  left: ${RedesignSpacings.sm};
 
   @media (max-width: ${ScreenSize.phone}) {
     padding: ${RedesignSpacings.xs};
@@ -40,6 +43,7 @@ export const MultiCarousel = ({ children }: MultiCarouselProps) => {
   const onMouseRelease = (event: any) => {
     console.log('onMouseRelease event.movementX', event.movementX);
     console.log('onMouseRelease event.nativeEventmovementX', event.nativeEvent.movementX);
+    console.log('onMouseRelease event.target', event.target);
 
     if (slidesRef.current) {
       const currentOffsetX = offsetX;

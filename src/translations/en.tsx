@@ -112,20 +112,6 @@ export const en: TranslationsShape = {
     contactPage: {
       title: 'Contact'
     },
-    workshopsBand: {
-      title: 'Workshops',
-      firstAid: 'First Aid',
-      entertainsAndTeaches: 'Yarnmark entertains and teaches',
-      invitation:
-        'Welcome to participate in knitting and crochet workshops as well heartily invite to take advantage of professional first aid course.',
-      mayTheHealthBeWithYou: 'May the health and safety be with you!',
-      workshop1: 'workshop1',
-      workshop2: 'workshop2',
-      workshop3: 'workshop3',
-      workshop4: 'workshop4',
-      workshop5: 'workshop5',
-      workshop6: 'workshop6'
-    },
     scheduleBand: {
       title: 'Workshops schedule',
       room1: 'Mirrors room',
@@ -209,6 +195,7 @@ export const en: TranslationsShape = {
       taken: 'Reserved'
     },
     workshops: {
+      title: 'Workshops',
       tutor: 'Tutor: ',
       buyTicket: 'Buy a ticket',
       freeAdmission: 'Free admission',
