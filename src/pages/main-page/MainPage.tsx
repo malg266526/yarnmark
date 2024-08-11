@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from 'react';
-import { StyledPageContent } from './MainPage.styled';
+import { InvitationCardWrapper, StyledPageContent } from './MainPage.styled';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import { NavigationBand } from './NavigationBand';
 import { WorkshopsBand } from './workshops/WorkshopsBand';
@@ -66,8 +66,10 @@ export const MainPage = () => {
         </>
       ) : (
         <>
-          <Band.Wallpaper id="invitation" picture={<WoolPicture />} size="xl" justify="flex-end">
-            <InvitationCard />
+          <Band.Wallpaper id="invitation" picture={<WoolPicture />} size="xl" justify="flex-start">
+            <InvitationCardWrapper>
+              <InvitationCard />
+            </InvitationCardWrapper>
           </Band.Wallpaper>
 
           <NavigationBand />
