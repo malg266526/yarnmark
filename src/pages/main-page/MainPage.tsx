@@ -3,7 +3,6 @@ import { StyledPageContent } from './MainPage.styled';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import { NavigationBand } from './NavigationBand';
 import { WorkshopsBand } from './workshops/WorkshopsBand';
-import { WorkshopsScheduleBand } from './workshops/WorkshopsScheduleBand';
 import { FoodBand } from './FoodBand';
 import { CruiseBand } from './CruiseBand';
 import { Menu } from '../menu/Menu';
@@ -67,7 +66,7 @@ export const MainPage = () => {
         </>
       ) : (
         <>
-          <Band.Wallpaper id="invitation" picture={<WoolPicture />} size="xl">
+          <Band.Wallpaper id="invitation" picture={<WoolPicture />} size="xl" justify="flex-end">
             <InvitationCard />
           </Band.Wallpaper>
 
@@ -79,7 +78,6 @@ export const MainPage = () => {
             <VendorsList />
           </Band.CenteredColumn>
           <WorkshopsBand id="workshops" />
-          <WorkshopsScheduleBand id="schedule" />
 
           <CruiseBand id="cruise" />
 

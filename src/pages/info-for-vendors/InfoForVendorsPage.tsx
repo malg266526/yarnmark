@@ -28,7 +28,7 @@ export const InfoForVendorsPage = () => {
       <BackgroundImageBand
         id="infoForVendorsIntro"
         size="lg"
-        justify="flex-start"
+        justify="flex-end"
         align="center"
         padding="xl"
         picture={

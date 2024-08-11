@@ -5,26 +5,10 @@ import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { Typography } from '../../components/Typography';
 import { Band } from '../../components/bands/Band';
 import { Picture } from '../../components/Picture';
-import yarnmarkLogoSrc from '../../assets/images/yarnmark_logo.jpg';
-import yarnmarkLogoSrcWebp from '../../assets/images/yarnmark_logo.webp';
-import yarnmarkLogoSrcAvif from '../../assets/images/yarnmark_logo.avif';
 import styled from 'styled-components';
 import { RedesignSpacings } from '../../styles/spacings';
 import { ScreenSize } from '../../styles/screeen-size';
-
-const yarnmarkLogoPictureConfig = {
-  fallbackUrl: yarnmarkLogoSrc,
-  sources: [
-    {
-      type: 'image/webp',
-      url: yarnmarkLogoSrcWebp
-    },
-    {
-      type: 'image/avif',
-      url: yarnmarkLogoSrcAvif
-    }
-  ]
-};
+import { yarnmarkLogoPictureConfig } from '../../assets/yarnmarkLogoPictureConfig';
 
 const Root = styled(FlexColumnLayout)`
   padding: ${RedesignSpacings.xl} 0;
