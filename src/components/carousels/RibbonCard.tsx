@@ -15,13 +15,13 @@ const CardLayout = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: 356px;
-  min-width: 356px;
-  height: 475px;
+  width: 320px;
+  min-width: 320px;
+  height: 470px;
 
   padding: ${RedesignSpacings.md} ${RedesignSpacings.xs};
 
-  gap: ${RedesignSpacings.lg};
+  gap: ${RedesignSpacings.sm};
 
   border-radius: ${Radius.lg};
   align-items: center;
@@ -36,7 +36,7 @@ const CardLayout = styled.div`
   }
 `;
 
-const TicketSection = styled.div`
+const InfoSection = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -44,6 +44,8 @@ const TicketSection = styled.div`
   justify-content: space-around;
   align-items: center;
   gap: ${RedesignSpacings.sm};
+  padding-top: ${RedesignSpacings.md};
+  text-align: center;
 `;
 
 const PriceInfo = styled.div`
@@ -69,11 +71,15 @@ export const RibbonCard = ({ scheduleEntry }: RibbonCardProps) => {
           sources: scheduleEntry.picture.sources
         }}
         alt={t(scheduleEntry.topicKey)}
-        width={160}
-        height={160}
+        width={150}
+        height={150}
       />
 
-      <TicketSection>
+      <CtaButton onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}>
+        {t('workshops.buyTicket')}
+      </CtaButton>
+
+      <InfoSection>
         <Typography size="lg">{t(scheduleEntry.topicKey)}</Typography>
 
         {scheduleEntry.isSoldOut ? (
@@ -87,12 +93,9 @@ export const RibbonCard = ({ scheduleEntry }: RibbonCardProps) => {
                 {t('workshops.price')}: {scheduleEntry.price}zł
               </Typography>
             </PriceInfo>
-            <CtaButton onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}>
-              {t('workshops.buyTicket')}
-            </CtaButton>
           </>
         )}
-      </TicketSection>
+      </InfoSection>
     </CardLayout>
   );
 };

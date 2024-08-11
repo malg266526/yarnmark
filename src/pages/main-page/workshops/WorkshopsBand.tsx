@@ -1,17 +1,58 @@
-import { WorkshopsCarousel } from './WorkshopsCarousel';
 import React from 'react';
 import { Band } from '../../../components/bands/Band';
-
-const gradient = `linear-gradient(182deg, #EBEAEA 1.4%, #EBEAEA 100.83%, rgba(235, 234, 234, 0.30) 100.84%);`;
+import { BackgroundColors } from '../../../styles/theme';
+import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import styled from 'styled-components';
+import woolImageSrc from '../../../assets/figmaIcons/wool_image.png';
+import { CtaButton } from '../../../components/Button';
+import { Radius } from '../../../styles/cards';
+import { FontSize } from '../../../styles/font-size';
+import { RedesignSpacings } from '../../../styles/spacings';
+import { MultiCarousel } from '../../../components/carousels/MultiCarousel';
+import { ScheduleConfig } from './scheduleConfig';
+import { RibbonCard } from '../../../components/carousels/RibbonCard';
 
 type WorkshopsBandType = {
   id: string;
 };
 
+const ImageSection = styled.div`
+  display: flex;
+  align-items: flex-end;
+`;
+
+const WoolBackgroundSection = styled.div`
+  width: 654px;
+  height: 405px;
+  flex-shrink: 0;
+  background: url(${woolImageSrc});
+`;
+
+const StrongCtaButton = styled(CtaButton)`
+  border-radius: ${Radius.xl};
+  font-size: ${FontSize.xl};
+  margin-bottom: ${RedesignSpacings.xxl};
+`;
+
 export const WorkshopsBand = ({ id }: WorkshopsBandType) => {
+  const t = useTypedTranslation();
+
   return (
-    <Band.CenteredColumn id={id} size="lg" justify="center" padding="xl" color={gradient}>
-      <WorkshopsCarousel />
+    <Band.CenteredColumn id={id} size="lg" gap="md" padding="lg" color={BackgroundColors.workshopsBand}>
+      <Band.Title>{t('workshops.title')}</Band.Title>
+
+      <ImageSection>
+        <StrongCtaButton>{t('tickets.buyTicket')}</StrongCtaButton>
+        <WoolBackgroundSection />
+      </ImageSection>
+
+      <MultiCarousel>
+        {ScheduleConfig.map((scheduleEntry, index) => (
+          <RibbonCard key={`mirrorsRoom_${index}`} scheduleEntry={scheduleEntry} />
+        ))}
+      </MultiCarousel>
+
+      {/*<WorkshopsCarousel />*/}
     </Band.CenteredColumn>
   );
 };
