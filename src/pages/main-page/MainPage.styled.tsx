@@ -15,6 +15,10 @@ export const StyledPageContent = styled(PageContent)`
   }
 `;
 
+export const InvitationCardWrapper = styled.div`
+  padding-left: 240px;
+`;
+
 export const SecondaryButton = styled.button`
   cursor: pointer;
   font-size: ${FontSize.lg};

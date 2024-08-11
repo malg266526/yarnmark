@@ -24,44 +24,53 @@ import ellipseMedium from '../../assets/figmaIcons/ellipse_medium.svg';
 import ellipseStrong from '../../assets/figmaIcons/ellipse_strong.svg';
 import { useToggle } from '../../hooks/useToggle';
 import { Button } from '../../components/Button';
+import { Typography } from '../../components/Typography';
 
-const RootLayout = styled.div`
+const RootLayout = styled.div<{ isOpen?: boolean }>`
   display: flex;
   flex-direction: column;
-  min-width: 200px;
+  width: ${({ isOpen }) => (isOpen ? '240px' : '80px')};
   position: fixed;
   z-index: 10;
   left: 0;
   border-radius: 0 12px 12px 0;
   background: ${BackgroundColors.menu};
   gap: ${RedesignSpacings.lg};
-  padding: ${RedesignSpacings.xs} ${RedesignSpacings.xs} ${RedesignSpacings.xxxl} ${RedesignSpacings.xs};
+  padding: ${RedesignSpacings.xs} ${RedesignSpacings.xxs} ${RedesignSpacings.xxxl} ${RedesignSpacings.xxs};
+  transition: all 0.1s linear;
 `;
 
-const Section = styled.div`
+const Section = styled.div<{ isOpen?: boolean }>`
   display: flex;
   flex-direction: column;
   border-bottom: 0.25px solid #326213;
   gap: ${RedesignSpacings.xs};
+  padding-top: 0;
   padding-bottom: 15px;
+  padding-left: ${({ isOpen }) => (isOpen ? RedesignSpacings.xs : 0)};
+  padding-right: ${({ isOpen }) => (isOpen ? RedesignSpacings.xs : 0)};
 `;
 
-const MenuItem = styled.a`
+const MenuItem = styled.a<{ isOpen?: boolean }>`
   display: flex;
+  width: ${({ isOpen }) => (isOpen ? '100%' : 'fit-content')};
   height: 32px;
   align-items: center;
-  padding: 0 ${RedesignSpacings.xs};
+  align-self: center;
+  padding: ${RedesignSpacings.xxs} ${RedesignSpacings.xs};
   gap: ${RedesignSpacings.sm};
   text-decoration: none;
   color: ${TextColors.accent};
   cursor: pointer;
+  background-color: ${BackgroundColors.ticketBand};
+  border-radius: 6px;
 `;
 
-const SwitchRow = styled.div`
+const SwitchRow = styled.div<{ isOpen?: boolean }>`
   display: flex;
-  justify-content: space-between;
+  justify-content: ${({ isOpen }) => (isOpen ? 'space-between' : 'center')};
   align-items: center;
-  padding: ${RedesignSpacings.lg} ${RedesignSpacings.xs};
+  padding: ${RedesignSpacings.sm} ${RedesignSpacings.xs};
 `;
 
 const Dots = styled.div`
@@ -71,92 +80,111 @@ const Dots = styled.div`
   padding: ${RedesignSpacings.xs};
 `;
 
+const TicketsSection = styled.div`
+  background-color: ${BackgroundColors.ticketBand};
+  border-radius: 6px;
+  gap: 7px;
+  width: fit-content;
+  align-self: center;
+`;
+
+const SwitchButton = styled(Button)`
+  height: 50px;
+  display: flex;
+  align-items: center;
+`;
+
 export const SideMenu = () => {
   const t = useTypedTranslation();
 
   const [isOpen, toggle] = useToggle();
 
   return (
-    <RootLayout>
-      <Section>
+    <RootLayout isOpen={isOpen}>
+      <Section isOpen={isOpen}>
         <Dots>
           <Icon size="xs" zIndex={0} src={ellipseLight} />
           <Icon size="xs" zIndex={0} src={ellipseMedium} />
           <Icon size="xs" zIndex={0} src={ellipseStrong} />
         </Dots>
 
-        <SwitchRow>
+        <SwitchRow isOpen={isOpen}>
           {isOpen ? (
             <>
               <Picture picture={yarnmarkLogoPictureConfig} alt="yarnmark_logo" width={40} height={50} />
-              <Button onClick={toggle}>
+              <SwitchButton onClick={toggle}>
                 <Icon size="sm" zIndex={0} src={closeDrawerIcon} />
-              </Button>
+              </SwitchButton>
             </>
           ) : (
-            <Button onClick={toggle}>
+            <SwitchButton onClick={toggle}>
               <Icon size="sm" zIndex={0} src={openDrawerIcon} />
-            </Button>
+            </SwitchButton>
           )}
         </SwitchRow>
 
-        <MenuItem href="/home">
+        <MenuItem href="/home" isOpen={isOpen}>
           <Icon size="sm" zIndex={0} src={homeIcon} />
-          {t('menu.home')}
+          {isOpen && <Typography size="sm"> {t('menu.home')}</Typography>}
         </MenuItem>
       </Section>
 
-      <Section>
-        <MenuItem href="/home#mainInfoButtons">
+      <Section isOpen={isOpen}>
+        <MenuItem href="/home#mainInfoButtons" isOpen={isOpen}>
           <Icon size="sm" zIndex={0} src={infoIcon} />
-          {t('menu.whatAndWhere')}
+          {isOpen && <Typography size="sm"> {t('menu.whatAndWhere')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832" target="_blank">
-          <Icon size="sm" zIndex={0} src={ticketIcon} />
-          {t('menu.entranceTicket')}
-        </MenuItem>
+        <TicketsSection>
+          <MenuItem href="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832" target="_blank" isOpen={isOpen}>
+            <Icon size="sm" zIndex={0} src={ticketIcon} />
+            {isOpen && <Typography size="sm">{t('menu.entranceTicket')}</Typography>}
+          </MenuItem>
 
-        <MenuItem href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358" target="_blank">
-          <Icon size="sm" zIndex={0} src={ticketMediumIcon} />
-          {t('menu.workshopTickets')}
-        </MenuItem>
+          <MenuItem
+            href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358"
+            target="_blank"
+            isOpen={isOpen}>
+            <Icon size="sm" zIndex={0} src={ticketMediumIcon} />
+            {isOpen && <Typography size="sm">{t('menu.workshopTickets')}</Typography>}
+          </MenuItem>
 
-        <MenuItem href="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833" target="_blank">
-          <Icon size="sm" zIndex={0} src={ticketLightIcon} />
-          {t('menu.cruiseTickets')}
-        </MenuItem>
+          <MenuItem href="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833" target="_blank" isOpen={isOpen}>
+            <Icon size="sm" zIndex={0} src={ticketLightIcon} />
+            {isOpen && <Typography size="sm">{t('menu.cruiseTickets')}</Typography>}
+          </MenuItem>
+        </TicketsSection>
 
-        <MenuItem href="/home#workshops">
+        <MenuItem href="/home#workshops" isOpen={isOpen}>
           <Icon size="sm" zIndex={0} src={workshopIcons} />
-          {t('menu.workshops')}
+          {isOpen && <Typography size="sm">{t('menu.workshops')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="/home#vendors">
+        <MenuItem href="/home#vendors" isOpen={isOpen}>
           <Icon size="sm" zIndex={0} src={shopIcon} />
-          {t('menu.vendors')}
+          {isOpen && <Typography size="sm">{t('menu.vendors')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="/home#lastEdition">
+        <MenuItem href="/home#lastEdition" isOpen={isOpen}>
           <Icon size="sm" zIndex={0} src={paintingIcon} />
-          {t('menu.memories')}
+          {isOpen && <Typography size="sm">{t('menu.memories')}</Typography>}
         </MenuItem>
       </Section>
 
-      <Section>
-        <MenuItem href="/hall">
+      <Section isOpen={isOpen}>
+        <MenuItem href="/hall" isOpen={isOpen}>
           <Icon size="sm" zIndex={0} src={pinEllipseIcon} />
-          {t('menu.hallMap')}
+          {isOpen && <Typography size="sm">{t('menu.hallMap')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="/info-for-vendors#stands">
+        <MenuItem href="/info-for-vendors#stands" isOpen={isOpen}>
           <Icon size="sm" zIndex={0} src={handshakeIcon} />
-          {t('menu.infoForVendors')}
+          {isOpen && <Typography size="sm">{t('menu.infoForVendors')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="/statutes">
+        <MenuItem href="/statutes" isOpen={isOpen}>
           <Icon size="sm" zIndex={0} src={contractIcon} />
-          {t('menu.statutes')}
+          {isOpen && <Typography size="sm">{t('menu.statutes')}</Typography>}
         </MenuItem>
       </Section>
     </RootLayout>

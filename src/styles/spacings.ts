@@ -10,7 +10,7 @@ export const Spacings = {
 
 export const RedesignSpacings = {
   none: 0,
-  xxs: '4px',
+  xxs: '5px',
   xs: '10px',
 
   sm: '20px',
