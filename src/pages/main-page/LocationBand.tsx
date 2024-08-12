@@ -2,77 +2,47 @@ import { Band } from '../../components/bands/Band';
 import halaAvifImageSrc from '../../assets/images/hala.avif';
 import halaWebpImageSrc from '../../assets/images/hala.webp';
 import halaJpgImageSrc from '../../assets/images/hala.jpg';
-import React, { useState } from 'react';
+import React from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { SecondaryButton } from './MainPage.styled';
 import { SlantedCornersBox } from '../../components/SlantedCornersBox';
 import { Trans } from 'react-i18next';
-import { Icon } from '../../components/Icon';
-import pinImageUrl from '../../assets/images/pin.svg';
 import styled from 'styled-components';
 import { Typography } from '../../components/Typography';
 import { BackgroundPicture } from '../../components/BackgroundPicture';
 import { BackgroundColors } from '../../styles/theme';
+import { RedesignSpacings, Spacings } from '../../styles/spacings';
+import { DropShadow, Radius } from '../../styles/cards';
+import { useToggle } from '../../hooks/useToggle';
 
-const AnimatedIconWrapper = styled.div`
-  padding-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: none;
-  border: 6px solid transparent;
-  transition: all 200ms ease-in-out;
+const MapIframeWrapper = styled.div`
+  z-index: 1;
+  padding: ${RedesignSpacings.sm};
+  background-color: white;
+  border-radius: ${Radius.md};
+  box-shadow: ${DropShadow.md};
+  align-self: flex-start;
+`;
 
-  &:hover {
-    box-shadow:
-      1px 1px 5px 1px #333,
-      inset 1px 1px 5px 1px #333;
-    border-color: white;
-  }
+const BusesSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-height: 200px;
+  overflow-y: scroll;
+  text-align: justify;
+  gap: ${RedesignSpacings.xs};
+  font-family: 'Roboto Thin';
+`;
 
-  @keyframes jump {
-    0% {
-      transform: translate(0, 0);
-    }
-
-    5% {
-      transform: translate(0, -100px);
-    }
-
-    10% {
-      transform: translate(0, 0);
-    }
-
-    100% {
-      transform: translate(0, 0);
-    }
-  }
-
-  @keyframes jump2 {
-    0% {
-      transform: translate(0, 0);
-    }
-
-    40% {
-      transform: translate(0, 0);
-    }
-
-    100% {
-      transform: translate(0, -50px);
-    }
-  }
-
-  > ${Icon} {
-    animation: 1s ease-in-out infinite alternate running jump2;
-    cursor: pointer;
-  }
-
-  > ${Icon}:hover {
-    animation-play-state: paused;
-  }
+export const SecondaryButton = styled.button`
+  cursor: pointer;
+  margin-top: ${Spacings.sm};
+  background-color: transparent;
+  border: none;
 `;
 
 const EventLocationCard = () => {
   const t = useTypedTranslation();
-  const [isSpotOpened, setIsSpotOpened] = useState<boolean>(false);
+  const [isSpotOpened, toggle] = useToggle();
 
   return (
     <SlantedCornersBox width="500px" padding="lg" gap="sm">
@@ -83,15 +53,14 @@ const EventLocationCard = () => {
       <Typography size="sm">{t('spotBand.address')}</Typography>
       <Typography size="sm">{t('spotBand.description')}</Typography>
 
-      {!isSpotOpened && (
-        <SecondaryButton onClick={() => setIsSpotOpened(true)}>{t('spotBand.howToGetToUs')}</SecondaryButton>
-      )}
-      {isSpotOpened && (
-        <>
-          <Typography size="lg" weight="bold">
-            {t('spotBand.howToGetToUs')}
-          </Typography>
+      <SecondaryButton onClick={toggle}>
+        <Typography size="lg" weight="bold">
+          {t('spotBand.howToGetToUs')}
+        </Typography>
+      </SecondaryButton>
 
+      {isSpotOpened && (
+        <BusesSection>
           <Typography size="sm">{t('spotBand.publicTransport')}</Typography>
           <Typography size="sm">{t('spotBand.list')}</Typography>
           <Typography size="sm">
@@ -107,7 +76,7 @@ const EventLocationCard = () => {
             <Trans i18nKey="spotBand.option4" />
           </Typography>
 
-          <Typography size="lg" weight="bold">
+          <Typography size="md" weight="bold">
             {t('spotBand.accessibleByCar')}
           </Typography>
           <Typography size="sm">{t('spotBand.byCar')}</Typography>
@@ -115,7 +84,7 @@ const EventLocationCard = () => {
           <p>
             fot: <a href="https://halacracovii.pl/">https://halacracovii.pl/</a>{' '}
           </p>
-        </>
+        </BusesSection>
       )}
     </SlantedCornersBox>
   );
@@ -126,10 +95,8 @@ type LocationSectionType = {
 };
 
 export const LocationBand = ({ id }: LocationSectionType) => {
-  const t = useTypedTranslation();
-
   return (
-    <Band.Solid id={id} justify="space-around" size="xl" color={BackgroundColors.navigationBand}>
+    <Band.Solid id={id} justify="space-around" size="xl" gap="md" color={BackgroundColors.navigationBand}>
       <BackgroundPicture size="70%" filter="grayscale(0.2) brightness(1.3) contrast(0.8)">
         <source srcSet={halaAvifImageSrc} type="image/avif" />
         <source srcSet={halaWebpImageSrc} type="image/avif" />
@@ -137,15 +104,16 @@ export const LocationBand = ({ id }: LocationSectionType) => {
         <img loading="lazy" src={halaJpgImageSrc} alt="hala 100-lecia" />
       </BackgroundPicture>
 
-      <a
-        target="_blank"
-        rel="noreferrer"
-        aria-label={t('spotBand.googleMaps')}
-        href="https://www.google.pl/maps/@50.0572998,19.9107716,3a,75y,214.48h,88.44t/data=!3m6!1e1!3m4!1sVVYRGhxvt5uE6gsr_G7cwA!2e0!7i16384!8i8192?entry=ttu">
-        <AnimatedIconWrapper>
-          <Icon size="200px" src={pinImageUrl} dropShadow />
-        </AnimatedIconWrapper>
-      </a>
+      <MapIframeWrapper>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10246.191626486176!2d19.91077164422553!3d50.05729980000923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spl!2spl!4v1723487309028!5m2!1spl!2spl"
+          width="340"
+          height="230"
+          style={{ border: 0 }}
+          allowFullScreen={false}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"></iframe>
+      </MapIframeWrapper>
 
       <EventLocationCard />
     </Band.Solid>
