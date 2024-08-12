@@ -5,24 +5,6 @@ import { Spacings } from './styles/spacings';
 import { Colors, TextColors } from './styles/theme';
 import { FontSize } from './styles/font-size';
 
-export const Header = styled.header`
-  display: flex;
-  justify-content: center;
-  padding: ${Spacings.sm};
-  width: 100%;
-  background: ${Colors.beige2};
-  z-index: 100;
-
-  @media (max-width: ${ScreenSize.phone}) {
-    padding: ${Spacings.sm} ${Spacings.md};
-    flex-direction: row;
-    justify-content: flex-end;
-    background: ${Colors.beige2};
-    position: sticky;
-    top: 0;
-  }
-`;
-
 export const Image = styled.img`
   object-fit: cover;
   z-index: -1;

@@ -1,13 +1,23 @@
 import { Curtain } from '../../components/Curtain';
-import { Header } from '../../App.styled';
 import { BurgerMenu } from '../../components/BurgerMenu';
 import { SideBar } from '../../components/SideBar';
 import { Icon as IconifyIcon } from '@iconify/react';
 import { LanguageSwitcher } from '../LanguageSwitcher';
 import React, { useState } from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import styled from 'styled-components';
+import { RedesignSpacings } from '../../styles/spacings';
 
-export const SideBarMenu = () => {
+export const MobileHeader = styled.header`
+  display: flex;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+  position: sticky;
+  padding: ${RedesignSpacings.xs} 16px;
+`;
+
+export const MobileMenu = () => {
   const t = useTypedTranslation();
 
   const [burgerActive, setBurgerActive] = useState(false);
@@ -17,9 +27,9 @@ export const SideBarMenu = () => {
   return (
     <>
       <Curtain onClick={() => setBurgerActive(false)} active={burgerActive} />
-      <Header>
+      <MobileHeader>
         <BurgerMenu onClick={() => setBurgerActive((prevValue) => !prevValue)} active={burgerActive} />
-      </Header>
+      </MobileHeader>
 
       <SideBar roundedCorners="left" active={burgerActive}>
         <SideBar.LinkEntry

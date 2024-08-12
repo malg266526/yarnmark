@@ -94,7 +94,7 @@ const SwitchButton = styled(Button)`
   align-items: center;
 `;
 
-export const SideMenu = () => {
+export const DesktopMenu = () => {
   const t = useTypedTranslation();
 
   const [isOpen, toggle] = useToggle();

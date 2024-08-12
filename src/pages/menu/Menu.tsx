@@ -1,14 +1,14 @@
 import { usePhone } from '../../hooks/usePhone';
 import React from 'react';
-import { SideBarMenu } from './SideBarMenu';
-import { SideMenu } from './SideMenu';
+import { MobileMenu } from './MobileMenu';
+import { DesktopMenu } from './DesktopMenu';
 
 export const Menu = () => {
   const isPhone = usePhone();
 
   if (isPhone) {
-    return <SideBarMenu />;
+    return <MobileMenu />;
   }
 
-  return <SideMenu />;
+  return <DesktopMenu />;
 };
