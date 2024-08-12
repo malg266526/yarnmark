@@ -21,8 +21,8 @@ const DotsLayout = styled.div<DotsProps>`
 
 export const Dots = ({ direction, size }: DotsProps) => (
   <DotsLayout direction={direction} size={size}>
-    <Icon size="xs" zIndex={0} src={ellipseStrong} />
-    <Icon size="xs" zIndex={0} src={ellipseMedium} />
-    <Icon size="xs" zIndex={0} src={ellipseLight} />
+    <Icon size="xxs" zIndex={0} src={ellipseStrong} />
+    <Icon size="xxs" zIndex={0} src={ellipseMedium} />
+    <Icon size="xxs" zIndex={0} src={ellipseLight} />
   </DotsLayout>
 );

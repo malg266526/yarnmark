@@ -13,6 +13,8 @@ import { BackgroundColors } from '../../styles/theme';
 import { RedesignSpacings, Spacings } from '../../styles/spacings';
 import { DropShadow, Radius } from '../../styles/cards';
 import { useToggle } from '../../hooks/useToggle';
+import chevronDownIcon from '../../assets/figmaIcons/chevron_down-icon.svg';
+import { Icon } from '../../components/Icon';
 
 const MapIframeWrapper = styled.div`
   z-index: 1;
@@ -23,21 +25,34 @@ const MapIframeWrapper = styled.div`
   align-self: flex-start;
 `;
 
-const BusesSection = styled.div`
+const BusesSection = styled.div<{ isOpen?: boolean }>`
   display: flex;
   flex-direction: column;
-  max-height: 200px;
+  max-height: ${({ isOpen }) => (isOpen ? '200px' : '0px')};
   overflow-y: scroll;
   text-align: justify;
   gap: ${RedesignSpacings.xs};
   font-family: 'Roboto Thin';
+  transition: all 1s ease;
 `;
 
 export const SecondaryButton = styled.button`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   cursor: pointer;
   margin-top: ${Spacings.sm};
   background-color: transparent;
   border: none;
+  gap: ${RedesignSpacings.xs};
+`;
+
+const ChevronIcon = styled(Icon)`
+  transition: all 0.2s linear;
+
+  &.active {
+    transform: rotate(180deg);
+  }
 `;
 
 const EventLocationCard = () => {
@@ -45,7 +60,7 @@ const EventLocationCard = () => {
   const [isSpotOpened, toggle] = useToggle();
 
   return (
-    <SlantedCornersBox width="500px" padding="lg" gap="sm">
+    <SlantedCornersBox width="500px" padding="md" gap="sm">
       <Typography size="xl" weight="bold">
         {t('spotBand.title')}
       </Typography>
@@ -57,10 +72,11 @@ const EventLocationCard = () => {
         <Typography size="lg" weight="bold">
           {t('spotBand.howToGetToUs')}
         </Typography>
+        <ChevronIcon size="xs" zIndex={0} src={chevronDownIcon} className={isSpotOpened ? `active` : ''} />
       </SecondaryButton>
 
       {isSpotOpened && (
-        <BusesSection>
+        <BusesSection isOpen={isSpotOpened}>
           <Typography size="sm">{t('spotBand.publicTransport')}</Typography>
           <Typography size="sm">{t('spotBand.list')}</Typography>
           <Typography size="sm">

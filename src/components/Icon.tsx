@@ -6,10 +6,11 @@ export const sizeToIconWidth: Record<SizeKey, string> = {
   lg: '40px',
   md: '30px',
   sm: '22px',
-  xs: '10px'
+  xs: '16px',
+  xxs: '10px'
 };
 
-type SizeKey = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+type SizeKey = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs' | 'xxs';
 
 export interface IconProps {
   size: SizeKey | `${number}${'px' | '%'}`;
