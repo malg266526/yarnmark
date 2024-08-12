@@ -28,7 +28,8 @@ export const de: TranslationsShape = {
       at: 'at',
       price: 'Preis',
       workshopsTickets: 'Workshops tickets',
-      yarnmarkTickets: 'Bilet na Yarnmark',
+      yarnmarkTicket: 'Bilet na Yarnmark',
+      yarnmarkTickets: 'Bilety na Yarnmark',
       cruise: 'Dziergostatek'
     },
     location: {

@@ -28,7 +28,8 @@ export const pl = {
       at: 'godz.',
       price: 'Koszt',
       workshopsTickets: 'Bilety na warsztaty',
-      yarnmarkTickets: 'Bilet na Yarnmark',
+      yarnmarkTicket: 'Bilet na Yarnmark',
+      yarnmarkTickets: 'Bilety na Yarnmark',
       cruise: 'Dziergostatek'
     },
     location: {

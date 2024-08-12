@@ -13,11 +13,12 @@ import { usePhone } from '../../hooks/usePhone';
 import { CoreInfoBand } from './mobile/CoreInfoBand';
 import { Band } from '../../components/bands/Band';
 import { WoolPicture } from '../../components/WoolPicture';
-import { TicketBand } from './mobile/TicketBand';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { WorkshopsSchedule } from './workshops/WorkshopsSchedule';
 import { BackgroundColors } from '../../styles/theme';
 import { VendorsList } from './VendorsList';
+import { TicketCard } from './TicketCard';
+import { TicketCardBand } from './TicketCardBand';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -43,7 +44,9 @@ export const MainPage = () => {
         <>
           <InvitationCard />
           <CoreInfoBand id="coreInfo" />
-          <TicketBand />
+          <Band.CenteredColumn color={BackgroundColors.ticketBand} id="TicketBand" size="lg" padding="lg">
+            <TicketCard />
+          </Band.CenteredColumn>
 
           <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
           <Band.Empty id="workshopsTickets" padding="xs">
@@ -73,6 +76,8 @@ export const MainPage = () => {
           </Band.Wallpaper>
 
           <NavigationBand />
+
+          <TicketCardBand />
 
           <LocationBand id="location" />
 
