@@ -24,7 +24,7 @@ const MobileHeader = styled.header`
   z-index: 100;
   top: 0;
   position: sticky;
-  padding: ${RedesignSpacings.xs} 16px;
+  padding: ${RedesignSpacings.sm} 16px ${RedesignSpacings.xs} 0;
   color: ${TextColors.accent};
   align-items: center;
   justify-content: center;
