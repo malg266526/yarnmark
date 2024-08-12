@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Spacings } from '../styles/spacings';
+import { RedesignSpacings } from '../styles/spacings';
 import { BrownScale, Colors } from '../styles/theme';
 import knittingSvgUrl from '../assets/images/skein3.svg';
 
@@ -12,7 +12,7 @@ type FrameWidth = `${number}${'px' | '%'}`;
 interface RootProps {
   overflowSize: `${number}${'px' | '%'}`;
   overflowLength: `${number}${'px' | '%'}`;
-  marginTop?: keyof typeof Spacings;
+  marginTop?: keyof typeof RedesignSpacings;
 }
 
 const boxShadow = css`
@@ -63,7 +63,7 @@ const AnimationFrame = styled.div<RootProps>`
   z-index: 1;
   ${boxShadow};
   ${animationFrames};
-  margin-top: ${({ marginTop }) => Spacings[marginTop || 'none']};
+  margin-top: ${({ marginTop }) => RedesignSpacings[marginTop || 'none']};
 
   @media (max-width: ${ScreenSize.phone}) {
     max-width: 100%;
@@ -135,8 +135,8 @@ const AnimationFrame = styled.div<RootProps>`
 const PaperCard = styled.div<{
   width?: FrameWidth;
   height?: FrameWidth;
-  padding: keyof typeof Spacings;
-  gap?: keyof typeof Spacings;
+  padding: keyof typeof RedesignSpacings;
+  gap?: keyof typeof RedesignSpacings;
 }>`
   ${({ width }) =>
     width &&
@@ -149,8 +149,8 @@ const PaperCard = styled.div<{
       height: ${height};
     `};
 
-  padding: ${({ padding }) => Spacings[padding]};
-  gap: ${({ gap }) => Spacings[gap || 'none']};
+  padding: ${({ padding }) => RedesignSpacings[padding]};
+  gap: ${({ gap }) => RedesignSpacings[gap || 'none']};
 
   background: ${BrownScale[50]};
   position: relative;
@@ -171,8 +171,8 @@ const PaperCard = styled.div<{
   &:before {
     content: '';
     position: absolute;
-    top: calc(${({ padding }) => Spacings[padding === 'none' ? 'md' : padding]} / 2);
-    left: calc(${({ padding }) => Spacings[padding === 'none' ? 'md' : padding]} / 2);
+    top: calc(${({ padding }) => RedesignSpacings[padding === 'none' ? 'md' : padding]} / 2);
+    left: calc(${({ padding }) => RedesignSpacings[padding === 'none' ? 'md' : padding]} / 2);
     width: 26px;
     height: 26px;
     background: url(${knittingSvgUrl}) no-repeat center;
@@ -184,9 +184,9 @@ export interface SlantingFrameBoxProps extends Partial<RootProps> {
   width?: FrameWidth;
   height?: FrameWidth;
   children?: React.ReactNode;
-  padding: keyof typeof Spacings;
-  marginTop?: keyof typeof Spacings;
-  gap?: keyof typeof Spacings;
+  padding: keyof typeof RedesignSpacings;
+  marginTop?: keyof typeof RedesignSpacings;
+  gap?: keyof typeof RedesignSpacings;
 }
 
 export const SlantedCornersBox = ({

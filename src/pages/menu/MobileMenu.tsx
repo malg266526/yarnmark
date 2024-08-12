@@ -125,7 +125,7 @@ export const MobileMenu = () => {
             },
             {
               to: 'home#food',
-              name: t('buttonsBand.foodButton'),
+              name: t('whereToEat'),
               icon: <IconifyIcon icon="uil:pizza-slice" width="24" />
             },
             {
@@ -173,7 +173,7 @@ export const MobileMenu = () => {
 
         <SideBar.LinkEntry onClick={close} to="/hall" target="_blank">
           <IconifyIcon icon="gis:world-map" width="24" />
-          {t('buttonsBand.hallMap')}
+          {t('menu.hallMap')}
         </SideBar.LinkEntry>
 
         <SideBar.LinkEntry

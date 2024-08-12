@@ -48,32 +48,32 @@ export const NavigationBand = () => {
       <RowLayout wide justify="center" gap="xxxl">
         <IconButton onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}>
           <Icon size="xl" zIndex={0} src={blueTicketsIconUrl} />
-          <Typography size="sm">{t('tickets.clickHere')}</Typography>
+          <Typography size="sm">{t('tickets.yarnmarkTicket')}</Typography>
         </IconButton>
 
         <IconButton onClick={() => (window.location.href = '/home#vendors')}>
           <Icon size="xl" zIndex={0} src={storeIconUrl} />
-          <Typography size="sm">{t('tickets.clickHere')}</Typography>
+          <Typography size="sm">{t('vendors')}</Typography>
         </IconButton>
 
         <IconButton onClick={() => (window.location.href = '/home#location')}>
           <Icon size="xl" zIndex={0} src={redMapMarkerIconUrl} />
-          <Typography size="sm">{t('tickets.clickHere')}</Typography>
+          <Typography size="sm">{t('location.whereToFindUs')}</Typography>
         </IconButton>
 
         <IconButton onClick={() => (window.location.href = '/home#cruise')}>
           <Icon size="xl" zIndex={0} src={shipIconUrl} />
-          <Typography size="sm">{t('tickets.clickHere')}</Typography>
-        </IconButton>
-
-        <IconButton onClick={() => (window.location.href = '/home#food')}>
-          <IconifyIcon icon="fxemoji:hamburger" width={sizeToIconWidth['xl']}></IconifyIcon>
-          <Typography size="sm">{t('tickets.clickHere')}</Typography>
+          <Typography size="sm">{t('tickets.cruise')}</Typography>
         </IconButton>
 
         <IconButton onClick={() => window.open('/hall', '_blank')}>
           <Icon size="xl" zIndex={0} src={mapIcon} />
-          <Typography size="sm">{t('tickets.clickHere')}</Typography>
+          <Typography size="sm">{t('hallMap.title')}</Typography>
+        </IconButton>
+
+        <IconButton onClick={() => (window.location.href = '/home#food')}>
+          <IconifyIcon icon="fxemoji:hamburger" width={sizeToIconWidth['xl']}></IconifyIcon>
+          <Typography size="sm">{t('whereToEat')}</Typography>
         </IconButton>
       </RowLayout>
     </Band.NarrowColumn>
