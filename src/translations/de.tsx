@@ -27,7 +27,8 @@ export const de: TranslationsShape = {
       clickHere: 'Click here',
       at: 'at',
       price: 'Preis',
-      workshopsTickets: 'Workshops tickets'
+      workshopsTickets: 'Workshops tickets',
+      yarnmarkTickets: 'Bilet na Yarnmark'
     },
     location: {
       findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0> i na <1>planie</1>'
@@ -108,9 +109,7 @@ export const de: TranslationsShape = {
       buyTickets: 'Tickets können Sie hier kaufen',
       tickets: 'Tickets'
     },
-    vendorsPage: {
-      title: 'Aussteller'
-    },
+    vendors: 'Aussteller',
     contactPage: {
       title: 'Kontakt'
     },

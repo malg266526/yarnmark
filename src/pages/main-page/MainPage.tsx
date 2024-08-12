@@ -50,7 +50,7 @@ export const MainPage = () => {
             <WorkshopsSchedule />
           </Band.Empty>
 
-          <Band.SecondaryTitle>{t('vendorsPage.title')}</Band.SecondaryTitle>
+          <Band.SecondaryTitle>{t('vendors')}</Band.SecondaryTitle>
 
           <Band.CenteredColumn id="vendors" size="lg" padding="none" color={BackgroundColors.gradient}>
             <VendorsList />

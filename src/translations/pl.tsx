@@ -27,7 +27,8 @@ export const pl = {
       clickHere: 'Kliknij tu',
       at: 'godz.',
       price: 'Koszt',
-      workshopsTickets: 'Bilety na warsztaty'
+      workshopsTickets: 'Bilety na warsztaty',
+      yarnmarkTickets: 'Bilet na Yarnmark'
     },
     location: {
       findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>'
@@ -108,9 +109,7 @@ export const pl = {
           'Podczas rejsu poczęstujemy Cię kieliszkiem Prosecco (lub napoju bezalkoholowego), dodając tym samym nutę luksusu do atmosfery.'
       }
     },
-    vendorsPage: {
-      title: 'Wystawcy'
-    },
+    vendors: 'Wystawcy',
     contactPage: {
       title: 'Kontakt'
     },

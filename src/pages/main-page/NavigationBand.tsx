@@ -48,12 +48,12 @@ export const NavigationBand = () => {
       <RowLayout wide justify="center" gap="xxxl">
         <IconButton onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}>
           <Icon size="xl" zIndex={0} src={blueTicketsIconUrl} />
-          <Typography size="sm">{t('tickets.clickHere')}</Typography>
+          <Typography size="sm">{t('tickets.yarnmarkTickets')}</Typography>
         </IconButton>
 
         <IconButton onClick={() => (window.location.href = '/home#vendors')}>
           <Icon size="xl" zIndex={0} src={storeIconUrl} />
-          <Typography size="sm">{t('tickets.clickHere')}</Typography>
+          <Typography size="sm">{t('vendors')}</Typography>
         </IconButton>
 
         <IconButton onClick={() => (window.location.href = '/home#location')}>
@@ -66,13 +66,13 @@ export const NavigationBand = () => {
           <Typography size="sm">{t('tickets.clickHere')}</Typography>
         </IconButton>
 
-        <IconButton onClick={() => (window.location.href = '/home#food')}>
-          <IconifyIcon icon="fxemoji:hamburger" width={sizeToIconWidth['xl']}></IconifyIcon>
+        <IconButton onClick={() => window.open('/hall', '_blank')}>
+          <Icon size="xl" zIndex={0} src={mapIcon} />
           <Typography size="sm">{t('tickets.clickHere')}</Typography>
         </IconButton>
 
-        <IconButton onClick={() => window.open('/hall', '_blank')}>
-          <Icon size="xl" zIndex={0} src={mapIcon} />
+        <IconButton onClick={() => (window.location.href = '/home#food')}>
+          <IconifyIcon icon="fxemoji:hamburger" width={sizeToIconWidth['xl']}></IconifyIcon>
           <Typography size="sm">{t('tickets.clickHere')}</Typography>
         </IconButton>
       </RowLayout>
