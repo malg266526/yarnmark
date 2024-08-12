@@ -19,12 +19,10 @@ import openDrawerIcon from '../../assets/figmaIcons/open_drawer_icon.svg';
 import closeDrawerIcon from '../../assets/figmaIcons/close_drawer_icon.svg';
 import { Picture } from '../../components/Picture';
 import { yarnmarkLogoPictureConfig } from '../../assets/yarnmarkLogoPictureConfig';
-import ellipseLight from '../../assets/figmaIcons/ellipse_light.svg';
-import ellipseMedium from '../../assets/figmaIcons/ellipse_medium.svg';
-import ellipseStrong from '../../assets/figmaIcons/ellipse_strong.svg';
 import { useToggle } from '../../hooks/useToggle';
 import { Button } from '../../components/Button';
 import { Typography } from '../../components/Typography';
+import { Dots } from '../../components/Dots';
 
 const RootLayout = styled.div<{ isOpen?: boolean }>`
   display: flex;
@@ -73,13 +71,6 @@ const SwitchRow = styled.div<{ isOpen?: boolean }>`
   padding: ${RedesignSpacings.sm} ${RedesignSpacings.xs};
 `;
 
-const Dots = styled.div`
-  display: flex;
-  align-items: center;
-  gap: ${RedesignSpacings.xs};
-  padding: ${RedesignSpacings.xs};
-`;
-
 const TicketsSection = styled.div`
   background-color: ${BackgroundColors.ticketBand};
   border-radius: 6px;
@@ -102,11 +93,7 @@ export const DesktopMenu = () => {
   return (
     <RootLayout isOpen={isOpen}>
       <Section isOpen={isOpen}>
-        <Dots>
-          <Icon size="xs" zIndex={0} src={ellipseLight} />
-          <Icon size="xs" zIndex={0} src={ellipseMedium} />
-          <Icon size="xs" zIndex={0} src={ellipseStrong} />
-        </Dots>
+        <Dots />
 
         <SwitchRow isOpen={isOpen}>
           {isOpen ? (
