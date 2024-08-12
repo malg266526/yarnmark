@@ -10,6 +10,8 @@ import calendarIconUrl from '../../../assets/figmaIcons/calendar_icon.svg';
 import styled from 'styled-components';
 import { GrayScale, TextColors } from '../../../styles/theme';
 import { Band } from '../../../components/bands/Band';
+import mapIcon from '../../../assets/figmaIcons/map_icon.svg';
+import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 
 const InfoColumn = styled(FlexColumnLayout)`
   text-align: center;
@@ -25,6 +27,8 @@ interface CoreInfoBandProps {
 }
 
 export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
+  const t = useTypedTranslation();
+
   return (
     <Band.NarrowColumn id={id} color={GrayScale[50]} size="lg">
       <InfoColumn align="center" padding="none" gap="lg">
@@ -56,6 +60,13 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
           <Typography size="sm">
             <Trans i18nKey="tickets.buyTicketsAndWorkshops" components={[<Link key="tickets_url" href="/home" />]} />
           </Typography>
+        </FlexColumnLayout>
+
+        <FlexColumnLayout gap="xs" padding="none">
+          <Icon size="lg" zIndex={0} src={mapIcon} />
+          <Link href="/hall" target="_blank">
+            <Typography size="sm">{t('hallMap.title')}</Typography>
+          </Link>
         </FlexColumnLayout>
 
         <FlexColumnLayout gap="xs" padding="none">
