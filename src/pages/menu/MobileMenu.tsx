@@ -1,30 +1,112 @@
 import { Curtain } from '../../components/Curtain';
-import { Header } from '../../App.styled';
-import { BurgerMenu } from '../../components/BurgerMenu';
 import { SideBar } from '../../components/SideBar';
 import { Icon as IconifyIcon } from '@iconify/react';
 import { LanguageSwitcher } from '../LanguageSwitcher';
-import React, { useState } from 'react';
+import React from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import styled from 'styled-components';
+import { RedesignSpacings } from '../../styles/spacings';
+import { Typography } from '../../components/Typography';
+import { TextColors } from '../../styles/theme';
+import chevronDownIcon from '../../assets/figmaIcons/chevron_down-icon.svg';
+import { Icon } from '../../components/Icon';
+import polandIcon from '../../assets/figmaIcons/poland_round_icon.svg';
+import greatBritainIcon from '../../assets/figmaIcons/great_britain_round_icon.svg';
+import { Button } from '../../components/Button';
+import dotsVerticalIcon from '../../assets/figmaIcons/dots_vertical_icon.svg';
+import { useTranslation } from 'react-i18next';
+import { useToggle } from '../../hooks/useToggle';
 
-export const SideBarMenu = () => {
+const MobileHeader = styled.header`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+  position: sticky;
+  padding: ${RedesignSpacings.sm} 16px ${RedesignSpacings.xs} 0;
+  color: ${TextColors.accent};
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  gap: ${RedesignSpacings.xs};
+`;
+
+const MenuRow = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const LanguageSwitch = styled(Button)`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+`;
+
+const MenuButton = styled(Button)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+`;
+
+const VerticalDots = styled.span`
+  background: url(${dotsVerticalIcon}) no-repeat center;
+  background-size: contain;
+  width: 10px;
+  height: 32px;
+`;
+
+const ChevronIcon = styled(Icon)`
+  transition: all 0.2s linear;
+
+  &.active {
+    transform: rotate(180deg);
+  }
+`;
+
+const FlagsSrc: Record<string, string> = {
+  pl: polandIcon,
+  en: greatBritainIcon,
+  de: polandIcon
+};
+
+export const MobileMenu = () => {
   const t = useTypedTranslation();
 
-  const [burgerActive, setBurgerActive] = useState(false);
+  const [, i18n] = useTranslation('common');
+  const { language } = i18n;
 
-  const closeSideBar = () => setBurgerActive(false);
+  const flagSrc: string = FlagsSrc[language];
+
+  const [isMenuOpen, toggleMenu, close] = useToggle(false);
+  const [isLanguageSwitchOpen, toggleLanguageSwitch] = useToggle();
 
   return (
     <>
-      <Curtain onClick={() => setBurgerActive(false)} active={burgerActive} />
-      <Header>
-        <BurgerMenu onClick={() => setBurgerActive((prevValue) => !prevValue)} active={burgerActive} />
-      </Header>
+      <Curtain onClick={toggleMenu} active={isMenuOpen} />
 
-      <SideBar roundedCorners="left" active={burgerActive}>
+      <MobileHeader>
+        <Typography size="lg">Yarnmark</Typography>
+        <MenuRow id="menu_row">
+          <LanguageSwitch id="language_switch" onClick={toggleLanguageSwitch}>
+            <Icon size="lg" zIndex={0} src={flagSrc} />
+            <ChevronIcon size="sm" zIndex={0} src={chevronDownIcon} className={isLanguageSwitchOpen ? `active` : ''} />
+          </LanguageSwitch>
+
+          <MenuButton onClick={toggleMenu}>
+            <Typography size="lg">Menu</Typography>
+            <VerticalDots />
+          </MenuButton>
+        </MenuRow>
+      </MobileHeader>
+
+      <SideBar roundedCorners="left" active={isMenuOpen}>
         <SideBar.LinkEntry
           to="/"
-          onClick={closeSideBar}
+          onClick={close}
           subLinks={[
             {
               to: '/home#vendors',
@@ -64,7 +146,7 @@ export const SideBarMenu = () => {
         <SideBar.LinkEntry
           target="_blank"
           to="https://wloczykijki.pl/pl_PL/i/Krakoski-Yarnmark-Welny/41?preview=true"
-          onClick={closeSideBar}
+          onClick={close}
           subLinks={[
             {
               to: 'https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832',
@@ -89,13 +171,13 @@ export const SideBarMenu = () => {
           {t('menu.tickets')}
         </SideBar.LinkEntry>
 
-        <SideBar.LinkEntry onClick={closeSideBar} to="/hall" target="_blank">
+        <SideBar.LinkEntry onClick={close} to="/hall" target="_blank">
           <IconifyIcon icon="gis:world-map" width="24" />
           {t('buttonsBand.hallMap')}
         </SideBar.LinkEntry>
 
         <SideBar.LinkEntry
-          onClick={closeSideBar}
+          onClick={close}
           to="/info-for-vendors"
           subLinks={[
             {
@@ -113,7 +195,7 @@ export const SideBarMenu = () => {
           {t('menu.infoForVendors')}
         </SideBar.LinkEntry>
 
-        <SideBar.LinkEntry to="/statutes" onClick={closeSideBar}>
+        <SideBar.LinkEntry to="/statutes" onClick={close}>
           <IconifyIcon icon="mdi:document-sign" width="24" />
           {t('menu.statutes')}
         </SideBar.LinkEntry>

@@ -42,7 +42,6 @@ export const Colors = {
   grayLight: '#f9f9f9',
 
   beige1: '#dac9bd',
-  beige2: '#b9aa9d',
   red1: '#b77866',
   snow: '#f9f9f9'
 };
