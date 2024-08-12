@@ -43,7 +43,7 @@ export const SideBarMenu = () => {
             },
             {
               to: 'home#food',
-              name: t('buttonsBand.foodButton'),
+              name: t('whereToEat'),
               icon: <IconifyIcon icon="uil:pizza-slice" width="24" />
             },
             {
@@ -91,7 +91,7 @@ export const SideBarMenu = () => {
 
         <SideBar.LinkEntry onClick={closeSideBar} to="/hall" target="_blank">
           <IconifyIcon icon="gis:world-map" width="24" />
-          {t('buttonsBand.hallMap')}
+          {t('menu.hallMap')}
         </SideBar.LinkEntry>
 
         <SideBar.LinkEntry

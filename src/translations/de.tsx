@@ -28,10 +28,20 @@ export const de: TranslationsShape = {
       at: 'at',
       price: 'Preis',
       workshopsTickets: 'Workshops tickets',
-      yarnmarkTickets: 'Bilet na Yarnmark'
+      yarnmarkTickets: 'Bilet na Yarnmark',
+      cruise: 'Dziergostatek'
     },
     location: {
-      findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0> i na <1>planie</1>'
+      findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0> i na <1>planie</1>',
+      whereToFindUs: 'Gdzie nas szukać'
+    },
+    whereToEat: 'Where to eat?',
+    hallMap: {
+      title: 'Hall map',
+      premiumStand: 'Premium spot 5x3m',
+      standardStand: 'Standard spot 4x2,5m',
+      miniStand: 'Mini spot 3x2m',
+      taken: 'Reserved'
     },
     welcomeBand: {
       invitation: 'Wir laden Sie herzlich  zur ersten Edition Wollmesse in Krakau ein!',
@@ -46,11 +56,6 @@ export const de: TranslationsShape = {
       linksBelow:
         'Unten findest du einige Links, die dir bei der Planung deiner Zeit in unserer schönen Stadt helfen werden:',
       checkTheVendors: 'Schau welche Aussteller du triffst'
-    },
-    buttonsBand: {
-      foodButton: 'Gdzie zjeść?',
-      cruiseButton: 'Dołącz do imprezy na dziergostatku!',
-      hallMap: 'Mapa hali'
     },
     previousEdition: {
       thankYou: 'Thank you for your presence at Yarnmark 2024!',
@@ -189,12 +194,6 @@ export const de: TranslationsShape = {
         description:
           'You can drink a coffee or a lemonade here and eat a snacks such as fries. If the weather is good, there will be an open terrace with deckchairs next to the café.'
       }
-    },
-    hallMap: {
-      premiumStand: 'Premium Platz 5x3m',
-      standardStand: 'Standard Platz 4x5m',
-      miniStand: 'Mini Platz 3x2m',
-      taken: 'Platz reserviert'
     },
     workshops: {
       title: 'Workshop`s',

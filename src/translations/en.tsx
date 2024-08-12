@@ -28,10 +28,20 @@ export const en: TranslationsShape = {
       at: 'at',
       price: 'Price',
       workshopsTickets: 'Workshops tickets',
-      yarnmarkTickets: 'Bilet na Yarnmark'
+      yarnmarkTickets: 'Bilet na Yarnmark',
+      cruise: 'Dziergostatek'
     },
     location: {
-      findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0> i na <1>planie</1>'
+      findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0> i na <1>planie</1>',
+      whereToFindUs: 'Gdzie nas szukać'
+    },
+    whereToEat: 'Where to eat?',
+    hallMap: {
+      title: 'Hall map',
+      premiumStand: 'Premium spot 5x3m',
+      standardStand: 'Standard spot 4x2,5m',
+      miniStand: 'Mini spot 3x2m',
+      taken: 'Reserved'
     },
     welcomeBand: {
       invitation: 'We heartily invite you for I edition of wool fair in capital of Malopolska!',
@@ -45,11 +55,6 @@ export const en: TranslationsShape = {
       knittingSaturday: 'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka!',
       linksBelow: 'Below you will find few links that will help you plan your time in our beautiful city:',
       checkTheVendors: 'Check which vendors you will meet'
-    },
-    buttonsBand: {
-      foodButton: 'Gdzie zjeść?',
-      cruiseButton: 'Dołącz do imprezy na dziergostatku!',
-      hallMap: 'Mapa hali'
     },
     previousEdition: {
       thankYou: 'Thank you for your presence at Yarnmark 2024!',
@@ -186,12 +191,6 @@ export const en: TranslationsShape = {
         description:
           'You can drink a coffee or a lemonade here and eat a snacks such as fries. If the weather is good, there will be an open terrace with deckchairs next to the café.'
       }
-    },
-    hallMap: {
-      premiumStand: 'Premium spot 5x3m',
-      standardStand: 'Standard spot 4x2,5m',
-      miniStand: 'Mini spot 3x2m',
-      taken: 'Reserved'
     },
     workshops: {
       title: 'Workshops',

@@ -28,11 +28,21 @@ export const pl = {
       at: 'godz.',
       price: 'Koszt',
       workshopsTickets: 'Bilety na warsztaty',
-      yarnmarkTickets: 'Bilet na Yarnmark'
+      yarnmarkTickets: 'Bilet na Yarnmark',
+      cruise: 'Dziergostatek'
     },
     location: {
-      findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>'
+      findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>',
+      whereToFindUs: 'Gdzie nas szukać'
     },
+    hallMap: {
+      title: 'Mapa hali',
+      premiumStand: 'Miejsce Premium 5x3m',
+      standardStand: 'Miejsce Standard 4x2,5m',
+      miniStand: 'Miejsce Mini 3x2m',
+      taken: 'Miejsce zarezerwowane'
+    },
+    whereToEat: 'Gdzie zjeść?',
     welcomeBand: {
       invitation: 'Serdecznie zapraszamy na I edycję targów wełny w stolicy Małopolski!',
       where: 'Yarnmark odbędzie się 27/04/2024r. w godzinach 10:00 - 18:00, w Hali 100-lecia KS Cracovia',
@@ -45,11 +55,6 @@ export const pl = {
       knittingSaturday: 'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka!',
       linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
       checkTheVendors: 'Sprawdź z jakimi wystawcami się spotkasz.'
-    },
-    buttonsBand: {
-      foodButton: 'Gdzie zjeść?',
-      cruiseButton: 'Dołącz do imprezy na dziergostatku!',
-      hallMap: 'Mapa hali'
     },
     previousEdition: {
       thankYou: 'Dziękujemy za Waszą obecność na Yarnmarku 2024!',
@@ -190,12 +195,6 @@ export const pl = {
         description:
           'Znajdziecie tu kawę, lemoniadę oraz przekąski typu frytki. Jeśli pogoda będzie nam sprzyjać, przy kawiarni będzie otwarty taras z leżakami.'
       }
-    },
-    hallMap: {
-      premiumStand: 'Miejsce Premium 5x3m',
-      standardStand: 'Miejsce Standard 4x2,5m',
-      miniStand: 'Miejsce Mini 3x2m',
-      taken: 'Miejsce zarezerwowane'
     },
     workshops: {
       title: 'Warsztaty',
