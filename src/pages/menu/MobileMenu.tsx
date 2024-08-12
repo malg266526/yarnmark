@@ -39,7 +39,7 @@ const MenuRow = styled.div`
   align-items: center;
 `;
 
-const LanguageSwitch = styled.div`
+const LanguageSwitch = styled(Button)`
   display: flex;
   align-items: center;
   gap: 16px;
@@ -59,6 +59,14 @@ const VerticalDots = styled.span`
   height: 32px;
 `;
 
+const ChevronIcon = styled(Icon)`
+  transition: all 0.2s linear;
+
+  &.active {
+    transform: rotate(180deg);
+  }
+`;
+
 const FlagsSrc: Record<string, string> = {
   pl: polandIcon,
   en: greatBritainIcon,
@@ -73,7 +81,8 @@ export const MobileMenu = () => {
 
   const flagSrc: string = FlagsSrc[language];
 
-  const [isMenuOpen, toggleMenu, close] = useToggle();
+  const [isMenuOpen, toggleMenu, close] = useToggle(false);
+  const [isLanguageSwitchOpen, toggleLanguageSwitch] = useToggle();
 
   return (
     <>
@@ -82,9 +91,9 @@ export const MobileMenu = () => {
       <MobileHeader>
         <Typography size="lg">Yarnmark</Typography>
         <MenuRow id="menu_row">
-          <LanguageSwitch id="language_switch">
+          <LanguageSwitch id="language_switch" onClick={toggleLanguageSwitch}>
             <Icon size="lg" zIndex={0} src={flagSrc} />
-            <Icon size="sm" zIndex={0} src={chevronDownIcon} />
+            <ChevronIcon size="sm" zIndex={0} src={chevronDownIcon} className={isLanguageSwitchOpen ? `active` : ''} />
           </LanguageSwitch>
 
           <MenuButton onClick={toggleMenu}>
