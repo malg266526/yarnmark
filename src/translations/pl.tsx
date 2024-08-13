@@ -30,7 +30,8 @@ export const pl = {
       workshopsTickets: 'Bilety na warsztaty',
       yarnmarkTicket: 'Bilet na Yarnmark',
       yarnmarkTickets: 'Bilety na Yarnmark',
-      cruise: 'Dziergostatek'
+      cruise: 'Dziergostatek',
+      entrance: 'Bilet wstepu'
     },
     location: {
       findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>',

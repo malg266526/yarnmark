@@ -23,14 +23,15 @@ export const de: TranslationsShape = {
     tickets: {
       buyTicketsAndWorkshops: '<0>Kup</0> bilet na targi lub wybierz opcję z warsztatami',
       cruiseTicketHere: 'Bilet na dziergostatek znajdziesz <0>tu</0>',
-      buyTicket: 'Tickets können Sie hier kaufen',
+      buyTicket: 'ein Ticket kaufen',
       clickHere: 'Click here',
       at: 'at',
       price: 'Preis',
       workshopsTickets: 'Workshops tickets',
       yarnmarkTicket: 'Yarnmark Ticket',
       yarnmarkTickets: 'Yarnmark Tickets',
-      cruise: 'Strickschiff'
+      cruise: 'Strickschiff',
+      entrance: 'Eintrittskarte'
     },
     location: {
       findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>',

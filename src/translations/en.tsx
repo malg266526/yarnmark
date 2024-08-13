@@ -30,7 +30,8 @@ export const en: TranslationsShape = {
       workshopsTickets: 'Workshops tickets',
       yarnmarkTicket: 'Yarnmark ticket',
       yarnmarkTickets: 'Yarnmark tickets',
-      cruise: 'Knitting-ship'
+      cruise: 'Knitting-ship',
+      entrance: 'Entry ticket'
     },
     location: {
       findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>',
