@@ -28,13 +28,18 @@ export const en: TranslationsShape = {
       at: 'at',
       price: 'Price',
       workshopsTickets: 'Workshops tickets',
-      yarnmarkTicket: 'Bilet na Yarnmark',
-      yarnmarkTickets: 'Bilety na Yarnmark',
-      cruise: 'Dziergostatek'
+      yarnmarkTicket: 'Yarnmark ticket',
+      yarnmarkTickets: 'Yarnmark tickets',
+      cruise: 'Knitting-ship',
+      entrance: 'Entry ticket',
+      whereToBuy:
+        'You can buy an entry ticket to Krakoski Yarnmark on the official website of the store włóczykijki.pl!',
+      keepYourEmail: 'Save the email with your order number, which you will receive after purchasing your ticket.',
+      proofOfPurchase: 'You will show this proof of purchase when entering Yarnmark ;)'
     },
     location: {
-      findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0> i na <1>planie</1>',
-      whereToFindUs: 'Gdzie nas szukać'
+      findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>',
+      whereToFindUs: 'Where to find us?'
     },
     whereToEat: 'Where to eat?',
     hallMap: {
@@ -46,14 +51,14 @@ export const en: TranslationsShape = {
     },
     welcomeBand: {
       invitation: 'We heartily invite you for I edition of wool fair in capital of Malopolska!',
-      where: 'Yarnmark is happening at 27/04/2024 at 10:00 AM, in Hala 100-lecia KS Cracovia',
-      haveFun:
-        'We hope that it will be a day of not only shopping spree and deal hunting, but integrating, knitting together on stands and having fun.',
+      when: '27/04/2024r at 10:00 AM - 6:00 PM',
+      where: 'Hala 100-lecia KS Cracovia',
+      haveFun: 'We wish you successful hunting and great fun!',
       seeYou: 'See ya all!'
     },
     navigationBand: {
       anotherEdition: 'The next edition of the Wool Fair in Cracow is ahead of us!',
-      knittingSaturday: 'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka!',
+      knittingSaturday: 'Come spend your knitting Saturday with us in the city of Krakow!',
       linksBelow: 'Below you will find few links that will help you plan your time in our beautiful city:',
       checkTheVendors: 'Check which vendors you will meet'
     },
@@ -89,7 +94,6 @@ export const en: TranslationsShape = {
       googleMaps: 'How to get to the fair with google maps'
     },
     cashmereTicketsBand: {
-      title: 'Cashmere tickets',
       beautifulCruise: 'Beautiful cruise on the Knitting-ship!',
       map: {
         cruise: 'Knitting cruise on Vistula River',

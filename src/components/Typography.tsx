@@ -4,7 +4,7 @@ import { FontSize } from '../styles/font-size';
 type FontWeight = 'regular' | 'bold' | 'light';
 
 const fontVariantToWeight: Record<FontWeight, number> = {
-  bold: 500,
+  bold: 600,
   light: 200,
   regular: 400
 };

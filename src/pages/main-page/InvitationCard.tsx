@@ -46,9 +46,21 @@ export const InvitationCard = () => {
       <Content gap="none">
         <Band.Title>Krakoski Yarnmark Wełny</Band.Title>
 
-        <MiddleSection align="flex-start" gap="sm">
+        <MiddleSection gap="md">
           <Typography size="sm">{t('welcomeBand.invitation')}</Typography>
-          <Typography size="sm">{t('welcomeBand.where')}</Typography>
+
+          <FlexColumnLayout gap="xs" padding="none">
+            <Typography size="sm" weight="bold">
+              {t('welcomeBand.when')}
+            </Typography>
+            <Typography size="sm" weight="bold">
+              {t('welcomeBand.where')}
+            </Typography>
+            <Typography size="sm" weight="bold">
+              Kraków
+            </Typography>
+          </FlexColumnLayout>
+
           <Typography size="sm">{t('welcomeBand.haveFun')}</Typography>
         </MiddleSection>
 

@@ -23,22 +23,27 @@ export const de: TranslationsShape = {
     tickets: {
       buyTicketsAndWorkshops: '<0>Kup</0> bilet na targi lub wybierz opcję z warsztatami',
       cruiseTicketHere: 'Bilet na dziergostatek znajdziesz <0>tu</0>',
-      buyTicket: 'Tickets können Sie hier kaufen',
+      buyTicket: 'ein Ticket kaufen',
       clickHere: 'Click here',
       at: 'at',
       price: 'Preis',
       workshopsTickets: 'Workshops tickets',
-      yarnmarkTicket: 'Bilet na Yarnmark',
-      yarnmarkTickets: 'Bilety na Yarnmark',
-      cruise: 'Dziergostatek'
+      yarnmarkTicket: 'Yarnmark Ticket',
+      yarnmarkTickets: 'Yarnmark Tickets',
+      cruise: 'Strickschiff',
+      entrance: 'Eintrittskarte',
+      whereToBuy:
+        'You can buy an entry ticket to Krakoski Yarnmark on the official website of the store włóczykijki.pl!',
+      keepYourEmail: 'Save the email with your order number, which you will receive after purchasing your ticket.',
+      proofOfPurchase: 'You will show this proof of purchase when entering Yarnmark ;)'
     },
     location: {
-      findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0> i na <1>planie</1>',
-      whereToFindUs: 'Gdzie nas szukać'
+      findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>',
+      whereToFindUs: 'Wo finden Sie uns?'
     },
-    whereToEat: 'Where to eat?',
+    whereToEat: 'Wo man essen kann?',
     hallMap: {
-      title: 'Hall map',
+      title: 'Hallenplan',
       premiumStand: 'Premium spot 5x3m',
       standardStand: 'Standard spot 4x2,5m',
       miniStand: 'Mini spot 3x2m',
@@ -46,14 +51,14 @@ export const de: TranslationsShape = {
     },
     welcomeBand: {
       invitation: 'Wir laden Sie herzlich  zur ersten Edition Wollmesse in Krakau ein!',
-      where: 'Die Messe findet am 27.04.2024 ab 10:00, in der Halle Hala 100-lecia KS Cracovia statt',
-      haveFun:
-        'Wir hoffen, dass dies nicht nur ein Tag voller Shopping-Wahnsinn und erfolgreicher Jagd auf wunderschöne Garne, sondern auch der Integration, des gemeinsamen Strickens und des guten Spaßes wird.',
+      when: '27/04/2024r ab 10:00 - 18:00',
+      where: 'der Halle Hala 100-lecia KS Cracovia statt',
+      haveFun: 'Wir wünschen Ihnen eine erfolgreiche Jagd und viel Spaß!',
       seeYou: 'Auf Wiedersehen!'
     },
     navigationBand: {
-      anotherEdition: 'The next edition of the Wool Fair in Cracow is ahead of us!',
-      knittingSaturday: 'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka!',
+      anotherEdition: 'Die nächste Ausgabe der Wollmesse in Krakau steht vor uns!',
+      knittingSaturday: 'Verbringen Sie Ihren Stricksamstag bei uns in der Stadt Krakau!',
       linksBelow:
         'Unten findest du einige Links, die dir bei der Planung deiner Zeit in unserer schönen Stadt helfen werden:',
       checkTheVendors: 'Schau welche Aussteller du triffst'
@@ -91,7 +96,6 @@ export const de: TranslationsShape = {
       googleMaps: 'How to get to the fair with google maps'
     },
     cashmereTicketsBand: {
-      title: 'Cashmere tickets',
       beautifulCruise: 'Machen Sie eine wunderschöne Kreuzfahrt mit dem “Strickschiff”!',
       map: {
         cruise: 'Knitting cruise on Vistula River',

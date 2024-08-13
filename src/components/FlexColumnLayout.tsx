@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { RedesignSpacings, Spacings } from '../styles/spacings';
+import { RedesignSpacings } from '../styles/spacings';
 
 export const FlexColumnLayout = styled.div<{
   fullHeight?: boolean;
   justifyContent?: string;
   gap?: keyof typeof RedesignSpacings;
-  padding?: keyof typeof Spacings;
+  padding?: keyof typeof RedesignSpacings;
   align?: string;
   width?: `${number}%` | `${number}px`;
 }>`
@@ -16,7 +16,7 @@ export const FlexColumnLayout = styled.div<{
   width: ${({ width }) => width || 'initial'};
 
   gap: ${({ gap }) => RedesignSpacings[gap || 'md']};
-  padding: ${({ padding }) => Spacings[padding || 'md']};
+  padding: ${({ padding }) => RedesignSpacings[padding || 'md']};
 
   height: ${({ fullHeight: isFullHeight }) => (isFullHeight ? '100%' : 'initial')};
   justify-content: ${({ justifyContent }) => (justifyContent ? justifyContent : 'initial')};

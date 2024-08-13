@@ -1,4 +1,3 @@
-import { Band } from '../../components/bands/Band';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { Typography } from '../../components/Typography';
 import { CtaButton } from '../../components/Button';
@@ -53,7 +52,7 @@ export const TicketCard = () => {
   return (
     <TicketCardLayout>
       <TitleWrapper>
-        <Band.Title>Bilet wstepu</Band.Title>
+        <Typography size="xl">{t('tickets.entrance')}</Typography>
       </TitleWrapper>
 
       <FlexColumnLayout padding="none" gap="md">

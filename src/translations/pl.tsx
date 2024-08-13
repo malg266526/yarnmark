@@ -30,11 +30,15 @@ export const pl = {
       workshopsTickets: 'Bilety na warsztaty',
       yarnmarkTicket: 'Bilet na Yarnmark',
       yarnmarkTickets: 'Bilety na Yarnmark',
-      cruise: 'Dziergostatek'
+      cruise: 'Dziergostatek',
+      entrance: 'Bilet wstepu',
+      whereToBuy: 'Bilet wstępu na Krakoski Yarnmark wykupisz na oficjalnej stronie sklepu włóczykijki.pl!',
+      keepYourEmail: 'Zachowaj email z numerem zamówienia, który dostaniesz po zakupie biletu.',
+      proofOfPurchase: 'Ten dowód zakupu okażesz przy wejsciu na Yarnmark ;)'
     },
     location: {
       findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>',
-      whereToFindUs: 'Gdzie nas szukać'
+      whereToFindUs: 'Gdzie nas szukać?'
     },
     hallMap: {
       title: 'Mapa hali',
@@ -46,9 +50,9 @@ export const pl = {
     whereToEat: 'Gdzie zjeść?',
     welcomeBand: {
       invitation: 'Serdecznie zapraszamy na I edycję targów wełny w stolicy Małopolski!',
-      where: 'Yarnmark odbędzie się 27/04/2024r. w godzinach 10:00 - 18:00, w Hali 100-lecia KS Cracovia',
-      haveFun:
-        'Mamy nadzieję, że będzie to dla Was dzień nie tylko zakupowego szaleństwa i udanych łowów, ale również integracji, wspólnego dziergania na trybunach i dobrej zabawy.',
+      when: '27/04/2024r w godz. 10:00 - 18:00',
+      where: 'Hala 100-lecia KS Cracovia',
+      haveFun: 'Życzymy udanych łowów i świetnej zabawy!',
       seeYou: 'Do zobaczenia!'
     },
     navigationBand: {
@@ -90,7 +94,6 @@ export const pl = {
       googleMaps: 'Jak dotrzeć na targi z google maps'
     },
     cashmereTicketsBand: {
-      title: 'Bilety kaszmirowe',
       beautifulCruise: 'Dzieeergostatkiem w piękny rejs!',
       map: {
         cruise: 'Dziewiarski rejs po Wiśle',
