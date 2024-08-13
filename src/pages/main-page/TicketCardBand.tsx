@@ -4,11 +4,31 @@ import { TicketCard } from './TicketCard';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import styled from 'styled-components';
 import { RedesignSpacings } from '../../styles/spacings';
+import { Typography } from '../../components/Typography';
 
 const Content = styled.div`
   display: flex;
+  width: 100%;
   align-items: center;
   gap: ${RedesignSpacings.xxl};
+`;
+
+const TicketCardWrapper = styled.div`
+  display: flex;
+  width: 50%;
+  justify-content: flex-end;
+`;
+
+const TicketOrderDescription = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  max-width: 50%;
+  gap: ${RedesignSpacings.md};
+`;
+
+const TicketOrderTypography = styled(Typography)`
+  line-height: ${RedesignSpacings.lg};
 `;
 
 export const TicketCardBand = () => {
@@ -19,7 +39,15 @@ export const TicketCardBand = () => {
       <Band.Title>{t('tickets.yarnmarkTickets')}</Band.Title>
 
       <Content>
-        <TicketCard />
+        <TicketCardWrapper>
+          <TicketCard />
+        </TicketCardWrapper>
+
+        <TicketOrderDescription>
+          <TicketOrderTypography size="md">{t('tickets.whereToBuy')}</TicketOrderTypography>
+          <TicketOrderTypography size="md">{t('tickets.keepYourEmail')}</TicketOrderTypography>
+          <TicketOrderTypography size="md">{t('tickets.proofOfPurchase')}</TicketOrderTypography>
+        </TicketOrderDescription>
       </Content>
     </Band.NarrowColumn>
   );

@@ -31,7 +31,11 @@ export const en: TranslationsShape = {
       yarnmarkTicket: 'Yarnmark ticket',
       yarnmarkTickets: 'Yarnmark tickets',
       cruise: 'Knitting-ship',
-      entrance: 'Entry ticket'
+      entrance: 'Entry ticket',
+      whereToBuy:
+        'You can buy an entry ticket to Krakoski Yarnmark on the official website of the store włóczykijki.pl!',
+      keepYourEmail: 'Save the email with your order number, which you will receive after purchasing your ticket.',
+      proofOfPurchase: 'You will show this proof of purchase when entering Yarnmark ;)'
     },
     location: {
       findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>',

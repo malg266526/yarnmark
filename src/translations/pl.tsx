@@ -31,7 +31,10 @@ export const pl = {
       yarnmarkTicket: 'Bilet na Yarnmark',
       yarnmarkTickets: 'Bilety na Yarnmark',
       cruise: 'Dziergostatek',
-      entrance: 'Bilet wstepu'
+      entrance: 'Bilet wstepu',
+      whereToBuy: 'Bilet wstępu na Krakoski Yarnmark wykupisz na oficjalnej stronie sklepu włóczykijki.pl!',
+      keepYourEmail: 'Zachowaj email z numerem zamówienia, który dostaniesz po zakupie biletu.',
+      proofOfPurchase: 'Ten dowód zakupu okażesz przy wejsciu na Yarnmark ;)'
     },
     location: {
       findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>',
