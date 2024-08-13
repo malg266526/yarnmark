@@ -23,6 +23,7 @@ import { useToggle } from '../../hooks/useToggle';
 import { Button } from '../../components/Button';
 import { Typography } from '../../components/Typography';
 import { Dots } from '../../components/Dots';
+import { LanguageSwitcher } from '../LanguageSwitcher';
 
 const RootLayout = styled.div<{ isOpen?: boolean }>`
   display: flex;
@@ -174,6 +175,8 @@ export const DesktopMenu = () => {
           {isOpen && <Typography size="sm">{t('menu.statutes')}</Typography>}
         </MenuItem>
       </Section>
+
+      <LanguageSwitcher />
     </RootLayout>
   );
 };
