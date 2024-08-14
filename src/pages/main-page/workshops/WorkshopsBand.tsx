@@ -12,7 +12,6 @@ import { MultiCarousel } from '../../../components/carousels/MultiCarousel';
 import { ScheduleConfig } from './scheduleConfig';
 import { RibbonCard } from '../../../components/carousels/RibbonCard';
 import { useToggle } from '../../../hooks/useToggle';
-import { Typography } from '../../../components/Typography';
 import { WorkshopModal } from './WorkshopModal';
 
 type WorkshopsBandType = {
