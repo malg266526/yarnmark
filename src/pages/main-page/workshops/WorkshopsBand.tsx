@@ -11,6 +11,9 @@ import { RedesignSpacings } from '../../../styles/spacings';
 import { MultiCarousel } from '../../../components/carousels/MultiCarousel';
 import { ScheduleConfig } from './scheduleConfig';
 import { RibbonCard } from '../../../components/carousels/RibbonCard';
+import { useToggle } from '../../../hooks/useToggle';
+import { Typography } from '../../../components/Typography';
+import { WorkshopModal } from './WorkshopModal';
 
 type WorkshopsBandType = {
   id: string;
@@ -37,6 +40,8 @@ const StrongCtaButton = styled(CtaButton)`
 export const WorkshopsBand = ({ id }: WorkshopsBandType) => {
   const t = useTypedTranslation();
 
+  const [isModalOpen, toggle] = useToggle();
+
   return (
     <Band.CenteredColumn id={id} size="lg" gap="md" padding="lg" color={BackgroundColors.workshopsBand}>
       <Band.Title>{t('workshops.title')}</Band.Title>
@@ -48,9 +53,11 @@ export const WorkshopsBand = ({ id }: WorkshopsBandType) => {
 
       <MultiCarousel>
         {ScheduleConfig.map((scheduleEntry, index) => (
-          <RibbonCard key={`mirrorsRoom_${index}`} scheduleEntry={scheduleEntry} />
+          <RibbonCard key={`mirrorsRoom_${index}`} scheduleEntry={scheduleEntry} onClick={toggle} />
         ))}
       </MultiCarousel>
+
+      <WorkshopModal isOpen={isModalOpen} toggle={toggle} />
 
       {/*<WorkshopsCarousel />*/}
     </Band.CenteredColumn>

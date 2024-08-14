@@ -54,13 +54,14 @@ const PriceInfo = styled.div`
 
 interface RibbonCardProps {
   scheduleEntry: ScheduleEntry;
+  onClick?: () => void;
 }
 
-export const RibbonCard = ({ scheduleEntry }: RibbonCardProps) => {
+export const RibbonCard = ({ scheduleEntry, onClick }: RibbonCardProps) => {
   const t = useTypedTranslation();
 
   return (
-    <CardLayout>
+    <CardLayout onClick={onClick}>
       <Ribbon>
         <Typography size="lg">{scheduleEntry.time}</Typography>
       </Ribbon>
