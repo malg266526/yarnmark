@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { Band } from '../../../components/bands/Band';
 import { BackgroundColors } from '../../../styles/theme';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
@@ -9,7 +9,7 @@ import { Radius } from '../../../styles/cards';
 import { FontSize } from '../../../styles/font-size';
 import { RedesignSpacings } from '../../../styles/spacings';
 import { MultiCarousel } from '../../../components/carousels/MultiCarousel';
-import { ScheduleConfig } from './scheduleConfig';
+import { ScheduleConfig, ScheduleEntry } from './scheduleConfig';
 import { RibbonCard } from '../../../components/carousels/RibbonCard';
 import { useToggle } from '../../../hooks/useToggle';
 import { WorkshopModal } from './WorkshopModal';
@@ -40,6 +40,18 @@ export const WorkshopsBand = ({ id }: WorkshopsBandType) => {
   const t = useTypedTranslation();
 
   const [isModalOpen, toggle] = useToggle();
+  const [currentWorkshop, setCurrentWorkshop] = useState<ScheduleEntry | undefined>();
+
+  const toggleModal = useCallback(
+    (workshop: ScheduleEntry) => {
+      if (isModalOpen) {
+        setCurrentWorkshop(workshop);
+      } else {
+        setCurrentWorkshop(undefined);
+      }
+    },
+    [isModalOpen]
+  );
 
   return (
     <Band.CenteredColumn id={id} size="lg" gap="md" padding="lg" color={BackgroundColors.workshopsBand}>
@@ -52,11 +64,11 @@ export const WorkshopsBand = ({ id }: WorkshopsBandType) => {
 
       <MultiCarousel>
         {ScheduleConfig.map((scheduleEntry, index) => (
-          <RibbonCard key={`mirrorsRoom_${index}`} scheduleEntry={scheduleEntry} onClick={toggle} />
+          <RibbonCard key={`mirrorsRoom_${index}`} scheduleEntry={scheduleEntry} onClick={toggleModal} />
         ))}
       </MultiCarousel>
 
-      <WorkshopModal isOpen={isModalOpen} toggle={toggle} />
+      <WorkshopModal isOpen={isModalOpen} toggle={toggle} workshop={currentWorkshop} />
 
       {/*<WorkshopsCarousel />*/}
     </Band.CenteredColumn>
