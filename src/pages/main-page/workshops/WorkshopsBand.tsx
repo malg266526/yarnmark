@@ -51,7 +51,7 @@ export const WorkshopsBand = ({ id }: WorkshopsBandType) => {
       }
       toggle();
     },
-    [isModalOpen]
+    [isModalOpen, toggle]
   );
 
   return (
