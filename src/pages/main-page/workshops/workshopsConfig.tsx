@@ -18,14 +18,14 @@ import haftowaBabaUrlAvif from '../../../assets/images/workshops/haftowa.avif';
 import { UnprefixedTranslationKeys } from '../../../translations/useTypedTranslation';
 
 type EntryPricing =
-  | { price: number; ticketUrl: string; isSoldOut?: false }
+  | { ticketUrl: string; isSoldOut?: false }
   | {
       isSoldOut: true;
     };
 
 type Room = 'mirrors' | 'fencing' | 'conference';
 
-export type ScheduleEntry = {
+export type WorkshopsEntry = {
   topicKey: UnprefixedTranslationKeys;
   time: string;
   picture: {
@@ -33,9 +33,10 @@ export type ScheduleEntry = {
     sources?: { type: string; url: string }[];
   };
   room: Room;
+  price: number;
 } & EntryPricing;
 
-export const ScheduleConfig: ScheduleEntry[] = [
+export const WorkshopsConfig: WorkshopsEntry[] = [
   {
     topicKey: 'workshops.ewa.title',
     time: '9:00 - 10:30',
@@ -49,7 +50,8 @@ export const ScheduleConfig: ScheduleEntry[] = [
       ]
     },
     room: 'mirrors',
-    isSoldOut: true
+    isSoldOut: true,
+    price: 30
   },
   {
     topicKey: 'workshops.ewa.title',
@@ -68,6 +70,7 @@ export const ScheduleConfig: ScheduleEntry[] = [
       ]
     },
     room: 'mirrors',
+    price: 30,
     isSoldOut: true
   },
   {
@@ -87,7 +90,8 @@ export const ScheduleConfig: ScheduleEntry[] = [
       ]
     },
     room: 'fencing',
-    isSoldOut: true
+    isSoldOut: true,
+    price: 30
   },
   {
     topicKey: 'workshops.ewa.title',
@@ -146,7 +150,8 @@ export const ScheduleConfig: ScheduleEntry[] = [
       ]
     },
     isSoldOut: true,
-    room: 'conference'
+    room: 'conference',
+    price: 30
   },
   {
     topicKey: 'workshops.haftowaBaba.title',
@@ -165,7 +170,8 @@ export const ScheduleConfig: ScheduleEntry[] = [
       ]
     },
     isSoldOut: true,
-    room: 'conference'
+    room: 'conference',
+    price: 30
   },
   {
     topicKey: 'workshops.haftowaBaba.title',
@@ -184,6 +190,7 @@ export const ScheduleConfig: ScheduleEntry[] = [
       ]
     },
     isSoldOut: true,
-    room: 'conference'
+    room: 'conference',
+    price: 30
   }
 ];

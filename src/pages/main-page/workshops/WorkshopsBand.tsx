@@ -9,7 +9,7 @@ import { Radius } from '../../../styles/cards';
 import { FontSize } from '../../../styles/font-size';
 import { RedesignSpacings } from '../../../styles/spacings';
 import { MultiCarousel } from '../../../components/carousels/MultiCarousel';
-import { ScheduleConfig, ScheduleEntry } from './scheduleConfig';
+import { WorkshopsConfig, WorkshopsEntry } from './workshopsConfig';
 import { RibbonCard } from '../../../components/carousels/RibbonCard';
 import { useToggle } from '../../../hooks/useToggle';
 import { WorkshopModal } from './WorkshopModal';
@@ -40,15 +40,16 @@ export const WorkshopsBand = ({ id }: WorkshopsBandType) => {
   const t = useTypedTranslation();
 
   const [isModalOpen, toggle] = useToggle();
-  const [currentWorkshop, setCurrentWorkshop] = useState<ScheduleEntry | undefined>();
+  const [currentWorkshop, setCurrentWorkshop] = useState<WorkshopsEntry | undefined>();
 
   const toggleModal = useCallback(
-    (workshop: ScheduleEntry) => {
+    (workshop: WorkshopsEntry) => {
       if (isModalOpen) {
-        setCurrentWorkshop(workshop);
-      } else {
         setCurrentWorkshop(undefined);
+      } else {
+        setCurrentWorkshop(workshop);
       }
+      toggle();
     },
     [isModalOpen]
   );
@@ -63,8 +64,8 @@ export const WorkshopsBand = ({ id }: WorkshopsBandType) => {
       </ImageSection>
 
       <MultiCarousel>
-        {ScheduleConfig.map((scheduleEntry, index) => (
-          <RibbonCard key={`mirrorsRoom_${index}`} scheduleEntry={scheduleEntry} onClick={toggleModal} />
+        {WorkshopsConfig.map((workshop, index) => (
+          <RibbonCard key={`mirrorsRoom_${index}`} workshop={workshop} onClick={toggleModal} />
         ))}
       </MultiCarousel>
 

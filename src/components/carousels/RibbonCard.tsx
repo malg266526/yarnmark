@@ -5,7 +5,7 @@ import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import styled from 'styled-components';
 import { RedesignSpacings } from '../../styles/spacings';
 import { TextColors } from '../../styles/theme';
-import { ScheduleEntry } from '../../pages/main-page/workshops/scheduleConfig';
+import { WorkshopsEntry } from '../../pages/main-page/workshops/workshopsConfig';
 import { Ribbon } from './Ribbon';
 import { DropShadow, Radius } from '../../styles/cards';
 import { CtaButton } from '../Button';
@@ -53,25 +53,25 @@ const PriceInfo = styled.div`
 `;
 
 interface RibbonCardProps {
-  scheduleEntry: ScheduleEntry;
-  onClick?: (workshop: ScheduleEntry) => void;
+  workshop: WorkshopsEntry;
+  onClick?: (workshop: WorkshopsEntry) => void;
 }
 
-export const RibbonCard = ({ scheduleEntry, onClick }: RibbonCardProps) => {
+export const RibbonCard = ({ workshop, onClick }: RibbonCardProps) => {
   const t = useTypedTranslation();
 
   return (
-    <CardLayout onClick={() => onClick?.(scheduleEntry)}>
+    <CardLayout onClick={() => onClick?.(workshop)}>
       <Ribbon>
-        <Typography size="lg">{scheduleEntry.time}</Typography>
+        <Typography size="lg">{workshop.time}</Typography>
       </Ribbon>
 
       <Picture
         picture={{
-          fallbackUrl: scheduleEntry.picture.fallback,
-          sources: scheduleEntry.picture.sources
+          fallbackUrl: workshop.picture.fallback,
+          sources: workshop.picture.sources
         }}
-        alt={t(scheduleEntry.topicKey)}
+        alt={t(workshop.topicKey)}
         width={150}
         height={150}
       />
@@ -81,9 +81,9 @@ export const RibbonCard = ({ scheduleEntry, onClick }: RibbonCardProps) => {
       </CtaButton>
 
       <InfoSection>
-        <Typography size="lg">{t(scheduleEntry.topicKey)}</Typography>
+        <Typography size="lg">{t(workshop.topicKey)}</Typography>
 
-        {scheduleEntry.isSoldOut ? (
+        {workshop.isSoldOut ? (
           <PriceInfo>
             <Typography size="md">{t('scheduleBand.soldOut')}</Typography>
           </PriceInfo>
@@ -91,7 +91,7 @@ export const RibbonCard = ({ scheduleEntry, onClick }: RibbonCardProps) => {
           <>
             <PriceInfo>
               <Typography size="md">
-                {t('workshops.price')}: {scheduleEntry.price}zł
+                {t('workshops.price')}: {workshop.price}zł
               </Typography>
             </PriceInfo>
           </>

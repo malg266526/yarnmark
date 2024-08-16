@@ -123,13 +123,6 @@ export const de: TranslationsShape = {
     contactPage: {
       title: 'Kontakt'
     },
-    scheduleBand: {
-      title: 'Workshop-Zeitplan',
-      room1: 'Spiegelsaal',
-      room2: 'Fechtraum',
-      room3: 'Konferenzraum',
-      soldOut: 'Ausverkauft'
-    },
     infoForVendorsPage: {
       title: 'Informationen für Aussteller',
       invitation: 'Wir laden dich herzlich ein, an der 1. Ausgabe des Krakow Wool Yarnmark teilzunehmen!',
@@ -220,7 +213,13 @@ export const de: TranslationsShape = {
         title: 'The Greeners',
         description:
           'During workshops for beginners, I will introduce you to the mystical secrets of knitting. You will learn about the different types of materials we usually work with, I will teach you some techniques for casting on stitches, and you will learn the basics - knit and purl stitches. I will introduce you to the methods of adding and decreasing stitches and finishing the knitted fabric. I will show you knitting accessories that make the life of a knitter easier. I will explain how to read patterns in books and on banners. We will knit a piece of knit together. Obviously, I will show you how to save lost stitches or fix simple mistakes. I will try my best to answer your questions. A group for beginners who are starting their adventure with knitting, as well as for those who want to gain confidence in their knitting'
-      }
+      },
+      room: {
+        mirrors: 'Spiegelsaal',
+        fencing: 'Fechtraum',
+        conference: 'Konferenzraum'
+      },
+      soldOut: 'Ausverkauft'
     }
   }
 };
