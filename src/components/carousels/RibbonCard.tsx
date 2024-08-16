@@ -85,7 +85,7 @@ export const RibbonCard = ({ workshop, onClick }: RibbonCardProps) => {
 
         {workshop.isSoldOut ? (
           <PriceInfo>
-            <Typography size="md">{t('scheduleBand.soldOut')}</Typography>
+            <Typography size="md">{t('workshops.soldOut')}</Typography>
           </PriceInfo>
         ) : (
           <>
