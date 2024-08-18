@@ -2,33 +2,64 @@ import styled from 'styled-components';
 import React, { ReactNode, useRef, useState } from 'react';
 import { RedesignSpacings } from '../../styles/spacings';
 import { ScreenSize } from '../../styles/screeen-size';
+import skeinIconSrc from '../../assets/images/indicator_skein_green.svg';
+import { Icon } from '../Icon';
+import dotsStrokeIcon from '../../assets/figmaIcons/dots_stroke_icon.svg';
 
-const Container = styled.div`
+const Root = styled.div`
   width: 100%;
-  padding: ${RedesignSpacings.sm} ${RedesignSpacings.md};
-  position: relative;
-  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: ${RedesignSpacings.sm} ${RedesignSpacings.sm};
   background-color: white;
+  overflow: hidden;
 
   @media (max-width: ${ScreenSize.phone}) {
     padding: 0;
   }
 `;
 
+const SlidesWithNavigation = styled.div`
+  display: flex;
+  width: 100%;
+
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const SlidesWrapper = styled.div`
+  position: relative;
+  min-height: 500px;
+  overflow: hidden;
+  width: 100%;
+`;
+
 const Slides = styled.div`
   display: flex;
   align-items: center;
   gap: ${RedesignSpacings.md};
-  padding: ${RedesignSpacings.sm};
+  padding: ${RedesignSpacings.xs};
   overflow: hidden;
   position: absolute;
-  width: 100%;
-  top: ${RedesignSpacings.sm};
-  left: ${RedesignSpacings.sm};
+  top: 0;
+  left: ${RedesignSpacings.xs};
 
   @media (max-width: ${ScreenSize.phone}) {
     padding: ${RedesignSpacings.xs};
   }
+`;
+
+const NextIcon = styled(Icon)`
+  transform: rotateY(180deg);
+`;
+
+const Dots = styled.span`
+  background: url(${dotsStrokeIcon}) no-repeat center;
+  background-size: contain;
+  width: 70px;
+  height: 30px;
 `;
 
 interface MultiCarouselProps {
@@ -60,15 +91,25 @@ export const MultiCarousel = ({ children }: MultiCarouselProps) => {
   };
 
   return (
-    <Container id="carousel_container">
-      <Slides
-        ref={slidesRef}
-        id="carousel_slides"
-        onMouseUp={onMouseRelease}
-        onMouseMove={move}
-        onMouseDown={(event) => event.preventDefault()}>
-        {children}
-      </Slides>
-    </Container>
+    <Root id="carousel_container">
+      <SlidesWithNavigation>
+        <Icon size="lg" src={skeinIconSrc} />
+
+        <SlidesWrapper>
+          <Slides
+            ref={slidesRef}
+            id="carousel_slides"
+            onMouseUp={onMouseRelease}
+            onMouseMove={move}
+            onMouseDown={(event) => event.preventDefault()}>
+            {children}
+          </Slides>
+        </SlidesWrapper>
+
+        <NextIcon size="lg" src={skeinIconSrc} />
+      </SlidesWithNavigation>
+
+      <Dots />
+    </Root>
   );
 };

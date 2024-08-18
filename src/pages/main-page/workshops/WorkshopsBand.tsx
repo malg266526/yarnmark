@@ -55,7 +55,7 @@ export const WorkshopsBand = ({ id }: WorkshopsBandType) => {
   );
 
   return (
-    <Band.CenteredColumn id={id} size="lg" gap="md" padding="lg" color={BackgroundColors.workshopsBand}>
+    <Band.CenteredColumn id={id} size="lg" gap="md" padding="xl" color={BackgroundColors.workshopsBand}>
       <Band.Title>{t('workshops.title')}</Band.Title>
 
       <ImageSection>

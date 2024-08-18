@@ -65,7 +65,8 @@ export const WorkshopModal = ({ isOpen, toggle, workshop }: WorkshopModalProps) 
       onRequestClose={toggle}
       style={{
         overlay: {
-          zIndex: 9999
+          display: 'flex',
+          zIndex: 2
         }
       }}>
       <ModalContent>
