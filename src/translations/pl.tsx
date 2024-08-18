@@ -128,12 +128,15 @@ export const pl = {
       organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was.',
       hallInfo: {
         title: 'Hala',
-        area: 'Mamy do dyspozycji powierzchnię 1142m2.',
+        area: 'Mamy do dyspozycji powierzchnię <strong>1142m2</strong>.',
         openHours: 'Wejście na halę w celu rozłożenia stoiska będzie możliwe od godz. 5:00. Na miejscu będzie portier.',
         ramp: 'Z parkingu prosto na halę prowadzi rampa, bez potrzeby korzystania ze schodów czy wind.',
         participants:
           'Wejście dla odwiedzających targi będzie znajdować się od ulicy Focha, gdzie do hali głównej udadzą się efektownym zejściem, z którego będzie widać całą halę wystawienniczą.',
-        stands: 'Na hali będą trzy rodzaje stoisk: Premium 5x3m, Standard 4x2,5m oraz Mini 3x2m',
+        stands: 'Na hali będą trzy rodzaje stoisk:',
+        standPremium: '<strong>Premium 5x3m</strong>',
+        standardStand: '<strong>Standard 4x2,5m</strong>',
+        miniStand: '<strong>Mini 3x2m</strong>',
         tables:
           'Stoisko premium posiada 2 krzesła oraz 3 stoły 160x80cm. Stoisko standard posiada 2 krzesła oraz 2 stoły 140x70cm, a stoisko Mini 2 krzesła oraz 1 stół 140x70cm',
         extensionCords: 'W skład stoiska NIE wchodzą przedłużacze, prosimy o posiadanie własnych.',
@@ -158,7 +161,7 @@ export const pl = {
         title: 'Zapisy',
         beAVendor:
           'Jeśli chcesz dołączyć do wspaniałego grona naszych wystawców, napisz do nas! Email kontaktowy: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
-        start: 'Możliwość zakupu stoiska startuje w poniedziałek 22.01.2024r. o godz. 12:00.',
+        start: 'Możliwość zakupu stoiska startuje w poniedziałek <strong>22.01.2024r.</strong> o godz. 12:00.',
         where: 'Rezerwacja stoiska odbywa się poprzez zakup miejsca w sklepie online Włóczykijki.',
         buyHere: 'Tutaj wykupisz stoisko',
         feedback:

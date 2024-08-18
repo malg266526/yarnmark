@@ -127,12 +127,15 @@ export const en: TranslationsShape = {
       organisationInfo: 'Below a bit of organisational information for you.',
       hallInfo: {
         title: 'Hall',
-        area: 'We have an area of ​​1142 m2 at our disposal.',
+        area: 'We have an area of <strong>1142 m2</strong> at our disposal.',
         openHours: 'Hall entrance in order to prepare the stand will be available at 5.00 AM. Porter will be there.',
         ramp: 'From parking lot straight to the hall leads a ramp, without need to use stairs or elevators.',
         participants:
           'Entrance for fair participants will be on the side of Foch street, where they will enter the main hall efective descent from which whole exhibition hall will be visible.',
-        stands: 'There will be three types of spots in the hall: Premium 5x3m, Standard 4x2,5m and Mini 3x2m',
+        stands: 'There will be three types of spots in the hall:',
+        standPremium: '<strong>Premium 5x3m</strong>',
+        standardStand: '<strong>Standard 4x2,5m</strong>',
+        miniStand: '<strong>Mini 3x2m</strong>',
         tables:
           'Premium spot includes 2 chairs and 3 tables 160x80cm. Standard spot includes 2 chairs and 2 tables 140x70cm, while a Mini spot includes 2 chairs  and 1 table 140x70cm',
         extensionCords: "Stands don't include extension cords, please bring your own",
@@ -157,7 +160,7 @@ export const en: TranslationsShape = {
         title: 'Reservations',
         beAVendor:
           'If you wanna join the great group of our vendors write us an email! Email address: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
-        start: 'Spot reservations start on Monday 22.01.2024r. at 12:00 AM',
+        start: 'Spot reservations start on Monday <strong>22.01.2024r.</strong> at 12:00 AM',
         where: 'Reservation is done by buying the spot in online shop `Włóczykijki`',
         buyHere: 'Here you will reserve the spot',
         feedback: 'All data related to payment will be part of feedback confirming spot reservation',

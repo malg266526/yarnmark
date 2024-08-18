@@ -129,12 +129,15 @@ export const de: TranslationsShape = {
       organisationInfo: 'Unten findest du einige organisatorische Informationen.',
       hallInfo: {
         title: 'Halle',
-        area: 'Uns steht eine Fläche von 1142 m2 zur Verfügung.',
+        area: 'Uns steht eine Fläche von <strong>1142 m2</strong> zur Verfügung.',
         openHours: 'Der Zugang zur Halle zum Aufbau eines Standes ist ab 5:00 Uhr möglich ',
         ramp: 'Eine Rampe führt vom Parkplatz direkt zur Halle, ohne dass Treppen oder Aufzüge genutzt werden müssen.',
         participants:
           'Der Eingang für Messebesucher erfolgt über die Focha-Straße, wo sie über einen beeindruckenden Abstieg in die Haupthalle gelangen, von der aus Sie die gesamte Ausstellungshalle sehen können.',
-        stands: 'In der Halle wird es drei Arten von Ständen geben: Premium 5x3m, Standard 4x2,5m und Mini 3x2m',
+        stands: 'In der Halle wird es drei Arten von Ständen geben:',
+        standPremium: '<strong>Premium 5x3m</strong>',
+        standardStand: '<strong>Standard 4x2,5m</strong>',
+        miniStand: '<strong>Mini 3x2m</strong>',
         tables:
           'Der Premium-Stand verfügt über 2 Stühle und 3 Tische 160x80cm. Standard-Stand verfügt über 2 Stühle und 2 Tische 140x70 cm, der Mini-Stand über 2 Stühle und 1 Tisch 140x70 cm',
         extensionCords:
@@ -160,7 +163,7 @@ export const de: TranslationsShape = {
         title: 'Anmeldungen',
         beAVendor:
           'Wenn Sie sich der wunderbaren Gruppe unserer Aussteller anschließen möchten, schreiben Sie uns! Kontakt E-mail: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
-        start: 'Die Möglichkeit zum Kauf eines Standes beginnt am Montag, 22. Januar 2024 um 12:00',
+        start: 'Die Möglichkeit zum Kauf eines Standes beginnt am Montag, <strong>22. Januar 2024</strong> um 12:00',
         where: 'Die Reservierung eines Standes erfolgt durch den Kauf einer Fläche im Włóczykijki-Onlineshop.',
         buyHere: 'Hier können Sie einen Stand kaufen',
         feedback: 'Alle Zahlungsdetails werden in der Rückmeldung zur Bestätigung Ihrer Standreservierung aufgeführt.',

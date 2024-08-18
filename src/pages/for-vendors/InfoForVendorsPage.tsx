@@ -54,7 +54,9 @@ export const InfoForVendorsPage = () => {
           <Typography size="md">
             <Trans i18nKey="infoForVendorsPage.registration.beAVendor" />
           </Typography>
-          <Typography size="md">{t('infoForVendorsPage.registration.start')}</Typography>
+          <Typography size="md">
+            <Trans i18nKey="infoForVendorsPage.registration.start" />
+          </Typography>
           <Typography size="md">{t('infoForVendorsPage.registration.where')}</Typography>
 
           <SecondaryLink
@@ -81,11 +83,31 @@ export const InfoForVendorsPage = () => {
         <Band.BeamTitle>{t('infoForVendorsPage.hallInfo.title')}</Band.BeamTitle>
 
         <PlainInfo>
-          <Typography size="md">{t('infoForVendorsPage.hallInfo.area')}</Typography>
+          <Typography size="md">
+            <Trans i18nKey="infoForVendorsPage.hallInfo.area" />
+          </Typography>
           <Typography size="md">{t('infoForVendorsPage.hallInfo.openHours')}</Typography>
           <Typography size="md">{t('infoForVendorsPage.hallInfo.ramp')}</Typography>
           <Typography size="md">{t('infoForVendorsPage.hallInfo.participants')}</Typography>
           <Typography size="md">{t('infoForVendorsPage.hallInfo.stands')}</Typography>
+          <ul>
+            <li>
+              <Typography size="md">
+                <Trans i18nKey="infoForVendorsPage.hallInfo.standPremium" />
+              </Typography>
+            </li>
+            <li>
+              <Typography size="md">
+                <Trans i18nKey="infoForVendorsPage.hallInfo.standardStand" />
+              </Typography>
+            </li>
+            <li>
+              <Typography size="md">
+                {' '}
+                <Trans i18nKey="infoForVendorsPage.hallInfo.miniStand" />
+              </Typography>
+            </li>
+          </ul>
           <Typography size="md">{t('infoForVendorsPage.hallInfo.tables')}</Typography>
           <Typography size="md">{t('infoForVendorsPage.hallInfo.extensionCords')}</Typography>
           <Typography size="md">{t('infoForVendorsPage.hallInfo.socialRoom')}</Typography>
