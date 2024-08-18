@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { Band } from '../../../components/bands/Band';
 import { BackgroundColors } from '../../../styles/theme';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
@@ -9,8 +9,10 @@ import { Radius } from '../../../styles/cards';
 import { FontSize } from '../../../styles/font-size';
 import { RedesignSpacings } from '../../../styles/spacings';
 import { MultiCarousel } from '../../../components/carousels/MultiCarousel';
-import { ScheduleConfig } from './scheduleConfig';
+import { WorkshopsConfig, WorkshopsEntry } from './workshopsConfig';
 import { RibbonCard } from '../../../components/carousels/RibbonCard';
+import { useToggle } from '../../../hooks/useToggle';
+import { WorkshopModal } from './WorkshopModal';
 
 type WorkshopsBandType = {
   id: string;
@@ -37,8 +39,23 @@ const StrongCtaButton = styled(CtaButton)`
 export const WorkshopsBand = ({ id }: WorkshopsBandType) => {
   const t = useTypedTranslation();
 
+  const [isModalOpen, toggle] = useToggle();
+  const [currentWorkshop, setCurrentWorkshop] = useState<WorkshopsEntry | undefined>();
+
+  const toggleModal = useCallback(
+    (workshop: WorkshopsEntry) => {
+      if (isModalOpen) {
+        setCurrentWorkshop(undefined);
+      } else {
+        setCurrentWorkshop(workshop);
+      }
+      toggle();
+    },
+    [isModalOpen, toggle]
+  );
+
   return (
-    <Band.CenteredColumn id={id} size="lg" gap="md" padding="lg" color={BackgroundColors.workshopsBand}>
+    <Band.CenteredColumn id={id} size="lg" gap="md" padding="xl" color={BackgroundColors.workshopsBand}>
       <Band.Title>{t('workshops.title')}</Band.Title>
 
       <ImageSection>
@@ -47,10 +64,12 @@ export const WorkshopsBand = ({ id }: WorkshopsBandType) => {
       </ImageSection>
 
       <MultiCarousel>
-        {ScheduleConfig.map((scheduleEntry, index) => (
-          <RibbonCard key={`mirrorsRoom_${index}`} scheduleEntry={scheduleEntry} />
+        {WorkshopsConfig.map((workshop, index) => (
+          <RibbonCard key={`mirrorsRoom_${index}`} workshop={workshop} onClick={toggleModal} />
         ))}
       </MultiCarousel>
+
+      <WorkshopModal isOpen={isModalOpen} toggle={toggle} workshop={currentWorkshop} />
 
       {/*<WorkshopsCarousel />*/}
     </Band.CenteredColumn>

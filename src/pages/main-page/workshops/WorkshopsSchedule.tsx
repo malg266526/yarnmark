@@ -1,13 +1,13 @@
 import React from 'react';
-import { ScheduleConfig } from './scheduleConfig';
+import { WorkshopsConfig } from './workshopsConfig';
 import { RibbonCard } from '../../../components/carousels/RibbonCard';
 import { MultiCarousel } from '../../../components/carousels/MultiCarousel';
 
 export const WorkshopsSchedule = () => {
   return (
     <MultiCarousel>
-      {ScheduleConfig.map((scheduleEntry, index) => (
-        <RibbonCard key={`mirrorsRoom_${index}`} scheduleEntry={scheduleEntry} />
+      {WorkshopsConfig.map((scheduleEntry, index) => (
+        <RibbonCard key={`mirrorsRoom_${index}`} workshop={scheduleEntry} />
       ))}
     </MultiCarousel>
   );

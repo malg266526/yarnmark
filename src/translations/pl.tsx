@@ -122,13 +122,6 @@ export const pl = {
     contactPage: {
       title: 'Kontakt'
     },
-    scheduleBand: {
-      title: 'Harmonogram warsztatów',
-      room1: 'Sala lustrzana',
-      room2: 'Sala szermiercza',
-      room3: 'Sala konferencyjna',
-      soldOut: 'Wyprzedane'
-    },
     infoForVendorsPage: {
       title: 'Informacje dla wystawców',
       invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w I edycji Krakoskiego Yarnmarku Wełny!',
@@ -220,7 +213,13 @@ export const pl = {
         title: 'Zielone druty',
         description:
           'Na warsztatach dla początkujących wprowadzę Cię w tajniki i mistyczne arkana sztuki dziewiarskiej. Poznasz różne rodzaje materiałów z którymi zazwyczaj pracujemy, nauczę Cię paru technik nabierania oczek, poznasz podstawy - prawe i lewe oczka. Zapoznam z metodą dodawania oraz ujmowania oczek oraz zakańczania dzianiny. Pokażę Ci dziewiarskie akcesoria, które ułatwiają życie dziewiarce/dziewiarzowi. Wytłumaczę, jak czytać wzory w książkach i na banderolach. Przerobimy razem kawałek dzianiny. Oczywiście pokażę, jak ratować zgubione oczka lub naprawiać proste błędy. Postaram się odpowiedzieć na nurtujące pytania. Grupa dla początkujących, zaczynających przygodę z drutami, jak i dla tych co chcą nabrać pewności w swoich robótkach.'
-      }
+      },
+      room: {
+        mirrors: 'Sala lustrzana',
+        fencing: 'Sala szermiercza',
+        conference: 'Sala konferencyjna'
+      },
+      soldOut: 'Wyprzedane'
     }
   }
 };

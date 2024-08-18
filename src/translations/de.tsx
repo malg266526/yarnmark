@@ -50,15 +50,15 @@ export const de: TranslationsShape = {
       taken: 'Reserved'
     },
     welcomeBand: {
-      invitation: 'Wir laden Sie herzlich  zur ersten Edition Wollmesse in Krakau ein!',
-      when: '27/04/2024r ab 10:00 - 18:00',
-      where: 'der Halle Hala 100-lecia KS Cracovia statt',
+      invitation: 'Wir laden Sie herzlich zur zweiten Ausgabe der Wollmesse inKrakau ein!',
+      when: 'Am 27.04.2024 von 10:00 bis 18:00 Uhr',
+      where: 'In Hala 100-lecia KS Cracovia',
       haveFun: 'Wir wünschen Ihnen eine erfolgreiche Jagd und viel Spaß!',
       seeYou: 'Auf Wiedersehen!'
     },
     navigationBand: {
-      anotherEdition: 'Die nächste Ausgabe der Wollmesse in Krakau steht vor uns!',
-      knittingSaturday: 'Verbringen Sie Ihren Stricksamstag bei uns in der Stadt Krakau!',
+      anotherEdition: 'Die nächste Ausgabe der Wollmesse in Krakau kommt!',
+      knittingSaturday: 'Verbringen Sie die StrickSammstag bei uns in Krakau!',
       linksBelow:
         'Unten findest du einige Links, die dir bei der Planung deiner Zeit in unserer schönen Stadt helfen werden:',
       checkTheVendors: 'Schau welche Aussteller du triffst'
@@ -122,13 +122,6 @@ export const de: TranslationsShape = {
     vendors: 'Aussteller',
     contactPage: {
       title: 'Kontakt'
-    },
-    scheduleBand: {
-      title: 'Workshop-Zeitplan',
-      room1: 'Spiegelsaal',
-      room2: 'Fechtraum',
-      room3: 'Konferenzraum',
-      soldOut: 'Ausverkauft'
     },
     infoForVendorsPage: {
       title: 'Informationen für Aussteller',
@@ -220,7 +213,13 @@ export const de: TranslationsShape = {
         title: 'The Greeners',
         description:
           'During workshops for beginners, I will introduce you to the mystical secrets of knitting. You will learn about the different types of materials we usually work with, I will teach you some techniques for casting on stitches, and you will learn the basics - knit and purl stitches. I will introduce you to the methods of adding and decreasing stitches and finishing the knitted fabric. I will show you knitting accessories that make the life of a knitter easier. I will explain how to read patterns in books and on banners. We will knit a piece of knit together. Obviously, I will show you how to save lost stitches or fix simple mistakes. I will try my best to answer your questions. A group for beginners who are starting their adventure with knitting, as well as for those who want to gain confidence in their knitting'
-      }
+      },
+      room: {
+        mirrors: 'Spiegelsaal',
+        fencing: 'Fechtraum',
+        conference: 'Konferenzraum'
+      },
+      soldOut: 'Ausverkauft'
     }
   }
 };

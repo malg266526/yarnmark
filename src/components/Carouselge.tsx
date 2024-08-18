@@ -160,7 +160,7 @@ const IndicatorRoot = styled.div<IndicatorRootProps>`
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
-    transition: all 150ms ease-int-out;
+    transition: all 150ms ease-in-out;
   }
 
   ${({ active }) =>
@@ -237,7 +237,7 @@ const ItemRoot = styled.div<{ icon?: boolean }>`
   min-width: 200px;
   min-height: 200px;
   background: white;
-  box-shadow: 8px 8px 14px 0px rgba(66, 68, 90, 1);
+  box-shadow: 8px 8px 14px 0 rgba(66, 68, 90, 1);
   padding: ${Spacings.md};
   word-break: break-word;
   -webkit-backface-visibility: hidden;
@@ -258,7 +258,7 @@ const ItemRoot = styled.div<{ icon?: boolean }>`
         background-repeat: no-repeat;
         background-size: 100%;
         background-position: center;
-        transition: all 150ms ease-int-out;
+        transition: all 150ms ease-in-out;
       }
     `};
 `;
