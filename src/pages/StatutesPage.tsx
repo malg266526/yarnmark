@@ -8,7 +8,7 @@ import { BrownScale } from '../styles/theme';
 import sweatersBackgroundUrlAvif from './../assets/backgrounds/sweaters_background.avif';
 import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.jpg';
 import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
-import { StyledPageContent } from './info-for-vendors/InfoForVendorsPage.styled';
+import { StyledPageContent } from './for-vendors/InfoForVendorsPage.styled';
 import { BackgroundPicture } from '../components/BackgroundPicture';
 import { Menu } from './menu/Menu';
 import { Typography } from '../components/Typography';
