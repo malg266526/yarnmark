@@ -50,15 +50,15 @@ export const de: TranslationsShape = {
       taken: 'Reserved'
     },
     welcomeBand: {
-      invitation: 'Wir laden Sie herzlich  zur ersten Edition Wollmesse in Krakau ein!',
-      when: '27/04/2024r ab 10:00 - 18:00',
-      where: 'der Halle Hala 100-lecia KS Cracovia statt',
+      invitation: 'Wir laden Sie herzlich zur zweiten Ausgabe der Wollmesse inKrakau ein!',
+      when: 'Am 27.04.2024 von 10:00 bis 18:00 Uhr',
+      where: 'In Hala 100-lecia KS Cracovia',
       haveFun: 'Wir wünschen Ihnen eine erfolgreiche Jagd und viel Spaß!',
       seeYou: 'Auf Wiedersehen!'
     },
     navigationBand: {
-      anotherEdition: 'Die nächste Ausgabe der Wollmesse in Krakau steht vor uns!',
-      knittingSaturday: 'Verbringen Sie Ihren Stricksamstag bei uns in der Stadt Krakau!',
+      anotherEdition: 'Die nächste Ausgabe der Wollmesse in Krakau kommt!',
+      knittingSaturday: 'Verbringen Sie die StrickSammstag bei uns in Krakau!',
       linksBelow:
         'Unten findest du einige Links, die dir bei der Planung deiner Zeit in unserer schönen Stadt helfen werden:',
       checkTheVendors: 'Schau welche Aussteller du triffst'
