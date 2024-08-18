@@ -124,11 +124,11 @@ export const en: TranslationsShape = {
     infoForVendorsPage: {
       title: 'Information for vendors',
       invitation: 'We heartily invite you to participate in I edition of Cracow Wool Fair!',
-      organisationInfo: 'Below a bit of organisational information for you',
+      organisationInfo: 'Below a bit of organisational information for you.',
       hallInfo: {
         title: 'Hall',
         area: 'We have an area of ​​1142 m2 at our disposal.',
-        openHours: 'Hall entrance in order to prepare the stand will be available at 5.00 AM. Porters will be there.',
+        openHours: 'Hall entrance in order to prepare the stand will be available at 5.00 AM. Porter will be there.',
         ramp: 'From parking lot straight to the hall leads a ramp, without need to use stairs or elevators.',
         participants:
           'Entrance for fair participants will be on the side of Foch street, where they will enter the main hall efective descent from which whole exhibition hall will be visible.',

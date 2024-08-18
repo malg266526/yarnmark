@@ -11,6 +11,10 @@ export const PlainInfo = styled.div`
   min-height: 100px;
   text-align: justify;
 
+  font-family: 'Questrial', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
   @media (max-width: ${ScreenSize.tablet}) {
     max-width: 92%;
     width: 92%;

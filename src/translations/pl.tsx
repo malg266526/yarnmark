@@ -125,12 +125,11 @@ export const pl = {
     infoForVendorsPage: {
       title: 'Informacje dla wystawców',
       invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w I edycji Krakoskiego Yarnmarku Wełny!',
-      organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was',
+      organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was.',
       hallInfo: {
         title: 'Hala',
         area: 'Mamy do dyspozycji powierzchnię 1142m2.',
-        openHours:
-          'Wejście na halę w celu rozłożenia stoiska będzie możliwe od godz. 5:00. Na miejscu będą panowie portierzy.',
+        openHours: 'Wejście na halę w celu rozłożenia stoiska będzie możliwe od godz. 5:00. Na miejscu będzie portier.',
         ramp: 'Z parkingu prosto na halę prowadzi rampa, bez potrzeby korzystania ze schodów czy wind.',
         participants:
           'Wejście dla odwiedzających targi będzie znajdować się od ulicy Focha, gdzie do hali głównej udadzą się efektownym zejściem, z którego będzie widać całą halę wystawienniczą.',
