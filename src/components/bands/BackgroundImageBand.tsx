@@ -13,7 +13,6 @@ interface BackgroundBand {
   direction?: 'column' | 'row';
 }
 
-// TODO: direction, justify and align seems like too much; ideally we would like to do smthing else i guess <- from code review
 export const BackgroundImageBand = ({ id, children, picture, direction, ...styles }: BackgroundBand) => {
   return (
     <BandRootLayout id={id} direction={direction} {...styles}>

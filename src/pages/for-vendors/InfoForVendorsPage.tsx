@@ -1,51 +1,45 @@
 import React from 'react';
-import woolsAvifLandscape from '../../assets/images/wools2_landscape.avif';
-import woolsWebpLandscape from '../../assets/images/wools2_landscape.webp';
 import { SlantedCornersBox } from '../../components/SlantedCornersBox';
 import { BackgroundColors } from '../../styles/theme';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Trans } from 'react-i18next';
 import { Hall } from '../../components/Hall';
-import { HallWrapper, PlainInfo, Separator, StyledPageContent } from './InfoForVendorsPage.styled';
+import { HallWrapper, PlainInfo, Separator } from './InfoForVendorsPage.styled';
 import { usePhone } from '../../hooks/usePhone';
-import { BackgroundPicture } from '../../components/BackgroundPicture';
 import { Menu } from '../menu/Menu';
 import { Typography } from '../../components/Typography';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
-import { BackgroundImageBand } from '../../components/bands/BackgroundImageBand';
 import { BandTitle } from '../../components/bands/BandTitle';
 import { Band } from '../../components/bands/Band';
 import { SecondaryLink } from '../../components/Link';
+import { WoolPicture } from '../../components/WoolPicture';
+import { PageContent } from '../../components/PageContent';
+import styled from 'styled-components';
+
+const InvitationBoxWrapper = styled.div`
+  padding-left: 240px;
+`;
 
 export const InfoForVendorsPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
 
   return (
-    <StyledPageContent variant="wide" padding="none">
+    <PageContent variant="wide" padding="none">
       <Menu />
 
-      <BackgroundImageBand
-        id="infoForVendorsIntro"
-        size="lg"
-        justify="flex-end"
-        align="center"
-        padding="xl"
-        picture={
-          <BackgroundPicture>
-            <source srcSet={woolsAvifLandscape} type="image/avif" />
-            <img src={woolsWebpLandscape} alt="wool" />
-          </BackgroundPicture>
-        }>
-        <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
-          <FlexColumnLayout align="flex-start" padding="none" gap="sm">
-            <BandTitle>{t('infoForVendorsPage.title')}</BandTitle>
+      <Band.Wallpaper id="infoForVendorsIntro" picture={<WoolPicture />} size="lg" justify="flex-start">
+        <InvitationBoxWrapper>
+          <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
+            <FlexColumnLayout align="flex-start" padding="none" gap="sm">
+              <BandTitle>{t('infoForVendorsPage.title')}</BandTitle>
 
-            <Typography size="sm">{t('infoForVendorsPage.invitation')}</Typography>
-            <Typography size="sm">{t('infoForVendorsPage.organisationInfo')}</Typography>
-          </FlexColumnLayout>
-        </SlantedCornersBox>
-      </BackgroundImageBand>
+              <Typography size="sm">{t('infoForVendorsPage.invitation')}</Typography>
+              <Typography size="sm">{t('infoForVendorsPage.organisationInfo')}</Typography>
+            </FlexColumnLayout>
+          </SlantedCornersBox>
+        </InvitationBoxWrapper>
+      </Band.Wallpaper>
 
       <Band.NarrowColumn
         id="vendorsRegistration"
@@ -148,6 +142,6 @@ export const InfoForVendorsPage = () => {
           <Hall />
         </HallWrapper>
       </Band.NarrowColumn>
-    </StyledPageContent>
+    </PageContent>
   );
 };

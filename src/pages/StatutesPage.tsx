@@ -1,14 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
-import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import { SlantedCornersBox } from '../components/SlantedCornersBox';
 import { Spacings } from '../styles/spacings';
 import { BrownScale } from '../styles/theme';
 import sweatersBackgroundUrlAvif from './../assets/backgrounds/sweaters_background.avif';
 import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.jpg';
 import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
-import { StyledPageContent } from './for-vendors/InfoForVendorsPage.styled';
 import { BackgroundPicture } from '../components/BackgroundPicture';
 import { Menu } from './menu/Menu';
 import { Typography } from '../components/Typography';
@@ -16,6 +13,9 @@ import { CenteredParagraph } from '../components/CenteredParagraph';
 import { BackgroundImageBand } from '../components/bands/BackgroundImageBand';
 import { BandTitle } from '../components/bands/BandTitle';
 import { SolidBackgroundBand } from '../components/bands/SolidBackgroundBand';
+import { PageContent } from '../components/PageContent';
+import { WoolPicture } from '../components/WoolPicture';
+import { Band } from '../components/bands/Band';
 
 const Card = styled.div`
   display: flex;
@@ -34,35 +34,24 @@ const StatuteWrapper = styled.div`
   flex-direction: column;
 `;
 
+const InvitationBoxWrapper = styled.div`
+  padding-left: 240px;
+`;
+
 export const StatutesPage = () => {
   return (
-    <StyledPageContent variant="wide" padding="none">
+    <PageContent variant="wide" padding="none">
       <Menu />
 
-      <BackgroundImageBand
-        id="statutes_welcome_band"
-        size="lg"
-        justify="flex-end"
-        align="center"
-        padding="xl"
-        picture={
-          /*TODO: consider common component*/
-          <BackgroundPicture>
-            <source srcSet={woolsAvifLandscape} type="image/avif" />
-            <img src={woolsWebpLandscape} alt="wool" />
-          </BackgroundPicture>
-        }>
-        <BackgroundPicture>
-          <source srcSet={woolsAvifLandscape} type="image/avif" />
-          <img src={woolsWebpLandscape} alt="wool" />
-        </BackgroundPicture>
-
-        <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
-          <CenteredParagraph>
-            <BandTitle>Regulaminy</BandTitle>
-          </CenteredParagraph>
-        </SlantedCornersBox>
-      </BackgroundImageBand>
+      <Band.Wallpaper id="infoForVendorsIntro" picture={<WoolPicture />} size="lg" justify="flex-start">
+        <InvitationBoxWrapper>
+          <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
+            <CenteredParagraph>
+              <BandTitle>Regulaminy</BandTitle>
+            </CenteredParagraph>
+          </SlantedCornersBox>
+        </InvitationBoxWrapper>
+      </Band.Wallpaper>
 
       <SolidBackgroundBand id="yarnmark_statute" size="lg" justify="flex-start" padding="xl" color={BrownScale[100]}>
         <Card>
@@ -235,6 +224,6 @@ export const StatutesPage = () => {
           </StatuteWrapper>
         </Card>
       </BackgroundImageBand>
-    </StyledPageContent>
+    </PageContent>
   );
 };
