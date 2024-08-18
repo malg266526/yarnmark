@@ -62,7 +62,12 @@ export const WorkshopModal = ({ isOpen, toggle, workshop }: WorkshopModalProps) 
       isOpen={isOpen}
       contentLabel="WorkshopModal"
       shouldCloseOnOverlayClick={true}
-      onRequestClose={toggle}>
+      onRequestClose={toggle}
+      style={{
+        overlay: {
+          zIndex: 9999
+        }
+      }}>
       <ModalContent>
         <FlexColumnLayout padding="none" gap="lg" width="100%">
           <Beam>

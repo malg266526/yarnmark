@@ -43,7 +43,7 @@ export const MultiCarousel = ({ children }: MultiCarouselProps) => {
   const onMouseRelease = (event: any) => {
     console.log('onMouseRelease event.movementX', event.movementX);
     console.log('onMouseRelease event.nativeEventmovementX', event.nativeEvent.movementX);
-    console.log('onMouseRelease event.target', event.target);
+    console.log('onMouseRelease event.target', event);
 
     if (slidesRef.current) {
       const currentOffsetX = offsetX;
@@ -53,12 +53,19 @@ export const MultiCarousel = ({ children }: MultiCarouselProps) => {
     }
   };
 
+  const move = (event: any) => {
+    console.log('move event.movementX', event.movementX);
+    console.log('move event.nativeEventmovementX', event.nativeEvent.movementX);
+    console.log('move event.target', event);
+  };
+
   return (
     <Container id="carousel_container">
       <Slides
         ref={slidesRef}
         id="carousel_slides"
         onMouseUp={onMouseRelease}
+        onMouseMove={move}
         onMouseDown={(event) => event.preventDefault()}>
         {children}
       </Slides>
