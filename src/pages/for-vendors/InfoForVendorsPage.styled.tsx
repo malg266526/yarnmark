@@ -1,10 +1,7 @@
 import styled from 'styled-components';
-import { PageContent } from '../../components/PageContent';
 import { RedesignSpacings } from '../../styles/spacings';
 import { ScreenSize } from '../../styles/screeen-size';
 import { BackgroundColors, Colors } from '../../styles/theme';
-
-export const StyledPageContent = styled(PageContent)``;
 
 export const PlainInfo = styled.div`
   display: flex;
@@ -13,6 +10,10 @@ export const PlainInfo = styled.div`
   width: 100%;
   min-height: 100px;
   text-align: justify;
+
+  font-family: 'Questrial', sans-serif;
+  font-weight: 400;
+  font-style: normal;
 
   @media (max-width: ${ScreenSize.tablet}) {
     max-width: 92%;

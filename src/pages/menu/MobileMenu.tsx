@@ -181,12 +181,12 @@ export const MobileMenu = () => {
           to="/info-for-vendors"
           subLinks={[
             {
-              to: '/info-for-vendors#stands',
+              to: '/for-vendors#stands',
               name: t('menu.stands'),
               icon: <IconifyIcon icon="bi:shop" width="24" />
             },
             {
-              to: '/info-for-vendors#footer',
+              to: '/for-vendors#footer',
               name: t('menu.contact'),
               icon: <IconifyIcon icon="clarity:talk-bubbles-solid" width="24" />
             }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyledPageContent } from './info-for-vendors/InfoForVendorsPage.styled';
 import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
 import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import { Picture } from '../components/Picture';
@@ -15,6 +14,7 @@ import { Spacings } from '../styles/spacings';
 import { usePhone, useTablet } from '../hooks/usePhone';
 import { BackgroundPicture } from '../components/BackgroundPicture';
 import { BackgroundImageBand } from '../components/bands/BackgroundImageBand';
+import { PageContent } from '../components/PageContent';
 
 const MapWithLegend = styled.div`
   display: flex;
@@ -43,7 +43,7 @@ export const HallMapPage = () => {
   const legendSize = isPhone ? '200px' : isTablet ? '400px' : '500px';
 
   return (
-    <StyledPageContent variant="wide" padding="none">
+    <PageContent variant="wide" padding="none">
       <BackgroundImageBand
         id="hallMap"
         size="sm"
@@ -95,6 +95,6 @@ export const HallMapPage = () => {
           />
         </MapWithLegend>
       </BackgroundImageBand>
-    </StyledPageContent>
+    </PageContent>
   );
 };

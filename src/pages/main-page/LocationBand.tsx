@@ -32,7 +32,9 @@ const BusesSection = styled.div<{ isOpen?: boolean }>`
   overflow-y: scroll;
   text-align: justify;
   gap: ${RedesignSpacings.xs};
-  font-family: 'Roboto Thin', serif;
+  font-family: 'Questrial', sans-serif;
+  font-weight: 400;
+  font-style: normal;
   transition: all 1s ease;
 `;
 
