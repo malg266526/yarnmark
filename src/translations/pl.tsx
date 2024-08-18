@@ -143,7 +143,7 @@ export const pl = {
         socialRoom:
           'Wystawcy będą mieli do dyspozycji pomieszczenie socjalne, gdzie będzie można napić się kawy i herbaty oraz osobną toaletę.',
         glassWall:
-          'Ściana za stoiskami P2-P3 składa się z okien na całą wysokość hali, będzie nam wpadać stamtąd fantastyczne światło'
+          'Ściana za stoiskami P2-P3 składa się z okien na całą wysokość hali, będzie nam wpadać stamtąd fantastyczne światło.'
       },
       parking: {
         title: 'Parking',

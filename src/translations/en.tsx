@@ -142,7 +142,7 @@ export const en: TranslationsShape = {
         socialRoom:
           'Vendors will have at their disposal social room, where you can have a coffee or tea as well a separate toilet.',
         glassWall:
-          'Wall behind stands P2-P3 consists of windows of full hall height, the light coming through will be awesome'
+          'Wall behind stands P2-P3 consists of windows of full hall height, the light coming through will be awesome.'
       },
       parking: {
         title: 'Parking lot',
