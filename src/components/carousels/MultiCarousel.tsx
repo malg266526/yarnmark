@@ -72,27 +72,12 @@ const SlideMoveOffset = 320;
 
 export const MultiCarousel = ({ children }: MultiCarouselProps) => {
   const [offsetX, setOffsetX] = useState(0);
+  const [shouldTrack, setShouldTrack] = useState(false);
 
   const slidesRef = useRef<HTMLDivElement>(null);
 
-  const onMouseRelease = (event: any) => {
-    console.log('onMouseRelease event.movementX', event.movementX);
-    console.log('onMouseRelease event.nativeEventmovementX', event.nativeEvent.movementX);
-    console.log('onMouseRelease event.target', event);
-
-    if (slidesRef.current) {
-      const currentOffsetX = offsetX;
-
-      slidesRef.current.style.left = `${currentOffsetX}px`;
-      setOffsetX(currentOffsetX);
-    }
-  };
-
-  const move = (event: any) => {
-    console.log('move event.movementX', event.movementX);
-    console.log('move event.nativeEventmovementX', event.nativeEvent.movementX);
-    console.log('move event.target', event);
-  };
+  const turnOnMouseTracking = () => setShouldTrack(true);
+  const turnOffMouseTracking = () => setShouldTrack(false);
 
   const moveByOffset = (offset: number) => {
     const currentOffsetX = offsetX + offset;
@@ -102,6 +87,15 @@ export const MultiCarousel = ({ children }: MultiCarouselProps) => {
     }
 
     setOffsetX(currentOffsetX);
+  };
+
+  const move = (event: any) => {
+    if (shouldTrack) {
+      event.stopPropagation();
+
+      console.log('move event.movementX', event.movementX);
+      moveByOffset(event.movementX);
+    }
   };
 
   const goBack = () => {
@@ -123,9 +117,15 @@ export const MultiCarousel = ({ children }: MultiCarouselProps) => {
           <Slides
             ref={slidesRef}
             id="carousel_slides"
-            onMouseUp={onMouseRelease}
             onMouseMove={move}
-            onMouseDown={(event) => event.preventDefault()}>
+            onMouseUp={(event) => {
+              event.preventDefault();
+              turnOffMouseTracking();
+            }}
+            onMouseDown={(event) => {
+              event.preventDefault();
+              turnOnMouseTracking();
+            }}>
             {children}
           </Slides>
         </SlidesWrapper>
