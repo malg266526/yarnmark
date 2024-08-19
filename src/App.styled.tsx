@@ -51,7 +51,6 @@ export const Footer = styled.div`
   width: 100%;
   min-height: 300px;
   display: flex;
-  padding: ${Spacings.lg};
 
   align-items: center;
   overflow: hidden;
@@ -64,9 +63,9 @@ export const Footer = styled.div`
   }
 `;
 
-export const RightBackgroundImage = styled.img<{ src: string }>`
+export const LeftBackgroundImage = styled.img<{ src: string }>`
   position: absolute;
-  right: 0;
+  left: 0;
   top: 0;
   max-width: 100%;
   height: 100%;
@@ -83,4 +82,5 @@ export const TransparentText = styled.h2`
 
 export const VanillaLink = styled.a`
   color: ${TextColors.primary};
+  text-decoration: none;
 `;

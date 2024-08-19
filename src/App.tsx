@@ -1,13 +1,13 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
-import emailImageUrl from './assets/iconify/email.svg';
-import instagramImageUrl from './assets/iconify/instagram.svg';
+import emailIconUrl from './assets/figmaIcons/email_icon.svg';
+import instagramIconUrl from './assets/figmaIcons/instagram_icon.svg';
 import talkImageUrl from './assets/iconify/talk.svg';
 import { Icon } from './components/Icon';
 import { MinimalistLayout } from './components/MinimalistLayout';
 import { RowLayout } from './components/RowLayout';
-import { Root, Footer, RightBackgroundImage, TransparentText, VanillaLink } from './App.styled';
+import { Root, Footer, LeftBackgroundImage, TransparentText, VanillaLink } from './App.styled';
 import { InfoForVendorsPage } from './pages/for-vendors/InfoForVendorsPage';
 import { MainPage } from './pages/main-page/MainPage';
 import { useTypedTranslation } from './translations/useTypedTranslation';
@@ -71,32 +71,31 @@ export const App = () => {
         </Routes>
 
         <Footer id="footer">
+          <TransparentText>Dziewiarskie targi welny krakow 2024</TransparentText>
+
           <MinimalistLayout>
-            <Typography size="sm" weight="bold">
-              {t('contactPage.title')}
-            </Typography>
+            <Typography size="xxl">{t('contactPage.title')}</Typography>
 
             <RowLayout>
-              <Icon size="md" src={emailImageUrl} />
-              krakoski.yarnmark.welny@gmail.com
+              <Icon size="lg" src={emailIconUrl} />
+              <Typography size="md">krakoski.yarnmark.welny@gmail.com</Typography>
             </RowLayout>
 
             <VanillaLink href="https://www.instagram.com/dziergamynapolu/" target="_blank" rel="noreferrer">
               <RowLayout>
-                <Icon size="md" src={instagramImageUrl} />
-                @dziergamynapolu
+                <Icon size="lg" src={instagramIconUrl} />
+                <Typography size="md">@dziergamynapolu</Typography>
               </RowLayout>
             </VanillaLink>
 
             <VanillaLink href="https://www.instagram.com/wloczykijki_sklep/" target="_blank" rel="noreferrer">
               <RowLayout>
-                <Icon size="md" src={instagramImageUrl} />
-                @wloczykijki_sklep
+                <Icon size="lg" src={instagramIconUrl} />
+                <Typography size="md">@wloczykijki_sklep</Typography>
               </RowLayout>
             </VanillaLink>
 
-            <RightBackgroundImage src={talkImageUrl} alt="talk_icon" />
-            <TransparentText>Dziewiarskie targi welny krakow 2024</TransparentText>
+            <LeftBackgroundImage src={talkImageUrl} alt="talk_icon" />
           </MinimalistLayout>
         </Footer>
       </Root>

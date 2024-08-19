@@ -8,12 +8,10 @@ export const MinimalistLayout = styled.div`
   width: 100%;
 
   gap: ${Spacings.md};
-  padding: ${Spacings.md};
+  padding: ${Spacings.xl} 100px ${Spacings.lg} ${Spacings.lg};
 
-  align-self: flex-start;
-  align-items: flex-start;
-
-  margin-left: ${Spacings.lg};
+  align-self: flex-end;
+  align-items: flex-end;
 
   @media (max-width: ${ScreenSize.phone}) {
     margin-left: auto;
