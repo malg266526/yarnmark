@@ -24,6 +24,7 @@ import { Button } from '../../components/Button';
 import { Typography } from '../../components/Typography';
 import { Dots } from '../../components/Dots';
 import { LanguageSwitcher } from '../LanguageSwitcher';
+import contactIcon from '../../assets/figmaIcons/contact_icon.svg';
 
 const RootLayout = styled.div<{ isOpen?: boolean }>`
   display: flex;
@@ -173,6 +174,11 @@ export const DesktopMenu = () => {
         <MenuItem href="/statutes" isOpen={isOpen}>
           <Icon size="sm" zIndex={0} src={contractIcon} />
           {isOpen && <Typography size="sm">{t('menu.statutes')}</Typography>}
+        </MenuItem>
+
+        <MenuItem href="#footer" isOpen={isOpen}>
+          <Icon size="sm" zIndex={0} src={contactIcon} />
+          {isOpen && <Typography size="sm">{t('menu.contact')}</Typography>}
         </MenuItem>
       </Section>
 

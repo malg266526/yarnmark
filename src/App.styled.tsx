@@ -51,7 +51,7 @@ export const Footer = styled.div`
   width: 100%;
   min-height: 300px;
   display: flex;
-  padding: ${Spacings.lg};
+  flex-direction: column;
 
   align-items: center;
   overflow: hidden;
@@ -59,14 +59,14 @@ export const Footer = styled.div`
   background: ${Colors.snow};
   word-break: break-all;
 
-  @media (max-width: ${ScreenSize.tablet}) {
-    padding: ${Spacings.sm};
+  @media (max-width: ${ScreenSize.phone}) {
+    min-height: 200px;
   }
 `;
 
-export const RightBackgroundImage = styled.img<{ src: string }>`
+export const LeftBackgroundImage = styled.img<{ src: string }>`
   position: absolute;
-  right: 0;
+  left: 0;
   top: 0;
   max-width: 100%;
   height: 100%;
@@ -83,4 +83,5 @@ export const TransparentText = styled.h2`
 
 export const VanillaLink = styled.a`
   color: ${TextColors.primary};
+  text-decoration: none;
 `;
