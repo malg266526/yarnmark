@@ -51,6 +51,7 @@ export const Footer = styled.div`
   width: 100%;
   min-height: 300px;
   display: flex;
+  flex-direction: column;
 
   align-items: center;
   overflow: hidden;
@@ -58,8 +59,8 @@ export const Footer = styled.div`
   background: ${Colors.snow};
   word-break: break-all;
 
-  @media (max-width: ${ScreenSize.tablet}) {
-    padding: ${Spacings.sm};
+  @media (max-width: ${ScreenSize.phone}) {
+    min-height: 200px;
   }
 `;
 

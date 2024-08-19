@@ -17,6 +17,7 @@ import { FontToScreenSize } from './styles/font-to-screen-size';
 import { ScreenSize } from './styles/screeen-size';
 import { HallMapPage } from './pages/HallMapPage';
 import { Typography } from './components/Typography';
+import { usePhone } from './hooks/usePhone';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -56,6 +57,10 @@ const GlobalStyle = createGlobalStyle`
 
 export const App = () => {
   const t = useTypedTranslation();
+  const isPhone = usePhone();
+
+  const textSize = isPhone ? 'sm' : 'md';
+  const iconSize = isPhone ? 'md' : 'lg';
 
   return (
     <>
@@ -74,24 +79,24 @@ export const App = () => {
           <TransparentText>Dziewiarskie targi welny krakow 2024</TransparentText>
 
           <MinimalistLayout>
-            <Typography size="xxl">{t('contactPage.title')}</Typography>
+            <Typography size={isPhone ? 'xl' : 'xxl'}>{t('contactPage.title')}</Typography>
 
             <RowLayout>
-              <Icon size="lg" src={emailIconUrl} />
-              <Typography size="md">krakoski.yarnmark.welny@gmail.com</Typography>
+              <Icon size={iconSize} src={emailIconUrl} />
+              <Typography size={textSize}>krakoski.yarnmark.welny@gmail.com</Typography>
             </RowLayout>
 
             <VanillaLink href="https://www.instagram.com/dziergamynapolu/" target="_blank" rel="noreferrer">
               <RowLayout>
-                <Icon size="lg" src={instagramIconUrl} />
-                <Typography size="md">@dziergamynapolu</Typography>
+                <Icon size={iconSize} src={instagramIconUrl} />
+                <Typography size={textSize}>@dziergamynapolu</Typography>
               </RowLayout>
             </VanillaLink>
 
             <VanillaLink href="https://www.instagram.com/wloczykijki_sklep/" target="_blank" rel="noreferrer">
               <RowLayout>
-                <Icon size="lg" src={instagramIconUrl} />
-                <Typography size="md">@wloczykijki_sklep</Typography>
+                <Icon size={iconSize} src={instagramIconUrl} />
+                <Typography size={textSize}>@wloczykijki_sklep</Typography>
               </RowLayout>
             </VanillaLink>
 

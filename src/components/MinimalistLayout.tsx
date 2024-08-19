@@ -14,6 +14,6 @@ export const MinimalistLayout = styled.div`
   align-items: flex-end;
 
   @media (max-width: ${ScreenSize.phone}) {
-    margin-left: auto;
+    padding: ${Spacings.md};
   }
 `;
