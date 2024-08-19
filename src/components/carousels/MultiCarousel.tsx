@@ -5,6 +5,7 @@ import { ScreenSize } from '../../styles/screeen-size';
 import skeinIconSrc from '../../assets/images/indicator_skein_green.svg';
 import { Icon } from '../Icon';
 import dotsStrokeIcon from '../../assets/figmaIcons/dots_stroke_icon.svg';
+import { Button } from '../Button';
 
 const Root = styled.div`
   width: 100%;
@@ -45,6 +46,7 @@ const Slides = styled.div`
   position: absolute;
   top: 0;
   left: ${RedesignSpacings.xs};
+  transition: all 0.1s linear;
 
   @media (max-width: ${ScreenSize.phone}) {
     padding: ${RedesignSpacings.xs};
@@ -65,6 +67,8 @@ const Dots = styled.span`
 interface MultiCarouselProps {
   children: ReactNode;
 }
+
+const SlideMoveOffset = 320;
 
 export const MultiCarousel = ({ children }: MultiCarouselProps) => {
   const [offsetX, setOffsetX] = useState(0);
@@ -90,10 +94,30 @@ export const MultiCarousel = ({ children }: MultiCarouselProps) => {
     console.log('move event.target', event);
   };
 
+  const moveByOffset = (offset: number) => {
+    const currentOffsetX = offsetX + offset;
+
+    if (slidesRef.current) {
+      slidesRef.current.style.left = `${currentOffsetX}px`;
+    }
+
+    setOffsetX(currentOffsetX);
+  };
+
+  const goBack = () => {
+    moveByOffset(-SlideMoveOffset);
+  };
+
+  const goNext = () => {
+    moveByOffset(SlideMoveOffset);
+  };
+
   return (
     <Root id="carousel_container">
       <SlidesWithNavigation>
-        <Icon size="lg" src={skeinIconSrc} />
+        <Button onClick={goBack}>
+          <Icon size="lg" src={skeinIconSrc} />
+        </Button>
 
         <SlidesWrapper>
           <Slides
@@ -106,7 +130,9 @@ export const MultiCarousel = ({ children }: MultiCarouselProps) => {
           </Slides>
         </SlidesWrapper>
 
-        <NextIcon size="lg" src={skeinIconSrc} />
+        <Button onClick={goNext}>
+          <NextIcon size="lg" src={skeinIconSrc} />
+        </Button>
       </SlidesWithNavigation>
 
       <Dots />
