@@ -1,90 +1,99 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import styled, { css } from 'styled-components';
-import { ScreenSize } from '../styles/screeen-size';
-import { Spacings } from '../styles/spacings';
-import { BrownScale } from '../styles/theme';
+import styled from 'styled-components';
+import { RedesignSpacings } from '../styles/spacings';
+import polandIcon from '../assets/figmaIcons/poland_round_icon.svg';
+import greatBritainIcon from '../assets/figmaIcons/great_britain_round_icon.svg';
+import germanyIcon from '../assets/figmaIcons/german_round_icon.svg';
+import { Icon } from '../components/Icon';
+import { useToggle } from '../hooks/useToggle';
+import chevronDownIcon from '../assets/figmaIcons/chevron_down-icon.svg';
+import { Button } from '../components/Button';
+import { BackgroundColors } from '../styles/theme';
 
 const Root = styled.div`
-  display: inline-flex;
-  flex-direction: row;
-  gap: ${Spacings.xs};
+  display: flex;
+  flex-direction: column;
+  gap: ${RedesignSpacings.xs};
+`;
+
+const CurrentLanguageRow = styled.div<{ justify?: 'center' | 'space-between' }>`
+  display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 ${Spacings.md} 0 ${Spacings.md};
+  justify-content: ${({ justify }) => justify || 'space-between'};
+  cursor: pointer;
+  padding: ${RedesignSpacings.xxs};
+`;
 
-  @media (max-width: ${ScreenSize.phone}) {
-    padding: ${Spacings.sm};
+const ChevronIcon = styled(Icon)`
+  transition: all 0.2s linear;
+
+  &.active {
+    transform: rotate(180deg);
   }
 `;
 
-const Paragraph = styled.div`
-  margin-bottom: 0;
-
-  @media (max-width: ${ScreenSize.phone}) {
-    color: ${BrownScale[50]};
-  }
-`;
-
-const Button = styled.button<{ selected: boolean }>`
-  all: unset;
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  filter: grayscale(0.8);
-  opacity: 0.7;
-  transition: all 150ms ease-in-out;
-
-  ${({ selected }) =>
-    selected &&
-    css`
-      opacity: 1;
-      filter: none;
-    `}
-
-  /* polish flag has bad border around and below is the fix */
-  .remove-stroke-on-polish-flag {
-    path:last-of-type {
-      stroke-width: 0;
-    }
-  }
-`;
-
-const LanguageText = styled.p<{ isSelected: boolean }>`
-  font-weight: ${({ isSelected }) => (isSelected ? 700 : 400)};
-  font-size: 18px;
-  margin-bottom: 0;
-
-  @media (max-width: ${ScreenSize.phone}) {
-    color: ${BrownScale[50]};
-  }
+const Flags = styled.div<{ isOpen?: boolean }>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  max-height: ${({ isOpen }) => (isOpen ? '120px' : '0px')};
+  transition: all 0.2s ease-in;
+  overflow: hidden;
+  gap: ${RedesignSpacings.xxs};
+  background-color: ${BackgroundColors.ticketBand};
+  border-radius: 6px;
 `;
 
 export type LanguageOption = 'pl' | 'en' | 'de';
 
-export const LanguageSwitcher = styled((props: { className?: string }) => {
+const FlagsSrc: Record<string, string> = {
+  pl: polandIcon,
+  en: greatBritainIcon,
+  de: germanyIcon
+};
+
+interface LanguageSwitcherProps {
+  isOpen?: boolean;
+}
+
+export const LanguageSwitcher = ({ isOpen }: LanguageSwitcherProps) => {
   const [, i18n] = useTranslation('common');
 
   const { language, changeLanguage } = i18n;
 
+  const flagSrc: string = FlagsSrc[language];
+
+  const [isLanguageSwitchOpen, toggleLanguageSwitch, closeSwitch] = useToggle();
+
   const onChangeLanguageClicked = (language: LanguageOption) => {
     changeLanguage(language);
     localStorage.setItem('language', language);
+    closeSwitch();
   };
 
   return (
-    <Root {...props}>
-      <Button onClick={() => onChangeLanguageClicked('pl')} selected={language === 'pl'}>
-        <LanguageText isSelected={language === 'pl'}>PL</LanguageText>
-      </Button>
-      <Paragraph>|</Paragraph>
-      <Button onClick={() => onChangeLanguageClicked('en')} selected={language === 'en'}>
-        <LanguageText isSelected={language === 'en'}>EN</LanguageText>
-      </Button>
-      <Paragraph>|</Paragraph>
-      <Button onClick={() => onChangeLanguageClicked('de')} selected={language === 'de'}>
-        <LanguageText isSelected={language === 'de'}>DE</LanguageText>
-      </Button>
+    <Root>
+      <CurrentLanguageRow onClick={toggleLanguageSwitch} justify={isOpen ? 'space-between' : 'center'}>
+        <Icon size="sm" zIndex={0} src={flagSrc} />
+
+        {isOpen && (
+          <ChevronIcon size="18px" zIndex={0} src={chevronDownIcon} className={isLanguageSwitchOpen ? `active` : ''} />
+        )}
+      </CurrentLanguageRow>
+
+      <Flags isOpen={isLanguageSwitchOpen}>
+        <Button onClick={() => onChangeLanguageClicked('pl')}>
+          <Icon size="sm" src={polandIcon} />
+        </Button>
+        <Button onClick={() => onChangeLanguageClicked('en')}>
+          <Icon size="sm" src={greatBritainIcon} />
+        </Button>
+        <Button onClick={() => onChangeLanguageClicked('de')}>
+          <Icon size="sm" src={germanyIcon} />
+        </Button>
+      </Flags>
     </Root>
   );
-})``;
+};
