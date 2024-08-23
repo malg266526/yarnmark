@@ -5,6 +5,7 @@ import { ScreenSize } from '../../styles/screeen-size';
 import skeinIconSrc from '../../assets/images/indicator_skein_green.svg';
 import { Icon } from '../Icon';
 import dotsStrokeIcon from '../../assets/figmaIcons/dots_stroke_icon.svg';
+import { Button } from '../Button';
 
 const Root = styled.div`
   width: 100%;
@@ -45,6 +46,7 @@ const Slides = styled.div`
   position: absolute;
   top: 0;
   left: ${RedesignSpacings.xs};
+  transition: all 0.1s linear;
 
   @media (max-width: ${ScreenSize.phone}) {
     padding: ${RedesignSpacings.xs};
@@ -66,47 +68,47 @@ interface MultiCarouselProps {
   children: ReactNode;
 }
 
+const SlideMoveOffset = 320;
+
 export const MultiCarousel = ({ children }: MultiCarouselProps) => {
   const [offsetX, setOffsetX] = useState(0);
 
   const slidesRef = useRef<HTMLDivElement>(null);
 
-  const onMouseRelease = (event: any) => {
-    console.log('onMouseRelease event.movementX', event.movementX);
-    console.log('onMouseRelease event.nativeEventmovementX', event.nativeEvent.movementX);
-    console.log('onMouseRelease event.target', event);
+  const moveByOffset = (offset: number) => {
+    const currentOffsetX = offsetX + offset;
 
     if (slidesRef.current) {
-      const currentOffsetX = offsetX;
-
       slidesRef.current.style.left = `${currentOffsetX}px`;
-      setOffsetX(currentOffsetX);
     }
+
+    setOffsetX(currentOffsetX);
   };
 
-  const move = (event: any) => {
-    console.log('move event.movementX', event.movementX);
-    console.log('move event.nativeEventmovementX', event.nativeEvent.movementX);
-    console.log('move event.target', event);
+  const goBack = () => {
+    moveByOffset(-SlideMoveOffset);
+  };
+
+  const goNext = () => {
+    moveByOffset(SlideMoveOffset);
   };
 
   return (
     <Root id="carousel_container">
       <SlidesWithNavigation>
-        <Icon size="lg" src={skeinIconSrc} />
+        <Button onClick={goBack}>
+          <Icon size="lg" src={skeinIconSrc} />
+        </Button>
 
         <SlidesWrapper>
-          <Slides
-            ref={slidesRef}
-            id="carousel_slides"
-            onMouseUp={onMouseRelease}
-            onMouseMove={move}
-            onMouseDown={(event) => event.preventDefault()}>
+          <Slides ref={slidesRef} id="carousel_slides">
             {children}
           </Slides>
         </SlidesWrapper>
 
-        <NextIcon size="lg" src={skeinIconSrc} />
+        <Button onClick={goNext}>
+          <NextIcon size="lg" src={skeinIconSrc} />
+        </Button>
       </SlidesWithNavigation>
 
       <Dots />
