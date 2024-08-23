@@ -72,12 +72,8 @@ const SlideMoveOffset = 320;
 
 export const MultiCarousel = ({ children }: MultiCarouselProps) => {
   const [offsetX, setOffsetX] = useState(0);
-  const [shouldTrack, setShouldTrack] = useState(false);
 
   const slidesRef = useRef<HTMLDivElement>(null);
-
-  const turnOnMouseTracking = () => setShouldTrack(true);
-  const turnOffMouseTracking = () => setShouldTrack(false);
 
   const moveByOffset = (offset: number) => {
     const currentOffsetX = offsetX + offset;
@@ -87,15 +83,6 @@ export const MultiCarousel = ({ children }: MultiCarouselProps) => {
     }
 
     setOffsetX(currentOffsetX);
-  };
-
-  const move = (event: any) => {
-    if (shouldTrack) {
-      event.stopPropagation();
-
-      console.log('move event.movementX', event.movementX);
-      moveByOffset(event.movementX);
-    }
   };
 
   const goBack = () => {
@@ -114,18 +101,7 @@ export const MultiCarousel = ({ children }: MultiCarouselProps) => {
         </Button>
 
         <SlidesWrapper>
-          <Slides
-            ref={slidesRef}
-            id="carousel_slides"
-            onMouseMove={move}
-            onMouseUp={(event) => {
-              event.preventDefault();
-              turnOffMouseTracking();
-            }}
-            onMouseDown={(event) => {
-              event.preventDefault();
-              turnOnMouseTracking();
-            }}>
+          <Slides ref={slidesRef} id="carousel_slides">
             {children}
           </Slides>
         </SlidesWrapper>
