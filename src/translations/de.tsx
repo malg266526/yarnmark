@@ -197,12 +197,13 @@ export const de: TranslationsShape = {
           'You can drink a coffee or a lemonade here and eat a snacks such as fries. If the weather is good, there will be an open terrace with deckchairs next to the café.'
       }
     },
+    goBack: 'Zurück',
     workshops: {
       title: 'Workshop`s',
       tutor: 'Tutor: ',
-      buyTicket: 'Buy a ticket',
+      buyTicket: 'ein Ticket kaufen',
       freeAdmission: 'Free admission',
-      price: 'Price',
+      price: 'Preis',
       woolanka: {
         title: 'Decorative knitting',
         description:

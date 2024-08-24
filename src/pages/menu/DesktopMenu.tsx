@@ -31,6 +31,7 @@ const RootLayout = styled.div<{ isOpen?: boolean }>`
   flex-direction: column;
   width: ${({ isOpen }) => (isOpen ? '240px' : '80px')};
   position: fixed;
+  height: 100%;
   z-index: 10;
   left: 0;
   border-radius: 0 12px 12px 0;
@@ -38,6 +39,7 @@ const RootLayout = styled.div<{ isOpen?: boolean }>`
   gap: ${RedesignSpacings.lg};
   padding: ${RedesignSpacings.xs} ${RedesignSpacings.xxs} ${RedesignSpacings.xxxl} ${RedesignSpacings.xxs};
   transition: all 0.1s linear;
+  overflow: auto;
 `;
 
 const Section = styled.div<{ isOpen?: boolean }>`
@@ -53,6 +55,7 @@ const Section = styled.div<{ isOpen?: boolean }>`
 
 const LanguageSection = styled(Section)`
   border: none;
+  padding: 0 ${RedesignSpacings.xs};
 `;
 
 const MenuItem = styled.a<{ isOpen?: boolean }>`

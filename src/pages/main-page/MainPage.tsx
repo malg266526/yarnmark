@@ -2,7 +2,7 @@ import React, { useCallback, useRef } from 'react';
 import { InvitationCardWrapper, StyledPageContent } from './MainPage.styled';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import { NavigationBand } from './NavigationBand';
-import { WorkshopsBand } from './workshops/WorkshopsBand';
+import { WorkshopsDesktopBand } from './workshops/WorkshopsDesktopBand';
 import { FoodBand } from './FoodBand';
 import { CruiseBand } from './CruiseBand';
 import { Menu } from '../menu/Menu';
@@ -84,7 +84,7 @@ export const MainPage = () => {
           <Band.CenteredColumn id="vendors" size="md" padding="xxxl" color={BackgroundColors.gradient} justify="center">
             <VendorsList />
           </Band.CenteredColumn>
-          <WorkshopsBand id="workshops" />
+          <WorkshopsDesktopBand id="workshops" />
 
           <CruiseBand id="cruise" />
 
