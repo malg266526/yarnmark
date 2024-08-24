@@ -25,7 +25,7 @@ export const BackgroundPicture = styled.picture<{
     height: 100%;
     max-height: 100%;
     object-position: center;
-    object-fit: ${({ objectFit }) => objectFit || 'fill'};
+    object-fit: ${({ objectFit }) => objectFit || 'cover'};
   }
 
   ${({ filter }) =>

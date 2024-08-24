@@ -215,7 +215,7 @@ export const VendorsList = () => {
 
       <LogoLink to="https://www.instagram.com/ani_sploty/" target="_blank" rel="noreferrer">
         <Picture
-          width={78}
+          width={75}
           height={100}
           alt="anisploty_logo"
           picture={{
@@ -359,7 +359,7 @@ export const VendorsList = () => {
       <LogoLink to="https://frra.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
-          height={43}
+          height={47}
           alt="furora_yarns_logo"
           picture={{
             fallbackUrl: furoraLogoUrl,
@@ -442,7 +442,7 @@ export const VendorsList = () => {
 
       <LogoLink to="https://knitpl.com/" target="_blank" rel="noreferrer">
         <Picture
-          width={100}
+          width={102}
           height={100}
           alt="knitpl"
           picture={{
@@ -468,7 +468,7 @@ export const VendorsList = () => {
       <LogoLink to="https://liloppi.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
-          height={56}
+          height={59}
           alt="liloppi_logo"
           picture={{
             fallbackUrl: liloppiLogoUrl,
@@ -573,7 +573,7 @@ export const VendorsList = () => {
       <LogoLink to="https://www.martinslab.com/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
-          height={46}
+          height={50}
           alt="martinslab_logo"
           picture={{
             fallbackUrl: martinslabLogoUrl,
@@ -636,7 +636,7 @@ export const VendorsList = () => {
       <LogoLink to="https://motkomania.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
-          height={42}
+          height={43}
           alt="motkomania"
           picture={{
             fallbackUrl: motkomaniaLogoUrl,
@@ -655,7 +655,7 @@ export const VendorsList = () => {
       </LogoLink>
 
       <LogoLink to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
-        <img width={80} height={100} src={naSztukiStudioLogoUrl} alt="nasztukistudio_logo" />
+        <img width={78} height={100} src={naSztukiStudioLogoUrl} alt="nasztukistudio_logo" />
       </LogoLink>
 
       <LogoLink to="https://www.facebook.com/paciorkowceiwisielce/" target="_blank" rel="noreferrer">
@@ -782,7 +782,7 @@ export const VendorsList = () => {
       <LogoLink to="https://wloczykijki.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={130}
-          height={42}
+          height={45}
           alt="wloczykijki_logo"
           picture={{
             fallbackUrl: wloczykijkiLogoUrl,
@@ -803,7 +803,7 @@ export const VendorsList = () => {
       <LogoLink to="https://www.woollala.com" target="_blank" rel="noreferrer">
         <Picture
           width={100}
-          height={74}
+          height={71}
           alt="woollala"
           picture={{
             fallbackUrl: woollalaLogoUrl,

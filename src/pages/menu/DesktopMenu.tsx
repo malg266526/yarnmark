@@ -108,31 +108,35 @@ export const DesktopMenu = () => {
           {isOpen ? (
             <>
               <Picture picture={yarnmarkLogoPictureConfig} alt="yarnmark_logo" width={40} height={50} />
-              <SwitchButton onClick={toggle}>
+              <SwitchButton onClick={toggle} aria-label="expand_menu">
                 <Icon size="sm" zIndex={0} src={closeDrawerIcon} />
               </SwitchButton>
             </>
           ) : (
-            <SwitchButton onClick={toggle}>
+            <SwitchButton onClick={toggle} aria-label="collapse_menu">
               <Icon size="sm" zIndex={0} src={openDrawerIcon} />
             </SwitchButton>
           )}
         </SwitchRow>
 
-        <MenuItem href="/home" isOpen={isOpen}>
+        <MenuItem href="/home" isOpen={isOpen} aria-label="home_menu_item">
           <Icon size="sm" zIndex={0} src={homeIcon} />
           {isOpen && <Typography size="sm"> {t('menu.home')}</Typography>}
         </MenuItem>
       </Section>
 
       <Section isOpen={isOpen}>
-        <MenuItem href="/home#mainInfoButtons" isOpen={isOpen}>
+        <MenuItem href="/home#mainInfoButtons" isOpen={isOpen} aria-label="main_information_menu_item">
           <Icon size="sm" zIndex={0} src={infoIcon} />
           {isOpen && <Typography size="sm"> {t('menu.whatAndWhere')}</Typography>}
         </MenuItem>
 
         <TicketsSection>
-          <MenuItem href="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832" target="_blank" isOpen={isOpen}>
+          <MenuItem
+            href="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832"
+            target="_blank"
+            isOpen={isOpen}
+            aria-label="yarnmark_ticket_menu_item">
             <Icon size="sm" zIndex={0} src={ticketIcon} />
             {isOpen && <Typography size="sm">{t('menu.entranceTicket')}</Typography>}
           </MenuItem>
@@ -140,50 +144,55 @@ export const DesktopMenu = () => {
           <MenuItem
             href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358"
             target="_blank"
-            isOpen={isOpen}>
+            isOpen={isOpen}
+            aria-label="workshops_tickets_menu_item">
             <Icon size="sm" zIndex={0} src={ticketMediumIcon} />
             {isOpen && <Typography size="sm">{t('menu.workshopTickets')}</Typography>}
           </MenuItem>
 
-          <MenuItem href="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833" target="_blank" isOpen={isOpen}>
+          <MenuItem
+            href="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833"
+            target="_blank"
+            isOpen={isOpen}
+            aria-label="cruise_tickets_menu_item">
             <Icon size="sm" zIndex={0} src={ticketLightIcon} />
             {isOpen && <Typography size="sm">{t('menu.cruiseTickets')}</Typography>}
           </MenuItem>
         </TicketsSection>
 
-        <MenuItem href="/home#workshops" isOpen={isOpen}>
+        <MenuItem href="/home#workshops" isOpen={isOpen} aria-label="workshops_menu_item">
           <Icon size="sm" zIndex={0} src={workshopIcons} />
           {isOpen && <Typography size="sm">{t('menu.workshops')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="/home#vendors" isOpen={isOpen}>
+        <MenuItem href="/home#vendors" isOpen={isOpen} aria-label="vendors_menu_item">
           <Icon size="sm" zIndex={0} src={shopIcon} />
           {isOpen && <Typography size="sm">{t('menu.vendors')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="/home#lastEdition" isOpen={isOpen}>
+        <MenuItem href="/home#lastEdition" isOpen={isOpen} aria-label="last_edition_menu_item">
           <Icon size="sm" zIndex={0} src={paintingIcon} />
           {isOpen && <Typography size="sm">{t('menu.memories')}</Typography>}
         </MenuItem>
       </Section>
 
       <Section isOpen={isOpen}>
-        <MenuItem href="/hall" isOpen={isOpen}>
+        <MenuItem href="/hall" isOpen={isOpen} aria-label="hall_map_menu_item">
           <Icon size="sm" zIndex={0} src={pinEllipseIcon} />
           {isOpen && <Typography size="sm">{t('menu.hallMap')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="/info-for-vendors#stands" isOpen={isOpen}>
+        <MenuItem href="/info-for-vendors#stands" isOpen={isOpen} aria-label="stands_map_menu_item">
           <Icon size="sm" zIndex={0} src={handshakeIcon} />
           {isOpen && <Typography size="sm">{t('menu.infoForVendors')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="/statutes" isOpen={isOpen}>
+        <MenuItem href="/statutes" isOpen={isOpen} aria-label="statutes_menu_item">
           <Icon size="sm" zIndex={0} src={contractIcon} />
           {isOpen && <Typography size="sm">{t('menu.statutes')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="#footer" isOpen={isOpen}>
+        <MenuItem href="#footer" isOpen={isOpen} aria-label="contact_menu_item">
           <Icon size="sm" zIndex={0} src={contactIcon} />
           {isOpen && <Typography size="sm">{t('menu.contact')}</Typography>}
         </MenuItem>

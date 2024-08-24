@@ -4,6 +4,7 @@ import { useTypedTranslation } from '../translations/useTypedTranslation';
 import { FlexColumnLayout } from './FlexColumnLayout';
 import { FontSize } from '../styles/font-size';
 import { Typography } from './Typography';
+import { usePhone } from '../hooks/usePhone';
 
 export const TextH2 = styled.h2`
   font-size: ${FontSize.lg};
@@ -12,11 +13,13 @@ export const TextH2 = styled.h2`
 `;
 
 export const CruiseMap = () => {
+  const isPhone = usePhone();
   const t = useTypedTranslation();
+  const sectionTitleSize = isPhone ? 'lg' : 'xl';
 
   return (
     <FlexColumnLayout gap="sm" padding="none" align="flex-start">
-      <Typography size="xl" weight="bold">
+      <Typography size={sectionTitleSize} weight="bold">
         {t('cashmereTicketsBand.map.startAndStop')}
       </Typography>
 

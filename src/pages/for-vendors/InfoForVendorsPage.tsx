@@ -15,9 +15,14 @@ import { SecondaryLink } from '../../components/Link';
 import { WoolPicture } from '../../components/WoolPicture';
 import { PageContent } from '../../components/PageContent';
 import styled from 'styled-components';
+import { ScreenSize } from '../../styles/screeen-size';
 
 const InvitationBoxWrapper = styled.div`
   padding-left: 240px;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    padding: 0;
+  }
 `;
 
 export const InfoForVendorsPage = () => {

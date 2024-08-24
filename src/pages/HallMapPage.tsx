@@ -1,6 +1,4 @@
 import React from 'react';
-import woolsAvifLandscape from '../assets/images/wools2_landscape.avif';
-import woolsWebpLandscape from '../assets/images/wools2_landscape.webp';
 import { Picture } from '../components/Picture';
 import hallMapImageUrlAvif from '../assets/images/Mapka_targi.avif';
 import hallMapImageUrlJpg from '../assets/images/Mapka_targi.jfif';
@@ -10,19 +8,34 @@ import legendImageUrlJpg from '../assets/images/Legenda.jfif';
 import legendImageUrlWebp from '../assets/images/legenda.webp';
 import styled from 'styled-components';
 import { ScreenSize } from '../styles/screeen-size';
-import { Spacings } from '../styles/spacings';
+import { RedesignSpacings } from '../styles/spacings';
 import { usePhone, useTablet } from '../hooks/usePhone';
-import { BackgroundPicture } from '../components/BackgroundPicture';
-import { BackgroundImageBand } from '../components/bands/BackgroundImageBand';
 import { PageContent } from '../components/PageContent';
+import { Menu } from './menu/Menu';
+import { Band } from '../components/bands/Band';
+import { WoolPicture } from '../components/WoolPicture';
+import { SlantedCornersBox } from '../components/SlantedCornersBox';
+import { CenteredSection } from '../components/CenteredSection';
+import { BandTitle } from '../components/bands/BandTitle';
+import { useTypedTranslation } from '../translations/useTypedTranslation';
+import { BackgroundColors } from '../styles/theme';
+
+const InvitationBoxWrapper = styled.div`
+  padding-left: 240px;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    padding: 0;
+  }
+`;
 
 const MapWithLegend = styled.div`
   display: flex;
   width: 100%;
   flex-direction: row;
   justify-content: center;
-  padding: ${Spacings.md};
+  padding: ${RedesignSpacings.sm};
   background-color: white;
+  z-index: 1;
 
   @media (max-width: ${ScreenSize.smallPc}) {
     flex-direction: column;
@@ -33,28 +46,39 @@ const MapWithLegend = styled.div`
   @media (max-width: ${ScreenSize.smallPc}) {
     align-items: flex-start;
   }
+
+  @media (max-width: ${ScreenSize.phone}) {
+    padding: 0;
+  }
 `;
 
 export const HallMapPage = () => {
   const isTablet = useTablet();
   const isPhone = usePhone();
+  const t = useTypedTranslation();
 
   const mapSize = isPhone ? '360px' : isTablet ? '500px' : '700px';
-  const legendSize = isPhone ? '200px' : isTablet ? '400px' : '500px';
+  const legendSize = isPhone ? '200px' : '400px';
 
   return (
     <PageContent variant="wide" padding="none">
-      <BackgroundImageBand
+      <Menu />
+
+      <Band.Wallpaper id="infoForVendorsIntro" picture={<WoolPicture />} size="md" justify="flex-start">
+        <InvitationBoxWrapper>
+          <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
+            <CenteredSection>
+              <BandTitle>{t('hallMap.title')}</BandTitle>
+            </CenteredSection>
+          </SlantedCornersBox>
+        </InvitationBoxWrapper>
+      </Band.Wallpaper>
+
+      <Band.CenteredColumn
         id="hallMap"
         size="sm"
-        justify="center"
-        padding="xxl"
-        picture={
-          <BackgroundPicture>
-            <source srcSet={woolsAvifLandscape} type="image/avif" />
-            <img src={woolsWebpLandscape} alt="wool" />
-          </BackgroundPicture>
-        }>
+        color={BackgroundColors.navigationBand}
+        padding={isPhone ? 'sm' : 'lg'}>
         <MapWithLegend>
           <Picture
             picture={{
@@ -94,7 +118,7 @@ export const HallMapPage = () => {
             style={{ alignSelf: 'center' }}
           />
         </MapWithLegend>
-      </BackgroundImageBand>
+      </Band.CenteredColumn>
     </PageContent>
   );
 };

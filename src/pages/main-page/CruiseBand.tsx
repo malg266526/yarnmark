@@ -21,6 +21,7 @@ import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Typography } from '../../components/Typography';
 import { BackgroundPicture } from '../../components/BackgroundPicture';
 import { Band } from '../../components/bands/Band';
+import { usePhone } from '../../hooks/usePhone';
 
 type CruiseBandType = {
   id: string;
@@ -34,12 +35,15 @@ const ShipPicture = (
 );
 
 export const CruiseBand = ({ id }: CruiseBandType) => {
+  const isPhone = usePhone();
   const t = useTypedTranslation();
 
   const [selectedIndex, setSelectedIndex] = useState(0);
 
+  const sectionTitleSize = isPhone ? 'lg' : 'xl';
+
   return (
-    <Band.Wallpaper id={id} size="lg" justify="flex-end" picture={ShipPicture}>
+    <Band.Wallpaper id={id} size="lg" justify="flex-end" picture={ShipPicture} padding={isPhone ? 'sm' : 'xl'}>
       <Carouselge
         height="600px"
         selectedIndex={selectedIndex}
@@ -54,7 +58,7 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
           </Carouselge.ItemBackground>
 
           <FlexColumnLayout gap="sm" padding="none" align="flex-start">
-            <Typography size="xl" weight="bold">
+            <Typography size={sectionTitleSize} weight="bold">
               {t('cashmereTicketsBand.beautifulCruise')}
             </Typography>
 
@@ -73,7 +77,7 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
           </Carouselge.ItemBackground>
 
           <FlexColumnLayout gap="sm" padding="none" align="flex-start">
-            <Typography size="xl" weight="bold">
+            <Typography size={sectionTitleSize} weight="bold">
               {t('cashmereTicketsBand.prosecco.title')}
             </Typography>
 
@@ -92,7 +96,7 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
           </Carouselge.ItemBackground>
 
           <FlexColumnLayout gap="sm" padding="none" align="flex-start">
-            <Typography size="xl" weight="bold">
+            <Typography size={sectionTitleSize} weight="bold">
               {t('cashmereTicketsBand.tickets')}
             </Typography>
 
@@ -103,7 +107,7 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
             </LinkWrapper>
 
             <FlexColumnLayout gap="sm" padding="none" align="flex-start">
-              <Typography size="xl" weight="bold">
+              <Typography size={sectionTitleSize} weight="bold">
                 {t('cashmereTicketsBand.map.price')}:
               </Typography>
               <Typography size="sm">130 zł </Typography>
