@@ -21,8 +21,8 @@ export const en: TranslationsShape = {
       hallMap: 'Mapa hali'
     },
     tickets: {
-      buyTicketsAndWorkshops: '<0>Kup</0> bilet na targi lub wybierz opcję z warsztatami',
-      cruiseTicketHere: 'Bilet na dziergostatek znajdziesz <0>tu</0>',
+      buyTicketsAndWorkshops: '<0>Buy</0> ticket to the fair or choose the workshops option',
+      cruiseTicketHere: 'You can find a ticket for the Knitting-ship <0>here</0>',
       buyTicket: 'Buy a ticket',
       clickHere: 'Kliknij tu',
       at: 'at',
@@ -38,7 +38,7 @@ export const en: TranslationsShape = {
       proofOfPurchase: 'You will show this proof of purchase when entering Yarnmark ;)'
     },
     location: {
-      findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>',
+      findUsOnMaps: 'Find Us on <0>Google Maps</0>',
       whereToFindUs: 'Where to find us?'
     },
     whereToEat: 'Where to eat?',
@@ -60,7 +60,8 @@ export const en: TranslationsShape = {
       anotherEdition: 'The next edition of the Wool Fair in Cracow is ahead of us!',
       knittingSaturday: 'Come spend your knitting Saturday with us in the city of Krakow!',
       linksBelow: 'Below you will find few links that will help you plan your time in our beautiful city:',
-      checkTheVendors: 'Check which vendors you will meet'
+      checkTheVendors: 'Check which vendors you will meet',
+      when: '27/04/2024r at 10:00 AM'
     },
     previousEdition: {
       thankYou: 'Thank you for your presence at Yarnmark 2024!',

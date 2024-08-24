@@ -21,8 +21,8 @@ export const de: TranslationsShape = {
       hallMap: 'Mapa hali'
     },
     tickets: {
-      buyTicketsAndWorkshops: '<0>Kup</0> bilet na targi lub wybierz opcję z warsztatami',
-      cruiseTicketHere: 'Bilet na dziergostatek znajdziesz <0>tu</0>',
+      buyTicketsAndWorkshops: '<0>Kaufen Sie</0> ein Ticket für die Messe oder wählen Sie die Workshop-Option',
+      cruiseTicketHere: 'Ein Ticket für das Strickschiff finden Sie <0>hier</0>',
       buyTicket: 'ein Ticket kaufen',
       clickHere: 'Click here',
       at: 'at',
@@ -38,7 +38,7 @@ export const de: TranslationsShape = {
       proofOfPurchase: 'You will show this proof of purchase when entering Yarnmark ;)'
     },
     location: {
-      findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>',
+      findUsOnMaps: 'Finden Sie uns auf <0>Google Maps</0>',
       whereToFindUs: 'Wo finden Sie uns?'
     },
     whereToEat: 'Wo man essen kann?',
@@ -61,7 +61,8 @@ export const de: TranslationsShape = {
       knittingSaturday: 'Verbringen Sie die StrickSammstag bei uns in Krakau!',
       linksBelow:
         'Unten findest du einige Links, die dir bei der Planung deiner Zeit in unserer schönen Stadt helfen werden:',
-      checkTheVendors: 'Schau welche Aussteller du triffst'
+      checkTheVendors: 'Schau welche Aussteller du triffst',
+      when: 'Am 27.04.2024 um 10:00 Uhr'
     },
     previousEdition: {
       thankYou: 'Thank you for your presence at Yarnmark 2024!',
