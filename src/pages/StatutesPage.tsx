@@ -17,6 +17,7 @@ import { PageContent } from '../components/PageContent';
 import { WoolPicture } from '../components/WoolPicture';
 import { Band } from '../components/bands/Band';
 import { ScreenSize } from '../styles/screeen-size';
+import { useTypedTranslation } from '../translations/useTypedTranslation';
 
 const Card = styled.div`
   display: flex;
@@ -44,6 +45,8 @@ const InvitationBoxWrapper = styled.div`
 `;
 
 export const StatutesPage = () => {
+  const t = useTypedTranslation();
+
   return (
     <PageContent variant="wide" padding="none">
       <Menu />
@@ -52,7 +55,7 @@ export const StatutesPage = () => {
         <InvitationBoxWrapper>
           <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
             <CenteredSection>
-              <BandTitle>Regulaminy</BandTitle>
+              <BandTitle>{t('menu.statutes')}</BandTitle>
             </CenteredSection>
           </SlantedCornersBox>
         </InvitationBoxWrapper>
