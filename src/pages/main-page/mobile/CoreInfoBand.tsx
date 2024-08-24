@@ -34,7 +34,7 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
       <InfoColumn align="center" padding="none" gap="lg">
         <FlexColumnLayout gap="xs" padding="none">
           <Icon size="lg" zIndex={0} src={calendarIconUrl} />
-          <Typography size="sm">27/04/2024r. o godz. 10:00</Typography>
+          <Typography size="sm">{t('navigationBand.when')}</Typography>
         </FlexColumnLayout>
 
         <FlexColumnLayout gap="xs" padding="none">

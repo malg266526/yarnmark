@@ -59,7 +59,8 @@ export const pl = {
       anotherEdition: 'Przed nami kolejna edycja targów pod Wawelem!',
       knittingSaturday: 'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka!',
       linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
-      checkTheVendors: 'Sprawdź z jakimi wystawcami się spotkasz.'
+      checkTheVendors: 'Sprawdź z jakimi wystawcami się spotkasz.',
+      when: '27/04/2024r. o godz. 10:00'
     },
     previousEdition: {
       thankYou: 'Dziękujemy za Waszą obecność na Yarnmarku 2024!',

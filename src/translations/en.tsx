@@ -60,7 +60,8 @@ export const en: TranslationsShape = {
       anotherEdition: 'The next edition of the Wool Fair in Cracow is ahead of us!',
       knittingSaturday: 'Come spend your knitting Saturday with us in the city of Krakow!',
       linksBelow: 'Below you will find few links that will help you plan your time in our beautiful city:',
-      checkTheVendors: 'Check which vendors you will meet'
+      checkTheVendors: 'Check which vendors you will meet',
+      when: '27/04/2024r at 10:00 AM'
     },
     previousEdition: {
       thankYou: 'Thank you for your presence at Yarnmark 2024!',

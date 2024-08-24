@@ -61,7 +61,8 @@ export const de: TranslationsShape = {
       knittingSaturday: 'Verbringen Sie die StrickSammstag bei uns in Krakau!',
       linksBelow:
         'Unten findest du einige Links, die dir bei der Planung deiner Zeit in unserer schönen Stadt helfen werden:',
-      checkTheVendors: 'Schau welche Aussteller du triffst'
+      checkTheVendors: 'Schau welche Aussteller du triffst',
+      when: 'Am 27.04.2024 um 10:00 Uhr'
     },
     previousEdition: {
       thankYou: 'Thank you for your presence at Yarnmark 2024!',
