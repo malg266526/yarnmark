@@ -110,13 +110,13 @@ export const LanguageSwitcher = ({ isOpen }: LanguageSwitcherProps) => {
       </CurrentLanguageRow>
 
       <Flags isOpen={isLanguageSwitchOpen}>
-        <Button onClick={() => onChangeLanguageClicked('pl')}>
+        <Button onClick={() => onChangeLanguageClicked('pl')} aria-label="change_language_to_pl">
           <Icon size={flagIconSize} src={polandIcon} />
         </Button>
-        <Button onClick={() => onChangeLanguageClicked('en')}>
+        <Button onClick={() => onChangeLanguageClicked('en')} aria-label="change_language_to_en">
           <Icon size={flagIconSize} src={greatBritainIcon} />
         </Button>
-        <Button onClick={() => onChangeLanguageClicked('de')}>
+        <Button onClick={() => onChangeLanguageClicked('de')} aria-label="change_language_to_de">
           <Icon size={flagIconSize} src={germanyIcon} />
         </Button>
       </Flags>
