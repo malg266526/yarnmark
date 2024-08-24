@@ -53,6 +53,7 @@ const Section = styled.div<{ isOpen?: boolean }>`
 
 const LanguageSection = styled(Section)`
   border: none;
+  padding: 0 ${RedesignSpacings.xs};
 `;
 
 const MenuItem = styled.a<{ isOpen?: boolean }>`
