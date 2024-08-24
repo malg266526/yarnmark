@@ -13,6 +13,7 @@ interface WallpaperBand {
   size?: BandSize;
   justify?: Justify;
   direction?: 'column' | 'row';
+  padding?: keyof typeof RedesignSpacings;
 }
 
 const WallPaperBand = (props: WallpaperBand) => <BackgroundImageBand padding="xl" align="center" {...props} />;
