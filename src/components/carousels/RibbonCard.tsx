@@ -28,6 +28,8 @@ const CardLayout = styled.div`
   position: relative;
   box-shadow: ${DropShadow.sm};
 
+  cursor: pointer;
+
   @media (max-width: ${ScreenSize.phone}) {
     width: 280px;
     min-width: 280px;

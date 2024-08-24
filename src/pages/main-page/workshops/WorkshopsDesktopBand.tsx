@@ -36,7 +36,7 @@ const StrongCtaButton = styled(CtaButton)`
   margin-bottom: ${RedesignSpacings.xxl};
 `;
 
-export const WorkshopsBand = ({ id }: WorkshopsBandType) => {
+export const WorkshopsDesktopBand = ({ id }: WorkshopsBandType) => {
   const t = useTypedTranslation();
 
   const [isModalOpen, toggle] = useToggle();
