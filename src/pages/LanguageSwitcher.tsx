@@ -10,6 +10,8 @@ import { useToggle } from '../hooks/useToggle';
 import chevronDownIcon from '../assets/figmaIcons/chevron_down-icon.svg';
 import { Button } from '../components/Button';
 import { BackgroundColors } from '../styles/theme';
+import { ScreenSize } from '../styles/screeen-size';
+import { usePhone } from '../hooks/usePhone';
 
 const Root = styled.div`
   display: flex;
@@ -23,6 +25,10 @@ const CurrentLanguageRow = styled.div<{ justify?: 'center' | 'space-between' }>`
   justify-content: ${({ justify }) => justify || 'space-between'};
   cursor: pointer;
   padding: ${RedesignSpacings.xxs};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    gap: ${RedesignSpacings.xs};
+  }
 `;
 
 const ChevronIcon = styled(Icon)`
@@ -44,6 +50,16 @@ const Flags = styled.div<{ isOpen?: boolean }>`
   gap: ${RedesignSpacings.xxs};
   background-color: ${BackgroundColors.ticketBand};
   border-radius: 6px;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    align-items: flex-start;
+    position: absolute;
+    top: 100px;
+    left: 10px;
+    background-color: white;
+    padding: ${({ isOpen }) => (isOpen ? RedesignSpacings.xs : '0px')};
+    max-height: ${({ isOpen }) => (isOpen ? '180px' : '0px')};
+  }
 `;
 
 export type LanguageOption = 'pl' | 'en' | 'de';
@@ -59,6 +75,8 @@ interface LanguageSwitcherProps {
 }
 
 export const LanguageSwitcher = ({ isOpen }: LanguageSwitcherProps) => {
+  const isPhone = usePhone();
+
   const [, i18n] = useTranslation('common');
 
   const { language, changeLanguage } = i18n;
@@ -73,25 +91,33 @@ export const LanguageSwitcher = ({ isOpen }: LanguageSwitcherProps) => {
     closeSwitch();
   };
 
+  const flagIconSize = isPhone ? 'lg' : 'sm';
+  const chevronIconSize = isPhone ? 'sm' : '18px';
+
   return (
     <Root>
       <CurrentLanguageRow onClick={toggleLanguageSwitch} justify={isOpen ? 'space-between' : 'center'}>
-        <Icon size="sm" zIndex={0} src={flagSrc} />
+        <Icon size={flagIconSize} zIndex={0} src={flagSrc} />
 
         {isOpen && (
-          <ChevronIcon size="18px" zIndex={0} src={chevronDownIcon} className={isLanguageSwitchOpen ? `active` : ''} />
+          <ChevronIcon
+            size={chevronIconSize}
+            zIndex={0}
+            src={chevronDownIcon}
+            className={isLanguageSwitchOpen ? `active` : ''}
+          />
         )}
       </CurrentLanguageRow>
 
       <Flags isOpen={isLanguageSwitchOpen}>
         <Button onClick={() => onChangeLanguageClicked('pl')}>
-          <Icon size="sm" src={polandIcon} />
+          <Icon size={flagIconSize} src={polandIcon} />
         </Button>
         <Button onClick={() => onChangeLanguageClicked('en')}>
-          <Icon size="sm" src={greatBritainIcon} />
+          <Icon size={flagIconSize} src={greatBritainIcon} />
         </Button>
         <Button onClick={() => onChangeLanguageClicked('de')}>
-          <Icon size="sm" src={germanyIcon} />
+          <Icon size={flagIconSize} src={germanyIcon} />
         </Button>
       </Flags>
     </Root>
