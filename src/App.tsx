@@ -81,10 +81,12 @@ export const App = () => {
           <MinimalistLayout>
             <Typography size={isPhone ? 'xl' : 'xxl'}>{t('contactPage.title')}</Typography>
 
-            <RowLayout>
-              <Icon size={iconSize} src={emailIconUrl} />
-              <Typography size={textSize}>krakoski.yarnmark.welny@gmail.com</Typography>
-            </RowLayout>
+            <VanillaLink href="mailto:krakoski.yarnmark.welny@gmail.com" target="_blank" rel="noreferrer">
+              <RowLayout>
+                <Icon size={iconSize} src={emailIconUrl} />
+                <Typography size={textSize}>krakoski.yarnmark.welny@gmail.com</Typography>
+              </RowLayout>
+            </VanillaLink>
 
             <VanillaLink href="https://www.instagram.com/dziergamynapolu/" target="_blank" rel="noreferrer">
               <RowLayout>
