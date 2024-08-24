@@ -39,7 +39,7 @@ const StrongCtaButton = styled(CtaButton)`
 export const WorkshopsDesktopBand = ({ id }: WorkshopsBandType) => {
   const t = useTypedTranslation();
 
-  const [isModalOpen, toggle] = useToggle();
+  const [isModalOpen, toggle, close] = useToggle();
   const [currentWorkshop, setCurrentWorkshop] = useState<WorkshopsEntry | undefined>();
 
   const toggleModal = useCallback(
@@ -69,7 +69,7 @@ export const WorkshopsDesktopBand = ({ id }: WorkshopsBandType) => {
         ))}
       </MultiCarousel>
 
-      <WorkshopModal isOpen={isModalOpen} toggle={toggle} workshop={currentWorkshop} />
+      <WorkshopModal isOpen={isModalOpen} toggle={toggle} close={close} workshop={currentWorkshop} />
 
       {/*<WorkshopsCarousel />*/}
     </Band.CenteredColumn>

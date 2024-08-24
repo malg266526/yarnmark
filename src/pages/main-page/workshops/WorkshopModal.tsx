@@ -9,12 +9,16 @@ import { WorkshopsEntry } from './workshopsConfig';
 import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
 import { Picture } from '../../../components/Picture';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
-import { CtaButton } from '../../../components/Button';
+import { Button, CtaButton } from '../../../components/Button';
+import { RowLayout } from '../../../components/RowLayout';
+import { GhostButton } from '../../../components/GhostButton';
+import backIcon from '../../../assets/figmaIcons/back_arrow_icon.svg';
+import closeStrokeIcon from '../../../assets/figmaIcons/close_stroke_icon.svg';
+import { Icon } from '../../../components/Icon';
 
 const WorkshopModalLayout = styled(Modal)`
   display: flex;
-
-  width: 700px;
+  width: 800px;
   margin: auto;
   padding: ${RedesignSpacings.md};
   background-color: white;
@@ -38,6 +42,7 @@ const ModalContent = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  gap: ${RedesignSpacings.xxs};
 `;
 
 const PriceInfo = styled.div`
@@ -58,9 +63,10 @@ interface WorkshopModalProps {
   isOpen: boolean;
   toggle: () => void;
   workshop?: WorkshopsEntry;
+  close: () => void;
 }
 
-export const WorkshopModal = ({ isOpen, toggle, workshop }: WorkshopModalProps) => {
+export const WorkshopModal = ({ isOpen, toggle, workshop, close }: WorkshopModalProps) => {
   const t = useTypedTranslation();
 
   if (!workshop) {
@@ -80,6 +86,17 @@ export const WorkshopModal = ({ isOpen, toggle, workshop }: WorkshopModalProps) 
         }
       }}>
       <ModalContent>
+        <RowLayout wide justify="space-between">
+          <GhostButton onClick={close}>
+            <Icon size="md" zIndex={0} src={backIcon} />
+            <Typography size="md">{t('goBack')}</Typography>
+          </GhostButton>
+
+          <Button onClick={close}>
+            <Icon size="lg" zIndex={0} src={closeStrokeIcon} />
+          </Button>
+        </RowLayout>
+
         <FlexColumnLayout padding="none" gap="lg" width="100%">
           <Beam>
             <Typography size="lg">{workshop.time}</Typography>
@@ -98,7 +115,7 @@ export const WorkshopModal = ({ isOpen, toggle, workshop }: WorkshopModalProps) 
 
           <WorkshopDescription>
             <FlexColumnLayout padding="none" gap="sm">
-              <WorkshopSectionTitle size="md">Czegg się nauczysz?</WorkshopSectionTitle>
+              <WorkshopSectionTitle size="md">Czego się nauczysz?</WorkshopSectionTitle>
               <Typography size="md">fdfdfdf</Typography>
             </FlexColumnLayout>
 

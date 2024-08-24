@@ -196,6 +196,7 @@ export const pl = {
           'Znajdziecie tu kawę, lemoniadę oraz przekąski typu frytki. Jeśli pogoda będzie nam sprzyjać, przy kawiarni będzie otwarty taras z leżakami.'
       }
     },
+    goBack: 'Wróć',
     workshops: {
       title: 'Warsztaty',
       tutor: 'Prowadzący: ',

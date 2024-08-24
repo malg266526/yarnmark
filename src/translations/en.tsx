@@ -194,6 +194,7 @@ export const en: TranslationsShape = {
           'You can drink a coffee or a lemonade here and eat a snacks such as fries. If the weather is good, there will be an open terrace with deckchairs next to the café.'
       }
     },
+    goBack: 'Go back',
     workshops: {
       title: 'Workshops',
       tutor: 'Tutor: ',
