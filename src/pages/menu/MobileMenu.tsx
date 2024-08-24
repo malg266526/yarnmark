@@ -137,7 +137,7 @@ export const MobileMenu = () => {
           {t('menu.tickets')}
         </SideBar.LinkEntry>
 
-        <SideBar.LinkEntry onClick={close} to="/hall" target="_blank">
+        <SideBar.LinkEntry onClick={close} to="/hall">
           <IconifyIcon icon="gis:world-map" width="24" />
           {t('menu.hallMap')}
         </SideBar.LinkEntry>

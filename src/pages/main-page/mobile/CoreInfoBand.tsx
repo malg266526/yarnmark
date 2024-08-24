@@ -64,7 +64,7 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
 
         <FlexColumnLayout gap="xs" padding="none">
           <Icon size="lg" zIndex={0} src={mapIcon} />
-          <Link href="/hall" target="_blank">
+          <Link href="/hall">
             <Typography size="sm">{t('hallMap.title')}</Typography>
           </Link>
         </FlexColumnLayout>

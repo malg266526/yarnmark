@@ -66,7 +66,7 @@ export const NavigationBand = () => {
           <Typography size="sm">{t('tickets.cruise')}</Typography>
         </IconButton>
 
-        <IconButton onClick={() => window.open('/hall', '_blank')}>
+        <IconButton onClick={() => window.open('/hall')}>
           <Icon size="xl" zIndex={0} src={mapIcon} />
           <Typography size="sm">{t('hallMap.title')}</Typography>
         </IconButton>

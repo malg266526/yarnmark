@@ -9,13 +9,14 @@ import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_backgrou
 import { BackgroundPicture } from '../components/BackgroundPicture';
 import { Menu } from './menu/Menu';
 import { Typography } from '../components/Typography';
-import { CenteredParagraph } from '../components/CenteredParagraph';
+import { CenteredSection } from '../components/CenteredSection';
 import { BackgroundImageBand } from '../components/bands/BackgroundImageBand';
 import { BandTitle } from '../components/bands/BandTitle';
 import { SolidBackgroundBand } from '../components/bands/SolidBackgroundBand';
 import { PageContent } from '../components/PageContent';
 import { WoolPicture } from '../components/WoolPicture';
 import { Band } from '../components/bands/Band';
+import { ScreenSize } from '../styles/screeen-size';
 
 const Card = styled.div`
   display: flex;
@@ -36,6 +37,10 @@ const StatuteWrapper = styled.div`
 
 const InvitationBoxWrapper = styled.div`
   padding-left: 240px;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    padding: 0;
+  }
 `;
 
 export const StatutesPage = () => {
@@ -46,20 +51,20 @@ export const StatutesPage = () => {
       <Band.Wallpaper id="infoForVendorsIntro" picture={<WoolPicture />} size="lg" justify="flex-start">
         <InvitationBoxWrapper>
           <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
-            <CenteredParagraph>
+            <CenteredSection>
               <BandTitle>Regulaminy</BandTitle>
-            </CenteredParagraph>
+            </CenteredSection>
           </SlantedCornersBox>
         </InvitationBoxWrapper>
       </Band.Wallpaper>
 
       <SolidBackgroundBand id="yarnmark_statute" size="lg" justify="flex-start" padding="xl" color={BrownScale[100]}>
         <Card>
-          <CenteredParagraph>
+          <CenteredSection>
             <Typography size="xl" weight="bold">
               Regulamin Krakoskiego Yarnmarku Wełny
             </Typography>
-          </CenteredParagraph>
+          </CenteredSection>
 
           <StatuteWrapper>
             <ol>
@@ -181,11 +186,11 @@ export const StatutesPage = () => {
           </BackgroundPicture>
         }>
         <Card>
-          <CenteredParagraph>
+          <CenteredSection>
             <Typography size="xl" weight="bold">
               Regulamin Warsztatów
             </Typography>
-          </CenteredParagraph>
+          </CenteredSection>
 
           <StatuteWrapper>
             <ol>
