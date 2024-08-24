@@ -21,8 +21,8 @@ export const en: TranslationsShape = {
       hallMap: 'Mapa hali'
     },
     tickets: {
-      buyTicketsAndWorkshops: '<0>Kup</0> bilet na targi lub wybierz opcję z warsztatami',
-      cruiseTicketHere: 'Bilet na dziergostatek znajdziesz <0>tu</0>',
+      buyTicketsAndWorkshops: '<0>Buy</0> ticket to the fair or choose the workshops option',
+      cruiseTicketHere: 'You can find a ticket for the Knitting-ship <0>here</0>',
       buyTicket: 'Buy a ticket',
       clickHere: 'Kliknij tu',
       at: 'at',
@@ -38,7 +38,7 @@ export const en: TranslationsShape = {
       proofOfPurchase: 'You will show this proof of purchase when entering Yarnmark ;)'
     },
     location: {
-      findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>',
+      findUsOnMaps: 'Find Us on <0>Google Maps</0>',
       whereToFindUs: 'Where to find us?'
     },
     whereToEat: 'Where to eat?',
