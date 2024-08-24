@@ -44,6 +44,16 @@ const PriceInfo = styled.div`
   color: ${TextColors.accent};
 `;
 
+const WorkshopDescription = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+`;
+
+const WorkshopSectionTitle = styled(Typography)`
+  color: ${TextColors.accent};
+`;
+
 interface WorkshopModalProps {
   isOpen: boolean;
   toggle: () => void;
@@ -86,7 +96,17 @@ export const WorkshopModal = ({ isOpen, toggle, workshop }: WorkshopModalProps) 
             height={150}
           />
 
-          <Typography size="md">fdfdfdf</Typography>
+          <WorkshopDescription>
+            <FlexColumnLayout padding="none" gap="sm">
+              <WorkshopSectionTitle size="md">Czegg się nauczysz?</WorkshopSectionTitle>
+              <Typography size="md">fdfdfdf</Typography>
+            </FlexColumnLayout>
+
+            <FlexColumnLayout padding="none" gap="sm">
+              <WorkshopSectionTitle size="md">Co przynieść?</WorkshopSectionTitle>
+              <Typography size="md">fdfdfdf</Typography>
+            </FlexColumnLayout>
+          </WorkshopDescription>
 
           <PriceInfo>
             <Typography size="md">
