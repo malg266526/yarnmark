@@ -8,13 +8,8 @@ import styled from 'styled-components';
 import { RedesignSpacings } from '../../styles/spacings';
 import { Typography } from '../../components/Typography';
 import { TextColors } from '../../styles/theme';
-import chevronDownIcon from '../../assets/figmaIcons/chevron_down-icon.svg';
-import { Icon } from '../../components/Icon';
-import polandIcon from '../../assets/figmaIcons/poland_round_icon.svg';
-import greatBritainIcon from '../../assets/figmaIcons/great_britain_round_icon.svg';
 import { Button } from '../../components/Button';
 import dotsVerticalIcon from '../../assets/figmaIcons/dots_vertical_icon.svg';
-import { useTranslation } from 'react-i18next';
 import { useToggle } from '../../hooks/useToggle';
 
 const MobileHeader = styled.header`
@@ -24,7 +19,7 @@ const MobileHeader = styled.header`
   z-index: 100;
   top: 0;
   position: sticky;
-  padding: ${RedesignSpacings.sm} 16px ${RedesignSpacings.xs} 0;
+  padding: ${RedesignSpacings.sm} 16px ${RedesignSpacings.xs} 16px;
   color: ${TextColors.accent};
   align-items: center;
   justify-content: center;
@@ -37,12 +32,6 @@ const MenuRow = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
-`;
-
-const LanguageSwitch = styled(Button)`
-  display: flex;
-  align-items: center;
-  gap: 16px;
 `;
 
 const MenuButton = styled(Button)`
@@ -59,30 +48,10 @@ const VerticalDots = styled.span`
   height: 32px;
 `;
 
-const ChevronIcon = styled(Icon)`
-  transition: all 0.2s linear;
-
-  &.active {
-    transform: rotate(180deg);
-  }
-`;
-
-const FlagsSrc: Record<string, string> = {
-  pl: polandIcon,
-  en: greatBritainIcon,
-  de: polandIcon
-};
-
 export const MobileMenu = () => {
   const t = useTypedTranslation();
 
-  const [, i18n] = useTranslation('common');
-  const { language } = i18n;
-
-  const flagSrc: string = FlagsSrc[language];
-
   const [isMenuOpen, toggleMenu, close] = useToggle(false);
-  const [isLanguageSwitchOpen, toggleLanguageSwitch] = useToggle();
 
   return (
     <>
@@ -91,10 +60,7 @@ export const MobileMenu = () => {
       <MobileHeader>
         <Typography size="lg">Yarnmark</Typography>
         <MenuRow id="menu_row">
-          <LanguageSwitch id="language_switch" onClick={toggleLanguageSwitch}>
-            <Icon size="lg" zIndex={0} src={flagSrc} />
-            <ChevronIcon size="sm" zIndex={0} src={chevronDownIcon} className={isLanguageSwitchOpen ? `active` : ''} />
-          </LanguageSwitch>
+          <LanguageSwitcher isOpen />
 
           <MenuButton onClick={toggleMenu}>
             <Typography size="lg">Menu</Typography>

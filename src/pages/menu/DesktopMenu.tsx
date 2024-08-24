@@ -51,6 +51,10 @@ const Section = styled.div<{ isOpen?: boolean }>`
   padding-right: ${({ isOpen }) => (isOpen ? RedesignSpacings.xs : 0)};
 `;
 
+const LanguageSection = styled(Section)`
+  border: none;
+`;
+
 const MenuItem = styled.a<{ isOpen?: boolean }>`
   display: flex;
   width: ${({ isOpen }) => (isOpen ? '100%' : 'fit-content')};
@@ -182,7 +186,9 @@ export const DesktopMenu = () => {
         </MenuItem>
       </Section>
 
-      <LanguageSwitcher />
+      <LanguageSection>
+        <LanguageSwitcher isOpen={isOpen} />
+      </LanguageSection>
     </RootLayout>
   );
 };
