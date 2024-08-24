@@ -1,9 +1,8 @@
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { Typography } from '../../components/Typography';
-import { CtaButton } from '../../components/Button';
 import React from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Card } from '../../components/Card';
 import { RedesignSpacings } from '../../styles/spacings';
 import { TextColors } from '../../styles/theme';
@@ -35,15 +34,59 @@ const TicketPrice = styled(Typography)`
   color: ${TextColors.link};
 `;
 
-const Button = styled(CtaButton)`
+const ShakeAnimationFrames = css`
+  @keyframes shake {
+    1% {
+      transform: rotate(-7deg);
+    }
+
+    2% {
+      transform: rotate(7deg);
+    }
+
+    3% {
+      transform: rotate(-7deg);
+    }
+
+    4% {
+      transform: rotate(7deg);
+    }
+
+    5% {
+      transform: rotate(-7deg);
+    }
+
+    6% {
+      transform: rotate(0);
+    }
+
+    100% {
+      transform: rotate(0);
+    }
+  }
+`;
+
+const BuyTicketLink = styled.a`
   border-radius: ${Radius.xl};
   font-weight: 600;
   font-size: ${FontSize.lg};
+  cursor: pointer;
+  background-color: ${TextColors.link};
+  padding: ${RedesignSpacings.xxs} ${RedesignSpacings.sm} 3px ${RedesignSpacings.sm};
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
 
   @media (max-width: ${ScreenSize.phone}) {
     font-weight: 400;
     font-size: ${FontSize.md};
   }
+
+  ${ShakeAnimationFrames};
+
+  animation-name: shake;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
 `;
 
 export const TicketCard = () => {
@@ -58,7 +101,9 @@ export const TicketCard = () => {
       <FlexColumnLayout padding="none" gap="md">
         <TicketTitle size="lg">Yarnmark</TicketTitle>
 
-        <Button>{t('tickets.buyTicket')}</Button>
+        <BuyTicketLink href="wloczykijki.pl" target="_blank" aria-label="buy_ticket">
+          {t('tickets.buyTicket')}
+        </BuyTicketLink>
 
         <Typography size="sm">27/04/2024r {t('tickets.at')} 10:00</Typography>
 
