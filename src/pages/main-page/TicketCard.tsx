@@ -9,6 +9,7 @@ import { TextColors } from '../../styles/theme';
 import { ScreenSize } from '../../styles/screeen-size';
 import { Radius } from '../../styles/cards';
 import { FontSize } from '../../styles/font-size';
+import { CtaButton } from '../../components/Button';
 
 const TicketCardLayout = styled(Card)`
   width: 376px;
@@ -66,16 +67,10 @@ const ShakeAnimationFrames = css`
   }
 `;
 
-const BuyTicketLink = styled.a`
+const BuyTicketLink = styled(CtaButton)<{ shouldShake?: boolean }>`
   border-radius: ${Radius.xl};
   font-weight: 600;
   font-size: ${FontSize.lg};
-  cursor: pointer;
-  background-color: ${TextColors.link};
-  padding: ${RedesignSpacings.xxs} ${RedesignSpacings.sm} 3px ${RedesignSpacings.sm};
-  color: white;
-  text-transform: uppercase;
-  text-decoration: none;
 
   @media (max-width: ${ScreenSize.phone}) {
     font-weight: 400;
@@ -87,10 +82,18 @@ const BuyTicketLink = styled.a`
   animation-name: shake;
   animation-duration: 4s;
   animation-iteration-count: infinite;
+  animation-play-state: ${({ shouldShake }) => (shouldShake ? 'running' : 'paused')};
 `;
 
 export const TicketCard = () => {
   const t = useTypedTranslation();
+
+  const onBuyTicketClicked = () => {
+    localStorage.setItem('isBuyLinkVisited', 'true');
+    window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank');
+  };
+
+  const shouldShake = localStorage.getItem('isBuyLinkVisited') !== 'true';
 
   return (
     <TicketCardLayout>
@@ -101,7 +104,7 @@ export const TicketCard = () => {
       <FlexColumnLayout padding="none" gap="md">
         <TicketTitle size="lg">Yarnmark</TicketTitle>
 
-        <BuyTicketLink href="wloczykijki.pl" target="_blank" aria-label="buy_ticket">
+        <BuyTicketLink onClick={onBuyTicketClicked} aria-label="buy_ticket" shouldShake={shouldShake}>
           {t('tickets.buyTicket')}
         </BuyTicketLink>
 
