@@ -1,15 +1,15 @@
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { Typography } from '../../components/Typography';
-import { CtaButton } from '../../components/Button';
 import React from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Card } from '../../components/Card';
 import { RedesignSpacings } from '../../styles/spacings';
 import { TextColors } from '../../styles/theme';
 import { ScreenSize } from '../../styles/screeen-size';
 import { Radius } from '../../styles/cards';
 import { FontSize } from '../../styles/font-size';
+import { CtaButton } from '../../components/Button';
 
 const TicketCardLayout = styled(Card)`
   width: 376px;
@@ -35,7 +35,39 @@ const TicketPrice = styled(Typography)`
   color: ${TextColors.link};
 `;
 
-const Button = styled(CtaButton)`
+const ShakeAnimationFrames = css`
+  @keyframes shake {
+    1% {
+      transform: rotate(-7deg);
+    }
+
+    2% {
+      transform: rotate(7deg);
+    }
+
+    3% {
+      transform: rotate(-7deg);
+    }
+
+    4% {
+      transform: rotate(7deg);
+    }
+
+    5% {
+      transform: rotate(-7deg);
+    }
+
+    6% {
+      transform: rotate(0);
+    }
+
+    100% {
+      transform: rotate(0);
+    }
+  }
+`;
+
+const BuyTicketLink = styled(CtaButton)<{ shouldShake?: boolean }>`
   border-radius: ${Radius.xl};
   font-weight: 600;
   font-size: ${FontSize.lg};
@@ -44,10 +76,24 @@ const Button = styled(CtaButton)`
     font-weight: 400;
     font-size: ${FontSize.md};
   }
+
+  ${ShakeAnimationFrames};
+
+  animation-name: shake;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-play-state: ${({ shouldShake }) => (shouldShake ? 'running' : 'paused')};
 `;
 
 export const TicketCard = () => {
   const t = useTypedTranslation();
+
+  const onBuyTicketClicked = () => {
+    localStorage.setItem('isBuyLinkVisited', 'true');
+    window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank');
+  };
+
+  const shouldShake = localStorage.getItem('isBuyLinkVisited') !== 'true';
 
   return (
     <TicketCardLayout>
@@ -58,7 +104,9 @@ export const TicketCard = () => {
       <FlexColumnLayout padding="none" gap="md">
         <TicketTitle size="lg">Yarnmark</TicketTitle>
 
-        <Button>{t('tickets.buyTicket')}</Button>
+        <BuyTicketLink onClick={onBuyTicketClicked} aria-label="buy_ticket" shouldShake={shouldShake}>
+          {t('tickets.buyTicket')}
+        </BuyTicketLink>
 
         <Typography size="sm">27/04/2024r {t('tickets.at')} 10:00</Typography>
 
