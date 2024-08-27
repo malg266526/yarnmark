@@ -4,17 +4,15 @@ import { BackgroundColors, TextColors } from '../../styles/theme';
 import { RedesignSpacings } from '../../styles/spacings';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Icon } from '../../components/Icon';
-import infoIcon from '../../assets/figmaIcons/info_icon.svg';
-import ticketIcon from '../../assets/figmaIcons/ticket_icon.svg';
-import ticketLightIcon from '../../assets/figmaIcons/ticket_light_icon.svg';
-import ticketMediumIcon from '../../assets/figmaIcons/ticket_medium_icon.svg';
-import homeIcon from '../../assets/figmaIcons/home_icon.svg';
-import shopIcon from '../../assets/figmaIcons/shop_icon.svg';
-import workshopIcons from '../../assets/figmaIcons/workshops_icon.svg';
-import paintingIcon from '../../assets/figmaIcons/painting_icon.svg';
-import pinEllipseIcon from '../../assets/figmaIcons/pin_ellipse_icon.svg';
-import handshakeIcon from '../../assets/figmaIcons/handshake_icon.svg';
-import contractIcon from '../../assets/figmaIcons/contract_icon.svg';
+import infoIcon from '../../assets/figmaIcons/menu/info_icon.svg';
+import ticketIcon from '../../assets/figmaIcons/menu/ticket_icon.svg';
+import homeIcon from '../../assets/figmaIcons/menu/home_icon.svg';
+import shopIcon from '../../assets/figmaIcons/menu/shop_icon.svg';
+import workshopIcons from '../../assets/figmaIcons/menu/workshops_icon.svg';
+import paintingIcon from '../../assets/figmaIcons/menu/painting_icon.svg';
+import pinEllipseIcon from '../../assets/figmaIcons/menu/pin_ellipse_icon.svg';
+import handshakeIcon from '../../assets/figmaIcons/menu/handshake_icon.svg';
+import contractIcon from '../../assets/figmaIcons/menu/contract_icon.svg';
 import openDrawerIcon from '../../assets/figmaIcons/open_drawer_icon.svg';
 import closeDrawerIcon from '../../assets/figmaIcons/close_drawer_icon.svg';
 import { Picture } from '../../components/Picture';
@@ -24,7 +22,7 @@ import { Button } from '../../components/Button';
 import { Typography } from '../../components/Typography';
 import { Dots } from '../../components/Dots';
 import { LanguageSwitcher } from '../LanguageSwitcher';
-import contactIcon from '../../assets/figmaIcons/contact_icon.svg';
+import contactIcon from '../../assets/figmaIcons/menu/contact_icon.svg';
 
 const RootLayout = styled.div<{ isOpen?: boolean }>`
   display: flex;
@@ -67,10 +65,36 @@ const MenuItem = styled.a<{ isOpen?: boolean }>`
   padding: ${RedesignSpacings.xxs} ${RedesignSpacings.xs};
   gap: ${RedesignSpacings.sm};
   text-decoration: none;
-  color: ${TextColors.accent};
+
   cursor: pointer;
-  background-color: ${BackgroundColors.ticketBand};
   border-radius: 6px;
+
+  color: ${TextColors.accent};
+  background-color: ${BackgroundColors.ticketBand};
+
+  ${Icon} {
+    filter: brightness(0) saturate(100%) invert(29%) sepia(89%) saturate(428%) hue-rotate(53deg) brightness(89%)
+      contrast(91%);
+  }
+
+  &:hover {
+    color: ${TextColors.accent};
+    background-color: ${BackgroundColors.greenLight};
+
+    ${Icon} {
+      filter: invert(77%) sepia(37%) saturate(450%) hue-rotate(38deg) brightness(87%) contrast(96%);
+    }
+  }
+
+  &:active {
+    color: ${BackgroundColors.greenLight};
+    background-color: ${BackgroundColors.greenStrong};
+
+    ${Icon} {
+      filter: brightness(0) saturate(100%) invert(99%) sepia(6%) saturate(1033%) hue-rotate(38deg) brightness(105%)
+        contrast(109%);
+    }
+  }
 `;
 
 const SwitchRow = styled.div<{ isOpen?: boolean }>`
@@ -146,7 +170,7 @@ export const DesktopMenu = () => {
             target="_blank"
             isOpen={isOpen}
             aria-label="workshops_tickets_menu_item">
-            <Icon size="sm" zIndex={0} src={ticketMediumIcon} />
+            <Icon size="sm" zIndex={0} src={ticketIcon} />
             {isOpen && <Typography size="sm">{t('menu.workshopTickets')}</Typography>}
           </MenuItem>
 
@@ -155,7 +179,7 @@ export const DesktopMenu = () => {
             target="_blank"
             isOpen={isOpen}
             aria-label="cruise_tickets_menu_item">
-            <Icon size="sm" zIndex={0} src={ticketLightIcon} />
+            <Icon size="sm" zIndex={0} src={ticketIcon} />
             {isOpen && <Typography size="sm">{t('menu.cruiseTickets')}</Typography>}
           </MenuItem>
         </TicketsSection>
