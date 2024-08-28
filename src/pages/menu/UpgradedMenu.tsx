@@ -44,13 +44,14 @@ const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
   overflow: auto;
 
   @media (max-width: ${ScreenSize.phone}) {
-    background: ${BackgroundColors.mobileMenu};
+    height: auto;
     top: 112px;
     left: unset;
     right: -${RedesignSpacings.xs};
     border-radius: 12px 0 0 12px;
     padding: ${RedesignSpacings.xs} ${RedesignSpacings.xxs};
     gap: ${RedesignSpacings.sm};
+    background: ${BackgroundColors.mobileMenu};
   }
 `;
 
@@ -66,6 +67,12 @@ const Section = styled.div<{ isOpen?: boolean }>`
 
   @media (max-width: ${ScreenSize.phone}) {
     padding: 0 8px 8px 8px;
+  }
+`;
+
+const LastSection = styled(Section)`
+  @media (max-width: ${ScreenSize.phone}) {
+    border-bottom: none;
   }
 `;
 
@@ -240,7 +247,7 @@ export const UpgradedMenu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
         </MenuItem>
       </Section>
 
-      <Section isOpen={isMenuExpanded}>
+      <LastSection isOpen={isMenuExpanded}>
         <MenuItem href="/info-for-vendors#stands" isOpen={isMenuExpanded} aria-label="stands_map_menu_item">
           <Icon size="sm" zIndex={0} src={handshakeIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.infoForVendors')}</Typography>}
@@ -260,11 +267,13 @@ export const UpgradedMenu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           <Icon size="sm" zIndex={0} src={contactIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.contact')}</Typography>}
         </MenuItem>
-      </Section>
+      </LastSection>
 
-      <LanguageSection>
-        <LanguageSwitcher isOpen={isMenuExpanded} />
-      </LanguageSection>
+      {!isPhone && (
+        <LanguageSection>
+          <LanguageSwitcher isOpen={isMenuExpanded} />
+        </LanguageSection>
+      )}
     </RootLayout>
   );
 };
