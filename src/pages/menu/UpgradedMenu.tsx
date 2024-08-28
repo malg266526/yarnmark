@@ -23,21 +23,32 @@ import { Typography } from '../../components/Typography';
 import { Dots } from '../../components/Dots';
 import { LanguageSwitcher } from '../LanguageSwitcher';
 import contactIcon from '../../assets/figmaIcons/menu/contact_icon.svg';
+import { usePhone } from '../../hooks/usePhone';
+import { ScreenSize } from '../../styles/screeen-size';
 
-const RootLayout = styled.div<{ isOpen?: boolean }>`
+const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
   display: flex;
   flex-direction: column;
-  width: ${({ isOpen }) => (isOpen ? '240px' : '80px')};
+  width: ${({ isOpen, isVisible }) => (isVisible ? (isOpen ? '240px' : '80px') : 0)};
   position: fixed;
   height: 100%;
   z-index: 10;
   left: 0;
+  top: 0;
   border-radius: 0 12px 12px 0;
   background: ${BackgroundColors.menu};
   gap: ${RedesignSpacings.lg};
   padding: ${RedesignSpacings.xs} ${RedesignSpacings.xxs} ${RedesignSpacings.xxxl} ${RedesignSpacings.xxs};
   transition: all 0.1s linear;
   overflow: auto;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    background: ${BackgroundColors.mobileMenu};
+    top: 112px;
+    left: unset;
+    right: 0;
+    border-radius: 12px 0 0 12px;
+  }
 `;
 
 const Section = styled.div<{ isOpen?: boolean }>`
@@ -118,18 +129,24 @@ const SwitchButton = styled(Button)`
   align-items: center;
 `;
 
-export const DesktopMenu = () => {
+interface UpgradedMenuProps {
+  isVisible?: boolean;
+}
+
+export const UpgradedMenu = ({ isVisible }: UpgradedMenuProps) => {
   const t = useTypedTranslation();
+  const isPhone = usePhone();
 
   const [isOpen, toggle] = useToggle();
+  const isMenuExpanded = isOpen || isPhone;
 
   return (
-    <RootLayout isOpen={isOpen}>
-      <Section isOpen={isOpen}>
+    <RootLayout isVisible={isVisible} isOpen={isMenuExpanded}>
+      <Section isOpen={isMenuExpanded}>
         <Dots />
 
-        <SwitchRow isOpen={isOpen}>
-          {isOpen ? (
+        <SwitchRow isOpen={isMenuExpanded}>
+          {isMenuExpanded ? (
             <>
               <Picture picture={yarnmarkLogoPictureConfig} alt="yarnmark_logo" width={40} height={50} />
               <SwitchButton onClick={toggle} aria-label="expand_menu">
@@ -143,87 +160,87 @@ export const DesktopMenu = () => {
           )}
         </SwitchRow>
 
-        <MenuItem href="/home" isOpen={isOpen} aria-label="home_menu_item">
+        <MenuItem href="/home" isOpen={isMenuExpanded} aria-label="home_menu_item">
           <Icon size="sm" zIndex={0} src={homeIcon} />
-          {isOpen && <Typography size="sm"> {t('menu.home')}</Typography>}
+          {isMenuExpanded && <Typography size="sm"> {t('menu.home')}</Typography>}
         </MenuItem>
       </Section>
 
-      <Section isOpen={isOpen}>
-        <MenuItem href="/home#mainInfoButtons" isOpen={isOpen} aria-label="main_information_menu_item">
+      <Section isOpen={isMenuExpanded}>
+        <MenuItem href="/home#mainInfoButtons" isOpen={isMenuExpanded} aria-label="main_information_menu_item">
           <Icon size="sm" zIndex={0} src={infoIcon} />
-          {isOpen && <Typography size="sm"> {t('menu.whatAndWhere')}</Typography>}
+          {isMenuExpanded && <Typography size="sm"> {t('menu.whatAndWhere')}</Typography>}
         </MenuItem>
 
         <TicketsSection>
           <MenuItem
             href="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832"
             target="_blank"
-            isOpen={isOpen}
+            isOpen={isMenuExpanded}
             aria-label="yarnmark_ticket_menu_item">
             <Icon size="sm" zIndex={0} src={ticketIcon} />
-            {isOpen && <Typography size="sm">{t('menu.entranceTicket')}</Typography>}
+            {isMenuExpanded && <Typography size="sm">{t('menu.entranceTicket')}</Typography>}
           </MenuItem>
 
           <MenuItem
             href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358"
             target="_blank"
-            isOpen={isOpen}
+            isOpen={isMenuExpanded}
             aria-label="workshops_tickets_menu_item">
             <Icon size="sm" zIndex={0} src={ticketIcon} />
-            {isOpen && <Typography size="sm">{t('menu.workshopTickets')}</Typography>}
+            {isMenuExpanded && <Typography size="sm">{t('menu.workshopTickets')}</Typography>}
           </MenuItem>
 
           <MenuItem
             href="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833"
             target="_blank"
-            isOpen={isOpen}
+            isOpen={isMenuExpanded}
             aria-label="cruise_tickets_menu_item">
             <Icon size="sm" zIndex={0} src={ticketIcon} />
-            {isOpen && <Typography size="sm">{t('menu.cruiseTickets')}</Typography>}
+            {isMenuExpanded && <Typography size="sm">{t('menu.cruiseTickets')}</Typography>}
           </MenuItem>
         </TicketsSection>
 
-        <MenuItem href="/home#workshops" isOpen={isOpen} aria-label="workshops_menu_item">
+        <MenuItem href="/home#workshops" isOpen={isMenuExpanded} aria-label="workshops_menu_item">
           <Icon size="sm" zIndex={0} src={workshopIcons} />
-          {isOpen && <Typography size="sm">{t('menu.workshops')}</Typography>}
+          {isMenuExpanded && <Typography size="sm">{t('menu.workshops')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="/home#vendors" isOpen={isOpen} aria-label="vendors_menu_item">
+        <MenuItem href="/home#vendors" isOpen={isMenuExpanded} aria-label="vendors_menu_item">
           <Icon size="sm" zIndex={0} src={shopIcon} />
-          {isOpen && <Typography size="sm">{t('menu.vendors')}</Typography>}
+          {isMenuExpanded && <Typography size="sm">{t('menu.vendors')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="/home#lastEdition" isOpen={isOpen} aria-label="last_edition_menu_item">
+        <MenuItem href="/home#lastEdition" isOpen={isMenuExpanded} aria-label="last_edition_menu_item">
           <Icon size="sm" zIndex={0} src={paintingIcon} />
-          {isOpen && <Typography size="sm">{t('menu.memories')}</Typography>}
+          {isMenuExpanded && <Typography size="sm">{t('menu.memories')}</Typography>}
         </MenuItem>
       </Section>
 
-      <Section isOpen={isOpen}>
-        <MenuItem href="/hall" isOpen={isOpen} aria-label="hall_map_menu_item">
+      <Section isOpen={isMenuExpanded}>
+        <MenuItem href="/hall" isOpen={isMenuExpanded} aria-label="hall_map_menu_item">
           <Icon size="sm" zIndex={0} src={pinEllipseIcon} />
-          {isOpen && <Typography size="sm">{t('menu.hallMap')}</Typography>}
+          {isMenuExpanded && <Typography size="sm">{t('menu.hallMap')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="/info-for-vendors#stands" isOpen={isOpen} aria-label="stands_map_menu_item">
+        <MenuItem href="/info-for-vendors#stands" isOpen={isMenuExpanded} aria-label="stands_map_menu_item">
           <Icon size="sm" zIndex={0} src={handshakeIcon} />
-          {isOpen && <Typography size="sm">{t('menu.infoForVendors')}</Typography>}
+          {isMenuExpanded && <Typography size="sm">{t('menu.infoForVendors')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="/statutes" isOpen={isOpen} aria-label="statutes_menu_item">
+        <MenuItem href="/statutes" isOpen={isMenuExpanded} aria-label="statutes_menu_item">
           <Icon size="sm" zIndex={0} src={contractIcon} />
-          {isOpen && <Typography size="sm">{t('menu.statutes')}</Typography>}
+          {isMenuExpanded && <Typography size="sm">{t('menu.statutes')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="#footer" isOpen={isOpen} aria-label="contact_menu_item">
+        <MenuItem href="#footer" isOpen={isMenuExpanded} aria-label="contact_menu_item">
           <Icon size="sm" zIndex={0} src={contactIcon} />
-          {isOpen && <Typography size="sm">{t('menu.contact')}</Typography>}
+          {isMenuExpanded && <Typography size="sm">{t('menu.contact')}</Typography>}
         </MenuItem>
       </Section>
 
       <LanguageSection>
-        <LanguageSwitcher isOpen={isOpen} />
+        <LanguageSwitcher isOpen={isMenuExpanded} />
       </LanguageSection>
     </RootLayout>
   );

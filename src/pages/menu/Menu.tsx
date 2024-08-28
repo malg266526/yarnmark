@@ -1,7 +1,7 @@
 import { usePhone } from '../../hooks/usePhone';
 import React from 'react';
 import { MobileMenu } from './MobileMenu';
-import { DesktopMenu } from './DesktopMenu';
+import { UpgradedMenu } from './UpgradedMenu';
 
 export const Menu = () => {
   const isPhone = usePhone();
@@ -10,5 +10,5 @@ export const Menu = () => {
     return <MobileMenu />;
   }
 
-  return <DesktopMenu />;
+  return <UpgradedMenu />;
 };

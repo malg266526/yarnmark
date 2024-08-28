@@ -2,6 +2,7 @@ export const BackgroundColors = {
   desktopCard: '#F5F5F5',
   navigationBand: 'rgba(233, 232, 232, 0.60)',
   menu: 'rgba(233, 232, 232, 0.8)',
+  mobileMenu: 'rgba(233, 232, 232, 1)',
   ticketBand: '#ECEBEB',
   workshopsBand: '#F9F9F9',
 
