@@ -5,7 +5,7 @@ import { NavigationBand } from './NavigationBand';
 import { WorkshopsDesktopBand } from './workshops/WorkshopsDesktopBand';
 import { FoodBand } from './FoodBand';
 import { CruiseBand } from './CruiseBand';
-import { Menu } from '../menu/Menu';
+import { Header } from '../menu/Header';
 import { LastEditionBand } from './LastEditionBand';
 import { InvitationCard } from './InvitationCard';
 import { LocationBand } from './LocationBand';
@@ -38,7 +38,7 @@ export const MainPage = () => {
 
   return (
     <StyledPageContent ref={pageContentRef} variant="wide" padding="none">
-      <Menu />
+      <Header />
 
       {isPhone ? (
         <>

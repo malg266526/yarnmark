@@ -11,7 +11,7 @@ import { ScreenSize } from '../styles/screeen-size';
 import { RedesignSpacings } from '../styles/spacings';
 import { usePhone, useTablet } from '../hooks/usePhone';
 import { PageContent } from '../components/PageContent';
-import { Menu } from './menu/Menu';
+import { Header } from './menu/Header';
 import { Band } from '../components/bands/Band';
 import { WoolPicture } from '../components/WoolPicture';
 import { SlantedCornersBox } from '../components/SlantedCornersBox';
@@ -62,7 +62,7 @@ export const HallMapPage = () => {
 
   return (
     <PageContent variant="wide" padding="none">
-      <Menu />
+      <Header />
 
       <Band.Wallpaper id="infoForVendorsIntro" picture={<WoolPicture />} size="md" justify="flex-start">
         <InvitationBoxWrapper>
