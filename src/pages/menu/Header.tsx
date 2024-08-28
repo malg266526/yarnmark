@@ -1,14 +1,15 @@
-import { Curtain } from '../../components/Curtain';
-import { LanguageSwitcher } from '../LanguageSwitcher';
+import { usePhone } from '../../hooks/usePhone';
 import React from 'react';
+import { Menu } from './Menu';
+import { Curtain } from '../../components/Curtain';
+import { Typography } from '../../components/Typography';
+import { LanguageSwitcher } from '../LanguageSwitcher';
+import { useToggle } from '../../hooks/useToggle';
 import styled from 'styled-components';
 import { RedesignSpacings } from '../../styles/spacings';
-import { Typography } from '../../components/Typography';
 import { TextColors } from '../../styles/theme';
 import { Button } from '../../components/Button';
 import dotsVerticalIcon from '../../assets/figmaIcons/dots_vertical_icon.svg';
-import { useToggle } from '../../hooks/useToggle';
-import { UpgradedMenu } from './UpgradedMenu';
 
 const MobileHeader = styled.header`
   display: flex;
@@ -46,26 +47,31 @@ const VerticalDots = styled.span`
   height: 32px;
 `;
 
-export const MobileMenu = () => {
+export const Header = () => {
+  const isPhone = usePhone();
   const [isMenuOpen, toggleMenu, close] = useToggle(true);
 
-  return (
-    <>
-      <Curtain onClick={toggleMenu} active={isMenuOpen} />
+  if (isPhone) {
+    return (
+      <>
+        <Curtain onClick={toggleMenu} active={isMenuOpen} />
 
-      <MobileHeader>
-        <Typography size="lg">Yarnmark</Typography>
-        <MenuRow id="menu_row">
-          <LanguageSwitcher isOpen />
+        <MobileHeader>
+          <Typography size="lg">Yarnmark</Typography>
+          <MenuRow id="menu_row">
+            <LanguageSwitcher isOpen />
 
-          <MenuButton onClick={toggleMenu}>
-            <Typography size="lg">Menu</Typography>
-            <VerticalDots />
-          </MenuButton>
-        </MenuRow>
-      </MobileHeader>
+            <MenuButton onClick={toggleMenu}>
+              <Typography size="lg">Menu</Typography>
+              <VerticalDots />
+            </MenuButton>
+          </MenuRow>
+        </MobileHeader>
 
-      <UpgradedMenu isVisible={isMenuOpen} closeMenu={close} />
-    </>
-  );
+        <Menu isVisible={isMenuOpen} closeMenu={close} />
+      </>
+    );
+  }
+
+  return <Menu isVisible={true} />;
 };

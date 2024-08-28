@@ -7,7 +7,7 @@ import sweatersBackgroundUrlAvif from './../assets/backgrounds/sweaters_backgrou
 import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.jpg';
 import sweatersBackgroundUrlWebp from './../assets/backgrounds/sweaters_background.webp';
 import { BackgroundPicture } from '../components/BackgroundPicture';
-import { Menu } from './menu/Menu';
+import { Header } from './menu/Header';
 import { Typography } from '../components/Typography';
 import { CenteredSection } from '../components/CenteredSection';
 import { BackgroundImageBand } from '../components/bands/BackgroundImageBand';
@@ -49,7 +49,7 @@ export const StatutesPage = () => {
 
   return (
     <PageContent variant="wide" padding="none">
-      <Menu />
+      <Header />
 
       <Band.Wallpaper id="infoForVendorsIntro" picture={<WoolPicture />} size="lg" justify="flex-start">
         <InvitationBoxWrapper>

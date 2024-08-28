@@ -6,7 +6,7 @@ import { Trans } from 'react-i18next';
 import { Hall } from '../../components/Hall';
 import { HallWrapper, PlainInfo, Separator } from './InfoForVendorsPage.styled';
 import { usePhone } from '../../hooks/usePhone';
-import { Menu } from '../menu/Menu';
+import { Header } from '../menu/Header';
 import { Typography } from '../../components/Typography';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { BandTitle } from '../../components/bands/BandTitle';
@@ -31,7 +31,7 @@ export const InfoForVendorsPage = () => {
 
   return (
     <PageContent variant="wide" padding="none">
-      <Menu />
+      <Header />
 
       <Band.Wallpaper id="infoForVendorsIntro" picture={<WoolPicture />} size="lg" justify="flex-start">
         <InvitationBoxWrapper>
