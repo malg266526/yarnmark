@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { BurgerMenu } from './components/BurgerMenu';
 import { ScreenSize } from './styles/screeen-size';
-import { Spacings } from './styles/spacings';
+import { RedesignSpacings } from './styles/spacings';
 import { Colors, TextColors } from './styles/theme';
 import { FontSize } from './styles/font-size';
 
@@ -72,7 +72,7 @@ export const LeftBackgroundImage = styled.img<{ src: string }>`
   height: 100%;
   max-height: 100%;
   opacity: 0.2;
-  padding: ${Spacings.xl};
+  padding: ${RedesignSpacings.xxl};
   pointer-events: none;
 `;
 

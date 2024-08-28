@@ -49,7 +49,7 @@ const VerticalDots = styled.span`
 
 export const Header = () => {
   const isPhone = usePhone();
-  const [isMenuOpen, toggleMenu, close] = useToggle(true);
+  const [isMenuOpen, toggleMenu, close] = useToggle(false);
 
   if (isPhone) {
     return (

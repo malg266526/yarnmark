@@ -11,7 +11,8 @@ import React, {
 import styled, { css } from 'styled-components';
 import { Icon as IconifyIcon } from '@iconify/react';
 import skeinIconSrc from '../assets/images/skein3.svg';
-import { Spacings } from '../styles/spacings';
+import { RedesignSpacings } from '../styles/spacings';
+import { ScreenSize } from '../styles/screeen-size';
 
 type VisibleIndex = {
   index: number;
@@ -37,7 +38,7 @@ const Footer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: ${Spacings.sm};
+  gap: ${RedesignSpacings.sm};
   flex: 1 0;
 `;
 
@@ -238,9 +239,13 @@ const ItemRoot = styled.div<{ icon?: boolean }>`
   min-height: 200px;
   background: white;
   box-shadow: 8px 8px 14px 0 rgba(66, 68, 90, 1);
-  padding: ${Spacings.md};
+  padding: ${RedesignSpacings.md};
   word-break: break-word;
   -webkit-backface-visibility: hidden;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    padding: ${RedesignSpacings.sm};
+  }
 
   ${({ icon }) =>
     icon &&
@@ -248,8 +253,8 @@ const ItemRoot = styled.div<{ icon?: boolean }>`
       &:before {
         content: '';
         display: block;
-        left: ${Spacings.sm};
-        top: ${Spacings.sm};
+        left: ${RedesignSpacings.sm};
+        top: ${RedesignSpacings.sm};
         position: absolute;
         width: 20px;
         height: 20px;
