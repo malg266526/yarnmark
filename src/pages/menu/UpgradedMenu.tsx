@@ -25,6 +25,7 @@ import { LanguageSwitcher } from '../LanguageSwitcher';
 import contactIcon from '../../assets/figmaIcons/menu/contact_icon.svg';
 import { usePhone } from '../../hooks/usePhone';
 import { ScreenSize } from '../../styles/screeen-size';
+import closeMenuIcon from '../../assets/figmaIcons/menu/close_icon.svg';
 
 const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
   display: flex;
@@ -118,7 +119,11 @@ const SwitchRow = styled.div<{ isOpen?: boolean }>`
   display: flex;
   justify-content: ${({ isOpen }) => (isOpen ? 'space-between' : 'center')};
   align-items: center;
-  padding: ${RedesignSpacings.sm} ${RedesignSpacings.xs};
+  padding: ${RedesignSpacings.sm} ${RedesignSpacings.xxs};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    padding: ${RedesignSpacings.xs} ${RedesignSpacings.xxs};
+  }
 `;
 
 const TicketsSection = styled.div<{ isOpen?: boolean }>`
@@ -134,13 +139,18 @@ const SwitchButton = styled(Button)`
   height: 50px;
   display: flex;
   align-items: center;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    display: none;
+  }
 `;
 
 interface UpgradedMenuProps {
   isVisible?: boolean;
+  closeMenu?: () => void;
 }
 
-export const UpgradedMenu = ({ isVisible }: UpgradedMenuProps) => {
+export const UpgradedMenu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
 
@@ -150,7 +160,13 @@ export const UpgradedMenu = ({ isVisible }: UpgradedMenuProps) => {
   return (
     <RootLayout isVisible={isVisible} isOpen={isMenuExpanded}>
       <Section isOpen={isMenuExpanded}>
-        <Dots />
+        {isPhone ? (
+          <Button onClick={closeMenu}>
+            <Icon size="lg" src={closeMenuIcon} />
+          </Button>
+        ) : (
+          <Dots />
+        )}
 
         <SwitchRow isOpen={isMenuExpanded}>
           {isMenuExpanded ? (

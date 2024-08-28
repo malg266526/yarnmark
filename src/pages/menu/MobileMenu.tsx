@@ -65,7 +65,7 @@ export const MobileMenu = () => {
         </MenuRow>
       </MobileHeader>
 
-      <UpgradedMenu isVisible={isMenuOpen} />
+      <UpgradedMenu isVisible={isMenuOpen} closeMenu={close} />
     </>
   );
 };
