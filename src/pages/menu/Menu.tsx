@@ -10,5 +10,5 @@ export const Menu = () => {
     return <MobileMenu />;
   }
 
-  return <UpgradedMenu />;
+  return <UpgradedMenu isVisible={true} />;
 };

@@ -46,8 +46,10 @@ const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
     background: ${BackgroundColors.mobileMenu};
     top: 112px;
     left: unset;
-    right: 0;
+    right: -${RedesignSpacings.xs};
     border-radius: 12px 0 0 12px;
+    padding: ${RedesignSpacings.xs} ${RedesignSpacings.xxs};
+    gap: ${RedesignSpacings.sm};
   }
 `;
 
@@ -60,6 +62,10 @@ const Section = styled.div<{ isOpen?: boolean }>`
   padding-bottom: 15px;
   padding-left: ${({ isOpen }) => (isOpen ? RedesignSpacings.xs : 0)};
   padding-right: ${({ isOpen }) => (isOpen ? RedesignSpacings.xs : 0)};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    padding: 0 8px 8px 8px;
+  }
 `;
 
 const LanguageSection = styled(Section)`
@@ -115,12 +121,13 @@ const SwitchRow = styled.div<{ isOpen?: boolean }>`
   padding: ${RedesignSpacings.sm} ${RedesignSpacings.xs};
 `;
 
-const TicketsSection = styled.div`
+const TicketsSection = styled.div<{ isOpen?: boolean }>`
   background-color: ${BackgroundColors.ticketBand};
   border-radius: 6px;
   gap: 7px;
   width: fit-content;
   align-self: center;
+  padding-right: ${({ isOpen }) => (isOpen ? '8px' : '0')};
 `;
 
 const SwitchButton = styled(Button)`
@@ -172,7 +179,7 @@ export const UpgradedMenu = ({ isVisible }: UpgradedMenuProps) => {
           {isMenuExpanded && <Typography size="sm"> {t('menu.whatAndWhere')}</Typography>}
         </MenuItem>
 
-        <TicketsSection>
+        <TicketsSection isOpen={isMenuExpanded}>
           <MenuItem
             href="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832"
             target="_blank"
@@ -218,14 +225,14 @@ export const UpgradedMenu = ({ isVisible }: UpgradedMenuProps) => {
       </Section>
 
       <Section isOpen={isMenuExpanded}>
-        <MenuItem href="/hall" isOpen={isMenuExpanded} aria-label="hall_map_menu_item">
-          <Icon size="sm" zIndex={0} src={pinEllipseIcon} />
-          {isMenuExpanded && <Typography size="sm">{t('menu.hallMap')}</Typography>}
-        </MenuItem>
-
         <MenuItem href="/info-for-vendors#stands" isOpen={isMenuExpanded} aria-label="stands_map_menu_item">
           <Icon size="sm" zIndex={0} src={handshakeIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.infoForVendors')}</Typography>}
+        </MenuItem>
+
+        <MenuItem href="/hall" isOpen={isMenuExpanded} aria-label="hall_map_menu_item">
+          <Icon size="sm" zIndex={0} src={pinEllipseIcon} />
+          {isMenuExpanded && <Typography size="sm">{t('menu.hallMap')}</Typography>}
         </MenuItem>
 
         <MenuItem href="/statutes" isOpen={isMenuExpanded} aria-label="statutes_menu_item">

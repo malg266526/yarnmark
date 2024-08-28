@@ -47,7 +47,7 @@ const VerticalDots = styled.span`
 `;
 
 export const MobileMenu = () => {
-  const [isMenuOpen, toggleMenu, close] = useToggle(false);
+  const [isMenuOpen, toggleMenu, close] = useToggle(true);
 
   return (
     <>
