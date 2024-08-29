@@ -26,6 +26,7 @@ export const en: TranslationsShape = {
       buyTicket: 'Buy a ticket',
       clickHere: 'Kliknij tu',
       at: 'at',
+      hours: '',
       price: 'Price',
       workshopsTickets: 'Workshops tickets',
       yarnmarkTicket: 'Yarnmark ticket',

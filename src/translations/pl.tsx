@@ -27,6 +27,7 @@ export const pl = {
       clickHere: 'Kliknij tu',
       at: 'godz.',
       price: 'Koszt',
+      hours: '',
       workshopsTickets: 'Bilety na warsztaty',
       yarnmarkTicket: 'Bilet na Yarnmark',
       yarnmarkTickets: 'Bilety na Yarnmark',

@@ -108,7 +108,9 @@ export const TicketCard = () => {
           {t('tickets.buyTicket')}
         </BuyTicketLink>
 
-        <Typography size="sm">27/04/2024r {t('tickets.at')} 10:00</Typography>
+        <Typography size="sm">
+          27/04/2024r {t('tickets.at')} 10:00 {t('tickets.hours')}
+        </Typography>
 
         <Typography size="sm">Hala 100-lecia KS Cracovia</Typography>
         <TicketPrice size="md">{t('tickets.price')} 30zl</TicketPrice>
