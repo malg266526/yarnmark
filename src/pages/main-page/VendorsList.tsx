@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Spacings } from '../../styles/spacings';
+import { RedesignSpacings } from '../../styles/spacings';
 import { Link } from '../../components/Link';
 import { ScreenSize } from '../../styles/screeen-size';
 
@@ -155,7 +155,7 @@ export const Grid = styled.div`
   justify-content: center;
   align-content: center;
   gap: 40px;
-  padding-top: ${Spacings.md};
+  padding-top: ${RedesignSpacings.sm};
   flex-shrink: 0;
 
   @media (max-width: ${ScreenSize.phone}) {

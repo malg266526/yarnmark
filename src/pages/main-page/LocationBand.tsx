@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { Typography } from '../../components/Typography';
 import { BackgroundPicture } from '../../components/BackgroundPicture';
 import { BackgroundColors } from '../../styles/theme';
-import { RedesignSpacings, Spacings } from '../../styles/spacings';
+import { RedesignSpacings } from '../../styles/spacings';
 import { DropShadow, Radius } from '../../styles/cards';
 import { useToggle } from '../../hooks/useToggle';
 import chevronDownIcon from '../../assets/figmaIcons/chevron_down-icon.svg';
@@ -43,7 +43,7 @@ export const SecondaryButton = styled.button`
   flex-direction: row;
   align-items: center;
   cursor: pointer;
-  margin-top: ${Spacings.sm};
+  margin-top: ${RedesignSpacings.xs};
   background-color: transparent;
   border: none;
   gap: ${RedesignSpacings.xs};

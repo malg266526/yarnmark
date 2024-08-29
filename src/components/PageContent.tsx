@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Spacings } from '../styles/spacings';
+import { RedesignSpacings } from '../styles/spacings';
 import { Theme } from '../styles/theme';
 
 export const PageContent = styled.div<{ variant: 'wide' | 'narrow'; padding?: 'none' }>`
@@ -12,5 +12,5 @@ export const PageContent = styled.div<{ variant: 'wide' | 'narrow'; padding?: 'n
   align-self: center;
   align-items: center;
 
-  padding: ${({ padding }) => (padding === 'none' ? 0 : Spacings.lg)} 0;
+  padding: ${({ padding }) => (padding === 'none' ? 0 : RedesignSpacings.xl)} 0;
 `;

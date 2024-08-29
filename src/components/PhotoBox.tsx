@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Spacings } from '../styles/spacings';
+import { RedesignSpacings } from '../styles/spacings';
 import { ScreenSize } from '../styles/screeen-size';
 import { usePhone } from '../hooks/usePhone';
 import { FontSize } from '../styles/font-size';
@@ -21,13 +21,13 @@ const Slot = styled.div<{ slotSize: Size }>`
   top: 0;
   left: 100%;
   background: inherit;
-  padding: ${Spacings.md};
+  padding: ${RedesignSpacings.md};
   height: 100%;
   opacity: 0;
   pointer-events: none;
   transition: all 300ms cubic-bezier(0.72, 2.04, 0.68, 0.87);
   transform: translate(-50%) scale(0);
-  box-shadow: 3px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 0 3px 0 rgba(0, 0, 0, 0.5);
   transform-origin: left center;
 
   ${({ slotSize }) => css`
@@ -45,11 +45,11 @@ const Root = styled.div<{ maxSize: Size; slotSize?: Size }>`
     min-width: 200px;
     max-width: ${maxSize};
   `};
-  padding: ${Spacings.md} ${Spacings.md} ${Spacings.lg};
+  padding: ${RedesignSpacings.md} ${RedesignSpacings.md} ${RedesignSpacings.lg};
   background: white;
   position: relative;
   z-index: 1;
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
   transition: all 300ms cubic-bezier(0.72, 2.04, 0.68, 0.87);
   align-self: center;
 

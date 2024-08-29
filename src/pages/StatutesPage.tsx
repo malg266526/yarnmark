@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SlantedCornersBox } from '../components/SlantedCornersBox';
-import { Spacings } from '../styles/spacings';
+import { RedesignSpacings } from '../styles/spacings';
 import { BrownScale } from '../styles/theme';
 import sweatersBackgroundUrlAvif from './../assets/backgrounds/sweaters_background.avif';
 import sweatersBackgroundUrl from './../assets/backgrounds/sweaters_background.jpg';
@@ -22,13 +22,17 @@ import { useTypedTranslation } from '../translations/useTypedTranslation';
 const Card = styled.div`
   display: flex;
   background-color: white;
-  padding: ${Spacings.md};
+  padding: ${RedesignSpacings.md};
   border-radius: 4px;
   box-shadow: 2px 2px 15px 0 rgba(121, 59, 59, 0.25);
   flex: 1 1 auto;
   z-index: 0;
   flex-direction: column;
-  gap: ${Spacings.md};
+  gap: ${RedesignSpacings.md};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    padding: ${RedesignSpacings.sm};
+  }
 `;
 
 const StatuteWrapper = styled.div`

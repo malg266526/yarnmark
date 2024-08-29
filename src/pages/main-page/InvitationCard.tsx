@@ -5,7 +5,7 @@ import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Typography } from '../../components/Typography';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import styled from 'styled-components';
-import { RedesignSpacings, Spacings } from '../../styles/spacings';
+import { RedesignSpacings } from '../../styles/spacings';
 import { RowLayout } from '../../components/RowLayout';
 import { BackgroundColors, GrayScale } from '../../styles/theme';
 import { ScreenSize } from '../../styles/screeen-size';
@@ -14,7 +14,7 @@ import { Band } from '../../components/bands/Band';
 import { yarnmarkLogoPictureConfig } from '../../assets/yarnmarkLogoPictureConfig';
 
 const Content = styled(FlexColumnLayout)`
-  padding: ${Spacings.lg} ${Spacings.xs} 0 ${Spacings.xs};
+  padding: ${RedesignSpacings.xl} ${RedesignSpacings.xxs} 0 ${RedesignSpacings.xxs};
   background-color: ${BackgroundColors.desktopCard};
 
   @media (max-width: ${ScreenSize.phone}) {
@@ -28,14 +28,14 @@ const MiddleSection = styled(FlexColumnLayout)`
 `;
 
 const SignatureSection = styled(FlexColumnLayout)`
-  margin-bottom: ${Spacings.lg};
+  margin-bottom: ${RedesignSpacings.xl};
   padding-left: ${RedesignSpacings.md};
 `;
 
 const BottomSection = styled(RowLayout)`
   width: 100%;
   align-items: flex-end;
-  margin-top: -${Spacings.md};
+  margin-top: -${RedesignSpacings.sm};
 `;
 
 export const InvitationCard = () => {
