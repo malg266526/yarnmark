@@ -1,19 +1,19 @@
 import styled from 'styled-components';
 import { ScreenSize } from '../styles/screeen-size';
-import { Spacings } from '../styles/spacings';
+import { RedesignSpacings } from '../styles/spacings';
 
 export const MinimalistLayout = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
 
-  gap: ${Spacings.md};
-  padding: ${Spacings.xl} 100px ${Spacings.lg} ${Spacings.lg};
+  gap: ${RedesignSpacings.sm};
+  padding: ${RedesignSpacings.xxl} 100px ${RedesignSpacings.md} ${RedesignSpacings.md};
 
   align-self: flex-end;
   align-items: flex-end;
 
   @media (max-width: ${ScreenSize.phone}) {
-    padding: ${Spacings.md};
+    padding: ${RedesignSpacings.sm};
   }
 `;

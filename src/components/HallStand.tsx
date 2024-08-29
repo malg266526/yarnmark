@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { HallLightColors, HallStandType } from '../assets/hallMapConfig';
 import { usePhone } from '../hooks/usePhone';
 import { FontSize } from '../styles/font-size';
-import { Spacings } from '../styles/spacings';
+import { RedesignSpacings } from '../styles/spacings';
 import { Colors } from '../styles/theme';
 import { KnittingIconOnHover } from './KnittingIconOnHover';
 import { ScreenSize } from '../styles/screeen-size';
@@ -19,8 +19,8 @@ const TextWrapper = styled.div`
   transition: all 300ms cubic-bezier(0.72, 2.04, 0.68, 0.87);
   background: ${Colors.grayLight};
   border-radius: 4px;
-  box-shadow: 1px 1px 3px 0px black;
-  padding: ${Spacings.sm};
+  box-shadow: 1px 1px 3px 0 black;
+  padding: ${RedesignSpacings.xs};
 
   opacity: 0;
   transform: scale(0.5) ${wrapperTranslation};
