@@ -5,10 +5,17 @@ import ellipseLight from '../assets/figmaIcons/ellipse_light.svg';
 import ellipseMedium from '../assets/figmaIcons/ellipse_medium.svg';
 import ellipseStrong from '../assets/figmaIcons/ellipse_strong.svg';
 import React from 'react';
+import { Button } from './Button';
+
+const MiddleIcon = styled.div`
+  margin-top: 1px;
+`;
 
 interface DotsProps {
   direction?: 'column' | 'row';
   size?: 'sm' | 'lg';
+  onPrev?: () => void;
+  onNext?: () => void;
 }
 
 const DotsLayout = styled.div<DotsProps>`
@@ -19,10 +26,18 @@ const DotsLayout = styled.div<DotsProps>`
   padding: ${RedesignSpacings.xs};
 `;
 
-export const Dots = ({ direction, size }: DotsProps) => (
+export const Dots = ({ direction, size, onPrev, onNext }: DotsProps) => (
   <DotsLayout direction={direction} size={size}>
-    <Icon size="xxs" zIndex={0} src={ellipseStrong} />
-    <Icon size="xxs" zIndex={0} src={ellipseMedium} />
-    <Icon size="xxs" zIndex={0} src={ellipseLight} />
+    <Button onClick={onPrev}>
+      <Icon size="xxs" zIndex={0} src={ellipseStrong} />
+    </Button>
+
+    <MiddleIcon>
+      <Icon size="xxs" zIndex={0} src={ellipseMedium} />
+    </MiddleIcon>
+
+    <Button onClick={onNext}>
+      <Icon size="xxs" zIndex={0} src={ellipseLight} />
+    </Button>
   </DotsLayout>
 );
