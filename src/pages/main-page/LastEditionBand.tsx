@@ -9,6 +9,12 @@ import styled from 'styled-components';
 import { RedesignSpacings } from '../../styles/spacings';
 import { ScreenSize } from '../../styles/screeen-size';
 import { yarnmarkLogoPictureConfig } from '../../assets/yarnmarkLogoPictureConfig';
+import bagUrlJpg from '../../assets/images/bag.jfif';
+import bagUrlAvif from '../../assets/images/bag.avif';
+import bagUrlWebp from '../../assets/images/bag.webp';
+import { RowLayout } from '../../components/RowLayout';
+import bagUrlJpeg from '../../assets/images/bag.jpeg';
+import bagUrlPng from '../../assets/images/torba2.png';
 
 const Root = styled(FlexColumnLayout)`
   padding: ${RedesignSpacings.xl} 0;
@@ -16,6 +22,12 @@ const Root = styled(FlexColumnLayout)`
   @media (max-width: ${ScreenSize.phone}) {
     padding: ${RedesignSpacings.sm} 0;
   }
+`;
+
+const Frame = styled.div`
+  background-color: white;
+  padding: ${RedesignSpacings.xs};
+  padding-bottom: ${RedesignSpacings.sm};
 `;
 
 const LogoSection = styled.div`
@@ -31,50 +43,65 @@ export const LastEditionBand = () => {
     <Root align="flex-start" padding="none" gap="lg">
       <Band.Title>{t('previousEdition.thankYou')}</Band.Title>
 
-      <LogoSection>
-        <Picture picture={yarnmarkLogoPictureConfig} alt="yarnmark_logo" width={45} height={60} />
+      <RowLayout wide justify="space-between">
+        <FlexColumnLayout padding="none" align="flex-start" gap="lg">
+          <LogoSection>
+            <Picture picture={yarnmarkLogoPictureConfig} alt="yarnmark_logo" width={45} height={60} />
 
-        <FlexColumnLayout padding="none" gap="xxs" align="flex-start">
-          <Typography size="md" weight="bold">
-            {t('previousEdition.yarnmarkShop')}
-          </Typography>
-          <SecondaryLink
-            to="https://wloczykijki.pl/pl/p/Torba-Krakoski-Yarnmark-Welny/3022"
-            target="_blank"
-            rel="noreferrer">
-            <Typography size="sm">{t('previousEdition.yarnmarkBag')}</Typography>
-          </SecondaryLink>
+            <FlexColumnLayout padding="none" gap="xxs" align="flex-start">
+              <Typography size="md" weight="bold">
+                {t('previousEdition.yarnmarkShop')}
+              </Typography>
+              <SecondaryLink
+                to="https://wloczykijki.pl/pl/p/Torba-Krakoski-Yarnmark-Welny/3022"
+                target="_blank"
+                rel="noreferrer">
+                <Typography size="sm">{t('previousEdition.yarnmarkBag')}</Typography>
+              </SecondaryLink>
+            </FlexColumnLayout>
+          </LogoSection>
+
+          <LogoSection>
+            <Picture picture={yarnmarkLogoPictureConfig} alt="yarnmark_logo" width={45} height={60} />
+
+            <FlexColumnLayout padding="none" gap="xxs" align="flex-start">
+              <Typography size="md" weight="bold">
+                {t('previousEdition.yarnmarkGallery')}
+              </Typography>
+              <SecondaryLink
+                to="https://drive.google.com/drive/folders/1GUiZ03Em63k1AHeFiba1KZcAHoB1sm-W?fbclid=IwAR0YPaNF3SeNgZIUctnh1qyyPaOED3RjLUeDnimHs-iHiQKMbCIZgBII_4o"
+                target="_blank"
+                rel="noreferrer">
+                <Typography size="sm">{t('previousEdition.photosBy')} @czarnagrafka</Typography>
+              </SecondaryLink>
+
+              <SecondaryLink
+                to="https://drive.google.com/drive/folders/12orPLbGi9M3qUfVq5XEWNhTixadRFrSJ"
+                target="_blank"
+                rel="noreferrer">
+                <Typography size="sm">{t('previousEdition.photosBy')} @labolens.photo</Typography>
+              </SecondaryLink>
+
+              <SecondaryLink to="https://www.instagram.com/ataman_lenswork/" target="_blank" rel="noreferrer">
+                <Typography size="sm">
+                  {t('previousEdition.photosBy')} @ataman_lenswork {t('previousEdition.savedStories')}
+                </Typography>
+              </SecondaryLink>
+            </FlexColumnLayout>
+          </LogoSection>
         </FlexColumnLayout>
-      </LogoSection>
 
-      <LogoSection>
-        <Picture picture={yarnmarkLogoPictureConfig} alt="yarnmark_logo" width={45} height={60} />
-
-        <FlexColumnLayout padding="none" gap="xxs" align="flex-start">
-          <Typography size="md" weight="bold">
-            {t('previousEdition.yarnmarkGallery')}
-          </Typography>
-          <SecondaryLink
-            to="https://drive.google.com/drive/folders/1GUiZ03Em63k1AHeFiba1KZcAHoB1sm-W?fbclid=IwAR0YPaNF3SeNgZIUctnh1qyyPaOED3RjLUeDnimHs-iHiQKMbCIZgBII_4o"
-            target="_blank"
-            rel="noreferrer">
-            <Typography size="sm">{t('previousEdition.photosBy')} @czarnagrafka</Typography>
-          </SecondaryLink>
-
-          <SecondaryLink
-            to="https://drive.google.com/drive/folders/12orPLbGi9M3qUfVq5XEWNhTixadRFrSJ"
-            target="_blank"
-            rel="noreferrer">
-            <Typography size="sm">{t('previousEdition.photosBy')} @labolens.photo</Typography>
-          </SecondaryLink>
-
-          <SecondaryLink to="https://www.instagram.com/ataman_lenswork/" target="_blank" rel="noreferrer">
-            <Typography size="sm">
-              {t('previousEdition.photosBy')} @ataman_lenswork {t('previousEdition.savedStories')}
-            </Typography>
-          </SecondaryLink>
-        </FlexColumnLayout>
-      </LogoSection>
+        <Frame>
+          <Picture
+            picture={{
+              fallbackUrl: bagUrlJpeg
+            }}
+            alt="yarnmark_bag"
+            width={150}
+            height={180}
+          />
+        </Frame>
+      </RowLayout>
     </Root>
   );
 };
