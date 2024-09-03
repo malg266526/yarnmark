@@ -94,7 +94,7 @@ export const TicketCard = () => {
   };
 
   const shouldShake = localStorage.getItem('isBuyLinkVisited') !== 'true';
-
+  0;
   return (
     <TicketCardLayout>
       <TitleWrapper>

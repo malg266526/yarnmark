@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-type ObjectFit = 'cover' | 'contain';
+type ObjectFit = 'cover' | 'contain' | 'unset';
 
 // TODO: FullSizePicture & Picture - consider unification or some other solution
 
