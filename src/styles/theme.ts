@@ -12,7 +12,9 @@ export const BackgroundColors = {
 
   greenStrong: '#326213',
   greenMedium: '#A4C365',
-  greenLight: '#F8FFF4'
+  greenLight: '#F8FFF4',
+
+  footer: '#f9f9f9'
 };
 
 export const TextColors = {
@@ -35,16 +37,11 @@ export const GrayScale = {
 };
 
 export const Colors = {
-  goldLight: '#c3a25d',
-
-  pinball: '#d3d3d3',
   white: 'white',
-  ruinedSmores: '#0f0e17',
   grayLight: '#f9f9f9',
 
   beige1: '#dac9bd',
-  red1: '#b77866',
-  snow: '#f9f9f9'
+  red1: '#b77866'
 };
 
 export const BrownScale = {
@@ -70,7 +67,7 @@ export const HallColors = {
   normal2: '#FFAA33', // Yellow Orange
   small1: '#d8e1e8',
   small2: '#b2cbde',
-  taken: Colors.pinball,
+  taken: '#d3d3d3',
   taken2: '#dcdcdc',
   empty: BrownScale[50] //
 };

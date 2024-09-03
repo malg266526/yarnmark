@@ -13,8 +13,7 @@ import bagUrlJpg from '../../assets/images/bag.jfif';
 import bagUrlAvif from '../../assets/images/bag.avif';
 import bagUrlWebp from '../../assets/images/bag.webp';
 import { RowLayout } from '../../components/RowLayout';
-import bagUrlJpeg from '../../assets/images/bag.jpeg';
-import bagUrlPng from '../../assets/images/torba2.png';
+import { usePhone } from '../../hooks/usePhone';
 
 const Root = styled(FlexColumnLayout)`
   padding: ${RedesignSpacings.xl} 0;
@@ -38,6 +37,7 @@ const LogoSection = styled.div`
 
 export const LastEditionBand = () => {
   const t = useTypedTranslation();
+  const isPhone = usePhone();
 
   return (
     <Root align="flex-start" padding="none" gap="lg">
@@ -91,16 +91,28 @@ export const LastEditionBand = () => {
           </LogoSection>
         </FlexColumnLayout>
 
-        <Frame>
-          <Picture
-            picture={{
-              fallbackUrl: bagUrlJpeg
-            }}
-            alt="yarnmark_bag"
-            width={150}
-            height={180}
-          />
-        </Frame>
+        {!isPhone && (
+          <Frame>
+            <Picture
+              picture={{
+                fallbackUrl: bagUrlJpg,
+                sources: [
+                  {
+                    type: 'image/webp',
+                    url: bagUrlWebp
+                  },
+                  {
+                    type: 'image/avif',
+                    url: bagUrlAvif
+                  }
+                ]
+              }}
+              alt="yarnmark_bag"
+              width={150}
+              height={180}
+            />
+          </Frame>
+        )}
       </RowLayout>
     </Root>
   );
