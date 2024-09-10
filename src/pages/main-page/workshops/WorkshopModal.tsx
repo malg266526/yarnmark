@@ -131,7 +131,9 @@ export const WorkshopModal = ({ isOpen, toggle, workshop, close }: WorkshopModal
             </Typography>
           </PriceInfo>
 
-          <CtaButton onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}>
+          <CtaButton
+            onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}
+            aria-label="open tickets page">
             {t('workshops.buyTicket')}
           </CtaButton>
         </FlexColumnLayout>
