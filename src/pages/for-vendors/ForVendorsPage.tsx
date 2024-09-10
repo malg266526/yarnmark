@@ -4,7 +4,7 @@ import { BackgroundColors } from '../../styles/theme';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Trans } from 'react-i18next';
 import { Hall } from '../../components/Hall';
-import { HallWrapper, PlainInfo, Separator } from './InfoForVendorsPage.styled';
+import { HallWrapper, PlainInfo, Separator } from './ForVendorsPage.styled';
 import { usePhone } from '../../hooks/usePhone';
 import { Header } from '../menu/Header';
 import { Typography } from '../../components/Typography';
@@ -25,7 +25,7 @@ const InvitationBoxWrapper = styled.div`
   }
 `;
 
-export const InfoForVendorsPage = () => {
+export const ForVendorsPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
 

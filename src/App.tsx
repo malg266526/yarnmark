@@ -8,7 +8,7 @@ import { Icon } from './components/Icon';
 import { MinimalistLayout } from './components/MinimalistLayout';
 import { RowLayout } from './components/RowLayout';
 import { Root, Footer, LeftBackgroundImage, TransparentText, VanillaLink } from './App.styled';
-import { InfoForVendorsPage } from './pages/for-vendors/InfoForVendorsPage';
+import { ForVendorsPage } from './pages/for-vendors/ForVendorsPage';
 import { MainPage } from './pages/main-page/MainPage';
 import { useTypedTranslation } from './translations/useTypedTranslation';
 import { TextColors } from './styles/theme';
@@ -70,7 +70,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<MainPage />} />
-          <Route path="/info-for-vendors" element={<InfoForVendorsPage />} />
+          <Route path="/info-for-vendors" element={<ForVendorsPage />} />
           <Route path="/statutes" element={<StatutesPage />} />
           <Route path="/hall" element={<HallMapPage />} />
         </Routes>
