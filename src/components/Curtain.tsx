@@ -5,16 +5,15 @@ export const Curtain = styled.div<{ active?: boolean }>`
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
-  z-index: -1;
+  z-index: 101;
   opacity: 0;
-  transition:
-    opacity 250ms ease-in-out,
-    z-index 250ms ease-in-out;
+  pointer-events: none;
+  transition: opacity 250ms ease-in-out;
 
   ${({ active }) =>
     active &&
     css`
-      z-index: 10;
+      pointer-events: auto;
       opacity: 1;
     `};
 `;

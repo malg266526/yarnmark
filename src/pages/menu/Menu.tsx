@@ -44,9 +44,10 @@ const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
   overflow: auto;
 
   @media (max-width: ${ScreenSize.phone}) {
-    height: auto;
-    top: 112px;
+    height: 100vh;
+    top: 0;
     left: unset;
+    z-index: 102;
     right: -${RedesignSpacings.xs};
     border-radius: 12px 0 0 12px;
     padding: ${RedesignSpacings.xs} ${RedesignSpacings.xxs};
