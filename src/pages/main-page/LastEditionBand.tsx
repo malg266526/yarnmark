@@ -9,9 +9,9 @@ import styled from 'styled-components';
 import { RedesignSpacings } from '../../styles/spacings';
 import { ScreenSize } from '../../styles/screeen-size';
 import { yarnmarkLogoPictureConfig } from '../../assets/yarnmarkLogoPictureConfig';
-import bagUrlJpg from '../../assets/images/bag.jfif';
-import bagUrlAvif from '../../assets/images/bag.avif';
-import bagUrlWebp from '../../assets/images/bag.webp';
+import bagUrlPng from '../../assets/images/bag.png';
+import bagUrlWebp from '../../assets/images/bag_webp.webp';
+import bagUrlAvif from '../../assets/images/bag_avif.avif';
 import { RowLayout } from '../../components/RowLayout';
 import { usePhone } from '../../hooks/usePhone';
 
@@ -21,12 +21,6 @@ const Root = styled(FlexColumnLayout)`
   @media (max-width: ${ScreenSize.phone}) {
     padding: ${RedesignSpacings.sm} 0;
   }
-`;
-
-const Frame = styled.div`
-  background-color: white;
-  padding: ${RedesignSpacings.xs};
-  padding-bottom: ${RedesignSpacings.sm};
 `;
 
 const LogoSection = styled.div`
@@ -92,26 +86,24 @@ export const LastEditionBand = () => {
         </FlexColumnLayout>
 
         {!isPhone && (
-          <Frame>
-            <Picture
-              picture={{
-                fallbackUrl: bagUrlJpg,
-                sources: [
-                  {
-                    type: 'image/webp',
-                    url: bagUrlWebp
-                  },
-                  {
-                    type: 'image/avif',
-                    url: bagUrlAvif
-                  }
-                ]
-              }}
-              alt="yarnmark_bag"
-              width={150}
-              height={180}
-            />
-          </Frame>
+          <Picture
+            picture={{
+              fallbackUrl: bagUrlPng,
+              sources: [
+                {
+                  type: 'image/webp',
+                  url: bagUrlWebp
+                },
+                {
+                  type: 'image/avif',
+                  url: bagUrlAvif
+                }
+              ]
+            }}
+            alt="yarnmark bag"
+            width={140}
+            height={190}
+          />
         )}
       </RowLayout>
     </Root>
