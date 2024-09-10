@@ -8,9 +8,9 @@ import infoIcon from '../../assets/figmaIcons/menu/info_icon.svg';
 import ticketIcon from '../../assets/figmaIcons/menu/ticket_icon.svg';
 import homeIcon from '../../assets/figmaIcons/menu/home_icon.svg';
 import shopIcon from '../../assets/figmaIcons/menu/shop_icon.svg';
-import workshopIcons from '../../assets/figmaIcons/menu/workshops_icon.svg';
+// import workshopIcons from '../../assets/figmaIcons/menu/workshops_icon.svg';
 import paintingIcon from '../../assets/figmaIcons/menu/painting_icon.svg';
-import pinEllipseIcon from '../../assets/figmaIcons/menu/pin_ellipse_icon.svg';
+// import pinEllipseIcon from '../../assets/figmaIcons/menu/pin_ellipse_icon.svg';
 import handshakeIcon from '../../assets/figmaIcons/menu/handshake_icon.svg';
 import contractIcon from '../../assets/figmaIcons/menu/contract_icon.svg';
 import openDrawerIcon from '../../assets/figmaIcons/open_drawer_icon.svg';
@@ -229,20 +229,20 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
             {isMenuExpanded && <Typography size="sm">{t('menu.workshopTickets')}</Typography>}
           </MenuItem>
 
-          <MenuItem
+          {/*          <MenuItem
             href="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833"
             target="_blank"
             isOpen={isMenuExpanded}
             aria-label="cruise_tickets_menu_item">
             <Icon size="sm" zIndex={0} src={ticketIcon} />
             {isMenuExpanded && <Typography size="sm">{t('menu.cruiseTickets')}</Typography>}
-          </MenuItem>
+          </MenuItem>*/}
         </TicketsSection>
 
-        <MenuItem href="/home#workshops" isOpen={isMenuExpanded} aria-label="workshops_menu_item">
+        {/*        <MenuItem href="/home#workshops" isOpen={isMenuExpanded} aria-label="workshops_menu_item">
           <Icon size="sm" zIndex={0} src={workshopIcons} />
           {isMenuExpanded && <Typography size="sm">{t('menu.workshops')}</Typography>}
-        </MenuItem>
+        </MenuItem>*/}
 
         <MenuItem href="/home#vendors" isOpen={isMenuExpanded} aria-label="vendors_menu_item">
           <Icon size="sm" zIndex={0} src={shopIcon} />
@@ -256,15 +256,15 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
       </Section>
 
       <LastSection isOpen={isMenuExpanded}>
-        <MenuItem href="/info-for-vendors#stands" isOpen={isMenuExpanded} aria-label="stands_map_menu_item">
+        <MenuItem href="/info-for-vendors" isOpen={isMenuExpanded} aria-label="stands_map_menu_item">
           <Icon size="sm" zIndex={0} src={handshakeIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.infoForVendors')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="/hall" isOpen={isMenuExpanded} aria-label="hall_map_menu_item">
+        {/*        <MenuItem href="/hall" isOpen={isMenuExpanded} aria-label="hall_map_menu_item">
           <Icon size="sm" zIndex={0} src={pinEllipseIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.hallMap')}</Typography>}
-        </MenuItem>
+        </MenuItem>*/}
 
         <MenuItem href="/statutes" isOpen={isMenuExpanded} aria-label="statutes_menu_item">
           <Icon size="sm" zIndex={0} src={contractIcon} />
