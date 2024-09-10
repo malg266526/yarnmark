@@ -9,6 +9,6 @@ export const WoolPicture = () => (
     <source srcSet={woolsAvifLandscape} type="image/avif" />
     <source srcSet={woolsWebpLandscape} type="image/avif" />
 
-    <img loading="lazy" src={woolsJpgLandscape} alt="wool skeins" />
+    <img src={woolsJpgLandscape} alt="wool skeins" />
   </BackgroundPicture>
 );
