@@ -101,8 +101,8 @@ export const LastEditionBand = () => {
               ]
             }}
             alt="yarnmark bag"
-            width={140}
-            height={190}
+            width={126}
+            height={196}
           />
         )}
       </RowLayout>
