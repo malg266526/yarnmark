@@ -35,7 +35,8 @@ export const pl = {
       entrance: 'Bilet wstepu',
       whereToBuy: 'Bilet wstępu na Krakoski Yarnmark wykupisz na oficjalnej stronie sklepu włóczykijki.pl!',
       keepYourEmail: 'Zachowaj email z numerem zamówienia, który dostaniesz po zakupie biletu.',
-      proofOfPurchase: 'Ten dowód zakupu okażesz przy wejsciu na Yarnmark ;)'
+      proofOfPurchase: 'Ten dowód zakupu okażesz przy wejsciu na Yarnmark ;)',
+      availableSoon: 'Dostępne wkrótce'
     },
     location: {
       findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>',
@@ -50,8 +51,8 @@ export const pl = {
     },
     whereToEat: 'Gdzie zjeść?',
     welcomeBand: {
-      invitation: 'Serdecznie zapraszamy na I edycję targów wełny w stolicy Małopolski!',
-      when: '27/04/2024r w godz. 10:00 - 18:00',
+      invitation: 'Serdecznie zapraszamy na II edycję targów wełny w stolicy Małopolski!',
+      when: '26/04/2025r w godz. 10:00 - 18:00',
       where: 'Hala 100-lecia KS Cracovia',
       haveFun: 'Życzymy udanych łowów i świetnej zabawy!',
       seeYou: 'Do zobaczenia!'
@@ -61,7 +62,7 @@ export const pl = {
       knittingSaturday: 'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka!',
       linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
       checkTheVendors: 'Sprawdź z jakimi wystawcami się spotkasz.',
-      when: '27/04/2024r. o godz. 10:00'
+      when: '26/04/2025r. o godz. 10:00'
     },
     previousEdition: {
       thankYou: 'Dziękujemy za Waszą obecność na Yarnmarku 2024!',

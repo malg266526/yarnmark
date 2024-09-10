@@ -36,7 +36,8 @@ export const en: TranslationsShape = {
       whereToBuy:
         'You can buy an entry ticket to Krakoski Yarnmark on the official website of the store włóczykijki.pl!',
       keepYourEmail: 'Save the email with your order number, which you will receive after purchasing your ticket.',
-      proofOfPurchase: 'You will show this proof of purchase when entering Yarnmark ;)'
+      proofOfPurchase: 'You will show this proof of purchase when entering Yarnmark ;)',
+      availableSoon: 'Available soon'
     },
     location: {
       findUsOnMaps: 'Find Us on <0>Google Maps</0>',
@@ -51,8 +52,8 @@ export const en: TranslationsShape = {
       taken: 'Reserved'
     },
     welcomeBand: {
-      invitation: 'We heartily invite you for I edition of wool fair in capital of Malopolska!',
-      when: '27/04/2024r at 10:00 AM - 6:00 PM',
+      invitation: 'We heartily invite you for I| edition of wool fair in capital of Malopolska!',
+      when: '26/04/2025r at 10:00 AM - 6:00 PM',
       where: 'Hala 100-lecia KS Cracovia',
       haveFun: 'We wish you successful hunting and great fun!',
       seeYou: 'See ya all!'
@@ -62,7 +63,7 @@ export const en: TranslationsShape = {
       knittingSaturday: 'Come spend your knitting Saturday with us in the city of Krakow!',
       linksBelow: 'Below you will find few links that will help you plan your time in our beautiful city:',
       checkTheVendors: 'Check which vendors you will meet',
-      when: '27/04/2024r at 10:00 AM'
+      when: '26/04/2025r at 10:00 AM'
     },
     previousEdition: {
       thankYou: 'Thank you for your presence at Yarnmark 2024!',
