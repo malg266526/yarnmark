@@ -20,12 +20,12 @@ import { yarnmarkLogoPictureConfig } from '../../assets/yarnmarkLogoPictureConfi
 import { useToggle } from '../../hooks/useToggle';
 import { Button } from '../../components/Button';
 import { Typography } from '../../components/Typography';
-import { Dots } from '../../components/Dots';
 import { LanguageSwitcher } from '../LanguageSwitcher';
 import contactIcon from '../../assets/figmaIcons/menu/contact_icon.svg';
 import { usePhone } from '../../hooks/usePhone';
 import { ScreenSize } from '../../styles/screeen-size';
 import closeMenuIcon from '../../assets/figmaIcons/menu/close_icon.svg';
+import dotsStrokeIcon from '../../assets/figmaIcons/dots_icon.svg';
 
 const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
   display: flex;
@@ -150,6 +150,13 @@ const SwitchButton = styled(Button)`
   @media (max-width: ${ScreenSize.phone}) {
     display: none;
   }
+`;
+
+const Dots = styled.span`
+  background: url(${dotsStrokeIcon}) no-repeat center;
+  background-size: contain;
+  width: 70px;
+  height: 30px;
 `;
 
 interface UpgradedMenuProps {

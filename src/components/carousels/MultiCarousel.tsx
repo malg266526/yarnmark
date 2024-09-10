@@ -4,8 +4,8 @@ import { RedesignSpacings } from '../../styles/spacings';
 import { ScreenSize } from '../../styles/screeen-size';
 import skeinIconSrc from '../../assets/images/indicator_skein_green.svg';
 import { Icon } from '../Icon';
-import dotsStrokeIcon from '../../assets/figmaIcons/dots_stroke_icon.svg';
 import { Button } from '../Button';
+import { Dots } from '../Dots';
 
 const Root = styled.div`
   width: 100%;
@@ -57,9 +57,7 @@ const NextIcon = styled(Icon)`
   transform: rotateY(180deg);
 `;
 
-const Dots = styled.span`
-  background: url(${dotsStrokeIcon}) no-repeat center;
-  background-size: contain;
+const DotsWrapper = styled.span`
   width: 70px;
   height: 30px;
 `;
@@ -111,7 +109,9 @@ export const MultiCarousel = ({ children }: MultiCarouselProps) => {
         </Button>
       </SlidesWithNavigation>
 
-      <Dots />
+      <DotsWrapper>
+        <Dots onPrev={goBack} onNext={goNext} />
+      </DotsWrapper>
     </Root>
   );
 };
