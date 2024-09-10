@@ -94,7 +94,7 @@ export const MultiCarousel = ({ children }: MultiCarouselProps) => {
   return (
     <Root id="carousel_container">
       <SlidesWithNavigation>
-        <Button onClick={goBack}>
+        <Button onClick={goBack} aria-label="go back">
           <Icon size="lg" src={skeinIconSrc} />
         </Button>
 
@@ -104,7 +104,7 @@ export const MultiCarousel = ({ children }: MultiCarouselProps) => {
           </Slides>
         </SlidesWrapper>
 
-        <Button onClick={goNext}>
+        <Button onClick={goNext} aria-label="go next">
           <NextIcon size="lg" src={skeinIconSrc} />
         </Button>
       </SlidesWithNavigation>

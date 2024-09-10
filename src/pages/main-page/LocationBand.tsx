@@ -70,7 +70,7 @@ const EventLocationCard = () => {
       <Typography size="sm">{t('spotBand.address')}</Typography>
       <Typography size="sm">{t('spotBand.description')}</Typography>
 
-      <SecondaryButton onClick={toggle}>
+      <SecondaryButton onClick={toggle} aria-label="toggle location info">
         <Typography size="lg" weight="bold">
           {t('spotBand.howToGetToUs')}
         </Typography>

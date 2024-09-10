@@ -52,17 +52,19 @@ export const NavigationBand = () => {
       </InfoSectionWrapper>
 
       <RowLayout wide justify="center" gap="xxxl">
-        <IconButton onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}>
+        <IconButton
+          onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}
+          aria-label="go to tickets">
           <Icon size="xl" zIndex={0} src={blueTicketsIconUrl} />
           <Typography size="sm">{t('tickets.yarnmarkTicket')}</Typography>
         </IconButton>
 
-        <IconButton onClick={() => (window.location.href = '/home#vendors')}>
+        <IconButton onClick={() => (window.location.href = '/home#vendors')} aria-label="go to vendors">
           <Icon size="xl" zIndex={0} src={storeIconUrl} />
           <Typography size="sm">{t('vendors')}</Typography>
         </IconButton>
 
-        <IconButton onClick={() => (window.location.href = '/home#location')}>
+        <IconButton onClick={() => (window.location.href = '/home#location')} aria-label="go to location">
           <Icon size="xl" zIndex={0} src={redMapMarkerIconUrl} />
           <Typography size="sm">{t('location.whereToFindUs')}</Typography>
         </IconButton>

@@ -28,7 +28,7 @@ const DotsLayout = styled.div<DotsProps>`
 
 export const Dots = ({ direction, size, onPrev, onNext }: DotsProps) => (
   <DotsLayout direction={direction} size={size}>
-    <Button onClick={onPrev}>
+    <Button onClick={onPrev} aria-label="prev button">
       <Icon size="xxs" zIndex={0} src={ellipseStrong} />
     </Button>
 
@@ -36,7 +36,7 @@ export const Dots = ({ direction, size, onPrev, onNext }: DotsProps) => (
       <Icon size="xxs" zIndex={0} src={ellipseMedium} />
     </MiddleIcon>
 
-    <Button onClick={onNext}>
+    <Button onClick={onNext} aria-label="next button">
       <Icon size="xxs" zIndex={0} src={ellipseLight} />
     </Button>
   </DotsLayout>
