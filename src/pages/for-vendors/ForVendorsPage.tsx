@@ -3,15 +3,13 @@ import { SlantedCornersBox } from '../../components/SlantedCornersBox';
 import { BackgroundColors } from '../../styles/theme';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Trans } from 'react-i18next';
-import { Hall } from '../../components/Hall';
-import { HallWrapper, PlainInfo, Separator } from './InfoForVendorsPage.styled';
+import { PlainInfo, Separator } from './ForVendorsPage.styled';
 import { usePhone } from '../../hooks/usePhone';
 import { Header } from '../menu/Header';
 import { Typography } from '../../components/Typography';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import { BandTitle } from '../../components/bands/BandTitle';
 import { Band } from '../../components/bands/Band';
-import { SecondaryLink } from '../../components/Link';
 import { WoolPicture } from '../../components/WoolPicture';
 import { PageContent } from '../../components/PageContent';
 import styled from 'styled-components';
@@ -25,7 +23,7 @@ const InvitationBoxWrapper = styled.div`
   }
 `;
 
-export const InfoForVendorsPage = () => {
+export const ForVendorsPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
 
@@ -60,16 +58,17 @@ export const InfoForVendorsPage = () => {
             <Trans i18nKey="infoForVendorsPage.registration.beAVendor" />
           </Typography>
           <Typography size="md">
-            <Trans i18nKey="infoForVendorsPage.registration.start" />
+            Data startu sprzedaży stoisk zostanie podana wkrótce.
+            {/*<Trans i18nKey="infoForVendorsPage.registration.start" />*/}
           </Typography>
           <Typography size="md">{t('infoForVendorsPage.registration.where')}</Typography>
 
-          <SecondaryLink
+          {/*          <SecondaryLink
             to="https://wloczykijki.pl/pl_PL/c/Krakoski-Yarnmark-Welny/355?preview=true"
             target="_blank"
             rel="noreferrer">
             <Typography size="md">{t('infoForVendorsPage.registration.buyHere')}</Typography>
-          </SecondaryLink>
+          </SecondaryLink>*/}
 
           <Typography size="md">{t('infoForVendorsPage.registration.feedback')}</Typography>
           <Typography size="md">{t('infoForVendorsPage.registration.return')}</Typography>
@@ -94,7 +93,7 @@ export const InfoForVendorsPage = () => {
           <Typography size="md">{t('infoForVendorsPage.hallInfo.openHours')}</Typography>
           <Typography size="md">{t('infoForVendorsPage.hallInfo.ramp')}</Typography>
           <Typography size="md">{t('infoForVendorsPage.hallInfo.participants')}</Typography>
-          <Typography size="md">{t('infoForVendorsPage.hallInfo.stands')}</Typography>
+          {/*<Typography size="md">{t('infoForVendorsPage.hallInfo.stands')}</Typography>
           <ul>
             <li>
               <Typography size="md">
@@ -108,15 +107,18 @@ export const InfoForVendorsPage = () => {
             </li>
             <li>
               <Typography size="md">
-                {' '}
                 <Trans i18nKey="infoForVendorsPage.hallInfo.miniStand" />
               </Typography>
             </li>
-          </ul>
+          </ul>*/}
+          {/*
           <Typography size="md">{t('infoForVendorsPage.hallInfo.tables')}</Typography>
+*/}
           <Typography size="md">{t('infoForVendorsPage.hallInfo.extensionCords')}</Typography>
           <Typography size="md">{t('infoForVendorsPage.hallInfo.socialRoom')}</Typography>
+          {/*
           <Typography size="md">{t('infoForVendorsPage.hallInfo.glassWall')}</Typography>
+*/}
         </PlainInfo>
       </Band.NarrowColumn>
 
@@ -164,10 +166,12 @@ export const InfoForVendorsPage = () => {
         stretchOnMobile
         padding={isPhone ? 'sm' : 'xxl'}>
         <Band.BeamTitle>{t('infoForVendorsPage.stands.title')}</Band.BeamTitle>
-
-        <HallWrapper>
+        <PlainInfo>
+          <Typography size="md">Rozkład stoisk zostanie podany wkrótce.</Typography>
+        </PlainInfo>
+        {/*        <HallWrapper>
           <Hall />
-        </HallWrapper>
+        </HallWrapper>*/}
       </Band.NarrowColumn>
     </PageContent>
   );

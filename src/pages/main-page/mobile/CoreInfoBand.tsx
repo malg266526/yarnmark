@@ -2,7 +2,9 @@ import React from 'react';
 import { Typography } from '../../../components/Typography';
 import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
 import { Trans } from 'react-i18next';
+/*
 import shipIconUrl from '../../../assets/figmaIcons/ship_icon.svg';
+*/
 import { Icon } from '../../../components/Icon';
 import redMapMarkerIconUrl from '../../../assets/figmaIcons/red_map_marker_icon.svg';
 import blueTicketsIconUrl from '../../../assets/figmaIcons/blue_tickets_icon.svg';
@@ -10,7 +12,9 @@ import calendarIconUrl from '../../../assets/figmaIcons/calendar_icon.svg';
 import styled from 'styled-components';
 import { GrayScale, TextColors } from '../../../styles/theme';
 import { Band } from '../../../components/bands/Band';
+/*
 import mapIcon from '../../../assets/figmaIcons/map_icon.svg';
+*/
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 
 const InfoColumn = styled(FlexColumnLayout)`
@@ -58,18 +62,27 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
         <FlexColumnLayout gap="xs" padding="none">
           <Icon size="lg" zIndex={0} src={blueTicketsIconUrl} />
           <Typography size="sm">
-            <Trans i18nKey="tickets.buyTicketsAndWorkshops" components={[<Link key="tickets_url" href="/home" />]} />
+            <Trans
+              i18nKey="tickets.buyTicketsAndWorkshops"
+              components={[
+                <Link
+                  key="tickets_url"
+                  target="_blank"
+                  href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355"
+                />
+              ]}
+            />
           </Typography>
         </FlexColumnLayout>
 
-        <FlexColumnLayout gap="xs" padding="none">
+        {/*        <FlexColumnLayout gap="xs" padding="none">
           <Icon size="lg" zIndex={0} src={mapIcon} />
           <Link href="/hall">
             <Typography size="sm">{t('hallMap.title')}</Typography>
           </Link>
-        </FlexColumnLayout>
+        </FlexColumnLayout>*/}
 
-        <FlexColumnLayout gap="xs" padding="none">
+        {/*        <FlexColumnLayout gap="xs" padding="none">
           <Icon size="lg" zIndex={0} src={shipIconUrl} />
           <Typography size="sm">
             <Trans
@@ -77,7 +90,7 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
               components={[<Link key="cruise_tickets_here" href="/home#cruise" />]}
             />
           </Typography>
-        </FlexColumnLayout>
+        </FlexColumnLayout>*/}
       </InfoColumn>
     </Band.NarrowColumn>
   );

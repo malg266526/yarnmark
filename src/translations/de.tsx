@@ -36,7 +36,8 @@ export const de: TranslationsShape = {
       whereToBuy:
         'You can buy an entry ticket to Krakoski Yarnmark on the official website of the store włóczykijki.pl!',
       keepYourEmail: 'Save the email with your order number, which you will receive after purchasing your ticket.',
-      proofOfPurchase: 'You will show this proof of purchase when entering Yarnmark ;)'
+      proofOfPurchase: 'You will show this proof of purchase when entering Yarnmark ;)',
+      availableSoon: 'Bald verfügbar'
     },
     location: {
       findUsOnMaps: 'Finden Sie uns auf <0>Google Maps</0>',
@@ -52,7 +53,7 @@ export const de: TranslationsShape = {
     },
     welcomeBand: {
       invitation: 'Wir laden Sie herzlich zur zweiten Ausgabe der Wollmesse inKrakau ein!',
-      when: 'Am 27.04.2024 von 10:00 bis 18:00 Uhr',
+      when: 'Am 26.04.2025 von 10:00 bis 18:00 Uhr',
       where: 'In Hala 100-lecia KS Cracovia',
       haveFun: 'Wir wünschen Ihnen eine erfolgreiche Jagd und viel Spaß!',
       seeYou: 'Auf Wiedersehen!'
@@ -63,7 +64,7 @@ export const de: TranslationsShape = {
       linksBelow:
         'Unten findest du einige Links, die dir bei der Planung deiner Zeit in unserer schönen Stadt helfen werden:',
       checkTheVendors: 'Schau welche Aussteller du triffst',
-      when: 'Am 27.04.2024 um 10:00 Uhr'
+      when: 'Am 26.04.2025 um 10:00 Uhr'
     },
     previousEdition: {
       thankYou: 'Thank you for your presence at Yarnmark 2024!',

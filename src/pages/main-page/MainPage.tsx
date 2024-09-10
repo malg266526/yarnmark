@@ -2,9 +2,6 @@ import React, { useCallback, useRef } from 'react';
 import { InvitationCardWrapper, StyledPageContent } from './MainPage.styled';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import { NavigationBand } from './NavigationBand';
-import { WorkshopsDesktopBand } from './workshops/WorkshopsDesktopBand';
-import { FoodBand } from './FoodBand';
-import { CruiseBand } from './CruiseBand';
 import { Header } from '../menu/Header';
 import { LastEditionBand } from './LastEditionBand';
 import { InvitationCard } from './InvitationCard';
@@ -14,7 +11,6 @@ import { CoreInfoBand } from './mobile/CoreInfoBand';
 import { Band } from '../../components/bands/Band';
 import { WoolPicture } from '../../components/WoolPicture';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { WorkshopsSchedule } from './workshops/WorkshopsSchedule';
 import { BackgroundColors } from '../../styles/theme';
 import { VendorsList } from './VendorsList';
 import { TicketCard } from './TicketCard';
@@ -48,10 +44,10 @@ export const MainPage = () => {
             <TicketCard />
           </Band.CenteredColumn>
 
-          <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
-          <Band.Empty id="workshopsTickets" padding="xs">
+          {/*<Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>*/}
+          {/*          <Band.Empty id="workshopsTickets" padding="xs">
             <WorkshopsSchedule />
-          </Band.Empty>
+          </Band.Empty>*/}
 
           <Band.SecondaryTitle>{t('vendors')}</Band.SecondaryTitle>
 
@@ -59,9 +55,11 @@ export const MainPage = () => {
             <VendorsList />
           </Band.CenteredColumn>
 
+          {/*
           <CruiseBand id="cruise" />
+*/}
 
-          <FoodBand id="food" />
+          {/* <FoodBand id="food" />*/}
 
           <Band.Empty id="lastEdition" color={BackgroundColors.primary} padding="sm">
             <LastEditionBand />
@@ -84,11 +82,15 @@ export const MainPage = () => {
           <Band.CenteredColumn id="vendors" size="md" padding="xxxl" color={BackgroundColors.gradient} justify="center">
             <VendorsList />
           </Band.CenteredColumn>
+          {/*
           <WorkshopsDesktopBand id="workshops" />
+*/}
 
+          {/*
           <CruiseBand id="cruise" />
+*/}
 
-          <FoodBand id="food" />
+          {/*<FoodBand id="food" />*/}
 
           <Band.CenteredColumn id="lastEdition" color={BackgroundColors.primary} padding="sm" gap="lg">
             <LastEditionBand />

@@ -67,7 +67,7 @@ const ShakeAnimationFrames = css`
   }
 `;
 
-const BuyTicketLink = styled(CtaButton)<{ shouldShake?: boolean }>`
+const BuyTicketLink = styled(CtaButton)<{ shouldShake?: boolean; disabled?: boolean }>`
   border-radius: ${Radius.xl};
   font-weight: 600;
   font-size: ${FontSize.lg};
@@ -105,11 +105,12 @@ export const TicketCard = () => {
         <TicketTitle size="lg">Yarnmark</TicketTitle>
 
         <BuyTicketLink onClick={onBuyTicketClicked} aria-label="buy_ticket" shouldShake={shouldShake}>
-          {t('tickets.buyTicket')}
+          {/*{t('tickets.buyTicket')}*/}
+          {t('tickets.availableSoon')}
         </BuyTicketLink>
 
         <Typography size="sm">
-          27/04/2024r {t('tickets.at')} 10:00 {t('tickets.hours')}
+          26/04/2025r {t('tickets.at')} 10:00 {t('tickets.hours')}
         </Typography>
 
         <Typography size="sm">Hala 100-lecia KS Cracovia</Typography>
