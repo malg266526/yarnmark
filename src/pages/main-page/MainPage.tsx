@@ -61,7 +61,7 @@ export const MainPage = () => {
 
           {/* <FoodBand id="food" />*/}
 
-          <Band.Empty id="lastEdition" color={BackgroundColors.primary} padding="sm">
+          <Band.Empty id="lastEdition" color={BackgroundColors.lastEditionBand} padding="sm">
             <LastEditionBand />
           </Band.Empty>
         </>
@@ -92,7 +92,7 @@ export const MainPage = () => {
 
           {/*<FoodBand id="food" />*/}
 
-          <Band.CenteredColumn id="lastEdition" color={BackgroundColors.primary} padding="sm" gap="lg">
+          <Band.CenteredColumn id="lastEdition" color={BackgroundColors.lastEditionBand} padding="sm" gap="lg">
             <LastEditionBand />
           </Band.CenteredColumn>
         </>
