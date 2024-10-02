@@ -91,7 +91,7 @@ export const Link = styled(({ children, to, target, rel, color, ...rest }: HashL
 })``;
 
 export const SecondaryLink = styled(Link)`
-  color: ${TextColors.link};
+  color: ${TextColors.accent};
   padding: 0;
   width: fit-content;
 

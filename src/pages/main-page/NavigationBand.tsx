@@ -31,7 +31,7 @@ const InfoSectionWrapper = styled.div`
 
 const IconButton = styled(Button)`
   max-width: 60px;
-  color: ${TextColors.link};
+  color: ${TextColors.accent};
   text-align: center;
 `;
 

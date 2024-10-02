@@ -32,7 +32,7 @@ const TicketTitle = styled(Typography)`
 `;
 
 const TicketPrice = styled(Typography)`
-  color: ${TextColors.link};
+  color: ${TextColors.accent};
 `;
 
 const ShakeAnimationFrames = css`

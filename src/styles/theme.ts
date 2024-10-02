@@ -20,7 +20,7 @@ export const BackgroundColors = {
 export const TextColors = {
   primary: '#151414',
   secondary: '#326213',
-  link: '#C0392B'
+  accent: '#C0392B'
 };
 
 export const GrayScale = {

@@ -22,7 +22,7 @@ const InfoColumn = styled(FlexColumnLayout)`
 `;
 
 const Link = styled.a`
-  color: ${TextColors.link};
+  color: ${TextColors.accent};
   text-decoration: none;
 `;
 
