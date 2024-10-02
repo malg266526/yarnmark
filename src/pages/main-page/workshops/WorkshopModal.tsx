@@ -30,8 +30,8 @@ const WorkshopModalLayout = styled(Modal)`
 
 const Beam = styled(FlexColumnLayout)`
   width: 100%;
-  border-bottom: 0.5px solid ${BackgroundColors.greenStrong};
-  background: ${BackgroundColors.greenStrong};
+  border-bottom: 0.5px solid ${BackgroundColors.green.strong};
+  background: ${BackgroundColors.green.strong};
   color: white;
   padding: ${RedesignSpacings.xs} ${RedesignSpacings.sm};
   text-align: center;

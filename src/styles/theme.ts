@@ -1,10 +1,12 @@
 export const BackgroundColors = {
-  desktopCard: '#F5F5F5',
-  navigationBand: 'rgba(233, 232, 232, 0.60)',
   menu: {
     desktop: 'rgba(233, 232, 232, 0.8)',
     mobile: 'rgba(233, 232, 232, 1)'
   },
+
+  desktopCard: '#F5F5F5',
+  navigationBand: 'rgba(233, 232, 232, 0.60)',
+
   ticketBand: '#ECEBEB',
   workshopsBand: '#F9F9F9',
   footer: '#f9f9f9',
@@ -13,9 +15,11 @@ export const BackgroundColors = {
   secondary: 'rgba(236, 235, 235, 0.30)', // GrayScale[100] but 30%,
   gradient: `linear-gradient(180deg, #EAE9E9 1.96%, rgba(244, 243, 243, 0.83) 12.51%, rgba(255, 255, 255, 0.65) 24.29%, #FFF 78.04%, #F3F2F2 91.01%, #EAE9E9 100%);`,
 
-  greenStrong: '#326213',
-  greenMedium: '#A4C365',
-  greenLight: '#F8FFF4'
+  green: {
+    strong: '#326213',
+    medium: '#A4C365',
+    light: '#F8FFF4'
+  }
 };
 
 export const TextColors = {

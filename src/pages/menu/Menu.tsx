@@ -105,7 +105,7 @@ const MenuItem = styled.a<{ isOpen?: boolean }>`
 
   &:hover {
     color: ${TextColors.secondary};
-    background-color: ${BackgroundColors.greenLight};
+    background-color: ${BackgroundColors.green.light};
 
     ${Icon} {
       filter: invert(77%) sepia(37%) saturate(450%) hue-rotate(38deg) brightness(87%) contrast(96%);
@@ -113,8 +113,8 @@ const MenuItem = styled.a<{ isOpen?: boolean }>`
   }
 
   &:active {
-    color: ${BackgroundColors.greenLight};
-    background-color: ${BackgroundColors.greenStrong};
+    color: ${BackgroundColors.green.light};
+    background-color: ${BackgroundColors.green.strong};
 
     ${Icon} {
       filter: brightness(0) saturate(100%) invert(99%) sepia(6%) saturate(1033%) hue-rotate(38deg) brightness(105%)
