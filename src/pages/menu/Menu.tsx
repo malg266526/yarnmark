@@ -37,7 +37,7 @@ const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
   left: 0;
   top: 0;
   border-radius: 0 12px 12px 0;
-  background: ${BackgroundColors.menu};
+  background: ${BackgroundColors.menu.desktop};
   gap: ${RedesignSpacings.lg};
   padding: ${RedesignSpacings.xs} ${RedesignSpacings.xxs} ${RedesignSpacings.xxxl} ${RedesignSpacings.xxs};
   transition: all 0.1s linear;
@@ -52,7 +52,7 @@ const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
     border-radius: 12px 0 0 12px;
     padding: ${RedesignSpacings.xs} ${RedesignSpacings.xxs};
     gap: ${RedesignSpacings.sm};
-    background: ${BackgroundColors.mobileMenu};
+    background: ${BackgroundColors.menu.mobile};
   }
 `;
 

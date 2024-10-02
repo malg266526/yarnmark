@@ -1,10 +1,13 @@
 export const BackgroundColors = {
   desktopCard: '#F5F5F5',
   navigationBand: 'rgba(233, 232, 232, 0.60)',
-  menu: 'rgba(233, 232, 232, 0.8)',
-  mobileMenu: 'rgba(233, 232, 232, 1)',
+  menu: {
+    desktop: 'rgba(233, 232, 232, 0.8)',
+    mobile: 'rgba(233, 232, 232, 1)'
+  },
   ticketBand: '#ECEBEB',
   workshopsBand: '#F9F9F9',
+  footer: '#f9f9f9',
 
   primary: '#E9E8E8',
   secondary: 'rgba(236, 235, 235, 0.30)', // GrayScale[100] but 30%,
@@ -12,9 +15,7 @@ export const BackgroundColors = {
 
   greenStrong: '#326213',
   greenMedium: '#A4C365',
-  greenLight: '#F8FFF4',
-
-  footer: '#f9f9f9'
+  greenLight: '#F8FFF4'
 };
 
 export const TextColors = {
