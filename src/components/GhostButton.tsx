@@ -14,9 +14,9 @@ const GhostButtonLayout = styled(Button)`
   gap: ${RedesignSpacings.xs};
 
   border-radius: 18px;
-  border: 0.5px solid ${BackgroundColors.greenStrong};
+  border: 0.5px solid ${BackgroundColors.green.strong};
 
-  color: ${BackgroundColors.greenStrong};
+  color: ${BackgroundColors.green.strong};
 `;
 
 interface GhostButtonProps {
