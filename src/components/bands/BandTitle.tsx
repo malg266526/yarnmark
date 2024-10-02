@@ -34,7 +34,7 @@ export const BandTitle = ({ children }: BandTitleProps) => {
 
 const SecondaryTitle = styled(Typography)`
   @media (max-width: ${ScreenSize.phone}) {
-    color: ${TextColors.accent};
+    color: ${TextColors.secondary};
   }
 `;
 

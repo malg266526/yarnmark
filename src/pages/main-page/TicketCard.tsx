@@ -28,7 +28,7 @@ const TitleWrapper = styled.div`
 `;
 
 const TicketTitle = styled(Typography)`
-  color: ${TextColors.accent};
+  color: ${TextColors.secondary};
 `;
 
 const TicketPrice = styled(Typography)`

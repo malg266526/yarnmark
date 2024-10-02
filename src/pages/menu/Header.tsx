@@ -19,7 +19,7 @@ const MobileHeader = styled.header`
   top: 0;
   position: sticky;
   padding: ${RedesignSpacings.sm} 16px ${RedesignSpacings.xs} 16px;
-  color: ${TextColors.accent};
+  color: ${TextColors.secondary};
   align-items: center;
   justify-content: center;
   background-color: white;
