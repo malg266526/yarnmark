@@ -46,7 +46,7 @@ const ModalContent = styled.div`
 `;
 
 const PriceInfo = styled.div`
-  color: ${TextColors.accent};
+  color: ${TextColors.secondary};
 `;
 
 const WorkshopDescription = styled.div`
@@ -56,7 +56,7 @@ const WorkshopDescription = styled.div`
 `;
 
 const WorkshopSectionTitle = styled(Typography)`
-  color: ${TextColors.accent};
+  color: ${TextColors.secondary};
 `;
 
 interface WorkshopModalProps {

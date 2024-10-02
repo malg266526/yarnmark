@@ -95,7 +95,7 @@ const MenuItem = styled.a<{ isOpen?: boolean }>`
   cursor: pointer;
   border-radius: 6px;
 
-  color: ${TextColors.accent};
+  color: ${TextColors.secondary};
   background-color: ${BackgroundColors.ticketBand};
 
   ${Icon} {
@@ -104,7 +104,7 @@ const MenuItem = styled.a<{ isOpen?: boolean }>`
   }
 
   &:hover {
-    color: ${TextColors.accent};
+    color: ${TextColors.secondary};
     background-color: ${BackgroundColors.greenLight};
 
     ${Icon} {
