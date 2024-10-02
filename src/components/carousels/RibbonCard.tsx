@@ -51,7 +51,7 @@ const InfoSection = styled.div`
 `;
 
 const PriceInfo = styled.div`
-  color: ${TextColors.link};
+  color: ${TextColors.accent};
 `;
 
 interface RibbonCardProps {

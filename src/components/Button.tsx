@@ -13,7 +13,7 @@ export const Button = styled.button`
 export const CtaButton = styled.button`
   all: unset;
   cursor: pointer;
-  background-color: ${TextColors.link};
+  background-color: ${TextColors.accent};
   padding: ${RedesignSpacings.xxs} ${RedesignSpacings.sm} 3px ${RedesignSpacings.sm};
   border-radius: ${Radius.xxl};
   color: white;
