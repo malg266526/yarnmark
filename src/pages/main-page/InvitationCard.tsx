@@ -15,7 +15,7 @@ import { yarnmarkLogoPictureConfig } from '../../assets/yarnmarkLogoPictureConfi
 
 const Content = styled(FlexColumnLayout)`
   padding: ${RedesignSpacings.xl} ${RedesignSpacings.xxs} 0 ${RedesignSpacings.xxs};
-  background-color: ${BackgroundColors.desktopCard};
+  background-color: ${BackgroundColors.card};
 
   @media (max-width: ${ScreenSize.phone}) {
     background-color: ${GrayScale[200]};

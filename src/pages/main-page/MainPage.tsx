@@ -51,7 +51,7 @@ export const MainPage = () => {
 
           <Band.SecondaryTitle>{t('vendors')}</Band.SecondaryTitle>
 
-          <Band.CenteredColumn id="vendors" size="lg" padding="none" color={BackgroundColors.gradient}>
+          <Band.CenteredColumn id="vendors" size="lg" padding="none" color={BackgroundColors.vendors}>
             <VendorsList />
           </Band.CenteredColumn>
 
@@ -61,7 +61,7 @@ export const MainPage = () => {
 
           {/* <FoodBand id="food" />*/}
 
-          <Band.Empty id="lastEdition" color={BackgroundColors.primary} padding="sm">
+          <Band.Empty id="lastEdition" color={BackgroundColors.lastEditionBand} padding="sm">
             <LastEditionBand />
           </Band.Empty>
         </>
@@ -79,7 +79,7 @@ export const MainPage = () => {
 
           <LocationBand id="location" />
 
-          <Band.CenteredColumn id="vendors" size="md" padding="xxxl" color={BackgroundColors.gradient} justify="center">
+          <Band.CenteredColumn id="vendors" size="md" padding="xxxl" color={BackgroundColors.vendors} justify="center">
             <VendorsList />
           </Band.CenteredColumn>
           {/*
@@ -92,7 +92,7 @@ export const MainPage = () => {
 
           {/*<FoodBand id="food" />*/}
 
-          <Band.CenteredColumn id="lastEdition" color={BackgroundColors.primary} padding="sm" gap="lg">
+          <Band.CenteredColumn id="lastEdition" color={BackgroundColors.lastEditionBand} padding="sm" gap="lg">
             <LastEditionBand />
           </Band.CenteredColumn>
         </>

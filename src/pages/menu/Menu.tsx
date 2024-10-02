@@ -37,7 +37,7 @@ const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
   left: 0;
   top: 0;
   border-radius: 0 12px 12px 0;
-  background: ${BackgroundColors.menu};
+  background: ${BackgroundColors.menu.desktop};
   gap: ${RedesignSpacings.lg};
   padding: ${RedesignSpacings.xs} ${RedesignSpacings.xxs} ${RedesignSpacings.xxxl} ${RedesignSpacings.xxs};
   transition: all 0.1s linear;
@@ -52,7 +52,7 @@ const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
     border-radius: 12px 0 0 12px;
     padding: ${RedesignSpacings.xs} ${RedesignSpacings.xxs};
     gap: ${RedesignSpacings.sm};
-    background: ${BackgroundColors.mobileMenu};
+    background: ${BackgroundColors.menu.mobile};
   }
 `;
 
@@ -105,7 +105,7 @@ const MenuItem = styled.a<{ isOpen?: boolean }>`
 
   &:hover {
     color: ${TextColors.secondary};
-    background-color: ${BackgroundColors.greenLight};
+    background-color: ${BackgroundColors.green.light};
 
     ${Icon} {
       filter: invert(77%) sepia(37%) saturate(450%) hue-rotate(38deg) brightness(87%) contrast(96%);
@@ -113,8 +113,8 @@ const MenuItem = styled.a<{ isOpen?: boolean }>`
   }
 
   &:active {
-    color: ${BackgroundColors.greenLight};
-    background-color: ${BackgroundColors.greenStrong};
+    color: ${BackgroundColors.green.light};
+    background-color: ${BackgroundColors.green.strong};
 
     ${Icon} {
       filter: brightness(0) saturate(100%) invert(99%) sepia(6%) saturate(1033%) hue-rotate(38deg) brightness(105%)

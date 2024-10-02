@@ -24,7 +24,7 @@ export const PlainInfo = styled.div`
 export const Separator = styled.div`
   width: 100%;
   height: 0.5px;
-  background-color: ${BackgroundColors.greenStrong};
+  background-color: ${BackgroundColors.green.strong};
 `;
 
 export const HallWrapper = styled.div`
