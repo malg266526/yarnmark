@@ -53,7 +53,7 @@ export const de: TranslationsShape = {
     },
     welcomeBand: {
       invitation: 'Wir laden Sie herzlich zur zweiten Ausgabe der Wollmesse inKrakau ein!',
-      when: 'Am 26.04.2025 von 10:00 bis 18:00 Uhr',
+      when: 'Am 26.04.2025 von 10:00 bis 17:00 Uhr',
       where: 'In Hala 100-lecia KS Cracovia',
       haveFun: 'Wir wünschen Ihnen eine erfolgreiche Jagd und viel Spaß!',
       seeYou: 'Auf Wiedersehen!'

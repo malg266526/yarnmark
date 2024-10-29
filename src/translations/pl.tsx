@@ -52,7 +52,7 @@ export const pl = {
     whereToEat: 'Gdzie zjeść?',
     welcomeBand: {
       invitation: 'Serdecznie zapraszamy na II edycję targów wełny w stolicy Małopolski!',
-      when: '26/04/2025r w godz. 10:00 - 18:00',
+      when: '26/04/2025r w godz. 10:00 - 17:00',
       where: 'Hala 100-lecia KS Cracovia',
       haveFun: 'Życzymy udanych łowów i świetnej zabawy!',
       seeYou: 'Do zobaczenia!'

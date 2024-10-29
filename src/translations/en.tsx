@@ -53,7 +53,7 @@ export const en: TranslationsShape = {
     },
     welcomeBand: {
       invitation: 'We heartily invite you for I| edition of wool fair in capital of Malopolska!',
-      when: '26/04/2025r at 10:00 AM - 6:00 PM',
+      when: '26/04/2025r at 10:00 AM - 5:00 PM',
       where: 'Hala 100-lecia KS Cracovia',
       haveFun: 'We wish you successful hunting and great fun!',
       seeYou: 'See ya all!'
