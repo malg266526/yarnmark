@@ -52,7 +52,7 @@ export const de: TranslationsShape = {
       taken: 'Reserved'
     },
     welcomeBand: {
-      invitation: 'Wir laden Sie herzlich zur zweiten Ausgabe der Wollmesse inKrakau ein!',
+      invitation: 'Wir laden Sie herzlich zur zweiten Ausgabe der Garnmesse inKrakau ein!',
       when: 'Am 26.04.2025 von 10:00 bis 17:00 Uhr',
       where: 'In Hala 100-lecia KS Cracovia',
       haveFun: 'Wir wünschen Ihnen eine erfolgreiche Jagd und viel Spaß!',
@@ -128,7 +128,7 @@ export const de: TranslationsShape = {
     },
     infoForVendorsPage: {
       title: 'Informationen für Aussteller',
-      invitation: 'Wir laden dich herzlich ein, an der 1. Ausgabe des Krakow Wool Yarnmark teilzunehmen!',
+      invitation: 'Wir laden dich herzlich ein, an der 2. Ausgabe des Krakow Wool Yarnmark teilzunehmen!',
       organisationInfo: 'Unten findest du einige organisatorische Informationen.',
       hallInfo: {
         title: 'Halle',
@@ -138,11 +138,11 @@ export const de: TranslationsShape = {
         participants:
           'Der Eingang für Messebesucher erfolgt über die Focha-Straße, wo sie über einen beeindruckenden Abstieg in die Haupthalle gelangen, von der aus Sie die gesamte Ausstellungshalle sehen können.',
         stands: 'In der Halle wird es drei Arten von Ständen geben:',
-        standPremium: '<strong>Premium 5x3m</strong>',
+        standPremium: '<strong>Premium 4x4m</strong>',
         standardStand: '<strong>Standard 4x2,5m</strong>',
         miniStand: '<strong>Mini 3x2m</strong>',
         tables:
-          'Der Premium-Stand verfügt über 2 Stühle und 3 Tische 160x80cm. Standard-Stand verfügt über 2 Stühle und 2 Tische 140x70 cm, der Mini-Stand über 2 Stühle und 1 Tisch 140x70 cm',
+          'Der Premium-Stand verfügt über 2 Stühle und 2 Tische 160x80cm. Standard-Stand verfügt über 2 Stühle und 2 Tische 140x70 cm, der Mini-Stand über 2 Stühle und 1 Tisch 140x70 cm',
         extensionCords:
           'Im Lieferumfang des Standes sind KEINE Verlängerungskabel enthalten. Bitte bringen Sie Ihre eigenen mit.',
         socialRoom:
@@ -168,6 +168,7 @@ export const de: TranslationsShape = {
           'Wenn Sie sich der wunderbaren Gruppe unserer Aussteller anschließen möchten, schreiben Sie uns! Kontakt E-mail: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
         start: 'Die Möglichkeit zum Kauf eines Standes beginnt am Montag, <strong>22. Januar 2024</strong> um 12:00',
         where: 'Die Reservierung eines Standes erfolgt durch den Kauf einer Fläche im Włóczykijki-Onlineshop.',
+        when: 'Der Standverkauf beginnt im Dezember.',
         buyHere: 'Hier können Sie einen Stand kaufen',
         feedback: 'Alle Zahlungsdetails werden in der Rückmeldung zur Bestätigung Ihrer Standreservierung aufgeführt.',
         return:

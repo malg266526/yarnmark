@@ -52,7 +52,7 @@ export const en: TranslationsShape = {
       taken: 'Reserved'
     },
     welcomeBand: {
-      invitation: 'We heartily invite you for I| edition of wool fair in capital of Malopolska!',
+      invitation: 'We heartily invite you for II edition of yarn fair in capital of Malopolska!',
       when: '26/04/2025r at 10:00 AM - 5:00 PM',
       where: 'Hala 100-lecia KS Cracovia',
       haveFun: 'We wish you successful hunting and great fun!',
@@ -126,7 +126,7 @@ export const en: TranslationsShape = {
     },
     infoForVendorsPage: {
       title: 'Information for vendors',
-      invitation: 'We heartily invite you to participate in I edition of Cracow Wool Fair!',
+      invitation: 'We heartily invite you to participate in II edition of Krakoski Yarnmark!',
       organisationInfo: 'Below a bit of organisational information for you.',
       hallInfo: {
         title: 'Hall',
@@ -136,11 +136,11 @@ export const en: TranslationsShape = {
         participants:
           'Entrance for fair participants will be on the side of Foch street, where they will enter the main hall efective descent from which whole exhibition hall will be visible.',
         stands: 'There will be three types of spots in the hall:',
-        standPremium: '<strong>Premium 5x3m</strong>',
+        standPremium: '<strong>Premium 4x4m</strong>',
         standardStand: '<strong>Standard 4x2,5m</strong>',
         miniStand: '<strong>Mini 3x2m</strong>',
         tables:
-          'Premium spot includes 2 chairs and 3 tables 160x80cm. Standard spot includes 2 chairs and 2 tables 140x70cm, while a Mini spot includes 2 chairs  and 1 table 140x70cm',
+          'Premium spot includes 2 chairs and 2 tables 160x80cm. Standard spot includes 2 chairs and 2 tables 140x70cm, while a Mini spot includes 2 chairs  and 1 table 140x70cm',
         extensionCords: "Stands don't include extension cords, please bring your own",
         socialRoom:
           'Vendors will have at their disposal social room, where you can have a coffee or tea as well a separate toilet.',
@@ -165,6 +165,7 @@ export const en: TranslationsShape = {
           'If you wanna join the great group of our vendors write us an email! Email address: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
         start: 'Spot reservations start on Monday <strong>22.01.2024r.</strong> at 12:00 AM',
         where: 'Reservation is done by buying the spot in online shop `Włóczykijki`',
+        when: 'Stand sales will start in December.',
         buyHere: 'Here you will reserve the spot',
         feedback: 'All data related to payment will be part of feedback confirming spot reservation',
         return:

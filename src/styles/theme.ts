@@ -67,8 +67,8 @@ export const Theme = {
 
 export const HallColors = {
   premium: '#4CBB17', // Kelly Green
-  normal1: '#EC5800', // Persimmon
-  normal2: '#FFAA33', // Yellow Orange
+  normal1: '#FFAA33', // Yellow Orange
+  normal2: '#EC5800', // Persimmon
   small1: '#d8e1e8',
   small2: '#b2cbde',
   taken: '#d3d3d3',
