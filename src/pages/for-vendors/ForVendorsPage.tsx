@@ -3,7 +3,7 @@ import { SlantedCornersBox } from '../../components/SlantedCornersBox';
 import { BackgroundColors } from '../../styles/theme';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Trans } from 'react-i18next';
-import { PlainInfo, Separator } from './ForVendorsPage.styled';
+import { HallWrapper, PlainInfo, Separator } from './ForVendorsPage.styled';
 import { usePhone } from '../../hooks/usePhone';
 import { Header } from '../menu/Header';
 import { Typography } from '../../components/Typography';
@@ -14,6 +14,7 @@ import { WoolPicture } from '../../components/WoolPicture';
 import { PageContent } from '../../components/PageContent';
 import styled from 'styled-components';
 import { ScreenSize } from '../../styles/screeen-size';
+import { Hall } from '../../components/Hall';
 
 const InvitationBoxWrapper = styled.div`
   padding-left: 240px;
@@ -58,8 +59,7 @@ export const ForVendorsPage = () => {
             <Trans i18nKey="infoForVendorsPage.registration.beAVendor" />
           </Typography>
           <Typography size="md">
-            Data startu sprzedaży stoisk zostanie podana wkrótce.
-            {/*<Trans i18nKey="infoForVendorsPage.registration.start" />*/}
+            <Trans i18nKey="infoForVendorsPage.registration.when" />
           </Typography>
           <Typography size="md">{t('infoForVendorsPage.registration.where')}</Typography>
 
@@ -93,7 +93,7 @@ export const ForVendorsPage = () => {
           <Typography size="md">{t('infoForVendorsPage.hallInfo.openHours')}</Typography>
           <Typography size="md">{t('infoForVendorsPage.hallInfo.ramp')}</Typography>
           <Typography size="md">{t('infoForVendorsPage.hallInfo.participants')}</Typography>
-          {/*<Typography size="md">{t('infoForVendorsPage.hallInfo.stands')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.hallInfo.stands')}</Typography>
           <ul>
             <li>
               <Typography size="md">
@@ -110,15 +110,11 @@ export const ForVendorsPage = () => {
                 <Trans i18nKey="infoForVendorsPage.hallInfo.miniStand" />
               </Typography>
             </li>
-          </ul>*/}
-          {/*
+          </ul>
+
           <Typography size="md">{t('infoForVendorsPage.hallInfo.tables')}</Typography>
-*/}
           <Typography size="md">{t('infoForVendorsPage.hallInfo.extensionCords')}</Typography>
           <Typography size="md">{t('infoForVendorsPage.hallInfo.socialRoom')}</Typography>
-          {/*
-          <Typography size="md">{t('infoForVendorsPage.hallInfo.glassWall')}</Typography>
-*/}
         </PlainInfo>
       </Band.NarrowColumn>
 
@@ -166,12 +162,10 @@ export const ForVendorsPage = () => {
         stretchOnMobile
         padding={isPhone ? 'sm' : 'xxl'}>
         <Band.BeamTitle>{t('infoForVendorsPage.stands.title')}</Band.BeamTitle>
-        <PlainInfo>
-          <Typography size="md">Rozkład stoisk zostanie podany wkrótce.</Typography>
-        </PlainInfo>
-        {/*        <HallWrapper>
+
+        <HallWrapper id="hall_wrapper">
           <Hall />
-        </HallWrapper>*/}
+        </HallWrapper>
       </Band.NarrowColumn>
     </PageContent>
   );

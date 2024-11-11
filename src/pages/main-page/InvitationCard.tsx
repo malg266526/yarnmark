@@ -44,7 +44,7 @@ export const InvitationCard = () => {
   return (
     <SlantedCornersBox overflowSize="10px" width="400px" padding="none">
       <Content gap="none">
-        <Band.Title>Krakoski Yarnmark Wełny</Band.Title>
+        <Band.Title>Krakoski Yarnmark</Band.Title>
 
         <MiddleSection gap="md">
           <Typography size="sm">{t('welcomeBand.invitation')}</Typography>

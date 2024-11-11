@@ -4,7 +4,7 @@ import { HallLightColors, HallStandType } from '../assets/hallMapConfig';
 import { usePhone } from '../hooks/usePhone';
 import { FontSize } from '../styles/font-size';
 import { RedesignSpacings } from '../styles/spacings';
-import { Colors } from '../styles/theme';
+import { Colors, HallColors } from '../styles/theme';
 import { KnittingIconOnHover } from './KnittingIconOnHover';
 import { ScreenSize } from '../styles/screeen-size';
 
@@ -35,7 +35,7 @@ const StandText = styled.h5`
 const StandIndex = styled.h4`
   text-align: center;
   margin: 0;
-  font-size: 10px;
+  font-size: 14px;
   overflow-wrap: anywhere;
 
   @media (max-width: ${ScreenSize.phone}) {
@@ -43,30 +43,12 @@ const StandIndex = styled.h4`
   }
 `;
 
-const HallStandOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: #ddd;
-  opacity: 0.2;
-  z-index: 9999999;
-`;
-
-const hoverStyles = css`
-  ${TextWrapper} {
-    z-index: 1;
-    transform: scale(1) ${wrapperTranslation};
-    opacity: 1;
-  }
-`;
-
 const HallStandLayout = styled.div<{
   width?: number;
   height?: number;
-  color?: keyof typeof HallLightColors;
+  color?: keyof typeof HallColors;
   multiplier: number;
+  isTaken?: boolean;
 }>`
   display: flex;
   flex-direction: ${({ width, height }) => (width && width > (height || 0) ? 'row' : 'column')};
@@ -74,15 +56,12 @@ const HallStandLayout = styled.div<{
   width: ${({ width, multiplier }) => (width ? `${width * multiplier}px` : 'initial')};
   height: ${({ height, multiplier }) => (height ? `${height * multiplier}px` : 'initial')};
 
-  background-color: ${({ color }) => HallLightColors[color || 'empty']};
+  background-color: ${({ color }) => HallColors[color || 'empty']};
   align-items: center;
   justify-content: space-evenly;
 
   position: relative;
-
-  /*   &:hover {
-    ${hoverStyles};
-  } */
+  filter: ${({ isTaken }) => isTaken && `saturate(0.2) brightness(1.3)`};
 `;
 
 type HallStandProps = {
@@ -97,10 +76,14 @@ export const HallStand = ({ stand, height, desktopMultiplier }: HallStandProps) 
   const multiplier = isPhone ? 13 : desktopMultiplier || 24;
 
   return (
-    <HallStandLayout width={stand.width} height={stand.height || height} color={stand.color} multiplier={multiplier}>
-      {stand.who && <HallStandOverlay />}
-
+    <HallStandLayout
+      width={stand.width}
+      height={stand.height || height}
+      color={stand.color}
+      multiplier={multiplier}
+      isTaken={Boolean(stand.who)}>
       <div>
+        <StandIndex>{stand.index}</StandIndex>
         <StandIndex>{stand.who}</StandIndex>
         <StandText>{stand.text}</StandText>
       </div>
@@ -111,9 +94,6 @@ export const HallStand = ({ stand, height, desktopMultiplier }: HallStandProps) 
           {stand.who}
         </TextWrapper>
       )}
-
-      {/*  <HallLogo picture={stand.picture} alt={stand.who} width={stand.extraPicture ? 22 : 36} />
-      {stand.extraPicture && <HallLogo picture={stand.extraPicture} alt={stand.who} width={22} />} */}
     </HallStandLayout>
   );
 };

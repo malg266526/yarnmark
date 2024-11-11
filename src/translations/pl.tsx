@@ -51,7 +51,7 @@ export const pl = {
     },
     whereToEat: 'Gdzie zjeść?',
     welcomeBand: {
-      invitation: 'Serdecznie zapraszamy na II edycję targów wełny w stolicy Małopolski!',
+      invitation: 'Serdecznie zapraszamy na II edycję targów włóczki w stolicy Małopolski!',
       when: '26/04/2025r w godz. 10:00 - 17:00',
       where: 'Hala 100-lecia KS Cracovia',
       haveFun: 'Życzymy udanych łowów i świetnej zabawy!',
@@ -127,7 +127,7 @@ export const pl = {
     },
     infoForVendorsPage: {
       title: 'Informacje dla wystawców',
-      invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w I edycji Krakoskiego Yarnmarku Wełny!',
+      invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w II edycji Krakoskiego Yarnmarku!',
       organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was.',
       hallInfo: {
         title: 'Hala',
@@ -137,11 +137,11 @@ export const pl = {
         participants:
           'Wejście dla odwiedzających targi będzie znajdować się od ulicy Focha, gdzie do hali głównej udadzą się efektownym zejściem, z którego będzie widać całą halę wystawienniczą.',
         stands: 'Na hali będą trzy rodzaje stoisk:',
-        standPremium: '<strong>Premium 5x3m</strong>',
+        standPremium: '<strong>Premium 4x4m</strong>',
         standardStand: '<strong>Standard 4x2,5m</strong>',
         miniStand: '<strong>Mini 3x2m</strong>',
         tables:
-          'Stoisko premium posiada 2 krzesła oraz 3 stoły 160x80cm. Stoisko standard posiada 2 krzesła oraz 2 stoły 140x70cm, a stoisko Mini 2 krzesła oraz 1 stół 140x70cm',
+          'Stoisko premium posiada 2 krzesła oraz 2 stoły 160x80cm. Stoisko standard posiada 2 krzesła oraz 2 stoły 140x70cm, a stoisko Mini 2 krzesła oraz 1 stół 140x70cm',
         extensionCords: 'W skład stoiska NIE wchodzą przedłużacze, prosimy o posiadanie własnych.',
         socialRoom:
           'Wystawcy będą mieli do dyspozycji pomieszczenie socjalne, gdzie będzie można napić się kawy i herbaty oraz osobną toaletę.',
@@ -166,6 +166,7 @@ export const pl = {
           'Jeśli chcesz dołączyć do wspaniałego grona naszych wystawców, napisz do nas! Email kontaktowy: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
         start: 'Możliwość zakupu stoiska startuje w poniedziałek <strong>22.01.2024r.</strong> o godz. 12:00.',
         where: 'Rezerwacja stoiska odbywa się poprzez zakup miejsca w sklepie online Włóczykijki.',
+        when: 'Sprzedaż stoisk ruszy w grudniu.',
         buyHere: 'Tutaj wykupisz stoisko',
         feedback:
           'Wszystkie dane dotyczące płatności będą zawarte w informacji zwrotnej, potwierdzającej rezerwację stoiska.',

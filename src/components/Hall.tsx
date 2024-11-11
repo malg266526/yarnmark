@@ -4,6 +4,7 @@ import { hallMapConfig, HallStandType } from '../assets/hallMapConfig';
 import { usePhone } from '../hooks/usePhone';
 import { HallColors } from '../styles/theme';
 import { HallStand } from './HallStand';
+import { RowLayout } from './RowLayout';
 
 const Container = styled.div`
   display: flex;
@@ -51,7 +52,7 @@ export const Hall = (props: HallType) => {
   const multiplier = isPhone ? 13 : desktopMultiplier;
 
   return (
-    <Container>
+    <Container id="hall">
       {(hallMapConfig.topRows as Line[]).map((row, index) => (
         <HallLine height={row.height} key={index} multiplier={multiplier}>
           {row.stands.map((stand, index) => (
@@ -68,13 +69,30 @@ export const Hall = (props: HallType) => {
             direction="column"
             alignItems={index === 5 ? 'flex-end' : 'flex-start'}
             multiplier={multiplier}>
-            {column.stands.map((stand, index) => (
-              <HallStand
-                key={index}
-                stand={stand}
-                width={column.width}
-                desktopMultiplier={desktopMultiplier}></HallStand>
-            ))}
+            {column.stands.map((stand, index) =>
+              stand.pair ? (
+                <RowLayout gap="none">
+                  <HallStand
+                    key={stand.pair[0].index}
+                    stand={stand.pair[0]}
+                    width={column.width}
+                    desktopMultiplier={desktopMultiplier}
+                  />
+                  <HallStand
+                    key={stand.pair[1].index}
+                    stand={stand.pair[1]}
+                    width={column.width}
+                    desktopMultiplier={desktopMultiplier}
+                  />
+                </RowLayout>
+              ) : (
+                <HallStand
+                  key={index}
+                  stand={stand}
+                  width={column.width}
+                  desktopMultiplier={desktopMultiplier}></HallStand>
+              )
+            )}
           </HallLine>
         ))}
       </HallLine>
