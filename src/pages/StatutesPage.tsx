@@ -52,23 +52,23 @@ export const StatutesPage = () => {
         color={BackgroundColors.navigationBand}
         stretchOnMobile
         padding={isPhone ? 'sm' : 'xxl'}>
-        <Band.BeamTitle>Regulamin Krakoskiego Yarnmarku Wełny</Band.BeamTitle>
+        <Band.BeamTitle>Regulamin Krakoskiego Yarnmarku</Band.BeamTitle>
 
         <StatueContent>
           <ol>
             <li>
               Włóczykijki s.c. oraz Dziergamy na polu są organizatorami (dalej: “Organizator”) wydarzenia Krakoski
-              Yarnmark Wełny (dalej: “Yarnmark”), który odbywa się w dniu 27 kwietnia 2024 roku na terenie Hali Cracovii
-              (dalej “Hala”) w godzinach od 10:00 do 18:00
+              Yarnmark (dalej: “Yarnmark”), który odbywa się w dniu 26 kwietnia 2025 roku na terenie Hali Cracovii
+              (dalej “Hala”) w godzinach od 10:00 do 17:00
             </li>
             <li>
-              Wstęp na Yarnmark jest biletowany. Bilety można zakupić on-line w cenie:
-              <ul>
+              Wstęp na Yarnmark jest biletowany. {/*Bilety będzie można zakupić on-line w cenie:*/}
+              {/*     <ul>
                 <li>30 zł standard (25 zł od 14.02.2024r do 29.02.2024r)</li>
                 <li>130 zł premium</li>
-              </ul>
+              </ul>*/}
               <ol type="a">
-                <li>Możliwość zakupienia biletów drogą elektroniczną kończy się 26.04 o godzinie 18:00</li>
+                <li>Możliwość zakupienia biletów drogą elektroniczną kończy się 25.04 o godzinie 18:00</li>
                 <li>
                   W dniu Yarnmarku będzie możliwość zakupienia biletów na miejscu u Organizatora. Płatność za pomocą
                   bliku, karty lub gotówką
@@ -170,9 +170,7 @@ export const StatutesPage = () => {
 
         <StatueContent>
           <ol>
-            <li>
-              Warsztaty odbywają się zgodnie z Harmonogramem ustalonym przez Organizatorów Krakoskiego Yarnmarku Wełny.
-            </li>
+            <li>Warsztaty odbywają się zgodnie z Harmonogramem ustalonym przez Organizatorów Krakoskiego Yarnmarku.</li>
             <li>
               Każdy Warsztat jest prowadzony zgodnie z planem ustalonym pomiędzy Prowadzącym Warsztaty a Organizatorami.
             </li>
