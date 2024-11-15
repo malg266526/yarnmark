@@ -5,7 +5,9 @@
 const sw = self as ServiceWorkerGlobalScope;
 
 const CacheName = {
-  runtime: 'runtime-v2'
+  runtime3: 'runtime-v2',
+  sources: 'sources-v4',
+  assets: 'assets-v4'
 };
 
 // A list of local resources we always want to be cached.
@@ -34,23 +36,23 @@ const fetchOutputInfoData = () =>
     });
 
 const precacheStrategy = {
-  html: () => Promise.all(PRECACHE_URLS.map((url) => caches.open(CacheName.runtime).then((cache) => cache.add(url)))),
+  html: () => Promise.all(PRECACHE_URLS.map((url) => caches.open(CacheName.sources).then((cache) => cache.add(url)))),
   jsCssHtml: () =>
-    Promise.all(PRECACHE_URLS.map((url) => caches.open(CacheName.runtime).then((cache) => cache.add(url))))
+    Promise.all(PRECACHE_URLS.map((url) => caches.open(CacheName.sources).then((cache) => cache.add(url))))
       .then(() => fetchOutputInfoData())
       .then((data) => {
-        return Promise.all(data.files.map((url) => caches.open(CacheName.runtime).then((cache) => cache.add(url))));
+        return Promise.all(data.files.map((url) => caches.open(CacheName.sources).then((cache) => cache.add(url))));
       })
       .catch((error) => {
         console.error(`Error on precaching :: ${error.String()}`);
       }),
   jsCssHtmlAssets: () =>
-    Promise.all(PRECACHE_URLS.map((url) => caches.open(CacheName.runtime).then((cache) => cache.add(url))))
+    Promise.all(PRECACHE_URLS.map((url) => caches.open(CacheName.sources).then((cache) => cache.add(url))))
       .then(() => fetchOutputInfoData())
       .then((data) => {
         return Promise.all([
-          ...data.files.map((url) => caches.open(CacheName.runtime).then((cache) => cache.add(url))),
-          ...data.assets.map((url) => caches.open(CacheName.runtime).then((cache) => cache.add(url)))
+          ...data.files.map((url) => caches.open(CacheName.sources).then((cache) => cache.add(url))),
+          ...data.assets.map((url) => caches.open(CacheName.sources).then((cache) => cache.add(url)))
         ]);
       })
       .catch((error) => {
@@ -62,13 +64,16 @@ const precacheStrategy = {
 sw.addEventListener('install', () => {});
 
 sw.addEventListener('activate', (event) => {
+  console.warn(`Activate`);
   void precacheStrategy.jsCssHtml();
 
   event.waitUntil(
     caches.keys().then((keys) =>
       Promise.all(
         keys.map((key) => {
-          if (key !== CacheName.runtime) {
+          console.warn(`Checking cache :: ${key}`);
+          if (key !== CacheName.sources) {
+            console.warn(`Deleting cache :: ${key}`);
             return caches.delete(key);
           }
           return Promise.resolve();
@@ -78,11 +83,11 @@ sw.addEventListener('activate', (event) => {
   );
 });
 
-const respondStrategy = {
-  networkFirst: ({ request }) =>
+const cacheStrategy = {
+  alwaysCacheResponse: ({ request }, cacheName) =>
     caches.match(request, { ignoreSearch: true }).then((cachedResponse) =>
       caches
-        .open(CacheName.runtime)
+        .open(CacheName[cacheName])
         .then((cache) =>
           fetch(request).then((response) =>
             Promise.resolve()
@@ -95,29 +100,50 @@ const respondStrategy = {
         )
         .catch((error) => {
           if (cachedResponse) {
-            console.info(`Serving cached version :: ${request.url}`);
+            console.info(`Serving cached version :: ${request.url} :: ${cacheName}`);
             return cachedResponse;
           }
 
-          console.error(`Failed to retrieve cache on ${request.url} :: originalError :: ${error.toString()}`);
+          console.error(
+            `Failed to retrieve cache on ${request.url} :: originalError :: ${error.toString()} :: ${cacheName}`
+          );
           throw new Error(error);
         })
     ),
-  cacheFirst: ({ request }) =>
-    caches.match(request).then((cachedResponse) =>
-      caches.open(CacheName.runtime).then((cache) => {
-        if (cachedResponse) {
-          return cachedResponse;
-        }
+  cacheResponseOnlyWhenMissing: ({ request }, cacheName) =>
+    caches.match(request, { ignoreSearch: true }).then((cachedResponse) =>
+      caches
+        .open(CacheName[cacheName])
+        .then((cache) =>
+          fetch(request).then(async (response) => {
+            if (!cachedResponse) {
+              await cache.delete(request, { ignoreSearch: true });
+              await cache.put(request, response.clone());
+            }
+            return response;
+          })
+        )
+        .catch((error) => {
+          if (cachedResponse) {
+            console.info(`Serving cached version :: ${request.url} :: ${cacheName}`);
+            return cachedResponse;
+          }
 
-        return fetch(request).then((response) => cache.put(request, response.clone()).then(() => response));
-      })
+          console.error(
+            `Failed to retrieve cache on ${request.url} :: originalError :: ${error.toString()} :: ${cacheName}`
+          );
+          throw new Error(error);
+        })
     )
-} satisfies Record<string, (event: FetchEvent) => Promise<Response>>;
+} satisfies Record<string, (event: FetchEvent, cacheName: keyof typeof CacheName) => Promise<Response>>;
 
 sw.addEventListener('fetch', (event) => {
   if (event.request.url.startsWith(self.location.origin) && !event.request.url.includes('esbuild-livereload')) {
-    event.respondWith(respondStrategy.networkFirst(event));
+    if (event.request.url.includes('/assets/')) {
+      return event.respondWith(cacheStrategy.cacheResponseOnlyWhenMissing(event, 'assets'));
+    }
+
+    event.respondWith(cacheStrategy.alwaysCacheResponse(event, 'sources'));
   }
 });
 
