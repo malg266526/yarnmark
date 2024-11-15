@@ -30,16 +30,17 @@ import dotsStrokeIcon from '../../assets/figmaIcons/dots_icon.svg';
 const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
   display: flex;
   flex-direction: column;
-  width: ${({ isOpen, isVisible }) => (isVisible ? (isOpen ? '240px' : '80px') : 0)};
+  width: ${({ isOpen, isVisible }) => (isVisible ? (isOpen ? '240px' : '76px') : 0)};
   position: fixed;
   height: 100%;
+  align-items: center;
   z-index: 10;
   left: 0;
   top: 0;
   border-radius: 0 12px 12px 0;
   background: ${BackgroundColors.menu.desktop};
   gap: ${RedesignSpacings.lg};
-  padding: ${RedesignSpacings.xs} ${RedesignSpacings.xxs} ${RedesignSpacings.xxxl} ${RedesignSpacings.xxs};
+  padding: ${RedesignSpacings.xs} 0 ${RedesignSpacings.xxxl} 0;
   transition: all 0.1s linear;
   overflow: auto;
 
@@ -155,9 +156,10 @@ const SwitchButton = styled(Button)`
 
 const Dots = styled.span`
   background: url(${dotsStrokeIcon}) no-repeat center;
-  background-size: contain;
+  background-size: cover;
   width: 70px;
   height: 30px;
+  max-width: 70px;
 `;
 
 interface UpgradedMenuProps {
@@ -173,7 +175,7 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
   const isMenuExpanded = isOpen || isPhone;
 
   return (
-    <RootLayout isVisible={isVisible} isOpen={isMenuExpanded}>
+    <RootLayout isVisible={isVisible} isOpen={isMenuExpanded} id="menu_root">
       <Section isOpen={isMenuExpanded}>
         {isPhone ? (
           <Button onClick={closeMenu}>
