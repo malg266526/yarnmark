@@ -198,7 +198,7 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           )}
         </SwitchRow>
 
-        <MenuItem href="/home" isOpen={isMenuExpanded} aria-label="home_menu_item">
+        <MenuItem href="/home" isOpen={isMenuExpanded} aria-label="home_menu_item" onClick={closeMenu}>
           <Icon size="sm" zIndex={0} src={homeIcon} />
           {isMenuExpanded && <Typography size="sm"> {t('menu.home')}</Typography>}
         </MenuItem>
@@ -244,19 +244,27 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           {isMenuExpanded && <Typography size="sm">{t('menu.workshops')}</Typography>}
         </MenuItem>*/}
 
-        <MenuItem href="/home#vendors" isOpen={isMenuExpanded} aria-label="vendors_menu_item">
+        <MenuItem href="/home#vendors" isOpen={isMenuExpanded} aria-label="vendors_menu_item" onClick={closeMenu}>
           <Icon size="sm" zIndex={0} src={shopIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.vendors')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="/home#lastEdition" isOpen={isMenuExpanded} aria-label="last_edition_menu_item">
+        <MenuItem
+          href="/home#lastEdition"
+          isOpen={isMenuExpanded}
+          aria-label="last_edition_menu_item"
+          onClick={closeMenu}>
           <Icon size="sm" zIndex={0} src={paintingIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.memories')}</Typography>}
         </MenuItem>
       </Section>
 
       <LastSection isOpen={isMenuExpanded}>
-        <MenuItem href="/info-for-vendors" isOpen={isMenuExpanded} aria-label="stands_map_menu_item">
+        <MenuItem
+          href="/info-for-vendors"
+          isOpen={isMenuExpanded}
+          aria-label="stands_map_menu_item"
+          onClick={closeMenu}>
           <Icon size="sm" zIndex={0} src={handshakeIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.infoForVendors')}</Typography>}
         </MenuItem>
@@ -266,12 +274,12 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           {isMenuExpanded && <Typography size="sm">{t('menu.hallMap')}</Typography>}
         </MenuItem>*/}
 
-        <MenuItem href="/statutes" isOpen={isMenuExpanded} aria-label="statutes_menu_item">
+        <MenuItem href="/statutes" isOpen={isMenuExpanded} aria-label="statutes_menu_item" onClick={closeMenu}>
           <Icon size="sm" zIndex={0} src={contractIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.statutes')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="#footer" isOpen={isMenuExpanded} aria-label="contact_menu_item">
+        <MenuItem href="#footer" isOpen={isMenuExpanded} aria-label="contact_menu_item" onClick={closeMenu}>
           <Icon size="sm" zIndex={0} src={contactIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.contact')}</Typography>}
         </MenuItem>
