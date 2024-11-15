@@ -33,7 +33,7 @@ const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
   width: ${({ isOpen, isVisible }) => (isVisible ? (isOpen ? '240px' : '76px') : 0)};
   position: fixed;
   height: 100%;
-  align-items: center;
+  // align-items: ${({ isOpen }) => (isOpen ? 'flex-start' : 'center')};
   z-index: 10;
   left: 0;
   top: 0;
