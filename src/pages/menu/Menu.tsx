@@ -33,7 +33,6 @@ const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
   width: ${({ isOpen, isVisible }) => (isVisible ? (isOpen ? '240px' : '76px') : 0)};
   position: fixed;
   height: 100%;
-  // align-items: ${({ isOpen }) => (isOpen ? 'flex-start' : 'center')};
   z-index: 10;
   left: 0;
   top: 0;
@@ -154,12 +153,12 @@ const SwitchButton = styled(Button)`
   }
 `;
 
-const Dots = styled.span`
+const Dots = styled.span<{ isOpen?: boolean }>`
   background: url(${dotsStrokeIcon}) no-repeat center;
-  background-size: cover;
-  width: 70px;
+  background-size: contain;
   height: 30px;
-  max-width: 70px;
+  width: 70px;
+  margin: ${({ isOpen }) => (isOpen ? 0 : 'auto')};
 `;
 
 interface UpgradedMenuProps {
@@ -182,10 +181,10 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
             <Icon size="lg" src={closeMenuIcon} />
           </Button>
         ) : (
-          <Dots />
+          <Dots isOpen={isMenuExpanded} />
         )}
 
-        <SwitchRow isOpen={isMenuExpanded}>
+        <SwitchRow isOpen={isMenuExpanded} id="switch_menu_row">
           {isMenuExpanded ? (
             <>
               <Picture picture={yarnmarkLogoPictureConfig} alt="yarnmark_logo" width={40} height={50} />
