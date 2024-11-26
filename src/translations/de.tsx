@@ -46,7 +46,7 @@ export const de: TranslationsShape = {
     whereToEat: 'Wo man essen kann?',
     hallMap: {
       title: 'Hallenplan',
-      premiumStand: 'Premium spot 5x3m',
+      premiumStand: 'Premium spot 4x4m',
       standardStand: 'Standard spot 4x2,5m',
       miniStand: 'Mini spot 3x2m',
       taken: 'Reserved'
