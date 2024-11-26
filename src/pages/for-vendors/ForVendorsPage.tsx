@@ -15,6 +15,7 @@ import { PageContent } from '../../components/PageContent';
 import styled from 'styled-components';
 import { ScreenSize } from '../../styles/screeen-size';
 import { Hall } from '../../components/Hall';
+import { HallLegend } from '../../components/HallLegend';
 
 const InvitationBoxWrapper = styled.div`
   padding-left: 240px;
@@ -165,6 +166,7 @@ export const ForVendorsPage = () => {
 
         <HallWrapper id="hall_wrapper">
           <Hall />
+          <HallLegend />
         </HallWrapper>
       </Band.NarrowColumn>
     </PageContent>

@@ -3,11 +3,13 @@ import styled from 'styled-components';
 import { RowLayout } from './RowLayout';
 import { HallColors } from '../styles/theme';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
+import { RedesignSpacings } from '../styles/spacings';
 
 const LegendRoot = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin: ${RedesignSpacings.sm};
 `;
 
 const ColorSample = styled.div<{ color?: keyof typeof HallColors }>`

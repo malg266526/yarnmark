@@ -46,7 +46,7 @@ export const en: TranslationsShape = {
     whereToEat: 'Where to eat?',
     hallMap: {
       title: 'Hall map',
-      premiumStand: 'Premium spot 5x3m',
+      premiumStand: 'Premium spot 4x4m',
       standardStand: 'Standard spot 4x2,5m',
       miniStand: 'Mini spot 3x2m',
       taken: 'Reserved'
