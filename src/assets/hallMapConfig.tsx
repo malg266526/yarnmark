@@ -46,8 +46,9 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'normal1',
+          color: 'taken',
           index: 'S34'
+          // who: 'LusiaKnits'
         },
         {
           width: 2.5,
@@ -112,14 +113,16 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 4,
-          color: 'premium',
+          color: 'taken',
           index: 'P4'
+          // who: 'Mila Druciarnia'
         },
         {
           width: 4,
           height: 2.5,
-          color: 'normal1',
+          color: 'taken',
           index: 'S26'
+          // who: 'Mila Druciarnia'
         },
         {
           width: 4,
@@ -291,8 +294,9 @@ export const hallMapConfig: HallMapType = {
             {
               width: 2,
               height: 3,
-              color: 'small1',
+              color: 'taken',
               index: 'M2'
+              // who: 'Hanka mi zrobiła'
             }
           ],
           width: 4,
@@ -332,14 +336,16 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'normal1',
+          color: 'taken',
           index: 'S16'
+          // who: 'WełnaBawełna'
         },
         {
           width: 4,
           height: 2.5,
-          color: 'normal2',
+          color: 'taken',
           index: 'S15'
+          // who: 'WełnaBawełna'
         },
         {
           width: 4,
@@ -350,20 +356,23 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'normal2',
+          color: 'taken',
           index: 'S13'
+          // who: 'Kokonki'
         },
         {
           width: 4,
           height: 2.5,
-          color: 'normal1',
+          color: 'taken',
           index: 'S12'
+          // who: 'Kokonki'
         },
         {
           width: 4,
           height: 2.5,
-          color: 'normal2',
+          color: 'taken',
           index: 'S11'
+          // who: 'Kokonki'
         },
         {
           width: 4,
@@ -380,8 +389,9 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 4,
-          color: 'premium',
+          color: 'taken',
           index: 'P1'
+          // who: 'GaboWool'
         }
       ]
     }
