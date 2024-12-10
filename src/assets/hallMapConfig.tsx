@@ -260,8 +260,9 @@ export const hallMapConfig: HallMapType = {
             {
               width: 2,
               height: 3,
-              color: 'small2',
-              index: 'M6'
+              color: 'taken',
+              index: 'M6',
+              who: 'Okki Hand made'
             }
           ],
           width: 4,
