@@ -56,12 +56,11 @@ const HallStandLayout = styled.div<{
   width: ${({ width, multiplier }) => (width ? `${width * multiplier}px` : 'initial')};
   height: ${({ height, multiplier }) => (height ? `${height * multiplier}px` : 'initial')};
 
-  background-color: ${({ color, isTaken }) => (isTaken ? HallColors['taken'] : HallColors[color || 'empty'])};
+  background-color: ${({ color }) => HallColors[color || 'empty']};
   align-items: center;
   justify-content: space-evenly;
 
   position: relative;
-  // filter: ${({ isTaken }) => isTaken && `saturate(0) brightness(2)`};
 `;
 
 type HallStandProps = {
