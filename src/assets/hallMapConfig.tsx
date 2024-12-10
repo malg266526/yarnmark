@@ -47,8 +47,8 @@ export const hallMapConfig: HallMapType = {
         {
           width: 2.5,
           color: 'taken',
-          index: 'S34'
-          // who: 'LusiaKnits'
+          index: 'S34',
+          who: 'Lusia Knits'
         },
         {
           width: 2.5,
@@ -116,15 +116,15 @@ export const hallMapConfig: HallMapType = {
           width: 4,
           height: 4,
           color: 'taken',
-          index: 'P4'
-          // who: 'Mila Druciarnia'
+          index: 'P4',
+          who: 'Mila Druciarnia'
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken',
-          index: 'S26'
-          // who: 'Mila Druciarnia'
+          index: 'S26',
+          who: 'Mila Druciarnia'
         },
         {
           width: 4,
@@ -278,8 +278,9 @@ export const hallMapConfig: HallMapType = {
             {
               width: 2,
               height: 3,
-              color: 'small1',
-              index: 'M3'
+              color: 'taken2',
+              index: 'M3',
+              who: 'Woolove'
             },
             {
               width: 2,
@@ -342,8 +343,8 @@ export const hallMapConfig: HallMapType = {
           width: 4,
           height: 4,
           color: 'taken2',
-          index: 'P2'
-          // who: 'Strikke'
+          index: 'P2',
+          who: 'Strikke'
         },
         {
           width: 4,
@@ -370,22 +371,22 @@ export const hallMapConfig: HallMapType = {
           width: 4,
           height: 2.5,
           color: 'taken',
-          index: 'S13'
-          // who: 'Kokonki'
+          index: 'S13',
+          who: 'Kokonki'
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken',
-          index: 'S12'
-          // who: 'Kokonki'
+          index: 'S12',
+          who: 'Kokonki'
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken',
-          index: 'S11'
-          // who: 'Kokonki'
+          index: 'S11',
+          who: 'Kokonki'
         },
         {
           width: 4,
@@ -397,15 +398,15 @@ export const hallMapConfig: HallMapType = {
           width: 4,
           height: 2.5,
           color: 'taken',
-          index: 'S9'
-          // who: 'Woolloop'
+          index: 'S9',
+          who: 'Woolloop'
         },
         {
           width: 4,
           height: 4,
           color: 'taken2',
-          index: 'P1'
-          // who: 'GaboWool'
+          index: 'P1',
+          who: 'GaboWool'
         }
       ]
     }

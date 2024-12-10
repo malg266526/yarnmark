@@ -152,11 +152,9 @@ import woolloopLogoUrlWebp from '../../assets/images/minifiedLogos/woolloop.webp
 import woolniejLogoUrlAvif from '../../assets/images/minifiedLogos/woolniej.avif';
 import woolniejLogoUrlWebp from '../../assets/images/minifiedLogos/woolniej.webp';*/
 
-/*
 import wooloveLogoUrl from '../../assets/images/minifiedLogos/woolove.png';
 import wooloveLogoUrlAvif from '../../assets/images/minifiedLogos/woolove.avif';
 import wooloveLogoUrlWebp from '../../assets/images/minifiedLogos/woolove.webp';
-*/
 
 import { Picture } from '../../components/Picture';
 
@@ -927,7 +925,6 @@ export const VendorsList = () => {
       </LogoLink>
 */}
 
-      {/*
       <LogoLink to="https://www.woolove.pl" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -948,7 +945,6 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-*/}
     </Grid>
   );
 };
