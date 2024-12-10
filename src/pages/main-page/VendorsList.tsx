@@ -31,9 +31,9 @@ import brioszkaLogoUrlWebp from '../../assets/images/minifiedLogos/brioszka.webp
 import coloridoLogoUrlAvif from '../../assets/images/minifiedLogos/colorido.avif';
 import coloridoLogoUrlWebp from '../../assets/images/minifiedLogos/colorido.webp';*/
 
-/*import dyeDyeDoneLogoUrlAvif from '../../assets/images/minifiedLogos/dyedyedone.avif';
+import dyeDyeDoneLogoUrlAvif from '../../assets/images/minifiedLogos/dyedyedone.avif';
 import dyeDyeDoneLogoUrl from '../../assets/images/minifiedLogos/dyedyedone.png';
-import dyeDyeDoneLogoUrlWebp from '../../assets/images/minifiedLogos/dyedyedone.webp';*/
+import dyeDyeDoneLogoUrlWebp from '../../assets/images/minifiedLogos/dyedyedone.webp';
 
 /*import floralFiberLogoUrlAvif from '../../assets/images/minifiedLogos/floralfiber.avif';
 import floralFiberLogoUrl from '../../assets/images/minifiedLogos/floralfiber.jpg';
@@ -334,7 +334,6 @@ export const VendorsList = () => {
       </LogoLink>
 */}
 
-      {/*
       <LogoLink to="https://www.dyedyedone.com/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -355,7 +354,6 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-*/}
 
       {/*
       <LogoLink to="https://www.instagram.com/floralfiber_fusion/" target="_blank" rel="noreferrer">
