@@ -200,9 +200,9 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken',
-          index: 'S18',
-          who: 'Dye dye done'
+          color: 'normal1',
+          index: 'S18'
+          // who: 'Dye dye done'
         },
         {
           width: 4,
