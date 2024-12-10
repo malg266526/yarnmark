@@ -79,7 +79,7 @@ export const hallMapConfig: HallMapType = {
           width: 2.5,
           color: 'taken',
           index: 'S28',
-          who: 'Judyta Marcol'
+          who: 'Ale masz to cudne!'
         },
         {
           width: 2.5,

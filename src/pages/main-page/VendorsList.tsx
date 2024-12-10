@@ -4,13 +4,13 @@ import { RedesignSpacings } from '../../styles/spacings';
 import { Link } from '../../components/Link';
 import { ScreenSize } from '../../styles/screeen-size';
 
-/*import alemasztocudneLogoUrl from '../../assets/images/minifiedLogos/alemasztocudne.jpg';
+import alemasztocudneLogoUrl from '../../assets/images/minifiedLogos/alemasztocudne.jpg';
 import alemasztocudneLogoUrlAvif from '../../assets/images/minifiedLogos/alemasztocudne.avif';
-import alemasztocudneLogoUrlWebp from '../../assets/images/minifiedLogos/alemasztocudne.webp';*/
+import alemasztocudneLogoUrlWebp from '../../assets/images/minifiedLogos/alemasztocudne.webp';
 
-/*import animotkiLogoUrl from '../../assets/images/minifiedLogos/animotki.png';
+import animotkiLogoUrl from '../../assets/images/minifiedLogos/animotki.png';
 import animotkiLogoUrlAvif from '../../assets/images/minifiedLogos/animotki.avif';
-import animotkiLogoUrlWebp from '../../assets/images/minifiedLogos/animotki.webp';*/
+import animotkiLogoUrlWebp from '../../assets/images/minifiedLogos/animotki.webp';
 /*
 import anisplotyLogoUrl from '../../assets/images/minifiedLogos/anisploty.jpg';
 import anisplotyLogoUrlAvif from '../../assets/images/minifiedLogos/anisploty.avif';*/
@@ -19,9 +19,9 @@ import anisplotyLogoUrlAvif from '../../assets/images/minifiedLogos/anisploty.av
 import bawelnianyFilamentLogoUrlAvif from '../../assets/images/minifiedLogos/bawelnianyfilament.avif';
 import bawelnianyFilamentLogoUrlWebp from '../../assets/images/minifiedLogos/bawelnianyfilament.webp';*/
 
-/*import bifernoLogoUrl from '../../assets/images/minifiedLogos/biferno.png';
+import bifernoLogoUrl from '../../assets/images/minifiedLogos/biferno.png';
 import bifernoLogoUrlAvif from '../../assets/images/minifiedLogos/biferno.avif';
-import bifernoLogoUrlWebp from '../../assets/images/minifiedLogos/biferno.webp';*/
+import bifernoLogoUrlWebp from '../../assets/images/minifiedLogos/biferno.webp';
 
 /*import brioszkaLogoUrl from '../../assets/images/minifiedLogos/brioszka.png';
 import brioszkaLogoUrlAvif from '../../assets/images/minifiedLogos/brioszka.avif';
@@ -47,9 +47,9 @@ import furoraLogoUrlWebp from '../../assets/images/minifiedLogos/furora.webp';*/
 import gaboWoolLogoUrlAvif from '../../assets/images/minifiedLogos/gabowool.avif';
 import gaboWoolLogoUrlWebp from '../../assets/images/minifiedLogos/gabowool.webp';*/
 
-/*import hankaMiZrobilaLogoUrl from '../../assets/images/minifiedLogos/hankamizrobila.png';
+import hankaMiZrobilaLogoUrl from '../../assets/images/minifiedLogos/hankamizrobila.png';
 import hankaMiZrobilaLogoUrlAvif from '../../assets/images/minifiedLogos/hankamizrobila.avif';
-import hankaMiZrobilaLogoUrlWebp from '../../assets/images/minifiedLogos/hankamizrobila.webp';*/
+import hankaMiZrobilaLogoUrlWebp from '../../assets/images/minifiedLogos/hankamizrobila.webp';
 
 /*import knittedCoffeeLogoUrl from '../../assets/images/minifiedLogos/knitted.jpg';
 import knittedCoffeeLogoUrlAvif from '../../assets/images/minifiedLogos/knitted.avif';
@@ -111,9 +111,7 @@ import paciorkowceLogoUrlWebp from '../../assets/images/minifiedLogos/paciorkowc
 import siedemOczekLogoUrlAvif from '../../assets/images/minifiedLogos/7oczek.avif';
 import siedemOczekLogoUrlWebp from '../../assets/images/minifiedLogos/7oczek.webp';*/
 
-/*
 import strikkeLogoUrl from '../../assets/images/minifiedLogos/strikke.png';
-*/
 
 /*
 import pimotkiLogoUrl from '../../assets/images/minifiedLogos/pimotki.png';
@@ -123,17 +121,17 @@ import pimotkiLogoUrl from '../../assets/images/minifiedLogos/pimotki.png';
 import rencamiLogoUrl from '../../assets/images/minifiedLogos/rencami.png';
 */
 
-/*import timeToKnitLogoUrl from '../../assets/images/minifiedLogos/timetoknit.png';
+import timeToKnitLogoUrl from '../../assets/images/minifiedLogos/timetoknit.png';
 import timeToKnitLogoUrlAvif from '../../assets/images/minifiedLogos/timetoknit.avif';
-import timeToKnitLogoUrlWebp from '../../assets/images/minifiedLogos/timetoknit.webp';*/
+import timeToKnitLogoUrlWebp from '../../assets/images/minifiedLogos/timetoknit.webp';
 
 /*
 import theKnittingBoxLogoUrl from '../../assets/images/minifiedLogos/theknittingbox.png';
 */
 
-/*import welnaBawelnaLogoUrl from '../../assets/images/minifiedLogos/WelnaBawelna.jpg';
+import welnaBawelnaLogoUrl from '../../assets/images/minifiedLogos/WelnaBawelna.jpg';
 import welnaBawelnaLogoUrlAvif from '../../assets/images/minifiedLogos/WelnaBawelna.avif';
-import welnaBawelnaLogoUrlWebp from '../../assets/images/minifiedLogos/WelnaBawelna.webp';*/
+import welnaBawelnaLogoUrlWebp from '../../assets/images/minifiedLogos/WelnaBawelna.webp';
 
 /*import wloczkomaniaczkaLogoUrl from '../../assets/images/minifiedLogos/wloczkomaniaczka.jpg';
 import wloczkomaniaczkaLogoUrlAvif from '../../assets/images/minifiedLogos/wloczkomaniaczka.avif';
@@ -185,7 +183,6 @@ const LogoLink = styled(Link)`
 export const VendorsList = () => {
   return (
     <Grid>
-      {/*
       <LogoLink to="https://animotki.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -206,9 +203,7 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-*/}
 
-      {/*
       <LogoLink to="https://judytamarcol.pl/alemasztocudne/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -229,7 +224,6 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-*/}
 
       {/*
       <LogoLink to="https://www.instagram.com/ani_sploty/" target="_blank" rel="noreferrer">
@@ -273,7 +267,6 @@ export const VendorsList = () => {
       </LogoLink>
 */}
 
-      {/*
       <LogoLink to="https://biferno.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -294,7 +287,6 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-*/}
 
       {/*
       <LogoLink to="https://brioszka.com.pl/" target="_blank" rel="noreferrer">
@@ -434,7 +426,6 @@ export const VendorsList = () => {
       </LogoLink>
 */}
 
-      {/*
       <LogoLink to="https://hankamizrobila.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -455,7 +446,6 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-*/}
 
       {/*
       <LogoLink to="https://knittedcoffee.pl/" target="_blank" rel="noreferrer">
@@ -757,11 +747,9 @@ export const VendorsList = () => {
       </LogoLink>
 */}
 
-      {/*
       <LogoLink to="https://strikke.pl/" target="_blank" rel="noreferrer">
         <img width={150} height={60} src={strikkeLogoUrl} alt="Strikke_logo" />
       </LogoLink>
-*/}
 
       {/*
       <LogoLink to="https://7oczek.pl/pl/" target="_blank" rel="noreferrer">
@@ -786,7 +774,6 @@ export const VendorsList = () => {
       </LogoLink>
 */}
 
-      {/*
       <LogoLink to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -807,7 +794,6 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-*/}
 
       {/*
       <LogoLink to="https://theknittingbox.pl" target="_blank" rel="noreferrer">
@@ -815,7 +801,6 @@ export const VendorsList = () => {
       </LogoLink>
 */}
 
-      {/*
       <LogoLink to="https://welnabawelna.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -836,7 +821,6 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-*/}
 
       {/*
       <LogoLink to="https://wloczkomaniaczka.pl/" target="_blank" rel="noreferrer">
