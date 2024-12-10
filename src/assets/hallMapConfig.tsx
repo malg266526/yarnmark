@@ -77,13 +77,15 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'normal1',
-          index: 'S28'
+          color: 'taken',
+          index: 'S28',
+          who: 'Judyta Marcol'
         },
         {
           width: 2.5,
-          color: 'normal2',
-          index: 'S27'
+          color: 'taken2',
+          index: 'S27',
+          who: 'Animotki'
         }
       ]
     },
@@ -139,8 +141,9 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'normal2',
-          index: 'S23'
+          color: 'taken',
+          index: 'S23',
+          who: 'Miss Knitski'
         },
         {
           width: 4,
@@ -157,19 +160,21 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'normal1',
+          color: 'taken2',
           index: 'S20'
+          // who: 'Woollala'
         },
         {
           width: 4,
           height: 2.5,
-          color: 'normal2',
+          color: 'taken2',
           index: 'S19'
+          // who: 'Woollala'
         },
         {
           width: 4,
           height: 4,
-          color: 'premium',
+          color: 'taken',
           index: 'P3',
           who: 'Włóczykijki'
         }
@@ -288,15 +293,16 @@ export const hallMapConfig: HallMapType = {
             {
               width: 2,
               height: 3,
-              color: 'small2',
-              index: 'M1'
+              color: 'taken',
+              index: 'M1',
+              who: 'Kania Kania Ceramika'
             },
             {
               width: 2,
               height: 3,
-              color: 'taken',
-              index: 'M2'
-              // who: 'Hanka mi zrobiła'
+              color: 'taken2',
+              index: 'M2',
+              who: 'Hanka mi zrobiła'
             }
           ],
           width: 4,
@@ -337,15 +343,15 @@ export const hallMapConfig: HallMapType = {
           width: 4,
           height: 2.5,
           color: 'taken',
-          index: 'S16'
-          // who: 'WełnaBawełna'
+          index: 'S16',
+          who: 'WełnaBawełna'
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken',
-          index: 'S15'
-          // who: 'WełnaBawełna'
+          index: 'S15',
+          who: 'WełnaBawełna'
         },
         {
           width: 4,
@@ -383,8 +389,9 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'normal2',
+          color: 'taken',
           index: 'S9'
+          // who: 'Woolloop'
         },
         {
           width: 4,
@@ -446,13 +453,15 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'normal1',
-          index: 'S2'
+          color: 'taken',
+          index: 'S2',
+          who: 'Biferno'
         },
         {
           width: 2.5,
-          color: 'normal2',
-          index: 'S1'
+          color: 'taken',
+          index: 'S1',
+          who: 'Biferno'
         },
         {
           width: 2.5,
