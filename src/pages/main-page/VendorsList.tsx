@@ -75,9 +75,9 @@ import lusiaLogoUrlWebp from '../../assets/images/minifiedLogos/lusiaknits.webp'
 import madoboLogoUrlAvif from '../../assets/images/minifiedLogos/madobo.avif';
 import madoboLogoUrlWebp from '../../assets/images/minifiedLogos/madobo.webp';*/
 
-/*import malinowyKosLogoUrl from '../../assets/images/minifiedLogos/malinowyKos.png';
+import malinowyKosLogoUrl from '../../assets/images/minifiedLogos/malinowyKos.png';
 import malinowyKosLogoUrlAvif from '../../assets/images/minifiedLogos/malinowyKos.avif';
-import malinowyKosLogoUrlWebp from '../../assets/images/minifiedLogos/malinowyKos.webp';*/
+import malinowyKosLogoUrlWebp from '../../assets/images/minifiedLogos/malinowyKos.webp';
 
 /*import maniaChomikujeLogoUrl from '../../assets/images/minifiedLogos/mania.png';
 import maniaChomikujeLogoUrlAvif from '../../assets/images/minifiedLogos/mania.avif';
@@ -562,7 +562,6 @@ export const VendorsList = () => {
       </LogoLink>
 */}
 
-      {/*
       <LogoLink to="https://malinowykos.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -583,7 +582,6 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-*/}
 
       {/*
       <LogoLink to="https://www.facebook.com/groups/1020511551665421/" target="_blank" rel="noreferrer">
