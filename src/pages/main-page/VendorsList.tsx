@@ -95,9 +95,9 @@ import missKnitskiLogoUrlWebp from '../../assets/images/minifiedLogos/missknitsk
 import mokoszaLogoUrlAvif from '../../assets/images/minifiedLogos/mokosza.avif';
 import mokoszaLogoUrlWebp from '../../assets/images/minifiedLogos/mokosza.webp';*/
 
-/*import motkomaniaLogoUrl from '../../assets/images/minifiedLogos/motkomania.jpg';
+import motkomaniaLogoUrl from '../../assets/images/minifiedLogos/motkomania.jpg';
 import motkomaniaLogoUrlAvif from '../../assets/images/minifiedLogos/motkomania.avif';
-import motkomaniaLogoUrlWebp from '../../assets/images/minifiedLogos/motkomania.webp';*/
+import motkomaniaLogoUrlWebp from '../../assets/images/minifiedLogos/motkomania.webp';
 
 /*
 import naSztukiStudioLogoUrl from '../../assets/images/minifiedLogos/nasztukistudio.png';
@@ -679,7 +679,6 @@ export const VendorsList = () => {
       </LogoLink>
 */}
 
-      {/*
       <LogoLink to="https://motkomania.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -700,7 +699,6 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-*/}
 
       {/*
       <LogoLink to="https://nasztukistudio.pl/" target="_blank" rel="noreferrer">
