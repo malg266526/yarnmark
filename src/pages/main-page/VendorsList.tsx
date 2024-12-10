@@ -111,7 +111,7 @@ import paciorkowceLogoUrlWebp from '../../assets/images/minifiedLogos/paciorkowc
 import siedemOczekLogoUrlAvif from '../../assets/images/minifiedLogos/7oczek.avif';
 import siedemOczekLogoUrlWebp from '../../assets/images/minifiedLogos/7oczek.webp';*/
 
-import strikkeLogoUrl from '../../assets/images/minifiedLogos/strikke.png';
+/*import strikkeLogoUrl from '../../assets/images/minifiedLogos/strikke.png';*/
 
 /*
 import pimotkiLogoUrl from '../../assets/images/minifiedLogos/pimotki.png';
@@ -743,9 +743,9 @@ export const VendorsList = () => {
       </LogoLink>
 */}
 
-      <LogoLink to="https://strikke.pl/" target="_blank" rel="noreferrer">
+      {/*      <LogoLink to="https://strikke.pl/" target="_blank" rel="noreferrer">
         <img width={150} height={60} src={strikkeLogoUrl} alt="Strikke_logo" />
-      </LogoLink>
+      </LogoLink>*/}
 
       {/*
       <LogoLink to="https://7oczek.pl/pl/" target="_blank" rel="noreferrer">
