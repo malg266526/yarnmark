@@ -141,8 +141,8 @@ import wloczykijkiLogoUrl from '../../assets/images/minifiedLogos/wloczykijki.pn
 import wloczykijkiLogoUrlAvif from '../../assets/images/minifiedLogos/wloczykijki.avif';
 import wloczykijkiLogoUrlWebp from '../../assets/images/minifiedLogos/wloczykijki.webp';
 
-/*import woollalaLogoUrl from '../../assets/images/minifiedLogos/woollala.png';
-import woollalaLogoUrlWebp from '../../assets/images/minifiedLogos/woollala.webp';*/
+import woollalaLogoUrl from '../../assets/images/minifiedLogos/woollala.png';
+import woollalaLogoUrlWebp from '../../assets/images/minifiedLogos/woollala.webp';
 
 /*import woolloopLogoUrl from '../../assets/images/minifiedLogos/woolloop.png';
 import woolloopLogoUrlAvif from '../../assets/images/minifiedLogos/woolloop.avif';
@@ -864,7 +864,6 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      {/*
       <LogoLink to="https://www.woollala.com" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -881,7 +880,6 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-*/}
 
       {/*
       <LogoLink to="https://woolloop.pl" target="_blank" rel="noreferrer">
