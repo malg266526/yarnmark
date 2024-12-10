@@ -84,7 +84,7 @@ export const HallStand = ({ stand, height, desktopMultiplier }: HallStandProps) 
       isTaken={Boolean(stand.who)}>
       <div>
         <StandIndex>{stand.index}</StandIndex>
-        <StandIndex>{stand.who}</StandIndex>
+        <StandText>{stand.who}</StandText>
         <StandText>{stand.text}</StandText>
       </div>
 
