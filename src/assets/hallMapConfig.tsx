@@ -79,7 +79,7 @@ export const hallMapConfig: HallMapType = {
           width: 2.5,
           color: 'taken',
           index: 'S28',
-          who: 'Judyta Marcol'
+          who: 'Ale masz to cudne!'
         },
         {
           width: 2.5,
@@ -200,8 +200,9 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'normal1',
-          index: 'S18'
+          color: 'taken',
+          index: 'S18',
+          who: 'Dye dye done'
         },
         {
           width: 4,
@@ -213,8 +214,9 @@ export const hallMapConfig: HallMapType = {
             {
               width: 2,
               height: 3,
-              color: 'small1',
-              index: 'M9'
+              color: 'taken',
+              index: 'M9',
+              who: 'Dye dye done'
             },
             {
               width: 2,
@@ -232,8 +234,9 @@ export const hallMapConfig: HallMapType = {
             {
               width: 2,
               height: 3,
-              color: 'small2',
-              index: 'M7'
+              color: 'taken',
+              index: 'M7',
+              who: 'Dye dye done'
             },
             {
               width: 2,
