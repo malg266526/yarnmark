@@ -285,8 +285,9 @@ export const hallMapConfig: HallMapType = {
             {
               width: 2,
               height: 3,
-              color: 'small2',
+              color: 'taken',
               index: 'M4'
+              // who: 'Floral Fiber Fusion'
             }
           ],
           width: 4,
