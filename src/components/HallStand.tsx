@@ -30,6 +30,10 @@ const StandText = styled.h5`
   font-size: ${FontSize.xs};
   text-align: center;
   margin: 0;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    font-size: ${FontSize.xxs};
+  }
 `;
 
 const StandIndex = styled.h4`
