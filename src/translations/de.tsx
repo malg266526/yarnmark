@@ -160,7 +160,9 @@ export const de: TranslationsShape = {
           'Wir empfehlen Ihnen, Ihr Logo an die E-Mail-Adresse <strong>krakoski.yarnmark.welny@gmail.com</strong>, zu senden. Wir werden es in der Registerkarte „Aussteller“ platzieren und auf diese Weise die Stricker/inen darüber informieren, dass Sie bei uns sein werden.'
       },
       stands: {
-        title: 'Stands'
+        title: 'Stands',
+        contact:
+          'Please send any questions and doubts related to the stands to the e-mail address<strong>krakoski.yarnmark.welny@gmail.com</strong>'
       },
       registration: {
         title: 'Anmeldungen',

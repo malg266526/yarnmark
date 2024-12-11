@@ -158,7 +158,9 @@ export const pl = {
           'Zachęcamy do przesłania swojego logo na adres email <strong>krakoski.yarnmark.welny@gmail.com</strong>, umieścimy je w zakładce "Wystawcy" i w ten sposób poinformujemy dziewiarki i dziewiarzy, że z nami będziecie'
       },
       stands: {
-        title: 'Stoiska'
+        title: 'Stoiska',
+        contact:
+          'Wszelkie pytania i wątpliwości związane ze stoiskami prosimy kierować na adres mailowy <strong>krakoski.yarnmark.welny@gmail.com</strong>'
       },
       registration: {
         title: 'Zapisy',

@@ -157,7 +157,9 @@ export const en: TranslationsShape = {
           'We encourage to send your logo on email address <strong>krakoski.yarnmark.welny@gmail.com</strong>, we will put it on "Vendors" section and this way inform the knitters, that you will be there.'
       },
       stands: {
-        title: 'Stands'
+        title: 'Stands',
+        contact:
+          'Please send any questions and doubts related to the stands to the e-mail address<strong>krakoski.yarnmark.welny@gmail.com</strong>'
       },
       registration: {
         title: 'Reservations',

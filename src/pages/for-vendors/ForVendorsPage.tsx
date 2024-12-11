@@ -164,6 +164,12 @@ export const ForVendorsPage = () => {
         padding={isPhone ? 'sm' : 'xxl'}>
         <Band.BeamTitle>{t('infoForVendorsPage.stands.title')}</Band.BeamTitle>
 
+        <PlainInfo>
+          <Typography size="md">
+            <Trans i18nKey="infoForVendorsPage.stands.contact" />
+          </Typography>
+        </PlainInfo>
+
         <HallWrapper id="hall_wrapper">
           <Hall />
           <HallLegend />
