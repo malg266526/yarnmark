@@ -118,10 +118,6 @@ export const StatutesPage = () => {
                 <li>rozstawiania stojaków, wieszaków, reklam itp. bez wcześniejszej zgody Organizatorów</li>
                 <li>wejścia i przebywania w strefach Hali Cracovii wyłączonych dla uczestników</li>
                 <li>blokowania ciągów komunikacyjnych, dróg dojazdowych dla służb ratunkowych, dróg ewakuacyjnych</li>
-                <li>
-                  wprowadzania psów i innych zwierząt, za wyjątkiem psów przewodników i psów będących asystentami osób z
-                  niepełnosprawnością
-                </li>
               </ul>
             </li>
             <li>Sprzedaż prowadzona jest wyłącznie na stoiskach Wystawców.</li>
