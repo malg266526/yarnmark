@@ -36,6 +36,16 @@ const StandText = styled.h5`
   }
 `;
 
+const StandWho = styled.h5`
+  font-size: ${FontSize.xs};
+  text-align: center;
+  margin: 0;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    font-size: ${FontSize.xxxs};
+  }
+`;
+
 const StandIndex = styled.h4`
   text-align: center;
   margin: 0;
@@ -87,7 +97,7 @@ export const HallStand = ({ stand, height, desktopMultiplier }: HallStandProps) 
       isTaken={Boolean(stand.who)}>
       <div>
         <StandIndex>{stand.index}</StandIndex>
-        <StandText>{stand.who}</StandText>
+        <StandWho>{stand.who}</StandWho>
         <StandText>{stand.text}</StandText>
       </div>
 

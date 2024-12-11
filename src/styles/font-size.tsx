@@ -1,5 +1,6 @@
 // in REM = 16px
 export const FontSize = {
+  xxxs: '0.4rem',
   xxs: '0.5rem',
   xs: '0.75rem',
   sm: '1rem',
