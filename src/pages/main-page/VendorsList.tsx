@@ -59,9 +59,7 @@ import knittedCoffeeLogoUrlWebp from '../../assets/images/minifiedLogos/knitted.
 import knitPlLogoUrlAvif from '../../assets/images/minifiedLogos/knitpl.avif';
 import knitPlLogoUrlWebp from '../../assets/images/minifiedLogos/knitpl.webp';*/
 
-/*
 import kokonkiLogoUrl from '../../assets/images/minifiedLogos/kokonki.png';
-*/
 
 /*import liloppiLogoUrl from '../../assets/images/minifiedLogos/liloppi.jpg';
 import liloppiLogoUrlAvif from '../../assets/images/minifiedLogos/liloppi.avif';
@@ -485,11 +483,9 @@ export const VendorsList = () => {
       </LogoLink>
 */}
 
-      {/*
       <LogoLink to="https://kokonki.pl/" target="_blank" rel="noreferrer">
         <img width={100} height={100} src={kokonkiLogoUrl} alt="kokonki_logo" />
       </LogoLink>
-*/}
 
       {/*
       <LogoLink to="https://liloppi.pl/" target="_blank" rel="noreferrer">
