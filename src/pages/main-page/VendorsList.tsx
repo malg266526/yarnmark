@@ -67,29 +67,29 @@ import kokonkiLogoUrl from '../../assets/images/minifiedLogos/kokonki.png';
 import liloppiLogoUrlAvif from '../../assets/images/minifiedLogos/liloppi.avif';
 import liloppiLogoUrlWebp from '../../assets/images/minifiedLogos/liloppi.webp';*/
 
-/*import lusiaLogoUrl from '../../assets/images/minifiedLogos/lusiaknits.jpg';
+import lusiaLogoUrl from '../../assets/images/minifiedLogos/lusiaknits.jpg';
 import lusiaLogoUrlAvif from '../../assets/images/minifiedLogos/lusiaknits.avif';
-import lusiaLogoUrlWebp from '../../assets/images/minifiedLogos/lusiaknits.webp';*/
+import lusiaLogoUrlWebp from '../../assets/images/minifiedLogos/lusiaknits.webp';
 
-/*import madoboLogoUrl from '../../assets/images/minifiedLogos/madobo.png';
+import madoboLogoUrl from '../../assets/images/minifiedLogos/madobo.png';
 import madoboLogoUrlAvif from '../../assets/images/minifiedLogos/madobo.avif';
-import madoboLogoUrlWebp from '../../assets/images/minifiedLogos/madobo.webp';*/
+import madoboLogoUrlWebp from '../../assets/images/minifiedLogos/madobo.webp';
 
 import malinowyKosLogoUrl from '../../assets/images/minifiedLogos/malinowyKos.png';
 import malinowyKosLogoUrlAvif from '../../assets/images/minifiedLogos/malinowyKos.avif';
 import malinowyKosLogoUrlWebp from '../../assets/images/minifiedLogos/malinowyKos.webp';
 
-/*import maniaChomikujeLogoUrl from '../../assets/images/minifiedLogos/mania.png';
+import maniaChomikujeLogoUrl from '../../assets/images/minifiedLogos/mania.png';
 import maniaChomikujeLogoUrlAvif from '../../assets/images/minifiedLogos/mania.avif';
-import maniaChomikujeLogoUrlWebp from '../../assets/images/minifiedLogos/mania.webp';*/
+import maniaChomikujeLogoUrlWebp from '../../assets/images/minifiedLogos/mania.webp';
 
-/*import martinslabLogoUrl from '../../assets/images/minifiedLogos/martinslab_long.jpg';
+import martinslabLogoUrl from '../../assets/images/minifiedLogos/martinslab_long.jpg';
 import martinslabLogoUrlAvif from '../../assets/images/minifiedLogos/martinslab_long.avif';
-import martinslabLogoUrlWebp from '../../assets/images/minifiedLogos/martinslab_long.webp';*/
+import martinslabLogoUrlWebp from '../../assets/images/minifiedLogos/martinslab_long.webp';
 
-/*import missKnitskiLogoUrl from '../../assets/images/minifiedLogos/missknitski.png';
+import missKnitskiLogoUrl from '../../assets/images/minifiedLogos/missknitski.png';
 import missKnitskiLogoUrlAvif from '../../assets/images/minifiedLogos/missknitski.avif';
-import missKnitskiLogoUrlWebp from '../../assets/images/minifiedLogos/missknitski.webp';*/
+import missKnitskiLogoUrlWebp from '../../assets/images/minifiedLogos/missknitski.webp';
 
 /*import mokoszaLogoUrl from '../../assets/images/minifiedLogos/mokosza.png';
 import mokoszaLogoUrlAvif from '../../assets/images/minifiedLogos/mokosza.avif';
@@ -125,9 +125,7 @@ import timeToKnitLogoUrl from '../../assets/images/minifiedLogos/timetoknit.png'
 import timeToKnitLogoUrlAvif from '../../assets/images/minifiedLogos/timetoknit.avif';
 import timeToKnitLogoUrlWebp from '../../assets/images/minifiedLogos/timetoknit.webp';
 
-/*
 import theKnittingBoxLogoUrl from '../../assets/images/minifiedLogos/theknittingbox.png';
-*/
 
 import welnaBawelnaLogoUrl from '../../assets/images/minifiedLogos/WelnaBawelna.jpg';
 import welnaBawelnaLogoUrlAvif from '../../assets/images/minifiedLogos/WelnaBawelna.avif';
@@ -516,7 +514,6 @@ export const VendorsList = () => {
       </LogoLink>
 */}
 
-      {/*
       <LogoLink to="https://www.instagram.com/lusia.knits/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -537,9 +534,7 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-*/}
 
-      {/*
       <LogoLink to="https://madobo.pl" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -560,7 +555,6 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-*/}
 
       <LogoLink to="https://malinowykos.pl/" target="_blank" rel="noreferrer">
         <Picture
@@ -583,7 +577,6 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      {/*
       <LogoLink to="https://www.facebook.com/groups/1020511551665421/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -604,9 +597,7 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-*/}
 
-      {/*
       <LogoLink to="https://www.martinslab.com/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -627,9 +618,7 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-*/}
 
-      {/*
       <LogoLink to="https://www.missknitski.com/sklep/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -650,7 +639,6 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-*/}
 
       {/*
       <LogoLink to="https://mokosza.com/" target="_blank" rel="noreferrer">
@@ -785,11 +773,9 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      {/*
       <LogoLink to="https://theknittingbox.pl" target="_blank" rel="noreferrer">
         <img width={100} height={100} src={theKnittingBoxLogoUrl} alt="theknittingbox" />
       </LogoLink>
-*/}
 
       <LogoLink to="https://welnabawelna.pl/" target="_blank" rel="noreferrer">
         <Picture
