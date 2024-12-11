@@ -35,9 +35,9 @@ import dyeDyeDoneLogoUrlAvif from '../../assets/images/minifiedLogos/dyedyedone.
 import dyeDyeDoneLogoUrl from '../../assets/images/minifiedLogos/dyedyedone.png';
 import dyeDyeDoneLogoUrlWebp from '../../assets/images/minifiedLogos/dyedyedone.webp';
 
-/*import floralFiberLogoUrlAvif from '../../assets/images/minifiedLogos/floralfiber.avif';
+import floralFiberLogoUrlAvif from '../../assets/images/minifiedLogos/floralfiber.avif';
 import floralFiberLogoUrl from '../../assets/images/minifiedLogos/floralfiber.jpg';
-import floralFiberLogoUrlWebp from '../../assets/images/minifiedLogos/floralfiber.webp';*/
+import floralFiberLogoUrlWebp from '../../assets/images/minifiedLogos/floralfiber.webp';
 
 /*import furoraLogoUrlAvif from '../../assets/images/minifiedLogos/furora.avif';
 import furoraLogoUrl from '../../assets/images/minifiedLogos/furora.jpg';
@@ -349,7 +349,6 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      {/*
       <LogoLink to="https://www.instagram.com/floralfiber_fusion/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -370,7 +369,6 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-*/}
 
       {/*
       <LogoLink to="https://frra.pl/" target="_blank" rel="noreferrer">

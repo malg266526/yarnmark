@@ -53,14 +53,14 @@ export const hallMapConfig: HallMapType = {
         {
           width: 2.5,
           color: 'taken2',
-          index: 'S33',
-          who: 'Mania Chomikuje'
+          index: 'S33'
+          // who: 'Mania Chomikuje'
         },
         {
           width: 2.5,
           color: 'taken',
-          index: 'S32',
-          who: 'Włóczki Warmii'
+          index: 'S32'
+          // who: 'Włóczki Warmii'
         },
         {
           width: 2.5,
@@ -297,8 +297,8 @@ export const hallMapConfig: HallMapType = {
               width: 2,
               height: 3,
               color: 'taken',
-              index: 'M4'
-              // who: 'Floral Fiber Fusion'
+              index: 'M4',
+              who: 'Floral Fiber Fusion'
             }
           ],
           width: 4,
