@@ -251,7 +251,8 @@ export const hallMapConfig: HallMapType = {
               width: 2,
               height: 3,
               color: 'taken',
-              index: 'M8'
+              index: 'M8',
+              who: 'Cera miczne kubki'
             }
           ],
           width: 4,
