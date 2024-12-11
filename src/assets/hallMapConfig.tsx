@@ -444,23 +444,25 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'normal2',
+          color: 'taken2',
           index: 'S7'
-        },
-        {
-          width: 2.5,
-          color: 'normal1',
-          index: 'S6'
+          // who: 'Bafpol'
         },
         {
           width: 2.5,
           color: 'taken2',
+          index: 'S6'
+          // who: 'Bafpol'
+        },
+        {
+          width: 2.5,
+          color: 'taken',
           index: 'S5',
           who: 'Zakrę cone motki'
         },
         {
           width: 2.5,
-          color: 'taken2',
+          color: 'taken',
           index: 'S4',
           who: 'Zakrę cone motki'
         },
