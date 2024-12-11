@@ -43,9 +43,9 @@ import floralFiberLogoUrlWebp from '../../assets/images/minifiedLogos/floralfibe
 import furoraLogoUrl from '../../assets/images/minifiedLogos/furora.jpg';
 import furoraLogoUrlWebp from '../../assets/images/minifiedLogos/furora.webp';*/
 
-import gaboWoolLogoUrl from '../../assets/images/minifiedLogos/gabowool.png';
+/*import gaboWoolLogoUrl from '../../assets/images/minifiedLogos/gabowool.png';
 import gaboWoolLogoUrlAvif from '../../assets/images/minifiedLogos/gabowool.avif';
-import gaboWoolLogoUrlWebp from '../../assets/images/minifiedLogos/gabowool.webp';
+import gaboWoolLogoUrlWebp from '../../assets/images/minifiedLogos/gabowool.webp';*/
 
 import hankaMiZrobilaLogoUrl from '../../assets/images/minifiedLogos/hankamizrobila.png';
 import hankaMiZrobilaLogoUrlAvif from '../../assets/images/minifiedLogos/hankamizrobila.avif';
@@ -397,7 +397,7 @@ export const VendorsList = () => {
       </LogoLink>
 */}
 
-      <LogoLink to="https://www.gabowool.pl/" target="_blank" rel="noreferrer">
+      {/* <LogoLink to="https://www.gabowool.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
           height={100}
@@ -416,7 +416,7 @@ export const VendorsList = () => {
             ]
           }}
         />
-      </LogoLink>
+      </LogoLink>*/}
 
       <LogoLink to="https://hankamizrobila.pl/" target="_blank" rel="noreferrer">
         <Picture
