@@ -142,9 +142,9 @@ import wloczykijkiLogoUrlWebp from '../../assets/images/minifiedLogos/wloczykijk
 import woollalaLogoUrl from '../../assets/images/minifiedLogos/woollala.png';
 import woollalaLogoUrlWebp from '../../assets/images/minifiedLogos/woollala.webp';
 
-/*import woolloopLogoUrl from '../../assets/images/minifiedLogos/woolloop.png';
+import woolloopLogoUrl from '../../assets/images/minifiedLogos/woolloop.png';
 import woolloopLogoUrlAvif from '../../assets/images/minifiedLogos/woolloop.avif';
-import woolloopLogoUrlWebp from '../../assets/images/minifiedLogos/woolloop.webp';*/
+import woolloopLogoUrlWebp from '../../assets/images/minifiedLogos/woolloop.webp';
 
 /*import woolniejLogoUrl from '../../assets/images/minifiedLogos/woolniej.jpg';
 import woolniejLogoUrlAvif from '../../assets/images/minifiedLogos/woolniej.avif';
@@ -859,7 +859,6 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      {/*
       <LogoLink to="https://woolloop.pl" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -880,7 +879,6 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-*/}
 
       {/*
       <LogoLink to="https://www.instagram.com/woolniej.pl/" target="_blank" rel="noreferrer">
