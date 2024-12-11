@@ -250,7 +250,7 @@ export const hallMapConfig: HallMapType = {
             {
               width: 2,
               height: 3,
-              color: 'small1',
+              color: 'taken',
               index: 'M8'
             }
           ],
