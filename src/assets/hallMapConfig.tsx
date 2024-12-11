@@ -446,14 +446,14 @@ export const hallMapConfig: HallMapType = {
         {
           width: 2.5,
           color: 'taken2',
-          index: 'S7'
-          // who: 'Bafpol'
+          index: 'S7',
+          who: 'Centrum włóczek'
         },
         {
           width: 2.5,
           color: 'taken2',
-          index: 'S6'
-          // who: 'Bafpol'
+          index: 'S6',
+          who: 'Centrum włóczek'
         },
         {
           width: 2.5,
