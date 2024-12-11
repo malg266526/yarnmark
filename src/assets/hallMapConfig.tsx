@@ -456,13 +456,13 @@ export const hallMapConfig: HallMapType = {
           width: 2.5,
           color: 'taken2',
           index: 'S5',
-          who: 'Zakręcone motki'
+          who: 'Zakrę cone motki'
         },
         {
           width: 2.5,
           color: 'taken2',
           index: 'S4',
-          who: 'Zakręcone motki'
+          who: 'Zakrę cone motki'
         },
         {
           width: 3.5,
