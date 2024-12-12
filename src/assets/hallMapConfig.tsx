@@ -59,8 +59,8 @@ export const hallMapConfig: HallMapType = {
         {
           width: 2.5,
           color: 'taken',
-          index: 'S32'
-          // who: 'Włóczki Warmii'
+          index: 'S32',
+          who: 'Włóczki Warmii'
         },
         {
           width: 2.5,
