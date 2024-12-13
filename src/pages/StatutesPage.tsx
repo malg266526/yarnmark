@@ -83,10 +83,10 @@ export const StatutesPage = () => {
             <li>
               Uczestnikiem Yarnmarku jest każda osoba, która zakupiła bilet, okazała go na wejściu Organizatorowi oraz
               otrzymała opaskę identyfikacyjną na rękę. Opaska identyfikacyjna uprawnia do przebywania na Yarnmarku w
-              godzinach 10-18, z możliwością wyjścia oraz powrotu na teren Hali oraz Yarnmarku. Opaskę należy mieć
+              godzinach 10-17, z możliwością wyjścia oraz powrotu na teren Hali oraz Yarnmarku. Opaskę należy mieć
               założona przez cały czas trwania Yarnmarku.
             </li>
-            <li>Ilość biletów jest ograniczona i decyduje kolejność zakupu, bilet na Yarnamrk nie podlega zwrotowi.</li>
+            <li>Ilość biletów jest ograniczona i decyduje kolejność zakupu, bilet na Yarnmark nie podlega zwrotowi.</li>
             <li>
               Nabywca biletu może go odsprzedać osobie trzeciej, po uprzednim poinformowaniu Organizatorów najpóźniej na
               dwa dni przed datą Yarnmarku.
@@ -119,6 +119,11 @@ export const StatutesPage = () => {
                 <li>wejścia i przebywania w strefach Hali Cracovii wyłączonych dla uczestników</li>
                 <li>blokowania ciągów komunikacyjnych, dróg dojazdowych dla służb ratunkowych, dróg ewakuacyjnych</li>
               </ul>
+            </li>
+            <li>
+              Organizator zezwala na wprowadzanie psów na teren Yarnmarku, na smyczy oraz w przypadku ras uznanych za
+              agresywne (Dz. U. Nr 77, poz.687) również w kagańcu. Za szkody spowodowane przez psa odpowieda jego
+              właściciel
             </li>
             <li>Sprzedaż prowadzona jest wyłącznie na stoiskach Wystawców.</li>
             <li>
@@ -177,8 +182,7 @@ export const StatutesPage = () => {
             <li>W przypadku rezygnacji z uczestnictwa w warsztatach, wniesiona opłata nie podlega zwrotowi.</li>
             <li>
               W przypadku zbyt małej liczby chętnych bądź odwołania warsztatów z innych przyczyn, wniesione opłaty
-              zostaną niezwłocznie zwrócone na rachunek bankowy uczestnika. Ewentualne uczestnictwo w Yarnmarku wymaga
-              wówczas zakupu standardowego biletu.
+              zostaną niezwłocznie zwrócone na rachunek bankowy uczestnika.
             </li>
             <li>
               Uczestnicy warsztatów zobowiązani są do przygotowania się do warsztatów zgodnie z wymaganiami podanymi
