@@ -27,9 +27,9 @@ import floralFiberLogoUrlAvif from '../../assets/images/minifiedLogos/floralfibe
 import floralFiberLogoUrl from '../../assets/images/minifiedLogos/floralfiber.jpg';
 import floralFiberLogoUrlWebp from '../../assets/images/minifiedLogos/floralfiber.webp';
 
-/*import furoraLogoUrlAvif from '../../assets/images/minifiedLogos/furora.avif';
+import furoraLogoUrlAvif from '../../assets/images/minifiedLogos/furora.avif';
 import furoraLogoUrl from '../../assets/images/minifiedLogos/furora.jpg';
-import furoraLogoUrlWebp from '../../assets/images/minifiedLogos/furora.webp';*/
+import furoraLogoUrlWebp from '../../assets/images/minifiedLogos/furora.webp';
 
 import gaboWoolLogoUrl from '../../assets/images/minifiedLogos/gabo-wool.jfif';
 import gaboWoolLogoUrlAvif from '../../assets/images/minifiedLogos/gabo-wool.avif';
@@ -73,10 +73,6 @@ import missKnitskiLogoUrl from '../../assets/images/minifiedLogos/missknitski.pn
 import missKnitskiLogoUrlAvif from '../../assets/images/minifiedLogos/missknitski.avif';
 import missKnitskiLogoUrlWebp from '../../assets/images/minifiedLogos/missknitski.webp';
 
-/*import mokoszaLogoUrl from '../../assets/images/minifiedLogos/mokosza.png';
-import mokoszaLogoUrlAvif from '../../assets/images/minifiedLogos/mokosza.avif';
-import mokoszaLogoUrlWebp from '../../assets/images/minifiedLogos/mokosza.webp';*/
-
 import motkomaniaLogoUrl from '../../assets/images/minifiedLogos/motkomania.jpg';
 import motkomaniaLogoUrlAvif from '../../assets/images/minifiedLogos/motkomania.avif';
 import motkomaniaLogoUrlWebp from '../../assets/images/minifiedLogos/motkomania.webp';
@@ -84,6 +80,10 @@ import motkomaniaLogoUrlWebp from '../../assets/images/minifiedLogos/motkomania.
 import okkiLogoUrl from '../../assets/images/minifiedLogos/okki.jfif';
 import okkiLogoUrlAvif from '../../assets/images/minifiedLogos/okki.avif';
 import okkiLogoUrlWebp from '../../assets/images/minifiedLogos/okki.webp';
+
+import paciorkowceLogoUrl from '../../assets/images/minifiedLogos/paciorkowce.jpg';
+import paciorkowceLogoUrlAvif from '../../assets/images/minifiedLogos/paciorkowce.avif';
+import paciorkowceLogoUrlWebp from '../../assets/images/minifiedLogos/paciorkowce.webp';
 
 import siedemOczekLogoUrl from '../../assets/images/minifiedLogos/7oczek.jpg';
 import siedemOczekLogoUrlAvif from '../../assets/images/minifiedLogos/7oczek.avif';
@@ -250,7 +250,7 @@ export const VendorsList = () => {
         <Picture
           width={100}
           height={100}
-          alt="biferno"
+          alt="centrum_wloczek_logo"
           picture={{
             fallbackUrl: centrumWloczekLogoUrl,
             sources: [
@@ -262,29 +262,6 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-
-      {/*
-      <LogoLink to="https://brioszka.com.pl/" target="_blank" rel="noreferrer">
-        <Picture
-          width={100}
-          height={100}
-          alt="brioszka"
-          picture={{
-            fallbackUrl: brioszkaLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: brioszkaLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: brioszkaLogoUrlAvif
-              }
-            ]
-          }}
-        />
-      </LogoLink>
-*/}
 
       {/*
       <LogoLink to="https://colorido.sklep.pl/" target="_blank" rel="noreferrer">
@@ -351,7 +328,6 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      {/*
       <LogoLink to="https://frra.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -372,13 +348,12 @@ export const VendorsList = () => {
           }}
         />
       </LogoLink>
-*/}
 
       <LogoLink to="https://www.gabowool.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
           height={41.5}
-          alt="gabowool"
+          alt="gabowool_logo"
           picture={{
             fallbackUrl: gaboWoolLogoUrl,
             sources: [
@@ -399,7 +374,7 @@ export const VendorsList = () => {
         <Picture
           width={100}
           height={100}
-          alt="hankamizrobila"
+          alt="hankamizrobila_logo"
           picture={{
             fallbackUrl: hankaMiZrobilaLogoUrl,
             sources: [
@@ -420,7 +395,7 @@ export const VendorsList = () => {
         <Picture
           width={100}
           height={100}
-          alt="hankamizrobila"
+          alt="hankamizrobila_logo"
           picture={{
             fallbackUrl: kaniaLogoUrl,
             sources: [
@@ -590,29 +565,6 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      {/*
-      <LogoLink to="https://mokosza.com/" target="_blank" rel="noreferrer">
-        <Picture
-          width={100}
-          height={40}
-          alt="mokosza"
-          picture={{
-            fallbackUrl: mokoszaLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: mokoszaLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: mokoszaLogoUrlAvif
-              }
-            ]
-          }}
-        />
-      </LogoLink>
-*/}
-
       <LogoLink to="https://motkomania.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -638,7 +590,7 @@ export const VendorsList = () => {
         <Picture
           width={120}
           height={100}
-          alt="motkomania"
+          alt="okki_handamde_logo"
           picture={{
             fallbackUrl: okkiLogoUrl,
             sources: [
@@ -655,6 +607,26 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
+      <LogoLink to="https://www.facebook.com/paciorkowceiwisielce/" target="_blank" rel="noreferrer">
+        <Picture
+          width={100}
+          height={100}
+          alt="paciorkowceiwisielce"
+          picture={{
+            fallbackUrl: paciorkowceLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: paciorkowceLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: paciorkowceLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </LogoLink>
       <LogoLink to="https://strikke.pl/" target="_blank" rel="noreferrer">
         <img width={150} height={60} src={strikkeLogoUrl} alt="Strikke_logo" />
       </LogoLink>

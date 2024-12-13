@@ -65,20 +65,20 @@ export const hallMapConfig: HallMapType = {
         {
           width: 2.5,
           color: 'taken2',
-          index: 'S31'
-          // who: 'Furora Yarns'
+          index: 'S31',
+          who: 'Furora Yarns'
         },
         {
           width: 2.5,
           color: 'taken2',
-          index: 'S30'
-          // who: 'Furora Yarns'
+          index: 'S30',
+          who: 'Furora Yarns'
         },
         {
           width: 2.5,
           color: 'taken2',
-          index: 'S29'
-          // who: 'Furora Yarns'
+          index: 'S29',
+          who: 'Furora Yarns'
         },
         {
           width: 2.5,
@@ -265,8 +265,8 @@ export const hallMapConfig: HallMapType = {
               width: 2,
               height: 3,
               color: 'taken2',
-              index: 'M5'
-              // who: 'Mokosza'
+              index: 'M5',
+              who: 'Pacior kowce i wisielce'
             },
             {
               width: 2,
