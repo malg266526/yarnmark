@@ -475,9 +475,9 @@ export const hallMapConfig: HallMapType = {
         },
         {
           width: 2.5,
-          color: 'normal1',
-          index: 'S3'
-          // who: '7oczek'
+          color: 'taken2',
+          index: 'S3',
+          who: 'Farbya rnia'
         },
         {
           width: 2.5,
