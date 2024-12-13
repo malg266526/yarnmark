@@ -134,14 +134,14 @@ export const hallMapConfig: HallMapType = {
         {
           width: 4,
           height: 2.5,
-          color: 'taken2',
+          color: 'normal1',
           index: 'S25'
           // who: 'Liloppi'
         },
         {
           width: 4,
           height: 2.5,
-          color: 'taken2',
+          color: 'normal1',
           index: 'S24'
           // who: 'Liloppi'
         },
