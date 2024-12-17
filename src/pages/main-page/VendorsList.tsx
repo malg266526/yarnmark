@@ -352,7 +352,7 @@ export const VendorsList = () => {
       <LogoLink to="https://www.gabowool.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
-          height={41.5}
+          height={43}
           alt="gabowool_logo"
           picture={{
             fallbackUrl: gaboWoolLogoUrl,
@@ -586,7 +586,7 @@ export const VendorsList = () => {
 
       <LogoLink to="https://paciorkowceiwisielce.carrd.co/" target="_blank" rel="noreferrer">
         <Picture
-          width={100}
+          width={94}
           height={100}
           alt="paciorkowceiwisielce"
           picture={{
@@ -677,8 +677,8 @@ export const VendorsList = () => {
 
       <LogoLink to="https://wloczkiwarmii.pl/pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={100}
-          height={59}
+          width={120}
+          height={40}
           alt="wloczkiwarmii_logo"
           picture={{
             fallbackUrl: wloczkiWarmiiLogoUrl,
