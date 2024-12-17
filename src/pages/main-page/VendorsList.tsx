@@ -45,10 +45,6 @@ import kaniaLogoUrlWebp from '../../assets/images/minifiedLogos/kaniakania.webp'
 
 import kokonkiLogoUrl from '../../assets/images/minifiedLogos/kokonki.png';
 
-/*import liloppiLogoUrl from '../../assets/images/minifiedLogos/liloppi.jpg';
-import liloppiLogoUrlAvif from '../../assets/images/minifiedLogos/liloppi.avif';
-import liloppiLogoUrlWebp from '../../assets/images/minifiedLogos/liloppi.webp';*/
-
 import lusiaLogoUrl from '../../assets/images/minifiedLogos/lusiaknits.jpg';
 import lusiaLogoUrlAvif from '../../assets/images/minifiedLogos/lusiaknits.avif';
 import lusiaLogoUrlWebp from '../../assets/images/minifiedLogos/lusiaknits.webp';
@@ -100,6 +96,10 @@ import theKnittingBoxLogoUrl from '../../assets/images/minifiedLogos/theknitting
 import welnaBawelnaLogoUrl from '../../assets/images/minifiedLogos/WelnaBawelna.jpg';
 import welnaBawelnaLogoUrlAvif from '../../assets/images/minifiedLogos/WelnaBawelna.avif';
 import welnaBawelnaLogoUrlWebp from '../../assets/images/minifiedLogos/WelnaBawelna.webp';
+
+import wloczkiWarmiiLogoUrl from '../../assets/images/minifiedLogos/wloczkiwarmii.jfif';
+import wloczkiWarmiiLogoUrlAvif from '../../assets/images/minifiedLogos/wloczkiwarmii.avif';
+import wloczkiWarmiiLogoUrlWebp from '../../assets/images/minifiedLogos/wloczkiwarmii.webp';
 
 import wloczykijkiLogoUrl from '../../assets/images/minifiedLogos/wloczykijki.png';
 import wloczykijkiLogoUrlAvif from '../../assets/images/minifiedLogos/wloczykijki.avif';
@@ -416,30 +416,7 @@ export const VendorsList = () => {
         <img width={100} height={100} src={kokonkiLogoUrl} alt="kokonki_logo" />
       </LogoLink>
 
-      {/*
-      <LogoLink to="https://liloppi.pl/" target="_blank" rel="noreferrer">
-        <Picture
-          width={100}
-          height={59}
-          alt="liloppi_logo"
-          picture={{
-            fallbackUrl: liloppiLogoUrl,
-            sources: [
-              {
-                type: 'image/webp',
-                url: liloppiLogoUrlWebp
-              },
-              {
-                type: 'image/avif',
-                url: liloppiLogoUrlAvif
-              }
-            ]
-          }}
-        />
-      </LogoLink>
-*/}
-
-      <LogoLink to="https://www.instagram.com/lusia.knits/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://www.lusiaknits.com/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
           height={100}
@@ -607,7 +584,7 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      <LogoLink to="https://www.facebook.com/paciorkowceiwisielce/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://paciorkowceiwisielce.carrd.co/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
           height={100}
@@ -692,6 +669,27 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: welnaBawelnaLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </LogoLink>
+
+      <LogoLink to="https://wloczkiwarmii.pl/pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={100}
+          height={59}
+          alt="wloczkiwarmii_logo"
+          picture={{
+            fallbackUrl: wloczkiWarmiiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: wloczkiWarmiiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: wloczkiWarmiiLogoUrlAvif
               }
             ]
           }}
