@@ -88,17 +88,10 @@ export const App = () => {
               </RowLayout>
             </VanillaLink>
 
-            <VanillaLink href="https://www.instagram.com/dziergamynapolu/" target="_blank" rel="noreferrer">
+            <VanillaLink href="https://www.instagram.com/yarnmark.krk/" target="_blank" rel="noreferrer">
               <RowLayout>
                 <Icon size={iconSize} src={instagramIconUrl} />
-                <Typography size={textSize}>@dziergamynapolu</Typography>
-              </RowLayout>
-            </VanillaLink>
-
-            <VanillaLink href="https://www.instagram.com/wloczykijki_sklep/" target="_blank" rel="noreferrer">
-              <RowLayout>
-                <Icon size={iconSize} src={instagramIconUrl} />
-                <Typography size={textSize}>@wloczykijki_sklep</Typography>
+                <Typography size={textSize}>@yarnmark.krk</Typography>
               </RowLayout>
             </VanillaLink>
 
