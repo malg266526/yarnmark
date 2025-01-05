@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, { forwardRef, ReactNode, RefObject, useRef, useState } from 'react';
+import React, { forwardRef, ReactNode, useRef } from 'react';
 import { RedesignSpacings } from '../../styles/spacings';
 import { ScreenSize } from '../../styles/screeen-size';
 import skeinIconSrc from '../../assets/images/indicator_skein_green.svg';
