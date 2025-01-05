@@ -102,25 +102,32 @@ export const MultiCarousel = ({ items, style }: MultiCarouselProps) => {
   );
 
   useEffect(() => {
-    Array.from(Array(8).keys()).forEach((position) => moveByOffset(position, position));
-  }, [moveByOffset]);
+    Array.from(Array(items.length).keys()).forEach((position) => moveByOffset(position, position));
+  }, [items.length, moveByOffset]);
 
   const goBack = () => {
-    const updatedIndex = firstCardIndex - 1;
+    let updatedIndex = 7;
+
+    if (firstCardIndex > 0) {
+      updatedIndex = firstCardIndex - 1;
+    }
+
     setFirstCardIndex(updatedIndex);
 
     const orderedSlides = getOrder(updatedIndex, items.length);
-    console.log('goBack', orderedSlides);
 
     orderedSlides.forEach((position, index) => moveByOffset(position, index));
   };
 
   const goNext = () => {
-    const updatedIndex = firstCardIndex + 1;
+    let updatedIndex = 1;
+    if (firstCardIndex < items.length) {
+      updatedIndex = firstCardIndex + 1;
+    }
+
     setFirstCardIndex(updatedIndex);
 
     const orderedSlides = getOrder(updatedIndex, items.length);
-    console.log('goNext', orderedSlides);
 
     orderedSlides.forEach((position, index) => moveByOffset(position, index));
   };
