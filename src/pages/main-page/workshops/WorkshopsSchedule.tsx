@@ -5,10 +5,9 @@ import { MultiCarousel } from '../../../components/carousels/MultiCarousel';
 
 export const WorkshopsSchedule = () => {
   return (
-    <MultiCarousel>
-      {WorkshopsConfig.map((scheduleEntry, index) => (
-        <RibbonCard key={`mirrorsRoom_${index}`} workshop={scheduleEntry} />
-      ))}
-    </MultiCarousel>
+    <MultiCarousel
+      items={WorkshopsConfig.map((workshop, index) => (
+        <RibbonCard key={`mirrorsRoom_${index}`} workshop={workshop} />
+      ))}></MultiCarousel>
   );
 };
