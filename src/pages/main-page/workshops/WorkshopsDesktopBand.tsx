@@ -63,11 +63,11 @@ export const WorkshopsDesktopBand = ({ id }: WorkshopsBandType) => {
         <WoolBackgroundSection />
       </ImageSection>
 
-      <MultiCarousel>
-        {WorkshopsConfig.map((workshop, index) => (
+      <MultiCarousel
+        items={WorkshopsConfig.map((workshop, index) => (
           <RibbonCard key={`mirrorsRoom_${index}`} workshop={workshop} onClick={toggleModal} />
         ))}
-      </MultiCarousel>
+      />
 
       <WorkshopModal isOpen={isModalOpen} toggle={toggle} close={close} workshop={currentWorkshop} />
 

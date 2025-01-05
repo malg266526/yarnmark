@@ -15,6 +15,7 @@ import { BackgroundColors } from '../../styles/theme';
 import { VendorsList } from './VendorsList';
 import { TicketCard } from './TicketCard';
 import { TicketCardBand } from './TicketCardBand';
+import { WorkshopsDesktopBand } from './workshops/WorkshopsDesktopBand';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -82,9 +83,8 @@ export const MainPage = () => {
           <Band.CenteredColumn id="vendors" size="md" padding="xxxl" color={BackgroundColors.vendors} justify="center">
             <VendorsList />
           </Band.CenteredColumn>
-          {/*
+
           <WorkshopsDesktopBand id="workshops" />
-*/}
 
           {/*
           <CruiseBand id="cruise" />

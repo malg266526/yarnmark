@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, { ReactNode, useRef, useState } from 'react';
+import React, { forwardRef, ReactNode, RefObject, useRef, useState } from 'react';
 import { RedesignSpacings } from '../../styles/spacings';
 import { ScreenSize } from '../../styles/screeen-size';
 import skeinIconSrc from '../../assets/images/indicator_skein_green.svg';
@@ -63,32 +63,33 @@ const DotsWrapper = styled.span`
 `;
 
 interface MultiCarouselProps {
-  children: ReactNode;
+  // Todo: make id obligatory
+  items: ReactNode[];
 }
 
 const SlideMoveOffset = 320;
 
-export const MultiCarousel = ({ children }: MultiCarouselProps) => {
-  const [offsetX, setOffsetX] = useState(0);
+export const MultiCarousel = ({ items }: MultiCarouselProps) => {
+  const inputRef = useRef<HTMLDivElement[]>([]);
 
-  const slidesRef = useRef<HTMLDivElement>(null);
+  const moveByOffset = (ref: HTMLDivElement, offset: number) => {
+    if (ref) {
+      const currentOffsetX = ref.style.left.split('px')?.[0];
 
-  const moveByOffset = (offset: number) => {
-    const currentOffsetX = offsetX + offset;
+      const newOffsetX = Number(currentOffsetX) + offset;
 
-    if (slidesRef.current) {
-      slidesRef.current.style.left = `${currentOffsetX}px`;
+      console.log('newOffsetX', newOffsetX);
+
+      ref.style.left = `${newOffsetX}px`;
     }
-
-    setOffsetX(currentOffsetX);
   };
 
   const goBack = () => {
-    moveByOffset(-SlideMoveOffset);
+    inputRef.current.forEach((item) => moveByOffset(item, -SlideMoveOffset));
   };
 
   const goNext = () => {
-    moveByOffset(SlideMoveOffset);
+    inputRef.current.forEach((item) => moveByOffset(item, SlideMoveOffset));
   };
 
   return (
@@ -99,8 +100,19 @@ export const MultiCarousel = ({ children }: MultiCarouselProps) => {
         </Button>
 
         <SlidesWrapper>
-          <Slides ref={slidesRef} id="carousel_slides">
-            {children}
+          <Slides id="carousel_slides">
+            {/*Todo: try to read props of item and use id as a key*/}
+            {items.map((item, index) => (
+              <MultiCarouselSlide
+                key={`slide_item_${index}`}
+                ref={(node) => {
+                  if (node) {
+                    inputRef.current[index] = node;
+                  }
+                }}>
+                {item}
+              </MultiCarouselSlide>
+            ))}
           </Slides>
         </SlidesWrapper>
 
@@ -115,3 +127,18 @@ export const MultiCarousel = ({ children }: MultiCarouselProps) => {
     </Root>
   );
 };
+
+interface MultiCarouselSlideProps {
+  children: ReactNode;
+  moveBy?: number;
+}
+
+const SlideRoot = styled.div`
+  background-color: lightcoral;
+  position: relative;
+`;
+
+const MultiCarouselSlide = forwardRef<HTMLDivElement, MultiCarouselSlideProps>(({ children }, ref) => {
+  return <SlideRoot ref={ref}>{children}</SlideRoot>;
+});
+MultiCarouselSlide.displayName = 'MultiCarouselSlide';
