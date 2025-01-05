@@ -175,6 +175,7 @@ interface MultiCarouselSlideProps {
 
 const SlideRoot = styled.div`
   position: absolute;
+  transition: all 0.1s linear;
 `;
 
 const MultiCarouselSlide = forwardRef<HTMLDivElement, MultiCarouselSlideProps>(({ children }, ref) => {
