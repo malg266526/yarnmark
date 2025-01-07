@@ -63,12 +63,17 @@ const DotsWrapper = styled.span`
   height: 30px;
 `;
 
+const DefaultStyleConfig = {
+  gap: 30,
+  padding: 10
+};
+
 interface MultiCarouselProps {
   // Todo: make id obligatory
   items: ReactNode[];
   style?: {
-    gap?: number;
-    padding?: number;
+    gap: number;
+    padding: number;
   };
 }
 
@@ -78,13 +83,13 @@ const getOffsetByPosition = (position: number, gap?: number, padding?: number) =
   return `${position * (SlideMoveOffset + (gap || 0)) + (padding || 0)}px`;
 };
 
-const getOrder = (firstCardIndex: number, length: number): number[] => {
+const getIndexesOrderedByPositionInCarousel = (firstCardIndex: number, length: number): number[] => {
   const originArray = Array.from(Array(length).keys());
 
   return [...originArray.slice(firstCardIndex, length), ...originArray.slice(0, firstCardIndex)];
 };
 
-export const MultiCarousel = ({ items, style }: MultiCarouselProps) => {
+export const MultiCarousel = ({ items, style = DefaultStyleConfig }: MultiCarouselProps) => {
   const itemsRef = useRef<HTMLDivElement[]>([]);
   const slidesContainerRef = useRef<HTMLDivElement>(null);
 
@@ -101,22 +106,28 @@ export const MultiCarousel = ({ items, style }: MultiCarouselProps) => {
     [style?.gap, style?.padding]
   );
 
+  const reorderSlides = useCallback(
+    (firstIndex: number) => {
+      setFirstCardIndex(firstIndex);
+
+      const orderedSlides = getIndexesOrderedByPositionInCarousel(firstIndex, items.length);
+      orderedSlides.forEach((position, index) => moveByOffset(position, index));
+    },
+    [items.length, moveByOffset]
+  );
+
   useEffect(() => {
-    Array.from(Array(items.length).keys()).forEach((position) => moveByOffset(position, position));
-  }, [items.length, moveByOffset]);
+    reorderSlides(0);
+  }, [reorderSlides]);
 
   const goBack = () => {
-    let updatedIndex = 7;
+    let updatedIndex = items.length - 1;
 
     if (firstCardIndex > 0) {
       updatedIndex = firstCardIndex - 1;
     }
 
-    setFirstCardIndex(updatedIndex);
-
-    const orderedSlides = getOrder(updatedIndex, items.length);
-
-    orderedSlides.forEach((position, index) => moveByOffset(position, index));
+    reorderSlides(updatedIndex);
   };
 
   const goNext = () => {
@@ -125,11 +136,7 @@ export const MultiCarousel = ({ items, style }: MultiCarouselProps) => {
       updatedIndex = firstCardIndex + 1;
     }
 
-    setFirstCardIndex(updatedIndex);
-
-    const orderedSlides = getOrder(updatedIndex, items.length);
-
-    orderedSlides.forEach((position, index) => moveByOffset(position, index));
+    reorderSlides(updatedIndex);
   };
 
   return (

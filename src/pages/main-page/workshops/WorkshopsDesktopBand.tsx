@@ -64,10 +64,6 @@ export const WorkshopsDesktopBand = ({ id }: WorkshopsBandType) => {
       </ImageSection>
 
       <MultiCarousel
-        style={{
-          gap: 30,
-          padding: 10
-        }}
         items={WorkshopsConfig.map((workshop, index) => (
           <RibbonCard key={`mirrorsRoom_${index}`} workshop={workshop} onClick={toggleModal} />
         ))}

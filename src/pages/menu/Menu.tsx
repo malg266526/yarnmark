@@ -8,7 +8,7 @@ import infoIcon from '../../assets/figmaIcons/menu/info_icon.svg';
 import ticketIcon from '../../assets/figmaIcons/menu/ticket_icon.svg';
 import homeIcon from '../../assets/figmaIcons/menu/home_icon.svg';
 import shopIcon from '../../assets/figmaIcons/menu/shop_icon.svg';
-// import workshopIcons from '../../assets/figmaIcons/menu/workshops_icon.svg';
+import workshopIcons from '../../assets/figmaIcons/menu/workshops_icon.svg';
 import paintingIcon from '../../assets/figmaIcons/menu/painting_icon.svg';
 // import pinEllipseIcon from '../../assets/figmaIcons/menu/pin_ellipse_icon.svg';
 import handshakeIcon from '../../assets/figmaIcons/menu/handshake_icon.svg';
@@ -240,10 +240,10 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           </MenuItem>*/}
         </TicketsSection>
 
-        {/*        <MenuItem href="/home#workshops" isOpen={isMenuExpanded} aria-label="workshops_menu_item">
+        <MenuItem href="/home#workshops" isOpen={isMenuExpanded} aria-label="workshops_menu_item">
           <Icon size="sm" zIndex={0} src={workshopIcons} />
           {isMenuExpanded && <Typography size="sm">{t('menu.workshops')}</Typography>}
-        </MenuItem>*/}
+        </MenuItem>
 
         <MenuItem href="/home#vendors" isOpen={isMenuExpanded} aria-label="vendors_menu_item" onClick={closeMenu}>
           <Icon size="sm" zIndex={0} src={shopIcon} />
