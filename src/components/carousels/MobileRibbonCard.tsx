@@ -17,7 +17,7 @@ const CardLayout = styled.div<{ isExpanded?: boolean }>`
   flex-direction: ${({ isExpanded }) => (isExpanded ? 'column' : 'row')};
 
   width: 100%;
-  height: ${({ isExpanded }) => (isExpanded ? '201px' : '201px')};
+  height: ${({ isExpanded }) => (isExpanded ? '100%' : '201px')};
 
   padding: ${RedesignSpacings.sm};
 
