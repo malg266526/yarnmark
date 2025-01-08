@@ -9,7 +9,6 @@ import { WorkshopsEntry } from '../../pages/main-page/workshops/workshopsConfig'
 import { Ribbon } from './Ribbon';
 import { DropShadow, Radius } from '../../styles/cards';
 import { CtaButton } from '../Button';
-import { ScreenSize } from '../../styles/screeen-size';
 
 const CardLayout = styled.div`
   display: flex;
@@ -17,9 +16,9 @@ const CardLayout = styled.div`
   width: 100%;
   height: 201px;
 
-  padding: ${RedesignSpacings.md} ${RedesignSpacings.xs};
+  padding: ${RedesignSpacings.sm} ${RedesignSpacings.xs};
 
-  gap: ${RedesignSpacings.sm};
+  gap: 16px;
 
   border-radius: ${Radius.lg};
   align-items: center;
@@ -32,12 +31,12 @@ const CardLayout = styled.div`
 const InfoSection = styled.div`
   display: flex;
   width: 100%;
+  height: 100%;
   flex-direction: column;
 
   justify-content: space-around;
   align-items: center;
   gap: ${RedesignSpacings.sm};
-  padding-top: ${RedesignSpacings.md};
   text-align: center;
 `;
 
@@ -55,27 +54,21 @@ export const MobileRibbonCard = ({ workshop, onClick }: RibbonCardProps) => {
 
   return (
     <CardLayout onClick={() => onClick?.(workshop)}>
-      <Ribbon color={BackgroundColors.mobileRibbon}>
-        <Typography size="lg">{workshop.time}</Typography>
+      <Ribbon width="160px" color={BackgroundColors.mobileRibbon}>
+        <Typography size="sm">{workshop.time}</Typography>
       </Ribbon>
 
-      {/*      <Picture
+      <Picture
         picture={{
           fallbackUrl: workshop.picture.fallback,
           sources: workshop.picture.sources
         }}
         alt={t(workshop.topicKey)}
-        width={150}
-        height={150}
-      />*/}
+        width={114}
+        height={114}
+      />
 
-      {/*      <CtaButton
-        onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}
-        aria-label="open workshops tickets">
-        {t('workshops.buyTicket')}
-      </CtaButton>*/}
-
-      {/*      <InfoSection>
+      <InfoSection>
         <Typography size="lg">{t(workshop.topicKey)}</Typography>
 
         {workshop.isSoldOut ? (
@@ -91,7 +84,13 @@ export const MobileRibbonCard = ({ workshop, onClick }: RibbonCardProps) => {
             </PriceInfo>
           </>
         )}
-      </InfoSection>*/}
+
+        <CtaButton
+          onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}
+          aria-label="open workshops tickets">
+          {t('workshops.buyTicket')}
+        </CtaButton>
+      </InfoSection>
     </CardLayout>
   );
 };
