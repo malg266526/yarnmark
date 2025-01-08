@@ -18,7 +18,9 @@ export const BackgroundColors = {
     strong: '#326213',
     medium: '#A4C365',
     light: '#F8FFF4'
-  }
+  },
+
+  mobileRibbon: '#483E36'
 };
 
 export const TextColors = {

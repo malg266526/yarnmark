@@ -70,8 +70,6 @@ export const WorkshopsDesktopBand = ({ id }: WorkshopsBandType) => {
       />
 
       <WorkshopModal isOpen={isModalOpen} toggle={toggle} close={close} workshop={currentWorkshop} />
-
-      {/*<WorkshopsCarousel />*/}
     </Band.CenteredColumn>
   );
 };

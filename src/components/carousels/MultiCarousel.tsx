@@ -37,12 +37,12 @@ const SlidesWrapper = styled.div`
   width: 100%;
 `;
 
-const Slides = styled.div<{ padding?: number; gap?: number }>`
+const Slides = styled.div<{ padding: number; gap: number }>`
   height: 100%;
   display: flex;
   align-items: center;
-  gap: ${({ gap }) => `${gap || 0}px`};
-  padding: ${({ padding }) => `${padding || 0}px`};
+  gap: ${({ gap }) => `${gap}px`};
+  padding: ${({ padding }) => `${padding}px`};
   overflow: hidden;
   position: relative;
   top: 0;
@@ -77,10 +77,11 @@ interface MultiCarouselProps {
   };
 }
 
-const SlideMoveOffset = 320;
+// Todo: measure card width
+const CardWidth = 320;
 
-const getOffsetByPosition = (position: number, gap?: number, padding?: number) => {
-  return `${position * (SlideMoveOffset + (gap || 0)) + (padding || 0)}px`;
+const getOffsetByPosition = (position: number, gap: number, padding: number) => {
+  return `${position * (CardWidth + gap + padding)}px`;
 };
 
 const getIndexesOrderedByPositionInCarousel = (firstCardIndex: number, length: number): number[] => {
