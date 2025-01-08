@@ -16,6 +16,7 @@ import { VendorsList } from './VendorsList';
 import { TicketCard } from './TicketCard';
 import { TicketCardBand } from './TicketCardBand';
 import { WorkshopsDesktopBand } from './workshops/WorkshopsDesktopBand';
+import { WorkshopsMobileSchedule } from './workshops/WorkshopsMobileSchedule';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -45,10 +46,10 @@ export const MainPage = () => {
             <TicketCard />
           </Band.CenteredColumn>
 
-          {/*<Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>*/}
-          {/*          <Band.Empty id="workshopsTickets" padding="xs">
-            <WorkshopsSchedule />
-          </Band.Empty>*/}
+          <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
+          <Band.Empty id="workshopsTickets" padding="xs">
+            <WorkshopsMobileSchedule />
+          </Band.Empty>
 
           <Band.SecondaryTitle>{t('vendors')}</Band.SecondaryTitle>
 

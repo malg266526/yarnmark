@@ -61,12 +61,12 @@ const WorkshopSectionTitle = styled(Typography)`
 
 interface WorkshopModalProps {
   isOpen: boolean;
-  toggle: () => void;
+  // toggle: () => void;
   workshop?: WorkshopsEntry;
   close: () => void;
 }
 
-export const WorkshopModal = ({ isOpen, toggle, workshop, close }: WorkshopModalProps) => {
+export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) => {
   const t = useTypedTranslation();
 
   if (!workshop) {
@@ -78,7 +78,7 @@ export const WorkshopModal = ({ isOpen, toggle, workshop, close }: WorkshopModal
       isOpen={isOpen}
       contentLabel="WorkshopModal"
       shouldCloseOnOverlayClick={true}
-      onRequestClose={toggle}
+      onRequestClose={close}
       style={{
         overlay: {
           display: 'flex',
