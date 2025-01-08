@@ -122,20 +122,13 @@ export const MultiCarousel = ({ items, style = DefaultStyleConfig }: MultiCarous
   }, [reorderSlides]);
 
   const goBack = () => {
-    let updatedIndex = items.length - 1;
-
-    if (firstCardIndex > 0) {
-      updatedIndex = firstCardIndex - 1;
-    }
+    const updatedIndex = firstCardIndex > 0 ? firstCardIndex - 1 : items.length - 1;
 
     reorderSlides(updatedIndex);
   };
 
   const goNext = () => {
-    let updatedIndex = 1;
-    if (firstCardIndex < items.length) {
-      updatedIndex = firstCardIndex + 1;
-    }
+    const updatedIndex = firstCardIndex < items.length ? firstCardIndex + 1 : 1;
 
     reorderSlides(updatedIndex);
   };
