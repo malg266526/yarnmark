@@ -9,12 +9,14 @@ import { WorkshopsEntry } from '../../pages/main-page/workshops/workshopsConfig'
 import { Ribbon } from './Ribbon';
 import { DropShadow, Radius } from '../../styles/cards';
 import { CtaButton } from '../Button';
+import { useToggle } from '../../hooks/useToggle';
 
-const CardLayout = styled.div`
+const CardLayout = styled.div<{ isExpanded?: boolean }>`
   display: flex;
+  flex-direction: ${({ isExpanded }) => (isExpanded ? 'column' : 'row')};
 
   width: 100%;
-  height: 201px;
+  height: ${({ isExpanded }) => (isExpanded ? '100%' : '201px')};
 
   padding: ${RedesignSpacings.sm} ${RedesignSpacings.xs};
 
@@ -46,15 +48,15 @@ const PriceInfo = styled.div`
 
 interface RibbonCardProps {
   workshop: WorkshopsEntry;
-  onClick?: (workshop: WorkshopsEntry) => void;
 }
 
-export const MobileRibbonCard = ({ workshop, onClick }: RibbonCardProps) => {
+export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
   const t = useTypedTranslation();
+  const [isExpanded, toggle] = useToggle();
 
   return (
-    <CardLayout onClick={() => onClick?.(workshop)}>
-      <Ribbon width="160px" color={BackgroundColors.mobileRibbon}>
+    <CardLayout onClick={toggle} isExpanded={isExpanded}>
+      <Ribbon width={isExpanded ? '100%' : '160px'} color={BackgroundColors.mobileRibbon} isRotated={!isExpanded}>
         <Typography size="sm">{workshop.time}</Typography>
       </Ribbon>
 
@@ -69,16 +71,16 @@ export const MobileRibbonCard = ({ workshop, onClick }: RibbonCardProps) => {
       />
 
       <InfoSection>
-        <Typography size="lg">{t(workshop.topicKey)}</Typography>
+        <Typography size="sm">{t(workshop.topicKey)}</Typography>
 
         {workshop.isSoldOut ? (
           <PriceInfo>
-            <Typography size="md">{t('workshops.soldOut')}</Typography>
+            <Typography size="sm">{t('workshops.soldOut')}</Typography>
           </PriceInfo>
         ) : (
           <>
             <PriceInfo>
-              <Typography size="md">
+              <Typography size="sm">
                 {t('workshops.price')}: {workshop.price}zł
               </Typography>
             </PriceInfo>

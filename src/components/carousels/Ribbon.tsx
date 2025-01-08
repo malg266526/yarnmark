@@ -3,7 +3,7 @@ import { RedesignSpacings } from '../../styles/spacings';
 import { BackgroundColors } from '../../styles/theme';
 import { ScreenSize } from '../../styles/screeen-size';
 
-export const Ribbon = styled.div<{ color?: string; width?: `${number}px` | `${number}%` }>`
+export const Ribbon = styled.div<{ color?: string; width?: `${number}px` | `${number}%`; isRotated?: boolean }>`
   color: #fff;
 
   --r: 36px; /* control the ribbon shape */
@@ -18,6 +18,6 @@ export const Ribbon = styled.div<{ color?: string; width?: `${number}px` | `${nu
 
   @media (max-width: ${ScreenSize.phone}) {
     --r: 26px;
-    transform: rotate(-90deg);
+    transform: ${({ isRotated }) => (isRotated ? `rotate(-90deg)` : `rotate(0)`)};
   }
 `;
