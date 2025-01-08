@@ -10,15 +10,16 @@ import { Ribbon } from './Ribbon';
 import { DropShadow, Radius } from '../../styles/cards';
 import { CtaButton } from '../Button';
 import { useToggle } from '../../hooks/useToggle';
+import verticalRibbonIcon from '../../assets/figmaIcons/vertical_ribbon.svg';
 
 const CardLayout = styled.div<{ isExpanded?: boolean }>`
   display: flex;
   flex-direction: ${({ isExpanded }) => (isExpanded ? 'column' : 'row')};
 
   width: 100%;
-  height: ${({ isExpanded }) => (isExpanded ? '100%' : '201px')};
+  height: ${({ isExpanded }) => (isExpanded ? '201px' : '201px')};
 
-  padding: ${RedesignSpacings.sm} ${RedesignSpacings.xs};
+  padding: ${RedesignSpacings.sm};
 
   gap: 16px;
 
@@ -42,6 +43,28 @@ const InfoSection = styled.div`
   text-align: center;
 `;
 
+const VerticalRibbonIcon = styled.div<{ src: string }>`
+  background: url(${({ src }) => src}) no-repeat center;
+  background-size: cover;
+
+  height: 100%;
+
+  transform: rotate(180deg);
+
+  color: #fff;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+
+  text-align: center;
+`;
+
+const VerticalRibbonTextWrapper = styled.div`
+  width: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const PriceInfo = styled.div`
   color: ${TextColors.accent};
 `;
@@ -56,9 +79,17 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
 
   return (
     <CardLayout onClick={toggle} isExpanded={isExpanded}>
-      <Ribbon width={isExpanded ? '100%' : '160px'} color={BackgroundColors.mobileRibbon} isRotated={!isExpanded}>
-        <Typography size="sm">{workshop.time}</Typography>
-      </Ribbon>
+      {isExpanded ? (
+        <Ribbon color={BackgroundColors.mobileRibbon}>
+          <Typography size="sm">{workshop.time}</Typography>
+        </Ribbon>
+      ) : (
+        <VerticalRibbonIcon src={verticalRibbonIcon}>
+          <VerticalRibbonTextWrapper>
+            <Typography size="sm">{workshop.time}</Typography>
+          </VerticalRibbonTextWrapper>
+        </VerticalRibbonIcon>
+      )}
 
       <Picture
         picture={{
