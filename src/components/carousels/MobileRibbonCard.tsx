@@ -7,7 +7,6 @@ import { RedesignSpacings } from '../../styles/spacings';
 import { BackgroundColors, TextColors } from '../../styles/theme';
 import { WorkshopsEntry } from '../../pages/main-page/workshops/workshopsConfig';
 import { Ribbon } from './Ribbon';
-import { DropShadow, Radius } from '../../styles/cards';
 import { Button, CtaButton } from '../Button';
 import { useToggle } from '../../hooks/useToggle';
 import verticalRibbonIcon from '../../assets/figmaIcons/vertical_ribbon.svg';
