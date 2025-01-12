@@ -34,6 +34,7 @@ export type WorkshopsEntry = {
   };
   room: Room;
   price: number;
+  description?: string;
 } & EntryPricing;
 
 export const WorkshopsConfig: WorkshopsEntry[] = [
@@ -51,7 +52,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     },
     room: 'mirrors',
     isSoldOut: true,
-    price: 30
+    price: 30,
+    description: 'dfdfdf'
   },
   {
     topicKey: 'workshops.ewa.title',

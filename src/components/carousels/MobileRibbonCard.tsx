@@ -8,9 +8,13 @@ import { BackgroundColors, TextColors } from '../../styles/theme';
 import { WorkshopsEntry } from '../../pages/main-page/workshops/workshopsConfig';
 import { Ribbon } from './Ribbon';
 import { DropShadow, Radius } from '../../styles/cards';
-import { CtaButton } from '../Button';
+import { Button, CtaButton } from '../Button';
 import { useToggle } from '../../hooks/useToggle';
 import verticalRibbonIcon from '../../assets/figmaIcons/vertical_ribbon.svg';
+import { Icon } from '../Icon';
+import backIcon from '../../assets/figmaIcons/back_arrow_icon.svg';
+import closeIcon from '../../assets/figmaIcons/close_icon.svg';
+import { RowLayout } from '../RowLayout';
 
 const CardLayout = styled.div<{ isExpanded?: boolean }>`
   display: flex;
@@ -29,6 +33,10 @@ const CardLayout = styled.div<{ isExpanded?: boolean }>`
   box-shadow: ${DropShadow.sm};
 
   cursor: pointer;
+`;
+
+const GoBackButtons = styled(RowLayout)`
+  margin-bottom: -${RedesignSpacings.xs};
 `;
 
 const InfoSection = styled.div`
@@ -79,9 +87,22 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
 
   return (
     <CardLayout onClick={toggle} isExpanded={isExpanded}>
+      {isExpanded && (
+        <GoBackButtons wide justify="space-between">
+          <Button onClick={close}>
+            <Icon size="28px" zIndex={0} src={backIcon} />
+          </Button>
+
+          <Button onClick={close}>
+            <Icon size="28px" zIndex={0} src={closeIcon} />
+          </Button>
+        </GoBackButtons>
+      )}
+
       {isExpanded ? (
         <Ribbon color={BackgroundColors.mobileRibbon}>
           <Typography size="sm">{workshop.time}</Typography>
+          <Typography size="sm">{t(`workshops.room.${workshop.room}`)}</Typography>
         </Ribbon>
       ) : (
         <VerticalRibbonIcon src={verticalRibbonIcon}>
@@ -102,7 +123,11 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
       />
 
       <InfoSection>
-        <Typography size="sm">{t(workshop.topicKey)}</Typography>
+        {isExpanded ? (
+          <Typography size="sm">{workshop.description || 'Todo'}</Typography>
+        ) : (
+          <Typography size="sm">{t(workshop.topicKey)}</Typography>
+        )}
 
         {workshop.isSoldOut ? (
           <PriceInfo>
