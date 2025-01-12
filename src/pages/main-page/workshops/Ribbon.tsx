@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../styles/spacings';
-import { BackgroundColors } from '../../styles/theme';
-import { ScreenSize } from '../../styles/screeen-size';
+import { RedesignSpacings } from '../../../styles/spacings';
+import { BackgroundColors } from '../../../styles/theme';
+import { ScreenSize } from '../../../styles/screeen-size';
 
 export const Ribbon = styled.div<{ color?: string }>`
   color: #fff;

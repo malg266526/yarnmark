@@ -10,7 +10,7 @@ import { FontSize } from '../../../styles/font-size';
 import { RedesignSpacings } from '../../../styles/spacings';
 import { MultiCarousel } from '../../../components/carousels/MultiCarousel';
 import { WorkshopsConfig } from './workshopsConfig';
-import { RibbonCard } from '../../../components/carousels/RibbonCard';
+import { RibbonCard } from './RibbonCard';
 import { WorkshopModal } from './WorkshopModal';
 import { useWorkshopModalToggle } from './useWorkshopModalToggle';
 

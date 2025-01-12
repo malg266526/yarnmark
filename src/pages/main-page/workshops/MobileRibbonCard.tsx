@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { RedesignSpacings } from '../../../styles/spacings';
 import { BackgroundColors, TextColors } from '../../../styles/theme';
 import { WorkshopsEntry } from './workshopsConfig';
-import { Ribbon } from '../../../components/carousels/Ribbon';
+import { Ribbon } from './Ribbon';
 import { Button, CtaButton } from '../../../components/Button';
 import { useToggle } from '../../../hooks/useToggle';
 import verticalRibbonIcon from '../../../assets/figmaIcons/vertical_ribbon.svg';

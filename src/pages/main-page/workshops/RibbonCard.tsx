@@ -1,14 +1,14 @@
-import { Picture } from '../Picture';
-import { Typography } from '../Typography';
+import { Picture } from '../../../components/Picture';
+import { Typography } from '../../../components/Typography';
 import React from 'react';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../styles/spacings';
-import { TextColors } from '../../styles/theme';
-import { WorkshopsEntry } from '../../pages/main-page/workshops/workshopsConfig';
+import { RedesignSpacings } from '../../../styles/spacings';
+import { TextColors } from '../../../styles/theme';
+import { WorkshopsEntry } from './workshopsConfig';
 import { Ribbon } from './Ribbon';
-import { CtaButton } from '../Button';
-import { CardLayout } from '../../pages/main-page/workshops/CardLayout';
+import { CtaButton } from '../../../components/Button';
+import { CardLayout } from './CardLayout';
 
 const InfoSection = styled.div`
   display: flex;
