@@ -15,6 +15,7 @@ import { BackgroundColors } from '../../styles/theme';
 import { VendorsList } from './VendorsList';
 import { TicketCard } from './TicketCard';
 import { TicketCardBand } from './TicketCardBand';
+import { CruiseBand } from './CruiseBand';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -55,9 +56,7 @@ export const MainPage = () => {
             <VendorsList />
           </Band.CenteredColumn>
 
-          {/*
           <CruiseBand id="cruise" />
-*/}
 
           {/* <FoodBand id="food" />*/}
 
@@ -86,9 +85,7 @@ export const MainPage = () => {
           <WorkshopsDesktopBand id="workshops" />
 */}
 
-          {/*
           <CruiseBand id="cruise" />
-*/}
 
           {/*<FoodBand id="food" />*/}
 
