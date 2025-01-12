@@ -1,6 +1,6 @@
 import shipAvifSrc from '../../assets/images/ship.avif';
 import shipJpgSrc from '../../assets/images/ship.jpg';
-import { Carouselge } from '../../components/Carouselge';
+import { Carouselge } from '../../components/carousels/Carouselge';
 import waterWebpSrc from '../../assets/images/water.webp';
 import waterJpgSrc from '../../assets/images/water.jpg';
 import { LinkWrapper } from './MainPage.styled';

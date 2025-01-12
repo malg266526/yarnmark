@@ -10,9 +10,9 @@ import React, {
 } from 'react';
 import styled, { css } from 'styled-components';
 import { Icon as IconifyIcon } from '@iconify/react';
-import skeinIconSrc from '../assets/images/skein3.svg';
-import { RedesignSpacings } from '../styles/spacings';
-import { ScreenSize } from '../styles/screeen-size';
+import skeinIconSrc from '../../assets/images/skein3.svg';
+import { RedesignSpacings } from '../../styles/spacings';
+import { ScreenSize } from '../../styles/screeen-size';
 
 type VisibleIndex = {
   index: number;
