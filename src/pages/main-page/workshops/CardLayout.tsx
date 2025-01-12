@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../styles/spacings';
-import { DropShadow, Radius } from '../../styles/cards';
-import { ScreenSize } from '../../styles/screeen-size';
+import { RedesignSpacings } from '../../../styles/spacings';
+import { DropShadow, Radius } from '../../../styles/cards';
+import { ScreenSize } from '../../../styles/screeen-size';
 
 export const CardLayout = styled.div<{ isExpanded?: boolean }>`
   display: flex;

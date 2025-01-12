@@ -8,7 +8,7 @@ import { TextColors } from '../../styles/theme';
 import { WorkshopsEntry } from '../../pages/main-page/workshops/workshopsConfig';
 import { Ribbon } from './Ribbon';
 import { CtaButton } from '../Button';
-import { CardLayout } from './CardLayout';
+import { CardLayout } from '../../pages/main-page/workshops/CardLayout';
 
 const InfoSection = styled.div`
   display: flex;
