@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { ScreenSize } from '../../styles/screeen-size';
-import { Carouselge } from '../../components/Carouselge';
+import { Carouselge } from '../../components/carousels/Carouselge';
 import { PageContent } from '../../components/PageContent';
 
 export const StyledPageContent = styled(PageContent)`

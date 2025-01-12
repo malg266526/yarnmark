@@ -1,38 +1,24 @@
-import { Picture } from '../Picture';
-import { Typography } from '../Typography';
+import { Picture } from '../../../../components/Picture';
+import { Typography } from '../../../../components/Typography';
 import React from 'react';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../styles/spacings';
-import { BackgroundColors, TextColors } from '../../styles/theme';
-import { WorkshopsEntry } from '../../pages/main-page/workshops/workshopsConfig';
+import { RedesignSpacings } from '../../../../styles/spacings';
+import { BackgroundColors } from '../../../../styles/theme';
+import { WorkshopsEntry } from '../workshopsConfig';
 import { Ribbon } from './Ribbon';
-import { DropShadow, Radius } from '../../styles/cards';
-import { Button, CtaButton } from '../Button';
-import { useToggle } from '../../hooks/useToggle';
-import verticalRibbonIcon from '../../assets/figmaIcons/vertical_ribbon.svg';
-import { Icon } from '../Icon';
-import backIcon from '../../assets/figmaIcons/back_arrow_icon.svg';
-import closeIcon from '../../assets/figmaIcons/simple_close_icon.svg';
-import { RowLayout } from '../RowLayout';
+import { Button, CtaButton } from '../../../../components/Button';
+import { useToggle } from '../../../../hooks/useToggle';
+import verticalRibbonIcon from '../../../../assets/figmaIcons/vertical_ribbon.svg';
+import { Icon } from '../../../../components/Icon';
+import backIcon from '../../../../assets/figmaIcons/back_arrow_icon.svg';
+import closeIcon from '../../../../assets/figmaIcons/simple_close_icon.svg';
+import { RowLayout } from '../../../../components/RowLayout';
+import { CardLayout } from './CardLayout';
+import { WorkshopPrice } from './WorkshopPrice';
 
-const CardLayout = styled.div<{ isExpanded?: boolean }>`
-  display: flex;
+const MobileCardLayout = styled(CardLayout)<{ isExpanded?: boolean }>`
   flex-direction: ${({ isExpanded }) => (isExpanded ? 'column' : 'row')};
-
-  width: 100%;
-  height: ${({ isExpanded }) => (isExpanded ? '100%' : '201px')};
-
-  padding: ${RedesignSpacings.sm};
-
-  gap: 16px;
-
-  border-radius: ${Radius.lg};
-  align-items: center;
-  position: relative;
-  box-shadow: ${DropShadow.sm};
-
-  cursor: pointer;
 `;
 
 const GoBackButtons = styled(RowLayout)`
@@ -73,10 +59,6 @@ const VerticalRibbonTextWrapper = styled.div`
   justify-content: center;
 `;
 
-const PriceInfo = styled.div`
-  color: ${TextColors.accent};
-`;
-
 interface RibbonCardProps {
   workshop: WorkshopsEntry;
 }
@@ -86,7 +68,7 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
   const [isExpanded, toggle] = useToggle();
 
   return (
-    <CardLayout onClick={toggle} isExpanded={isExpanded}>
+    <MobileCardLayout onClick={toggle} isExpanded={isExpanded}>
       {isExpanded && (
         <GoBackButtons wide justify="space-between">
           <Button onClick={close}>
@@ -129,19 +111,7 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
           <Typography size="sm">{t(workshop.topicKey)}</Typography>
         )}
 
-        {workshop.isSoldOut ? (
-          <PriceInfo>
-            <Typography size="sm">{t('workshops.soldOut')}</Typography>
-          </PriceInfo>
-        ) : (
-          <>
-            <PriceInfo>
-              <Typography size="sm">
-                {t('workshops.price')}: {workshop.price}zł
-              </Typography>
-            </PriceInfo>
-          </>
-        )}
+        <WorkshopPrice workshop={workshop} />
 
         <CtaButton
           onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}
@@ -149,6 +119,6 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
           {t('workshops.buyTicket')}
         </CtaButton>
       </InfoSection>
-    </CardLayout>
+    </MobileCardLayout>
   );
 };
