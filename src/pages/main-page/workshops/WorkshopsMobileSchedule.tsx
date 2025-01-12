@@ -1,6 +1,6 @@
 import React from 'react';
 import { WorkshopsConfig } from './workshopsConfig';
-import { MobileRibbonCard } from './MobileRibbonCard';
+import { MobileRibbonCard } from './cards/MobileRibbonCard';
 import styled from 'styled-components';
 import { RedesignSpacings } from '../../../styles/spacings';
 

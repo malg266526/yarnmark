@@ -1,12 +1,12 @@
-import { Picture } from '../../../components/Picture';
-import { Typography } from '../../../components/Typography';
+import { Picture } from '../../../../components/Picture';
+import { Typography } from '../../../../components/Typography';
 import React from 'react';
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../../styles/spacings';
-import { WorkshopsEntry } from './workshopsConfig';
+import { RedesignSpacings } from '../../../../styles/spacings';
+import { WorkshopsEntry } from '../workshopsConfig';
 import { Ribbon } from './Ribbon';
-import { CtaButton } from '../../../components/Button';
+import { CtaButton } from '../../../../components/Button';
 import { CardLayout } from './CardLayout';
 import { WorkshopPrice } from './WorkshopPrice';
 

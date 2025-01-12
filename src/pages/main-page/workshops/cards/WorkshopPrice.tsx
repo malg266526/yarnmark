@@ -1,10 +1,10 @@
-import { Typography } from '../../../components/Typography';
+import { Typography } from '../../../../components/Typography';
 import React from 'react';
-import { WorkshopsEntry } from './workshopsConfig';
+import { WorkshopsEntry } from '../workshopsConfig';
 import styled from 'styled-components';
-import { TextColors } from '../../../styles/theme';
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
-import { FontSize } from '../../../styles/font-size';
+import { TextColors } from '../../../../styles/theme';
+import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
+import { FontSize } from '../../../../styles/font-size';
 
 const PriceInfo = styled.div`
   color: ${TextColors.accent};
