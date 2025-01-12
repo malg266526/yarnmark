@@ -15,24 +15,10 @@ import { Icon } from '../Icon';
 import backIcon from '../../assets/figmaIcons/back_arrow_icon.svg';
 import closeIcon from '../../assets/figmaIcons/simple_close_icon.svg';
 import { RowLayout } from '../RowLayout';
+import { CardLayout } from './CardLayout';
 
-const CardLayout = styled.div<{ isExpanded?: boolean }>`
-  display: flex;
+const MobileCardLayout = styled(CardLayout)<{ isExpanded?: boolean }>`
   flex-direction: ${({ isExpanded }) => (isExpanded ? 'column' : 'row')};
-
-  width: 100%;
-  height: ${({ isExpanded }) => (isExpanded ? '100%' : '201px')};
-
-  padding: ${RedesignSpacings.sm};
-
-  gap: 16px;
-
-  border-radius: ${Radius.lg};
-  align-items: center;
-  position: relative;
-  box-shadow: ${DropShadow.sm};
-
-  cursor: pointer;
 `;
 
 const GoBackButtons = styled(RowLayout)`
@@ -86,7 +72,7 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
   const [isExpanded, toggle] = useToggle();
 
   return (
-    <CardLayout onClick={toggle} isExpanded={isExpanded}>
+    <MobileCardLayout onClick={toggle} isExpanded={isExpanded}>
       {isExpanded && (
         <GoBackButtons wide justify="space-between">
           <Button onClick={close}>
@@ -149,6 +135,6 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
           {t('workshops.buyTicket')}
         </CtaButton>
       </InfoSection>
-    </CardLayout>
+    </MobileCardLayout>
   );
 };

@@ -7,36 +7,8 @@ import { RedesignSpacings } from '../../styles/spacings';
 import { TextColors } from '../../styles/theme';
 import { WorkshopsEntry } from '../../pages/main-page/workshops/workshopsConfig';
 import { Ribbon } from './Ribbon';
-import { DropShadow, Radius } from '../../styles/cards';
 import { CtaButton } from '../Button';
-import { ScreenSize } from '../../styles/screeen-size';
-
-const CardLayout = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  width: 320px;
-  min-width: 320px;
-  height: 470px;
-
-  padding: ${RedesignSpacings.md} ${RedesignSpacings.xs};
-
-  gap: ${RedesignSpacings.sm};
-
-  border-radius: ${Radius.lg};
-  align-items: center;
-  position: relative;
-  box-shadow: ${DropShadow.sm};
-
-  cursor: pointer;
-
-  @media (max-width: ${ScreenSize.phone}) {
-    width: 280px;
-    min-width: 280px;
-
-    padding: ${RedesignSpacings.sm} ${RedesignSpacings.xs};
-  }
-`;
+import { CardLayout } from './CardLayout';
 
 const InfoSection = styled.div`
   display: flex;
