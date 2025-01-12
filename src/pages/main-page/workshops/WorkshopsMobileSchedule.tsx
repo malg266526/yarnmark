@@ -9,7 +9,7 @@ const Container = styled.div`
   flex-direction: column;
 
   width: 100%;
-  height: 600px;
+  height: 700px;
 
   overflow-y: scroll;
 
