@@ -4,7 +4,7 @@ import React from 'react';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 import styled from 'styled-components';
 import { RedesignSpacings } from '../../../styles/spacings';
-import { BackgroundColors, TextColors } from '../../../styles/theme';
+import { BackgroundColors } from '../../../styles/theme';
 import { WorkshopsEntry } from './workshopsConfig';
 import { Ribbon } from './Ribbon';
 import { Button, CtaButton } from '../../../components/Button';
@@ -15,6 +15,7 @@ import backIcon from '../../../assets/figmaIcons/back_arrow_icon.svg';
 import closeIcon from '../../../assets/figmaIcons/simple_close_icon.svg';
 import { RowLayout } from '../../../components/RowLayout';
 import { CardLayout } from './CardLayout';
+import { WorkshopPrice } from './WorkshopPrice';
 
 const MobileCardLayout = styled(CardLayout)<{ isExpanded?: boolean }>`
   flex-direction: ${({ isExpanded }) => (isExpanded ? 'column' : 'row')};
@@ -56,10 +57,6 @@ const VerticalRibbonTextWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
-
-const PriceInfo = styled.div`
-  color: ${TextColors.accent};
 `;
 
 interface RibbonCardProps {
@@ -114,19 +111,7 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
           <Typography size="sm">{t(workshop.topicKey)}</Typography>
         )}
 
-        {workshop.isSoldOut ? (
-          <PriceInfo>
-            <Typography size="sm">{t('workshops.soldOut')}</Typography>
-          </PriceInfo>
-        ) : (
-          <>
-            <PriceInfo>
-              <Typography size="sm">
-                {t('workshops.price')}: {workshop.price}zł
-              </Typography>
-            </PriceInfo>
-          </>
-        )}
+        <WorkshopPrice workshop={workshop} />
 
         <CtaButton
           onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}

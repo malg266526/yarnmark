@@ -4,11 +4,11 @@ import React from 'react';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 import styled from 'styled-components';
 import { RedesignSpacings } from '../../../styles/spacings';
-import { TextColors } from '../../../styles/theme';
 import { WorkshopsEntry } from './workshopsConfig';
 import { Ribbon } from './Ribbon';
 import { CtaButton } from '../../../components/Button';
 import { CardLayout } from './CardLayout';
+import { WorkshopPrice } from './WorkshopPrice';
 
 const InfoSection = styled.div`
   display: flex;
@@ -20,10 +20,6 @@ const InfoSection = styled.div`
   gap: ${RedesignSpacings.sm};
   padding-top: ${RedesignSpacings.md};
   text-align: center;
-`;
-
-const PriceInfo = styled.div`
-  color: ${TextColors.accent};
 `;
 
 interface RibbonCardProps {
@@ -59,19 +55,7 @@ export const RibbonCard = ({ workshop, onClick }: RibbonCardProps) => {
       <InfoSection>
         <Typography size="lg">{t(workshop.topicKey)}</Typography>
 
-        {workshop.isSoldOut ? (
-          <PriceInfo>
-            <Typography size="md">{t('workshops.soldOut')}</Typography>
-          </PriceInfo>
-        ) : (
-          <>
-            <PriceInfo>
-              <Typography size="md">
-                {t('workshops.price')}: {workshop.price}zł
-              </Typography>
-            </PriceInfo>
-          </>
-        )}
+        <WorkshopPrice workshop={workshop} size="md" />
       </InfoSection>
     </CardLayout>
   );
