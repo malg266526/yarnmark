@@ -13,7 +13,7 @@ import { useToggle } from '../../hooks/useToggle';
 import verticalRibbonIcon from '../../assets/figmaIcons/vertical_ribbon.svg';
 import { Icon } from '../Icon';
 import backIcon from '../../assets/figmaIcons/back_arrow_icon.svg';
-import closeIcon from '../../assets/figmaIcons/close_icon.svg';
+import closeIcon from '../../assets/figmaIcons/simple_close_icon.svg';
 import { RowLayout } from '../RowLayout';
 
 const CardLayout = styled.div<{ isExpanded?: boolean }>`
