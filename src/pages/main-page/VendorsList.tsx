@@ -23,6 +23,10 @@ import dyeDyeDoneLogoUrlAvif from '../../assets/images/minifiedLogos/dyedyedone.
 import dyeDyeDoneLogoUrl from '../../assets/images/minifiedLogos/dyedyedone.png';
 import dyeDyeDoneLogoUrlWebp from '../../assets/images/minifiedLogos/dyedyedone.webp';
 
+import farbyarniaLogoUrlAvif from '../../assets/images/minifiedLogos/farbyarnia.avif';
+import farbyarniaLogoUrl from '../../assets/images/minifiedLogos/farbyarnia.jfif';
+import farbyarniaLogoUrlWebp from '../../assets/images/minifiedLogos/farbyarnia.webp';
+
 import floralFiberLogoUrlAvif from '../../assets/images/minifiedLogos/floralfiber.avif';
 import floralFiberLogoUrl from '../../assets/images/minifiedLogos/floralfiber.jpg';
 import floralFiberLogoUrlWebp from '../../assets/images/minifiedLogos/floralfiber.webp';
@@ -64,6 +68,10 @@ import maniaChomikujeLogoUrlWebp from '../../assets/images/minifiedLogos/mania.w
 import martinslabLogoUrl from '../../assets/images/minifiedLogos/martinslab_long.jpg';
 import martinslabLogoUrlAvif from '../../assets/images/minifiedLogos/martinslab_long.avif';
 import martinslabLogoUrlWebp from '../../assets/images/minifiedLogos/martinslab_long.webp';
+
+import milaDruciarniaLogoUrl from '../../assets/images/minifiedLogos/Mila-logo.jfif';
+import milaDruciarniaLogoUrlAvif from '../../assets/images/minifiedLogos/Mila-logo.avif';
+import milaDruciarniaLogoUrlWebp from '../../assets/images/minifiedLogos/Mila-logo.webp';
 
 import missKnitskiLogoUrl from '../../assets/images/minifiedLogos/missknitski.png';
 import missKnitskiLogoUrlAvif from '../../assets/images/minifiedLogos/missknitski.avif';
@@ -115,6 +123,10 @@ import woolloopLogoUrlWebp from '../../assets/images/minifiedLogos/woolloop.webp
 import wooloveLogoUrl from '../../assets/images/minifiedLogos/woolove.png';
 import wooloveLogoUrlAvif from '../../assets/images/minifiedLogos/woolove.avif';
 import wooloveLogoUrlWebp from '../../assets/images/minifiedLogos/woolove.webp';
+
+import yarnPowerLogoUrl from '../../assets/images/minifiedLogos/yarn_power.jfif';
+import yarnPowerLogoUrlAvif from '../../assets/images/minifiedLogos/yarn_power.avif';
+import yarnPowerLogoUrlWebp from '../../assets/images/minifiedLogos/yarn_power.webp';
 
 import { Picture } from '../../components/Picture';
 
@@ -290,7 +302,7 @@ export const VendorsList = () => {
         <Picture
           width={100}
           height={100}
-          alt="dyedyedone"
+          alt="dyedyedone_logo"
           picture={{
             fallbackUrl: dyeDyeDoneLogoUrl,
             sources: [
@@ -301,6 +313,27 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: dyeDyeDoneLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </LogoLink>
+
+      <LogoLink to="https://farbyarnia.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={140}
+          height={50}
+          alt="farbyarnia_logo"
+          picture={{
+            fallbackUrl: farbyarniaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: farbyarniaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: farbyarniaLogoUrlAvif
               }
             ]
           }}
@@ -352,7 +385,7 @@ export const VendorsList = () => {
       <LogoLink to="https://www.gabowool.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
-          height={43}
+          height={46.5}
           alt="gabowool_logo"
           picture={{
             fallbackUrl: gaboWoolLogoUrl,
@@ -521,6 +554,27 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
+      <LogoLink to="https://miladruciarnia.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={100}
+          height={66.5}
+          alt="miladruciarnia_logo"
+          picture={{
+            fallbackUrl: milaDruciarniaLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: milaDruciarniaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: milaDruciarniaLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </LogoLink>
+
       <LogoLink to="https://www.missknitski.com/sklep/" target="_blank" rel="noreferrer">
         <Picture
           width={100}
@@ -586,7 +640,7 @@ export const VendorsList = () => {
 
       <LogoLink to="https://paciorkowceiwisielce.carrd.co/" target="_blank" rel="noreferrer">
         <Picture
-          width={94}
+          width={87}
           height={100}
           alt="paciorkowceiwisielce"
           picture={{
@@ -770,6 +824,27 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: wooloveLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </LogoLink>
+
+      <LogoLink to="https://yarnpower.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={100}
+          height={100}
+          alt="yarnpower_logo"
+          picture={{
+            fallbackUrl: yarnPowerLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: yarnPowerLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: yarnPowerLogoUrlAvif
               }
             ]
           }}
