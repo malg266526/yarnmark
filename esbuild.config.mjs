@@ -9,6 +9,7 @@ export const appConfig = {
   entryNames: '[name]',
   bundle: true,
   outdir: 'dist/',
+    sourcemap: 'inline',
   treeShaking: true,
   target: 'es2019',
   metafile: true,

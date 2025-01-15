@@ -14,6 +14,7 @@ const args = argv
 
 const metafileData = await esbuild.build({
   ...appConfig,
+    sourcemap: false,
   minify: true,
 });
 
