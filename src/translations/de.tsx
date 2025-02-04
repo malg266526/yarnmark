@@ -218,6 +218,15 @@ export const de: TranslationsShape = {
         materials: 'Zapewnia prowadzący',
         description: 'Todo'
       },
+      knitolog: {
+        title: 'Żakard dla zaawansowanych',
+        materials:
+          '<ul>' +
+          '<li>włóczka o grubości ok. 100m w 50g, jednolita kolorystycznie, jasna i gładka (bez włosków)</li>' +
+          '<li>druty 4,00 mm na żyłce (długość żyłki do pracy w okrążeniach)</li>' +
+          '</ul>',
+        description: 'Todo'
+      },
       haftowaBaba: {
         title: 'Wool embroidery on knitted fabric',
         description:
