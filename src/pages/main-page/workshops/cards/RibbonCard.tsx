@@ -46,9 +46,7 @@ export const RibbonCard = ({ workshop, onClick }: RibbonCardProps) => {
         height={150}
       />
 
-      <CtaButton
-        onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}
-        aria-label="open workshops tickets">
+      <CtaButton onClick={() => window.open(workshop.ticketUrl, '_blank')} aria-label="open workshops tickets">
         {t('workshops.buyTicket')}
       </CtaButton>
 

@@ -1,29 +1,18 @@
-import ewaUrlAvif from '../../../assets/images/workshops/ewa.avif';
-import ewaUrl from '../../../assets/images/workshops/ewa.jpg';
-import pierwszaPomocUrl from '../../../assets/images/workshops/pierwszapomoc.jpg';
-import pierwszaPomocUrlAvif from '../../../assets/images/workshops/pierwszapomoc.avif';
-import pierwszaPomocUrlWebp from '../../../assets/images/workshops/pierwszapomoc.webp';
 import knitologUrlWebp from '../../../assets/images/workshops/knitolog.webp';
 import knitologUrlAvif from '../../../assets/images/workshops/knitolog.avif';
 import knitologUrl from '../../../assets/images/workshops/knitolog.jpg';
-import uwolnijPomyslyUrlAvif from '../../../assets/images/workshops/uwolnijpomysly.avif';
-import uwolnijPomyslyWebp from '../../../assets/images/workshops/uwolnijpomysly.webp';
-import uwolnijPomyslyUrl from '../../../assets/images/workshops/uwolnijpomysly.jpg';
-import woolankaUrlWebp from '../../../assets/images/workshops/woolanka.webp';
-import woolankaUrlAvif from '../../../assets/images/workshops/woolanka.avif';
-import woolankaUrl from '../../../assets/images/workshops/woolanka.jpg';
+
+import ludartUrl from '../../../assets/images/workshops/ludart.jpg';
+import ludartUrlWebp from '../../../assets/images/workshops/ludart.webp';
+import ludartUrlAvif from '../../../assets/images/workshops/ludart.avif';
+
 import haftowaBabaUrl from '../../../assets/images/workshops/haftowa.jpg';
 import haftowaBabaUrlWebp from '../../../assets/images/workshops/haftowa.webp';
 import haftowaBabaUrlAvif from '../../../assets/images/workshops/haftowa.avif';
+import mock from '../../../assets/iconify/bigpretzel.svg';
 import { UnprefixedTranslationKeys } from '../../../translations/useTypedTranslation';
 
-type EntryPricing =
-  | { ticketUrl: string; isSoldOut?: false }
-  | {
-      isSoldOut: true;
-    };
-
-type Room = 'mirrors' | 'fencing' | 'conference';
+type Room = 'mirrors' | 'fencing' | 'conference' | 'library' | 'bursa1' | 'bursa2';
 
 export type WorkshopsEntry = {
   topicKey: UnprefixedTranslationKeys;
@@ -34,50 +23,51 @@ export type WorkshopsEntry = {
   };
   room: Room;
   price: number;
-  description?: string;
-} & EntryPricing;
+  description?: UnprefixedTranslationKeys;
+  ticketUrl: string;
+  isSoldOut: boolean;
+  materials?: UnprefixedTranslationKeys;
+};
 
 export const WorkshopsConfig: WorkshopsEntry[] = [
   {
-    topicKey: 'workshops.ewa.title',
-    time: '9:00 - 10:30',
+    topicKey: 'workshops.edknitted.title',
+    time: 'X:00 - X:00',
     picture: {
-      fallback: ewaUrl,
-      sources: [
-        {
-          type: 'image/avif',
-          url: ewaUrlAvif
-        }
-      ]
+      fallback: mock
     },
-    room: 'mirrors',
-    isSoldOut: true,
-    price: 30,
-    description: 'dfdfdf'
+    room: 'library',
+    isSoldOut: false,
+    price: 175,
+    description: 'workshops.edknitted.description',
+    ticketUrl: 'www.todo.com'
   },
   {
-    topicKey: 'workshops.ewa.title',
-    time: '12:00 - 13:00',
+    topicKey: 'workshops.ludart.title',
+    time: 'XX:00 - XX:00',
     picture: {
-      fallback: pierwszaPomocUrl,
+      fallback: ludartUrl,
       sources: [
         {
           type: 'image/webp',
-          url: pierwszaPomocUrlWebp
+          url: ludartUrlWebp
         },
         {
           type: 'image/avif',
-          url: pierwszaPomocUrlAvif
+          url: ludartUrlAvif
         }
       ]
     },
-    room: 'mirrors',
-    price: 30,
-    isSoldOut: true
+    room: 'bursa1',
+    price: 100,
+    isSoldOut: false,
+    ticketUrl: 'www.todo.com',
+    description: 'workshops.ludart.description',
+    materials: 'workshops.ludart.materials'
   },
   {
-    topicKey: 'workshops.ewa.title',
-    time: '9:00 - 10:30',
+    topicKey: 'workshops.knitolog.title',
+    time: 'XX:00 - XX:30',
     picture: {
       fallback: knitologUrl,
       sources: [
@@ -92,48 +82,11 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       ]
     },
     room: 'fencing',
-    isSoldOut: true,
-    price: 30
-  },
-  {
-    topicKey: 'workshops.ewa.title',
-    time: '12:10 - 15:10',
-    picture: {
-      fallback: uwolnijPomyslyUrl,
-      sources: [
-        {
-          type: 'image/webp',
-          url: uwolnijPomyslyWebp
-        },
-        {
-          type: 'image/avif',
-          url: uwolnijPomyslyUrlAvif
-        }
-      ]
-    },
-    room: 'fencing',
-    price: 150,
-    ticketUrl: 'https://wloczykijki.pl/pl/p/Warsztaty-Uwolnij-pomysly-/2840'
-  },
-  {
-    topicKey: 'workshops.woolanka.title',
-    time: '9:15 - 12:15',
-    picture: {
-      fallback: woolankaUrl,
-      sources: [
-        {
-          type: 'image/webp',
-          url: woolankaUrlWebp
-        },
-        {
-          type: 'image/avif',
-          url: woolankaUrlAvif
-        }
-      ]
-    },
-    price: 100,
-    ticketUrl: 'https://wloczykijki.pl/pl/p/Warsztaty-Dzianiny-ozdobne/2842',
-    room: 'conference'
+    isSoldOut: false,
+    price: 170,
+    ticketUrl: 'www.todo.com',
+    description: 'workshops.knitolog.description',
+    materials: 'workshops.knitolog.materials'
   },
   {
     topicKey: 'workshops.haftowaBaba.title',
@@ -151,48 +104,9 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
         }
       ]
     },
-    isSoldOut: true,
+    isSoldOut: false,
     room: 'conference',
-    price: 30
-  },
-  {
-    topicKey: 'workshops.haftowaBaba.title',
-    time: '12:25 - 15:25',
-    picture: {
-      fallback: haftowaBabaUrl,
-      sources: [
-        {
-          type: 'image/webp',
-          url: haftowaBabaUrlWebp
-        },
-        {
-          type: 'image/avif',
-          url: haftowaBabaUrlAvif
-        }
-      ]
-    },
-    isSoldOut: true,
-    room: 'conference',
-    price: 30
-  },
-  {
-    topicKey: 'workshops.haftowaBaba.title',
-    time: '12:25 - 15:25',
-    picture: {
-      fallback: haftowaBabaUrl,
-      sources: [
-        {
-          type: 'image/webp',
-          url: haftowaBabaUrlWebp
-        },
-        {
-          type: 'image/avif',
-          url: haftowaBabaUrlAvif
-        }
-      ]
-    },
-    isSoldOut: true,
-    room: 'conference',
-    price: 30
+    price: 30,
+    ticketUrl: 'www.todo.com'
   }
 ];

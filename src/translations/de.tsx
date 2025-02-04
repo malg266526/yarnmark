@@ -209,25 +209,27 @@ export const de: TranslationsShape = {
       buyTicket: 'ein Ticket kaufen',
       freeAdmission: 'Free admission',
       price: 'Preis',
-      woolanka: {
-        title: 'Decorative knitting',
-        description:
-          'I will show you how to create openwork knits, decorate with cables and jacquard, if there is enough time, I will also show you how to finish them with i-cord. People who want to take part in the workshops should bring straight or circular needles, between 3 and 4 mm, wool appropriate for a given size in 2 colors, preferably contrasting colors, and an cable needle for braids. When it comes to wool, it does not have to be a full skein, we need an amount that will allow us to make a sample of the knitwear we are interested in.'
+      edknitted: {
+        title: 'Polish Your Pattern czyli jak odpicować swój wzór',
+        description: 'Todo'
+      },
+      ludart: {
+        title: 'Haft ludowy',
+        materials: 'Zapewnia prowadzący',
+        description: 'Todo'
       },
       haftowaBaba: {
         title: 'Wool embroidery on knitted fabric',
         description:
           'Do you want to learn how to interestingly decorate hats, scarves, sweaters or gloves? Are you curious about wool embroidery, how to make it and use it in your knits? That workshop is perfect for you! We invite you to a wool embroidery lesson. Under my supervision, you will learn several techniques other than the jacquard stitch. I will also show you how to draw a pattern and how to easily create flowers, leaves, inscriptions or simple patterns. People who want to take part in the workshops should bring at least two pieces of yarn in different colors and sizes.'
       },
-      ewa: {
-        title: 'The Greeners',
-        description:
-          'During workshops for beginners, I will introduce you to the mystical secrets of knitting. You will learn about the different types of materials we usually work with, I will teach you some techniques for casting on stitches, and you will learn the basics - knit and purl stitches. I will introduce you to the methods of adding and decreasing stitches and finishing the knitted fabric. I will show you knitting accessories that make the life of a knitter easier. I will explain how to read patterns in books and on banners. We will knit a piece of knit together. Obviously, I will show you how to save lost stitches or fix simple mistakes. I will try my best to answer your questions. A group for beginners who are starting their adventure with knitting, as well as for those who want to gain confidence in their knitting'
-      },
       room: {
         mirrors: 'Spiegelsaal',
         fencing: 'Fechtraum',
-        conference: 'Konferenzraum'
+        conference: 'Konferenzraum',
+        library: 'Biblioteka',
+        bursa1: 'Bursa - sala główna',
+        bursa2: 'Bursa - sala ?'
       },
       soldOut: 'Ausverkauft'
     }
