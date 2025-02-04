@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import { Band } from '../../../components/bands/Band';
 import { BackgroundColors } from '../../../styles/theme';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
@@ -9,10 +9,10 @@ import { Radius } from '../../../styles/cards';
 import { FontSize } from '../../../styles/font-size';
 import { RedesignSpacings } from '../../../styles/spacings';
 import { MultiCarousel } from '../../../components/carousels/MultiCarousel';
-import { WorkshopsConfig, WorkshopsEntry } from './workshopsConfig';
-import { RibbonCard } from '../../../components/carousels/RibbonCard';
-import { useToggle } from '../../../hooks/useToggle';
+import { WorkshopsConfig } from './workshopsConfig';
+import { RibbonCard } from './cards/RibbonCard';
 import { WorkshopModal } from './WorkshopModal';
+import { useWorkshopModalToggle } from './useWorkshopModalToggle';
 
 type WorkshopsBandType = {
   id: string;
@@ -39,20 +39,7 @@ const StrongCtaButton = styled(CtaButton)`
 export const WorkshopsDesktopBand = ({ id }: WorkshopsBandType) => {
   const t = useTypedTranslation();
 
-  const [isModalOpen, toggle, close] = useToggle();
-  const [currentWorkshop, setCurrentWorkshop] = useState<WorkshopsEntry | undefined>();
-
-  const toggleModal = useCallback(
-    (workshop: WorkshopsEntry) => {
-      if (isModalOpen) {
-        setCurrentWorkshop(undefined);
-      } else {
-        setCurrentWorkshop(workshop);
-      }
-      toggle();
-    },
-    [isModalOpen, toggle]
-  );
+  const { isModalOpen, currentWorkshop, toggleModal, close } = useWorkshopModalToggle();
 
   return (
     <Band.CenteredColumn id={id} size="lg" gap="md" padding="xl" color={BackgroundColors.workshopsBand}>
@@ -63,15 +50,13 @@ export const WorkshopsDesktopBand = ({ id }: WorkshopsBandType) => {
         <WoolBackgroundSection />
       </ImageSection>
 
-      <MultiCarousel>
-        {WorkshopsConfig.map((workshop, index) => (
+      <MultiCarousel
+        items={WorkshopsConfig.map((workshop, index) => (
           <RibbonCard key={`mirrorsRoom_${index}`} workshop={workshop} onClick={toggleModal} />
         ))}
-      </MultiCarousel>
+      />
 
-      <WorkshopModal isOpen={isModalOpen} toggle={toggle} close={close} workshop={currentWorkshop} />
-
-      {/*<WorkshopsCarousel />*/}
+      <WorkshopModal isOpen={isModalOpen} close={close} workshop={currentWorkshop} />
     </Band.CenteredColumn>
   );
 };

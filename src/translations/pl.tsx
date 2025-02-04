@@ -208,25 +208,36 @@ export const pl = {
       buyTicket: 'Kup bilet',
       freeAdmission: 'Wstęp wolny',
       price: 'Koszt',
-      woolanka: {
-        title: 'Dzianiny ozdobne',
-        description:
-          'Osobom zainteresowanym warsztatami pokaże jak tworzyć dzianiny ażurowe, ozdabianie warkoczami i żakardowe jeśli wystarczy czasu to również wykończenia i-cord. Osoby chcące wziąć udział w warsztatach powinny przynieść ze sobą druty proste lub na żyłce w rozmiarze między 3 a 4mm, odpowiednią dla danego rozmiaru wełnę w 2 kolorach, najlepiej kolory ze sobą kontrastujące oraz drut pomocniczy do warkoczy. Jeśli chodzi o wełnę nie musi to być pełny motek, potrzebujemy ilość która pozwoli na zrobienie próbki interesujących nas dzianin.'
+      edknitted: {
+        title: 'Polish Your Pattern czyli jak odpicować swój wzór',
+        description: 'Todo'
+      },
+      ludart: {
+        title: 'Haft ludowy',
+        materials: 'Materiały zapewnia prowadzący',
+        description: 'Todo'
+      },
+      knitolog: {
+        title: 'Żakard dla zaawansowanych',
+        materials:
+          '<ul>' +
+          '<li>włóczka o grubości ok. 100m w 50g, jednolita kolorystycznie, jasna i gładka (bez włosków)</li>' +
+          '<li>druty 4,00 mm na żyłce (długość żyłki do pracy w okrążeniach)</li>' +
+          '</ul>',
+        description: 'Todo'
       },
       haftowaBaba: {
         title: 'Haft wełną na dzianinie',
         description:
           'Chcesz nauczyć się jak w ciekawy sposób ozdobić czapki, szaliki, swetry czy rękawiczki? Ciekawi cię haft wełną, jak go wykonać i wykorzystać w swoich udziergach? W takim razie to idealne warsztaty dla Ciebie! Zapraszamy Cię na lekcję haftu wełną. Pod moim okiem poznasz kilka technik, inne niż ścieg udający żakardy. Pokażę Ci też jak nakreślić wzór, jak prostymi patentami stworzyć kwiaty, liście, napisy czy proste wzory. Osoby chcące wziąć udział w warsztatach powinny przynieść ze sobą włóczkę w różnych kolorach i rozmiarach w ilości minimum dwóch sztuk.'
       },
-      ewa: {
-        title: 'Zielone druty',
-        description:
-          'Na warsztatach dla początkujących wprowadzę Cię w tajniki i mistyczne arkana sztuki dziewiarskiej. Poznasz różne rodzaje materiałów z którymi zazwyczaj pracujemy, nauczę Cię paru technik nabierania oczek, poznasz podstawy - prawe i lewe oczka. Zapoznam z metodą dodawania oraz ujmowania oczek oraz zakańczania dzianiny. Pokażę Ci dziewiarskie akcesoria, które ułatwiają życie dziewiarce/dziewiarzowi. Wytłumaczę, jak czytać wzory w książkach i na banderolach. Przerobimy razem kawałek dzianiny. Oczywiście pokażę, jak ratować zgubione oczka lub naprawiać proste błędy. Postaram się odpowiedzieć na nurtujące pytania. Grupa dla początkujących, zaczynających przygodę z drutami, jak i dla tych co chcą nabrać pewności w swoich robótkach.'
-      },
       room: {
         mirrors: 'Sala lustrzana',
         fencing: 'Sala szermiercza',
-        conference: 'Sala konferencyjna'
+        conference: 'Sala konferencyjna',
+        library: 'Biblioteka',
+        bursa1: 'Bursa - sala główna',
+        bursa2: 'Bursa - sala ?'
       },
       soldOut: 'Wyprzedane'
     }
