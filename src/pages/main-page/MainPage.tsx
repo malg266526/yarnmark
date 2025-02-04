@@ -17,6 +17,7 @@ import { TicketCard } from './TicketCard';
 import { TicketCardBand } from './TicketCardBand';
 import { WorkshopsDesktopBand } from './workshops/WorkshopsDesktopBand';
 import { WorkshopsMobileSchedule } from './workshops/WorkshopsMobileSchedule';
+import { CruiseBand } from './CruiseBand';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -57,9 +58,7 @@ export const MainPage = () => {
             <VendorsList />
           </Band.CenteredColumn>
 
-          {/*
           <CruiseBand id="cruise" />
-*/}
 
           {/* <FoodBand id="food" />*/}
 
@@ -87,9 +86,7 @@ export const MainPage = () => {
 
           <WorkshopsDesktopBand id="workshops" />
 
-          {/*
           <CruiseBand id="cruise" />
-*/}
 
           {/*<FoodBand id="food" />*/}
 

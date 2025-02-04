@@ -3,19 +3,19 @@ import shipJpgSrc from '../../assets/images/ship.jpg';
 import { Carouselge } from '../../components/carousels/Carouselge';
 import waterWebpSrc from '../../assets/images/water.webp';
 import waterJpgSrc from '../../assets/images/water.jpg';
-import { LinkWrapper } from './MainPage.styled';
+//import { LinkWrapper } from './MainPage.styled';
 import wineAvifSrc from '../../assets/images/wine.avif';
 import wineWebpSrc from '../../assets/images/wine.webp';
 import wineJpgSrc from '../../assets/images/wine.jpg';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
-import ticketAvifSrc from '../../assets/images/ticket.avif';
+/*import ticketAvifSrc from '../../assets/images/ticket.avif';
 import ticketWebpSrc from '../../assets/images/ticket.webp';
 import ticketJpgSrc from '../../assets/images/ticket.jpg';
 import { Link } from '../../components/Link';
 import { Trans } from 'react-i18next';
 import mapWebpSrc from '../../assets/images/map.webp';
 import mapJpgSrc from '../../assets/images/map.jpg';
-import { CruiseMap } from '../../components/CruiseMap';
+import { CruiseMap } from '../../components/CruiseMap';*/
 import React, { useState } from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Typography } from '../../components/Typography';
@@ -86,7 +86,7 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
           </FlexColumnLayout>
         </Carouselge.Item>
 
-        <Carouselge.Item>
+        {/*        <Carouselge.Item>
           <Carouselge.ItemBackground
             variant="bottom"
             background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)">
@@ -127,7 +127,7 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
           </Carouselge.ItemBackground>
 
           <CruiseMap />
-        </Carouselge.Item>
+        </Carouselge.Item>*/}
       </Carouselge>
     </Band.Wallpaper>
   );
