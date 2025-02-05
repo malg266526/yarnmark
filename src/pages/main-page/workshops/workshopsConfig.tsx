@@ -12,7 +12,7 @@ import haftowaBabaUrlAvif from '../../../assets/images/workshops/haftowa.avif';
 import mock from '../../../assets/iconify/bigpretzel.svg';
 import { UnprefixedTranslationKeys } from '../../../translations/useTypedTranslation';
 
-type Room = 'mirrors' | 'fencing' | 'conference' | 'library' | 'bursa1' | 'bursa2';
+type Room = 'conference' | 'library' | 'bursa1' | 'bursa2';
 
 export type WorkshopsEntry = {
   topicKey: UnprefixedTranslationKeys;
@@ -30,6 +30,74 @@ export type WorkshopsEntry = {
 };
 
 export const WorkshopsConfig: WorkshopsEntry[] = [
+  {
+    topicKey: 'workshops.skein.title',
+    time: 'XX:00 - XX:00',
+    picture: {
+      fallback: mock
+      /*      sources: [
+                                      {
+                                        type: 'image/webp',
+                                        url: haftowaBabaUrlWebp
+                                      },
+                                      {
+                                        type: 'image/avif',
+                                        url: haftowaBabaUrlAvif
+                                      }
+                                    ]*/
+    },
+    isSoldOut: false,
+    room: 'conference',
+    price: 250,
+    ticketUrl: 'www.todo.com',
+    description: 'workshops.skein.description',
+    materials: 'workshops.skein.materials'
+  },
+  {
+    topicKey: 'workshops.drutututu.title',
+    time: 'XX:00 - XX:00',
+    picture: {
+      fallback: mock
+      /*      sources: [
+                          {
+                            type: 'image/webp',
+                            url: haftowaBabaUrlWebp
+                          },
+                          {
+                            type: 'image/avif',
+                            url: haftowaBabaUrlAvif
+                          }
+                        ]*/
+    },
+    isSoldOut: false,
+    room: 'conference',
+    price: 90,
+    ticketUrl: 'www.todo.com',
+    description: 'workshops.drutututu.description'
+  },
+  {
+    topicKey: 'workshops.heartofcotton.title',
+    time: 'XX:00 - XX:00',
+    picture: {
+      fallback: mock
+      /*      sources: [
+                                {
+                                  type: 'image/webp',
+                                  url: haftowaBabaUrlWebp
+                                },
+                                {
+                                  type: 'image/avif',
+                                  url: haftowaBabaUrlAvif
+                                }
+                              ]*/
+    },
+    isSoldOut: false,
+    room: 'conference',
+    price: 90,
+    ticketUrl: 'www.todo.com',
+    description: 'workshops.heartofcotton.description',
+    materials: 'workshops.heartofcotton.materials'
+  },
   {
     topicKey: 'workshops.edknitted.title',
     time: 'X:00 - X:00',
@@ -66,31 +134,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     materials: 'workshops.ludart.materials'
   },
   {
-    topicKey: 'workshops.knitolog.title',
-    time: 'XX:00 - XX:30',
-    picture: {
-      fallback: knitologUrl,
-      sources: [
-        {
-          type: 'image/webp',
-          url: knitologUrlWebp
-        },
-        {
-          type: 'image/avif',
-          url: knitologUrlAvif
-        }
-      ]
-    },
-    room: 'fencing',
-    isSoldOut: false,
-    price: 170,
-    ticketUrl: 'www.todo.com',
-    description: 'workshops.knitolog.description',
-    materials: 'workshops.knitolog.materials'
-  },
-  {
     topicKey: 'workshops.haftowaBaba.title',
-    time: '12:25 - 15:25',
+    time: 'XX:00 - XX:00',
     picture: {
       fallback: haftowaBabaUrl,
       sources: [
@@ -106,7 +151,78 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     },
     isSoldOut: false,
     room: 'conference',
-    price: 30,
-    ticketUrl: 'www.todo.com'
+    price: 160,
+    ticketUrl: 'www.todo.com',
+    description: 'workshops.haftowaBaba.description',
+    materials: 'workshops.haftowaBaba.materials'
+  },
+  {
+    topicKey: 'workshops.knitolog.title',
+    time: 'XX:00 - XX:30',
+    picture: {
+      fallback: knitologUrl,
+      sources: [
+        {
+          type: 'image/webp',
+          url: knitologUrlWebp
+        },
+        {
+          type: 'image/avif',
+          url: knitologUrlAvif
+        }
+      ]
+    },
+    room: 'bursa1',
+    isSoldOut: false,
+    price: 170,
+    ticketUrl: 'www.todo.com',
+    description: 'workshops.knitolog.description',
+    materials: 'workshops.knitolog.materials'
+  },
+  {
+    topicKey: 'workshops.iwona.title',
+    time: 'XX:00 - XX:00',
+    picture: {
+      fallback: mock
+      /*      sources: [
+        {
+          type: 'image/webp',
+          url: haftowaBabaUrlWebp
+        },
+        {
+          type: 'image/avif',
+          url: haftowaBabaUrlAvif
+        }
+      ]*/
+    },
+    isSoldOut: false,
+    room: 'conference',
+    price: 170,
+    ticketUrl: 'www.todo.com',
+    description: 'workshops.iwona.description',
+    materials: 'workshops.iwona.materials'
+  },
+  {
+    topicKey: 'workshops.kroopa.title',
+    time: 'XX:00 - XX:00',
+    picture: {
+      fallback: mock
+      /*      sources: [
+              {
+                type: 'image/webp',
+                url: haftowaBabaUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: haftowaBabaUrlAvif
+              }
+            ]*/
+    },
+    isSoldOut: false,
+    room: 'conference',
+    price: 175,
+    ticketUrl: 'www.todo.com',
+    description: 'workshops.kroopa.description',
+    materials: 'workshops.kroopa.materials'
   }
 ];

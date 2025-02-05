@@ -15,7 +15,7 @@ import { GhostButton } from '../../../components/GhostButton';
 import backIcon from '../../../assets/figmaIcons/back_arrow_icon.svg';
 import closeStrokeIcon from '../../../assets/figmaIcons/close_stroke_icon.svg';
 import { Icon } from '../../../components/Icon';
-import { Trans } from 'react-i18next';
+import { TextToListFormatter } from '../../../components/TextToListFormatter';
 
 const WorkshopModalLayout = styled(Modal)`
   display: flex;
@@ -115,15 +115,15 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
           />
 
           <WorkshopDescription>
-            <FlexColumnLayout padding="none" gap="sm">
+            <FlexColumnLayout padding="none" gap="sm" width="50%">
               <WorkshopSectionTitle size="md">Czego się nauczysz?</WorkshopSectionTitle>
-              <Typography size="md">{workshop.description ? t(workshop.description) : '-'}</Typography>
+              <Typography size="sm">{workshop.description ? t(workshop.description) : '-'}</Typography>
             </FlexColumnLayout>
 
-            <FlexColumnLayout padding="none" gap="sm">
+            <FlexColumnLayout padding="none" gap="sm" width="50%">
               <WorkshopSectionTitle size="md">Co przynieść?</WorkshopSectionTitle>
-              <Typography size="md">
-                <Trans i18nKey={workshop.materials ? t(workshop.materials) : '-'} />
+              <Typography size="sm">
+                <TextToListFormatter text={workshop.materials ? t(workshop.materials) : '-'} />
               </Typography>
             </FlexColumnLayout>
           </WorkshopDescription>
