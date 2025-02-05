@@ -80,6 +80,7 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
       contentLabel="WorkshopModal"
       shouldCloseOnOverlayClick={true}
       onRequestClose={close}
+      ariaHideApp={false}
       style={{
         overlay: {
           display: 'flex',
