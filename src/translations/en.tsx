@@ -221,13 +221,51 @@ export const en: TranslationsShape = {
           '<ul>' +
           '<li>włóczka o grubości ok. 100m w 50g, jednolita kolorystycznie, jasna i gładka (bez włosków)</li>' +
           '<li>druty 4,00 mm na żyłce (długość żyłki do pracy w okrążeniach)</li>' +
+          '<li>markery dziewiarskie w formie agrafki (wypinane) ok. 12 szt. </li>' +
+          '<li>zwykłe markery dziewiarskie (inne niż te wypinane)</li>' +
           '</ul>',
         description: 'Todo'
       },
       haftowaBaba: {
         title: 'Wool embroidery on knitted fabric',
-        description:
-          'Do you want to learn how to interestingly decorate hats, scarves, sweaters or gloves? Are you curious about wool embroidery, how to make it and use it in your knits? That workshop is perfect for you! We invite you to a wool embroidery lesson. Under my supervision, you will learn several techniques other than the jacquard stitch. I will also show you how to draw a pattern and how to easily create flowers, leaves, inscriptions or simple patterns. People who want to take part in the workshops should bring at least two pieces of yarn in different colors and sizes.'
+        materials: 'Czapka lub opaska',
+        description: 'Todo'
+      },
+      iwona: {
+        title: 'Rzędy skrócone',
+        materials: '<ul><li>włóczka i gotowa próbka</li></ul>',
+        description: 'Todo'
+      },
+      kroopa: {
+        title: 'Podstawy żakardu',
+        materials:
+          '<ul><li>włóczka grubości Aran / Worsted</li><li>druty w rozmiarze 4.5 z żyłką 60cm</li><li>opcjonalnie druty w rozmiarze 3-3.5 z żyłką 60cm na ściągacz</li></ul>',
+        description: 'Todo'
+      },
+      drutututu: {
+        title: 'Druty - podstawy',
+        description: 'Todo'
+      },
+      heartofcotton: {
+        title: 'Podstawy szydełka',
+        materials:
+          '<ul><li>włóczka grubości około 75m / 50g (1 motek)</li><li>szydełko 4.5</li><li>igła dziewiarska</li><li>nożyczki</li></ul>',
+        description: 'Todo'
+      },
+      skein: {
+        title: 'Punch Needle',
+        materials:
+          'Materiały zapewnia prowadzący. Każdy uczestnik otrzyma: <ul>' +
+          '<li>igła do haftu Rico Design</li>' +
+          '<li>tamborek Rico Design</li>' +
+          '<li>torba projektowa @ohobohoo_hamaki</li>' +
+          '<li>znikopis</li>' +
+          '<li>łatka zabezpieczająca tył pracy</li>' +
+          '<li>dostęp do materiałów video</li>' +
+          '<li>sznurek bawełniany</li>' +
+          '<li>mały prezent od @skein.pl</li>' +
+          '</ul>',
+        description: 'Todo'
       },
       room: {
         mirrors: 'Mirrors room',
