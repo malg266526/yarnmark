@@ -16,6 +16,7 @@ import closeIcon from '../../../../assets/figmaIcons/simple_close_icon.svg';
 import { RowLayout } from '../../../../components/RowLayout';
 import { CardLayout } from './CardLayout';
 import { WorkshopPrice } from './WorkshopPrice';
+import { FontSize } from '../../../../styles/font-size';
 
 const MobileCardLayout = styled(CardLayout)<{ isExpanded?: boolean }>`
   flex-direction: ${({ isExpanded }) => (isExpanded ? 'column' : 'row')};
@@ -33,7 +34,7 @@ const InfoSection = styled.div`
 
   justify-content: space-around;
   align-items: center;
-  gap: ${RedesignSpacings.sm};
+  gap: ${RedesignSpacings.xs};
   text-align: center;
 `;
 
@@ -50,6 +51,10 @@ const VerticalRibbonIcon = styled.div<{ src: string }>`
   text-orientation: mixed;
 
   text-align: center;
+`;
+
+const SmallCtaButton = styled(CtaButton)`
+  font-size: ${FontSize.sm};
 `;
 
 const VerticalRibbonTextWrapper = styled.div`
@@ -100,24 +105,24 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
           sources: workshop.picture.sources
         }}
         alt={t(workshop.topicKey)}
-        width={114}
-        height={114}
+        width={106}
+        height={106}
       />
 
       <InfoSection>
         {isExpanded ? (
-          <Typography size="sm">{workshop.description || 'Todo'}</Typography>
+          <Typography size="sm">{workshop.description ? t(workshop.description) : 'Todo'}</Typography>
         ) : (
           <Typography size="sm">{t(workshop.topicKey)}</Typography>
         )}
 
         <WorkshopPrice workshop={workshop} />
 
-        <CtaButton
+        <SmallCtaButton
           onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}
           aria-label="open workshops tickets">
           {t('workshops.buyTicket')}
-        </CtaButton>
+        </SmallCtaButton>
       </InfoSection>
     </MobileCardLayout>
   );
