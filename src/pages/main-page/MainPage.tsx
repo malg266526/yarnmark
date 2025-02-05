@@ -48,7 +48,7 @@ export const MainPage = () => {
           </Band.CenteredColumn>
 
           <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
-          <Band.Empty id="workshopsTickets" padding="xs">
+          <Band.Empty id="workshops" padding="xs">
             <WorkshopsMobileSchedule />
           </Band.Empty>
 

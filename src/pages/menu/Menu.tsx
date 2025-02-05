@@ -240,7 +240,7 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           </MenuItem>*/}
         </TicketsSection>
 
-        <MenuItem href="/home#workshops" isOpen={isMenuExpanded} aria-label="workshops_menu_item">
+        <MenuItem href="/home#workshops" isOpen={isMenuExpanded} aria-label="workshops_menu_item" onClick={closeMenu}>
           <Icon size="sm" zIndex={0} src={workshopIcons} />
           {isMenuExpanded && <Typography size="sm">{t('menu.workshops')}</Typography>}
         </MenuItem>
