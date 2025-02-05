@@ -7,14 +7,10 @@ interface Props {
 }
 
 export const TextToListFormatter = ({ text }: Props) => {
-  console.log('text', text);
-
   if (!text || !text.includes(ulSeparator)) return text;
 
   const before = text.split(ulSeparator)[0];
   const listContent = text.split(ulSeparator)[1];
-
-  console.log('before', before);
 
   const list = listContent
     .replaceAll(ulSeparator, '')
@@ -22,7 +18,6 @@ export const TextToListFormatter = ({ text }: Props) => {
     .replaceAll('</li>', '')
     .split('<li>')
     .filter(Boolean);
-  console.log('list', list);
 
   return (
     <>
