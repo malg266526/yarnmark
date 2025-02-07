@@ -1,4 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
+import { FlexColumnLayout } from './FlexColumnLayout';
+
+const WorkshopUl = styled.ul`
+  margin: 0;
+`;
+
+const Scrollable = styled.div`
+  overflow-y: auto;
+  max-height: 300px;
+`;
 
 const ulSeparator = '<ul>';
 
@@ -7,26 +18,36 @@ interface Props {
 }
 
 export const TextToListFormatter = ({ text }: Props) => {
-  if (!text || !text.includes(ulSeparator)) return text;
+  if (!text) return '';
 
-  const before = text.split(ulSeparator)[0];
-  const listContent = text.split(ulSeparator)[1];
+  const parts = text.split(ulSeparator);
+  const before = parts[0];
 
-  const list = listContent
-    .replaceAll(ulSeparator, '')
-    .replaceAll('</ul>', '')
-    .replaceAll('</li>', '')
-    .split('<li>')
-    .filter(Boolean);
+  const paragraphs = before.split('<br>').filter(Boolean);
+
+  const list = !text.includes(ulSeparator)
+    ? []
+    : parts[1]
+        .replaceAll(ulSeparator, '')
+        .replaceAll('</ul>', '')
+        .replaceAll('</li>', '')
+        .split('<li>')
+        .filter(Boolean);
 
   return (
-    <>
-      {before}
-      <ul>
+    <Scrollable>
+      {before && (
+        <FlexColumnLayout padding="none" align="flex-start" gap="xs">
+          {paragraphs.map((line, index) => (
+            <p key={`${index}_line`}>{line}</p>
+          ))}
+        </FlexColumnLayout>
+      )}
+      <WorkshopUl>
         {list.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={`${index}_li`}>{item}</li>
         ))}
-      </ul>
-    </>
+      </WorkshopUl>
+    </Scrollable>
   );
 };
