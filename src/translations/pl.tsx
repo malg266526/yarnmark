@@ -104,13 +104,11 @@ export const pl = {
         startAndStop: 'Miejsce startu i zakończenia rejsu:',
         time: 'Godzina rejsu:',
         price: 'Cena',
-        priceIncludesYarnmarkTicket:
-          'Cena zawiera bilet wejścia na targi <strong>Krakoski Yarnmark Wełny 2024</strong>',
+        priceIncludesYarnmarkTicket: 'Cena zawiera bilet wejścia na targi <strong>Krakoski Yarnmark 2025</strong>',
         route: 'Trasa:'
       },
       invitation: 'Zapraszamy Cię na niezapomniany rejs statkiem po urokliwej Wiśle w Krakowie.',
-      ship: 'Pragniemy, aby pokład statku „Legenda" stał się sceną do wspólnego dziergania, tworzenia niepowtarzalnych chwil i zawierania nowych dziewiarskich znajomości.',
-
+      ship: 'Pragniemy, aby pokład statku „Horyzont" stał się sceną do wspólnego dziergania, tworzenia niepowtarzalnych chwil i zawierania nowych dziewiarskich znajomości.',
       buyTickets: 'Tutaj kupisz bilet',
       tickets: 'Bilety',
       prosecco: {
