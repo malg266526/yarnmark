@@ -208,7 +208,21 @@ export const pl = {
       price: 'Koszt',
       edknitted: {
         title: 'Polish Your Pattern czyli jak odpicować swój wzór',
-        description: 'Todo'
+        description:
+          'To warsztaty idealne dla wszystkich aspirujących oraz początkujących projektantek. Poznaj\n' +
+          'tajniki dobrze skonstruowanych, czytelnych i zrozumiałych wzorów na druty pod czujnym\n' +
+          'okiem edytora technicznego. Zadbaj o to, żeby dzierganie Twojego projektu było\n' +
+          'najprzyjemniejszym doświadczeniem każdego rękodzielnika! Zamiast poświęcać masę\n' +
+          'czasu na poszukiwanie podpowiedzi i wskazówek dotyczących pisania instrukcji\n' +
+          'dziewiarskich, zapisz się na warsztat i otrzymaj całą wiedzę w pigułce. <br> Nauczysz się między\n' +
+          'innymi: ' +
+          '<ul>' +
+          '<li>jak skonstruować wzór oraz co w nim zawrzeć</li>' +
+          '<li>dlaczego próbka, rozpiska rozmiarów oraz obliczenia mają kluczowe znaczenie</li>' +
+          '<li>jak identyfikować kwestie sporne oraz w jaki sposób sobie z nimi radzić</li>' +
+          '<li>na co zwracać uwagę w przypadku tłumaczenia na inne języki oraz dostosowania instrukcji\n' +
+          'do poszczególnych grup docelowych.</li>' +
+          '</ul>'
       },
       ludart: {
         title: 'Haft ludowy',
