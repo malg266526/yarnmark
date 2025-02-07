@@ -2,9 +2,7 @@ import React from 'react';
 import { Typography } from '../../../components/Typography';
 import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
 import { Trans } from 'react-i18next';
-/*
 import shipIconUrl from '../../../assets/figmaIcons/ship_icon.svg';
-*/
 import { Icon } from '../../../components/Icon';
 import redMapMarkerIconUrl from '../../../assets/figmaIcons/red_map_marker_icon.svg';
 import blueTicketsIconUrl from '../../../assets/figmaIcons/blue_tickets_icon.svg';
@@ -83,7 +81,7 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
           </Link>
         </FlexColumnLayout>*/}
 
-        {/*        <FlexColumnLayout gap="xs" padding="none">
+        <FlexColumnLayout gap="xs" padding="none">
           <Icon size="lg" zIndex={0} src={shipIconUrl} />
           <Typography size="sm">
             <Trans
@@ -91,7 +89,7 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
               components={[<Link key="cruise_tickets_here" href="/home#cruise" />]}
             />
           </Typography>
-        </FlexColumnLayout>*/}
+        </FlexColumnLayout>
       </InfoColumn>
     </Band.NarrowColumn>
   );

@@ -107,11 +107,11 @@ export const de: TranslationsShape = {
         time: 'Kreuzfahrtzeit:',
         price: 'Preis',
         priceIncludesYarnmarkTicket:
-          'Im Preis ist eine Eintrittskarte zur <strong>Krakauer Yarnmarkt 2024</strong> Messe enthalten',
+          'Im Preis ist eine Eintrittskarte zur <strong>Krakauer Yarnmarkt 2025</strong> Messe enthalten',
         route: 'Route:'
       },
       invitation: 'Wir laden Sie zu einer unvergesslichen Kreuzfahrt auf der bezaubernden Weichsel in Krakau ein.',
-      ship: 'Wir möchten, dass das Deck des Schiffes „Legenda“ zur Bühne wird, auf der man gemeinsam stricken, einzigartige Momente schaffen und neue Strickbekanntschaften knüpfen kann.',
+      ship: 'Wir möchten, dass das Deck des Schiffes „Horyzont“ zur Bühne wird, auf der man gemeinsam stricken, einzigartige Momente schaffen und neue Strickbekanntschaften knüpfen kann.',
       prosecco: {
         title: 'Entspannung!',
         intro:

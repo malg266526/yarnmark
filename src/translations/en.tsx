@@ -104,12 +104,11 @@ export const en: TranslationsShape = {
         startAndStop: 'Place of departure and end of the cruise:',
         time: 'Cruise time:',
         price: 'Price',
-        priceIncludesYarnmarkTicket:
-          'The price includes an entry ticket to the <strong>Krakoski Yarnmark Wełny 2024</strong>',
+        priceIncludesYarnmarkTicket: 'The price includes an entry ticket to the <strong>Krakoski Yarnmark 2025<strong>',
         route: 'Route:'
       },
       invitation: 'We heartily invite you for an unforgettable cruise on the charming Vistula River in Cracow.',
-      ship: 'We want the deck of the "Legend" ship to become a stage for knitting together, creating unique moments and making new knitting acquaintances.',
+      ship: 'We want the deck of the <strong>"Horyzont"<strong> ship to become a stage for knitting together, creating unique moments and making new knitting acquaintances.',
       prosecco: {
         title: 'Relax!',
         intro:

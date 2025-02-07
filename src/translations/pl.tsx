@@ -104,13 +104,11 @@ export const pl = {
         startAndStop: 'Miejsce startu i zakończenia rejsu:',
         time: 'Godzina rejsu:',
         price: 'Cena',
-        priceIncludesYarnmarkTicket:
-          'Cena zawiera bilet wejścia na targi <strong>Krakoski Yarnmark Wełny 2024</strong>',
+        priceIncludesYarnmarkTicket: 'Cena zawiera bilet wejścia na targi <strong>Krakoski Yarnmark 2025</strong>',
         route: 'Trasa:'
       },
       invitation: 'Zapraszamy Cię na niezapomniany rejs statkiem po urokliwej Wiśle w Krakowie.',
-      ship: 'Pragniemy, aby pokład statku „Legenda" stał się sceną do wspólnego dziergania, tworzenia niepowtarzalnych chwil i zawierania nowych dziewiarskich znajomości.',
-
+      ship: 'Pragniemy, aby pokład statku „Horyzont" stał się sceną do wspólnego dziergania, tworzenia niepowtarzalnych chwil i zawierania nowych dziewiarskich znajomości.',
       buyTickets: 'Tutaj kupisz bilet',
       tickets: 'Bilety',
       prosecco: {
@@ -210,7 +208,21 @@ export const pl = {
       price: 'Koszt',
       edknitted: {
         title: 'Polish Your Pattern czyli jak odpicować swój wzór',
-        description: 'Todo'
+        description:
+          'To warsztaty idealne dla wszystkich aspirujących oraz początkujących projektantek. Poznaj\n' +
+          'tajniki dobrze skonstruowanych, czytelnych i zrozumiałych wzorów na druty pod czujnym\n' +
+          'okiem edytora technicznego. Zadbaj o to, żeby dzierganie Twojego projektu było\n' +
+          'najprzyjemniejszym doświadczeniem każdego rękodzielnika! Zamiast poświęcać masę\n' +
+          'czasu na poszukiwanie podpowiedzi i wskazówek dotyczących pisania instrukcji\n' +
+          'dziewiarskich, zapisz się na warsztat i otrzymaj całą wiedzę w pigułce. <br> Nauczysz się między\n' +
+          'innymi: ' +
+          '<ul>' +
+          '<li>jak skonstruować wzór oraz co w nim zawrzeć</li>' +
+          '<li>dlaczego próbka, rozpiska rozmiarów oraz obliczenia mają kluczowe znaczenie</li>' +
+          '<li>jak identyfikować kwestie sporne oraz w jaki sposób sobie z nimi radzić</li>' +
+          '<li>na co zwracać uwagę w przypadku tłumaczenia na inne języki oraz dostosowania instrukcji\n' +
+          'do poszczególnych grup docelowych.</li>' +
+          '</ul>'
       },
       ludart: {
         title: 'Haft ludowy',
@@ -221,28 +233,50 @@ export const pl = {
         title: 'Żakard dla zaawansowanych',
         materials:
           '<ul>' +
-          '<li>włóczka o grubości ok. 100m w 50g, jednolita kolorystycznie, jasna i gładka (bez włosków)</li>' +
+          '<li>Włóczkę zapewnia sponsor warsztatów @strikke.pl!</li>' +
           '<li>druty 4,00 mm na żyłce (długość żyłki do pracy w okrążeniach)</li>' +
-          '<li>markery dziewiarskie w formie agrafki (wypinane) ok. 12 szt. </li>' +
-          '<li>zwykłe markery dziewiarskie (inne niż te wypinane)</li>' +
+          '<li>kilka sztuk markerów</li>' +
           '</ul>',
-        description: 'Todo'
+        description:
+          'Podczas warsztatów nauczysz się metody, którą możesz stosować przy dużych motywach żakardowych. Pozwala ona pracować z długimi przejściami kolorystycznymi i jest niewidoczna na prawej stronie robótki. Przy zastosowaniu tej metody, robótka jest bardziej elastyczna i nie ściąga się. Możesz ją zastosować także przy dużym pojedynczym motywie, w niektórych przypadkach może zastąpić intarsję.'
       },
       haftowaBaba: {
-        title: 'Haft wełną na dzianinie',
-        materials: 'Czapka lub opaska',
-        description: 'Todo'
+        title: 'Haft na wełnie',
+        materials: '<ul><li>Włóczka do haftu</li><li>Czapka lub opaska</li></ul>',
+        description:
+          'Na warsztatach nauczycie się jak ozdobić swoje udziergi wyszywając na nich. <br>Haft wełną na wełnie? Dlaczego nie! Zabierz ze sobą czapkę, opaskę lub dowolną dzianinę i przyjdź na warsztaty, gdzie pod czujnym okiem Kamili dowiecie się jak okiełznać nitkę i igłę na tyle, by wyczarować piękne haftowane wzory.'
       },
       iwona: {
         title: 'Rzędy skrócone',
-        materials: '<ul><li>włóczka i gotowa próbka</li></ul>',
-        description: 'Todo'
+        materials:
+          '<ul>' +
+          '<li>druty</li>' +
+          '<li>kilka markerów typu agrafka</li>' +
+          '<li>nożyczki</li>' +
+          '<li>notatnik i długopis</li>' +
+          '</ul>',
+        description:
+          '<ul>' +
+          '<li>Co to są rzędy skrócone i jakie mają zastosowanie w dzianinie</li>' +
+          '<li>Na czym polega dzierganie rzędów skróconych</li>' +
+          '<li>W jakich miejscach w robótce można wykorzystać rzędy skrócone</li>' +
+          '<li>Jak wykorzystać rzędy skrócone, żeby nadać dzianinie pożądany kształt</li>' +
+          '<li>Czterech różnych metod rzędów skróconych</li>' +
+          '</ul>'
       },
       kroopa: {
         title: 'Podstawy żakardu',
         materials:
-          '<ul><li>włóczka grubości Aran / Worsted</li><li>druty w rozmiarze 4.5 z żyłką 60cm</li><li>opcjonalnie druty w rozmiarze 3-3.5 z żyłką 60cm na ściągacz</li></ul>',
-        description: 'Todo'
+          '<ul><li>Włóczkę zapewnia sponsor Gabo Wool!</li><li>druty w rozmiarze 4.5 z żyłką 60cm</li><li>druty w rozmiarze 3 lub 3.5 z żyłką 60cm</li></ul>',
+        description:
+          'W trakcie warsztatów Karolina pokaże Ci jak rozpocząć swoją przygodę z kolorowymi wzorami żakardowymi. Wspólnie rozpoczniemy wykonywanie specjalnie zaprojektowanego na tę okazję wełnianego komina, przygotowanego tak, aby krok po kroku zwiększać trudność i w przyjemny sposób opanowywać trzymanie dwóch nitek. W trakcie warsztatów rozpoczniesz przerabianie swojego komina i dowiesz się jak z łatwością dokończyć go w domu.<br><br>' +
+          'Karolina pokaże Ci dwa sposoby trzymania nitek, nauczy jak dodawać kolejny kolor, podpowie na co zwrócić uwagę przy doborze drutów, włóczki oraz kolorów. Podzieli się tym jak i kiedy zawijać nitki przy żakardach i co to w ogóle znaczy. Zdradzi wszystkie swoje żakardowe sekrety. 😉<br>' +
+          'Podstawowe umiejętności konieczne do wzięcia udziału w warsztacie: <br>' +
+          '<ul>' +
+          '<li>nabieranie oczek</li>' +
+          '<li>przerabianie ściągaczem</li>' +
+          '<li>dodawanie oczek</li>' +
+          '<li>praca ściegiem gładkim w okrążeniach</li></ul>'
       },
       drutututu: {
         title: 'Druty - podstawy',

@@ -33,7 +33,7 @@ export const CruiseMap = () => {
         <Typography size="lg" weight="bold">
           {t('cashmereTicketsBand.map.time')}
         </Typography>
-        <Typography size="sm">17:30 – 19:30</Typography>
+        <Typography size="sm">17:15 – 19:15</Typography>
       </FlexColumnLayout>
 
       <FlexColumnLayout gap="sm" padding="none" align="flex-start">

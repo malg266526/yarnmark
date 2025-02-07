@@ -8,9 +8,7 @@ import { RedesignSpacings } from '../../styles/spacings';
 import { RowLayout } from '../../components/RowLayout';
 import redMapMarkerIconUrl from '../../assets/figmaIcons/red_map_marker_icon.svg';
 import blueTicketsIconUrl from '../../assets/figmaIcons/blue_tickets_icon.svg';
-/*
 import shipIconUrl from '../../assets/figmaIcons/ship_icon.svg';
-*/
 import storeIconUrl from '../../assets/figmaIcons/store_icon.svg';
 import { Button } from '../../components/Button';
 /*
@@ -30,7 +28,7 @@ const InfoSectionWrapper = styled.div`
 `;
 
 const IconButton = styled(Button)`
-  max-width: 60px;
+  max-width: 100px;
   color: ${TextColors.accent};
   text-align: center;
 `;
@@ -69,10 +67,10 @@ export const NavigationBand = () => {
           <Typography size="sm">{t('location.whereToFindUs')}</Typography>
         </IconButton>
 
-        {/*        <IconButton onClick={() => (window.location.href = '/home#cruise')}>
+        <IconButton onClick={() => (window.location.href = '/home#cruise')}>
           <Icon size="xl" zIndex={0} src={shipIconUrl} />
           <Typography size="sm">{t('tickets.cruise')}</Typography>
-        </IconButton>*/}
+        </IconButton>
 
         {/*        <IconButton onClick={() => window.open('/hall')}>
           <Icon size="xl" zIndex={0} src={mapIcon} />
