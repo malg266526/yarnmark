@@ -135,6 +135,8 @@ const SwitchRow = styled.div<{ isOpen?: boolean }>`
 `;
 
 const TicketsSection = styled.div<{ isOpen?: boolean }>`
+  display: flex;
+  flex-direction: column;
   background-color: ${BackgroundColors.ticketBand};
   border-radius: 6px;
   gap: 7px;
@@ -230,14 +232,14 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
             {isMenuExpanded && <Typography size="sm">{t('menu.workshopTickets')}</Typography>}
           </MenuItem>
 
-          {/*          <MenuItem
+          <MenuItem
             href="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833"
             target="_blank"
             isOpen={isMenuExpanded}
             aria-label="cruise_tickets_menu_item">
             <Icon size="sm" zIndex={0} src={ticketIcon} />
             {isMenuExpanded && <Typography size="sm">{t('menu.cruiseTickets')}</Typography>}
-          </MenuItem>*/}
+          </MenuItem>
         </TicketsSection>
 
         <MenuItem href="/home#workshops" isOpen={isMenuExpanded} aria-label="workshops_menu_item" onClick={closeMenu}>
