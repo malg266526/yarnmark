@@ -107,6 +107,7 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
         alt={t(workshop.topicKey)}
         width={106}
         height={106}
+        style={{ borderRadius: '50%', objectFit: 'cover' }}
       />
 
       <InfoSection>
