@@ -222,7 +222,10 @@ export const pl = {
           '<li>jak identyfikować kwestie sporne oraz w jaki sposób sobie z nimi radzić</li>' +
           '<li>na co zwracać uwagę w przypadku tłumaczenia na inne języki oraz dostosowania instrukcji\n' +
           'do poszczególnych grup docelowych.</li>' +
-          '</ul>'
+          '</ul>',
+        aboutMe:
+          'Zawodowo: tłumacz, tech edytor wzorów na druty, wielozadaniowiec i świetny organizator.\n' +
+          'Prywatnie: mama dwójki Maluchów, kochająca żona i zapalona dziewiarka. Dzierganie otworzyło jej drzwi do nowego świata, w którym realizuje swoje pasje i pomaga projektantkom oraz dziewiarkom. Znajdziesz ją na Instagramie @edknitted'
       },
       ludart: {
         title: 'Haft ludowy',
@@ -230,7 +233,7 @@ export const pl = {
         description: 'Todo'
       },
       knitolog: {
-        title: 'Żakard dla zaawansowanych',
+        title: 'Żakard dla mniej lub bardziej zaawansowanych',
         materials:
           '<ul>' +
           '<li>Włóczkę zapewnia sponsor warsztatów @strikke.pl!</li>' +
@@ -238,16 +241,21 @@ export const pl = {
           '<li>kilka sztuk markerów</li>' +
           '</ul>',
         description:
-          'Podczas warsztatów nauczysz się metody, którą możesz stosować przy dużych motywach żakardowych. Pozwala ona pracować z długimi przejściami kolorystycznymi i jest niewidoczna na prawej stronie robótki. Przy zastosowaniu tej metody, robótka jest bardziej elastyczna i nie ściąga się. Możesz ją zastosować także przy dużym pojedynczym motywie, w niektórych przypadkach może zastąpić intarsję.'
+          'Podczas warsztatów nauczysz się metody, którą możesz stosować przy dużych motywach żakardowych. Pozwala ona pracować z długimi przejściami kolorystycznymi i jest niewidoczna na prawej stronie robótki. Przy zastosowaniu tej metody, robótka jest bardziej elastyczna i nie ściąga się. Możesz ją zastosować także przy dużym pojedynczym motywie, w niektórych przypadkach może zastąpić intarsję. <br> Każdy uczestnik warsztatów otrzyma, zaprojektowany przez Dorotę wzór dziewiarski z wykorzystaniem przedstawionej metody.',
+        aboutMe:
+          'W sieci znana jako Knitolog, od 7 lat projektuje i publikuje na Ravelry wzory dziewiarskie. W swojej ofercie ma 79 projektów, które cieszą się dużym powodzeniem i sprzedawane są na całym świecie.'
       },
       haftowaBaba: {
         title: 'Haft na wełnie',
-        materials: '<ul><li>Włóczka do haftu</li><li>Czapka lub opaska</li></ul>',
+        materials:
+          '<ul><li>czapkę lub inny udzierg, na którym chcesz wykonać haft.</li><li>HAFTOWA BABA zapewnia wełnę, igły, nożyczki i inne potrzebne akcesoria warsztatowe.</li></ul>',
+        aboutMe:
+          'Kamila, znana w środowisku rękodzielniczym jako Haftowa Baba to rekodzielniczka i edukatorka, która od 6 lat tworzy magię na tkaninach. Jej realistyczne hafty zwierząt i roslin ujęły tysiące w mediach społecznościowych ale też "prawdziwym świecie". Kamila szerzy swoją pasję na warsztatach między innymi z haftu płaskiego.',
         description:
-          'Na warsztatach nauczycie się jak ozdobić swoje udziergi wyszywając na nich. <br>Haft wełną na wełnie? Dlaczego nie! Zabierz ze sobą czapkę, opaskę lub dowolną dzianinę i przyjdź na warsztaty, gdzie pod czujnym okiem Kamili dowiecie się jak okiełznać nitkę i igłę na tyle, by wyczarować piękne haftowane wzory.'
+          'Na warsztatach nauczycie się jak ozdobić swoje udziergi za pomocą haftu. Pod okiem Kamili - doświadczonej edukatorki i hafciarki, poznacie tajniki haftu na wełnie. Wykonacie kwiatowy wzór, który doda uroku Waszej dzianinie. Haftowa Baba pokaże Wam podstawowe techniki haftu płaskiego i jak z ich pomoca wyczarować wyczarować coś niezwykłego.'
       },
       iwona: {
-        title: 'Rzędy skrócone',
+        title: 'Rzędy skrócone i ich zastosowanie w dzianinie',
         materials:
           '<ul>' +
           '<li>druty</li>' +
@@ -276,7 +284,9 @@ export const pl = {
           '<li>nabieranie oczek</li>' +
           '<li>przerabianie ściągaczem</li>' +
           '<li>dodawanie oczek</li>' +
-          '<li>praca ściegiem gładkim w okrążeniach</li></ul>'
+          '<li>praca ściegiem gładkim w okrążeniach</li></ul>',
+        aboutMe:
+          'Karolina Adamczyk na drutach robi od dziecka, a od kilku lat naprawdę intensywnie. Jest to jej wielka pasja i uzależnienie do tego stopnia, że robótkę ma praktycznie zawsze przy sobie.  Najbardziej lubi robić wełniane czapki, skarpety i rękawiczki w kolorowe wzory. Jest to dla niej sposób na relaks, odpoczynek, oderwanie od problemów dnia codziennego. Karolinę i jej cudownie kolorowe dzieła znajdziesz na blogu, Facebooku, Instagramie oraz na Ravelry i kanale YouTube.'
       },
       drutututu: {
         title: 'Druty - podstawy',

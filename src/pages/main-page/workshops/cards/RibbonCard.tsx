@@ -44,6 +44,7 @@ export const RibbonCard = ({ workshop, onClick }: RibbonCardProps) => {
         alt={t(workshop.topicKey)}
         width={150}
         height={150}
+        style={{ borderRadius: '50%', objectFit: 'cover' }}
       />
 
       <CtaButton onClick={() => window.open(workshop.ticketUrl, '_blank')} aria-label="open workshops tickets">

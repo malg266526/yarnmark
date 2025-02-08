@@ -20,6 +20,7 @@ import { TextToListFormatter } from '../../../components/TextToListFormatter';
 const WorkshopModalLayout = styled(Modal)`
   display: flex;
   width: 800px;
+  max-height: 100%;
   margin: auto;
   padding: ${RedesignSpacings.md};
   background-color: white;
@@ -27,6 +28,7 @@ const WorkshopModalLayout = styled(Modal)`
   box-shadow: ${DropShadow.md};
   border: none;
   outline: none;
+  overflow: auto;
 `;
 
 const Beam = styled(FlexColumnLayout)`
@@ -113,7 +115,13 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
             alt={t(workshop.topicKey)}
             width={150}
             height={150}
+            style={{ borderRadius: '50%', objectFit: 'cover' }}
           />
+
+          <RowLayout>
+            <WorkshopSectionTitle size="md">Prowadząca:</WorkshopSectionTitle>
+            <Typography size="md">{workshop.leading}</Typography>
+          </RowLayout>
 
           <WorkshopDescription>
             <FlexColumnLayout padding="none" gap="sm" width="50%">
