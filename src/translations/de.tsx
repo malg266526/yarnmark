@@ -211,7 +211,24 @@ export const de: TranslationsShape = {
       price: 'Preis',
       edknitted: {
         title: 'Polish Your Pattern czyli jak odpicować swój wzór',
-        description: 'Todo'
+        description:
+          'To warsztaty idealne dla wszystkich aspirujących oraz początkujących projektantek. Poznaj\n' +
+          'tajniki dobrze skonstruowanych, czytelnych i zrozumiałych wzorów na druty pod czujnym\n' +
+          'okiem edytora technicznego. Zadbaj o to, żeby dzierganie Twojego projektu było\n' +
+          'najprzyjemniejszym doświadczeniem każdego rękodzielnika! Zamiast poświęcać masę\n' +
+          'czasu na poszukiwanie podpowiedzi i wskazówek dotyczących pisania instrukcji\n' +
+          'dziewiarskich, zapisz się na warsztat i otrzymaj całą wiedzę w pigułce. <br> Nauczysz się między\n' +
+          'innymi: ' +
+          '<ul>' +
+          '<li>jak skonstruować wzór oraz co w nim zawrzeć</li>' +
+          '<li>dlaczego próbka, rozpiska rozmiarów oraz obliczenia mają kluczowe znaczenie</li>' +
+          '<li>jak identyfikować kwestie sporne oraz w jaki sposób sobie z nimi radzić</li>' +
+          '<li>na co zwracać uwagę w przypadku tłumaczenia na inne języki oraz dostosowania instrukcji\n' +
+          'do poszczególnych grup docelowych.</li>' +
+          '</ul>',
+        aboutMe:
+          'Zawodowo: tłumacz, tech edytor wzorów na druty, wielozadaniowiec i świetny organizator.\n' +
+          'Prywatnie: mama dwójki Maluchów, kochająca żona i zapalona dziewiarka. Dzierganie otworzyło jej drzwi do nowego świata, w którym realizuje swoje pasje i pomaga projektantkom oraz dziewiarkom. Znajdziesz ją na Instagramie @edknitted'
       },
       ludart: {
         title: 'Haft ludowy',
@@ -219,31 +236,60 @@ export const de: TranslationsShape = {
         description: 'Todo'
       },
       knitolog: {
-        title: 'Żakard dla zaawansowanych',
+        title: 'Żakard dla mniej lub bardziej zaawansowanych',
         materials:
           '<ul>' +
-          '<li>włóczka o grubości ok. 100m w 50g, jednolita kolorystycznie, jasna i gładka (bez włosków)</li>' +
+          '<li>Włóczkę zapewnia sponsor warsztatów @strikke.pl!</li>' +
           '<li>druty 4,00 mm na żyłce (długość żyłki do pracy w okrążeniach)</li>' +
-          '<li>markery dziewiarskie w formie agrafki (wypinane) ok. 12 szt. </li>' +
-          '<li>zwykłe markery dziewiarskie (inne niż te wypinane)</li>' +
+          '<li>kilka sztuk markerów</li>' +
           '</ul>',
-        description: 'Todo'
+        description:
+          'Podczas warsztatów nauczysz się metody, którą możesz stosować przy dużych motywach żakardowych. Pozwala ona pracować z długimi przejściami kolorystycznymi i jest niewidoczna na prawej stronie robótki. Przy zastosowaniu tej metody, robótka jest bardziej elastyczna i nie ściąga się. Możesz ją zastosować także przy dużym pojedynczym motywie, w niektórych przypadkach może zastąpić intarsję. <br> Każdy uczestnik warsztatów otrzyma, zaprojektowany przez Dorotę wzór dziewiarski z wykorzystaniem przedstawionej metody.',
+        aboutMe:
+          'W sieci znana jako Knitolog, od 7 lat projektuje i publikuje na Ravelry wzory dziewiarskie. W swojej ofercie ma 79 projektów, które cieszą się dużym powodzeniem i sprzedawane są na całym świecie.'
       },
       haftowaBaba: {
-        title: 'Wool embroidery on knitted fabric',
-        materials: 'Czapka lub opaska',
-        description: 'Todo'
+        title: 'Haft na wełnie',
+        materials:
+          '<ul><li>czapkę lub inny udzierg, na którym chcesz wykonać haft.</li><li>HAFTOWA BABA zapewnia wełnę, igły, nożyczki i inne potrzebne akcesoria warsztatowe.</li></ul>',
+        aboutMe:
+          'Kamila, znana w środowisku rękodzielniczym jako Haftowa Baba to rekodzielniczka i edukatorka, która od 6 lat tworzy magię na tkaninach. Jej realistyczne hafty zwierząt i roslin ujęły tysiące w mediach społecznościowych ale też "prawdziwym świecie". Kamila szerzy swoją pasję na warsztatach między innymi z haftu płaskiego.',
+        description:
+          'Na warsztatach nauczycie się jak ozdobić swoje udziergi za pomocą haftu. Pod okiem Kamili - doświadczonej edukatorki i hafciarki, poznacie tajniki haftu na wełnie. Wykonacie kwiatowy wzór, który doda uroku Waszej dzianinie. Haftowa Baba pokaże Wam podstawowe techniki haftu płaskiego i jak z ich pomoca wyczarować wyczarować coś niezwykłego.'
       },
       iwona: {
-        title: 'Rzędy skrócone',
-        materials: '<ul><li>włóczka i gotowa próbka</li></ul>',
-        description: 'Todo'
+        title: 'Rzędy skrócone i ich zastosowanie w dzianinie',
+        materials:
+          '<ul>' +
+          '<li>druty</li>' +
+          '<li>kilka markerów typu agrafka</li>' +
+          '<li>nożyczki</li>' +
+          '<li>notatnik i długopis</li>' +
+          '</ul>',
+        description:
+          '<ul>' +
+          '<li>Co to są rzędy skrócone i jakie mają zastosowanie w dzianinie</li>' +
+          '<li>Na czym polega dzierganie rzędów skróconych</li>' +
+          '<li>W jakich miejscach w robótce można wykorzystać rzędy skrócone</li>' +
+          '<li>Jak wykorzystać rzędy skrócone, żeby nadać dzianinie pożądany kształt</li>' +
+          '<li>Czterech różnych metod rzędów skróconych</li>' +
+          '</ul>'
       },
       kroopa: {
         title: 'Podstawy żakardu',
         materials:
-          '<ul><li>włóczka grubości Aran / Worsted</li><li>druty w rozmiarze 4.5 z żyłką 60cm</li><li>opcjonalnie druty w rozmiarze 3-3.5 z żyłką 60cm na ściągacz</li></ul>',
-        description: 'Todo'
+          '<ul><li>Włóczkę zapewnia sponsor Gabo Wool!</li><li>druty w rozmiarze 4.5 z żyłką 60cm</li><li>druty w rozmiarze 3 lub 3.5 z żyłką 60cm</li></ul>',
+        description:
+          'W trakcie warsztatów Karolina pokaże Ci jak rozpocząć swoją przygodę z kolorowymi wzorami żakardowymi. Wspólnie rozpoczniemy wykonywanie specjalnie zaprojektowanego na tę okazję wełnianego komina, przygotowanego tak, aby krok po kroku zwiększać trudność i w przyjemny sposób opanowywać trzymanie dwóch nitek. W trakcie warsztatów rozpoczniesz przerabianie swojego komina i dowiesz się jak z łatwością dokończyć go w domu.<br><br>' +
+          'Karolina pokaże Ci dwa sposoby trzymania nitek, nauczy jak dodawać kolejny kolor, podpowie na co zwrócić uwagę przy doborze drutów, włóczki oraz kolorów. Podzieli się tym jak i kiedy zawijać nitki przy żakardach i co to w ogóle znaczy. Zdradzi wszystkie swoje żakardowe sekrety. 😉<br>' +
+          'Podstawowe umiejętności konieczne do wzięcia udziału w warsztacie: <br>' +
+          '<ul>' +
+          '<li>nabieranie oczek</li>' +
+          '<li>przerabianie ściągaczem</li>' +
+          '<li>dodawanie oczek</li>' +
+          '<li>praca ściegiem gładkim w okrążeniach</li></ul>',
+        aboutMe:
+          'Karolina Adamczyk na drutach robi od dziecka, a od kilku lat naprawdę intensywnie. Jest to jej wielka pasja i uzależnienie do tego stopnia, że robótkę ma praktycznie zawsze przy sobie.  Najbardziej lubi robić wełniane czapki, skarpety i rękawiczki w kolorowe wzory. Jest to dla niej sposób na relaks, odpoczynek, oderwanie od problemów dnia codziennego. Karolinę i jej cudownie kolorowe dzieła znajdziesz na blogu, Facebooku, Instagramie oraz na Ravelry i kanale YouTube.'
       },
       drutututu: {
         title: 'Druty - podstawy',
