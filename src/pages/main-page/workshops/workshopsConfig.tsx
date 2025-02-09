@@ -46,6 +46,7 @@ export type WorkshopsEntry = {
     instagram?: string;
     other?: string;
   };
+  aboutMe?: UnprefixedTranslationKeys;
 };
 
 export const WorkshopsConfig: WorkshopsEntry[] = [
@@ -77,7 +78,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       facebook: 'https://www.instagram.com/knitolog/',
       instagram: 'https://www.facebook.com/knitologwpodrozy',
       other: 'www.knitologwpodrozy.pl'
-    }
+    },
+    aboutMe: 'workshops.knitolog.aboutMe'
   },
   {
     topicKey: 'workshops.haftowaBaba.title',
@@ -105,7 +107,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     links: {
       instagram: 'https://www.instagram.com/haftowababa/',
       other: 'https://haftowababa.pl/'
-    }
+    },
+    aboutMe: 'workshops.haftowaBaba.aboutMe'
   },
   {
     topicKey: 'workshops.ludart.title',
@@ -130,6 +133,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     ticketUrl: 'www.todo.com',
     description: 'workshops.ludart.description',
     materials: 'workshops.ludart.materials'
+    //aboutMe: 'workshops.ludart.aboutMe'
   },
   {
     topicKey: 'workshops.iwona.title',
@@ -143,7 +147,12 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     price: 170,
     ticketUrl: 'www.todo.com',
     description: 'workshops.iwona.description',
-    materials: 'workshops.iwona.materials'
+    materials: 'workshops.iwona.materials',
+    aboutMe: 'workshops.iwona.aboutMe',
+    links: {
+      instagram: 'https://www.instagram.com/iwonaeriksson/',
+      other: 'https://www.iwonaerikssondesign.eu/'
+    }
   },
   {
     topicKey: 'workshops.kroopa.title',
@@ -163,7 +172,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     price: 175,
     ticketUrl: 'www.todo.com',
     description: 'workshops.kroopa.description',
-    materials: 'workshops.kroopa.materials'
+    materials: 'workshops.kroopa.materials',
+    aboutMe: 'workshops.kroopa.aboutMe'
   },
   {
     topicKey: 'workshops.edknitted.title',
@@ -186,7 +196,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     price: 175,
     description: 'workshops.edknitted.description',
-    ticketUrl: 'www.todo.com'
+    ticketUrl: 'www.todo.com',
+    aboutMe: 'workshops.edknitted.aboutMe'
   },
   {
     topicKey: 'workshops.skein.title',
@@ -258,5 +269,6 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     ticketUrl: 'www.todo.com',
     description: 'workshops.heartofcotton.description',
     materials: 'workshops.heartofcotton.materials'
+    //aboutMe: ''
   }
 ];

@@ -127,7 +127,6 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
             <FlexColumnLayout padding="none" gap="sm" width="50%">
               <WorkshopSectionTitle size="md">Czego się nauczysz?</WorkshopSectionTitle>
               <Typography size="sm">
-                {/*<Trans i18nKey={workshop.description ? t(workshop.description) : '-'} />*/}
                 <TextToListFormatter text={workshop.description ? t(workshop.description) : '-'} />
               </Typography>
             </FlexColumnLayout>
@@ -139,6 +138,15 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
               </Typography>
             </FlexColumnLayout>
           </WorkshopDescription>
+
+          {workshop.aboutMe && (
+            <>
+              <FlexColumnLayout padding="none" gap="sm">
+                <WorkshopSectionTitle size="md">O prowadzącej:</WorkshopSectionTitle>
+                <Typography size="sm">{workshop.aboutMe ? t(workshop.aboutMe) : '-'}</Typography>
+              </FlexColumnLayout>
+            </>
+          )}
 
           <PriceInfo>
             <Typography size="md">

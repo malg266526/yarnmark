@@ -270,7 +270,14 @@ export const pl = {
           '<li>W jakich miejscach w robótce można wykorzystać rzędy skrócone</li>' +
           '<li>Jak wykorzystać rzędy skrócone, żeby nadać dzianinie pożądany kształt</li>' +
           '<li>Czterech różnych metod rzędów skróconych</li>' +
-          '</ul>'
+          '</ul>',
+        aboutMe:
+          'Nazywam się Iwona Eriksson i dziergam na drutach „od zawsze”.\n' +
+          'Od wielu lat mieszkam w Szwecji, chłonę tutejsze tradycje dziewiarstwa, ale jednocześnie pielęgnuję i rozwijam dziewiarstwo polskie.\n' +
+          'Od ponad 10 lat uczę robienia na drutach na YouTube, a także tworzę kursy dziewiarskie na moich własnych stronach www. Piszę dziewiarskie wzory, prowadzę dziewiarski podcast „Zmagania Drutoterapii” oraz tematyczne transmisje na żywo.\n' +
+          'Uczę się nowych technik, konstrukcji, ściegów i kolekcjonuję piękne włóczki.\n' +
+          'Dziewiarstwo jest moją pasją, ale mam także wiele innych zainteresowań jak historia, parapsychologia i fizyka kwantowa. Kocham zwierzęta, mój ogród i naturę.\n' +
+          'Będzie mi bardzo miło podzielić się z wami moją wiedzą.'
       },
       kroopa: {
         title: 'Podstawy żakardu',
