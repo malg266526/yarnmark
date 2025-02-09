@@ -140,6 +140,15 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
             </FlexColumnLayout>
           </WorkshopDescription>
 
+          {workshop.aboutMe && (
+            <>
+              <FlexColumnLayout padding="none" gap="sm">
+                <WorkshopSectionTitle size="md">O prowadzącej:</WorkshopSectionTitle>
+                <Typography size="sm">{workshop.aboutMe ? t(workshop.aboutMe) : '-'}</Typography>
+              </FlexColumnLayout>
+            </>
+          )}
+
           <PriceInfo>
             <Typography size="md">
               {t('workshops.price')}: {workshop.price}zł

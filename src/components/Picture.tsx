@@ -11,10 +11,11 @@ type PictureProps = {
   alt: string;
   picture: PictureType;
   style?: CSSProperties;
+  pictureStyle?: CSSProperties;
 };
 
-export const Picture = ({ width, alt, picture, style, height }: PictureProps) => (
-  <picture>
+export const Picture = ({ width, alt, picture, style, height, pictureStyle }: PictureProps) => (
+  <picture style={pictureStyle}>
     {picture.sources?.map(({ type, url }, index) => <source key={index} srcSet={url} type={type} />)}
 
     <img width={width} height={height} src={picture.fallbackUrl} alt={alt} style={style} />
