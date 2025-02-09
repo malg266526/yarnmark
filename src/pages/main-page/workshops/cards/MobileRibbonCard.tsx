@@ -4,7 +4,7 @@ import React from 'react';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import styled from 'styled-components';
 import { RedesignSpacings } from '../../../../styles/spacings';
-import { BackgroundColors } from '../../../../styles/theme';
+import { BackgroundColors, TextColors } from '../../../../styles/theme';
 import { WorkshopsEntry } from '../workshopsConfig';
 import { Ribbon } from './Ribbon';
 import { Button, CtaButton } from '../../../../components/Button';
@@ -17,6 +17,8 @@ import { RowLayout } from '../../../../components/RowLayout';
 import { CardLayout } from './CardLayout';
 import { WorkshopPrice } from './WorkshopPrice';
 import { FontSize } from '../../../../styles/font-size';
+import { TextToListFormatter } from '../../../../components/TextToListFormatter';
+import { FlexColumnLayout } from '../../../../components/FlexColumnLayout';
 
 const MobileCardLayout = styled(CardLayout)<{ isExpanded?: boolean }>`
   flex-direction: ${({ isExpanded }) => (isExpanded ? 'column' : 'row')};
@@ -55,6 +57,10 @@ const VerticalRibbonIcon = styled.div<{ src: string }>`
 
 const SmallCtaButton = styled(CtaButton)`
   font-size: ${FontSize.sm};
+`;
+
+const WorkshopSectionTitle = styled(Typography)`
+  color: ${TextColors.secondary};
 `;
 
 const VerticalRibbonTextWrapper = styled.div`
@@ -112,7 +118,12 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
 
       <InfoSection>
         {isExpanded ? (
-          <Typography size="sm">{workshop.description ? t(workshop.description) : 'Todo'}</Typography>
+          <FlexColumnLayout padding="none" width="100%">
+            <WorkshopSectionTitle size="md">Czego się nauczysz?</WorkshopSectionTitle>
+            <Typography size="sm">
+              <TextToListFormatter text={workshop.description ? t(workshop.description) : 'Todo'} />
+            </Typography>
+          </FlexColumnLayout>
         ) : (
           <Typography size="sm">{t(workshop.topicKey)}</Typography>
         )}

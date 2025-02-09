@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FlexColumnLayout } from './FlexColumnLayout';
+import { ScreenSize } from '../styles/screeen-size';
 
 const WorkshopUl = styled.ul`
   margin: 0;
@@ -9,6 +10,10 @@ const WorkshopUl = styled.ul`
 const Scrollable = styled.div`
   overflow-y: auto;
   max-height: 300px;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    max-height: 200px;
+  }
 `;
 
 const ulSeparator = '<ul>';

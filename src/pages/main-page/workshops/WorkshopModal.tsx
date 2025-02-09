@@ -127,7 +127,6 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
             <FlexColumnLayout padding="none" gap="sm" width="50%">
               <WorkshopSectionTitle size="md">Czego się nauczysz?</WorkshopSectionTitle>
               <Typography size="sm">
-                {/*<Trans i18nKey={workshop.description ? t(workshop.description) : '-'} />*/}
                 <TextToListFormatter text={workshop.description ? t(workshop.description) : '-'} />
               </Typography>
             </FlexColumnLayout>
