@@ -72,7 +72,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     price: 250,
     ticketUrl: 'www.todo.com',
     description: 'workshops.skein.description',
-    materials: 'workshops.skein.materials'
+    materials: 'workshops.skein.materials',
+    aboutMe: 'workshops.skein.aboutMe'
   },
   {
     topicKey: 'workshops.drutututu.title',
@@ -96,7 +97,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     price: 90,
     ticketUrl: 'www.todo.com',
     description: 'workshops.drutututu.description',
-    materials: 'workshops.drutututu.materials'
+    materials: 'workshops.drutututu.materials',
+    aboutMe: 'workshops.drutututu.aboutMe'
   },
   {
     topicKey: 'workshops.heartofcotton.title',
@@ -120,8 +122,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     price: 90,
     ticketUrl: 'www.todo.com',
     description: 'workshops.heartofcotton.description',
-    materials: 'workshops.heartofcotton.materials'
-    //aboutMe: ''
+    materials: 'workshops.heartofcotton.materials',
+    aboutMe: 'workshops.heartofcotton.aboutMe'
   },
   {
     topicKey: 'workshops.edknitted.title',
