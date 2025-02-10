@@ -228,16 +228,16 @@ export const en: TranslationsShape = {
       },
       ludart: {
         title: 'Haft ludowy',
-        materials: 'Zapewnia prowadzący',
+        materials: 'Materiały zapewnia prowadzący',
         description: 'Todo'
       },
       knitolog: {
         title: 'Żakard dla mniej lub bardziej zaawansowanych',
         materials:
           '<ul>' +
-          '<li>Włóczkę zapewnia sponsor warsztatów @strikke.pl!</li>' +
           '<li>druty 4,00 mm na żyłce (długość żyłki do pracy w okrążeniach)</li>' +
           '<li>kilka sztuk markerów</li>' +
+          '<li>włóczkę zapewnia sponsor warsztatów @strikke.pl!</li>' +
           '</ul>',
         description:
           'Podczas warsztatów nauczysz się metody, którą możesz stosować przy dużych motywach żakardowych. Pozwala ona pracować z długimi przejściami kolorystycznymi i jest niewidoczna na prawej stronie robótki. Przy zastosowaniu tej metody, robótka jest bardziej elastyczna i nie ściąga się. Możesz ją zastosować także przy dużym pojedynczym motywie, w niektórych przypadkach może zastąpić intarsję. <br> Każdy uczestnik warsztatów otrzyma, zaprojektowany przez Dorotę wzór dziewiarski z wykorzystaniem przedstawionej metody.',
@@ -269,12 +269,19 @@ export const en: TranslationsShape = {
           '<li>W jakich miejscach w robótce można wykorzystać rzędy skrócone</li>' +
           '<li>Jak wykorzystać rzędy skrócone, żeby nadać dzianinie pożądany kształt</li>' +
           '<li>Czterech różnych metod rzędów skróconych</li>' +
-          '</ul>'
+          '</ul>',
+        aboutMe:
+          'Nazywam się Iwona Eriksson i dziergam na drutach „od zawsze”.\n' +
+          'Od wielu lat mieszkam w Szwecji, chłonę tutejsze tradycje dziewiarstwa, ale jednocześnie pielęgnuję i rozwijam dziewiarstwo polskie.\n' +
+          'Od ponad 10 lat uczę robienia na drutach na YouTube, a także tworzę kursy dziewiarskie na moich własnych stronach www. Piszę dziewiarskie wzory, prowadzę dziewiarski podcast „Zmagania Drutoterapii” oraz tematyczne transmisje na żywo.\n' +
+          'Uczę się nowych technik, konstrukcji, ściegów i kolekcjonuję piękne włóczki.\n' +
+          'Dziewiarstwo jest moją pasją, ale mam także wiele innych zainteresowań jak historia, parapsychologia i fizyka kwantowa. Kocham zwierzęta, mój ogród i naturę.\n' +
+          'Będzie mi bardzo miło podzielić się z wami moją wiedzą.'
       },
       kroopa: {
         title: 'Podstawy żakardu',
         materials:
-          '<ul><li>Włóczkę zapewnia sponsor Gabo Wool!</li><li>druty w rozmiarze 4.5 z żyłką 60cm</li><li>druty w rozmiarze 3 lub 3.5 z żyłką 60cm</li></ul>',
+          '<ul><li>druty w rozmiarze 4.5 z żyłką 60cm</li><li>druty w rozmiarze 3 lub 3.5 z żyłką 60cm</li><li>włóczkę zapewnia sponsor warsztatów Gabo Wool!</li></ul>',
         description:
           'W trakcie warsztatów Karolina pokaże Ci jak rozpocząć swoją przygodę z kolorowymi wzorami żakardowymi. Wspólnie rozpoczniemy wykonywanie specjalnie zaprojektowanego na tę okazję wełnianego komina, przygotowanego tak, aby krok po kroku zwiększać trudność i w przyjemny sposób opanowywać trzymanie dwóch nitek. W trakcie warsztatów rozpoczniesz przerabianie swojego komina i dowiesz się jak z łatwością dokończyć go w domu.<br><br>' +
           'Karolina pokaże Ci dwa sposoby trzymania nitek, nauczy jak dodawać kolejny kolor, podpowie na co zwrócić uwagę przy doborze drutów, włóczki oraz kolorów. Podzieli się tym jak i kiedy zawijać nitki przy żakardach i co to w ogóle znaczy. Zdradzi wszystkie swoje żakardowe sekrety. 😉<br>' +
@@ -289,12 +296,13 @@ export const en: TranslationsShape = {
       },
       drutututu: {
         title: 'Druty - podstawy',
-        description: 'Todo'
+        description: 'Todo',
+        materials: '<ul><li>włóczkę zapewnia sponsor warsztatów Włóczykijki!</li></ul>'
       },
       heartofcotton: {
         title: 'Podstawy szydełka',
         materials:
-          '<ul><li>włóczka grubości około 75m / 50g (1 motek)</li><li>szydełko 4.5</li><li>igła dziewiarska</li><li>nożyczki</li></ul>',
+          '<ul><li>szydełko 4.5</li><li>igła dziewiarska</li><li>nożyczki</li><li>włóczkę zapewnia sponsor warsztatów Włóczykijki!</li></ul>',
         description: 'Todo'
       },
       skein: {

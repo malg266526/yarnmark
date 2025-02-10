@@ -12,7 +12,8 @@ const Scrollable = styled.div`
   max-height: 300px;
 
   @media (max-width: ${ScreenSize.phone}) {
-    max-height: 200px;
+    max-height: unset;
+    overflow-y: visible;
   }
 `;
 
