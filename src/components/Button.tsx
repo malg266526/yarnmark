@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { TextColors } from '../styles/theme';
+import { GrayScale, TextColors } from '../styles/theme';
 import { FontSize } from '../styles/font-size';
 import { RedesignSpacings } from '../styles/spacings';
 import { Radius } from '../styles/cards';
@@ -10,10 +10,10 @@ export const Button = styled.button`
   cursor: pointer;
 `;
 
-export const CtaButton = styled.button`
+export const CtaButton = styled.button<{ disabled?: boolean }>`
   all: unset;
-  cursor: pointer;
-  background-color: ${TextColors.accent};
+  cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
+  background-color: ${({ disabled }) => (disabled ? GrayScale[600] : TextColors.accent)};
   padding: ${RedesignSpacings.xxs} ${RedesignSpacings.sm} 3px ${RedesignSpacings.sm};
   border-radius: ${Radius.xxl};
   color: white;
