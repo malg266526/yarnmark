@@ -236,9 +236,9 @@ export const pl = {
         title: 'Żakard dla mniej lub bardziej zaawansowanych',
         materials:
           '<ul>' +
-          '<li>Włóczkę zapewnia sponsor warsztatów @strikke.pl!</li>' +
           '<li>druty 4,00 mm na żyłce (długość żyłki do pracy w okrążeniach)</li>' +
           '<li>kilka sztuk markerów</li>' +
+          '<li>włóczkę zapewnia sponsor warsztatów @strikke.pl!</li>' +
           '</ul>',
         description:
           'Podczas warsztatów nauczysz się metody, którą możesz stosować przy dużych motywach żakardowych. Pozwala ona pracować z długimi przejściami kolorystycznymi i jest niewidoczna na prawej stronie robótki. Przy zastosowaniu tej metody, robótka jest bardziej elastyczna i nie ściąga się. Możesz ją zastosować także przy dużym pojedynczym motywie, w niektórych przypadkach może zastąpić intarsję. <br> Każdy uczestnik warsztatów otrzyma, zaprojektowany przez Dorotę wzór dziewiarski z wykorzystaniem przedstawionej metody.',
@@ -282,7 +282,7 @@ export const pl = {
       kroopa: {
         title: 'Podstawy żakardu',
         materials:
-          '<ul><li>Włóczkę zapewnia sponsor Gabo Wool!</li><li>druty w rozmiarze 4.5 z żyłką 60cm</li><li>druty w rozmiarze 3 lub 3.5 z żyłką 60cm</li></ul>',
+          '<ul><li>druty w rozmiarze 4.5 z żyłką 60cm</li><li>druty w rozmiarze 3 lub 3.5 z żyłką 60cm</li><li>włóczkę zapewnia sponsor warsztatów Gabo Wool!</li></ul>',
         description:
           'W trakcie warsztatów Karolina pokaże Ci jak rozpocząć swoją przygodę z kolorowymi wzorami żakardowymi. Wspólnie rozpoczniemy wykonywanie specjalnie zaprojektowanego na tę okazję wełnianego komina, przygotowanego tak, aby krok po kroku zwiększać trudność i w przyjemny sposób opanowywać trzymanie dwóch nitek. W trakcie warsztatów rozpoczniesz przerabianie swojego komina i dowiesz się jak z łatwością dokończyć go w domu.<br><br>' +
           'Karolina pokaże Ci dwa sposoby trzymania nitek, nauczy jak dodawać kolejny kolor, podpowie na co zwrócić uwagę przy doborze drutów, włóczki oraz kolorów. Podzieli się tym jak i kiedy zawijać nitki przy żakardach i co to w ogóle znaczy. Zdradzi wszystkie swoje żakardowe sekrety. 😉<br>' +
@@ -297,13 +297,24 @@ export const pl = {
       },
       drutututu: {
         title: 'Druty - podstawy',
-        description: 'Todo'
+        description:
+          'Warsztaty idealne dla osób, które chciałyby zacząć robić na drutach i nie wiedzą od czego zacząć. Podczas warsztatów nauczysz się jak nabrać włóczkę na druty, jak przerabiać oczka prawe, lewe, brzegowe, jak pracować w rzędach i o co chodzi z prawą i lewą stroną dzianiny oraz jak zakończyć robótkę. Wszystkie poznane umiejętności przećwiczysz pod okiem Magdy z Drutu.tutu. Dzięki tej wiedzy będziesz w stanie wydziergać szalik, prostą opaskę czy nawet koc.\n' +
+          'Magda opowie też o różnych rodzajach drutów oraz włóczek i pokaże przydatne akcesoria dziewiarskie.',
+        materials: '<ul><li>włóczkę zapewnia sponsor warsztatów Włóczykijki!</li></ul>',
+        aboutMe:
+          'Magda, znana Wam też jako Drutu.tutu dzierga od lat i z pasją. Robi na drutach, szydełkuje, dzieli się wiedzą dziewiarską i włóczkarską. Ma doświadczenie z prowadzenia warsztatów dla początkujących i pomoże Wam stworzyć na drutach pierwsze oczka.'
       },
       heartofcotton: {
         title: 'Podstawy szydełka',
         materials:
-          '<ul><li>włóczka grubości około 75m / 50g (1 motek)</li><li>szydełko 4.5</li><li>igła dziewiarska</li><li>nożyczki</li></ul>',
-        description: 'Todo'
+          '<ul><li>szydełko 4.5</li><li>igła dziewiarska</li><li>nożyczki</li><li>włóczkę zapewnia sponsor warsztatów Włóczykijki!</li></ul>',
+        description:
+          'Warsztaty idealne dla osób, które chciałyby zacząć przygodę z szydełkowaniem i nie wiedzą od czego zacząć. Podczas warsztatów nauczysz się czym są oczka łańcuszka i jak je nabierać, jak pracować w okrążeniach, zrobisz, półsłupek, półsłupek nawijany, bufkę, słupek i oczko ścisłe oraz dowiesz się jak korzystać z gotowych schematów.\n' +
+          'Uczestnicy wykonają dwie podkładki, jedną z bufkami, druga bez.',
+        aboutMe:
+          'Twoim przewodnikiem po tajnikach szydełka będzie Ewa z Heart of Cotton. Ewa zajmuje się dziewiarstwem i tworzy wzory na szydełko. Dzieli się wiedzą oraz zaraża optymizmem i pasją do rękodzieła.\n' +
+          'Jej figurki amigurumi skradną wasze serca a po warsztatach być może porwiecie się na jedną z nich?\n' +
+          'Pasja Ewy to także fotografia - ma na koncie ebooka o fotografii rekodzieła.'
       },
       skein: {
         title: 'Punch Needle',
@@ -318,7 +329,12 @@ export const pl = {
           '<li>sznurek bawełniany</li>' +
           '<li>mały prezent od @skein.pl</li>' +
           '</ul>',
-        description: 'Todo'
+        description:
+          'Dlaczego punch needle? Bo prócz niskiego progu wejścia (czytaj: łatwo się tego nauczyć), daje wiele możliwości modyfikacji, błędy można łatwo usunąć, a efekty pracy są szybkie i robią piorunujące wrażenie. Warsztaty obejmują  naukę podstaw techniki haftu magiczna igłą. Naukę doboru igły do materiału, przewlekania włóczki przez igłę oraz przenoszenia wzoru na materiał.\n' +
+          'Każdy z uczestników otrzyma swoją torbę projektową, na której będzie wykonywał haft ze sznurka bawełnianego',
+        aboutMe:
+          'Warsztaty poprowadzi Karolina @pixeldzierga. Woli nazywać swoją pracę rzemieślniczą, bo uważa, że do artysty nie dorosła.\n' +
+          'Na metodę haftu techniką magiczną igłą trafiła przypadkiem, szukając techniki do pracy nad motoryką małą dla dzieci. Z wykształcenia jest diagnostą laboratoryjnym, na co dzień ocenia cytologię szyjki macicy, z pasji natomiast jest szeroko pojętym TWÓRCĄ.'
       },
       room: {
         mirrors: 'Sala lustrzana',

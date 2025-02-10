@@ -19,6 +19,7 @@ import { WorkshopPrice } from './WorkshopPrice';
 import { FontSize } from '../../../../styles/font-size';
 import { TextToListFormatter } from '../../../../components/TextToListFormatter';
 import { FlexColumnLayout } from '../../../../components/FlexColumnLayout';
+import { Expandable } from '../../../../components/Expandable';
 
 const MobileCardLayout = styled(CardLayout)<{ isExpanded?: boolean }>`
   flex-direction: ${({ isExpanded }) => (isExpanded ? 'column' : 'row')};
@@ -28,7 +29,7 @@ const GoBackButtons = styled(RowLayout)`
   margin-bottom: -${RedesignSpacings.xs};
 `;
 
-const InfoSection = styled.div`
+const InfoSection = styled.div<{ isExpanded?: boolean }>`
   display: flex;
   width: 100%;
   height: 100%;
@@ -36,8 +37,10 @@ const InfoSection = styled.div`
 
   justify-content: space-around;
   align-items: center;
-  gap: ${RedesignSpacings.xs};
+  gap: ${({ isExpanded }) => (isExpanded ? RedesignSpacings.sm : RedesignSpacings.xs)};
   text-align: center;
+
+  overflow: ${({ isExpanded }) => (isExpanded ? 'auto' : 'visible')};
 `;
 
 const VerticalRibbonIcon = styled.div<{ src: string }>`
@@ -76,10 +79,14 @@ interface RibbonCardProps {
 
 export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
   const t = useTypedTranslation();
-  const [isExpanded, toggle] = useToggle();
+  const [isExpanded, toggle, close] = useToggle();
+
+  const openOnClick = () => {
+    if (!isExpanded) toggle();
+  };
 
   return (
-    <MobileCardLayout onClick={toggle} isExpanded={isExpanded}>
+    <MobileCardLayout onClick={openOnClick} isExpanded={isExpanded}>
       {isExpanded && (
         <GoBackButtons wide justify="space-between">
           <Button onClick={close}>
@@ -95,7 +102,7 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
       {isExpanded ? (
         <Ribbon color={BackgroundColors.mobileRibbon}>
           <Typography size="sm">{workshop.time}</Typography>
-          <Typography size="sm">{t(`workshops.room.${workshop.room}`)}</Typography>
+          {/*<Typography size="sm">{t(`workshops.room.${workshop.room}`)}</Typography>*/}
         </Ribbon>
       ) : (
         <VerticalRibbonIcon src={verticalRibbonIcon}>
@@ -116,13 +123,30 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
         style={{ borderRadius: '50%', objectFit: 'cover' }}
       />
 
-      <InfoSection>
+      <InfoSection id="info-section" isExpanded={isExpanded}>
         {isExpanded ? (
-          <FlexColumnLayout padding="none" width="100%">
-            <WorkshopSectionTitle size="md">Czego się nauczysz?</WorkshopSectionTitle>
-            <Typography size="sm">
-              <TextToListFormatter text={workshop.description ? t(workshop.description) : 'Todo'} />
-            </Typography>
+          <FlexColumnLayout padding="none" width="100%" gap="sm">
+            <Expandable title={<WorkshopSectionTitle size="md">Czego się nauczysz?</WorkshopSectionTitle>}>
+              <Typography size="sm">
+                <TextToListFormatter text={workshop.description ? t(workshop.description) : 'Todo'} />
+              </Typography>
+            </Expandable>
+
+            {workshop.materials && (
+              <Expandable title={<WorkshopSectionTitle size="md">Co przynieść?</WorkshopSectionTitle>}>
+                <Typography size="sm">
+                  <TextToListFormatter text={t(workshop.materials)} />
+                </Typography>
+              </Expandable>
+            )}
+
+            {workshop.aboutMe && (
+              <Expandable title={<WorkshopSectionTitle size="md">O prowadzącej:</WorkshopSectionTitle>}>
+                <Typography size="sm">
+                  <TextToListFormatter text={t(workshop.aboutMe)} />
+                </Typography>
+              </Expandable>
+            )}
           </FlexColumnLayout>
         ) : (
           <Typography size="sm">{t(workshop.topicKey)}</Typography>
@@ -131,6 +155,7 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
         <WorkshopPrice workshop={workshop} />
 
         <SmallCtaButton
+          disabled
           onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}
           aria-label="open workshops tickets">
           {t('workshops.buyTicket')}

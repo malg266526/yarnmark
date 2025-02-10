@@ -12,17 +12,6 @@ const IconButton = styled(Button)`
   text-align: center;
 `;
 
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-
-  // background-color: ${TextColors.accent};
-`;
-
 type Variant = 'instagram' | 'raverly' | 'self';
 
 interface Props {

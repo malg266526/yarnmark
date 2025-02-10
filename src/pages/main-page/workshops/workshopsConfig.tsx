@@ -51,6 +51,105 @@ export type WorkshopsEntry = {
 
 export const WorkshopsConfig: WorkshopsEntry[] = [
   {
+    topicKey: 'workshops.skein.title',
+    time: '12:30 - 15:30',
+    leading: 'Skein x @pixeldzierga',
+    picture: {
+      fallback: mock
+      /*       sources: [
+                                            {
+                                              type: 'image/webp',
+                                              url: haftowaBabaUrlWebp
+                                            },
+                                            {
+                                              type: 'image/avif',
+                                              url: haftowaBabaUrlAvif
+                                            }
+                                          ]*/
+    },
+    isSoldOut: false,
+    room: 'conference',
+    price: 250,
+    ticketUrl: 'www.todo.com',
+    description: 'workshops.skein.description',
+    materials: 'workshops.skein.materials',
+    aboutMe: 'workshops.skein.aboutMe'
+  },
+  {
+    topicKey: 'workshops.drutututu.title',
+    time: '9:00 - 11:00',
+    leading: 'Magdalena @Drutu.tutu',
+    picture: {
+      fallback: mock
+      /*      sources: [
+                                {
+                                  type: 'image/webp',
+                                  url: haftowaBabaUrlWebp
+                                },
+                                {
+                                  type: 'image/avif',
+                                  url: haftowaBabaUrlAvif
+                                }
+                              ]*/
+    },
+    isSoldOut: false,
+    room: 'conference',
+    price: 90,
+    ticketUrl: 'www.todo.com',
+    description: 'workshops.drutututu.description',
+    materials: 'workshops.drutututu.materials',
+    aboutMe: 'workshops.drutututu.aboutMe'
+  },
+  {
+    topicKey: 'workshops.heartofcotton.title',
+    time: '14:00 - 17:00',
+    leading: 'Ewa Heart Of Cotton',
+    picture: {
+      fallback: heartOfCottonUrl,
+      sources: [
+        {
+          type: 'image/webp',
+          url: heartOfCottonUrlWebp
+        },
+        {
+          type: 'image/avif',
+          url: heartOfCottonUrlAvif
+        }
+      ]
+    },
+    isSoldOut: false,
+    room: 'conference',
+    price: 90,
+    ticketUrl: 'www.todo.com',
+    description: 'workshops.heartofcotton.description',
+    materials: 'workshops.heartofcotton.materials',
+    aboutMe: 'workshops.heartofcotton.aboutMe'
+  },
+  {
+    topicKey: 'workshops.edknitted.title',
+    time: '9:00 - 12:00',
+    leading: 'Asia EDKNITTED',
+    picture: {
+      fallback: edknittedUrl,
+      sources: [
+        {
+          type: 'image/webp',
+          url: edknittedUrlWebp
+        },
+        {
+          type: 'image/avif',
+          url: edknittedUrlAvif
+        }
+      ]
+    },
+    room: 'library',
+    isSoldOut: false,
+    price: 175,
+    description: 'workshops.edknitted.description',
+    ticketUrl: 'www.todo.com',
+    aboutMe: 'workshops.edknitted.aboutMe'
+  },
+  {
     topicKey: 'workshops.knitolog.title',
     time: '9:00 - 12:00',
     leading: 'Dorota Morawiak-Lichota (KNITOLOG)',
@@ -83,7 +182,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
   },
   {
     topicKey: 'workshops.haftowaBaba.title',
-    leading: 'Haftowa Baba',
+    leading: 'Kamila Haftowa Baba',
     time: '14:00 - 17:00',
     picture: {
       fallback: haftowaBabaUrl,
@@ -157,7 +256,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
   {
     topicKey: 'workshops.kroopa.title',
     time: '12:30 - 16:30',
-    leading: 'Kroopa Knits',
+    leading: 'Karolina Kroopa Knits',
     picture: {
       fallback: kroopaUrl,
       sources: [
@@ -174,101 +273,5 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     description: 'workshops.kroopa.description',
     materials: 'workshops.kroopa.materials',
     aboutMe: 'workshops.kroopa.aboutMe'
-  },
-  {
-    topicKey: 'workshops.edknitted.title',
-    time: '9:00 - 12:00',
-    leading: 'Asia EDKNITTED',
-    picture: {
-      fallback: edknittedUrl,
-      sources: [
-        {
-          type: 'image/webp',
-          url: edknittedUrlWebp
-        },
-        {
-          type: 'image/avif',
-          url: edknittedUrlAvif
-        }
-      ]
-    },
-    room: 'library',
-    isSoldOut: false,
-    price: 175,
-    description: 'workshops.edknitted.description',
-    ticketUrl: 'www.todo.com',
-    aboutMe: 'workshops.edknitted.aboutMe'
-  },
-  {
-    topicKey: 'workshops.skein.title',
-    time: '12:30 - 15:30',
-    leading: 'Skein x @pixeldzierga',
-    picture: {
-      fallback: mock
-      /*       sources: [
-                                      {
-                                        type: 'image/webp',
-                                        url: haftowaBabaUrlWebp
-                                      },
-                                      {
-                                        type: 'image/avif',
-                                        url: haftowaBabaUrlAvif
-                                      }
-                                    ]*/
-    },
-    isSoldOut: false,
-    room: 'conference',
-    price: 250,
-    ticketUrl: 'www.todo.com',
-    description: 'workshops.skein.description',
-    materials: 'workshops.skein.materials'
-  },
-  {
-    topicKey: 'workshops.drutututu.title',
-    time: '9:00 - 11:00',
-    leading: 'Magdalena @Drutu.tutu',
-    picture: {
-      fallback: mock
-      /*      sources: [
-                          {
-                            type: 'image/webp',
-                            url: haftowaBabaUrlWebp
-                          },
-                          {
-                            type: 'image/avif',
-                            url: haftowaBabaUrlAvif
-                          }
-                        ]*/
-    },
-    isSoldOut: false,
-    room: 'conference',
-    price: 90,
-    ticketUrl: 'www.todo.com',
-    description: 'workshops.drutututu.description'
-  },
-  {
-    topicKey: 'workshops.heartofcotton.title',
-    time: '14:00 - 17:00',
-    leading: 'Ewa Heart Of Cotton',
-    picture: {
-      fallback: heartOfCottonUrl,
-      sources: [
-        {
-          type: 'image/webp',
-          url: heartOfCottonUrlWebp
-        },
-        {
-          type: 'image/avif',
-          url: heartOfCottonUrlAvif
-        }
-      ]
-    },
-    isSoldOut: false,
-    room: 'conference',
-    price: 90,
-    ticketUrl: 'www.todo.com',
-    description: 'workshops.heartofcotton.description',
-    materials: 'workshops.heartofcotton.materials'
-    //aboutMe: ''
   }
 ];

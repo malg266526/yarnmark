@@ -104,7 +104,9 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
         <FlexColumnLayout padding="none" gap="lg" width="100%">
           <Beam>
             <Typography size="lg">{workshop.time}</Typography>
+            {/*
             <Typography size="lg">{t(`workshops.room.${workshop.room}`)}</Typography>
+*/}
           </Beam>
 
           <Picture
@@ -124,19 +126,21 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
           </RowLayout>
 
           <WorkshopDescription>
-            <FlexColumnLayout padding="none" gap="sm" width="50%">
+            <FlexColumnLayout padding="none" gap="sm" width={workshop.materials ? '50%' : '100%'}>
               <WorkshopSectionTitle size="md">Czego się nauczysz?</WorkshopSectionTitle>
               <Typography size="sm">
                 <TextToListFormatter text={workshop.description ? t(workshop.description) : '-'} />
               </Typography>
             </FlexColumnLayout>
 
-            <FlexColumnLayout padding="none" gap="sm" width="50%">
-              <WorkshopSectionTitle size="md">Co przynieść?</WorkshopSectionTitle>
-              <Typography size="sm">
-                <TextToListFormatter text={workshop.materials ? t(workshop.materials) : '-'} />
-              </Typography>
-            </FlexColumnLayout>
+            {workshop.materials && (
+              <FlexColumnLayout padding="none" gap="sm" width="50%">
+                <WorkshopSectionTitle size="md">Co przynieść?</WorkshopSectionTitle>
+                <Typography size="sm">
+                  <TextToListFormatter text={t(workshop.materials)} />
+                </Typography>
+              </FlexColumnLayout>
+            )}
           </WorkshopDescription>
 
           {workshop.aboutMe && (
