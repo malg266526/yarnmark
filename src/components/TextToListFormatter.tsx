@@ -7,6 +7,7 @@ import { RedesignSpacings } from '../styles/spacings';
 const WorkshopUl = styled.ul`
   margin: 0;
   padding: ${RedesignSpacings.sm};
+  padding-bottom: 0;
 `;
 
 const Scrollable = styled.div`
