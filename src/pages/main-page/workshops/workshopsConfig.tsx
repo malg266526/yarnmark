@@ -13,7 +13,7 @@ import edknittedUrlAvif from '../../../assets/images/workshops/edknitted.avif';
 import kroopaUrl from '../../../assets/images/workshops/Kroopa.jfif';
 import kroopaUrlAvif from '../../../assets/images/workshops/Kroopa.avif';
 
-import haftowaBabaUrl from '../../../assets/images/workshops/haftowa.jpg';
+import haftowaBabaUrl from '../../../assets/images/workshops/haftowa.jfif';
 import haftowaBabaUrlWebp from '../../../assets/images/workshops/haftowa.webp';
 import haftowaBabaUrlAvif from '../../../assets/images/workshops/haftowa.avif';
 
@@ -21,7 +21,18 @@ import heartOfCottonUrl from '../../../assets/images/workshops/Heart_of_Cotton.p
 import heartOfCottonUrlWebp from '../../../assets/images/workshops/Heart_of_Cotton.webp';
 import heartOfCottonUrlAvif from '../../../assets/images/workshops/Heart_of_Cotton.avif';
 
-import mock from '../../../assets/iconify/bigpretzel.svg';
+import iwonaUrl from '../../../assets/images/workshops/iwona.jfif';
+import iwonaUrlWebp from '../../../assets/images/workshops/iwona.webp';
+import iwonaUrlAvif from '../../../assets/images/workshops/iwona.avif';
+
+import magdaUrl from '../../../assets/images/workshops/magda.jfif';
+import magdaUrlWebp from '../../../assets/images/workshops/magda.webp';
+import magdaUrlAvif from '../../../assets/images/workshops/magda.avif';
+
+import skeinUrl from '../../../assets/images/workshops/skein.jfif';
+import skeinUrlWebp from '../../../assets/images/workshops/skein.webp';
+import skeinUrlAvif from '../../../assets/images/workshops/skein.avif';
+
 import { UnprefixedTranslationKeys } from '../../../translations/useTypedTranslation';
 
 type Room = 'conference' | 'library' | 'bursa1' | 'bursa2';
@@ -55,17 +66,17 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     time: '12:30 - 15:30',
     leading: 'Skein x @pixeldzierga',
     picture: {
-      fallback: mock
-      /*       sources: [
-                                            {
-                                              type: 'image/webp',
-                                              url: haftowaBabaUrlWebp
-                                            },
-                                            {
-                                              type: 'image/avif',
-                                              url: haftowaBabaUrlAvif
-                                            }
-                                          ]*/
+      fallback: skeinUrl,
+      sources: [
+        {
+          type: 'image/webp',
+          url: skeinUrlWebp
+        },
+        {
+          type: 'image/avif',
+          url: skeinUrlAvif
+        }
+      ]
     },
     isSoldOut: false,
     room: 'conference',
@@ -80,17 +91,17 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     time: '9:00 - 11:00',
     leading: 'Magdalena @Drutu.tutu',
     picture: {
-      fallback: mock
-      /*      sources: [
-                                {
-                                  type: 'image/webp',
-                                  url: haftowaBabaUrlWebp
-                                },
-                                {
-                                  type: 'image/avif',
-                                  url: haftowaBabaUrlAvif
-                                }
-                              ]*/
+      fallback: magdaUrl,
+      sources: [
+        {
+          type: 'image/webp',
+          url: magdaUrlWebp
+        },
+        {
+          type: 'image/avif',
+          url: magdaUrlAvif
+        }
+      ]
     },
     isSoldOut: false,
     room: 'conference',
@@ -231,15 +242,25 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     ticketUrl: 'www.todo.com',
     description: 'workshops.ludart.description',
-    materials: 'workshops.ludart.materials'
-    //aboutMe: 'workshops.ludart.aboutMe'
+    materials: 'workshops.ludart.materials',
+    aboutMe: 'workshops.ludart.aboutMe'
   },
   {
     topicKey: 'workshops.iwona.title',
     time: '9:00 - 12:00',
     leading: 'Iwona Eriksson',
     picture: {
-      fallback: mock
+      fallback: iwonaUrl,
+      sources: [
+        {
+          type: 'image/webp',
+          url: iwonaUrlWebp
+        },
+        {
+          type: 'image/avif',
+          url: iwonaUrlAvif
+        }
+      ]
     },
     isSoldOut: false,
     room: 'conference',
