@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BackgroundColors, TextColors } from '../../styles/theme';
+import { BackgroundColors, GrayScale, TextColors } from '../../styles/theme';
 import { RedesignSpacings } from '../../styles/spacings';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Icon } from '../../components/Icon';
@@ -82,7 +82,7 @@ const LanguageSection = styled(Section)`
   padding: 0 ${RedesignSpacings.xs};
 `;
 
-const MenuItem = styled.a<{ isOpen?: boolean }>`
+const MenuItem = styled.a<{ isOpen?: boolean; disabled?: boolean }>`
   display: flex;
   width: ${({ isOpen }) => (isOpen ? '100%' : 'fit-content')};
   height: 32px;
@@ -91,11 +91,12 @@ const MenuItem = styled.a<{ isOpen?: boolean }>`
   padding: ${RedesignSpacings.xxs} ${RedesignSpacings.xs};
   gap: ${RedesignSpacings.sm};
   text-decoration: none;
-
-  cursor: pointer;
   border-radius: 6px;
 
-  color: ${TextColors.secondary};
+  cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
+  pointer-events: ${({ disabled }) => (disabled ? 'none' : 'auto')};
+
+  color: ${({ disabled }) => (disabled ? GrayScale[700] : TextColors.secondary)};
   background-color: ${BackgroundColors.ticketBand};
 
   ${Icon} {
@@ -215,6 +216,7 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
 
         <TicketsSection isOpen={isMenuExpanded}>
           <MenuItem
+            disabled
             href="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832"
             target="_blank"
             isOpen={isMenuExpanded}
@@ -224,6 +226,7 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           </MenuItem>
 
           <MenuItem
+            disabled
             href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358"
             target="_blank"
             isOpen={isMenuExpanded}
@@ -233,6 +236,7 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           </MenuItem>
 
           <MenuItem
+            disabled
             href="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833"
             target="_blank"
             isOpen={isMenuExpanded}
