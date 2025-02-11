@@ -2,18 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import { FlexColumnLayout } from './FlexColumnLayout';
 import { ScreenSize } from '../styles/screeen-size';
+import { RedesignSpacings } from '../styles/spacings';
 
 const WorkshopUl = styled.ul`
   margin: 0;
+  padding: ${RedesignSpacings.sm};
 `;
 
 const Scrollable = styled.div`
   overflow-y: auto;
   max-height: 300px;
+  padding-left: ${RedesignSpacings.sm};
 
   @media (max-width: ${ScreenSize.phone}) {
     max-height: unset;
     overflow-y: visible;
+    padding-left: 0;
   }
 `;
 

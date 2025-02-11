@@ -56,6 +56,7 @@ const WorkshopDescription = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-evenly;
+  gap: ${RedesignSpacings.xs};
 `;
 
 const WorkshopSectionTitle = styled(Typography)`
@@ -104,9 +105,7 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
         <FlexColumnLayout padding="none" gap="lg" width="100%">
           <Beam>
             <Typography size="lg">{workshop.time}</Typography>
-            {/*
             <Typography size="lg">{t(`workshops.room.${workshop.room}`)}</Typography>
-*/}
           </Beam>
 
           <Picture

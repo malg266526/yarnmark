@@ -29,9 +29,9 @@ import magdaUrl from '../../../assets/images/workshops/magda.jfif';
 import magdaUrlWebp from '../../../assets/images/workshops/magda.webp';
 import magdaUrlAvif from '../../../assets/images/workshops/magda.avif';
 
-import skeinUrl from '../../../assets/images/workshops/skein.jfif';
-import skeinUrlWebp from '../../../assets/images/workshops/skein.webp';
-import skeinUrlAvif from '../../../assets/images/workshops/skein.avif';
+import skeinUrl from '../../../assets/images/workshops/skein2.jfif';
+import skeinUrlWebp from '../../../assets/images/workshops/skein2.webp';
+import skeinUrlAvif from '../../../assets/images/workshops/skein2.avif';
 
 import { UnprefixedTranslationKeys } from '../../../translations/useTypedTranslation';
 
@@ -79,7 +79,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       ]
     },
     isSoldOut: false,
-    room: 'conference',
+    room: 'library',
     price: 250,
     ticketUrl: 'www.todo.com',
     description: 'workshops.skein.description',
@@ -104,7 +104,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       ]
     },
     isSoldOut: false,
-    room: 'conference',
+    room: 'bursa2',
     price: 90,
     ticketUrl: 'www.todo.com',
     description: 'workshops.drutututu.description',
@@ -113,7 +113,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
   },
   {
     topicKey: 'workshops.heartofcotton.title',
-    time: '14:00 - 17:00',
+    time: '11:30 - 13:30',
     leading: 'Ewa Heart Of Cotton',
     picture: {
       fallback: heartOfCottonUrl,
@@ -129,7 +129,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       ]
     },
     isSoldOut: false,
-    room: 'conference',
+    room: 'bursa2',
     price: 90,
     ticketUrl: 'www.todo.com',
     description: 'workshops.heartofcotton.description',
@@ -209,7 +209,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       ]
     },
     isSoldOut: false,
-    room: 'conference',
+    room: 'bursa2',
     price: 160,
     ticketUrl: 'www.todo.com',
     description: 'workshops.haftowaBaba.description',
@@ -223,7 +223,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
   {
     topicKey: 'workshops.ludart.title',
     leading: 'LudArt',
-    time: '12:30 - 15:30',
+    time: '9:00 - 12:00',
     picture: {
       fallback: ludartUrl,
       sources: [
@@ -237,7 +237,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
         }
       ]
     },
-    room: 'bursa1',
+    room: 'conference',
     price: 90,
     isSoldOut: false,
     ticketUrl: 'www.todo.com',
@@ -247,7 +247,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
   },
   {
     topicKey: 'workshops.iwona.title',
-    time: '9:00 - 12:00',
+    time: '12:30 - 15:30',
     leading: 'Iwona Eriksson',
     picture: {
       fallback: iwonaUrl,
@@ -263,7 +263,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       ]
     },
     isSoldOut: false,
-    room: 'conference',
+    room: 'bursa1',
     price: 170,
     ticketUrl: 'www.todo.com',
     description: 'workshops.iwona.description',

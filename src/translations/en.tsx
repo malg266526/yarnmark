@@ -261,10 +261,10 @@ export const en: TranslationsShape = {
         title: 'Rzędy skrócone i ich zastosowanie w dzianinie',
         materials:
           '<ul>' +
-          '<li>druty</li>' +
+          '<li>druty na żyłce 4 - 4,5 mm (najlepiej dwa zestawy jeśli takie masz)</li>' +
           '<li>kilka markerów typu agrafka</li>' +
           '<li>nożyczki</li>' +
-          '<li>notatnik i długopis</li>' +
+          '<li>ewentualnie szydełko jeśli masz</li>' +
           '</ul>',
         description:
           '<ul>' +
@@ -303,9 +303,11 @@ export const en: TranslationsShape = {
         description:
           'Warsztaty idealne dla osób, które chciałyby zacząć robić na drutach i nie wiedzą od czego zacząć. Podczas warsztatów nauczysz się jak nabrać włóczkę na druty, jak przerabiać oczka prawe, lewe, brzegowe, jak pracować w rzędach i o co chodzi z prawą i lewą stroną dzianiny oraz jak zakończyć robótkę. Wszystkie poznane umiejętności przećwiczysz pod okiem Magdy z Drutu.tutu. Dzięki tej wiedzy będziesz w stanie wydziergać szalik, prostą opaskę czy nawet koc.\n' +
           'Magda opowie też o różnych rodzajach drutów oraz włóczek i pokaże przydatne akcesoria dziewiarskie.',
-        materials: '<ul><li>włóczkę zapewnia sponsor warsztatów Włóczykijki!</li></ul>',
+        materials: '<ul><li>materiały zapewnia sponsor warsztatów Włóczykijki!</li></ul>',
         aboutMe:
-          'Magda, znana Wam też jako Drutu.tutu dzierga od lat i z pasją. Robi na drutach, szydełkuje, dzieli się wiedzą dziewiarską i włóczkarską. Ma doświadczenie z prowadzenia warsztatów dla początkujących i pomoże Wam stworzyć na drutach pierwsze oczka.'
+          'Jestem Magda i ponad 10 lat temu pierwszy raz nabrałam oczka na druty. Tamtej robótki nigdy nie skończyłam, ale dwa lata później złapałam bakcyla. Od 2016 roku dzierganie jest częścią mojego życia, z każdym rokiem coraz bardziej istotną.\n' +
+          'W internecie znajdziesz mnie jako @drutu.tutu, opowiadam tam o mojej pasji i chętnie dzielę się wiedzą. Współpracuję ze Slow Fashion Cafe, gdzie prowadzę warsztaty dziewiarskie dla początkujących.\n' +
+          'Oprócz robienia na drutach kocham Włochy i język włoski, spanko, Nutellę i mojego kota Motka.'
       },
       heartofcotton: {
         title: 'Podstawy szydełka',
