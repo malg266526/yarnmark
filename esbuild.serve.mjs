@@ -6,7 +6,7 @@ createServer({
   sourcemap: true
 },
   {
-    port: 8090,
+    port: 8091,
     open: true,
     injectLiveReload: true,
     static: 'dist',

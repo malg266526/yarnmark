@@ -233,7 +233,11 @@ export const de: TranslationsShape = {
       ludart: {
         title: 'Haft ludowy',
         materials: 'Materiały zapewnia prowadzący',
-        description: 'Todo'
+        description:
+          'Warsztaty mają na celu zaprezentowanie wzornictwa zdobień ludowych.\n' +
+          'Uczestnicy podczas warsztatów będą mieli okazję zapoznać się z niezbędnymi ściegami hafciarskimi i wyhaftować na płótnie jeden z przygotowanych wzorów inspirowanych krakowskimi zdobieniami ludowymi.',
+        aboutMe:
+          'LuDArt to nasze lokalne Stowarzyszenie Miłośników Tradycyjnego Rękodzieła Ludowego i Artystycznego przy Muzeum Etnograficznym im. Seweryna Udzieli w Krakowie. W tym roku współpracuje z nami po raz drugi, by pokazać Wam nieco tradycyjnych motywów w hafcie.'
       },
       knitolog: {
         title: 'Żakard dla mniej lub bardziej zaawansowanych',
