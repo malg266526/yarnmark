@@ -102,7 +102,7 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
       {isExpanded ? (
         <Ribbon color={BackgroundColors.mobileRibbon}>
           <Typography size="sm">{workshop.time}</Typography>
-          {/*<Typography size="sm">{t(`workshops.room.${workshop.room}`)}</Typography>*/}
+          <Typography size="sm">{t(`workshops.room.${workshop.room}`)}</Typography>
         </Ribbon>
       ) : (
         <VerticalRibbonIcon src={verticalRibbonIcon}>
