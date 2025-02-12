@@ -231,10 +231,9 @@ export const pl = {
         title: 'Haft ludowy',
         materials: 'Materiały zapewnia prowadzący',
         description:
-          'Warsztaty mają na celu zaprezentowanie wzornictwa zdobień ludowych.\n' +
-          'Uczestnicy podczas warsztatów będą mieli okazję zapoznać się z niezbędnymi ściegami hafciarskimi i wyhaftować na płótnie jeden z przygotowanych wzorów inspirowanych krakowskimi zdobieniami ludowymi.',
+          'Warsztaty mają na celu zaprezentowanie wzornictwa zdobień na białych elementach stroju ludowego: chustach, koszulach, zapaskach i fartuchach. Uczestnicy podczas warsztatów będą mieli okazję zapoznać się z niezbędnymi ściegami hafciarskimi i wyhaftować na płótnie wzór zaczerpnięty ze stroju krakowskiego',
         aboutMe:
-          'LuDArt to nasze lokalne Stowarzyszenie Miłośników Tradycyjnego Rękodzieła Ludowego i Artystycznego przy Muzeum Etnograficznym im. Seweryna Udzieli w Krakowie. W tym roku współpracuje z nami po raz drugi, by pokazać Wam nieco tradycyjnych motywów w hafcie.'
+          'Stowarzyszenie Miłośników Tradycyjnego Rękodzieła Ludowego i Artystycznego przy Muzeum Etnograficznym im. Seweryna Udzieli w Krakowie działa od 30 lat. Jego myśl przewodnia to "tradycja i współczesność". Na cotygodniowych spotkaniach członkowie, będący przedstawicielami różnych pokoleń i środowisk, zajmują się doskonaleniem technik hafciarskich, koronkarskich, wymianą doświadczeń. Działalność Stowarzyszenia można śledzić na blogu: http://lud-art.blogspot.com/ oraz facebooku: Stowarzyszenie LUD-Art.'
       },
       knitolog: {
         title: 'Żakard dla mniej lub bardziej zaawansowanych',
