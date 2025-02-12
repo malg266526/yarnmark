@@ -307,7 +307,7 @@ export const de: TranslationsShape = {
         description:
           'Warsztaty idealne dla osób, które chciałyby zacząć robić na drutach i nie wiedzą od czego zacząć. Podczas warsztatów nauczysz się jak nabrać włóczkę na druty, jak przerabiać oczka prawe, lewe, brzegowe, jak pracować w rzędach i o co chodzi z prawą i lewą stroną dzianiny oraz jak zakończyć robótkę. Wszystkie poznane umiejętności przećwiczysz pod okiem Magdy z Drutu.tutu. Dzięki tej wiedzy będziesz w stanie wydziergać szalik, prostą opaskę czy nawet koc.\n' +
           'Magda opowie też o różnych rodzajach drutów oraz włóczek i pokaże przydatne akcesoria dziewiarskie.',
-        materials: '<ul><li>materiały zapewnia sponsor warsztatów Włóczykijki!</li></ul>',
+        materials: '<ul><li>włóczkę i druty zapewnia sponsor warsztatów Włóczykijki!</li></ul>',
         aboutMe:
           'Jestem Magda i ponad 10 lat temu pierwszy raz nabrałam oczka na druty. Tamtej robótki nigdy nie skończyłam, ale dwa lata później złapałam bakcyla. Od 2016 roku dzierganie jest częścią mojego życia, z każdym rokiem coraz bardziej istotną.\n' +
           'W internecie znajdziesz mnie jako @drutu.tutu, opowiadam tam o mojej pasji i chętnie dzielę się wiedzą. Współpracuję ze Slow Fashion Cafe, gdzie prowadzę warsztaty dziewiarskie dla początkujących.\n' +
@@ -316,7 +316,7 @@ export const de: TranslationsShape = {
       heartofcotton: {
         title: 'Podstawy szydełka',
         materials:
-          '<ul><li>szydełko 4.5</li><li>igła dziewiarska</li><li>nożyczki</li><li>włóczkę zapewnia sponsor warsztatów Włóczykijki!</li></ul>',
+          '<ul><li>igła dziewiarska</li><li>nożyczki</li><li>włóczkę i szydełko zapewnia sponsor warsztatów Włóczykijki!</li></ul>',
         description:
           'Warsztaty idealne dla osób, które chciałyby zacząć przygodę z szydełkowaniem i nie wiedzą od czego zacząć. Podczas warsztatów nauczysz się czym są oczka łańcuszka i jak je nabierać, jak pracować w okrążeniach, zrobisz, półsłupek, półsłupek nawijany, bufkę, słupek i oczko ścisłe oraz dowiesz się jak korzystać z gotowych schematów.\n' +
           'Uczestnicy wykonają dwie podkładki, jedną z bufkami, druga bez.',
