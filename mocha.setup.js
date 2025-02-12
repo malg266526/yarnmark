@@ -1,31 +1,10 @@
-const Module = require('module');
+// const Module = require('module');
+
+import Module from 'module';
 
 process.env.NODE_ENV = 'test';
 
-const SVG_REGEX = /^[./a-zA-Z0-9$_-]+\.svg$/;
-
-Module.require = function (a) {
-  console.info('ffd');
-  return () => {};
-};
-
-// const defaultResolve = require.resolve;
-// require.resolve.paths = function (request, options) {
-//   console.info('ffd');
-//   if (SVG_REGEX.test(request.url)) {
-//     return () => {};
-//   }
-//   return defaultResolve(request, options);
-// };
-//
-// module.exports = function (request, options) {
-//   console.info('ffd');
-//   if (SVG_REGEX.test(request.url)) {
-//     return () => {};
-//   }
-//   return defaultResolve(request, options);
-// };
-
-// const noop = () => 1;
-//
-// require.extensions['.svg'] = noop;
+Module._extensions['.svg'] = function () {};
+Module._extensions['.jpg'] = function () {};
+Module._extensions['.webp'] = function () {};
+Module._extensions['.avif'] = function () {};

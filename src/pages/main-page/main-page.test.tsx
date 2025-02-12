@@ -15,6 +15,6 @@ describe('displays greetings', () => {
   it('test2', () => {
     const { getByText } = render(<InvitationCard />);
 
-    getByText('Krakoski2 Yarnmark');
+    getByText('Krakoski Yarnmark');
   });
 });

@@ -10,18 +10,15 @@
     ],
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
-//    "typeRoots": [
-//      "./src/types.d.ts"
-//    ],
     "moduleResolution": "Node"
   },
   "ts-node": {
+    "files": true,
     "compilerOptions": {
+      "target": "ES5",
       "module": "CommonJS",
-//      "types": ["node"],
-//      "typeRoots": [
-//        "./src/types.d.ts"
-//      ],
+      "allowArbitraryExtensions": true,
+      "allowSyntheticDefaultImports": true,
       "esModuleInterop": true,
       "allowJs": true
     },
