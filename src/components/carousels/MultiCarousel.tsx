@@ -39,6 +39,7 @@ const SlidesWrapper = styled.div`
 
 const Slides = styled.div<{ padding: number; gap: number }>`
   height: 100%;
+  min-height: inherit;
   display: flex;
   align-items: center;
   gap: ${({ gap }) => `${gap}px`};
@@ -140,7 +141,7 @@ export const MultiCarousel = ({ items, style = DefaultStyleConfig }: MultiCarous
           <Icon size="lg" src={skeinIconSrc} />
         </Button>
 
-        <SlidesWrapper>
+        <SlidesWrapper id="slides_wrapper">
           <Slides id="carousel_slides" ref={slidesContainerRef} gap={style?.gap} padding={style?.padding}>
             {/*Todo: try to read props of item and use id as a key*/}
             {items.map((item, index) => (
