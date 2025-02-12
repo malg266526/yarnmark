@@ -42,7 +42,7 @@ export const InvitationCard = () => {
   const t = useTypedTranslation();
 
   return (
-    <SlantedCornersBox overflowSize="10px" width="400px" padding="none">
+    <SlantedCornersBox overflowSize="10px" width="400px" padding="none" data-testid="invitationCard">
       <Content gap="none">
         <Band.Title>Krakoski Yarnmark</Band.Title>
 

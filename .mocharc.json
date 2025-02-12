@@ -1,0 +1,7 @@
+{
+
+  "require": [
+    "./mocha.setup.js",
+    "ts-node/register"
+  ]
+}

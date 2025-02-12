@@ -32,7 +32,7 @@ export const appConfig = {
         filename: 'index.html',
         entryPoints: entryPoints.filter(entry => !entry.includes('service-worker')),
         hash: false,
-      }],
+      }]
     }),
     manifestPlugin({
       filename: 'output-info.json',
