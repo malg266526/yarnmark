@@ -2,7 +2,6 @@
 
   "require": [
     "./mocha.setup.js",
-    "jsdom-global/register",
     "ts-node/register"
   ]
 }
