@@ -3,7 +3,7 @@ import shipJpgSrc from '../../assets/images/ship.jpg';
 import { Carouselge } from '../../components/carousels/Carouselge';
 import waterWebpSrc from '../../assets/images/water.webp';
 import waterJpgSrc from '../../assets/images/water.jpg';
-import { LinkWrapper } from './MainPage.styled';
+// import { LinkWrapper } from './MainPage.styled';
 import wineAvifSrc from '../../assets/images/wine.avif';
 import wineWebpSrc from '../../assets/images/wine.webp';
 import wineJpgSrc from '../../assets/images/wine.jpg';
@@ -11,7 +11,7 @@ import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import ticketAvifSrc from '../../assets/images/ticket.avif';
 import ticketWebpSrc from '../../assets/images/ticket.webp';
 import ticketJpgSrc from '../../assets/images/ticket.jpg';
-import { Link } from '../../components/Link';
+// import { Link } from '../../components/Link';
 import { Trans } from 'react-i18next';
 import mapWebpSrc from '../../assets/images/map.webp';
 import mapJpgSrc from '../../assets/images/map.jpg';
@@ -100,11 +100,11 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
               {t('cashmereTicketsBand.tickets')}
             </Typography>
 
-            <LinkWrapper>
+            {/*            <LinkWrapper>
               <Link target="_blank" to="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833">
                 {t('cashmereTicketsBand.buyTickets')}
               </Link>
-            </LinkWrapper>
+            </LinkWrapper>*/}
 
             <FlexColumnLayout gap="sm" padding="none" align="flex-start">
               <Typography size={sectionTitleSize} weight="bold">
