@@ -104,7 +104,7 @@ export const TicketCard = () => {
       <FlexColumnLayout padding="none" gap="md">
         <TicketTitle size="lg">Yarnmark</TicketTitle>
 
-        <BuyTicketLink onClick={onBuyTicketClicked} aria-label="buy_ticket" shouldShake={shouldShake} disabled>
+        <BuyTicketLink onClick={onBuyTicketClicked} aria-label="buy_ticket" shouldShake={shouldShake}>
           {t('tickets.buyTicket')}
           {/*{t('tickets.availableSoon')}*/}
         </BuyTicketLink>

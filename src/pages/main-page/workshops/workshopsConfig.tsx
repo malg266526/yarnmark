@@ -81,7 +81,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     room: 'library',
     price: 250,
-    ticketUrl: 'www.todo.com',
+    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Punch-Needle/3457',
     description: 'workshops.skein.description',
     materials: 'workshops.skein.materials',
     aboutMe: 'workshops.skein.aboutMe'
@@ -106,7 +106,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     room: 'bursa2',
     price: 90,
-    ticketUrl: 'www.todo.com',
+    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Druty-podstawy/3455',
     description: 'workshops.drutututu.description',
     materials: 'workshops.drutututu.materials',
     aboutMe: 'workshops.drutututu.aboutMe'
@@ -131,7 +131,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     room: 'bursa2',
     price: 90,
-    ticketUrl: 'www.todo.com',
+    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Podstawy-szydelka/3456',
     description: 'workshops.heartofcotton.description',
     materials: 'workshops.heartofcotton.materials',
     aboutMe: 'workshops.heartofcotton.aboutMe'
@@ -157,7 +157,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     price: 175,
     description: 'workshops.edknitted.description',
-    ticketUrl: 'www.todo.com',
+    ticketUrl:
+      'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Polish-Your-Pattern%2C-czyli-jak-odpicowac-swoj-wzor/3454',
     aboutMe: 'workshops.edknitted.aboutMe'
   },
   {
@@ -180,7 +181,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     room: 'bursa1',
     isSoldOut: false,
     price: 170,
-    ticketUrl: 'www.todo.com',
+    ticketUrl: 'Yarnmark-2025-Warsztaty-Zakard-dla-mniej-lub-bardziej-zaawansowanych/2839',
     description: 'workshops.knitolog.description',
     materials: 'workshops.knitolog.materials',
     links: {
@@ -211,7 +212,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     room: 'bursa2',
     price: 160,
-    ticketUrl: 'www.todo.com',
+    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Haft-na-welnie/2837',
     description: 'workshops.haftowaBaba.description',
     materials: 'workshops.haftowaBaba.materials',
     links: {
@@ -240,7 +241,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     room: 'conference',
     price: 90,
     isSoldOut: false,
-    ticketUrl: 'www.todo.com',
+    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Haft-ludowy/2836',
     description: 'workshops.ludart.description',
     materials: 'workshops.ludart.materials',
     aboutMe: 'workshops.ludart.aboutMe'
@@ -265,7 +266,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     room: 'bursa1',
     price: 170,
-    ticketUrl: 'www.todo.com',
+    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Rzedy-skrocone/3452',
     description: 'workshops.iwona.description',
     materials: 'workshops.iwona.materials',
     aboutMe: 'workshops.iwona.aboutMe',
@@ -290,7 +291,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     room: 'conference',
     price: 175,
-    ticketUrl: 'www.todo.com',
+    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Podstawy-zakardu/3453',
     description: 'workshops.kroopa.description',
     materials: 'workshops.kroopa.materials',
     aboutMe: 'workshops.kroopa.aboutMe'
