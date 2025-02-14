@@ -225,7 +225,7 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           </MenuItem>
 
           <MenuItem
-            href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358"
+            href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-warsztaty/358"
             target="_blank"
             isOpen={isMenuExpanded}
             aria-label="workshops_tickets_menu_item">
