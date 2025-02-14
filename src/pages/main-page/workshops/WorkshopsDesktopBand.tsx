@@ -46,7 +46,7 @@ export const WorkshopsDesktopBand = ({ id }: WorkshopsBandType) => {
       <Band.Title>{t('workshops.title')}</Band.Title>
 
       <ImageSection>
-        <StrongCtaButton disabled>{t('tickets.buyTicket')}</StrongCtaButton>
+        <StrongCtaButton>{t('tickets.buyTicket')}</StrongCtaButton>
         <WoolBackgroundSection />
       </ImageSection>
 

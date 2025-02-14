@@ -3,7 +3,6 @@ import shipJpgSrc from '../../assets/images/ship.jpg';
 import { Carouselge } from '../../components/carousels/Carouselge';
 import waterWebpSrc from '../../assets/images/water.webp';
 import waterJpgSrc from '../../assets/images/water.jpg';
-// import { LinkWrapper } from './MainPage.styled';
 import wineAvifSrc from '../../assets/images/wine.avif';
 import wineWebpSrc from '../../assets/images/wine.webp';
 import wineJpgSrc from '../../assets/images/wine.jpg';
@@ -11,7 +10,6 @@ import { FlexColumnLayout } from '../../components/FlexColumnLayout';
 import ticketAvifSrc from '../../assets/images/ticket.avif';
 import ticketWebpSrc from '../../assets/images/ticket.webp';
 import ticketJpgSrc from '../../assets/images/ticket.jpg';
-// import { Link } from '../../components/Link';
 import { Trans } from 'react-i18next';
 import mapWebpSrc from '../../assets/images/map.webp';
 import mapJpgSrc from '../../assets/images/map.jpg';
@@ -22,6 +20,8 @@ import { Typography } from '../../components/Typography';
 import { BackgroundPicture } from '../../components/BackgroundPicture';
 import { Band } from '../../components/bands/Band';
 import { usePhone } from '../../hooks/usePhone';
+import { Link } from '../../components/Link';
+import { LinkWrapper } from './MainPage.styled';
 
 type CruiseBandType = {
   id: string;
@@ -100,11 +100,13 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
               {t('cashmereTicketsBand.tickets')}
             </Typography>
 
-            {/*            <LinkWrapper>
-              <Link target="_blank" to="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833">
+            <LinkWrapper>
+              <Link
+                target="_blank"
+                to="https://wloczykijki.pl/pl_PL/p/Bilet-wstepu-na-Krakoski-Yarnmark-2025-REJS/3451">
                 {t('cashmereTicketsBand.buyTickets')}
               </Link>
-            </LinkWrapper>*/}
+            </LinkWrapper>
 
             <FlexColumnLayout gap="sm" padding="none" align="flex-start">
               <Typography size={sectionTitleSize} weight="bold">

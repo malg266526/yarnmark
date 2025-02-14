@@ -216,8 +216,7 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
 
         <TicketsSection isOpen={isMenuExpanded}>
           <MenuItem
-            disabled
-            href="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832"
+            href="https://wloczykijki.pl/pl_PL/p/Bilet-wstepu-na-Krakoski-Yarnmark-2025/3450"
             target="_blank"
             isOpen={isMenuExpanded}
             aria-label="yarnmark_ticket_menu_item">
@@ -226,8 +225,7 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           </MenuItem>
 
           <MenuItem
-            disabled
-            href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny-warsztaty/358"
+            href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-warsztaty/358"
             target="_blank"
             isOpen={isMenuExpanded}
             aria-label="workshops_tickets_menu_item">
@@ -236,8 +234,7 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           </MenuItem>
 
           <MenuItem
-            disabled
-            href="https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-rejs/2833"
+            href="https://wloczykijki.pl/pl_PL/p/Bilet-wstepu-na-Krakoski-Yarnmark-2025-REJS/3451"
             target="_blank"
             isOpen={isMenuExpanded}
             aria-label="cruise_tickets_menu_item">

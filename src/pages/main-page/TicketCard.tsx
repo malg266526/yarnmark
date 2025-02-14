@@ -90,7 +90,7 @@ export const TicketCard = () => {
 
   const onBuyTicketClicked = () => {
     localStorage.setItem('isBuyLinkVisited', 'true');
-    window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank');
+    window.open('https://wloczykijki.pl/pl_PL/p/Bilet-wstepu-na-Krakoski-Yarnmark-2025/3450', '_blank');
   };
 
   const shouldShake = localStorage.getItem('isBuyLinkVisited') !== 'true';
@@ -104,9 +104,9 @@ export const TicketCard = () => {
       <FlexColumnLayout padding="none" gap="md">
         <TicketTitle size="lg">Yarnmark</TicketTitle>
 
-        <BuyTicketLink onClick={onBuyTicketClicked} aria-label="buy_ticket" shouldShake={shouldShake} disabled>
-          {/*{t('tickets.buyTicket')}*/}
-          {t('tickets.availableSoon')}
+        <BuyTicketLink onClick={onBuyTicketClicked} aria-label="buy_ticket" shouldShake={shouldShake}>
+          {t('tickets.buyTicket')}
+          {/*{t('tickets.availableSoon')}*/}
         </BuyTicketLink>
 
         <Typography size="sm">
