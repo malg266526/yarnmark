@@ -66,7 +66,7 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
                 <Link
                   key="tickets_url"
                   target="_blank"
-                  href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-Welny/355"
+                  href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-bilety/357"
                   aria-label="tickets"
                 />
               ]}

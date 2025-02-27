@@ -51,7 +51,7 @@ export const NavigationBand = () => {
 
       <RowLayout wide justify="center" gap="xxxl">
         <IconButton
-          onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}
+          onClick={() => window.open('https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-bilety/357', '_blank')}
           aria-label="go to tickets">
           <Icon size="xl" zIndex={0} src={blueTicketsIconUrl} />
           <Typography size="sm">{t('tickets.yarnmarkTicket')}</Typography>
