@@ -47,7 +47,10 @@ export const RibbonCard = ({ workshop, onClick }: RibbonCardProps) => {
         style={{ borderRadius: '50%', objectFit: 'cover' }}
       />
 
-      <CtaButton onClick={() => window.open(workshop.ticketUrl, '_blank')} aria-label="open workshops tickets">
+      <CtaButton
+        disabled={workshop.isSoldOut}
+        onClick={() => window.open(workshop.ticketUrl, '_blank')}
+        aria-label="open workshops tickets">
         {t('workshops.buyTicket')}
       </CtaButton>
 
