@@ -78,7 +78,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
         }
       ]
     },
-    isSoldOut: false,
+    isSoldOut: true,
     room: 'library',
     price: 250,
     ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Punch-Needle/3457',
@@ -154,7 +154,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       ]
     },
     room: 'library',
-    isSoldOut: false,
+    isSoldOut: true,
     price: 175,
     description: 'workshops.edknitted.description',
     ticketUrl:
@@ -179,7 +179,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       ]
     },
     room: 'bursa1',
-    isSoldOut: false,
+    isSoldOut: true,
     price: 170,
     ticketUrl: 'Yarnmark-2025-Warsztaty-Zakard-dla-mniej-lub-bardziej-zaawansowanych/2839',
     description: 'workshops.knitolog.description',
@@ -240,7 +240,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     },
     room: 'conference',
     price: 90,
-    isSoldOut: false,
+    isSoldOut: true,
     ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Haft-ludowy/2836',
     description: 'workshops.ludart.description',
     materials: 'workshops.ludart.materials',
@@ -288,7 +288,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
         }
       ]
     },
-    isSoldOut: false,
+    isSoldOut: true,
     room: 'conference',
     price: 175,
     ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Podstawy-zakardu/3453',
