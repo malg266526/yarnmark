@@ -62,6 +62,60 @@ export type WorkshopsEntry = {
 
 export const WorkshopsConfig: WorkshopsEntry[] = [
   {
+    topicKey: 'workshops.haftowaBaba.title',
+    leading: 'Kamila Haftowa Baba',
+    time: '14:00 - 17:00',
+    picture: {
+      fallback: haftowaBabaUrl,
+      sources: [
+        {
+          type: 'image/webp',
+          url: haftowaBabaUrlWebp
+        },
+        {
+          type: 'image/avif',
+          url: haftowaBabaUrlAvif
+        }
+      ]
+    },
+    isSoldOut: false,
+    room: 'bursa2',
+    price: 160,
+    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Haft-na-welnie/2837',
+    description: 'workshops.haftowaBaba.description',
+    materials: 'workshops.haftowaBaba.materials',
+    links: {
+      instagram: 'https://www.instagram.com/haftowababa/',
+      other: 'https://haftowababa.pl/'
+    },
+    aboutMe: 'workshops.haftowaBaba.aboutMe'
+  },
+  {
+    topicKey: 'workshops.heartofcotton.title',
+    time: '11:30 - 13:30',
+    leading: 'Ewa Heart Of Cotton',
+    picture: {
+      fallback: heartOfCottonUrl,
+      sources: [
+        {
+          type: 'image/webp',
+          url: heartOfCottonUrlWebp
+        },
+        {
+          type: 'image/avif',
+          url: heartOfCottonUrlAvif
+        }
+      ]
+    },
+    isSoldOut: false,
+    room: 'bursa2',
+    price: 90,
+    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Podstawy-szydelka/3456',
+    description: 'workshops.heartofcotton.description',
+    materials: 'workshops.heartofcotton.materials',
+    aboutMe: 'workshops.heartofcotton.aboutMe'
+  },
+  {
     topicKey: 'workshops.skein.title',
     time: '12:30 - 15:30',
     leading: 'Skein x @pixeldzierga',
@@ -103,38 +157,13 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
         }
       ]
     },
-    isSoldOut: false,
+    isSoldOut: true,
     room: 'bursa2',
     price: 90,
     ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Druty-podstawy/3455',
     description: 'workshops.drutututu.description',
     materials: 'workshops.drutututu.materials',
     aboutMe: 'workshops.drutututu.aboutMe'
-  },
-  {
-    topicKey: 'workshops.heartofcotton.title',
-    time: '11:30 - 13:30',
-    leading: 'Ewa Heart Of Cotton',
-    picture: {
-      fallback: heartOfCottonUrl,
-      sources: [
-        {
-          type: 'image/webp',
-          url: heartOfCottonUrlWebp
-        },
-        {
-          type: 'image/avif',
-          url: heartOfCottonUrlAvif
-        }
-      ]
-    },
-    isSoldOut: false,
-    room: 'bursa2',
-    price: 90,
-    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Podstawy-szydelka/3456',
-    description: 'workshops.heartofcotton.description',
-    materials: 'workshops.heartofcotton.materials',
-    aboutMe: 'workshops.heartofcotton.aboutMe'
   },
   {
     topicKey: 'workshops.edknitted.title',
@@ -193,35 +222,6 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     aboutMe: 'workshops.knitolog.aboutMe'
   },
   {
-    topicKey: 'workshops.haftowaBaba.title',
-    leading: 'Kamila Haftowa Baba',
-    time: '14:00 - 17:00',
-    picture: {
-      fallback: haftowaBabaUrl,
-      sources: [
-        {
-          type: 'image/webp',
-          url: haftowaBabaUrlWebp
-        },
-        {
-          type: 'image/avif',
-          url: haftowaBabaUrlAvif
-        }
-      ]
-    },
-    isSoldOut: false,
-    room: 'bursa2',
-    price: 160,
-    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Haft-na-welnie/2837',
-    description: 'workshops.haftowaBaba.description',
-    materials: 'workshops.haftowaBaba.materials',
-    links: {
-      instagram: 'https://www.instagram.com/haftowababa/',
-      other: 'https://haftowababa.pl/'
-    },
-    aboutMe: 'workshops.haftowaBaba.aboutMe'
-  },
-  {
     topicKey: 'workshops.ludart.title',
     leading: 'LudArt',
     time: '9:00 - 12:00',
@@ -263,7 +263,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
         }
       ]
     },
-    isSoldOut: false,
+    isSoldOut: true,
     room: 'bursa1',
     price: 170,
     ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Rzedy-skrocone/3452',
