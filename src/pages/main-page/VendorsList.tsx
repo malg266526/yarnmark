@@ -99,7 +99,9 @@ import timeToKnitLogoUrl from '../../assets/images/minifiedLogos/timetoknit.png'
 import timeToKnitLogoUrlAvif from '../../assets/images/minifiedLogos/timetoknit.avif';
 import timeToKnitLogoUrlWebp from '../../assets/images/minifiedLogos/timetoknit.webp';
 
-import theKnittingBoxLogoUrl from '../../assets/images/minifiedLogos/theknittingbox.png';
+import theKnittingBoxLogoUrl from '../../assets/images/minifiedLogos/TheKnittingBox-update.jfif';
+import theKnittingBoxLogoUrlAvif from '../../assets/images/minifiedLogos/TheKnittingBox-update.avif';
+import theKnittingBoxLogoUrlWebp from '../../assets/images/minifiedLogos/TheKnittingBox-update.webp';
 
 import welnaBawelnaLogoUrl from '../../assets/images/minifiedLogos/WelnaBawelna.jpg';
 import welnaBawelnaLogoUrlAvif from '../../assets/images/minifiedLogos/WelnaBawelna.avif';
@@ -116,9 +118,9 @@ import wloczykijkiLogoUrlWebp from '../../assets/images/minifiedLogos/wloczykijk
 import woollalaLogoUrl from '../../assets/images/minifiedLogos/woollala.png';
 import woollalaLogoUrlWebp from '../../assets/images/minifiedLogos/woollala.webp';
 
-import woolloopLogoUrl from '../../assets/images/minifiedLogos/woolloop.png';
-import woolloopLogoUrlAvif from '../../assets/images/minifiedLogos/woolloop.avif';
-import woolloopLogoUrlWebp from '../../assets/images/minifiedLogos/woolloop.webp';
+import woolloopLogoUrl from '../../assets/images/minifiedLogos/woolloop_round.jfif';
+import woolloopLogoUrlAvif from '../../assets/images/minifiedLogos/woolloop_round.avif';
+import woolloopLogoUrlWebp from '../../assets/images/minifiedLogos/woolloop_round.webp';
 
 import wooloveLogoUrl from '../../assets/images/minifiedLogos/woolove.png';
 import wooloveLogoUrlAvif from '../../assets/images/minifiedLogos/woolove.avif';
@@ -705,7 +707,24 @@ export const VendorsList = () => {
       </LogoLink>
 
       <LogoLink to="https://theknittingbox.pl" target="_blank" rel="noreferrer">
-        <img width={100} height={100} src={theKnittingBoxLogoUrl} alt="theknittingbox" />
+        <Picture
+          width={92}
+          height={100}
+          alt="theknittingbox"
+          picture={{
+            fallbackUrl: theKnittingBoxLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: theKnittingBoxLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: theKnittingBoxLogoUrlAvif
+              }
+            ]
+          }}
+        />
       </LogoLink>
 
       <LogoLink to="https://welnabawelna.pl/" target="_blank" rel="noreferrer">
