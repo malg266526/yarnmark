@@ -18,6 +18,7 @@ import { TicketCardBand } from './TicketCardBand';
 import { WorkshopsDesktopBand } from './workshops/WorkshopsDesktopBand';
 import { WorkshopsMobileSchedule } from './workshops/WorkshopsMobileSchedule';
 import { CruiseBand } from './CruiseBand';
+import { FoodBand } from './FoodBand';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -88,7 +89,7 @@ export const MainPage = () => {
 
           <CruiseBand id="cruise" />
 
-          {/*<FoodBand id="food" />*/}
+          <FoodBand id="food" />
 
           <Band.CenteredColumn id="lastEdition" color={BackgroundColors.lastEditionBand} padding="sm" gap="lg">
             <LastEditionBand />
