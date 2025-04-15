@@ -18,7 +18,8 @@ export const pl = {
       stands: 'Stoiska',
       statutes: 'Regulamin',
       tickets: 'Bilety',
-      hallMap: 'Mapa hali'
+      hallMap: 'Mapa hali',
+      food: 'Jedzonko'
     },
     tickets: {
       buyTicketsAndWorkshops: '<0>Kup</0> bilet na targi lub wybierz opcję z warsztatami',
@@ -181,7 +182,7 @@ export const pl = {
       bezogrodek: {
         description: 'Foodtruck park',
         discount:
-          'W dniu wydarzenia, za okazaniem Yarnmarkowej opaski, otrzymujecie <strong>20%</strong> zniżki na bar oraz na lody tajskie, hot dogi, zapiekanki, frytki belgijskie i pizzę.'
+          'W dniu wydarzenia, za okazaniem Yarnmarkowej opaski, otrzymujecie <strong>30%</strong> zniżki na bar oraz <strong>20%</strong> na foodtrucki: frytki belgijskie, panini, lody tajskie, kuchnia grecko-meksykańska.'
       },
       bistroblonia: {
         description: 'Todo',

@@ -26,13 +26,14 @@ import { usePhone } from '../../hooks/usePhone';
 import { ScreenSize } from '../../styles/screeen-size';
 import closeMenuIcon from '../../assets/figmaIcons/menu/close_icon.svg';
 import dotsStrokeIcon from '../../assets/figmaIcons/dots_icon.svg';
+import burgerImageUrl from '../../assets/iconify/burger.svg';
 
 const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
   display: flex;
   flex-direction: column;
   width: ${({ isOpen, isVisible }) => (isVisible ? (isOpen ? '240px' : '76px') : 0)};
   position: fixed;
-  height: 100%;
+  height: 100vh;
   z-index: 10;
   left: 0;
   top: 0;
@@ -41,7 +42,8 @@ const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
   gap: ${RedesignSpacings.lg};
   padding: ${RedesignSpacings.xs} 0 ${RedesignSpacings.xxxl} 0;
   transition: all 0.1s linear;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   @media (max-width: ${ScreenSize.phone}) {
     height: 100vh;
@@ -65,6 +67,8 @@ const Section = styled.div<{ isOpen?: boolean }>`
   padding-bottom: 15px;
   padding-left: ${({ isOpen }) => (isOpen ? RedesignSpacings.xs : 0)};
   padding-right: ${({ isOpen }) => (isOpen ? RedesignSpacings.xs : 0)};
+
+  // overflow: hidden;
 
   @media (max-width: ${ScreenSize.phone}) {
     padding: 0 8px 8px 8px;
@@ -160,7 +164,8 @@ const Dots = styled.span<{ isOpen?: boolean }>`
   background: url(${dotsStrokeIcon}) no-repeat center;
   background-size: contain;
   height: 30px;
-  width: 70px;
+  width: 72px;
+  max-width: 72px;
   margin: ${({ isOpen }) => (isOpen ? 0 : 'auto')};
 `;
 
@@ -208,7 +213,7 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
         </MenuItem>
       </Section>
 
-      <Section isOpen={isMenuExpanded}>
+      <Section isOpen={isMenuExpanded} id="links_section">
         <MenuItem href="/home#mainInfoButtons" isOpen={isMenuExpanded} aria-label="main_information_menu_item">
           <Icon size="sm" zIndex={0} src={infoIcon} />
           {isMenuExpanded && <Typography size="sm"> {t('menu.whatAndWhere')}</Typography>}
@@ -261,6 +266,11 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           <Icon size="sm" zIndex={0} src={paintingIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.memories')}</Typography>}
         </MenuItem>
+
+        <MenuItem href="/home#food" isOpen={isMenuExpanded} aria-label="food_menu_item" onClick={closeMenu}>
+          <Icon size="sm" src={burgerImageUrl} />
+          {isMenuExpanded && <Typography size="sm">{t('menu.food')}</Typography>}
+        </MenuItem>
       </Section>
 
       <LastSection isOpen={isMenuExpanded}>
@@ -273,7 +283,7 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           {isMenuExpanded && <Typography size="sm">{t('menu.infoForVendors')}</Typography>}
         </MenuItem>
 
-        {/*        <MenuItem href="/hall" isOpen={isMenuExpanded} aria-label="hall_map_menu_item">
+        {/*      <MenuItem href="/hall" isOpen={isMenuExpanded} aria-label="hall_map_menu_item">
           <Icon size="sm" zIndex={0} src={pinEllipseIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.hallMap')}</Typography>}
         </MenuItem>*/}
