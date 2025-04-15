@@ -26,6 +26,7 @@ import { usePhone } from '../../hooks/usePhone';
 import { ScreenSize } from '../../styles/screeen-size';
 import closeMenuIcon from '../../assets/figmaIcons/menu/close_icon.svg';
 import dotsStrokeIcon from '../../assets/figmaIcons/dots_icon.svg';
+import burgerImageUrl from '../../assets/iconify/burger.svg';
 
 const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
   display: flex;
@@ -260,6 +261,11 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           onClick={closeMenu}>
           <Icon size="sm" zIndex={0} src={paintingIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.memories')}</Typography>}
+        </MenuItem>
+
+        <MenuItem href="/home#food" isOpen={isMenuExpanded} aria-label="food_menu_item" onClick={closeMenu}>
+          <Icon size="sm" src={burgerImageUrl} />
+          {isMenuExpanded && <Typography size="sm">{t('menu.food')}</Typography>}
         </MenuItem>
       </Section>
 

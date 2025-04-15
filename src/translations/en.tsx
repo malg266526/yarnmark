@@ -18,7 +18,8 @@ export const en: TranslationsShape = {
       workshopTickets: 'Workshops tickets',
       cruiseTickets: 'Cruise tickets',
       memories: 'Memories',
-      hallMap: 'Mapa hali'
+      hallMap: 'Mapa hali',
+      food: 'Food'
     },
     tickets: {
       buyTicketsAndWorkshops: '<0>Buy</0> ticket to the fair or choose the workshops option',
@@ -180,7 +181,7 @@ export const en: TranslationsShape = {
       bezogrodek: {
         description: 'Foodtruck park',
         discount:
-          'On the day of the event, upon showing your wristband, you will receive a <strong>20%</strong> discount on the bar and on Thai ice cream, hot dogs, baguette sandwitches, Belgian fries and pizza.'
+          'On the day of the event, upon showing your wristband, you will receive a <strong>30%</strong> discount on the bar and a <strong>20%</strong> discount on food trucks: Belgian fries, panini, Thai ice cream, Greek-Mexican cuisine.'
       },
       bistroblonia: {
         description: 'Todo',

@@ -2,8 +2,6 @@ import { BackgroundColors } from '../../styles/theme';
 import { ImageButton } from '../../components/ImageButton';
 import { Icon } from '../../components/Icon';
 import burgerImageUrl from '../../assets/iconify/burger.svg';
-import turkeyImageUrl from '../../assets/iconify/turkey.svg';
-import shrimpImageUrl from '../../assets/iconify/shrimp.svg';
 import cupcakeImageUrl from '../../assets/iconify/cupcake.svg';
 import { FramedBox } from '../../components/FramedBox';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
@@ -14,12 +12,6 @@ import bezogrodekLogoUrl from '../../assets/images/minifiedLogos/logobezogrodek.
 import bezogrodekLogoUrlWebp from '../../assets/images/minifiedLogos/logobezogrodek.webp';
 import bezogrodekLogoUrlAvif from '../../assets/images/minifiedLogos/logobezogrodek.avif';
 import { Trans } from 'react-i18next';
-import bistrobloniaLogoUrl from '../../assets/images/minifiedLogos/bistroblonia.jpg';
-import bistrobloniaLogoUrlWebp from '../../assets/images/minifiedLogos/bistroblonia.webp';
-import bistrobloniaLogoUrlAvif from '../../assets/images/minifiedLogos/bistroblonia.avif';
-import grandeAppetitoLogoUrl from '../../assets/images/minifiedLogos/GrandeAppetito.jpg';
-import grandeAppetitoLogoUrlWebp from '../../assets/images/minifiedLogos/GrandeAppetito.webp';
-import grandeAppetitoLogoUrlAvif from '../../assets/images/minifiedLogos/GrandeAppetito.avif';
 import halaLogoUrl from '../../assets/images/minifiedLogos/halalogo.jpg';
 import halaLogoUrlWebp from '../../assets/images/minifiedLogos/halalogo.webp';
 import halaLogoUrlAvif from '../../assets/images/minifiedLogos/halalogo.avif';
@@ -29,11 +21,10 @@ import { ScreenSize } from '../../styles/screeen-size';
 import { RedesignSpacings } from '../../styles/spacings';
 import { Typography } from '../../components/Typography';
 import { Band } from '../../components/bands/Band';
-import instagramIconUrl from '../../assets/figmaIcons/instagram_icon.svg';
 import { Icon as IconifyIcon } from '@iconify/react';
 import { RowLayout } from '../../components/RowLayout';
 
-type ActiveButtonType = 'foodtruckBezogrodek' | 'bistroblonia' | 'grandeappetito' | 'coffeehouse';
+type ActiveButtonType = 'foodtruckBezogrodek' | 'coffeehouse';
 
 type ActiveButtonToImageConfig = Record<
   ActiveButtonType,
@@ -144,60 +135,6 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
     description: t('foodBand.bezogrodek.description'),
     discount: <Trans i18nKey="foodBand.bezogrodek.discount" />
   },
-  bistroblonia: {
-    image: (
-      <Picture
-        width={180}
-        alt="bistroblonia_logo"
-        picture={{
-          fallbackUrl: bistrobloniaLogoUrl,
-          sources: [
-            {
-              type: 'image/webp',
-              url: bistrobloniaLogoUrlWebp
-            },
-            {
-              type: 'image/avif',
-              url: bistrobloniaLogoUrlAvif
-            }
-          ]
-        }}
-      />
-    ),
-    title: 'Bistro Błonia',
-    instagramUrl: 'https://www.instagram.com/blonia_bistro/?hl=pl',
-    description: t('foodBand.bistroblonia.description'),
-    discount: <Trans i18nKey="foodBand.bistroblonia.discount" />,
-    address: 'al. 3 Maja 55',
-    menuUrl: 'https://bloniabistro.pl/wp-content/uploads/2024/06/Blonia_Bistro-Menu.pdf'
-  },
-  grandeappetito: {
-    image: (
-      <Picture
-        width={200}
-        alt="grandeappetito_logo"
-        picture={{
-          fallbackUrl: grandeAppetitoLogoUrl,
-          sources: [
-            {
-              type: 'image/webp',
-              url: grandeAppetitoLogoUrlWebp
-            },
-            {
-              type: 'image/avif',
-              url: grandeAppetitoLogoUrlAvif
-            }
-          ]
-        }}
-      />
-    ),
-    title: 'Grande Appetito',
-    instagramUrl: 'https://www.instagram.com/grande_appetito_ristorante/?hl=pl',
-    description: t('foodBand.grandeAppetito.description'),
-    discount: <Trans i18nKey="foodBand.grandeAppetito.discount" />,
-    menuUrl: 'https://grande-appetito.pl/menu/"'
-  },
-
   coffeehouse: {
     image: (
       <Picture
@@ -269,20 +206,6 @@ export const FoodBand = ({ id }: FoodBandType) => {
           </ImageButton>
 
           <ImageButton
-            active={activeButton === 'bistroblonia'}
-            onClick={() => onRestaurantClick('bistroblonia')}
-            icon={<Icon size="md" src={turkeyImageUrl} />}>
-            Bistro Błonia
-          </ImageButton>
-
-          <ImageButton
-            active={activeButton === 'grandeappetito'}
-            onClick={() => onRestaurantClick('grandeappetito')}
-            icon={<Icon size="md" src={shrimpImageUrl} />}>
-            Grande Appetito
-          </ImageButton>
-
-          <ImageButton
             active={activeButton === 'coffeehouse'}
             icon={<Icon size="md" src={cupcakeImageUrl} />}
             onClick={() => onRestaurantClick('coffeehouse')}
@@ -304,16 +227,6 @@ export const FoodBand = ({ id }: FoodBandType) => {
               {activeButtonToImage[activeButton].image}
 
               <RowLayout align="flex-start">
-                {activeButtonToImage[activeButton].instagramUrl && (
-                  <a
-                    href={activeButtonToImage[activeButton].instagramUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={activeButtonToImage[activeButton].title}>
-                    <Icon zIndex={20} size="lg" src={instagramIconUrl} />
-                  </a>
-                )}
-
                 {activeButtonToImage[activeButton].menuUrl && (
                   <a href={activeButtonToImage[activeButton].menuUrl} target="_blank" rel="noreferrer">
                     <IconifyIcon color="black" icon="hugeicons:menu-restaurant" width="40" height="40" />
