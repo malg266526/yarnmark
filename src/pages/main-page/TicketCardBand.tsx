@@ -24,7 +24,7 @@ const TicketOrderDescription = styled.div`
   flex-direction: column;
   text-align: justify;
   max-width: 40%;
-  gap: ${RedesignSpacings.md};
+  gap: ${RedesignSpacings.sm};
 `;
 
 const TicketOrderTypography = styled(Typography)`
@@ -47,6 +47,8 @@ export const TicketCardBand = () => {
           <TicketOrderTypography size="md">{t('tickets.whereToBuy')}</TicketOrderTypography>
           <TicketOrderTypography size="md">{t('tickets.keepYourEmail')}</TicketOrderTypography>
           <TicketOrderTypography size="md">{t('tickets.proofOfPurchase')}</TicketOrderTypography>
+          <TicketOrderTypography size="md">{t('tickets.onlineDeadline')}</TicketOrderTypography>
+          <TicketOrderTypography size="md">{t('tickets.availability')}</TicketOrderTypography>
         </TicketOrderDescription>
       </Content>
     </Band.NarrowColumn>
