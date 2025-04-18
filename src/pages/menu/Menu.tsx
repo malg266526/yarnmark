@@ -10,7 +10,7 @@ import homeIcon from '../../assets/figmaIcons/menu/home_icon.svg';
 import shopIcon from '../../assets/figmaIcons/menu/shop_icon.svg';
 import workshopIcons from '../../assets/figmaIcons/menu/workshops_icon.svg';
 import paintingIcon from '../../assets/figmaIcons/menu/painting_icon.svg';
-// import pinEllipseIcon from '../../assets/figmaIcons/menu/pin_ellipse_icon.svg';
+import pinEllipseIcon from '../../assets/figmaIcons/menu/pin_ellipse_icon.svg';
 import handshakeIcon from '../../assets/figmaIcons/menu/handshake_icon.svg';
 import contractIcon from '../../assets/figmaIcons/menu/contract_icon.svg';
 import openDrawerIcon from '../../assets/figmaIcons/open_drawer_icon.svg';
@@ -40,7 +40,7 @@ const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
   border-radius: 0 12px 12px 0;
   background: ${BackgroundColors.menu.desktop};
   gap: ${RedesignSpacings.lg};
-  padding: ${RedesignSpacings.xs} 0 ${RedesignSpacings.xxxl} 0;
+  padding: ${RedesignSpacings.xs} 0 ${RedesignSpacings.xl} 0;
   transition: all 0.1s linear;
   overflow-y: auto;
   overflow-x: hidden;
@@ -283,10 +283,10 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           {isMenuExpanded && <Typography size="sm">{t('menu.infoForVendors')}</Typography>}
         </MenuItem>
 
-        {/*      <MenuItem href="/hall" isOpen={isMenuExpanded} aria-label="hall_map_menu_item">
+        <MenuItem href="/hall" isOpen={isMenuExpanded} aria-label="hall_map_menu_item">
           <Icon size="sm" zIndex={0} src={pinEllipseIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.hallMap')}</Typography>}
-        </MenuItem>*/}
+        </MenuItem>
 
         <MenuItem href="/statutes" isOpen={isMenuExpanded} aria-label="statutes_menu_item" onClick={closeMenu}>
           <Icon size="sm" zIndex={0} src={contractIcon} />

@@ -44,11 +44,12 @@ const HallLine = styled.div<{
 
 type HallType = {
   multiplier?: number;
+  showFinishedMap?: boolean;
 };
 
-export const Hall = (props: HallType) => {
+export const Hall = ({ showFinishedMap, multiplier: propsMultiplier }: HallType) => {
   const isPhone = usePhone();
-  const desktopMultiplier = props.multiplier || 20;
+  const desktopMultiplier = propsMultiplier || 20;
   const multiplier = isPhone ? 13 : desktopMultiplier;
 
   return (
@@ -56,7 +57,13 @@ export const Hall = (props: HallType) => {
       {(hallMapConfig.topRows as Line[]).map((row, index) => (
         <HallLine height={row.height} key={index} multiplier={multiplier}>
           {row.stands.map((stand, index) => (
-            <HallStand key={index} stand={stand} height={row.height} desktopMultiplier={desktopMultiplier}></HallStand>
+            <HallStand
+              key={index}
+              stand={stand}
+              height={row.height}
+              desktopMultiplier={desktopMultiplier}
+              showFinishedMap={showFinishedMap}
+            />
           ))}
         </HallLine>
       ))}
@@ -77,12 +84,14 @@ export const Hall = (props: HallType) => {
                     stand={stand.pair[0]}
                     width={column.width}
                     desktopMultiplier={desktopMultiplier}
+                    showFinishedMap={showFinishedMap}
                   />
                   <HallStand
                     key={stand.pair[1].index}
                     stand={stand.pair[1]}
                     width={column.width}
                     desktopMultiplier={desktopMultiplier}
+                    showFinishedMap={showFinishedMap}
                   />
                 </RowLayout>
               ) : (
@@ -90,7 +99,9 @@ export const Hall = (props: HallType) => {
                   key={index}
                   stand={stand}
                   width={column.width}
-                  desktopMultiplier={desktopMultiplier}></HallStand>
+                  desktopMultiplier={desktopMultiplier}
+                  showFinishedMap={showFinishedMap}
+                />
               )
             )}
           </HallLine>
@@ -100,7 +111,13 @@ export const Hall = (props: HallType) => {
       {(hallMapConfig.bottomRows as Line[]).map((row, index) => (
         <HallLine height={row.height} key={index} alignItems="flex-end" multiplier={multiplier}>
           {row.stands.map((stand, index) => (
-            <HallStand key={index} stand={stand} height={row.height} desktopMultiplier={desktopMultiplier}></HallStand>
+            <HallStand
+              key={index}
+              stand={stand}
+              height={row.height}
+              desktopMultiplier={desktopMultiplier}
+              showFinishedMap={showFinishedMap}
+            />
           ))}
         </HallLine>
       ))}
