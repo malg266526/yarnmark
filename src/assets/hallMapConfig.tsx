@@ -6,6 +6,7 @@ export type HallStandType = {
 
   text?: string;
   color: keyof typeof HallColors;
+  readyColor?: keyof typeof HallColors;
   index?: number | string;
   who?: string;
   pair?: HallStandType[];
@@ -48,49 +49,57 @@ export const hallMapConfig: HallMapType = {
           width: 2.5,
           color: 'taken',
           index: 'S34',
-          who: 'Lusia Knits'
+          who: 'Lusia Knits',
+          readyColor: 200
         },
         {
           width: 2.5,
           color: 'taken2',
           index: 'S33',
-          who: 'Mania Chomikuje'
+          who: 'Mania Chomikuje',
+          readyColor: 300
         },
         {
           width: 2.5,
           color: 'taken',
           index: 'S32',
-          who: 'Włóczki Warmii'
+          who: 'Włóczki Warmii',
+          readyColor: 200
         },
         {
           width: 2.5,
           color: 'taken2',
           index: 'S31',
-          who: 'Furora Yarns'
+          who: 'Furora Yarns',
+          readyColor: 300
         },
         {
           width: 2.5,
           color: 'taken2',
           index: 'S30',
-          who: 'Furora Yarns'
+          who: 'Furora Yarns',
+          readyColor: 300
         },
         {
           width: 2.5,
           color: 'taken2',
           index: 'S29',
-          who: 'Furora Yarns'
+          who: 'Furora Yarns',
+          readyColor: 300
         },
         {
           width: 2.5,
           color: 'taken',
           index: 'S28',
-          who: 'Ale masz to cudne!'
+          who: 'Ale masz to cudne!',
+          readyColor: 200
         },
         {
           width: 2.5,
           color: 'taken2',
           index: 'S27',
-          who: 'Animotki'
+          who: 'Animotki',
+          readyColor: 300
         }
       ]
     },
@@ -122,70 +131,80 @@ export const hallMapConfig: HallMapType = {
           height: 4,
           color: 'taken',
           index: 'P4',
-          who: 'Mila Druciarnia'
+          who: 'Mila Druciarnia',
+          readyColor: 200
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken',
           index: 'S26',
-          who: 'Mila Druciarnia'
+          who: 'Mila Druciarnia',
+          readyColor: 200
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken2',
           index: 'S25',
-          who: '7oczek'
+          who: '7oczek',
+          readyColor: 300
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken2',
           index: 'S24',
-          who: '7oczek'
+          who: '7oczek',
+          readyColor: 300
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken',
           index: 'S23',
-          who: 'Miss Knitski'
+          who: 'Miss Knitski',
+          readyColor: 200
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken2',
           index: 'S22',
-          who: 'YarnPower'
+          who: 'YarnPower',
+          readyColor: 300
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken',
           index: 'S21',
-          who: 'The Knitting Box'
+          who: 'The Knitting Box',
+          readyColor: 200
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken2',
           index: 'S20',
-          who: 'Woollala'
+          who: 'Woollala',
+          readyColor: 300
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken2',
           index: 'S19',
-          who: 'Woollala'
+          who: 'Woollala',
+          readyColor: 300
         },
         {
           width: 4,
           height: 4,
           color: 'taken',
           index: 'P3',
-          who: 'Włóczykijki'
+          who: 'Włóczykijki',
+          readyColor: 200
         }
       ]
     },
@@ -210,7 +229,8 @@ export const hallMapConfig: HallMapType = {
           height: 2.5,
           color: 'taken',
           index: 'S18',
-          who: 'Motkomania'
+          who: 'Motkomania',
+          readyColor: 300
         },
         {
           width: 4,
@@ -224,14 +244,16 @@ export const hallMapConfig: HallMapType = {
               height: 3,
               color: 'taken',
               index: 'M9',
-              who: 'Dye dye done'
+              who: 'Dye dye done',
+              readyColor: 100
             },
             {
               width: 2,
               height: 3,
               color: 'taken2',
               index: 'M10',
-              who: 'Malinowy Kos'
+              who: 'Malinowy Kos',
+              readyColor: 200
             }
           ],
           width: 4,
@@ -245,14 +267,16 @@ export const hallMapConfig: HallMapType = {
               height: 3,
               color: 'taken',
               index: 'M7',
-              who: 'Dye dye done'
+              who: 'Dye dye done',
+              readyColor: 100
             },
             {
               width: 2,
               height: 3,
               color: 'taken',
               index: 'M8',
-              who: 'Cera miczne kubki'
+              who: 'Cera miczne kubki',
+              readyColor: 300
             }
           ],
           width: 4,
@@ -266,14 +290,16 @@ export const hallMapConfig: HallMapType = {
               height: 3,
               color: 'taken2',
               index: 'M5',
-              who: 'Pacior kowce i wisielce'
+              who: 'Pacior kowce i wisielce',
+              readyColor: 200
             },
             {
               width: 2,
               height: 3,
               color: 'taken',
               index: 'M6',
-              who: 'Okki Hand made'
+              who: 'Okki Hand made',
+              readyColor: 100
             }
           ],
           width: 4,
@@ -292,14 +318,16 @@ export const hallMapConfig: HallMapType = {
               height: 3,
               color: 'taken2',
               index: 'M3',
-              who: 'Woolove'
+              who: 'Woolove',
+              readyColor: 200
             },
             {
               width: 2,
               height: 3,
               color: 'taken',
               index: 'M4',
-              who: 'Floral Fiber Fusion'
+              who: 'Floral Fiber Fusion',
+              readyColor: 300
             }
           ],
           width: 4,
@@ -313,14 +341,16 @@ export const hallMapConfig: HallMapType = {
               height: 3,
               color: 'taken',
               index: 'M1',
-              who: 'Kania Kania Ceramika'
+              who: 'Kania Kania Ceramika',
+              readyColor: 300
             },
             {
               width: 2,
               height: 3,
               color: 'taken2',
               index: 'M2',
-              who: 'Hanka mi zrobiła'
+              who: 'Hanka mi zrobiła',
+              readyColor: 200
             }
           ],
           width: 4,
@@ -337,7 +367,8 @@ export const hallMapConfig: HallMapType = {
           height: 2.5,
           color: 'taken',
           index: 'S17',
-          who: "Martin's lab"
+          who: "Martin's lab",
+          readyColor: 200
         }
       ]
     },
@@ -357,70 +388,80 @@ export const hallMapConfig: HallMapType = {
           height: 4,
           color: 'taken2',
           index: 'P2',
-          who: 'Strikke'
+          who: 'Strikke',
+          readyColor: 200
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken',
           index: 'S16',
-          who: 'WełnaBawełna'
+          who: 'WełnaBawełna',
+          readyColor: 300
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken',
           index: 'S15',
-          who: 'WełnaBawełna'
+          who: 'WełnaBawełna',
+          readyColor: 300
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken2',
           index: 'S14',
-          who: 'Time to knit'
+          who: 'Time to knit',
+          readyColor: 200
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken',
           index: 'S13',
-          who: 'Kokonki'
+          who: 'Kokonki',
+          readyColor: 300
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken',
           index: 'S12',
-          who: 'Kokonki'
+          who: 'Kokonki',
+          readyColor: 300
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken',
           index: 'S11',
-          who: 'Kokonki'
+          who: 'Kokonki',
+          readyColor: 300
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken2',
           index: 'S10',
-          who: 'Motek'
+          who: 'Motek',
+          readyColor: 200
         },
         {
           width: 4,
           height: 2.5,
           color: 'taken',
           index: 'S9',
-          who: 'Woolloop'
+          who: 'Woolloop',
+          readyColor: 300
         },
         {
           width: 4,
           height: 4,
           color: 'taken2',
           index: 'P1',
-          who: 'GaboWool'
+          who: 'GaboWool',
+          readyColor: 200
         }
       ]
     }
@@ -442,31 +483,36 @@ export const hallMapConfig: HallMapType = {
           width: 2.5,
           color: 'taken',
           index: 'S8',
-          who: 'Madobo'
+          who: 'Madobo',
+          readyColor: 200
         },
         {
           width: 2.5,
           color: 'taken2',
           index: 'S7',
-          who: 'Centrum włóczek'
+          who: 'Centrum włóczek',
+          readyColor: 300
         },
         {
           width: 2.5,
           color: 'taken2',
           index: 'S6',
-          who: 'Centrum włóczek'
+          who: 'Centrum włóczek',
+          readyColor: 300
         },
         {
           width: 2.5,
           color: 'taken',
           index: 'S5',
-          who: 'Zakrę cone motki'
+          who: 'Zakrę cone motki',
+          readyColor: 200
         },
         {
           width: 2.5,
           color: 'taken',
           index: 'S4',
-          who: 'Zakrę cone motki'
+          who: 'Zakrę cone motki',
+          readyColor: 200
         },
         {
           width: 3.5,
@@ -477,19 +523,22 @@ export const hallMapConfig: HallMapType = {
           width: 2.5,
           color: 'taken2',
           index: 'S3',
-          who: 'Farbya rnia'
+          who: 'Farbya rnia',
+          readyColor: 300
         },
         {
           width: 2.5,
           color: 'taken',
           index: 'S2',
-          who: 'Biferno'
+          who: 'Biferno',
+          readyColor: 200
         },
         {
           width: 2.5,
           color: 'taken',
           index: 'S1',
-          who: 'Biferno'
+          who: 'Biferno',
+          readyColor: 200
         },
         {
           width: 2.5,

@@ -75,5 +75,12 @@ export const HallColors = {
   small2: '#a0bfd6',
   taken: '#d3d3d3',
   taken2: '#dfdfdf',
-  empty: BrownScale[50] //
+  empty: BrownScale[50],
+  100: '#b9c8ac',
+  200: '#97ae85',
+  300: '#76945f',
+  400: '#547b3a',
+  500: '#326213',
+  600: '#2b5213',
+  700: '#254212'
 };

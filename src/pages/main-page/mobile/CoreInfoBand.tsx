@@ -10,9 +10,8 @@ import calendarIconUrl from '../../../assets/figmaIcons/calendar_icon.svg';
 import styled from 'styled-components';
 import { GrayScale, TextColors } from '../../../styles/theme';
 import { Band } from '../../../components/bands/Band';
-/*
 import mapIcon from '../../../assets/figmaIcons/map_icon.svg';
-*/
+
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 
 const InfoColumn = styled(FlexColumnLayout)`
@@ -74,12 +73,12 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
           </Typography>
         </FlexColumnLayout>
 
-        {/*        <FlexColumnLayout gap="xs" padding="none">
+        <FlexColumnLayout gap="xs" padding="none">
           <Icon size="lg" zIndex={0} src={mapIcon} />
           <Link href="/hall">
             <Typography size="sm">{t('hallMap.title')}</Typography>
           </Link>
-        </FlexColumnLayout>*/}
+        </FlexColumnLayout>
 
         <FlexColumnLayout gap="xs" padding="none">
           <Icon size="lg" zIndex={0} src={shipIconUrl} />

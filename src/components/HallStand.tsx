@@ -49,7 +49,7 @@ const StandWho = styled.h5`
 const StandIndex = styled.h4`
   text-align: center;
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
   overflow-wrap: anywhere;
 
   @media (max-width: ${ScreenSize.phone}) {
@@ -82,9 +82,10 @@ type HallStandProps = {
   height?: number;
   width?: number;
   desktopMultiplier?: number;
+  showFinishedMap?: boolean;
 };
 
-export const HallStand = ({ stand, height, desktopMultiplier }: HallStandProps) => {
+export const HallStand = ({ stand, height, desktopMultiplier, showFinishedMap }: HallStandProps) => {
   const isPhone = usePhone();
   const multiplier = isPhone ? 13 : desktopMultiplier || 24;
 
@@ -92,7 +93,7 @@ export const HallStand = ({ stand, height, desktopMultiplier }: HallStandProps) 
     <HallStandLayout
       width={stand.width}
       height={stand.height || height}
-      color={stand.color}
+      color={showFinishedMap && stand.readyColor ? stand.readyColor : stand.color}
       multiplier={multiplier}
       isTaken={Boolean(stand.who)}>
       <div>

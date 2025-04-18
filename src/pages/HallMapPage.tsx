@@ -1,15 +1,8 @@
 import React from 'react';
-import { Picture } from '../components/Picture';
-import hallMapImageUrlAvif from '../assets/images/Mapka_targi.avif';
-import hallMapImageUrlJpg from '../assets/images/Mapka_targi.jfif';
-import hallMapImageUrlWebp from '../assets/images/Mapka_targi.webp';
-import legendImageUrlAvif from '../assets/images/Legenda.avif';
-import legendImageUrlJpg from '../assets/images/Legenda.jfif';
-import legendImageUrlWebp from '../assets/images/legenda.webp';
 import styled from 'styled-components';
 import { ScreenSize } from '../styles/screeen-size';
 import { RedesignSpacings } from '../styles/spacings';
-import { usePhone, useTablet } from '../hooks/usePhone';
+import { usePhone } from '../hooks/usePhone';
 import { PageContent } from '../components/PageContent';
 import { Header } from './menu/Header';
 import { Band } from '../components/bands/Band';
@@ -19,6 +12,7 @@ import { CenteredSection } from '../components/CenteredSection';
 import { BandTitle } from '../components/bands/BandTitle';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import { BackgroundColors } from '../styles/theme';
+import { Hall } from '../components/Hall';
 
 const InvitationBoxWrapper = styled.div`
   padding-left: 240px;
@@ -34,7 +28,6 @@ const MapWithLegend = styled.div`
   flex-direction: row;
   justify-content: center;
   padding: ${RedesignSpacings.sm};
-  background-color: white;
   z-index: 1;
 
   @media (max-width: ${ScreenSize.smallPc}) {
@@ -53,12 +46,8 @@ const MapWithLegend = styled.div`
 `;
 
 export const HallMapPage = () => {
-  const isTablet = useTablet();
   const isPhone = usePhone();
   const t = useTypedTranslation();
-
-  const mapSize = isPhone ? '360px' : isTablet ? '500px' : '700px';
-  const legendSize = isPhone ? '200px' : '400px';
 
   return (
     <PageContent variant="wide" padding="none">
@@ -80,43 +69,7 @@ export const HallMapPage = () => {
         color={BackgroundColors.navigationBand}
         padding={isPhone ? 'sm' : 'lg'}>
         <MapWithLegend>
-          <Picture
-            picture={{
-              fallbackUrl: hallMapImageUrlJpg,
-              sources: [
-                {
-                  type: 'image/webp',
-                  url: hallMapImageUrlWebp
-                },
-                {
-                  type: 'image/avif',
-                  url: hallMapImageUrlAvif
-                }
-              ]
-            }}
-            alt="hall_map"
-            width={mapSize}
-            style={{ alignSelf: 'center' }}
-          />
-
-          <Picture
-            picture={{
-              fallbackUrl: legendImageUrlJpg,
-              sources: [
-                {
-                  type: 'image/webp',
-                  url: legendImageUrlWebp
-                },
-                {
-                  type: 'image/avif',
-                  url: legendImageUrlAvif
-                }
-              ]
-            }}
-            alt="hall_map"
-            width={legendSize}
-            style={{ alignSelf: 'center' }}
-          />
+          <Hall multiplier={26} showFinishedMap />
         </MapWithLegend>
       </Band.CenteredColumn>
     </PageContent>
