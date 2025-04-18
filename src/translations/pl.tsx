@@ -37,6 +37,8 @@ export const pl = {
       whereToBuy: 'Bilet wstępu na Krakoski Yarnmark wykupisz na oficjalnej stronie sklepu włóczykijki.pl!',
       keepYourEmail: 'Zachowaj email z numerem zamówienia, który dostaniesz po zakupie biletu.',
       proofOfPurchase: 'Ten dowód zakupu okażesz przy wejsciu na Yarnmark ;)',
+      onlineDeadline: 'Bilety online bedą dostępne w sprzedaży do 25.04, do godz. 18:00.',
+      availability: 'W dniu wydarzenia bilety bedą dostępne w kasie na miejscu.',
       availableSoon: 'Dostępne wkrótce'
     },
     location: {

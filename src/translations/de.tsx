@@ -38,7 +38,9 @@ export const de: TranslationsShape = {
         'You can buy an entry ticket to Krakoski Yarnmark on the official website of the store włóczykijki.pl!',
       keepYourEmail: 'Save the email with your order number, which you will receive after purchasing your ticket.',
       proofOfPurchase: 'You will show this proof of purchase when entering Yarnmark ;)',
-      availableSoon: 'Bald verfügbar'
+      availableSoon: 'Bald verfügbar',
+      onlineDeadline: 'Der Online-Ticketverkauf ist bis zum 25. April, 18:00 Uhr möglich.',
+      availability: 'Am Veranstaltungstag sind Tickets an der Abendkasse vor Ort erhältlich.'
     },
     location: {
       findUsOnMaps: 'Finden Sie uns auf <0>Google Maps</0>',
