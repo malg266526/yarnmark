@@ -36,7 +36,7 @@ export const de: TranslationsShape = {
       entrance: 'Eintrittskarte',
       whereToBuy:
         'You can buy an entry ticket to Krakoski Yarnmark on the official website of the store włóczykijki.pl!',
-      keepYourEmail: 'Save the email with your order number, which you will receive after purchasing your ticket.',
+      keepYourEmail: 'Save the email with your ticket number, which you will receive after purchasing your ticket.',
       proofOfPurchase: 'You will show this proof of purchase when entering Yarnmark ;)',
       availableSoon: 'Bald verfügbar',
       onlineDeadline: 'Der Online-Ticketverkauf ist bis zum 25. April, 18:00 Uhr möglich.',
@@ -96,7 +96,7 @@ export const de: TranslationsShape = {
       option4:
         '- Straßenbahnlinie <strong>1</strong>, (Strecke von der Wańkowicz-Schleife) hält am nähesten zum Zentrum: <strong>HAUPTPOST</strong>, <strong>PLAC WSZYSTKICH ŚWIĘTYCH</strong>,  → Richtung Cichy Kącik → Haltestelle <strong>PARK JORDANA</strong> (10 Minuten zu Fuß von der Haltestelle über die Błonia Wiesen bis HALA Cracovia)',
       byCar:
-        'Neben dem Gebäude befindet sich ein kleiner Parkplatz, der am Veranstaltungstag für Besucher unserer Messe kostenfrei zur Verfügung steht. Sollte sich herausstellen, dass dieser Parkplatz nicht ausreicht, gibt es einen öffentlichen Parkplatz in der Nähe (bei Bezogródek Tropical Spot Food), der 24 Stunden am Tag geöffnet ist (kostenpflichtig).',
+        'Neben dem Gebäude befindet sich ein kleiner Parkplatz, der am Veranstaltungstag für Besucher unserer Messe kostenfrei zur Verfügung steht.',
       howToGetToUs: 'Wie kommen Sie zu uns?',
       accessibleByCar: 'Mit dem Auto',
       googleMaps: 'How to get to the fair with google maps'

@@ -25,7 +25,7 @@ export const CruiseMap = () => {
 
       <FlexColumnLayout gap="sm" padding="none" align="flex-start">
         <Typography size="sm">AQUA FUN </Typography>
-        <Typography size="sm">Bulwar Czerwieński 172/7</Typography>
+        <Typography size="sm">Bulwar Czerwieński </Typography>
         <Typography size="sm">31-069 Kraków</Typography>
       </FlexColumnLayout>
 
