@@ -114,7 +114,7 @@ export const de: TranslationsShape = {
         route: 'Route:'
       },
       invitation: 'Wir laden Sie zu einer unvergesslichen Kreuzfahrt auf der bezaubernden Weichsel in Krakau ein.',
-      ship: 'Wir möchten, dass das Deck des Schiffes „Horyzont“ zur Bühne wird, auf der man gemeinsam stricken, einzigartige Momente schaffen und neue Strickbekanntschaften knüpfen kann.',
+      ship: 'Wir möchten, dass das Deck des Schiffes „Legenda“ zur Bühne wird, auf der man gemeinsam stricken, einzigartige Momente schaffen und neue Strickbekanntschaften knüpfen kann.',
       prosecco: {
         title: 'Entspannung!',
         intro:
