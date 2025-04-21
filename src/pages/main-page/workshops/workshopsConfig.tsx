@@ -107,7 +107,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
         }
       ]
     },
-    isSoldOut: false,
+    isSoldOut: true,
     room: 'bursa2',
     price: 90,
     ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Podstawy-szydelka/3456',
