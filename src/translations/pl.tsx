@@ -35,7 +35,7 @@ export const pl = {
       cruise: 'Dziergostatek',
       entrance: 'Bilet wstepu',
       whereToBuy: 'Bilet wstępu na Krakoski Yarnmark wykupisz na oficjalnej stronie sklepu włóczykijki.pl!',
-      keepYourEmail: 'Zachowaj email z numerem zamówienia, który dostaniesz po zakupie biletu.',
+      keepYourEmail: 'Zachowaj email z numerem biletu, który dostaniesz po zakupie biletu.',
       proofOfPurchase: 'Ten dowód zakupu okażesz przy wejsciu na Yarnmark ;)',
       onlineDeadline: 'Bilety online bedą dostępne w sprzedaży do 25.04, do godz. 18:00.',
       availability: 'W dniu wydarzenia bilety bedą dostępne w kasie na miejscu.',
@@ -94,7 +94,7 @@ export const pl = {
       option4:
         '- linia tramwajowa <strong>1</strong>, (trasa z pętli Wańkowicza) przystanki najbliżej centrum: <strong>POCZTA GŁÓWNA</strong>, <strong>PLAC WSZYSTKICH ŚWIĘTYCH</strong>,  → kierunek Cichy Kącik → przystanek <strong>PARK JORDANA</strong> (10 min pieszo z przystanku przed błonia do HALA Cracovia)',
       byCar:
-        'Przy budynku znajduje się niewielki parking, który w dniu wydarzenia będzie bezpłatny dla odwiedzających nasze targi. Jeżeli ten parking okaże się nie wystarczający, to w niewielkiej odległości znajduje parking publiczny (przy Bezogródek Tropical Spot Food) czynny całą dobę (płatny). ',
+        'Przy budynku znajduje się niewielki parking, który w dniu wydarzenia będzie bezpłatny dla odwiedzających nasze targi. Mała liczba miejsc parkingowych jest również wzdłuż alei Focha.',
       howToGetToUs: 'Jak do nas dojechać?',
       accessibleByCar: 'Dojazd samochodem',
       googleMaps: 'Jak dotrzeć na targi z google maps'
