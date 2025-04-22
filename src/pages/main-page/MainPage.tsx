@@ -48,6 +48,8 @@ export const MainPage = () => {
             <TicketCard />
           </Band.CenteredColumn>
 
+          <CruiseBand id="cruise" />
+
           <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
           <Band.Empty id="workshops" padding="xs">
             <WorkshopsMobileSchedule />
@@ -59,9 +61,7 @@ export const MainPage = () => {
             <VendorsList />
           </Band.CenteredColumn>
 
-          <CruiseBand id="cruise" />
-
-          {/* <FoodBand id="food" />*/}
+          <FoodBand id="food" />
 
           <Band.Empty id="lastEdition" color={BackgroundColors.lastEditionBand} padding="sm">
             <LastEditionBand />
@@ -85,9 +85,9 @@ export const MainPage = () => {
             <VendorsList />
           </Band.CenteredColumn>
 
-          <WorkshopsDesktopBand id="workshops" />
-
           <CruiseBand id="cruise" />
+
+          <WorkshopsDesktopBand id="workshops" />
 
           <FoodBand id="food" />
 
