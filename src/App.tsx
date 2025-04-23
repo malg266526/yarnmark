@@ -18,6 +18,7 @@ import { ScreenSize } from './styles/screeen-size';
 import { HallMapPage } from './pages/HallMapPage';
 import { Typography } from './components/Typography';
 import { usePhone } from './hooks/usePhone';
+import { WorkshopsSchedule } from './pages/WorkshopsSchedule';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -73,10 +74,11 @@ export const App = () => {
           <Route path="/info-for-vendors" element={<ForVendorsPage />} />
           <Route path="/statutes" element={<StatutesPage />} />
           <Route path="/hall" element={<HallMapPage />} />
+          <Route path="/schedule" element={<WorkshopsSchedule />} />
         </Routes>
 
         <Footer id="footer">
-          <TransparentText>Dziewiarskie targi welny krakow 2024</TransparentText>
+          <TransparentText>Dziewiarskie targi welny krakow 2025</TransparentText>
 
           <MinimalistLayout>
             <Typography size={isPhone ? 'xl' : 'xxl'}>{t('contactPage.title')}</Typography>
