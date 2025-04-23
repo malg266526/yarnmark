@@ -110,6 +110,7 @@ export const pl = {
         priceIncludesYarnmarkTicket: 'Cena zawiera bilet wejścia na targi <strong>Krakoski Yarnmark 2025</strong>',
         route: 'Trasa:'
       },
+      pleaseBeEarly: 'Bardzo prosimy o przybycie na miejsce startu rejsu 15min. wcześniej.',
       invitation: 'Zapraszamy Cię na niezapomniany rejs statkiem po urokliwej Wiśle w Krakowie.',
       ship: 'Pragniemy, aby pokład statku „Legenda" stał się sceną do wspólnego dziergania, tworzenia niepowtarzalnych chwil i zawierania nowych dziewiarskich znajomości.',
       buyTickets: 'Tutaj kupisz bilet',

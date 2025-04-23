@@ -81,11 +81,11 @@ export const MainPage = () => {
 
           <LocationBand id="location" />
 
+          <CruiseBand id="cruise" />
+
           <Band.CenteredColumn id="vendors" size="md" padding="xxxl" color={BackgroundColors.vendors} justify="center">
             <VendorsList />
           </Band.CenteredColumn>
-
-          <CruiseBand id="cruise" />
 
           <WorkshopsDesktopBand id="workshops" />
 

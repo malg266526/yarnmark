@@ -103,6 +103,7 @@ export const de: TranslationsShape = {
     },
     cashmereTicketsBand: {
       beautifulCruise: 'Machen Sie eine wunderschöne Kreuzfahrt mit dem “Strickschiff”!',
+      pleaseBeEarly: 'We kindly ask you to arrive at the cruise departure point 15 minutes in advance.',
       map: {
         cruise: 'Knitting cruise on Vistula River',
         info: 'Cruise information',
