@@ -29,6 +29,15 @@ const Table = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   grid-gap: ${RedesignSpacings.sm};
+  overflow: scroll;
+
+  @media (max-width: ${ScreenSize.tablet}) {
+    max-width: 100vw;
+    width: 100%;
+    overflow: scroll;
+
+    grid-gap: ${RedesignSpacings.xxs};
+  }
 `;
 
 const Th = styled.div`
@@ -78,13 +87,11 @@ export const WorkshopsSchedule = () => {
             </Typography>
           </Th>
           <Th>
-            {' '}
             <Typography size="md" weight="bold">
               Bursa - Sala A
             </Typography>
           </Th>
           <Th>
-            {' '}
             <Typography size="md" weight="bold">
               Hala - Sala konferencyjna
             </Typography>
@@ -98,49 +105,49 @@ export const WorkshopsSchedule = () => {
           <Cell background={100}>
             <p>Edknitted</p>
             <h3>Polish Your Pattern</h3>
-            <p>9:00 - 12:00</p>
+            <Typography size="md">9:00 - 12:00</Typography>
           </Cell>
 
           <Cell background={200}>
             <p>Knitolog</p>
             <h3>Żakard dla mniej lub bardziej zaawansowanych</h3>
-            <p>9:00 - 12:00</p>
+            <Typography size="md">9:00 - 12:00</Typography>
           </Cell>
 
           <Cell background={300}>
             <p>Lud-art</p>
             <h3>Haft Ludowy</h3>
-            <p>9:00 - 12:00</p>
+            <Typography size="md">9:00 - 12:00</Typography>
           </Cell>
 
           <Cell background={400}>
             <p>Drutututu</p>
             <h3>Druty - podstawy</h3>
-            <p>9:00 - 11:00</p>
+            <Typography size="md">9:00 - 11:00</Typography>
           </Cell>
 
           <Cell background={400}>
             <p>Skein</p>
             <h3>Punch needle</h3>
-            <p>12:30 - 15:30</p>
+            <Typography size="md">12:30 - 15:30</Typography>
           </Cell>
 
           <Cell background={300}>
             <p>Iwona Eriksson</p>
             <h3>Rzędy skrócone</h3>
-            <p>12:30 - 15:30</p>
+            <Typography size="md">12:30 - 15:30</Typography>
           </Cell>
 
           <Cell background={200}>
             <p>Kroopa Knits</p>
             <h3>Podstawy żakardu</h3>
-            <p>12:30 - 16:30</p>
+            <Typography size="md">12:30 - 16:30</Typography>
           </Cell>
 
           <Cell background={100}>
             <p>Heart of Cotton</p>
             <h3>Podstawy szydełka</h3>
-            <p>11:30 - 13:30</p>
+            <Typography size="md">11:30 - 13:30</Typography>
           </Cell>
 
           <Cell />
@@ -149,7 +156,7 @@ export const WorkshopsSchedule = () => {
           <Cell background={300}>
             <p>Haftowa Baba</p>
             <h3>Haft na wełnie</h3>
-            <p>14:00 - 17:00</p>
+            <Typography size="md">14:00 - 17:00</Typography>
           </Cell>
         </Table>
       </Band.CenteredColumn>

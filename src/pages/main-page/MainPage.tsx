@@ -19,6 +19,7 @@ import { WorkshopsDesktopBand } from './workshops/WorkshopsDesktopBand';
 import { WorkshopsMobileSchedule } from './workshops/WorkshopsMobileSchedule';
 import { CruiseBand } from './CruiseBand';
 import { FoodBand } from './FoodBand';
+import { Schedule } from './workshops/Schedule';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -49,6 +50,10 @@ export const MainPage = () => {
           </Band.CenteredColumn>
 
           <CruiseBand id="cruise" />
+
+          <Band.Empty id="schedule" padding="xs">
+            <Schedule />
+          </Band.Empty>
 
           <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
           <Band.Empty id="workshops" padding="xs">
