@@ -116,6 +116,9 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
               <Typography size="sm">
                 <Trans i18nKey="cashmereTicketsBand.map.priceIncludesYarnmarkTicket" />
               </Typography>
+              <Typography size="sm">
+                <Trans i18nKey="cashmereTicketsBand.pleaseBeEarly" />
+              </Typography>
             </FlexColumnLayout>
           </FlexColumnLayout>
         </Carouselge.Item>
