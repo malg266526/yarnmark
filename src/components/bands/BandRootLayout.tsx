@@ -23,6 +23,7 @@ export const BandRootLayout = styled.div<{
   direction?: 'column' | 'row';
   maxWidth?: `${number}%` | `${number}px`;
   gap?: keyof typeof RedesignSpacings;
+  overflow?: 'scroll' | 'auto';
 }>`
   width: 100%;
   display: flex;
@@ -32,6 +33,8 @@ export const BandRootLayout = styled.div<{
 
   justify-content: ${({ justify }) => justify || 'flex-start'};
   align-items: ${({ align }) => align || 'flex-start'};
+
+  overflow: ${({ overflow }) => overflow || 'unset'};
 
   gap: ${({ gap }) => (gap ? RedesignSpacings[gap] : 'unset')};
 
