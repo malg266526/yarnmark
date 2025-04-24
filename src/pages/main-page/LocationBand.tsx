@@ -90,9 +90,6 @@ const EventLocationCard = () => {
           <Typography size="sm">
             <Trans i18nKey="spotBand.option3" />
           </Typography>
-          <Typography size="sm">
-            <Trans i18nKey="spotBand.option4" />
-          </Typography>
 
           <Typography size="md" weight="bold">
             {t('spotBand.accessibleByCar')}
