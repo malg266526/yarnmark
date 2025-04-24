@@ -8,6 +8,10 @@ import { RibbonCard } from './cards/RibbonCard';
 import { WorkshopModal } from './WorkshopModal';
 import { useWorkshopModalToggle } from './useWorkshopModalToggle';
 import { Schedule } from './Schedule';
+import { Picture } from '../../../components/Picture';
+import workshopsMapUrlAvif from '../../../assets/images/workshops/mapka_warsztaty.avif';
+import workshopsMapUrl from '../../../assets/images/workshops/mapka_warsztaty.jfif';
+import workshopsMapUrlWepb from '../../../assets/images/workshops/mapka_warsztaty.webp';
 
 type WorkshopsBandType = {
   id: string;
@@ -46,6 +50,24 @@ export const WorkshopsDesktopBand = ({ id }: WorkshopsBandType) => {
       </ImageSection>*/}
 
       <Schedule />
+
+      <Picture
+        picture={{
+          fallbackUrl: workshopsMapUrl,
+          sources: [
+            {
+              type: 'image/webp',
+              url: workshopsMapUrlWepb
+            },
+            {
+              type: 'image/avif',
+              url: workshopsMapUrlAvif
+            }
+          ]
+        }}
+        alt="mapa_warsztaty"
+        width={900}
+      />
 
       <MultiCarousel
         items={WorkshopsConfig.map((workshop, index) => (

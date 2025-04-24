@@ -19,7 +19,7 @@ import { WorkshopsDesktopBand } from './workshops/WorkshopsDesktopBand';
 import { WorkshopsMobileSchedule } from './workshops/WorkshopsMobileSchedule';
 import { CruiseBand } from './CruiseBand';
 import { FoodBand } from './FoodBand';
-import { Schedule } from './workshops/Schedule';
+import { WorkshopsScheduleMobileBand } from './workshops/WorkshopsScheduleMobileBand';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -51,9 +51,7 @@ export const MainPage = () => {
 
           <CruiseBand id="cruise" />
 
-          <Band.Empty id="schedule" padding="xs">
-            <Schedule />
-          </Band.Empty>
+          <WorkshopsScheduleMobileBand id="schedule" />
 
           <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
           <Band.Empty id="workshops" padding="xs">

@@ -62,6 +62,7 @@ interface EmptyBandProps {
   justify?: Justify;
   color?: string;
   padding?: keyof typeof RedesignSpacings;
+  overflow?: 'scroll' | 'auto';
 }
 
 const EmptyBand = ({ id, color, padding, ...props }: EmptyBandProps) => (

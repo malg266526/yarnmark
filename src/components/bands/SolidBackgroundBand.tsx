@@ -13,6 +13,7 @@ interface BackgroundBand {
   direction?: 'column' | 'row';
   color: string;
   maxWidth?: `${number}%` | `${number}px`;
+  overflow?: 'scroll' | 'auto';
 }
 
 const BackgroundWrapper = styled.div<{ color: string }>`

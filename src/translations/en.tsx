@@ -268,6 +268,7 @@ export const en: TranslationsShape = {
           '<li>kilka markerów typu agrafka</li>' +
           '<li>nożyczki</li>' +
           '<li>ewentualnie szydełko jeśli masz</li>' +
+          '<li>włóczkę i druty zapewnia sponsor warsztatów Biferno!</li>' +
           '</ul>',
         description:
           '<ul>' +
