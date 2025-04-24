@@ -77,6 +77,8 @@ import missKnitskiLogoUrl from '../../assets/images/minifiedLogos/missknitski.pn
 import missKnitskiLogoUrlAvif from '../../assets/images/minifiedLogos/missknitski.avif';
 import missKnitskiLogoUrlWebp from '../../assets/images/minifiedLogos/missknitski.webp';
 
+import motekLogoUrl from '../../assets/images/minifiedLogos/motek.png';
+
 import motkomaniaLogoUrl from '../../assets/images/minifiedLogos/motkomania.jpg';
 import motkomaniaLogoUrlAvif from '../../assets/images/minifiedLogos/motkomania.avif';
 import motkomaniaLogoUrlWebp from '../../assets/images/minifiedLogos/motkomania.webp';
@@ -594,6 +596,27 @@ export const VendorsList = () => {
                 url: missKnitskiLogoUrlAvif
               }
             ]
+          }}
+        />
+      </LogoLink>
+
+      <LogoLink to="https://motek.com.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={100}
+          // height={43}
+          alt="motek"
+          picture={{
+            fallbackUrl: motekLogoUrl
+            /*        sources: [
+              {
+                type: 'image/webp',
+                url: motkomaniaLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: motkomaniaLogoUrlAvif
+              }
+            ]*/
           }}
         />
       </LogoLink>
