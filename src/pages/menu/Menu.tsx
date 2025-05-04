@@ -182,7 +182,12 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
   const isMenuExpanded = isOpen || isPhone;
 
   return (
-    <RootLayout isVisible={isVisible} isOpen={isMenuExpanded} id="menu_root">
+    <RootLayout
+      isVisible={isVisible}
+      isOpen={isMenuExpanded}
+      aria-expanded={isOpen}
+      id="menu_root"
+      data-testid="menu_root">
       <Section isOpen={isMenuExpanded}>
         {isPhone ? (
           <Button onClick={closeMenu}>
