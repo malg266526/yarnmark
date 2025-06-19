@@ -120,11 +120,7 @@ export const StatutesPage = () => {
                 <li>blokowania ciągów komunikacyjnych, dróg dojazdowych dla służb ratunkowych, dróg ewakuacyjnych</li>
               </ul>
             </li>
-            <li>
-              Organizator zezwala na wprowadzanie psów na teren Yarnmarku, na smyczy oraz w przypadku ras uznanych za
-              agresywne (Dz. U. Nr 77, poz.687) również w kagańcu. Za szkody spowodowane przez psa odpowieda jego
-              właściciel
-            </li>
+            <li>Organizator nie zezwala na wprowadzanie psów na teren Yarnmarku.</li>
             <li>Sprzedaż prowadzona jest wyłącznie na stoiskach Wystawców.</li>
             <li>
               Sprzedawcy oraz Sklepy wystawiają swoje produkty oraz towary na Yarnmarku, prowadzą sprzedaż we własnym

@@ -54,8 +54,9 @@ export const pl = {
     },
     whereToEat: 'Gdzie zjeść?',
     welcomeBand: {
-      invitation: 'Serdecznie zapraszamy na II edycję targów włóczki w stolicy Małopolski!',
-      when: '26/04/2025r w godz. 10:00 - 17:00',
+      invitation: 'Serdecznie zapraszamy na III edycję targów włóczki w stolicy Małopolski!',
+      // when: '26/04/2025r w godz. 10:00 - 17:00',
+      when: 'Kwiecień 2026',
       where: 'Hala 100-lecia KS Cracovia',
       haveFun: 'Życzymy udanych łowów i świetnej zabawy!',
       seeYou: 'Do zobaczenia!'
@@ -65,16 +66,18 @@ export const pl = {
       knittingSaturday: 'Chodźże spędzić z nami dziewiarską sobotę w grodzie Kraka!',
       linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
       checkTheVendors: 'Sprawdź z jakimi wystawcami się spotkasz.',
-      when: '26/04/2025r. o godz. 10:00'
+      //when: '26/04/2025r. o godz. 10:00'
+      when: 'Kwiecień 2026'
     },
     previousEdition: {
-      thankYou: 'Dziękujemy za Waszą obecność na Yarnmarku 2024!',
+      thankYou: 'Dziękujemy za Waszą obecność na Yarnmarku!',
       fillTheSurvey: 'Zapraszamy do podzielenia się Waszą opinią na temat Yarnmarku 2024 w <0>ankiecie</0> ',
       yarnmarkShop: 'Yarnmarkowe souveniry:',
       yarnmarkGallery: 'Yarnmarkowa Galeria:',
       yarnmarkBag: 'Plecako-torba',
       photosBy: 'Fotki od',
-      savedStories: 'w relacji wyróżnionej'
+      savedStories: 'w relacji wyróżnionej',
+      bottle: 'Smocza Butelka'
     },
     spotBand: {
       title: 'Gdzie?',
@@ -128,7 +131,7 @@ export const pl = {
       title: 'Kontakt'
     },
     infoForVendorsPage: {
-      title: 'Informacje dla wystawców',
+      title: 'Informacje dla wystawców 2025',
       invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w II edycji Krakoskiego Yarnmarku!',
       organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was.',
       hallInfo: {

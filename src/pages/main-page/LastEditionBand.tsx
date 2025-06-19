@@ -52,6 +52,12 @@ export const LastEditionBand = () => {
                 rel="noreferrer">
                 <Typography size="sm">{t('previousEdition.yarnmarkBag')}</Typography>
               </SecondaryLink>
+              <SecondaryLink
+                to="https://wloczykijki.pl/pl/p/Butelka-Krakoski-Yarnmark-Welny-2025/3577"
+                target="_blank"
+                rel="noreferrer">
+                <Typography size="sm">{t('previousEdition.bottle')}</Typography>
+              </SecondaryLink>
             </FlexColumnLayout>
           </LogoSection>
 

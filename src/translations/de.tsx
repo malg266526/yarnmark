@@ -55,8 +55,9 @@ export const de: TranslationsShape = {
       taken: 'Reserved'
     },
     welcomeBand: {
-      invitation: 'Wir laden Sie herzlich zur zweiten Ausgabe der Garnmesse inKrakau ein!',
-      when: 'Am 26.04.2025 von 10:00 bis 17:00 Uhr',
+      invitation: 'Wir laden Sie herzlich zur dritte Ausgabe der Garnmesse inKrakau ein!',
+      // when: 'Am 26.04.2025 von 10:00 bis 17:00 Uhr',
+      when: 'April 2026',
       where: 'In Hala 100-lecia KS Cracovia',
       haveFun: 'Wir wünschen Ihnen eine erfolgreiche Jagd und viel Spaß!',
       seeYou: 'Auf Wiedersehen!'
@@ -67,16 +68,18 @@ export const de: TranslationsShape = {
       linksBelow:
         'Unten findest du einige Links, die dir bei der Planung deiner Zeit in unserer schönen Stadt helfen werden:',
       checkTheVendors: 'Schau welche Aussteller du triffst',
-      when: 'Am 26.04.2025 um 10:00 Uhr'
+      // when: 'Am 26.04.2025 um 10:00 Uhr'
+      when: 'April 2026'
     },
     previousEdition: {
-      thankYou: 'Thank you for your presence at Yarnmark 2024!',
+      thankYou: 'Thank you for your presence at Yarnmark!',
       fillTheSurvey: 'We kindly invite you to share your opinion about Yarnmark 2024 in the <0>survey</0>',
       yarnmarkShop: 'Yarnmarkowe souveniry:',
       yarnmarkGallery: 'Yarnmarkowa Galeria',
       yarnmarkBag: 'Plecako-torba',
       photosBy: 'Fotki od',
-      savedStories: 'w relacji wyróżnionej'
+      savedStories: 'w relacji wyróżnionej',
+      bottle: 'Flasche'
     },
     spotBand: {
       title: 'Wo?',
@@ -131,7 +134,7 @@ export const de: TranslationsShape = {
       title: 'Kontakt'
     },
     infoForVendorsPage: {
-      title: 'Informationen für Aussteller',
+      title: 'Informationen für Aussteller 2025',
       invitation: 'Wir laden dich herzlich ein, an der 2. Ausgabe des Krakow Wool Yarnmark teilzunehmen!',
       organisationInfo: 'Unten findest du einige organisatorische Informationen.',
       hallInfo: {

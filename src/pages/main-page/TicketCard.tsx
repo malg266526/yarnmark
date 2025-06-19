@@ -5,11 +5,12 @@ import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import styled, { css } from 'styled-components';
 import { Card } from '../../components/Card';
 import { RedesignSpacings } from '../../styles/spacings';
-import { TextColors } from '../../styles/theme';
+import { GrayScale, TextColors } from '../../styles/theme';
 import { ScreenSize } from '../../styles/screeen-size';
 import { Radius } from '../../styles/cards';
 import { FontSize } from '../../styles/font-size';
 import { CtaButton } from '../../components/Button';
+import { TicketsToggles } from '../../toggles';
 
 const TicketCardLayout = styled(Card)`
   width: 376px;
@@ -31,8 +32,8 @@ const TicketTitle = styled(Typography)`
   color: ${TextColors.secondary};
 `;
 
-const TicketPrice = styled(Typography)`
-  color: ${TextColors.accent};
+const TicketPrice = styled(Typography)<{ disabled?: boolean }>`
+  color: ${({ disabled }) => (disabled ? GrayScale[800] : TextColors.accent)};
 `;
 
 const ShakeAnimationFrames = css`
@@ -104,7 +105,11 @@ export const TicketCard = () => {
       <FlexColumnLayout padding="none" gap="md">
         <TicketTitle size="lg">Yarnmark</TicketTitle>
 
-        <BuyTicketLink onClick={onBuyTicketClicked} aria-label="buy_ticket" shouldShake={shouldShake}>
+        <BuyTicketLink
+          onClick={onBuyTicketClicked}
+          aria-label="buy_ticket"
+          shouldShake={shouldShake}
+          disabled={!TicketsToggles.enabled}>
           {t('tickets.buyTicket')}
           {/*{t('tickets.availableSoon')}*/}
         </BuyTicketLink>
@@ -114,7 +119,9 @@ export const TicketCard = () => {
         </Typography>
 
         <Typography size="sm">Hala 100-lecia KS Cracovia</Typography>
-        <TicketPrice size="md">{t('tickets.price')} 30zl</TicketPrice>
+        <TicketPrice size="md" disabled={!TicketsToggles.enabled}>
+          {t('tickets.price')} 30zl
+        </TicketPrice>
       </FlexColumnLayout>
     </TicketCardLayout>
   );

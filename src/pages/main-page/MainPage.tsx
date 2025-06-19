@@ -12,14 +12,12 @@ import { Band } from '../../components/bands/Band';
 import { WoolPicture } from '../../components/WoolPicture';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { BackgroundColors } from '../../styles/theme';
-import { VendorsList } from './VendorsList';
-import { TicketCard } from './TicketCard';
 import { TicketCardBand } from './TicketCardBand';
 import { WorkshopsDesktopBand } from './workshops/WorkshopsDesktopBand';
 import { WorkshopsMobileSchedule } from './workshops/WorkshopsMobileSchedule';
-import { CruiseBand } from './CruiseBand';
 import { FoodBand } from './FoodBand';
-import { WorkshopsScheduleMobileBand } from './workshops/WorkshopsScheduleMobileBand';
+import { BandsToggles } from '../../toggles';
+import { VendorsList2025 } from './VendorsList2025';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -45,30 +43,30 @@ export const MainPage = () => {
         <>
           <InvitationCard />
           <CoreInfoBand id="coreInfo" />
-          <Band.CenteredColumn color={BackgroundColors.ticketBand} id="TicketBand" size="lg" padding="lg">
-            <TicketCard />
-          </Band.CenteredColumn>
+          {/*<Band.CenteredColumn color={BackgroundColors.ticketBand} id="TicketBand" size="lg" padding="lg">*/}
+          {/*  <TicketCard />*/}
+          {/*</Band.CenteredColumn>*/}
 
-          <CruiseBand id="cruise" />
+          <Band.Empty id="lastEdition" color={BackgroundColors.ticketBand} padding="sm">
+            <LastEditionBand />
+          </Band.Empty>
 
-          <WorkshopsScheduleMobileBand id="schedule" />
+          {/*<CruiseBand id="cruise" />*/}
+
+          {/*<WorkshopsScheduleMobileBand id="schedule" />*/}
 
           <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
           <Band.Empty id="workshops" padding="xs">
             <WorkshopsMobileSchedule />
           </Band.Empty>
 
-          <Band.SecondaryTitle>{t('vendors')}</Band.SecondaryTitle>
+          <Band.SecondaryTitle>{t('vendors')} 2025</Band.SecondaryTitle>
 
           <Band.CenteredColumn id="vendors" size="lg" padding="none" color={BackgroundColors.vendors}>
-            <VendorsList />
+            <VendorsList2025 />
           </Band.CenteredColumn>
 
-          <FoodBand id="food" />
-
-          <Band.Empty id="lastEdition" color={BackgroundColors.lastEditionBand} padding="sm">
-            <LastEditionBand />
-          </Band.Empty>
+          {BandsToggles.foodEnabled && <FoodBand id="food" />}
         </>
       ) : (
         <>
@@ -78,25 +76,34 @@ export const MainPage = () => {
             </InvitationCardWrapper>
           </Band.Wallpaper>
 
+          <Band.CenteredColumn id="lastEdition" color={BackgroundColors.lastEditionBand} padding="sm" gap="lg">
+            <LastEditionBand />
+          </Band.CenteredColumn>
+
           <NavigationBand />
 
           <TicketCardBand />
 
           <LocationBand id="location" />
 
-          <CruiseBand id="cruise" />
+          {/*<CruiseBand id="cruise" />*/}
 
-          <Band.CenteredColumn id="vendors" size="md" padding="xxxl" color={BackgroundColors.vendors} justify="center">
-            <VendorsList />
+          <Band.CenteredColumn
+            id="vendors"
+            size="md"
+            gap="lg"
+            padding="xxxl"
+            color={BackgroundColors.vendors}
+            justify="center">
+            {/*<Band.Title>{t('vendors')}</Band.Title>*/}
+            {/*<VendorsList />*/}
+            <Band.Title>{t('vendors')} 2025</Band.Title>
+            <VendorsList2025 />
           </Band.CenteredColumn>
 
           <WorkshopsDesktopBand id="workshops" />
 
-          <FoodBand id="food" />
-
-          <Band.CenteredColumn id="lastEdition" color={BackgroundColors.lastEditionBand} padding="sm" gap="lg">
-            <LastEditionBand />
-          </Band.CenteredColumn>
+          {BandsToggles.foodEnabled && <FoodBand id="food" />}
         </>
       )}
     </StyledPageContent>

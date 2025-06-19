@@ -7,11 +7,9 @@ import { WorkshopsConfig } from './workshopsConfig';
 import { RibbonCard } from './cards/RibbonCard';
 import { WorkshopModal } from './WorkshopModal';
 import { useWorkshopModalToggle } from './useWorkshopModalToggle';
-import { Schedule } from './Schedule';
-import { Picture } from '../../../components/Picture';
-import workshopsMapUrlAvif from '../../../assets/images/workshops/mapka_warsztaty.avif';
-import workshopsMapUrl from '../../../assets/images/workshops/mapka_warsztaty.jfif';
-import workshopsMapUrlWepb from '../../../assets/images/workshops/mapka_warsztaty.webp';
+// import workshopsMapUrlAvif from '../../../assets/images/workshops/mapka_warsztaty.avif';
+// import workshopsMapUrl from '../../../assets/images/workshops/mapka_warsztaty.jfif';
+// import workshopsMapUrlWepb from '../../../assets/images/workshops/mapka_warsztaty.webp';
 
 type WorkshopsBandType = {
   id: string;
@@ -42,32 +40,32 @@ export const WorkshopsDesktopBand = ({ id }: WorkshopsBandType) => {
 
   return (
     <Band.CenteredColumn id={id} size="lg" gap="xl" padding="xl" color={BackgroundColors.workshopsBand}>
-      <Band.Title>{t('workshops.title')}</Band.Title>
+      <Band.Title>{t('workshops.title')} 2025</Band.Title>
 
       {/*      <ImageSection>
         <StrongCtaButton>{t('tickets.buyTicket')}</StrongCtaButton>
         <WoolBackgroundSection />
       </ImageSection>*/}
 
-      <Schedule />
+      {/*<Schedule />*/}
 
-      <Picture
-        picture={{
-          fallbackUrl: workshopsMapUrl,
-          sources: [
-            {
-              type: 'image/webp',
-              url: workshopsMapUrlWepb
-            },
-            {
-              type: 'image/avif',
-              url: workshopsMapUrlAvif
-            }
-          ]
-        }}
-        alt="mapa_warsztaty"
-        width={900}
-      />
+      {/*<Picture*/}
+      {/*  picture={{*/}
+      {/*    fallbackUrl: workshopsMapUrl,*/}
+      {/*    sources: [*/}
+      {/*      {*/}
+      {/*        type: 'image/webp',*/}
+      {/*        url: workshopsMapUrlWepb*/}
+      {/*      },*/}
+      {/*      {*/}
+      {/*        type: 'image/avif',*/}
+      {/*        url: workshopsMapUrlAvif*/}
+      {/*      }*/}
+      {/*    ]*/}
+      {/*  }}*/}
+      {/*  alt="mapa_warsztaty"*/}
+      {/*  width={900}*/}
+      {/*/>*/}
 
       <MultiCarousel
         items={WorkshopsConfig.map((workshop, index) => (
