@@ -131,7 +131,7 @@ export const en: TranslationsShape = {
       title: 'Contact'
     },
     infoForVendorsPage: {
-      title: 'Information for vendors',
+      title: 'Information for vendors 2025',
       invitation: 'We heartily invite you to participate in II edition of Krakoski Yarnmark!',
       organisationInfo: 'Below a bit of organisational information for you.',
       hallInfo: {
