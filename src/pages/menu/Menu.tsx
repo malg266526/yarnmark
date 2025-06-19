@@ -27,6 +27,7 @@ import { ScreenSize } from '../../styles/screeen-size';
 import closeMenuIcon from '../../assets/figmaIcons/menu/close_icon.svg';
 import dotsStrokeIcon from '../../assets/figmaIcons/dots_icon.svg';
 import burgerImageUrl from '../../assets/iconify/burger.svg';
+import { BandsToggles, TicketsToggles } from '../../toggles';
 
 const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
   display: flex;
@@ -224,7 +225,8 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
             href="https://wloczykijki.pl/pl_PL/p/Bilet-wstepu-na-Krakoski-Yarnmark-2025/3450"
             target="_blank"
             isOpen={isMenuExpanded}
-            aria-label="yarnmark_ticket_menu_item">
+            aria-label="yarnmark_ticket_menu_item"
+            disabled={!TicketsToggles.enabled}>
             <Icon size="sm" zIndex={0} src={ticketIcon} />
             {isMenuExpanded && <Typography size="sm">{t('menu.entranceTicket')}</Typography>}
           </MenuItem>
@@ -233,18 +235,10 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
             href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-warsztaty/358"
             target="_blank"
             isOpen={isMenuExpanded}
+            disabled
             aria-label="workshops_tickets_menu_item">
             <Icon size="sm" zIndex={0} src={ticketIcon} />
             {isMenuExpanded && <Typography size="sm">{t('menu.workshopTickets')}</Typography>}
-          </MenuItem>
-
-          <MenuItem
-            href="https://wloczykijki.pl/pl_PL/p/Bilet-wstepu-na-Krakoski-Yarnmark-2025-REJS/3451"
-            target="_blank"
-            isOpen={isMenuExpanded}
-            aria-label="cruise_tickets_menu_item">
-            <Icon size="sm" zIndex={0} src={ticketIcon} />
-            {isMenuExpanded && <Typography size="sm">{t('menu.cruiseTickets')}</Typography>}
           </MenuItem>
         </TicketsSection>
 
@@ -267,10 +261,12 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           {isMenuExpanded && <Typography size="sm">{t('menu.memories')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="/home#food" isOpen={isMenuExpanded} aria-label="food_menu_item" onClick={closeMenu}>
-          <Icon size="sm" src={burgerImageUrl} />
-          {isMenuExpanded && <Typography size="sm">{t('menu.food')}</Typography>}
-        </MenuItem>
+        {BandsToggles.foodEnabled && (
+          <MenuItem href="/home#food" isOpen={isMenuExpanded} aria-label="food_menu_item" onClick={closeMenu}>
+            <Icon size="sm" src={burgerImageUrl} />
+            {isMenuExpanded && <Typography size="sm">{t('menu.food')}</Typography>}
+          </MenuItem>
+        )}
       </Section>
 
       <LastSection isOpen={isMenuExpanded}>
@@ -283,10 +279,12 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           {isMenuExpanded && <Typography size="sm">{t('menu.infoForVendors')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="/hall" isOpen={isMenuExpanded} aria-label="hall_map_menu_item">
-          <Icon size="sm" zIndex={0} src={pinEllipseIcon} />
-          {isMenuExpanded && <Typography size="sm">{t('menu.hallMap')}</Typography>}
-        </MenuItem>
+        {BandsToggles.hallMapEnabled && (
+          <MenuItem href="/hall" isOpen={isMenuExpanded} aria-label="hall_map_menu_item">
+            <Icon size="sm" zIndex={0} src={pinEllipseIcon} />
+            {isMenuExpanded && <Typography size="sm">{t('menu.hallMap')}</Typography>}
+          </MenuItem>
+        )}
 
         <MenuItem href="/statutes" isOpen={isMenuExpanded} aria-label="statutes_menu_item" onClick={closeMenu}>
           <Icon size="sm" zIndex={0} src={contractIcon} />

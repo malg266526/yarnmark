@@ -2,7 +2,6 @@ import React from 'react';
 import { Typography } from '../../../components/Typography';
 import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
 import { Trans } from 'react-i18next';
-import shipIconUrl from '../../../assets/figmaIcons/ship_icon.svg';
 import { Icon } from '../../../components/Icon';
 import redMapMarkerIconUrl from '../../../assets/figmaIcons/red_map_marker_icon.svg';
 import blueTicketsIconUrl from '../../../assets/figmaIcons/blue_tickets_icon.svg';
@@ -13,6 +12,7 @@ import { Band } from '../../../components/bands/Band';
 import mapIcon from '../../../assets/figmaIcons/map_icon.svg';
 
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { BandsToggles } from '../../../toggles';
 
 const InfoColumn = styled(FlexColumnLayout)`
   text-align: center;
@@ -67,28 +67,22 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
                   target="_blank"
                   href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-bilety/357"
                   aria-label="tickets"
+                  // Todo: adjust color for disable and use toggle flag
+                  style={{ pointerEvents: 'none' }}
                 />
               ]}
             />
           </Typography>
         </FlexColumnLayout>
 
-        <FlexColumnLayout gap="xs" padding="none">
-          <Icon size="lg" zIndex={0} src={mapIcon} />
-          <Link href="/hall">
-            <Typography size="sm">{t('hallMap.title')}</Typography>
-          </Link>
-        </FlexColumnLayout>
-
-        <FlexColumnLayout gap="xs" padding="none">
-          <Icon size="lg" zIndex={0} src={shipIconUrl} />
-          <Typography size="sm">
-            <Trans
-              i18nKey="tickets.cruiseTicketHere"
-              components={[<Link key="cruise_tickets_here" href="/home#cruise" />]}
-            />
-          </Typography>
-        </FlexColumnLayout>
+        {BandsToggles.hallMapEnabled && (
+          <FlexColumnLayout gap="xs" padding="none">
+            <Icon size="lg" zIndex={0} src={mapIcon} />
+            <Link href="/hall">
+              <Typography size="sm">{t('hallMap.title')}</Typography>
+            </Link>
+          </FlexColumnLayout>
+        )}
       </InfoColumn>
     </Band.NarrowColumn>
   );

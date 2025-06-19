@@ -55,8 +55,9 @@ export const en: TranslationsShape = {
       taken: 'Reserved'
     },
     welcomeBand: {
-      invitation: 'We heartily invite you for II edition of yarn fair in capital of Malopolska!',
-      when: '26/04/2025r at 10:00 AM - 5:00 PM',
+      invitation: 'We heartily invite you for III edition of yarn fair in capital of Malopolska!',
+      // when: '26/04/2025r at 10:00 AM - 5:00 PM',
+      when: 'April 2026',
       where: 'Hala 100-lecia KS Cracovia',
       haveFun: 'We wish you successful hunting and great fun!',
       seeYou: 'See ya all!'
@@ -66,16 +67,18 @@ export const en: TranslationsShape = {
       knittingSaturday: 'Come spend your knitting Saturday with us in the city of Krakow!',
       linksBelow: 'Below you will find few links that will help you plan your time in our beautiful city:',
       checkTheVendors: 'Check which vendors you will meet',
-      when: '26/04/2025r at 10:00 AM'
+      // when: '26/04/2025r at 10:00 AM',
+      when: 'April 2026'
     },
     previousEdition: {
-      thankYou: 'Thank you for your presence at Yarnmark 2024!',
+      thankYou: 'Thank you for your presence at Yarnmark!',
       fillTheSurvey: 'We kindly invite you to share your opinion about Yarnmark 2024 in the <0>survey</0>',
       yarnmarkShop: 'Yarnmark souvenirs:',
       yarnmarkGallery: 'Yarnmark Gallery:',
       yarnmarkBag: 'Plecako-torba',
       photosBy: 'Fotki od',
-      savedStories: 'w relacji wyróżnionej'
+      savedStories: 'w relacji wyróżnionej',
+      bottle: 'Dragon Bottle'
     },
     spotBand: {
       title: 'Where?',

@@ -155,7 +155,9 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
         <WorkshopPrice workshop={workshop} />
 
         <SmallCtaButton
-          disabled={workshop.isSoldOut}
+          //disabled={workshop.isSoldOut}
+          // Todo: add toggle in workshops config
+          disabled
           onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}
           aria-label="open workshops tickets">
           {t('workshops.buyTicket')}
