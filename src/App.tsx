@@ -83,10 +83,10 @@ export const App = () => {
           <MinimalistLayout>
             <Typography size={isPhone ? 'xl' : 'xxl'}>{t('contactPage.title')}</Typography>
 
-            <VanillaLink href="mailto:krakoski.yarnmark.welny@gmail.com" target="_blank" rel="noreferrer">
+            <VanillaLink href="mailto:krakoski.yarnmark@gmail.com" target="_blank" rel="noreferrer">
               <RowLayout>
                 <Icon size={iconSize} src={emailIconUrl} />
-                <Typography size={textSize}>krakoski.yarnmark.welny@gmail.com</Typography>
+                <Typography size={textSize}>krakoski.yarnmark@gmail.com</Typography>
               </RowLayout>
             </VanillaLink>
 

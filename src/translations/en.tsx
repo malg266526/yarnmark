@@ -160,17 +160,17 @@ export const en: TranslationsShape = {
       marketing: {
         title: 'Marketing',
         sendLogos:
-          'We encourage to send your logo on email address <strong>krakoski.yarnmark.welny@gmail.com</strong>, we will put it on "Vendors" section and this way inform the knitters, that you will be there.'
+          'We encourage to send your logo on email address <strong>krakoski.yarnmark@gmail.com</strong>, we will put it on "Vendors" section and this way inform the knitters, that you will be there.'
       },
       stands: {
         title: 'Stands',
         contact:
-          'Please send any questions and doubts related to the stands to the e-mail address<strong>krakoski.yarnmark.welny@gmail.com</strong>'
+          'Please send any questions and doubts related to the stands to the e-mail address<strong>krakoski.yarnmark@gmail.com</strong>'
       },
       registration: {
         title: 'Reservations',
         beAVendor:
-          'If you wanna join the great group of our vendors write us an email! Email address: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
+          'If you wanna join the great group of our vendors write us an email! Email address: <strong>krakoski.yarnmark@gmail.com</strong>',
         start: 'Spot reservations start on Monday <strong>22.01.2024r.</strong> at 12:00 AM',
         where: 'Reservation is done by buying the spot in online shop `Włóczykijki`',
         when: 'Stand sales will start in December.',

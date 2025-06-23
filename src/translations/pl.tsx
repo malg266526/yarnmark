@@ -160,17 +160,17 @@ export const pl = {
       marketing: {
         title: 'Marketing',
         sendLogos:
-          'Zachęcamy do przesłania swojego logo na adres email <strong>krakoski.yarnmark.welny@gmail.com</strong>, umieścimy je w zakładce "Wystawcy" i w ten sposób poinformujemy dziewiarki i dziewiarzy, że z nami będziecie'
+          'Zachęcamy do przesłania swojego logo na adres email <strong>krakoski.yarnmark@gmail.com</strong>, umieścimy je w zakładce "Wystawcy" i w ten sposób poinformujemy dziewiarki i dziewiarzy, że z nami będziecie'
       },
       stands: {
         title: 'Stoiska',
         contact:
-          'Wszelkie pytania i wątpliwości związane ze stoiskami prosimy kierować na adres mailowy <strong>krakoski.yarnmark.welny@gmail.com</strong>'
+          'Wszelkie pytania i wątpliwości związane ze stoiskami prosimy kierować na adres mailowy <strong>krakoski.yarnmark@gmail.com</strong>'
       },
       registration: {
         title: 'Zapisy',
         beAVendor:
-          'Jeśli chcesz dołączyć do wspaniałego grona naszych wystawców, napisz do nas! Email kontaktowy: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
+          'Jeśli chcesz dołączyć do wspaniałego grona naszych wystawców, napisz do nas! Email kontaktowy: <strong>krakoski.yarnmark@gmail.com</strong>',
         start: 'Możliwość zakupu stoiska startuje w poniedziałek <strong>22.01.2024r.</strong> o godz. 12:00.',
         where: 'Rezerwacja stoiska odbywa się poprzez zakup miejsca w sklepie online Włóczykijki.',
         when: 'Sprzedaż stoisk ruszy w grudniu.',
