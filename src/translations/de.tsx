@@ -164,17 +164,17 @@ export const de: TranslationsShape = {
       marketing: {
         title: 'Marketing',
         sendLogos:
-          'Wir empfehlen Ihnen, Ihr Logo an die E-Mail-Adresse <strong>krakoski.yarnmark.welny@gmail.com</strong>, zu senden. Wir werden es in der Registerkarte „Aussteller“ platzieren und auf diese Weise die Stricker/inen darüber informieren, dass Sie bei uns sein werden.'
+          'Wir empfehlen Ihnen, Ihr Logo an die E-Mail-Adresse <strong>krakoski.yarnmark@gmail.com</strong>, zu senden. Wir werden es in der Registerkarte „Aussteller“ platzieren und auf diese Weise die Stricker/inen darüber informieren, dass Sie bei uns sein werden.'
       },
       stands: {
         title: 'Stands',
         contact:
-          'Please send any questions and doubts related to the stands to the e-mail address<strong>krakoski.yarnmark.welny@gmail.com</strong>'
+          'Please send any questions and doubts related to the stands to the e-mail address<strong>krakoski.yarnmark@gmail.com</strong>'
       },
       registration: {
         title: 'Anmeldungen',
         beAVendor:
-          'Wenn Sie sich der wunderbaren Gruppe unserer Aussteller anschließen möchten, schreiben Sie uns! Kontakt E-mail: <strong>krakoski.yarnmark.welny@gmail.com</strong>',
+          'Wenn Sie sich der wunderbaren Gruppe unserer Aussteller anschließen möchten, schreiben Sie uns! Kontakt E-mail: <strong>krakoski.yarnmark@gmail.com</strong>',
         start: 'Die Möglichkeit zum Kauf eines Standes beginnt am Montag, <strong>22. Januar 2024</strong> um 12:00',
         where: 'Die Reservierung eines Standes erfolgt durch den Kauf einer Fläche im Włóczykijki-Onlineshop.',
         when: 'Der Standverkauf beginnt im Dezember.',
