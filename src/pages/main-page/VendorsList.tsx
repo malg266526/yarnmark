@@ -43,13 +43,13 @@ export const VendorsList = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: wloczykijkiLogoUrlWebp
+                url: wloczykijkiLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: wloczykijkiLogoUrlAvif
-              }
-            ]
+                url: wloczykijkiLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>

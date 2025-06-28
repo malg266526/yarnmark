@@ -119,13 +119,13 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
           sources: [
             {
               type: 'image/webp',
-              url: bezogrodekLogoUrlWebp
+              url: bezogrodekLogoUrlWebp,
             },
             {
               type: 'image/avif',
-              url: bezogrodekLogoUrlAvif
-            }
-          ]
+              url: bezogrodekLogoUrlAvif,
+            },
+          ],
         }}
       />
     ),
@@ -133,7 +133,7 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
     instagramUrl: 'https://www.instagram.com/bezogrodek/?hl=pl',
     address: 'al. Marszałka Ferdinanda Focha 41',
     description: t('foodBand.bezogrodek.description'),
-    discount: <Trans i18nKey="foodBand.bezogrodek.discount" />
+    discount: <Trans i18nKey="foodBand.bezogrodek.discount" />,
   },
   coffeehouse: {
     image: (
@@ -145,19 +145,19 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
           sources: [
             {
               type: 'image/webp',
-              url: halaLogoUrlWebp
+              url: halaLogoUrlWebp,
             },
             {
               type: 'image/avif',
-              url: halaLogoUrlAvif
-            }
-          ]
+              url: halaLogoUrlAvif,
+            },
+          ],
         }}
       />
     ),
     title: t('foodBand.coffeehouse.title'),
-    description: t('foodBand.coffeehouse.description')
-  }
+    description: t('foodBand.coffeehouse.description'),
+  },
 });
 
 type FoodBandType = {
@@ -193,7 +193,8 @@ export const FoodBand = ({ id }: FoodBandType) => {
       size="md"
       color={BackgroundColors.navigationBand}
       padding={rensponsivePadding}
-      gap="md">
+      gap="md"
+    >
       <Band.Title>{t('foodBand.whereToEat')}</Band.Title>
 
       <LayoutWithActiveButton>
@@ -201,7 +202,8 @@ export const FoodBand = ({ id }: FoodBandType) => {
           <ImageButton
             active={activeButton === 'foodtruckBezogrodek'}
             onClick={() => onRestaurantClick('foodtruckBezogrodek')}
-            icon={<Icon size="md" src={burgerImageUrl} />}>
+            icon={<Icon size="md" src={burgerImageUrl} />}
+          >
             Food Truck Park Bezogródek
           </ImageButton>
 
@@ -209,7 +211,8 @@ export const FoodBand = ({ id }: FoodBandType) => {
             active={activeButton === 'coffeehouse'}
             icon={<Icon size="md" src={cupcakeImageUrl} />}
             onClick={() => onRestaurantClick('coffeehouse')}
-            ref={framedBoxRef}>
+            ref={framedBoxRef}
+          >
             Kawiarnia na hali
           </ImageButton>
         </ButtonsWrapper>

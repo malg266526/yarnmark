@@ -28,7 +28,7 @@ const PersonalPageIcon = <FontAwesomeIcon icon={faCircleUser} color={TextColors.
 const VariantToIcon = {
   instagram: InstagramIcon,
   raverly: RaverlyIcon,
-  self: PersonalPageIcon
+  self: PersonalPageIcon,
 };
 
 export const SocialMediaLink = ({ variant, url }: Props) => {

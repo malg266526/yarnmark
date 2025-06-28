@@ -87,9 +87,10 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
       style={{
         overlay: {
           display: 'flex',
-          zIndex: 2
-        }
-      }}>
+          zIndex: 2,
+        },
+      }}
+    >
       <ModalContent>
         <RowLayout wide justify="space-between">
           <GhostButton onClick={close}>
@@ -111,7 +112,7 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
           <Picture
             picture={{
               fallbackUrl: workshop.picture.fallback,
-              sources: workshop.picture.sources
+              sources: workshop.picture.sources,
             }}
             alt={t(workshop.topicKey)}
             width={150}
@@ -161,7 +162,8 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
             // disabled={workshop.isSoldOut}
             disabled
             onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}
-            aria-label="open tickets page">
+            aria-label="open tickets page"
+          >
             {t('workshops.buyTicket')}
           </CtaButton>
         </FlexColumnLayout>

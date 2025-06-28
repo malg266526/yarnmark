@@ -27,6 +27,6 @@ export const useWorkshopModalToggle = () => {
     isModalOpen,
     currentWorkshop,
     toggleModal,
-    close: closeModal
+    close: closeModal,
   };
 };

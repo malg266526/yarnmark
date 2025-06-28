@@ -66,7 +66,7 @@ const DotsWrapper = styled.span`
 
 const DefaultStyleConfig = {
   gap: 30,
-  padding: 10
+  padding: 10,
 };
 
 interface MultiCarouselProps {
@@ -151,7 +151,8 @@ export const MultiCarousel = ({ items, style = DefaultStyleConfig }: MultiCarous
                   if (node) {
                     itemsRef.current[index] = node;
                   }
-                }}>
+                }}
+              >
                 {item}
               </MultiCarouselSlide>
             ))}

@@ -128,7 +128,8 @@ export const LocationBand = ({ id }: LocationSectionType) => {
           style={{ border: 0 }}
           allowFullScreen={false}
           loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"></iframe>
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
       </MapIframeWrapper>
 
       <EventLocationCard />

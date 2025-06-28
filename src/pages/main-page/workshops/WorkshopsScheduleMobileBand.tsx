@@ -21,13 +21,13 @@ export const WorkshopsScheduleMobileBand = ({ id }: WorkshopsBandType) => {
           sources: [
             {
               type: 'image/webp',
-              url: workshopsMapUrlWepb
+              url: workshopsMapUrlWepb,
             },
             {
               type: 'image/avif',
-              url: workshopsMapUrlAvif
-            }
-          ]
+              url: workshopsMapUrlAvif,
+            },
+          ],
         }}
         alt="mapa_warsztaty"
         width={400}

@@ -9,7 +9,7 @@ export interface UseIntersectionObserverParams {
 export const useIntersectionObserver = ({
   containerRef,
   elementToObserveRef,
-  callback
+  callback,
 }: UseIntersectionObserverParams) => {
   const observerCallback = useCallback(
     (entries: IntersectionObserverEntry[]) => {
@@ -26,7 +26,7 @@ export const useIntersectionObserver = ({
       new IntersectionObserver(observerCallback, {
         root: containerRef.current,
         rootMargin: '0px',
-        threshold: 1
+        threshold: 1,
       }),
     [containerRef, observerCallback]
   );

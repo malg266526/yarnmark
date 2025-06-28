@@ -49,13 +49,15 @@ export const LastEditionBand = () => {
               <SecondaryLink
                 to="https://wloczykijki.pl/pl/p/Torba-Krakoski-Yarnmark-Welny/3022"
                 target="_blank"
-                rel="noreferrer">
+                rel="noreferrer"
+              >
                 <Typography size="sm">{t('previousEdition.yarnmarkBag')}</Typography>
               </SecondaryLink>
               <SecondaryLink
                 to="https://wloczykijki.pl/pl/p/Butelka-Krakoski-Yarnmark-Welny-2025/3577"
                 target="_blank"
-                rel="noreferrer">
+                rel="noreferrer"
+              >
                 <Typography size="sm">{t('previousEdition.bottle')}</Typography>
               </SecondaryLink>
             </FlexColumnLayout>
@@ -71,14 +73,16 @@ export const LastEditionBand = () => {
               <SecondaryLink
                 to="https://drive.google.com/drive/folders/1GUiZ03Em63k1AHeFiba1KZcAHoB1sm-W?fbclid=IwAR0YPaNF3SeNgZIUctnh1qyyPaOED3RjLUeDnimHs-iHiQKMbCIZgBII_4o"
                 target="_blank"
-                rel="noreferrer">
+                rel="noreferrer"
+              >
                 <Typography size="sm">{t('previousEdition.photosBy')} @czarnagrafka</Typography>
               </SecondaryLink>
 
               <SecondaryLink
                 to="https://drive.google.com/drive/folders/12orPLbGi9M3qUfVq5XEWNhTixadRFrSJ"
                 target="_blank"
-                rel="noreferrer">
+                rel="noreferrer"
+              >
                 <Typography size="sm">{t('previousEdition.photosBy')} @labolens.photo</Typography>
               </SecondaryLink>
 
@@ -98,13 +102,13 @@ export const LastEditionBand = () => {
               sources: [
                 {
                   type: 'image/webp',
-                  url: bagUrlWebp
+                  url: bagUrlWebp,
                 },
                 {
                   type: 'image/avif',
-                  url: bagUrlAvif
-                }
-              ]
+                  url: bagUrlAvif,
+                },
+              ],
             }}
             alt="yarnmark bag"
             width={126}

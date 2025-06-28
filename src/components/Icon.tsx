@@ -7,7 +7,7 @@ export const sizeToIconWidth: Record<SizeKey, string> = {
   md: '30px',
   sm: '22px',
   xs: '16px',
-  xxs: '10px'
+  xxs: '10px',
 };
 
 type SizeKey = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs' | 'xxs';

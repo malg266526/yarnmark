@@ -169,13 +169,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: animotkiLogoUrlWebp
+                url: animotkiLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: animotkiLogoUrlAvif
-              }
-            ]
+                url: animotkiLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -190,13 +190,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: alemasztocudneLogoUrlWebp
+                url: alemasztocudneLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: alemasztocudneLogoUrlAvif
-              }
-            ]
+                url: alemasztocudneLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -211,13 +211,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: bifernoLogoUrlWebp
+                url: bifernoLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: bifernoLogoUrlAvif
-              }
-            ]
+                url: bifernoLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -232,9 +232,9 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/avif',
-                url: centrumWloczekLogoUrlAvif
-              }
-            ]
+                url: centrumWloczekLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -249,13 +249,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: dyeDyeDoneLogoUrlWebp
+                url: dyeDyeDoneLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: dyeDyeDoneLogoUrlAvif
-              }
-            ]
+                url: dyeDyeDoneLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -270,13 +270,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: farbyarniaLogoUrlWebp
+                url: farbyarniaLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: farbyarniaLogoUrlAvif
-              }
-            ]
+                url: farbyarniaLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -291,13 +291,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: floralFiberLogoUrlWebp
+                url: floralFiberLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: floralFiberLogoUrlAvif
-              }
-            ]
+                url: floralFiberLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -312,13 +312,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: furoraLogoUrlWebp
+                url: furoraLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: furoraLogoUrlAvif
-              }
-            ]
+                url: furoraLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -333,13 +333,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: gaboWoolLogoUrlWebp
+                url: gaboWoolLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: gaboWoolLogoUrlAvif
-              }
-            ]
+                url: gaboWoolLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -354,13 +354,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: hankaMiZrobilaLogoUrlWebp
+                url: hankaMiZrobilaLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: hankaMiZrobilaLogoUrlAvif
-              }
-            ]
+                url: hankaMiZrobilaLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -375,13 +375,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: kaniaLogoUrlWebp
+                url: kaniaLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: kaniaLogoUrlAvif
-              }
-            ]
+                url: kaniaLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -400,13 +400,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: lusiaLogoUrlWebp
+                url: lusiaLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: lusiaLogoUrlAvif
-              }
-            ]
+                url: lusiaLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -421,13 +421,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: madoboLogoUrlWebp
+                url: madoboLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: madoboLogoUrlAvif
-              }
-            ]
+                url: madoboLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -442,13 +442,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: malinowyKosLogoUrlWebp
+                url: malinowyKosLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: malinowyKosLogoUrlAvif
-              }
-            ]
+                url: malinowyKosLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -463,13 +463,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: maniaChomikujeLogoUrlWebp
+                url: maniaChomikujeLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: maniaChomikujeLogoUrlAvif
-              }
-            ]
+                url: maniaChomikujeLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -484,13 +484,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: martinslabLogoUrlWebp
+                url: martinslabLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: martinslabLogoUrlAvif
-              }
-            ]
+                url: martinslabLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -505,13 +505,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: milaDruciarniaLogoUrlWebp
+                url: milaDruciarniaLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: milaDruciarniaLogoUrlAvif
-              }
-            ]
+                url: milaDruciarniaLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -526,13 +526,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: missKnitskiLogoUrlWebp
+                url: missKnitskiLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: missKnitskiLogoUrlAvif
-              }
-            ]
+                url: missKnitskiLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -543,7 +543,7 @@ export const VendorsList2025 = () => {
           // height={43}
           alt="motek"
           picture={{
-            fallbackUrl: motekLogoUrl
+            fallbackUrl: motekLogoUrl,
           }}
         />
       </LogoLink>
@@ -558,13 +558,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: motkomaniaLogoUrlWebp
+                url: motkomaniaLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: motkomaniaLogoUrlAvif
-              }
-            ]
+                url: motkomaniaLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -579,13 +579,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: okkiLogoUrlWebp
+                url: okkiLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: okkiLogoUrlAvif
-              }
-            ]
+                url: okkiLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -600,13 +600,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: paciorkowceLogoUrlWebp
+                url: paciorkowceLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: paciorkowceLogoUrlAvif
-              }
-            ]
+                url: paciorkowceLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -624,13 +624,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: siedemOczekLogoUrlWebp
+                url: siedemOczekLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: siedemOczekLogoUrlAvif
-              }
-            ]
+                url: siedemOczekLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -645,13 +645,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: timeToKnitLogoUrlWebp
+                url: timeToKnitLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: timeToKnitLogoUrlAvif
-              }
-            ]
+                url: timeToKnitLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -666,13 +666,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: theKnittingBoxLogoUrlWebp
+                url: theKnittingBoxLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: theKnittingBoxLogoUrlAvif
-              }
-            ]
+                url: theKnittingBoxLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -687,13 +687,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: welnaBawelnaLogoUrlWebp
+                url: welnaBawelnaLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: welnaBawelnaLogoUrlAvif
-              }
-            ]
+                url: welnaBawelnaLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -708,13 +708,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: wloczkiWarmiiLogoUrlWebp
+                url: wloczkiWarmiiLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: wloczkiWarmiiLogoUrlAvif
-              }
-            ]
+                url: wloczkiWarmiiLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -729,13 +729,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: wloczykijkiLogoUrlWebp
+                url: wloczykijkiLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: wloczykijkiLogoUrlAvif
-              }
-            ]
+                url: wloczykijkiLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -750,9 +750,9 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: woollalaLogoUrlWebp
-              }
-            ]
+                url: woollalaLogoUrlWebp,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -767,13 +767,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: woolloopLogoUrlWebp
+                url: woolloopLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: woolloopLogoUrlAvif
-              }
-            ]
+                url: woolloopLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -788,13 +788,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: wooloveLogoUrlWebp
+                url: wooloveLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: wooloveLogoUrlAvif
-              }
-            ]
+                url: wooloveLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>
@@ -809,13 +809,13 @@ export const VendorsList2025 = () => {
             sources: [
               {
                 type: 'image/webp',
-                url: yarnPowerLogoUrlWebp
+                url: yarnPowerLogoUrlWebp,
               },
               {
                 type: 'image/avif',
-                url: yarnPowerLogoUrlAvif
-              }
-            ]
+                url: yarnPowerLogoUrlAvif,
+              },
+            ],
           }}
         />
       </LogoLink>

@@ -7,7 +7,7 @@ const sw = self as ServiceWorkerGlobalScope;
 const CacheName = {
   runtime3: 'runtime-v2',
   sources: 'sources-v4',
-  assets: 'assets-v4'
+  assets: 'assets-v4',
 };
 
 // A list of local resources we always want to be cached.
@@ -52,12 +52,12 @@ const precacheStrategy = {
       .then((data) => {
         return Promise.all([
           ...data.files.map((url) => caches.open(CacheName.sources).then((cache) => cache.add(url))),
-          ...data.assets.map((url) => caches.open(CacheName.sources).then((cache) => cache.add(url)))
+          ...data.assets.map((url) => caches.open(CacheName.sources).then((cache) => cache.add(url))),
         ]);
       })
       .catch((error) => {
         console.error(`Error on precaching :: ${error.String()}`);
-      })
+      }),
 } satisfies Record<string, () => Promise<void | void[]>>;
 
 // The install handler takes care of precaching the resources we always need.
@@ -134,7 +134,7 @@ const cacheStrategy = {
           );
           throw new Error(error);
         })
-    )
+    ),
 } satisfies Record<string, (event: FetchEvent, cacheName: keyof typeof CacheName) => Promise<Response>>;
 
 sw.addEventListener('fetch', (event) => {

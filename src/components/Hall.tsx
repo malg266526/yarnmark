@@ -75,7 +75,8 @@ export const Hall = ({ showFinishedMap, multiplier: propsMultiplier }: HallType)
             key={index}
             direction="column"
             alignItems={index === 5 ? 'flex-end' : 'flex-start'}
-            multiplier={multiplier}>
+            multiplier={multiplier}
+          >
             {column.stands.map((stand, index) =>
               stand.pair ? (
                 <RowLayout gap="none" key={`row_${stand.pair[0].index}_${stand.pair[1].index}`}>
