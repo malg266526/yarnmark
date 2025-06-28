@@ -6,7 +6,7 @@ type FontWeight = 'regular' | 'bold' | 'light';
 const fontVariantToWeight: Record<FontWeight, number> = {
   bold: 600,
   light: 200,
-  regular: 400
+  regular: 400,
 };
 
 export const Typography = styled.div<{

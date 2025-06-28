@@ -226,7 +226,8 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
             target="_blank"
             isOpen={isMenuExpanded}
             aria-label="yarnmark_ticket_menu_item"
-            disabled={!TicketsToggles.enabled}>
+            disabled={!TicketsToggles.enabled}
+          >
             <Icon size="sm" zIndex={0} src={ticketIcon} />
             {isMenuExpanded && <Typography size="sm">{t('menu.entranceTicket')}</Typography>}
           </MenuItem>
@@ -236,7 +237,8 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
             target="_blank"
             isOpen={isMenuExpanded}
             disabled
-            aria-label="workshops_tickets_menu_item">
+            aria-label="workshops_tickets_menu_item"
+          >
             <Icon size="sm" zIndex={0} src={ticketIcon} />
             {isMenuExpanded && <Typography size="sm">{t('menu.workshopTickets')}</Typography>}
           </MenuItem>
@@ -256,7 +258,8 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           href="/home#lastEdition"
           isOpen={isMenuExpanded}
           aria-label="last_edition_menu_item"
-          onClick={closeMenu}>
+          onClick={closeMenu}
+        >
           <Icon size="sm" zIndex={0} src={paintingIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.memories')}</Typography>}
         </MenuItem>
@@ -274,7 +277,8 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           href="/info-for-vendors"
           isOpen={isMenuExpanded}
           aria-label="stands_map_menu_item"
-          onClick={closeMenu}>
+          onClick={closeMenu}
+        >
           <Icon size="sm" zIndex={0} src={handshakeIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.infoForVendors')}</Typography>}
         </MenuItem>

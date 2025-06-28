@@ -3,30 +3,38 @@ import { Typography } from '../../../../components/Typography';
 import React from 'react';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../../../styles/spacings';
 import { BackgroundColors, TextColors } from '../../../../styles/theme';
 import { WorkshopsEntry } from '../workshopsConfig';
 import { Ribbon } from './Ribbon';
-import { Button, CtaButton } from '../../../../components/Button';
-import { useToggle } from '../../../../hooks/useToggle';
-import verticalRibbonIcon from '../../../../assets/figmaIcons/vertical_ribbon.svg';
-import { Icon } from '../../../../components/Icon';
-import backIcon from '../../../../assets/figmaIcons/back_arrow_icon.svg';
-import closeIcon from '../../../../assets/figmaIcons/simple_close_icon.svg';
-import { RowLayout } from '../../../../components/RowLayout';
+import { CtaButton } from '../../../../components/Button';
+
 import { CardLayout } from './CardLayout';
 import { WorkshopPrice } from './WorkshopPrice';
 import { FontSize } from '../../../../styles/font-size';
 import { TextToListFormatter } from '../../../../components/TextToListFormatter';
 import { FlexColumnLayout } from '../../../../components/FlexColumnLayout';
-import { Expandable } from '../../../../components/Expandable';
 
-const MobileCardLayout = styled(CardLayout)<{ isExpanded?: boolean }>`
-  flex-direction: ${({ isExpanded }) => (isExpanded ? 'column' : 'row')};
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-self: center;
 `;
 
-const GoBackButtons = styled(RowLayout)`
-  margin-bottom: -${RedesignSpacings.xs};
+const MobileCardLayout = styled(CardLayout)<{ isExpanded?: boolean }>`
+  height: unset;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: ${({ isExpanded }) => `auto auto ${isExpanded ? '1fr' : '0fr'} auto`};
+  transition: all 200ms ease-in-out;
+  gap: 0;
+
+  picture {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
 `;
 
 const InfoSection = styled.div<{ isExpanded?: boolean }>`
@@ -37,25 +45,8 @@ const InfoSection = styled.div<{ isExpanded?: boolean }>`
 
   justify-content: space-around;
   align-items: center;
-  gap: ${({ isExpanded }) => (isExpanded ? RedesignSpacings.sm : RedesignSpacings.xs)};
   text-align: center;
-
-  overflow: ${({ isExpanded }) => (isExpanded ? 'auto' : 'visible')};
-`;
-
-const VerticalRibbonIcon = styled.div<{ src: string }>`
-  background: url(${({ src }) => src}) no-repeat center;
-  background-size: cover;
-
-  height: 100%;
-
-  transform: rotate(180deg);
-
-  color: #fff;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-
-  text-align: center;
+  overflow: hidden;
 `;
 
 const SmallCtaButton = styled(CtaButton)`
@@ -66,56 +57,26 @@ const WorkshopSectionTitle = styled(Typography)`
   color: ${TextColors.secondary};
 `;
 
-const VerticalRibbonTextWrapper = styled.div`
-  width: 26px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 interface RibbonCardProps {
   workshop: WorkshopsEntry;
+  onClick: () => void;
+  isExpanded: boolean;
 }
 
-export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
+export const MobileRibbonCard = ({ workshop, onClick, isExpanded }: RibbonCardProps) => {
   const t = useTypedTranslation();
-  const [isExpanded, toggle, close] = useToggle();
-
-  const openOnClick = () => {
-    if (!isExpanded) toggle();
-  };
 
   return (
-    <MobileCardLayout onClick={openOnClick} isExpanded={isExpanded}>
-      {isExpanded && (
-        <GoBackButtons wide justify="space-between">
-          <Button onClick={close}>
-            <Icon size="28px" zIndex={0} src={backIcon} />
-          </Button>
-
-          <Button onClick={close}>
-            <Icon size="28px" zIndex={0} src={closeIcon} />
-          </Button>
-        </GoBackButtons>
-      )}
-
-      {isExpanded ? (
-        <Ribbon color={BackgroundColors.mobileRibbon}>
-          <Typography size="sm">{workshop.time}</Typography>
-          <Typography size="sm">{t(`workshops.room.${workshop.room}`)}</Typography>
-        </Ribbon>
-      ) : (
-        <VerticalRibbonIcon src={verticalRibbonIcon}>
-          <VerticalRibbonTextWrapper>
-            <Typography size="sm">{workshop.time}</Typography>
-          </VerticalRibbonTextWrapper>
-        </VerticalRibbonIcon>
-      )}
+    <MobileCardLayout onClick={onClick} isExpanded={isExpanded}>
+      <Ribbon color={BackgroundColors.mobileRibbon}>
+        <Typography size="sm">{workshop.time}</Typography>
+        <Typography size="sm">{t(`workshops.room.${workshop.room}`)}</Typography>
+      </Ribbon>
 
       <Picture
         picture={{
           fallbackUrl: workshop.picture.fallback,
-          sources: workshop.picture.sources
+          sources: workshop.picture.sources,
         }}
         alt={t(workshop.topicKey)}
         width={106}
@@ -123,46 +84,46 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
         style={{ borderRadius: '50%', objectFit: 'cover' }}
       />
 
-      <InfoSection id="info-section" isExpanded={isExpanded}>
-        {isExpanded ? (
-          <FlexColumnLayout padding="none" width="100%" gap="sm">
-            <Expandable title={<WorkshopSectionTitle size="md">Czego się nauczysz?</WorkshopSectionTitle>}>
+      <InfoSection id="info-section">
+        <FlexColumnLayout padding="none" width="100%" gap="sm">
+          <WorkshopSectionTitle size="md">Czego się nauczysz?</WorkshopSectionTitle>
+          <Typography size="sm">
+            <TextToListFormatter text={workshop.description ? t(workshop.description) : 'Todo'} />
+          </Typography>
+
+          {workshop.materials && (
+            <>
+              <WorkshopSectionTitle size="md">Co przynieść?</WorkshopSectionTitle>
               <Typography size="sm">
-                <TextToListFormatter text={workshop.description ? t(workshop.description) : 'Todo'} />
+                <TextToListFormatter text={t(workshop.materials)} />
               </Typography>
-            </Expandable>
+            </>
+          )}
 
-            {workshop.materials && (
-              <Expandable title={<WorkshopSectionTitle size="md">Co przynieść?</WorkshopSectionTitle>}>
-                <Typography size="sm">
-                  <TextToListFormatter text={t(workshop.materials)} />
-                </Typography>
-              </Expandable>
-            )}
-
-            {workshop.aboutMe && (
-              <Expandable title={<WorkshopSectionTitle size="md">O prowadzącej:</WorkshopSectionTitle>}>
-                <Typography size="sm">
-                  <TextToListFormatter text={t(workshop.aboutMe)} />
-                </Typography>
-              </Expandable>
-            )}
-          </FlexColumnLayout>
-        ) : (
-          <Typography size="sm">{t(workshop.topicKey)}</Typography>
-        )}
+          {workshop.aboutMe && (
+            <>
+              <WorkshopSectionTitle size="md">O prowadzącej:</WorkshopSectionTitle>
+              <Typography size="sm">
+                <TextToListFormatter text={t(workshop.aboutMe)} />
+              </Typography>
+            </>
+          )}
+        </FlexColumnLayout>
 
         <WorkshopPrice workshop={workshop} />
+      </InfoSection>
 
+      <ButtonContainer>
         <SmallCtaButton
           //disabled={workshop.isSoldOut}
           // Todo: add toggle in workshops config
           disabled
           onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}
-          aria-label="open workshops tickets">
+          aria-label="open workshops tickets"
+        >
           {t('workshops.buyTicket')}
         </SmallCtaButton>
-      </InfoSection>
+      </ButtonContainer>
     </MobileCardLayout>
   );
 };

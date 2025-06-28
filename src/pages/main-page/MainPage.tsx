@@ -32,7 +32,7 @@ export const MainPage = () => {
   useIntersectionObserver({
     containerRef: pageContentRef,
     elementToObserveRef: ticketsFunnyButtonRef,
-    callback: observerCallback
+    callback: observerCallback,
   });
 
   return (
@@ -94,7 +94,8 @@ export const MainPage = () => {
             gap="lg"
             padding="xxxl"
             color={BackgroundColors.vendors}
-            justify="center">
+            justify="center"
+          >
             {/*<Band.Title>{t('vendors')}</Band.Title>*/}
             {/*<VendorsList />*/}
             <Band.Title>{t('vendors')} 2025</Band.Title>

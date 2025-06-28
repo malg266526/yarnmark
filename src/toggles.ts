@@ -1,9 +1,9 @@
 export const TicketsToggles = {
-  enabled: false
+  enabled: false,
 };
 
 export const BandsToggles = {
   foodEnabled: false,
   hallMapEnabled: false,
-  ticketEnabled: false
+  ticketEnabled: false,
 };

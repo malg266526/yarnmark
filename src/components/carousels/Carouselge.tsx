@@ -6,7 +6,7 @@ import React, {
   useEffect,
   useMemo,
   useRef,
-  useState
+  useState,
 } from 'react';
 import styled, { css } from 'styled-components';
 import { Icon as IconifyIcon } from '@iconify/react';
@@ -115,7 +115,7 @@ type IndicatorColor = 'black' | 'white' | 'beige';
 const colorToFilter: Record<IndicatorColor, string> = {
   black: 'none',
   white: 'invert(1)',
-  beige: 'invert(95%) sepia(5%) saturate(1345%) hue-rotate(318deg) brightness(91%) contrast(87%)'
+  beige: 'invert(95%) sepia(5%) saturate(1345%) hue-rotate(318deg) brightness(91%) contrast(87%)',
 };
 
 const IndicatorBall = styled.div`
@@ -341,8 +341,8 @@ const getVisibleIndexes = (middleIndex: number, xDragPercentage: number) =>
         zIndex: '-1',
         translateXZ: [
           -200 + (xDragPercentage > 0 ? 100 * xDragPercentage : 0),
-          -6000 + (xDragPercentage > 0 ? 4500 * xDragPercentage : 0)
-        ]
+          -6000 + (xDragPercentage > 0 ? 4500 * xDragPercentage : 0),
+        ],
       },
       {
         index: middleIndex - 1,
@@ -350,9 +350,9 @@ const getVisibleIndexes = (middleIndex: number, xDragPercentage: number) =>
         opacity: '1',
         translateXZ: [
           -100 + (xDragPercentage > 0 ? 100 * xDragPercentage : -100 * -xDragPercentage),
-          -1500 + (xDragPercentage > 0 ? 1500 * xDragPercentage : -4500 * -xDragPercentage)
+          -1500 + (xDragPercentage > 0 ? 1500 * xDragPercentage : -4500 * -xDragPercentage),
         ],
-        zIndex: `${xDragPercentage > Z_INDEX_CHANGE_ON_DRAG_PERCENTAGE ? 1 : 0}`
+        zIndex: `${xDragPercentage > Z_INDEX_CHANGE_ON_DRAG_PERCENTAGE ? 1 : 0}`,
       },
       {
         index: middleIndex - 0,
@@ -360,9 +360,9 @@ const getVisibleIndexes = (middleIndex: number, xDragPercentage: number) =>
         opacity: '1',
         translateXZ: [
           0 + (xDragPercentage > 0 ? 100 * xDragPercentage : -100 * -xDragPercentage),
-          0 + (xDragPercentage > 0 ? -1500 * xDragPercentage : -1500 * -xDragPercentage)
+          0 + (xDragPercentage > 0 ? -1500 * xDragPercentage : -1500 * -xDragPercentage),
         ],
-        zIndex: `${Math.abs(xDragPercentage) > Z_INDEX_CHANGE_ON_DRAG_PERCENTAGE ? 0 : 1}`
+        zIndex: `${Math.abs(xDragPercentage) > Z_INDEX_CHANGE_ON_DRAG_PERCENTAGE ? 0 : 1}`,
       },
       {
         index: middleIndex + 1,
@@ -370,9 +370,9 @@ const getVisibleIndexes = (middleIndex: number, xDragPercentage: number) =>
         opacity: '1',
         translateXZ: [
           100 + (xDragPercentage > 0 ? 100 * xDragPercentage : -100 * -xDragPercentage),
-          -1500 + (xDragPercentage > 0 ? -4500 * xDragPercentage : 1500 * -xDragPercentage)
+          -1500 + (xDragPercentage > 0 ? -4500 * xDragPercentage : 1500 * -xDragPercentage),
         ],
-        zIndex: `${-xDragPercentage > Z_INDEX_CHANGE_ON_DRAG_PERCENTAGE ? 1 : 0}`
+        zIndex: `${-xDragPercentage > Z_INDEX_CHANGE_ON_DRAG_PERCENTAGE ? 1 : 0}`,
       },
       {
         index: middleIndex + 2,
@@ -381,8 +381,8 @@ const getVisibleIndexes = (middleIndex: number, xDragPercentage: number) =>
         zIndex: '-1',
         translateXZ: [
           200 + (xDragPercentage > 0 ? 0 : -100 * -xDragPercentage),
-          -6000 + (xDragPercentage > 0 ? 0 : -4500 * xDragPercentage)
-        ]
+          -6000 + (xDragPercentage > 0 ? 0 : -4500 * xDragPercentage),
+        ],
       },
       // used for styling unused cards
       {
@@ -392,14 +392,14 @@ const getVisibleIndexes = (middleIndex: number, xDragPercentage: number) =>
         zIndex: '-1',
         translateXZ: [
           0 + (xDragPercentage > 0 ? 100 * xDragPercentage : 0),
-          -6000 + (xDragPercentage > 0 ? 4500 * xDragPercentage : 0)
-        ]
-      }
+          -6000 + (xDragPercentage > 0 ? 4500 * xDragPercentage : 0),
+        ],
+      },
     ] satisfies VisibleIndex[]
   ).reduce<{ [K in number | string]: VisibleIndex }>((acc, obj) => {
     return {
       ...acc,
-      [obj.index]: obj
+      [obj.index]: obj,
     };
   }, {});
 
@@ -507,7 +507,8 @@ export const Carouselge = Object.assign(
         onTouchMove={onTouchMove}
         onTouchEnd={(e) =>
           onMouseUp({ button: 0, screenX: e.changedTouches[0].screenX, screenY: e.changedTouches[0].screenY })
-        }>
+        }
+      >
         <ItemDataContext.Provider value={{ getStyle, activeIndex: selectedIndex }}>
           <OuterWrapper>
             <ClickElement
@@ -518,7 +519,8 @@ export const Carouselge = Object.assign(
                 if (isIndexValid(selectedIndex - 1)) {
                   onChange(selectedIndex - 1);
                 }
-              }}>
+              }}
+            >
               <IconifyIcon icon="mdi:arrow-left" width="50" />
             </ClickElement>
             <ClickElement
@@ -529,7 +531,8 @@ export const Carouselge = Object.assign(
                 if (isIndexValid(selectedIndex + 1)) {
                   onChange(selectedIndex + 1);
                 }
-              }}>
+              }}
+            >
               <IconifyIcon icon="mdi:arrow-right" width="50" />
             </ClickElement>
             <ChildrenWrapper ref={childrenWrapperRef} transition={transitionTime}>

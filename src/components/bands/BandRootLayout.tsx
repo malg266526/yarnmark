@@ -12,7 +12,7 @@ const bandSizeToHeight: Record<BandSize, string> = {
   lg: '750px',
   md: '600px',
   sm: '500px',
-  xs: '300px'
+  xs: '300px',
 };
 
 export const BandRootLayout = styled.div<{

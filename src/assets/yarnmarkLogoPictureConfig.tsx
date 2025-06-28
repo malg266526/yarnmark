@@ -7,11 +7,11 @@ export const yarnmarkLogoPictureConfig = {
   sources: [
     {
       type: 'image/webp',
-      url: yarnmarkLogoSrcWebp
+      url: yarnmarkLogoSrcWebp,
     },
     {
       type: 'image/avif',
-      url: yarnmarkLogoSrcAvif
-    }
-  ]
+      url: yarnmarkLogoSrcAvif,
+    },
+  ],
 };

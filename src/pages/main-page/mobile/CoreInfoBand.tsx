@@ -50,7 +50,7 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
                   target="_blank"
                   href="https://www.google.pl/maps/place/Hala+100-lecia+KS+Cracovia+wraz+z+Centrum+Sportu+Niepe%C5%82nosprawnych/@50.0570728,19.9078517,17z/data=!3m1!4b1!4m6!3m5!1s0x47165bdbabf291a1:0x3a0607d5947b7ef2!8m2!3d50.0570694!4d19.9104266!16s%2Fg%2F11f5t43046?entry=ttu"
                   rel="noreferrer"
-                />
+                />,
               ]}
             />
           </Typography>
@@ -69,7 +69,7 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
                   aria-label="tickets"
                   // Todo: adjust color for disable and use toggle flag
                   style={{ pointerEvents: 'none' }}
-                />
+                />,
               ]}
             />
           </Typography>

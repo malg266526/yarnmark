@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint src/**/*.{ts,tsx}",
     "typecheck": "tsc --noEmit --skipLibCheck",
-    "prettier": "prettier src/**/*.{ts,tsx} --write",
+    "prettier": "prettier src/**/*.{ts,tsx} --check",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./esbuild.serve.mjs",
     "bundle": "node ./esbuild.bundle.mjs",

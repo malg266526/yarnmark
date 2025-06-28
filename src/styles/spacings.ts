@@ -9,5 +9,5 @@ export const RedesignSpacings = {
   xl: '50px',
   xxl: '60px',
 
-  xxxl: '96px'
+  xxxl: '96px',
 };

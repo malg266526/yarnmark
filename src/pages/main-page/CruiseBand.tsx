@@ -48,11 +48,13 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
         height="600px"
         selectedIndex={selectedIndex}
         onChange={(index) => setSelectedIndex(index)}
-        indicators="white">
+        indicators="white"
+      >
         <Carouselge.Item>
           <Carouselge.ItemBackground
             variant="bottom"
-            background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 95%)">
+            background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 95%)"
+          >
             <source srcSet={waterWebpSrc} type="image/webp" />
             <img src={waterJpgSrc} alt="water visible on the ship" />
           </Carouselge.ItemBackground>
@@ -70,7 +72,8 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
         <Carouselge.Item>
           <Carouselge.ItemBackground
             background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)"
-            variant="bottom">
+            variant="bottom"
+          >
             <source srcSet={wineAvifSrc} type="image/avif" />
             <source srcSet={wineWebpSrc} type="image/webp" />
             <img src={wineJpgSrc} alt="glass of wine" />
@@ -89,7 +92,8 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
         <Carouselge.Item>
           <Carouselge.ItemBackground
             variant="bottom"
-            background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)">
+            background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)"
+          >
             <source srcSet={ticketAvifSrc} type="image/avif" />
             <source srcSet={ticketWebpSrc} type="image/webp" />
             <img src={ticketJpgSrc} alt="ticket lying around" />
@@ -103,7 +107,8 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
             <LinkWrapper>
               <Link
                 target="_blank"
-                to="https://wloczykijki.pl/pl_PL/p/Bilet-wstepu-na-Krakoski-Yarnmark-2025-REJS/3451">
+                to="https://wloczykijki.pl/pl_PL/p/Bilet-wstepu-na-Krakoski-Yarnmark-2025-REJS/3451"
+              >
                 {t('cashmereTicketsBand.buyTickets')}
               </Link>
             </LinkWrapper>
@@ -126,7 +131,8 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
         <Carouselge.Item>
           <Carouselge.ItemBackground
             variant="bottom"
-            background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)">
+            background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)"
+          >
             <source srcSet={mapWebpSrc} type="image/webp" />
             <img src={mapJpgSrc} alt="map" />
           </Carouselge.ItemBackground>

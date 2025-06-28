@@ -91,5 +91,5 @@ export const Band = Object.assign(({ children }: BandProps) => <BandRootLayout>{
   CenteredColumn: CenteredColumnBand,
   NarrowColumn: NarrowColumnBand,
   Empty: EmptyBand,
-  Solid: SolidBand
+  Solid: SolidBand,
 });

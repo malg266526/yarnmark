@@ -84,7 +84,8 @@ export const Link = styled(({ children, to, target, rel, color, ...rest }: HashL
         }
       }}
       target={target}
-      rel={rel}>
+      rel={rel}
+    >
       {children}
     </StyledLink>
   );

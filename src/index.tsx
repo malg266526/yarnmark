@@ -32,8 +32,8 @@ i18next.init({
   resources: {
     en,
     pl,
-    de
-  }
+    de,
+  },
 });
 
 const root = createRoot(document.querySelector('#app')!);

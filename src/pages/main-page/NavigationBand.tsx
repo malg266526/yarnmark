@@ -50,7 +50,8 @@ export const NavigationBand = () => {
           onClick={() => window.open('https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-bilety/357', '_blank')}
           aria-label="go to tickets"
           disabled={!TicketsToggles.enabled}
-          style={{ cursor: 'not-allowed' }}>
+          style={{ cursor: 'not-allowed' }}
+        >
           <Icon size="xl" zIndex={0} src={blueTicketsIconUrl} />
           <Typography size="sm">{t('tickets.yarnmarkTicket')}</Typography>
         </IconButton>

@@ -70,13 +70,13 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       sources: [
         {
           type: 'image/webp',
-          url: haftowaBabaUrlWebp
+          url: haftowaBabaUrlWebp,
         },
         {
           type: 'image/avif',
-          url: haftowaBabaUrlAvif
-        }
-      ]
+          url: haftowaBabaUrlAvif,
+        },
+      ],
     },
     isSoldOut: false,
     room: 'bursa2',
@@ -86,9 +86,9 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     materials: 'workshops.haftowaBaba.materials',
     links: {
       instagram: 'https://www.instagram.com/haftowababa/',
-      other: 'https://haftowababa.pl/'
+      other: 'https://haftowababa.pl/',
     },
-    aboutMe: 'workshops.haftowaBaba.aboutMe'
+    aboutMe: 'workshops.haftowaBaba.aboutMe',
   },
   {
     topicKey: 'workshops.heartofcotton.title',
@@ -99,13 +99,13 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       sources: [
         {
           type: 'image/webp',
-          url: heartOfCottonUrlWebp
+          url: heartOfCottonUrlWebp,
         },
         {
           type: 'image/avif',
-          url: heartOfCottonUrlAvif
-        }
-      ]
+          url: heartOfCottonUrlAvif,
+        },
+      ],
     },
     isSoldOut: true,
     room: 'bursa2',
@@ -113,7 +113,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Podstawy-szydelka/3456',
     description: 'workshops.heartofcotton.description',
     materials: 'workshops.heartofcotton.materials',
-    aboutMe: 'workshops.heartofcotton.aboutMe'
+    aboutMe: 'workshops.heartofcotton.aboutMe',
   },
   {
     topicKey: 'workshops.skein.title',
@@ -124,13 +124,13 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       sources: [
         {
           type: 'image/webp',
-          url: skeinUrlWebp
+          url: skeinUrlWebp,
         },
         {
           type: 'image/avif',
-          url: skeinUrlAvif
-        }
-      ]
+          url: skeinUrlAvif,
+        },
+      ],
     },
     isSoldOut: true,
     room: 'library',
@@ -138,7 +138,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Punch-Needle/3457',
     description: 'workshops.skein.description',
     materials: 'workshops.skein.materials',
-    aboutMe: 'workshops.skein.aboutMe'
+    aboutMe: 'workshops.skein.aboutMe',
   },
   {
     topicKey: 'workshops.drutututu.title',
@@ -149,13 +149,13 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       sources: [
         {
           type: 'image/webp',
-          url: magdaUrlWebp
+          url: magdaUrlWebp,
         },
         {
           type: 'image/avif',
-          url: magdaUrlAvif
-        }
-      ]
+          url: magdaUrlAvif,
+        },
+      ],
     },
     isSoldOut: true,
     room: 'bursa2',
@@ -163,7 +163,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Druty-podstawy/3455',
     description: 'workshops.drutututu.description',
     materials: 'workshops.drutututu.materials',
-    aboutMe: 'workshops.drutututu.aboutMe'
+    aboutMe: 'workshops.drutututu.aboutMe',
   },
   {
     topicKey: 'workshops.edknitted.title',
@@ -174,13 +174,13 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       sources: [
         {
           type: 'image/webp',
-          url: edknittedUrlWebp
+          url: edknittedUrlWebp,
         },
         {
           type: 'image/avif',
-          url: edknittedUrlAvif
-        }
-      ]
+          url: edknittedUrlAvif,
+        },
+      ],
     },
     room: 'library',
     isSoldOut: true,
@@ -188,7 +188,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     description: 'workshops.edknitted.description',
     ticketUrl:
       'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Polish-Your-Pattern%2C-czyli-jak-odpicowac-swoj-wzor/3454',
-    aboutMe: 'workshops.edknitted.aboutMe'
+    aboutMe: 'workshops.edknitted.aboutMe',
   },
   {
     topicKey: 'workshops.knitolog.title',
@@ -199,13 +199,13 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       sources: [
         {
           type: 'image/webp',
-          url: knitologUrlWebp
+          url: knitologUrlWebp,
         },
         {
           type: 'image/avif',
-          url: knitologUrlAvif
-        }
-      ]
+          url: knitologUrlAvif,
+        },
+      ],
     },
     room: 'bursa1',
     isSoldOut: true,
@@ -217,9 +217,9 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       raverly: 'https://www.ravelry.com/designers/dorota-morawiak-lichota',
       facebook: 'https://www.instagram.com/knitolog/',
       instagram: 'https://www.facebook.com/knitologwpodrozy',
-      other: 'www.knitologwpodrozy.pl'
+      other: 'www.knitologwpodrozy.pl',
     },
-    aboutMe: 'workshops.knitolog.aboutMe'
+    aboutMe: 'workshops.knitolog.aboutMe',
   },
   {
     topicKey: 'workshops.ludart.title',
@@ -230,13 +230,13 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       sources: [
         {
           type: 'image/webp',
-          url: ludartUrlWebp
+          url: ludartUrlWebp,
         },
         {
           type: 'image/avif',
-          url: ludartUrlAvif
-        }
-      ]
+          url: ludartUrlAvif,
+        },
+      ],
     },
     room: 'conference',
     price: 90,
@@ -244,7 +244,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Haft-ludowy/2836',
     description: 'workshops.ludart.description',
     materials: 'workshops.ludart.materials',
-    aboutMe: 'workshops.ludart.aboutMe'
+    aboutMe: 'workshops.ludart.aboutMe',
   },
   {
     topicKey: 'workshops.iwona.title',
@@ -255,13 +255,13 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       sources: [
         {
           type: 'image/webp',
-          url: iwonaUrlWebp
+          url: iwonaUrlWebp,
         },
         {
           type: 'image/avif',
-          url: iwonaUrlAvif
-        }
-      ]
+          url: iwonaUrlAvif,
+        },
+      ],
     },
     isSoldOut: true,
     room: 'bursa1',
@@ -272,8 +272,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     aboutMe: 'workshops.iwona.aboutMe',
     links: {
       instagram: 'https://www.instagram.com/iwonaeriksson/',
-      other: 'https://www.iwonaerikssondesign.eu/'
-    }
+      other: 'https://www.iwonaerikssondesign.eu/',
+    },
   },
   {
     topicKey: 'workshops.kroopa.title',
@@ -284,9 +284,9 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       sources: [
         {
           type: 'image/avif',
-          url: kroopaUrlAvif
-        }
-      ]
+          url: kroopaUrlAvif,
+        },
+      ],
     },
     isSoldOut: true,
     room: 'conference',
@@ -294,6 +294,6 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Podstawy-zakardu/3453',
     description: 'workshops.kroopa.description',
     materials: 'workshops.kroopa.materials',
-    aboutMe: 'workshops.kroopa.aboutMe'
-  }
+    aboutMe: 'workshops.kroopa.aboutMe',
+  },
 ];

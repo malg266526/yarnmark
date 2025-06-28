@@ -12,7 +12,7 @@ type ExtractTranslationKeys<
   TranslationJson extends Tree,
   Keys extends keyof TranslationJson = keyof TranslationJson,
   Prefix extends string = '',
-  Result extends string = ''
+  Result extends string = '',
 > = TranslationJson extends string
   ? `${Prefix}`
   : Keys extends infer Key extends keyof TranslationJson
@@ -36,7 +36,7 @@ type ExtractTranslationKeys<
 type ReplaceString<
   Str extends string,
   StringToReplace extends string,
-  NewString extends string
+  NewString extends string,
 > = Str extends `${StringToReplace}${infer Rest extends string}` ? `${NewString}${Rest}` : never;
 
 type TranslationKeys = ExtractTranslationKeys<typeof pl>;

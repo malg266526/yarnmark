@@ -1,7 +1,7 @@
 export const BackgroundColors = {
   menu: {
     desktop: 'rgba(233, 232, 232, 0.8)',
-    mobile: 'rgba(233, 232, 232, 1)'
+    mobile: 'rgba(233, 232, 232, 1)',
   },
 
   card: '#F5F5F5', // rgb(245, 245, 245)
@@ -17,16 +17,16 @@ export const BackgroundColors = {
   green: {
     strong: '#326213',
     medium: '#A4C365',
-    light: '#F8FFF4'
+    light: '#F8FFF4',
   },
 
-  mobileRibbon: '#483E36'
+  mobileRibbon: '#483E36',
 };
 
 export const TextColors = {
   primary: '#151414',
   secondary: '#326213',
-  accent: '#C0392B'
+  accent: '#C0392B',
 };
 
 export const GrayScale = {
@@ -39,7 +39,7 @@ export const GrayScale = {
   600: '#867B7B',
   700: '#726666',
   800: '#5D5252',
-  900: '#493F3F'
+  900: '#493F3F',
 };
 
 export const Colors = {
@@ -47,7 +47,7 @@ export const Colors = {
   grayLight: '#f9f9f9',
 
   beige1: '#dac9bd',
-  red1: '#b77866'
+  red1: '#b77866',
 };
 
 export const BrownScale = {
@@ -60,11 +60,11 @@ export const BrownScale = {
   600: '#8C7E72',
   700: '#75685D',
   800: '#5E5349',
-  900: '#483E36'
+  900: '#483E36',
 };
 
 export const Theme = {
-  pageContentWidth: '900px'
+  pageContentWidth: '900px',
 };
 
 export const HallColors = {
@@ -82,5 +82,5 @@ export const HallColors = {
   400: '#547b3a',
   500: '#326213',
   600: '#2b5213',
-  700: '#254212'
+  700: '#254212',
 };

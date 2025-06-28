@@ -35,6 +35,11 @@ jobs:
       if: always()
       run: yarn lint
 
+    - name: Prettier
+      id: prettier
+      if: always()
+      run: yarn prettier
+
     - name: Bundle
       id: bundle
       if: always()

@@ -67,7 +67,7 @@ export type LanguageOption = 'pl' | 'en' | 'de';
 const FlagsSrc: Record<string, string> = {
   pl: polandIcon,
   en: greatBritainIcon,
-  de: germanyIcon
+  de: germanyIcon,
 };
 
 interface LanguageSwitcherProps {

@@ -39,7 +39,7 @@ export const RibbonCard = ({ workshop, onClick }: RibbonCardProps) => {
       <Picture
         picture={{
           fallbackUrl: workshop.picture.fallback,
-          sources: workshop.picture.sources
+          sources: workshop.picture.sources,
         }}
         alt={t(workshop.topicKey)}
         width={150}
@@ -51,7 +51,8 @@ export const RibbonCard = ({ workshop, onClick }: RibbonCardProps) => {
         // disabled={workshop.isSoldOut}
         onClick={() => window.open(workshop.ticketUrl, '_blank')}
         aria-label="open workshops tickets"
-        disabled>
+        disabled
+      >
         {t('workshops.buyTicket')}
       </CtaButton>
 

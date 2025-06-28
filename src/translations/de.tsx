@@ -19,7 +19,7 @@ export const de: TranslationsShape = {
       cruiseTickets: 'Cruise tickets',
       memories: 'Erinnerungen',
       hallMap: 'Mapa hali',
-      food: 'Essen'
+      food: 'Essen',
     },
     tickets: {
       buyTicketsAndWorkshops: '<0>Kaufen Sie</0> ein Ticket für die Messe oder wählen Sie die Workshop-Option',
@@ -40,11 +40,11 @@ export const de: TranslationsShape = {
       proofOfPurchase: 'You will show this proof of purchase when entering Yarnmark ;)',
       availableSoon: 'Bald verfügbar',
       onlineDeadline: 'Der Online-Ticketverkauf ist bis zum 25. April, 18:00 Uhr möglich.',
-      availability: 'Am Veranstaltungstag sind Tickets an der Abendkasse vor Ort erhältlich.'
+      availability: 'Am Veranstaltungstag sind Tickets an der Abendkasse vor Ort erhältlich.',
     },
     location: {
       findUsOnMaps: 'Finden Sie uns auf <0>Google Maps</0>',
-      whereToFindUs: 'Wo finden Sie uns?'
+      whereToFindUs: 'Wo finden Sie uns?',
     },
     whereToEat: 'Wo man essen kann?',
     hallMap: {
@@ -52,7 +52,7 @@ export const de: TranslationsShape = {
       premiumStand: 'Premium spot 4x4m',
       standardStand: 'Standard spot 4x2,5m',
       miniStand: 'Mini spot 3x2m',
-      taken: 'Reserved'
+      taken: 'Reserved',
     },
     welcomeBand: {
       invitation: 'Wir laden Sie herzlich zur dritte Ausgabe der Garnmesse inKrakau ein!',
@@ -60,7 +60,7 @@ export const de: TranslationsShape = {
       when: 'April 2026',
       where: 'In Hala 100-lecia KS Cracovia',
       haveFun: 'Wir wünschen Ihnen eine erfolgreiche Jagd und viel Spaß!',
-      seeYou: 'Auf Wiedersehen!'
+      seeYou: 'Auf Wiedersehen!',
     },
     navigationBand: {
       anotherEdition: 'Die nächste Ausgabe der Wollmesse in Krakau kommt!',
@@ -69,7 +69,7 @@ export const de: TranslationsShape = {
         'Unten findest du einige Links, die dir bei der Planung deiner Zeit in unserer schönen Stadt helfen werden:',
       checkTheVendors: 'Schau welche Aussteller du triffst',
       // when: 'Am 26.04.2025 um 10:00 Uhr'
-      when: 'April 2026'
+      when: 'April 2026',
     },
     previousEdition: {
       thankYou: 'Thank you for your presence at Yarnmark!',
@@ -79,7 +79,7 @@ export const de: TranslationsShape = {
       yarnmarkBag: 'Plecako-torba',
       photosBy: 'Fotki od',
       savedStories: 'w relacji wyróżnionej',
-      bottle: 'Flasche'
+      bottle: 'Flasche',
     },
     spotBand: {
       title: 'Wo?',
@@ -102,7 +102,7 @@ export const de: TranslationsShape = {
         'Neben dem Gebäude befindet sich ein kleiner Parkplatz, der am Veranstaltungstag für Besucher unserer Messe kostenfrei zur Verfügung steht.',
       howToGetToUs: 'Wie kommen Sie zu uns?',
       accessibleByCar: 'Mit dem Auto',
-      googleMaps: 'How to get to the fair with google maps'
+      googleMaps: 'How to get to the fair with google maps',
     },
     cashmereTicketsBand: {
       beautifulCruise: 'Machen Sie eine wunderschöne Kreuzfahrt mit dem “Strickschiff”!',
@@ -115,7 +115,7 @@ export const de: TranslationsShape = {
         price: 'Preis',
         priceIncludesYarnmarkTicket:
           'Im Preis ist eine Eintrittskarte zur <strong>Krakauer Yarnmarkt 2025</strong> Messe enthalten',
-        route: 'Route:'
+        route: 'Route:',
       },
       invitation: 'Wir laden Sie zu einer unvergesslichen Kreuzfahrt auf der bezaubernden Weichsel in Krakau ein.',
       ship: 'Wir möchten, dass das Deck des Schiffes „Legenda“ zur Bühne wird, auf der man gemeinsam stricken, einzigartige Momente schaffen und neue Strickbekanntschaften knüpfen kann.',
@@ -124,14 +124,14 @@ export const de: TranslationsShape = {
         intro:
           'Eine Bootsfahrt auf der Weichsel in Krakau ist nicht nur eine attraktive Art, Zeit zu verbringen, sondern auch eine tolle Möglichkeit, sich zu entspannen und die Stadt von einer anderen Seite zu sehen.',
         description:
-          'Während der Kreuzfahrt werden Sie mit einem Glas Prosecco (oder einem Erfrischungsgetränk) verwöhnt, was der Atmosphäre einen Hauch von Luxus verleiht.'
+          'Während der Kreuzfahrt werden Sie mit einem Glas Prosecco (oder einem Erfrischungsgetränk) verwöhnt, was der Atmosphäre einen Hauch von Luxus verleiht.',
       },
       buyTickets: 'Tickets können Sie hier kaufen',
-      tickets: 'Tickets'
+      tickets: 'Tickets',
     },
     vendors: 'Aussteller',
     contactPage: {
-      title: 'Kontakt'
+      title: 'Kontakt',
     },
     infoForVendorsPage: {
       title: 'Informationen für Aussteller 2025',
@@ -155,21 +155,21 @@ export const de: TranslationsShape = {
         socialRoom:
           'Den Ausstellern steht ein Aufenthaltsraum zur Verfügung, in dem Sie Kaffee und Tee trinken können, sowie eine separate Toilette.',
         glassWall:
-          'Die Wand hinter den Tribünen P2-P3 besteht aus Fenstern, die sich über die gesamte Hallenhöhe erstrecken, von dort fällt fantastisches Licht ein.'
+          'Die Wand hinter den Tribünen P2-P3 besteht aus Fenstern, die sich über die gesamte Hallenhöhe erstrecken, von dort fällt fantastisches Licht ein.',
       },
       parking: {
         title: 'Parking',
-        parkingSpace: 'Jedem Aussteller steht am Messetag ein kostenfreier Parkplatz neben der Halle zu'
+        parkingSpace: 'Jedem Aussteller steht am Messetag ein kostenfreier Parkplatz neben der Halle zu',
       },
       marketing: {
         title: 'Marketing',
         sendLogos:
-          'Wir empfehlen Ihnen, Ihr Logo an die E-Mail-Adresse <strong>krakoski.yarnmark@gmail.com</strong>, zu senden. Wir werden es in der Registerkarte „Aussteller“ platzieren und auf diese Weise die Stricker/inen darüber informieren, dass Sie bei uns sein werden.'
+          'Wir empfehlen Ihnen, Ihr Logo an die E-Mail-Adresse <strong>krakoski.yarnmark@gmail.com</strong>, zu senden. Wir werden es in der Registerkarte „Aussteller“ platzieren und auf diese Weise die Stricker/inen darüber informieren, dass Sie bei uns sein werden.',
       },
       stands: {
         title: 'Stands',
         contact:
-          'Please send any questions and doubts related to the stands to the e-mail address<strong>krakoski.yarnmark@gmail.com</strong>'
+          'Please send any questions and doubts related to the stands to the e-mail address<strong>krakoski.yarnmark@gmail.com</strong>',
       },
       registration: {
         title: 'Anmeldungen',
@@ -181,8 +181,8 @@ export const de: TranslationsShape = {
         buyHere: 'Hier können Sie einen Stand kaufen',
         feedback: 'Alle Zahlungsdetails werden in der Rückmeldung zur Bestätigung Ihrer Standreservierung aufgeführt.',
         return:
-          'Im Falle einer Reservierung und Nichtzahlung der Kosten wird die Reservierung storniert und den anderen Ausstellern wieder zur Verfügung gestellt'
-      }
+          'Im Falle einer Reservierung und Nichtzahlung der Kosten wird die Reservierung storniert und den anderen Ausstellern wieder zur Verfügung gestellt',
+      },
     },
     foodBand: {
       whereToEat: 'Where to eat?',
@@ -191,23 +191,23 @@ export const de: TranslationsShape = {
       bezogrodek: {
         description: 'Foodtruck park',
         discount:
-          'On the day of the event, upon showing your wristband, you will receive a <strong>30%</strong> discount on the bar and a <strong>20%</strong> discount on food trucks: Belgian fries, panini, Thai ice cream, Greek-Mexican cuisine.'
+          'On the day of the event, upon showing your wristband, you will receive a <strong>30%</strong> discount on the bar and a <strong>20%</strong> discount on food trucks: Belgian fries, panini, Thai ice cream, Greek-Mexican cuisine.',
       },
       bistroblonia: {
         description: 'Todo',
         discount:
-          'On the day of the event, a discount for people with a Yarnmark Wool bracelet: <strong>-15%</strong> on all dishes from the menu.'
+          'On the day of the event, a discount for people with a Yarnmark Wool bracelet: <strong>-15%</strong> on all dishes from the menu.',
       },
       grandeAppetito: {
         description: 'Italian cuisine',
         discount:
-          'On the day of the event, a discount for people with a Yarnmark Wool bracelet: <strong>-10%</strong> on order..'
+          'On the day of the event, a discount for people with a Yarnmark Wool bracelet: <strong>-10%</strong> on order..',
       },
       coffeehouse: {
         title: 'Cafe on the hall',
         description:
-          'You can drink a coffee or a lemonade here and eat a snacks such as fries. If the weather is good, there will be an open terrace with deckchairs next to the café.'
-      }
+          'You can drink a coffee or a lemonade here and eat a snacks such as fries. If the weather is good, there will be an open terrace with deckchairs next to the café.',
+      },
     },
     goBack: 'Zurück',
     workshops: {
@@ -235,7 +235,7 @@ export const de: TranslationsShape = {
           '</ul>',
         aboutMe:
           'Zawodowo: tłumacz, tech edytor wzorów na druty, wielozadaniowiec i świetny organizator.\n' +
-          'Prywatnie: mama dwójki Maluchów, kochająca żona i zapalona dziewiarka. Dzierganie otworzyło jej drzwi do nowego świata, w którym realizuje swoje pasje i pomaga projektantkom oraz dziewiarkom. Znajdziesz ją na Instagramie @edknitted'
+          'Prywatnie: mama dwójki Maluchów, kochająca żona i zapalona dziewiarka. Dzierganie otworzyło jej drzwi do nowego świata, w którym realizuje swoje pasje i pomaga projektantkom oraz dziewiarkom. Znajdziesz ją na Instagramie @edknitted',
       },
       ludart: {
         title: 'Haft ludowy',
@@ -243,7 +243,7 @@ export const de: TranslationsShape = {
         description:
           'Warsztaty mają na celu zaprezentowanie wzornictwa zdobień na białych elementach stroju ludowego: chustach, koszulach, zapaskach i fartuchach. Uczestnicy podczas warsztatów będą mieli okazję zapoznać się z niezbędnymi ściegami hafciarskimi i wyhaftować na płótnie wzór zaczerpnięty ze stroju krakowskiego',
         aboutMe:
-          'Stowarzyszenie Miłośników Tradycyjnego Rękodzieła Ludowego i Artystycznego przy Muzeum Etnograficznym im. Seweryna Udzieli w Krakowie działa od 30 lat. Jego myśl przewodnia to "tradycja i współczesność". Na cotygodniowych spotkaniach członkowie, będący przedstawicielami różnych pokoleń i środowisk, zajmują się doskonaleniem technik hafciarskich, koronkarskich, wymianą doświadczeń. Działalność Stowarzyszenia można śledzić na blogu: http://lud-art.blogspot.com/ oraz facebooku: Stowarzyszenie LUD-Art.'
+          'Stowarzyszenie Miłośników Tradycyjnego Rękodzieła Ludowego i Artystycznego przy Muzeum Etnograficznym im. Seweryna Udzieli w Krakowie działa od 30 lat. Jego myśl przewodnia to "tradycja i współczesność". Na cotygodniowych spotkaniach członkowie, będący przedstawicielami różnych pokoleń i środowisk, zajmują się doskonaleniem technik hafciarskich, koronkarskich, wymianą doświadczeń. Działalność Stowarzyszenia można śledzić na blogu: http://lud-art.blogspot.com/ oraz facebooku: Stowarzyszenie LUD-Art.',
       },
       knitolog: {
         title: 'Żakard dla mniej lub bardziej zaawansowanych',
@@ -256,7 +256,7 @@ export const de: TranslationsShape = {
         description:
           'Podczas warsztatów nauczysz się metody, którą możesz stosować przy dużych motywach żakardowych. Pozwala ona pracować z długimi przejściami kolorystycznymi i jest niewidoczna na prawej stronie robótki. Przy zastosowaniu tej metody, robótka jest bardziej elastyczna i nie ściąga się. Możesz ją zastosować także przy dużym pojedynczym motywie, w niektórych przypadkach może zastąpić intarsję. <br> Każdy uczestnik warsztatów otrzyma, zaprojektowany przez Dorotę wzór dziewiarski z wykorzystaniem przedstawionej metody.',
         aboutMe:
-          'W sieci znana jako Knitolog, od 7 lat projektuje i publikuje na Ravelry wzory dziewiarskie. W swojej ofercie ma 79 projektów, które cieszą się dużym powodzeniem i sprzedawane są na całym świecie.'
+          'W sieci znana jako Knitolog, od 7 lat projektuje i publikuje na Ravelry wzory dziewiarskie. W swojej ofercie ma 79 projektów, które cieszą się dużym powodzeniem i sprzedawane są na całym świecie.',
       },
       haftowaBaba: {
         title: 'Haft na wełnie',
@@ -265,7 +265,7 @@ export const de: TranslationsShape = {
         aboutMe:
           'Kamila, znana w środowisku rękodzielniczym jako Haftowa Baba to rekodzielniczka i edukatorka, która od 6 lat tworzy magię na tkaninach. Jej realistyczne hafty zwierząt i roslin ujęły tysiące w mediach społecznościowych ale też "prawdziwym świecie". Kamila szerzy swoją pasję na warsztatach między innymi z haftu płaskiego.',
         description:
-          'Na warsztatach nauczycie się jak ozdobić swoje udziergi za pomocą haftu. Pod okiem Kamili - doświadczonej edukatorki i hafciarki, poznacie tajniki haftu na wełnie. Wykonacie kwiatowy wzór, który doda uroku Waszej dzianinie. Haftowa Baba pokaże Wam podstawowe techniki haftu płaskiego i jak z ich pomoca wyczarować wyczarować coś niezwykłego.'
+          'Na warsztatach nauczycie się jak ozdobić swoje udziergi za pomocą haftu. Pod okiem Kamili - doświadczonej edukatorki i hafciarki, poznacie tajniki haftu na wełnie. Wykonacie kwiatowy wzór, który doda uroku Waszej dzianinie. Haftowa Baba pokaże Wam podstawowe techniki haftu płaskiego i jak z ich pomoca wyczarować wyczarować coś niezwykłego.',
       },
       iwona: {
         title: 'Rzędy skrócone i ich zastosowanie w dzianinie',
@@ -291,7 +291,7 @@ export const de: TranslationsShape = {
           'Od ponad 10 lat uczę robienia na drutach na YouTube, a także tworzę kursy dziewiarskie na moich własnych stronach www. Piszę dziewiarskie wzory, prowadzę dziewiarski podcast „Zmagania Drutoterapii” oraz tematyczne transmisje na żywo.\n' +
           'Uczę się nowych technik, konstrukcji, ściegów i kolekcjonuję piękne włóczki.\n' +
           'Dziewiarstwo jest moją pasją, ale mam także wiele innych zainteresowań jak historia, parapsychologia i fizyka kwantowa. Kocham zwierzęta, mój ogród i naturę.\n' +
-          'Będzie mi bardzo miło podzielić się z wami moją wiedzą.'
+          'Będzie mi bardzo miło podzielić się z wami moją wiedzą.',
       },
       kroopa: {
         title: 'Podstawy żakardu',
@@ -307,7 +307,7 @@ export const de: TranslationsShape = {
           '<li>dodawanie oczek</li>' +
           '<li>praca ściegiem gładkim w okrążeniach</li></ul>',
         aboutMe:
-          'Karolina Adamczyk na drutach robi od dziecka, a od kilku lat naprawdę intensywnie. Jest to jej wielka pasja i uzależnienie do tego stopnia, że robótkę ma praktycznie zawsze przy sobie.  Najbardziej lubi robić wełniane czapki, skarpety i rękawiczki w kolorowe wzory. Jest to dla niej sposób na relaks, odpoczynek, oderwanie od problemów dnia codziennego. Karolinę i jej cudownie kolorowe dzieła znajdziesz na blogu, Facebooku, Instagramie oraz na Ravelry i kanale YouTube.'
+          'Karolina Adamczyk na drutach robi od dziecka, a od kilku lat naprawdę intensywnie. Jest to jej wielka pasja i uzależnienie do tego stopnia, że robótkę ma praktycznie zawsze przy sobie.  Najbardziej lubi robić wełniane czapki, skarpety i rękawiczki w kolorowe wzory. Jest to dla niej sposób na relaks, odpoczynek, oderwanie od problemów dnia codziennego. Karolinę i jej cudownie kolorowe dzieła znajdziesz na blogu, Facebooku, Instagramie oraz na Ravelry i kanale YouTube.',
       },
       drutututu: {
         title: 'Druty - podstawy',
@@ -318,7 +318,7 @@ export const de: TranslationsShape = {
         aboutMe:
           'Jestem Magda i ponad 10 lat temu pierwszy raz nabrałam oczka na druty. Tamtej robótki nigdy nie skończyłam, ale dwa lata później złapałam bakcyla. Od 2016 roku dzierganie jest częścią mojego życia, z każdym rokiem coraz bardziej istotną.\n' +
           'W internecie znajdziesz mnie jako @drutu.tutu, opowiadam tam o mojej pasji i chętnie dzielę się wiedzą. Współpracuję ze Slow Fashion Cafe, gdzie prowadzę warsztaty dziewiarskie dla początkujących.\n' +
-          'Oprócz robienia na drutach kocham Włochy i język włoski, spanko, Nutellę i mojego kota Motka.'
+          'Oprócz robienia na drutach kocham Włochy i język włoski, spanko, Nutellę i mojego kota Motka.',
       },
       heartofcotton: {
         title: 'Podstawy szydełka',
@@ -330,7 +330,7 @@ export const de: TranslationsShape = {
         aboutMe:
           'Twoim przewodnikiem po tajnikach szydełka będzie Ewa z Heart of Cotton. Ewa zajmuje się dziewiarstwem i tworzy wzory na szydełko. Dzieli się wiedzą oraz zaraża optymizmem i pasją do rękodzieła.\n' +
           'Jej figurki amigurumi skradną wasze serca a po warsztatach być może porwiecie się na jedną z nich?\n' +
-          'Pasja Ewy to także fotografia - ma na koncie ebooka o fotografii rekodzieła.'
+          'Pasja Ewy to także fotografia - ma na koncie ebooka o fotografii rekodzieła.',
       },
       skein: {
         title: 'Punch Needle',
@@ -350,7 +350,7 @@ export const de: TranslationsShape = {
           'Każdy z uczestników otrzyma swoją torbę projektową, na której będzie wykonywał haft ze sznurka bawełnianego',
         aboutMe:
           'Warsztaty poprowadzi Karolina @pixeldzierga. Woli nazywać swoją pracę rzemieślniczą, bo uważa, że do artysty nie dorosła.\n' +
-          'Na metodę haftu techniką magiczną igłą trafiła przypadkiem, szukając techniki do pracy nad motoryką małą dla dzieci. Z wykształcenia jest diagnostą laboratoryjnym, na co dzień ocenia cytologię szyjki macicy, z pasji natomiast jest szeroko pojętym TWÓRCĄ.'
+          'Na metodę haftu techniką magiczną igłą trafiła przypadkiem, szukając techniki do pracy nad motoryką małą dla dzieci. Z wykształcenia jest diagnostą laboratoryjnym, na co dzień ocenia cytologię szyjki macicy, z pasji natomiast jest szeroko pojętym TWÓRCĄ.',
       },
       room: {
         mirrors: 'Spiegelsaal',
@@ -358,9 +358,9 @@ export const de: TranslationsShape = {
         conference: 'Konferenzraum',
         library: 'Biblioteka',
         bursa1: 'Bursa - sala główna',
-        bursa2: 'Bursa - sala ?'
+        bursa2: 'Bursa - sala ?',
       },
-      soldOut: 'Ausverkauft'
-    }
-  }
+      soldOut: 'Ausverkauft',
+    },
+  },
 };
