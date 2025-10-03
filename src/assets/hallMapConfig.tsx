@@ -34,10 +34,10 @@ export const HallLightColors = {
 export const hallMapConfig: HallMapType = {
   topRows: [
     {
-      height: 4,
+      height: 3,
       stands: [
         {
-          width: 4.5,
+          width: 5,
           color: 'empty',
           text: 'Wejście dla wystawców'
         },
@@ -46,65 +46,39 @@ export const hallMapConfig: HallMapType = {
           color: 'empty'
         },
         {
-          width: 2.5,
-          color: 'taken',
+          width: 3.5,
+          color: 'normal1',
           index: 'S34',
-          who: 'Lusia Knits',
           readyColor: 200
         },
         {
-          width: 2.5,
-          color: 'taken2',
+          width: 3.5,
+          color: 'normal2',
           index: 'S33',
-          who: 'Mania Chomikuje',
           readyColor: 300
         },
         {
-          width: 2.5,
-          color: 'taken',
+          width: 3.5,
+          color: 'normal1',
           index: 'S32',
-          who: 'Włóczki Warmii',
           readyColor: 200
         },
         {
-          width: 2.5,
-          color: 'taken2',
+          width: 3.5,
+          color: 'normal2',
           index: 'S31',
-          who: 'Furora Yarns',
           readyColor: 300
         },
         {
-          width: 2.5,
-          color: 'taken2',
+          width: 5.5,
+          color: 'premium',
           index: 'S30',
-          who: 'Furora Yarns',
           readyColor: 300
         },
-        {
-          width: 2.5,
-          color: 'taken2',
-          index: 'S29',
-          who: 'Furora Yarns',
-          readyColor: 300
-        },
-        {
-          width: 2.5,
-          color: 'taken',
-          index: 'S28',
-          who: 'Ale masz to cudne!',
-          readyColor: 200
-        },
-        {
-          width: 2.5,
-          color: 'taken2',
-          index: 'S27',
-          who: 'Animotki',
-          readyColor: 300
-        }
       ]
     },
     {
-      height: 3.5,
+      height: 2.5,
       stands: [
         {
           width: 26,
@@ -124,84 +98,66 @@ export const hallMapConfig: HallMapType = {
       ]
     },
     {
-      width: 4,
+      width: 3,
       stands: [
         {
-          width: 4,
-          height: 4,
-          color: 'taken',
+          width: 3,
+          height: 5.5,
+          color: 'premium',
           index: 'P4',
-          who: 'Mila Druciarnia',
           readyColor: 200
         },
         {
-          width: 4,
-          height: 2.5,
-          color: 'taken',
+          width: 3,
+          height: 3.5,
+          color: 'normal1',
           index: 'S26',
-          who: 'Mila Druciarnia',
           readyColor: 200
         },
         {
-          width: 4,
-          height: 2.5,
-          color: 'taken2',
+          width: 3,
+          height: 3.5,
+          color: 'normal2',
           index: 'S25',
-          who: '7oczek',
           readyColor: 300
         },
         {
-          width: 4,
-          height: 2.5,
-          color: 'taken2',
+          width: 3,
+          height: 3.5,
+          color: 'normal1',
           index: 'S24',
-          who: '7oczek',
           readyColor: 300
         },
         {
-          width: 4,
-          height: 2.5,
-          color: 'taken',
+          width: 3,
+          height: 3.5,
+          color: 'normal2',
           index: 'S23',
-          who: 'Miss Knitski',
           readyColor: 200
         },
         {
-          width: 4,
-          height: 2.5,
-          color: 'taken2',
+          width: 3,
+          height: 3.5,
+          color: 'normal1',
           index: 'S22',
-          who: 'YarnPower',
           readyColor: 300
         },
         {
-          width: 4,
-          height: 2.5,
-          color: 'taken',
+          width: 3,
+          height: 3.5,
+          color: 'normal2',
           index: 'S21',
-          who: 'The Knitting Box',
           readyColor: 200
         },
         {
-          width: 4,
-          height: 2.5,
-          color: 'taken2',
-          index: 'S20',
-          who: 'Woollala',
-          readyColor: 300
+          width: 3,
+          height: 0.5,
+          color: 'empty',
         },
         {
-          width: 4,
-          height: 2.5,
-          color: 'taken2',
-          index: 'S19',
-          who: 'Woollala',
-          readyColor: 300
-        },
-        {
-          width: 4,
-          height: 4,
-          color: 'taken',
+          width: 3,
+          height: 5.5,
+          color: 'premium',
           index: 'P3',
           who: 'Włóczykijki',
           readyColor: 200
@@ -211,7 +167,7 @@ export const hallMapConfig: HallMapType = {
     {
       stands: [
         {
-          width: 7,
+          width: 4,
           height: 26,
           color: 'empty'
         }

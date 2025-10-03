@@ -19,6 +19,7 @@ import { HallMapPage } from './pages/HallMapPage';
 import { Typography } from './components/Typography';
 import { usePhone } from './hooks/usePhone';
 import { WorkshopsSchedule } from './pages/WorkshopsSchedule';
+import EditorPage from './pages/EditorPage';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -75,6 +76,7 @@ export const App = () => {
           <Route path="/statutes" element={<StatutesPage />} />
           <Route path="/hall" element={<HallMapPage />} />
           <Route path="/schedule" element={<WorkshopsSchedule />} />
+          <Route path='/editor' element={<EditorPage />} />
         </Routes>
 
         <Footer id="footer">
