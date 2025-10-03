@@ -3,6 +3,9 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { RowIndexes } from "./RowIndexes";
 import { StandInfo } from "./StandInfo";
+import { Actions } from "./Actions";
+import { StandForm } from "./StandForm";
+import { StandInfoType } from "./StandInfoType";
 
 const GRID_COLS = 52; // 26m / 0.5m
 const GRID_ROWS = 88; // 44m / 0.5m
@@ -31,6 +34,7 @@ export const Grid = () => {
     const [dragging, setDragging] = useState(false);
     const [start, setStart] = useState<{ row: number; col: number } | null>(null);
     const [end, setEnd] = useState<{ row: number; col: number } | null>(null);
+    const [stands, setStands] = useState<StandInfoType[]>([{ index: "" }]);
 
     const isSelected = (row: number, col: number) => {
         if (!start || !end) return false;
@@ -80,7 +84,11 @@ export const Grid = () => {
                     ))
                 )}
             </GridContainer>
-            <StandInfo start={start} end={end} />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                <StandInfo start={start} end={end} />
+                <StandForm stands={stands} onChange={setStands} />
+                <Actions />
+            </div>
         </div>
     );
 }
