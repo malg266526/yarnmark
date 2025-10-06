@@ -1,11 +1,10 @@
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { RowIndexes } from "./RowIndexes";
 import { StandInfo } from "./StandInfo";
-import { Actions } from "./Actions";
 import { StandForm } from "./StandForm";
-import { StandInfoType } from "./StandInfoType";
+import { useEditor } from "./EditorContext";
+import { useMouseHandlers } from "./useMouseHandlers";
 
 const GRID_COLS = 52; // 26m / 0.5m
 const GRID_ROWS = 88; // 44m / 0.5m
@@ -29,12 +28,17 @@ const Square = styled.div<{ selected: boolean }>`
     box-sizing: border-box;
 `;
 
-
 export const Grid = () => {
-    const [dragging, setDragging] = useState(false);
-    const [start, setStart] = useState<{ row: number; col: number } | null>(null);
-    const [end, setEnd] = useState<{ row: number; col: number } | null>(null);
-    const [stands, setStands] = useState<StandInfoType[]>([{ index: "" }]);
+    const {
+        start,
+        end,
+        handleMouseDown,
+        handleMouseEnter,
+        handleMouseUp,
+    } = useMouseHandlers();
+
+    const { stands } = useEditor();
+    console.log('Stands:', stands);
 
     const isSelected = (row: number, col: number) => {
         if (!start || !end) return false;
@@ -44,29 +48,6 @@ export const Grid = () => {
         const colMax = Math.max(start.col, end.col);
         return row >= rowMin && row <= rowMax && col >= colMin && col <= colMax;
     };
-
-    const handleMouseDown = (row: number, col: number) => {
-        setStart({ row, col });
-        setEnd({ row, col });
-        setDragging(true);
-    };
-
-    const handleMouseEnter = (row: number, col: number) => {
-        if (dragging) {
-            setEnd({ row, col });
-        }
-    };
-
-    const handleMouseUp = () => {
-        setDragging(false);
-    };
-
-    // To handle mouse up outside the grid
-    useEffect(() => {
-        const handleWindowMouseUp = () => setDragging(false);
-        window.addEventListener('mouseup', handleWindowMouseUp);
-        return () => window.removeEventListener('mouseup', handleWindowMouseUp);
-    }, []);
 
     return (
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: 24 }}>
@@ -86,8 +67,7 @@ export const Grid = () => {
             </GridContainer>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 <StandInfo start={start} end={end} />
-                <StandForm stands={stands} onChange={setStands} />
-                <Actions />
+                <StandForm />
             </div>
         </div>
     );

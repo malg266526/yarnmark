@@ -1,6 +1,23 @@
+export const StandTypeColorMap = {
+  premium: '#4CBB17',
+  normal1: '#FFAA33',
+  normal2: '#EC5800',
+  small1: '#7897b0',
+  small2: '#a0bfd6',
+  taken: '#d3d3d3',
+  taken2: '#dfdfdf'
+} as const;
+
+export type StandType = 'premium' | 'mini' | 'standard' | 'other';
+
 export interface StandInfoType {
   index: string;
-  name?: string;
-  description?: string;
+  vendor?: string;
+  type: StandType;
+  width?: number;
+  height?: number;
+  color?: keyof typeof StandTypeColorMap;
+  isHorizontal?: boolean;
   // Add more fields as needed
 }
+
