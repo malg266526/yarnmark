@@ -4,6 +4,7 @@ import { StandInfoType } from "./StandInfoType";
 import { getSizeForOrientation, StandSizes } from "./getSizeForOrientation";
 import { Button, CtaButton } from "../Button";
 import { useEditor } from "./EditorContext";
+import { useStandForm } from "./useStandForm";
 
 // Extra styled container for layout and background
 const Container = styled.div`
@@ -68,62 +69,14 @@ const DefaultStand: StandInfoType = {
 };
 
 export const StandForm = () => {
-  const [stand, setStand] = useState<StandInfoType>(DefaultStand);
   const { addStand } = useEditor();
 
-  const handleTypeChange = (type: StandInfoType["type"]) => {
-    const size = getSizeForOrientation(type, stand.isHorizontal);
-    setStand((prev) => ({
-      ...prev,
-      type,
-      width: size.width,
-      height: size.height,
-    }));
-  };
-
-  const handleOrientationChange = (isHorizontal: boolean) => {
-    const size = getSizeForOrientation(stand.type, isHorizontal);
-    setStand((prev) => ({
-      ...prev,
-      isHorizontal,
-      width: size.width,
-      height: size.height,
-    }));
-  };
-
-  const handleIndexChange = (index: string) => {
-    setStand((prev) => ({ ...prev, index }));
-  };
-
-  const handleVendorChange = (vendor: string) => {
-    setStand((prev) => ({ ...prev, vendor }));
-  };
-
-  const handleWidthChange = (width?: number) => {
-    setStand((prev) => ({ ...prev, width }));
-  };
-
-  const handleHeightChange = (height?: number) => {
-    setStand((prev) => ({ ...prev, height }));
-  };
-
-
-  const isValid = !!stand.index && !!stand.type;
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!isValid) return;
-
-    addStand({
-      ...stand,
-      type: stand.type as StandInfoType["type"]
-    });
-    setStand(DefaultStand);
-  };
+  const { stand, handleTypeChange, handleOrientationChange, updateField, submit, isValid } =
+    useStandForm(addStand);
 
   return (
     <Container>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={submit}>
         <FieldRow>
           <Label htmlFor="stand-index">Stand Index:</Label>
           <Input
@@ -131,7 +84,7 @@ export const StandForm = () => {
             type="text"
             value={stand.index}
             required
-            onChange={(e) => handleIndexChange(e.target.value)}
+            onChange={(e) => updateField('index', e.target.value)}
           />
         </FieldRow>
         <FieldRow>
@@ -140,7 +93,7 @@ export const StandForm = () => {
             id="stand-vendor"
             type="text"
             value={stand.vendor || ""}
-            onChange={(e) => handleVendorChange(e.target.value)}
+            onChange={(e) => updateField('vendor', e.target.value)}
           />
         </FieldRow>
         <FieldRow>
@@ -179,7 +132,8 @@ export const StandForm = () => {
             min={0}
             value={stand.width ?? ""}
             onChange={(e) =>
-              handleWidthChange(
+              updateField(
+                "width",
                 e.target.value === "" ? undefined : Number(e.target.value)
               )
             }
@@ -194,7 +148,8 @@ export const StandForm = () => {
             min={0}
             value={stand.height ?? ""}
             onChange={(e) =>
-              handleHeightChange(
+              updateField(
+                "height",
                 e.target.value === "" ? undefined : Number(e.target.value)
               )
             }
