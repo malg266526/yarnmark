@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { getEndFromStart } from "./getEndFromStart";
 
 export const useMouseHandlers = () => {
     const [dragging, setDragging] = useState(false);
@@ -21,6 +22,22 @@ export const useMouseHandlers = () => {
         setDragging(false);
     };
 
+
+    const handleClick = (
+        row: number,
+        col: number,
+        standWidth: number,
+        standHeight: number,
+        isHorizontal: boolean
+    ) => {
+        const start = { row, col };
+        const end = getEndFromStart(start, standWidth, standHeight, isHorizontal);
+        setStart(start);
+        setEnd(end);
+        setDragging(false); // optional: no dragging for fixed-size
+    };
+
+
     useEffect(() => {
         const handleWindowMouseUp = () => setDragging(false);
         window.addEventListener('mouseup', handleWindowMouseUp);
@@ -35,6 +52,7 @@ export const useMouseHandlers = () => {
         handleMouseEnter,
         handleMouseUp,
         setStart,
-        setEnd
+        setEnd,
+        handleClick
     };
 };

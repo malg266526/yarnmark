@@ -79,16 +79,6 @@ const StandTypes: Array<"premium" | "mini" | "standard" | "other"> = [
   "other"
 ];
 
-
-
-const DefaultStand: StandProps = {
-  index: "",
-  type: "standard",
-  isHorizontal: false,
-  width: StandSizes["standard"].width,
-  height: StandSizes["standard"].height
-};
-
 interface StandFormProps {
   start: Coordinate | undefined;
   end: Coordinate | undefined;

@@ -53,9 +53,10 @@ export const Editor = () => {
         handleMouseDown,
         handleMouseEnter,
         handleMouseUp,
+        handleClick
     } = useMouseHandlers();
 
-    const { stands } = useEditor();
+    const { stands, currentStand } = useEditor();
     console.log('Stands:', stands);
     console.log('Editor, start:', start, 'end:', end);
 
@@ -88,6 +89,11 @@ export const Editor = () => {
                                 onMouseDown={() => handleMouseDown(row, col)}
                                 onMouseEnter={() => handleMouseEnter(row, col)}
                                 onMouseUp={handleMouseUp}
+                                onClick={() => handleClick(row,
+                                    col,
+                                    currentStand.width ?? 1,
+                                    currentStand.height ?? 1,
+                                    currentStand.isHorizontal ?? false)}
                             />
                         );
                     })
