@@ -1,21 +1,31 @@
 import { useState } from "react";
-import { StandInfoType } from "./StandInfoType";
-import { getSizeForOrientation, StandSizes } from "./getSizeForOrientation";
+import { StandColorsMap, StandProps, StandType } from "./StandProps";
+import { getSizeForOrientation, StandSizes } from "./utils/getSizeForOrientation";
 
-const DefaultStand: StandInfoType = {
+const DefaultTypeColorMap: Record<StandType, keyof typeof StandColorsMap> = {
+    premium: "premium",
+    standard: "normal1",
+    mini: "small1",
+    other: "taken",
+};
+
+const DefaultStand: StandProps = {
     index: "",
     type: "standard",
     isHorizontal: false,
     width: StandSizes.standard.width,
     height: StandSizes.standard.height,
+    color: DefaultTypeColorMap["standard"],
 };
 
-export const useStandForm = (onSubmit: (stand: StandInfoType) => void) => {
-    const [stand, setStand] = useState<StandInfoType>(DefaultStand);
+export const useStandForm = (onSubmit: (stand: StandProps) => void) => {
+    const [stand, setStand] = useState<StandProps>(DefaultStand);
 
-    const handleTypeChange = (type: StandInfoType["type"]) => {
+    const handleTypeChange = (type: StandProps["type"]) => {
         const size = getSizeForOrientation(type, stand.isHorizontal);
-        setStand({ ...stand, type, width: size.width, height: size.height });
+        const defaultColor = DefaultTypeColorMap[type];
+
+        setStand({ ...stand, type, width: size.width, height: size.height, color: defaultColor, });
     };
 
     const handleOrientationChange = (isHorizontal: boolean) => {
@@ -23,7 +33,7 @@ export const useStandForm = (onSubmit: (stand: StandInfoType) => void) => {
         setStand({ ...stand, isHorizontal, width: size.width, height: size.height });
     };
 
-    const updateField = <K extends keyof StandInfoType>(field: K, value: StandInfoType[K]) => {
+    const updateField = <K extends keyof StandProps>(field: K, value: StandProps[K]) => {
         setStand({ ...stand, [field]: value });
     };
 
@@ -32,6 +42,9 @@ export const useStandForm = (onSubmit: (stand: StandInfoType) => void) => {
     const submit = (e: React.FormEvent) => {
         e.preventDefault();
         if (!stand.index || !stand.type) return;
+
+        console.log('Submitting stand:', stand);
+
         onSubmit(stand);
         reset();
     };

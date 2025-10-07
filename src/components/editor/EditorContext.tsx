@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import { StandInfoType } from "./StandInfoType";
+import { StandProps } from "./StandProps";
 
 interface EditorContextType {
-  stands: StandInfoType[];
-  addStand: (stand: StandInfoType) => void;
+  stands: StandProps[];
+  addStand: (stand: StandProps) => void;
 }
 
 const EditorContext = createContext<EditorContextType | undefined>(undefined);
@@ -13,9 +13,9 @@ interface EditorProviderProps {
 }
 
 export const EditorProvider = ({ children }: EditorProviderProps) => {
-  const [stands, setStands] = useState<StandInfoType[]>([]);
+  const [stands, setStands] = useState<StandProps[]>([]);
 
-  const addStand = (stand: StandInfoType) => {
+  const addStand = (stand: StandProps) => {
     setStands(prev => [...prev, stand]);
   };
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { StandInfoType } from "./StandInfoType";
-import { getSizeForOrientation, StandSizes } from "./getSizeForOrientation";
+import { Coordinate, StandColorsMap, StandProps } from "./StandProps";
+import { getSizeForOrientation, StandSizes } from "./utils/getSizeForOrientation";
 import { Button, CtaButton } from "../Button";
 import { useEditor } from "./EditorContext";
 import { useStandForm } from "./useStandForm";
@@ -53,6 +53,25 @@ const ButtonRow = styled.div`
   justify-content: center;
 `;
 
+const Select = styled.select` 
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #fff;
+  cursor: pointer;
+`;
+
+const ColorOption = styled.option<{ color?: string }>`
+  background-color: ${({ color }) => color || "white"};
+  color: ${({ color }) => (color ? "#fff" : "#000")};
+`;
+
+const colorOptions = Object.keys(
+  StandColorsMap
+) as (keyof typeof StandColorsMap)[];
+
 const StandTypes: Array<"premium" | "mini" | "standard" | "other"> = [
   "premium",
   "mini",
@@ -60,7 +79,9 @@ const StandTypes: Array<"premium" | "mini" | "standard" | "other"> = [
   "other"
 ];
 
-const DefaultStand: StandInfoType = {
+
+
+const DefaultStand: StandProps = {
   index: "",
   type: "standard",
   isHorizontal: false,
@@ -68,11 +89,16 @@ const DefaultStand: StandInfoType = {
   height: StandSizes["standard"].height
 };
 
-export const StandForm = () => {
+interface StandFormProps {
+  start: Coordinate | undefined;
+  end: Coordinate | undefined;
+}
+
+export const StandForm = ({ start, end }: StandFormProps) => {
   const { addStand } = useEditor();
 
   const { stand, handleTypeChange, handleOrientationChange, updateField, submit, isValid } =
-    useStandForm(addStand);
+    useStandForm(() => addStand({ ...stand, start, end }));
 
   return (
     <Container>
@@ -94,6 +120,15 @@ export const StandForm = () => {
             type="text"
             value={stand.vendor || ""}
             onChange={(e) => updateField('vendor', e.target.value)}
+          />
+        </FieldRow>
+        <FieldRow>
+          <Label htmlFor="stand-description">Description:</Label>
+          <Input
+            id="stand-description"
+            type="text"
+            value={stand.description || ""}
+            onChange={(e) => updateField('description', e.target.value)}
           />
         </FieldRow>
         <FieldRow>
@@ -147,6 +182,7 @@ export const StandForm = () => {
             type="number"
             min={0}
             value={stand.height ?? ""}
+            step={0.5}
             onChange={(e) =>
               updateField(
                 "height",
@@ -154,6 +190,35 @@ export const StandForm = () => {
               )
             }
           />
+        </FieldRow>
+
+        <FieldRow>
+          <Label htmlFor="stand-color">Color:</Label>
+          <Select
+            id="stand-color"
+            value={stand.color || ""}
+            onChange={(e) =>
+              updateField(
+                "color",
+                e.target.value === ""
+                  ? undefined
+                  : (e.target.value as keyof typeof StandColorsMap)
+              )
+            }
+            style={{
+              backgroundColor: stand.color
+                ? StandColorsMap[stand.color]
+                : "#fff",
+              color: stand.color ? "#fff" : "#000",
+            }}
+          >
+            <option value="">Select color</option>
+            {colorOptions.map((key) => (
+              <ColorOption key={key} color={StandColorsMap[key]} value={key}>
+                {key}
+              </ColorOption>
+            ))}
+          </Select>
         </FieldRow>
         <ButtonRow>
           <CtaButton type="submit" disabled={!isValid}>

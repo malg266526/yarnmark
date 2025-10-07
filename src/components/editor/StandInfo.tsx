@@ -1,8 +1,8 @@
 import React from "react";
 
 interface StandInfoProps {
-    start: { row: number; col: number } | null;
-    end: { row: number; col: number } | null;
+    start: { row: number; col: number } | undefined;
+    end: { row: number; col: number } | undefined;
 }
 
 export const StandInfo = ({ start, end }: StandInfoProps) => {

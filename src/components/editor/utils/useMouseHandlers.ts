@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 
 export const useMouseHandlers = () => {
     const [dragging, setDragging] = useState(false);
-    const [start, setStart] = useState<{ row: number; col: number } | null>(null);
-    const [end, setEnd] = useState<{ row: number; col: number } | null>(null);
+    const [start, setStart] = useState<{ row: number; col: number } | undefined>(undefined);
+    const [end, setEnd] = useState<{ row: number; col: number } | undefined>(undefined);
 
     const handleMouseDown = (row: number, col: number) => {
         setStart({ row, col });

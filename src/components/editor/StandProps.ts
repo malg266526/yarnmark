@@ -1,4 +1,4 @@
-export const StandTypeColorMap = {
+export const StandColorsMap = {
   premium: '#4CBB17',
   normal1: '#FFAA33',
   normal2: '#EC5800',
@@ -10,14 +10,18 @@ export const StandTypeColorMap = {
 
 export type StandType = 'premium' | 'mini' | 'standard' | 'other';
 
-export interface StandInfoType {
+export type Coordinate = { row: number; col: number };
+
+export interface StandProps {
   index: string;
   vendor?: string;
+  description?: string;
   type: StandType;
   width?: number;
   height?: number;
-  color?: keyof typeof StandTypeColorMap;
+  color?: keyof typeof StandColorsMap;
   isHorizontal?: boolean;
-  // Add more fields as needed
+  start?: Coordinate;
+  end?: Coordinate;
 }
 
