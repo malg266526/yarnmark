@@ -160,6 +160,7 @@ export const StandForm = ({ start, end }: StandFormProps) => {
             id="stand-width"
             type="number"
             min={0}
+            step={0.5}
             value={stand.width ?? ""}
             onChange={(e) =>
               updateField(

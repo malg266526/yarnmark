@@ -39,12 +39,37 @@ const GridContainer = styled.div`
     overflow: auto;
 `;
 
-const Square = styled.div<{ selected: boolean }>`
-    width: ${size}px;
-    height: ${size}px;
-    background: ${({ selected }) => (selected ? '#90ee90' : '#fff')};
-    border: 1px solid #bbb;
-    box-sizing: border-box;
+const Square = styled.div<{
+    background: string;
+    isInsideStand?: boolean;
+}>`
+  width: ${size}px;
+  height: ${size}px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  user-select: none;
+  font-size: 0.8rem;
+  background: ${({ background }) => background};
+  border: ${({ isInsideStand }) =>
+        isInsideStand ? "1px solid #f0f0f0" : "1px solid #bbb"};
+  transition: background 0.1s ease;
+  position: relative;
+`;
+
+const StandIndex = styled.div`
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 24px; /* adjust if needed */
+  color: #111;
+  pointer-events: none; /* allow clicks to pass through */
+  user-select: none;
+  white-space: nowrap;
 `;
 
 export const Editor = () => {
@@ -80,20 +105,35 @@ export const Editor = () => {
                                 ? "#90ee90"
                                 : "#fff";
 
+
+                        const hasCoords = stand?.start && stand?.end;
+
+                        const isMiddle =
+                            hasCoords &&
+                            row === Math.floor((stand.start!.row + stand.end!.row) / 2) &&
+                            col === Math.floor((stand.start!.col + stand.end!.col) / 2);
+
+                        const isInsideStand = !!stand;
+
                         return (
                             <Square
                                 key={`${row}-${col}`}
-                                selected={!!stand}
-                                style={{ background }}
+                                background={background}
+                                isInsideStand={isInsideStand}
                                 onMouseDown={() => handleMouseDown(row, col)}
                                 onMouseEnter={() => handleMouseEnter(row, col)}
                                 onMouseUp={handleMouseUp}
-                                onClick={() => handleClick(row,
-                                    col,
-                                    currentStand.width ?? 1,
-                                    currentStand.height ?? 1
-                                )}
-                            />
+                                onClick={() =>
+                                    handleClick(
+                                        row,
+                                        col,
+                                        currentStand.width ?? 1,
+                                        currentStand.height ?? 1
+                                    )
+                                }
+                            >
+                                {isMiddle && stand ? <StandIndex>{stand.index}</StandIndex> : ""}
+                            </Square>
                         );
                     })
                 )}
