@@ -5,7 +5,8 @@ export const StandColorsMap = {
   small1: '#7897b0',
   small2: '#a0bfd6',
   taken: '#d3d3d3',
-  taken2: '#dfdfdf'
+  taken2: '#dfdfdf',
+  tech: '#e5f6df'
 } as const;
 
 export type StandType = 'premium' | 'mini' | 'standard' | 'other';

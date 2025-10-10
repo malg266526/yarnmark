@@ -1,0 +1,891 @@
+[
+  {
+    "id": "mgl5iw69-apfj5ox",
+    "index": "a1",
+    "type": "other",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3,
+    "color": "tech",
+    "description": "Wejście",
+    "start": {
+      "row": 82,
+      "col": 46
+    },
+    "end": {
+      "row": 87,
+      "col": 51
+    }
+  },
+  {
+    "id": "mgl5l1dd-638vrn7",
+    "index": "a0",
+    "type": "other",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3,
+    "color": "tech",
+    "description": "Wejście",
+    "start": {
+      "row": 0,
+      "col": 0
+    },
+    "end": {
+      "row": 5,
+      "col": 12
+    },
+    "vendor": "wejście dla wystawców"
+  },
+  {
+    "id": "mgl5ldw7-35aihnp",
+    "index": "S1",
+    "type": "standard",
+    "isHorizontal": true,
+    "width": 3.5,
+    "height": 3,
+    "color": "normal1",
+    "start": {
+      "row": 0,
+      "col": 13
+    },
+    "end": {
+      "row": 5,
+      "col": 19
+    }
+  },
+  {
+    "id": "mgl5lmv2-rf2z8vs",
+    "index": "S2",
+    "type": "standard",
+    "isHorizontal": true,
+    "width": 3.5,
+    "height": 3,
+    "color": "normal2",
+    "start": {
+      "row": 0,
+      "col": 20
+    },
+    "end": {
+      "row": 5,
+      "col": 26
+    }
+  },
+  {
+    "id": "mgl5mosd-zy7ymt5",
+    "index": "S3",
+    "type": "standard",
+    "isHorizontal": true,
+    "width": 3.5,
+    "height": 3,
+    "color": "normal1",
+    "start": {
+      "row": 0,
+      "col": 27
+    },
+    "end": {
+      "row": 5,
+      "col": 33
+    }
+  },
+  {
+    "id": "mgl5mz0x-9lgguya",
+    "index": "S4",
+    "type": "standard",
+    "isHorizontal": true,
+    "width": 3.5,
+    "height": 3,
+    "color": "normal2",
+    "start": {
+      "row": 0,
+      "col": 34
+    },
+    "end": {
+      "row": 5,
+      "col": 40
+    }
+  },
+  {
+    "id": "mgl5ogvq-pqucf09",
+    "index": "P1",
+    "type": "premium",
+    "isHorizontal": true,
+    "width": 5.5,
+    "height": 3,
+    "color": "premium",
+    "start": {
+      "row": 0,
+      "col": 41
+    },
+    "end": {
+      "row": 5,
+      "col": 51
+    }
+  },
+  {
+    "id": "mgl60s92-lscpjj7",
+    "index": "P2",
+    "type": "premium",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 5.5,
+    "color": "premium",
+    "start": {
+      "row": 11,
+      "col": 46
+    },
+    "end": {
+      "row": 21,
+      "col": 51
+    }
+  },
+  {
+    "id": "mgl613ar-ngm5blq",
+    "index": "S5",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal1",
+    "start": {
+      "row": 22,
+      "col": 46
+    },
+    "end": {
+      "row": 28,
+      "col": 51
+    }
+  },
+  {
+    "id": "mgl618tt-1yiapaw",
+    "index": "S6",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal2",
+    "start": {
+      "row": 29,
+      "col": 46
+    },
+    "end": {
+      "row": 35,
+      "col": 51
+    }
+  },
+  {
+    "id": "mgl64q1f-x7w94p5",
+    "index": "S7",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal1",
+    "start": {
+      "row": 36,
+      "col": 46
+    },
+    "end": {
+      "row": 42,
+      "col": 51
+    }
+  },
+  {
+    "id": "mgl64v4d-yqddbkl",
+    "index": "S8",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal2",
+    "start": {
+      "row": 43,
+      "col": 46
+    },
+    "end": {
+      "row": 49,
+      "col": 51
+    }
+  },
+  {
+    "id": "mgl6517j-mjhaicf",
+    "index": "S9",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal1",
+    "start": {
+      "row": 50,
+      "col": 46
+    },
+    "end": {
+      "row": 56,
+      "col": 51
+    }
+  },
+  {
+    "id": "mgl65aou-ptdjo6e",
+    "index": "S10",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal2",
+    "start": {
+      "row": 57,
+      "col": 46
+    },
+    "end": {
+      "row": 63,
+      "col": 51
+    }
+  },
+  {
+    "id": "mgl65qbi-2kfiih9",
+    "index": "P3",
+    "type": "premium",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 5.5,
+    "color": "premium",
+    "start": {
+      "row": 64,
+      "col": 46
+    },
+    "end": {
+      "row": 74,
+      "col": 51
+    }
+  },
+  {
+    "id": "mgl66pt4-1ygebgf",
+    "index": "S11",
+    "type": "standard",
+    "isHorizontal": true,
+    "width": 3.5,
+    "height": 3,
+    "color": "normal1",
+    "start": {
+      "row": 82,
+      "col": 39
+    },
+    "end": {
+      "row": 87,
+      "col": 45
+    }
+  },
+  {
+    "id": "mgl68zf8-rfy5hgh",
+    "index": "C1",
+    "type": "other",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 4,
+    "color": "normal2",
+    "start": {
+      "row": 80,
+      "col": 0
+    },
+    "end": {
+      "row": 87,
+      "col": 5
+    }
+  },
+  {
+    "id": "mgl6econ-j4mlyk8",
+    "index": "S15",
+    "type": "standard",
+    "isHorizontal": true,
+    "width": 3.5,
+    "height": 3,
+    "color": "normal1",
+    "start": {
+      "row": 82,
+      "col": 6
+    },
+    "end": {
+      "row": 87,
+      "col": 12
+    }
+  },
+  {
+    "id": "mgl6ektc-rbbbi4w",
+    "index": "S14",
+    "type": "standard",
+    "isHorizontal": true,
+    "width": 3.5,
+    "height": 3,
+    "color": "normal2",
+    "start": {
+      "row": 82,
+      "col": 13
+    },
+    "end": {
+      "row": 87,
+      "col": 19
+    }
+  },
+  {
+    "id": "mgl6et3j-e9giz38",
+    "index": "S13",
+    "type": "standard",
+    "isHorizontal": true,
+    "width": 3.5,
+    "height": 3,
+    "color": "normal1",
+    "start": {
+      "row": 82,
+      "col": 20
+    },
+    "end": {
+      "row": 87,
+      "col": 26
+    }
+  },
+  {
+    "id": "mgl6fi1f-6o60rka",
+    "index": "A2",
+    "type": "other",
+    "isHorizontal": false,
+    "width": 2.5,
+    "height": 3,
+    "color": "tech",
+    "description": "Toalety",
+    "start": {
+      "row": 82,
+      "col": 27
+    },
+    "end": {
+      "row": 87,
+      "col": 31
+    }
+  },
+  {
+    "id": "mgl6fuog-0pibcjv",
+    "index": "S12",
+    "type": "standard",
+    "isHorizontal": true,
+    "width": 3.5,
+    "height": 3,
+    "color": "normal2",
+    "start": {
+      "row": 82,
+      "col": 32
+    },
+    "end": {
+      "row": 87,
+      "col": 38
+    }
+  },
+  {
+    "id": "mgl6kh0d-1jnqs8s",
+    "index": "P5",
+    "type": "premium",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 5.5,
+    "color": "premium",
+    "start": {
+      "row": 11,
+      "col": 1
+    },
+    "end": {
+      "row": 21,
+      "col": 6
+    }
+  },
+  {
+    "id": "mgl6l031-6oufobz",
+    "index": "S21",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal2",
+    "start": {
+      "row": 22,
+      "col": 1
+    },
+    "end": {
+      "row": 28,
+      "col": 6
+    }
+  },
+  {
+    "id": "mgl6l6xj-wvxnju7",
+    "index": "S20",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal1",
+    "start": {
+      "row": 29,
+      "col": 1
+    },
+    "end": {
+      "row": 35,
+      "col": 6
+    }
+  },
+  {
+    "id": "mgl6lej8-i38l6td",
+    "index": "S19",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal2",
+    "start": {
+      "row": 36,
+      "col": 1
+    },
+    "end": {
+      "row": 42,
+      "col": 6
+    }
+  },
+  {
+    "id": "mgl6lzj5-6kpu2mj",
+    "index": "S18",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal1",
+    "start": {
+      "row": 43,
+      "col": 1
+    },
+    "end": {
+      "row": 49,
+      "col": 6
+    }
+  },
+  {
+    "id": "mgl6mdh4-mwhosiw",
+    "index": "S17",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal2",
+    "start": {
+      "row": 50,
+      "col": 1
+    },
+    "end": {
+      "row": 56,
+      "col": 6
+    }
+  },
+  {
+    "id": "mgl6mkfw-8hallfi",
+    "index": "S16",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal1",
+    "start": {
+      "row": 57,
+      "col": 1
+    },
+    "end": {
+      "row": 63,
+      "col": 6
+    }
+  },
+  {
+    "id": "mgl6n8xv-mczs30e",
+    "index": "A3",
+    "type": "other",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 0.5,
+    "color": "tech",
+    "description": "Wejście do socjala",
+    "start": {
+      "row": 64,
+      "col": 1
+    },
+    "end": {
+      "row": 64,
+      "col": 6
+    }
+  },
+  {
+    "id": "mgl6nkta-rs38jfz",
+    "index": "P4",
+    "type": "premium",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 5.5,
+    "color": "premium",
+    "start": {
+      "row": 65,
+      "col": 1
+    },
+    "end": {
+      "row": 75,
+      "col": 6
+    }
+  },
+  {
+    "id": "mgl6ush4-p91myjt",
+    "index": "M1",
+    "type": "mini",
+    "isHorizontal": false,
+    "width": 2,
+    "height": 3,
+    "color": "small1",
+    "start": {
+      "row": 15,
+      "col": 15
+    },
+    "end": {
+      "row": 20,
+      "col": 18
+    }
+  },
+  {
+    "id": "mgl6v4gk-ouwx9zh",
+    "index": "M2",
+    "type": "mini",
+    "isHorizontal": false,
+    "width": 2,
+    "height": 3,
+    "color": "small2",
+    "start": {
+      "row": 21,
+      "col": 15
+    },
+    "end": {
+      "row": 26,
+      "col": 18
+    }
+  },
+  {
+    "id": "mgl6vc2j-3qc7l5j",
+    "index": "M3",
+    "type": "mini",
+    "isHorizontal": false,
+    "width": 2,
+    "height": 3,
+    "color": "small1",
+    "start": {
+      "row": 27,
+      "col": 15
+    },
+    "end": {
+      "row": 32,
+      "col": 18
+    }
+  },
+  {
+    "id": "mgl6wf6b-2ayxfbb",
+    "index": "S22",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal2",
+    "start": {
+      "row": 15,
+      "col": 26
+    },
+    "end": {
+      "row": 21,
+      "col": 31
+    }
+  },
+  {
+    "id": "mgl6wl89-uat4n17",
+    "index": "S23",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal1",
+    "start": {
+      "row": 15,
+      "col": 32
+    },
+    "end": {
+      "row": 21,
+      "col": 37
+    }
+  },
+  {
+    "id": "mgl6wrxx-idnr7z0",
+    "index": "S24",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal1",
+    "start": {
+      "row": 22,
+      "col": 26
+    },
+    "end": {
+      "row": 28,
+      "col": 31
+    }
+  },
+  {
+    "id": "mgl6wwic-tvap3dc",
+    "index": "S27",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal1",
+    "start": {
+      "row": 29,
+      "col": 32
+    },
+    "end": {
+      "row": 35,
+      "col": 37
+    }
+  },
+  {
+    "id": "mgl6x1b7-40fayv0",
+    "index": "S25",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal2",
+    "start": {
+      "row": 22,
+      "col": 32
+    },
+    "end": {
+      "row": 28,
+      "col": 37
+    }
+  },
+  {
+    "id": "mgl6x7j0-3q74q4a",
+    "index": "S26",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal2",
+    "start": {
+      "row": 29,
+      "col": 26
+    },
+    "end": {
+      "row": 35,
+      "col": 31
+    }
+  },
+  {
+    "id": "mgl6yx3j-a6gbbdv",
+    "index": "S28",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal2",
+    "start": {
+      "row": 44,
+      "col": 15
+    },
+    "end": {
+      "row": 50,
+      "col": 20
+    }
+  },
+  {
+    "id": "mgl6z2cb-1uxwbpm",
+    "index": "S29",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal1",
+    "start": {
+      "row": 44,
+      "col": 21
+    },
+    "end": {
+      "row": 50,
+      "col": 26
+    }
+  },
+  {
+    "id": "mgl6zbss-39u5b6d",
+    "index": "S30",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal1",
+    "start": {
+      "row": 51,
+      "col": 15
+    },
+    "end": {
+      "row": 57,
+      "col": 20
+    }
+  },
+  {
+    "id": "mgl6zfsg-fr2jl43",
+    "index": "S31",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal2",
+    "start": {
+      "row": 51,
+      "col": 21
+    },
+    "end": {
+      "row": 57,
+      "col": 26
+    }
+  },
+  {
+    "id": "mgl6zjh0-jwq4ubf",
+    "index": "S32",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal2",
+    "start": {
+      "row": 58,
+      "col": 15
+    },
+    "end": {
+      "row": 64,
+      "col": 20
+    }
+  },
+  {
+    "id": "mgl6zxpt-k5hpk88",
+    "index": "S33",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal1",
+    "start": {
+      "row": 58,
+      "col": 21
+    },
+    "end": {
+      "row": 64,
+      "col": 26
+    }
+  },
+  {
+    "id": "mgl71r2j-qkagdvk",
+    "index": "S34",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal1",
+    "start": {
+      "row": 65,
+      "col": 15
+    },
+    "end": {
+      "row": 71,
+      "col": 20
+    }
+  },
+  {
+    "id": "mgl71yd5-znghfel",
+    "index": "S35",
+    "type": "standard",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3.5,
+    "color": "normal2",
+    "start": {
+      "row": 65,
+      "col": 21
+    },
+    "end": {
+      "row": 71,
+      "col": 26
+    }
+  },
+  {
+    "id": "mgl72tsa-qs2e7an",
+    "index": "M7",
+    "type": "mini",
+    "isHorizontal": false,
+    "width": 2,
+    "height": 3,
+    "color": "small2",
+    "start": {
+      "row": 66,
+      "col": 34
+    },
+    "end": {
+      "row": 71,
+      "col": 37
+    }
+  },
+  {
+    "id": "mgl76hx7-qw6e0d0",
+    "index": "M6",
+    "type": "mini",
+    "isHorizontal": false,
+    "width": 2,
+    "height": 3,
+    "color": "small1",
+    "start": {
+      "row": 60,
+      "col": 34
+    },
+    "end": {
+      "row": 65,
+      "col": 37
+    }
+  },
+  {
+    "id": "mgl76tw7-mgn1xq1",
+    "index": "M5",
+    "type": "mini",
+    "isHorizontal": false,
+    "width": 2,
+    "height": 3,
+    "color": "small2",
+    "start": {
+      "row": 54,
+      "col": 34
+    },
+    "end": {
+      "row": 59,
+      "col": 37
+    }
+  },
+  {
+    "id": "mgl775wk-c5g9xg2",
+    "index": "M4",
+    "type": "mini",
+    "isHorizontal": false,
+    "width": 2,
+    "height": 3,
+    "color": "small1",
+    "start": {
+      "row": 48,
+      "col": 34
+    },
+    "end": {
+      "row": 53,
+      "col": 37
+    }
+  }
+]

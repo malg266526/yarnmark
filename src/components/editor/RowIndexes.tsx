@@ -26,10 +26,20 @@ interface RowIndexesProps {
   rows: number;
 }
 
-export const RowIndexes = ({ rows }: RowIndexesProps) => (
-  <RowIndexesContainer>
-    {Array.from({ length: rows }).map((_, row) => (
-      <Indicator key={`row-indicator-${row}`}>{row}</Indicator>
-    ))}
-  </RowIndexesContainer>
-);
+export const RowIndexes = ({ rows }: RowIndexesProps) => {
+  const labels = Array.from({ length: rows }, (_, i) =>
+    (i * 0.5).toFixed(1)
+  );
+
+  return (
+    <RowIndexesContainer>
+      {/* {Array.from({ length: rows }).map((_, row) => (
+        <Indicator key={`row-indicator-${row}`}>{row}</Indicator>
+      ))} */}
+
+      {labels.map((label, index) => (
+        <Indicator key={index}>{label}</Indicator>
+      ))}
+    </RowIndexesContainer>
+  )
+};
