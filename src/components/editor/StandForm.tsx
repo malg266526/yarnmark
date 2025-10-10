@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Coordinate, StandColorsMap, StandProps } from "./StandProps";
-import { getSizeForOrientation, StandSizes } from "./utils/getSizeForOrientation";
 import { Button, CtaButton } from "../Button";
 import { useEditor } from "./EditorContext";
 import { useStandForm } from "./useStandForm";
+import { RedesignSpacings } from "../../styles/spacings";
 
 // Extra styled container for layout and background
 const Container = styled.div`
@@ -51,6 +51,7 @@ const ButtonRow = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  gap: ${RedesignSpacings.md}
 `;
 
 const Select = styled.select` 
@@ -85,10 +86,14 @@ interface StandFormProps {
 }
 
 export const StandForm = ({ start, end }: StandFormProps) => {
-  const { addStand } = useEditor();
+  const { addStand, currentStand, updateStand, stands } = useEditor();
 
   const { stand, handleTypeChange, handleOrientationChange, updateField, submit, isValid } =
     useStandForm(() => addStand({ ...stand, start, end }));
+
+  const isEditMode = !!stands.find(stand => stand.id === currentStand.id)
+
+  console.log("isEditMode", isEditMode)
 
   return (
     <Container>
@@ -211,6 +216,12 @@ export const StandForm = ({ start, end }: StandFormProps) => {
           </Select>
         </FieldRow>
         <ButtonRow>
+          {isEditMode && (
+            <Button type='button' onClick={() => updateStand(currentStand)}>
+              Update
+            </Button>
+          )}
+
           <CtaButton type="submit" disabled={!isValid}>
             Add Stand
           </CtaButton>

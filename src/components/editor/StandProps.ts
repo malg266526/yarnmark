@@ -13,6 +13,7 @@ export type StandType = 'premium' | 'mini' | 'standard' | 'other';
 export type Coordinate = { row: number; col: number };
 
 export interface StandProps {
+  id: string;
   index: string;
   vendor?: string;
   description?: string;

@@ -10,6 +10,7 @@ import { StandColorsMap } from "./StandProps";
 import { isWithinBox } from "./utils/isWithinBox";
 import { CtaButton } from "../Button";
 import { saveHallToFile } from "./utils/saveHallToFile";
+import { StandList } from "./StandList";
 
 const GRID_COLS = 52; // 26m / 0.5m
 const GRID_ROWS = 88; // 44m / 0.5m
@@ -57,8 +58,6 @@ export const Editor = () => {
     } = useMouseHandlers();
 
     const { stands, currentStand } = useEditor();
-    console.log('Stands:', stands);
-    console.log('Editor, start:', start, 'end:', end);
 
     const getStandAtCell = (row: number, col: number) => {
         return stands.find((stand) =>
@@ -92,8 +91,8 @@ export const Editor = () => {
                                 onClick={() => handleClick(row,
                                     col,
                                     currentStand.width ?? 1,
-                                    currentStand.height ?? 1,
-                                    currentStand.isHorizontal ?? false)}
+                                    currentStand.height ?? 1
+                                )}
                             />
                         );
                     })
@@ -102,9 +101,11 @@ export const Editor = () => {
             <StandDetailsContainer>
                 <StandInfo start={start} end={end} />
                 <StandForm start={start} end={end} />
+
                 <CtaButton type="submit" onClick={() => saveHallToFile(stands)}>
                     Generate JSON
                 </CtaButton>
+                <StandList />
             </StandDetailsContainer>
         </EditorContainer>
     );

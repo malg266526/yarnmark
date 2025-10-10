@@ -7,6 +7,7 @@ export const useMouseHandlers = () => {
     const [end, setEnd] = useState<{ row: number; col: number } | undefined>(undefined);
 
     const handleMouseDown = (row: number, col: number) => {
+
         setStart({ row, col });
         setEnd({ row, col });
         setDragging(true);
@@ -28,15 +29,15 @@ export const useMouseHandlers = () => {
         col: number,
         standWidth: number,
         standHeight: number,
-        isHorizontal: boolean
     ) => {
         const start = { row, col };
-        const end = getEndFromStart(start, standWidth, standHeight, isHorizontal);
+
+        const end = getEndFromStart(start, standWidth, standHeight);
+
         setStart(start);
         setEnd(end);
-        setDragging(false); // optional: no dragging for fixed-size
+        setDragging(false);
     };
-
 
     useEffect(() => {
         const handleWindowMouseUp = () => setDragging(false);

@@ -2,7 +2,7 @@ import React from "react";
 import { Editor } from "../components/editor/Editor";
 import { EditorProvider } from "../components/editor/EditorContext";
 
-const EditorPage = () => {
+export const EditorPage = () => {
     return (
         <EditorProvider>
             <h1>Editor</h1>
@@ -11,4 +11,4 @@ const EditorPage = () => {
     );
 };
 
-export default EditorPage;
+

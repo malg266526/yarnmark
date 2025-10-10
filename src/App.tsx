@@ -19,7 +19,7 @@ import { HallMapPage } from './pages/HallMapPage';
 import { Typography } from './components/Typography';
 import { usePhone } from './hooks/usePhone';
 import { WorkshopsSchedule } from './pages/WorkshopsSchedule';
-import EditorPage from './pages/EditorPage';
+import { EditorPage } from './pages/EditorPage';
 
 const GlobalStyle = createGlobalStyle`
   html {
