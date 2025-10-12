@@ -135,7 +135,7 @@ export const de: TranslationsShape = {
       title: 'Kontakt'
     },
     infoForVendorsPage: {
-      title: 'Informationen für Aussteller 2025',
+      title: 'Informationen für Aussteller 2026',
       invitation: 'Wir laden dich herzlich ein, an der 2. Ausgabe des Krakow Wool Yarnmark teilzunehmen!',
       organisationInfo: 'Unten findest du einige organisatorische Informationen.',
       hallInfo: {

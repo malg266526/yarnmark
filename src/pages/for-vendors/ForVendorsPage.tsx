@@ -62,7 +62,9 @@ export const ForVendorsPage = () => {
           <Typography size="md">
             <Trans i18nKey="infoForVendorsPage.registration.newForm" />
           </Typography>
-          <Typography size="md">{t('infoForVendorsPage.registration.extraInfoByMail')}</Typography>
+          <Typography size="md">
+            <Trans i18nKey="infoForVendorsPage.registration.extraInfoByMail" />
+          </Typography>
         </PlainInfo>
       </Band.NarrowColumn>
 
@@ -161,7 +163,7 @@ export const ForVendorsPage = () => {
         </PlainInfo>
 
         <HallWrapper id="hall_wrapper">
-          <Hall multiplier={isPhone ? 13 : 15} />
+          <Hall multiplier={isPhone ? 8 : 15} />
           <HallLegend />
         </HallWrapper>
       </Band.NarrowColumn>

@@ -132,8 +132,8 @@ export const pl = {
       title: 'Kontakt'
     },
     infoForVendorsPage: {
-      title: 'Informacje dla wystawców 2025',
-      invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w II edycji Krakoskiego Yarnmarku!',
+      title: 'Informacje dla wystawców 2026',
+      invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w III edycji Krakoskiego Yarnmarku!',
       organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was.',
       hallInfo: {
         title: 'Hala',
