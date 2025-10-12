@@ -1,8 +1,8 @@
-import { BackgroundPicture } from "./BackgroundPicture";
-import woolsAvifLandscape from "../assets/images/wools.avif";
-import woolsWebpLandscape from "../assets/images/wools.webp";
-import woolsJpgLandscape from "../assets/images/wools.jfif";
-import React from "react";
+import { BackgroundPicture } from './BackgroundPicture';
+import woolsAvifLandscape from '../assets/images/wools.avif';
+import woolsWebpLandscape from '../assets/images/wools.webp';
+import woolsJpgLandscape from '../assets/images/wools.jfif';
+import React from 'react';
 
 export const WoolPicture = () => (
   <BackgroundPicture>

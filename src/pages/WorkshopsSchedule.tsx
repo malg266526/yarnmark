@@ -1,17 +1,17 @@
-import React from "react";
-import styled from "styled-components";
-import { ScreenSize } from "../styles/screeen-size";
-import { usePhone } from "../hooks/usePhone";
-import { PageContent } from "../components/PageContent";
-import { Header } from "./menu/Header";
-import { Band } from "../components/bands/Band";
-import { WoolPicture } from "../components/WoolPicture";
-import { SlantedCornersBox } from "../components/SlantedCornersBox";
-import { CenteredSection } from "../components/CenteredSection";
-import { BandTitle } from "../components/bands/BandTitle";
-import { BackgroundColors, HallColors } from "../styles/theme";
-import { RedesignSpacings } from "../styles/spacings";
-import { Typography } from "../components/Typography";
+import React from 'react';
+import styled from 'styled-components';
+import { ScreenSize } from '../styles/screeen-size';
+import { usePhone } from '../hooks/usePhone';
+import { PageContent } from '../components/PageContent';
+import { Header } from './menu/Header';
+import { Band } from '../components/bands/Band';
+import { WoolPicture } from '../components/WoolPicture';
+import { SlantedCornersBox } from '../components/SlantedCornersBox';
+import { CenteredSection } from '../components/CenteredSection';
+import { BandTitle } from '../components/bands/BandTitle';
+import { BackgroundColors, HallColors } from '../styles/theme';
+import { RedesignSpacings } from '../styles/spacings';
+import { Typography } from '../components/Typography';
 
 const InvitationBoxWrapper = styled.div`
   padding-left: 240px;
@@ -55,8 +55,7 @@ const Cell = styled.div<{ background?: keyof typeof HallColors }>`
   padding: ${RedesignSpacings.sm};
   border-radius: ${RedesignSpacings.xxs};
 
-  background-color: ${({ background }) =>
-    background ? HallColors[background] : "transparent"};
+  background-color: ${({ background }) => (background ? HallColors[background] : 'transparent')};
 `;
 
 export const WorkshopsSchedule = () => {
@@ -66,12 +65,7 @@ export const WorkshopsSchedule = () => {
     <PageContent variant="wide" padding="none">
       <Header />
 
-      <Band.Wallpaper
-        id="infoForVendorsIntro"
-        picture={<WoolPicture />}
-        size="md"
-        justify="flex-start"
-      >
+      <Band.Wallpaper id="infoForVendorsIntro" picture={<WoolPicture />} size="md" justify="flex-start">
         <InvitationBoxWrapper>
           <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
             <CenteredSection>
@@ -85,8 +79,7 @@ export const WorkshopsSchedule = () => {
         id="hallMap"
         size="sm"
         color={BackgroundColors.navigationBand}
-        padding={isPhone ? "sm" : "lg"}
-      >
+        padding={isPhone ? 'sm' : 'lg'}>
         <Table>
           <Th>
             <Typography size="md" weight="bold">

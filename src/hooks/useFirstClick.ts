@@ -1,13 +1,9 @@
-import { useLocalStorage } from "./useLocalStorage";
+import { useLocalStorage } from './useLocalStorage';
 
-const parser = (rawValue: string) => rawValue === "true";
+const parser = (rawValue: string) => rawValue === 'true';
 
 export const useFirstClick = (key: string) => {
-  const [wasClickedBefore, setWasClickedBefore] = useLocalStorage<boolean>(
-    key,
-    false,
-    parser,
-  );
+  const [wasClickedBefore, setWasClickedBefore] = useLocalStorage<boolean>(key, false, parser);
 
   const handleClick = () => {
     if (!wasClickedBefore) {

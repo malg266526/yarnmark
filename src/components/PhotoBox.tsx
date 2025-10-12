@@ -1,9 +1,9 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import { RedesignSpacings } from "../styles/spacings";
-import { ScreenSize } from "../styles/screeen-size";
-import { usePhone } from "../hooks/usePhone";
-import { FontSize } from "../styles/font-size";
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { RedesignSpacings } from '../styles/spacings';
+import { ScreenSize } from '../styles/screeen-size';
+import { usePhone } from '../hooks/usePhone';
+import { FontSize } from '../styles/font-size';
 
 export const Image = styled.img`
   width: 100%;
@@ -14,7 +14,7 @@ export const Image = styled.img`
   object-fit: contain;
 `;
 
-type Size = `${number}${"px" | "%"}`;
+type Size = `${number}${'px' | '%'}`;
 
 const Slot = styled.div<{ slotSize: Size }>`
   position: absolute;
@@ -87,9 +87,9 @@ export type PhotoFrameProps = {
   src: string;
   children?: React.ReactNode;
 } & (
-  | { variant?: "no-slot" }
+  | { variant?: 'no-slot' }
   | {
-      variant: "slot";
+      variant: 'slot';
       slot: React.ReactNode;
       slotSize: Size;
     }
@@ -100,21 +100,16 @@ export const PhotoFrame = Object.assign(
     const isPhone = usePhone();
 
     return (
-      <Root
-        maxSize={maxSize}
-        slotSize={rest.variant === "slot" ? rest.slotSize : undefined}
-      >
+      <Root maxSize={maxSize} slotSize={rest.variant === 'slot' ? rest.slotSize : undefined}>
         <ImageWrapper>
           <Image src={src} />
           {children}
-          {rest.variant === "slot" && isPhone && <>rest.slot</>}
+          {rest.variant === 'slot' && isPhone && <>rest.slot</>}
         </ImageWrapper>
 
-        {rest.variant === "slot" && !isPhone && (
-          <Slot slotSize={rest.slotSize}>{rest.slot}</Slot>
-        )}
+        {rest.variant === 'slot' && !isPhone && <Slot slotSize={rest.slotSize}>{rest.slot}</Slot>}
       </Root>
     );
   },
-  { Cursive },
+  { Cursive }
 );

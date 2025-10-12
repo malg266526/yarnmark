@@ -1,12 +1,12 @@
-import styled, { css } from "styled-components";
-import { FontSize } from "../styles/font-size";
+import styled, { css } from 'styled-components';
+import { FontSize } from '../styles/font-size';
 
-type FontWeight = "regular" | "bold" | "light";
+type FontWeight = 'regular' | 'bold' | 'light';
 
 const fontVariantToWeight: Record<FontWeight, number> = {
   bold: 600,
   light: 200,
-  regular: 400,
+  regular: 400
 };
 
 export const Typography = styled.div<{
@@ -15,7 +15,7 @@ export const Typography = styled.div<{
 }>`
   ${({ size, weight }) => css`
     font-size: ${FontSize[size]};
-    font-weight: ${fontVariantToWeight[weight || "regular"]};
+    font-weight: ${fontVariantToWeight[weight || 'regular']};
   `};
   line-height: 22px;
 `;

@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { Colors } from "../styles/theme";
+import React from 'react';
+import styled from 'styled-components';
+import { Colors } from '../styles/theme';
 
 const gapSize = 4;
 const lineSize = 4;
@@ -43,22 +43,11 @@ const Line = styled.span`
 `;
 
 export const BurgerMenu = styled(
-  ({
-    onClick,
-    active,
-    className,
-  }: {
-    onClick?: () => void;
-    active: boolean;
-    className?: string;
-  }) => (
-    <Root
-      onClick={onClick}
-      className={active ? `${className} active` : className}
-    >
+  ({ onClick, active, className }: { onClick?: () => void; active: boolean; className?: string }) => (
+    <Root onClick={onClick} className={active ? `${className} active` : className}>
       <Line />
       <Line />
       <Line />
     </Root>
-  ),
+  )
 )``;

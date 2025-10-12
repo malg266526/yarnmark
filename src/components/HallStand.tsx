@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import { HallStandType } from "../assets/hallMapConfig";
-import { usePhone } from "../hooks/usePhone";
-import { FontSize } from "../styles/font-size";
-import { RedesignSpacings } from "../styles/spacings";
-import { Colors, HallColors } from "../styles/theme";
-import { KnittingIconOnHover } from "./KnittingIconOnHover";
-import { ScreenSize } from "../styles/screeen-size";
+import React from 'react';
+import styled from 'styled-components';
+import { HallStandType } from '../assets/hallMapConfig';
+import { usePhone } from '../hooks/usePhone';
+import { FontSize } from '../styles/font-size';
+import { RedesignSpacings } from '../styles/spacings';
+import { Colors, HallColors } from '../styles/theme';
+import { KnittingIconOnHover } from './KnittingIconOnHover';
+import { ScreenSize } from '../styles/screeen-size';
 
 const wrapperTranslation = `translate(-50%, 0px)`;
 
@@ -65,15 +65,12 @@ const HallStandLayout = styled.div<{
   isTaken?: boolean;
 }>`
   display: flex;
-  flex-direction: ${({ width, height }) =>
-    width && width > (height || 0) ? "row" : "column"};
+  flex-direction: ${({ width, height }) => (width && width > (height || 0) ? 'row' : 'column')};
 
-  width: ${({ width, multiplier }) =>
-    width ? `${width * multiplier}px` : "initial"};
-  height: ${({ height, multiplier }) =>
-    height ? `${height * multiplier}px` : "initial"};
+  width: ${({ width, multiplier }) => (width ? `${width * multiplier}px` : 'initial')};
+  height: ${({ height, multiplier }) => (height ? `${height * multiplier}px` : 'initial')};
 
-  background-color: ${({ color }) => HallColors[color || "empty"]};
+  background-color: ${({ color }) => HallColors[color || 'empty']};
   align-items: center;
   justify-content: space-evenly;
 
@@ -88,12 +85,7 @@ type HallStandProps = {
   showFinishedMap?: boolean;
 };
 
-export const HallStand = ({
-  stand,
-  height,
-  desktopMultiplier,
-  showFinishedMap,
-}: HallStandProps) => {
+export const HallStand = ({ stand, height, desktopMultiplier, showFinishedMap }: HallStandProps) => {
   const isPhone = usePhone();
   const multiplier = isPhone ? 13 : desktopMultiplier || 24;
 
@@ -101,12 +93,9 @@ export const HallStand = ({
     <HallStandLayout
       width={stand.width}
       height={stand.height || height}
-      color={
-        showFinishedMap && stand.readyColor ? stand.readyColor : stand.color
-      }
+      color={showFinishedMap && stand.readyColor ? stand.readyColor : stand.color}
       multiplier={multiplier}
-      isTaken={Boolean(stand.who)}
-    >
+      isTaken={Boolean(stand.who)}>
       <div>
         <StandIndex>{stand.index}</StandIndex>
         <StandWho>{stand.who}</StandWho>

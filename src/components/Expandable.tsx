@@ -1,11 +1,11 @@
-import React, { ReactNode } from "react";
-import { FlexColumnLayout } from "./FlexColumnLayout";
-import { useToggle } from "../hooks/useToggle";
-import { RowLayout } from "./RowLayout";
-import styled from "styled-components";
-import { Button } from "./Button";
-import { Icon } from "./Icon";
-import chevronDownIcon from "../assets/figmaIcons/chevron_down-icon.svg";
+import React, { ReactNode } from 'react';
+import { FlexColumnLayout } from './FlexColumnLayout';
+import { useToggle } from '../hooks/useToggle';
+import { RowLayout } from './RowLayout';
+import styled from 'styled-components';
+import { Button } from './Button';
+import { Icon } from './Icon';
+import chevronDownIcon from '../assets/figmaIcons/chevron_down-icon.svg';
 
 const ChevronIcon = styled(Icon)`
   transition: all 0.2s linear;
@@ -28,12 +28,7 @@ export const Expandable = ({ title, children }: Props) => {
       <RowLayout>
         {title}
         <Button onClick={toggle}>
-          <ChevronIcon
-            size="18px"
-            zIndex={0}
-            src={chevronDownIcon}
-            className={isExpanded ? `active` : ""}
-          />
+          <ChevronIcon size="18px" zIndex={0} src={chevronDownIcon} className={isExpanded ? `active` : ''} />
         </Button>
       </RowLayout>
       {isExpanded && children}

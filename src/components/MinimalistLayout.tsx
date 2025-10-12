@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { ScreenSize } from "../styles/screeen-size";
-import { RedesignSpacings } from "../styles/spacings";
+import styled from 'styled-components';
+import { ScreenSize } from '../styles/screeen-size';
+import { RedesignSpacings } from '../styles/spacings';
 
 export const MinimalistLayout = styled.div`
   display: flex;
@@ -8,8 +8,7 @@ export const MinimalistLayout = styled.div`
   width: 100%;
 
   gap: ${RedesignSpacings.sm};
-  padding: ${RedesignSpacings.xxl} 100px ${RedesignSpacings.md}
-    ${RedesignSpacings.md};
+  padding: ${RedesignSpacings.xxl} 100px ${RedesignSpacings.md} ${RedesignSpacings.md};
 
   align-self: flex-end;
   align-items: flex-end;

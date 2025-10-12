@@ -1,6 +1,6 @@
-import { useTranslation } from "react-i18next";
-import { useCallback } from "react";
-import { pl } from "./pl";
+import { useTranslation } from 'react-i18next';
+import { useCallback } from 'react';
+import { pl } from './pl';
 
 type Tree =
   | string
@@ -11,8 +11,8 @@ type Tree =
 type ExtractTranslationKeys<
   TranslationJson extends Tree,
   Keys extends keyof TranslationJson = keyof TranslationJson,
-  Prefix extends string = "",
-  Result extends string = "",
+  Prefix extends string = '',
+  Result extends string = ''
 > = TranslationJson extends string
   ? `${Prefix}`
   : Keys extends infer Key extends keyof TranslationJson
@@ -20,18 +20,14 @@ type ExtractTranslationKeys<
     ? ExtractTranslationKeys<
         TranslationJson[Key],
         never,
-        `${Prefix extends "" ? "" : `${Prefix}.`}${Key extends string
-          ? Key
-          : 3}`,
+        `${Prefix extends '' ? '' : `${Prefix}.`}${Key extends string ? Key : 3}`,
         Result
       >
     : TranslationJson[Key] extends Tree
     ? ExtractTranslationKeys<
         TranslationJson[Key],
         keyof TranslationJson[Key],
-        `${Prefix extends "" ? "" : `${Prefix}.`}${Key extends string
-          ? Key
-          : 3}`,
+        `${Prefix extends '' ? '' : `${Prefix}.`}${Key extends string ? Key : 3}`,
         Result
       >
     : 1
@@ -40,17 +36,11 @@ type ExtractTranslationKeys<
 type ReplaceString<
   Str extends string,
   StringToReplace extends string,
-  NewString extends string,
-> = Str extends `${StringToReplace}${infer Rest extends string}`
-  ? `${NewString}${Rest}`
-  : never;
+  NewString extends string
+> = Str extends `${StringToReplace}${infer Rest extends string}` ? `${NewString}${Rest}` : never;
 
 type TranslationKeys = ExtractTranslationKeys<typeof pl>;
-export type UnprefixedTranslationKeys = ReplaceString<
-  TranslationKeys,
-  "translation.",
-  ""
->;
+export type UnprefixedTranslationKeys = ReplaceString<TranslationKeys, 'translation.', ''>;
 
 export const useTypedTranslation = () => {
   const { t } = useTranslation();

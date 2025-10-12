@@ -1,13 +1,12 @@
-import styled from "styled-components";
-import { RedesignSpacings } from "../styles/spacings";
-import { Theme } from "../styles/theme";
+import styled from 'styled-components';
+import { RedesignSpacings } from '../styles/spacings';
+import { Theme } from '../styles/theme';
 
 export const PageContent = styled.div<{
-  variant: "wide" | "narrow";
-  padding?: "none";
+  variant: 'wide' | 'narrow';
+  padding?: 'none';
 }>`
-  width: ${({ variant }) =>
-    variant === "narrow" ? Theme.pageContentWidth : "100%"};
+  width: ${({ variant }) => (variant === 'narrow' ? Theme.pageContentWidth : '100%')};
   max-width: 100%;
 
   display: flex;
@@ -16,5 +15,5 @@ export const PageContent = styled.div<{
   align-self: center;
   align-items: center;
 
-  padding: ${({ padding }) => (padding === "none" ? 0 : RedesignSpacings.xl)} 0;
+  padding: ${({ padding }) => (padding === 'none' ? 0 : RedesignSpacings.xl)} 0;
 `;

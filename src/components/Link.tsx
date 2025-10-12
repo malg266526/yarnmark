@@ -1,11 +1,11 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { HashLink, HashLinkProps } from "react-router-hash-link";
-import styled, { css } from "styled-components";
-import yarnSvgUrl from "../assets/images/skein3.svg";
-import { Radius } from "../styles/cards";
-import { FontSize } from "../styles/font-size";
-import { TextColors } from "../styles/theme";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { HashLink, HashLinkProps } from 'react-router-hash-link';
+import styled, { css } from 'styled-components';
+import yarnSvgUrl from '../assets/images/skein3.svg';
+import { Radius } from '../styles/cards';
+import { FontSize } from '../styles/font-size';
+import { TextColors } from '../styles/theme';
 
 export const linkStyle = css`
   padding: 10px 8px;
@@ -33,7 +33,7 @@ const StyledLink = styled(HashLink)<{ color?: string }>`
   }
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     left: -10px;
     top: -10px;
@@ -47,7 +47,7 @@ const StyledLink = styled(HashLink)<{ color?: string }>`
   }
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     bottom: 0;
@@ -65,44 +65,30 @@ const StyledLink = styled(HashLink)<{ color?: string }>`
   }
 `;
 
-const EXTERNAL_TARGET = "_blank";
-const SCROLL_URL = "#";
+const EXTERNAL_TARGET = '_blank';
+const SCROLL_URL = '#';
 
-export const Link = styled(
-  ({
-    children,
-    to,
-    target,
-    rel,
-    color,
-    ...rest
-  }: HashLinkProps & { className?: string }) => {
-    const navigate = useNavigate();
+export const Link = styled(({ children, to, target, rel, color, ...rest }: HashLinkProps & { className?: string }) => {
+  const navigate = useNavigate();
 
-    return (
-      <StyledLink
-        {...rest}
-        color={color}
-        smooth
-        to={to}
-        onClick={(event: React.MouseEvent) => {
-          if (
-            target !== EXTERNAL_TARGET &&
-            to &&
-            !to.toString().includes(SCROLL_URL)
-          ) {
-            event.preventDefault();
-            navigate(to);
-          }
-        }}
-        target={target}
-        rel={rel}
-      >
-        {children}
-      </StyledLink>
-    );
-  },
-)``;
+  return (
+    <StyledLink
+      {...rest}
+      color={color}
+      smooth
+      to={to}
+      onClick={(event: React.MouseEvent) => {
+        if (target !== EXTERNAL_TARGET && to && !to.toString().includes(SCROLL_URL)) {
+          event.preventDefault();
+          navigate(to);
+        }
+      }}
+      target={target}
+      rel={rel}>
+      {children}
+    </StyledLink>
+  );
+})``;
 
 export const SecondaryLink = styled(Link)`
   color: ${TextColors.accent};
@@ -110,7 +96,7 @@ export const SecondaryLink = styled(Link)`
   width: fit-content;
 
   &::after {
-    content: "";
+    content: '';
     display: none;
   }
 `;
