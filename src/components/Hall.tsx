@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import zod from 'zod';
-import { usePhone } from '../hooks/usePhone';
 import { HallColors } from '../styles/theme';
 import hallJson from '../assets/hall.json';
 import { StandColorsMap } from './editor/StandProps';
@@ -22,7 +21,7 @@ const standColorSchema = zod.union([
   zod.literal('small2'),
   zod.literal('taken'),
   zod.literal('taken2'),
-  zod.literal('tech'),
+  zod.literal('tech')
 ]);
 
 const hallSchema = zod.array(
@@ -38,16 +37,16 @@ const hallSchema = zod.array(
     isHorizontal: zod.boolean(),
     start: zod.object({
       row: zod.number(),
-      col: zod.number(),
+      col: zod.number()
     }),
     end: zod.object({
       row: zod.number(),
-      col: zod.number(),
+      col: zod.number()
     })
   })
 );
 
-const StandElement = styled.div<{ left: number; top: number; color: string; width: number; height: number; }>`
+const StandElement = styled.div<{ left: number; top: number; color: string; width: number; height: number }>`
   position: absolute;
   left: ${({ left }) => left}px;
   top: ${({ top }) => top}px;
@@ -62,7 +61,7 @@ const StandElement = styled.div<{ left: number; top: number; color: string; widt
   justify-content: center;
 `;
 
-const Container = styled.div<{ width: number; height: number; }>`
+const Container = styled.div<{ width: number; height: number }>`
   display: flex;
   background-color: ${HallColors.empty};
   position: relative;
@@ -76,69 +75,78 @@ type HallType = {
   showFinishedMap?: boolean;
 };
 
-type HallConfigurationState = { status: 'pending' } | { status: 'error'; error: Error} | { status: 'success'; schema: zod.infer<typeof hallSchema> };
+type HallConfigurationState =
+  | { status: 'pending' }
+  | { status: 'error'; error: Error }
+  | { status: 'success'; schema: zod.infer<typeof hallSchema> };
 
-export const Hall = ({ showFinishedMap, multiplier }: HallType) => {
-  const isPhone = usePhone();
-  const renderingMultiplier = 10;
+export const Hall = ({ multiplier }: HallType) => {
+  // FIXME: this should be removed once the editor saves that in a normalized way
+  const SIZE_MULTIPLIER_FOR_NORMALIZATION = 2;
   const [hallConfigurationState, setHallConfigurationState] = useState<HallConfigurationState>({ status: 'pending' });
-  const [containerSize, setContainerSize] = useState<{ width: number; height: number; }>({ height: 200, width: 200 });
+  const [containerSize, setContainerSize] = useState<{ width: number; height: number }>({ height: 200, width: 200 });
 
   useEffect(() => {
-      const validHallConfiguration = hallSchema.safeParse(hallJson);
+    const validHallConfiguration = hallSchema.safeParse(hallJson);
 
-      if (validHallConfiguration.success) {
-        setHallConfigurationState({
-          status: 'success',
-          schema: validHallConfiguration.data
-        })
-        
-        const calculatedContainerDimenions =  validHallConfiguration.data.reduce((size, standConfiguration) => {
-          if (size.width < standConfiguration.start.col + standConfiguration.width) {
-            size.width = standConfiguration.start.col + standConfiguration.width * 2;
+    if (validHallConfiguration.success) {
+      setHallConfigurationState({
+        status: 'success',
+        schema: validHallConfiguration.data
+      });
+
+      const calculatedContainerDimenions = validHallConfiguration.data.reduce(
+        (size, standConfiguration) => {
+          if (
+            size.width <
+            standConfiguration.start.col + standConfiguration.width * SIZE_MULTIPLIER_FOR_NORMALIZATION
+          ) {
+            size.width = standConfiguration.start.col + standConfiguration.width * SIZE_MULTIPLIER_FOR_NORMALIZATION;
           }
-          if (size.height < standConfiguration.start.row + standConfiguration.height) {
-            size.height = standConfiguration.start.row + standConfiguration.height * 2;
+          if (
+            size.height <
+            standConfiguration.start.row + standConfiguration.height * SIZE_MULTIPLIER_FOR_NORMALIZATION
+          ) {
+            size.height = standConfiguration.start.row + standConfiguration.height * SIZE_MULTIPLIER_FOR_NORMALIZATION;
           }
 
           return size;
-        }, { width: 0, height: 0})
-        setContainerSize(calculatedContainerDimenions);
+        },
+        { width: 0, height: 0 }
+      );
+      setContainerSize(calculatedContainerDimenions);
 
-        return; 
-      }
-      
-      setHallConfigurationState({
-        status: 'error',
-        error: validHallConfiguration.error
-      });
-      console.warn('validHallConfiguration', validHallConfiguration.error);
+      return;
+    }
+
+    setHallConfigurationState({
+      status: 'error',
+      error: validHallConfiguration.error
+    });
+    console.warn('validHallConfiguration', validHallConfiguration.error);
   }, []);
-  
 
   return (
     <>
-      {hallConfigurationState.status === 'error' && (
-        <div>Failed to parse data</div>
-      )}
-      {hallConfigurationState.status === 'pending' && (
-        <div>Loading data...</div>
-      )}
+      {hallConfigurationState.status === 'error' && <div>Failed to parse data</div>}
+      {hallConfigurationState.status === 'pending' && <div>Loading data...</div>}
       {hallConfigurationState.status === 'success' && (
-        <Container id="hall" height={containerSize.height * renderingMultiplier} width={containerSize.width * renderingMultiplier} >
+        <Container id="hall" height={containerSize.height * multiplier} width={containerSize.width * multiplier}>
           {hallConfigurationState.schema.map((standConfiguration) => {
-            return <StandElement
-              id={standConfiguration.id}
-              key={standConfiguration.id}
-              color={StandColorsMap[standConfiguration.color]} 
-              left={standConfiguration.start.col * renderingMultiplier} 
-              top={standConfiguration.start.row * renderingMultiplier} 
-              height={standConfiguration.height * renderingMultiplier * 2}
-              width={standConfiguration.width * renderingMultiplier * 2}
-            >
+            return (
+              <StandElement
+                id={standConfiguration.id}
+                key={standConfiguration.id}
+                color={StandColorsMap[standConfiguration.color]}
+                left={standConfiguration.start.col * multiplier}
+                top={standConfiguration.start.row * multiplier}
+                height={standConfiguration.height * multiplier * SIZE_MULTIPLIER_FOR_NORMALIZATION}
+                width={standConfiguration.width * multiplier * SIZE_MULTIPLIER_FOR_NORMALIZATION}>
                 {standConfiguration.type !== 'other' && <div>{standConfiguration.index}</div>}
-                <div>{standConfiguration.description}</div>
+                {standConfiguration.vendor && <div>{standConfiguration.vendor}</div>}
+                {standConfiguration.description && <div>{standConfiguration.description}</div>}
               </StandElement>
+            );
           })}
         </Container>
       )}

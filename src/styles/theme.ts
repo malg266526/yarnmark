@@ -84,4 +84,3 @@ export const HallColors = {
   600: '#2b5213',
   700: '#254212'
 };
-

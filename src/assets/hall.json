@@ -34,7 +34,7 @@
       "row": 5,
       "col": 12
     },
-    "vendor": "wejście dla wystawców"
+    "vendor": ""
   },
   {
     "id": "mgl5ldw7-35aihnp",
@@ -277,7 +277,7 @@
   {
     "id": "mgl68zf8-rfy5hgh",
     "index": "C1",
-    "type": "other",
+    "type": "standard",
     "isHorizontal": false,
     "width": 3,
     "height": 4,

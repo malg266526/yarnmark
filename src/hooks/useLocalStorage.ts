@@ -15,9 +15,7 @@ export const useLocalStorage = <T>(key: string, initialValue: T, parser?: (rawVa
     try {
       const rawValue = localStorage.getItem(key);
       if (rawValue) {
-        const parsedValue: T = parser
-          ? parser(rawValue)
-          : (JSON.parse(rawValue) as T);
+        const parsedValue: T = parser ? parser(rawValue) : (JSON.parse(rawValue) as T);
 
         updateValue(parsedValue);
       }

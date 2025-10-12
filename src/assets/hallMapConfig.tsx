@@ -74,7 +74,7 @@ export const hallMapConfig: HallMapType = {
           color: 'premium',
           index: 'S30',
           readyColor: 300
-        },
+        }
       ]
     },
     {
@@ -152,7 +152,7 @@ export const hallMapConfig: HallMapType = {
         {
           width: 3,
           height: 0.5,
-          color: 'empty',
+          color: 'empty'
         },
         {
           width: 3,

@@ -171,7 +171,7 @@ export const ForVendorsPage = () => {
         </PlainInfo>
 
         <HallWrapper id="hall_wrapper">
-          <Hall multiplier={20} />
+          <Hall multiplier={isPhone ? 13 : 20} />
           <HallLegend />
         </HallWrapper>
       </Band.NarrowColumn>

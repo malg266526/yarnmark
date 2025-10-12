@@ -69,7 +69,7 @@ export const HallMapPage = () => {
         color={BackgroundColors.navigationBand}
         padding={isPhone ? 'sm' : 'lg'}>
         <MapWithLegend>
-          <Hall multiplier={26} showFinishedMap />
+          <Hall multiplier={isPhone ? 13 : 26} />
         </MapWithLegend>
       </Band.CenteredColumn>
     </PageContent>
