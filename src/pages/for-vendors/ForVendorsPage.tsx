@@ -57,22 +57,12 @@ export const ForVendorsPage = () => {
 
         <PlainInfo>
           <Typography size="md">
-            <Trans i18nKey="infoForVendorsPage.registration.beAVendor" />
+            <Trans i18nKey="infoForVendorsPage.registration.wantToJoin" />
           </Typography>
           <Typography size="md">
-            <Trans i18nKey="infoForVendorsPage.registration.when" />
+            <Trans i18nKey="infoForVendorsPage.registration.newForm" />
           </Typography>
-          <Typography size="md">{t('infoForVendorsPage.registration.where')}</Typography>
-
-          {/*          <SecondaryLink
-            to="https://wloczykijki.pl/pl_PL/c/Krakoski-Yarnmark-Welny/355?preview=true"
-            target="_blank"
-            rel="noreferrer">
-            <Typography size="md">{t('infoForVendorsPage.registration.buyHere')}</Typography>
-          </SecondaryLink>*/}
-
-          <Typography size="md">{t('infoForVendorsPage.registration.feedback')}</Typography>
-          <Typography size="md">{t('infoForVendorsPage.registration.return')}</Typography>
+          <Typography size="md">{t('infoForVendorsPage.registration.extraInfoByMail')}</Typography>
         </PlainInfo>
       </Band.NarrowColumn>
 

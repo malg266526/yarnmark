@@ -174,6 +174,9 @@ export const de: TranslationsShape = {
       },
       registration: {
         title: 'Anmeldungen',
+        wantToJoin: 'Do you want to become a vendor at Krakoski Yarnmark 2026?',
+        newForm: "This year we are accepting applications in a new format - details coming soon on our social media and here.",
+        extraInfoByMail: 'Would you like to receive additional information via email? Write to<strong>krakoski.yarnmark@gmail.com</strong > ',
         beAVendor:
           'Wenn Sie sich der wunderbaren Gruppe unserer Aussteller anschließen möchten, schreiben Sie uns! Kontakt E-mail: <strong>krakoski.yarnmark@gmail.com</strong>',
         start: 'Die Möglichkeit zum Kauf eines Standes beginnt am Montag, <strong>22. Januar 2024</strong> um 12:00',

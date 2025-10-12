@@ -170,6 +170,9 @@ export const en: TranslationsShape = {
       },
       registration: {
         title: 'Reservations',
+        wantToJoin: 'Do you want to become a vendor at Krakoski Yarnmark 2026?',
+        newForm: "This year we are accepting applications in a new format - details coming soon on our social media and here.",
+        extraInfoByMail: 'Would you like to receive additional information via email? Write to<strong>krakoski.yarnmark@gmail.com</strong > ',
         beAVendor:
           'If you wanna join the great group of our vendors write us an email! Email address: <strong>krakoski.yarnmark@gmail.com</strong>',
         start: 'Spot reservations start on Monday <strong>22.01.2024r.</strong> at 12:00 AM',
