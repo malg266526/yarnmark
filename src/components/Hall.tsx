@@ -4,6 +4,8 @@ import zod from 'zod';
 import { HallColors } from '../styles/theme';
 import hallJson from '../assets/hall.json';
 import { StandColorsMap } from './editor/StandProps';
+import { Typography } from './Typography';
+import { usePhone } from '../hooks/usePhone';
 
 const standTypeSchema = zod.union([
   zod.literal('premium'),
@@ -68,6 +70,7 @@ const StandElement = styled.div<{
   justify-content: center;
 `;
 
+
 const Container = styled.div<{ width: number; height: number }>`
   display: flex;
   background-color: ${HallColors.empty};
@@ -92,6 +95,8 @@ export const Hall = ({ multiplier }: HallType) => {
   const SIZE_MULTIPLIER_FOR_NORMALIZATION = 2;
 
   const [hallConfigurationState, setHallConfigurationState] = useState<HallConfigurationState>({ status: 'pending' });
+
+  const isPhone = usePhone();
 
   const [containerSize, setContainerSize] = useState<{
     width: number;
@@ -156,7 +161,10 @@ export const Hall = ({ multiplier }: HallType) => {
                 width={standConfiguration.width * multiplier * SIZE_MULTIPLIER_FOR_NORMALIZATION}>
                 {standConfiguration.type !== 'other' && <div>{standConfiguration.index}</div>}
                 {standConfiguration.vendor && <div>{standConfiguration.vendor}</div>}
-                {standConfiguration.description && <div>{standConfiguration.description}</div>}
+                {standConfiguration.description && (
+                  <div>
+                    <Typography size={isPhone ? 'xxs' : 'xs'}>{standConfiguration.description}</Typography>
+                  </div>)}
               </StandElement>
             );
           })}

@@ -153,7 +153,7 @@ export const ForVendorsPage = () => {
         size="sm"
         color={BackgroundColors.navigationBand}
         stretchOnMobile
-        padding={isPhone ? 'sm' : 'xxl'}>
+        padding={isPhone ? 'xxs' : 'xxl'}>
         <Band.BeamTitle>{t('infoForVendorsPage.stands.title')}</Band.BeamTitle>
 
         <PlainInfo>
@@ -163,7 +163,7 @@ export const ForVendorsPage = () => {
         </PlainInfo>
 
         <HallWrapper id="hall_wrapper">
-          <Hall multiplier={isPhone ? 8 : 15} />
+          <Hall multiplier={isPhone ? 7 : 15} />
           <HallLegend />
         </HallWrapper>
       </Band.NarrowColumn>
