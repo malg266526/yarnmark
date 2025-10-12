@@ -1,17 +1,17 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
-import { RedesignSpacings } from '../styles/spacings';
-import { BrownScale, Colors } from '../styles/theme';
-import knittingSvgUrl from '../assets/images/skein3.svg';
+import React from "react";
+import styled, { css } from "styled-components";
+import { RedesignSpacings } from "../styles/spacings";
+import { BrownScale, Colors } from "../styles/theme";
+import knittingSvgUrl from "../assets/images/skein3.svg";
 
-import { ScreenSize } from '../styles/screeen-size';
-import { DropShadow, Radius } from '../styles/cards';
+import { ScreenSize } from "../styles/screeen-size";
+import { DropShadow, Radius } from "../styles/cards";
 
-type FrameWidth = `${number}${'px' | '%'}`;
+type FrameWidth = `${number}${"px" | "%"}`;
 
 interface RootProps {
-  overflowSize: `${number}${'px' | '%'}`;
-  overflowLength: `${number}${'px' | '%'}`;
+  overflowSize: `${number}${"px" | "%"}`;
+  overflowLength: `${number}${"px" | "%"}`;
   marginTop?: keyof typeof RedesignSpacings;
 }
 
@@ -63,7 +63,7 @@ const AnimationFrame = styled.div<RootProps>`
   z-index: 1;
   ${boxShadow};
   ${animationFrames};
-  margin-top: ${({ marginTop }) => RedesignSpacings[marginTop || 'none']};
+  margin-top: ${({ marginTop }) => RedesignSpacings[marginTop || "none"]};
 
   @media (max-width: ${ScreenSize.phone}) {
     max-width: 100%;
@@ -75,7 +75,7 @@ const AnimationFrame = styled.div<RootProps>`
     @media (max-width: ${ScreenSize.phone}) {
       display: none;
     }
-    content: '';
+    content: "";
     position: absolute;
     z-index: 0;
     background: linear-gradient(
@@ -105,7 +105,7 @@ const AnimationFrame = styled.div<RootProps>`
     @media (max-width: ${ScreenSize.phone}) {
       display: none;
     }
-    content: '';
+    content: "";
     position: absolute;
     z-index: 0;
     background: linear-gradient(
@@ -150,7 +150,7 @@ const PaperCard = styled.div<{
     `};
 
   padding: ${({ padding }) => RedesignSpacings[padding]};
-  gap: ${({ gap }) => RedesignSpacings[gap || 'none']};
+  gap: ${({ gap }) => RedesignSpacings[gap || "none"]};
 
   background: ${BrownScale[50]};
   position: relative;
@@ -169,10 +169,16 @@ const PaperCard = styled.div<{
   }
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
-    top: calc(${({ padding }) => RedesignSpacings[padding === 'none' ? 'md' : padding]} / 2);
-    left: calc(${({ padding }) => RedesignSpacings[padding === 'none' ? 'md' : padding]} / 2);
+    top: calc(
+      ${({ padding }) => RedesignSpacings[padding === "none" ? "md" : padding]} /
+        2
+    );
+    left: calc(
+      ${({ padding }) => RedesignSpacings[padding === "none" ? "md" : padding]} /
+        2
+    );
     width: 26px;
     height: 26px;
     background: url(${knittingSvgUrl}) no-repeat center;
@@ -191,13 +197,17 @@ export interface SlantingFrameBoxProps extends Partial<RootProps> {
 
 export const SlantedCornersBox = ({
   children,
-  overflowLength = '30%',
-  overflowSize = '3px',
+  overflowLength = "30%",
+  overflowSize = "3px",
   marginTop,
   ...rest
 }: SlantingFrameBoxProps) => (
   <Root>
-    <AnimationFrame overflowLength={overflowLength} overflowSize={overflowSize} marginTop={marginTop}>
+    <AnimationFrame
+      overflowLength={overflowLength}
+      overflowSize={overflowSize}
+      marginTop={marginTop}
+    >
       <PaperCard {...rest}>{children}</PaperCard>
     </AnimationFrame>
   </Root>

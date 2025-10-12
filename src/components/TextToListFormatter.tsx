@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import { FlexColumnLayout } from './FlexColumnLayout';
-import { ScreenSize } from '../styles/screeen-size';
-import { RedesignSpacings } from '../styles/spacings';
+import React from "react";
+import styled from "styled-components";
+import { FlexColumnLayout } from "./FlexColumnLayout";
+import { ScreenSize } from "../styles/screeen-size";
+import { RedesignSpacings } from "../styles/spacings";
 
 const WorkshopUl = styled.ul`
   margin: 0;
@@ -22,27 +22,27 @@ const Scrollable = styled.div`
   }
 `;
 
-const ulSeparator = '<ul>';
+const ulSeparator = "<ul>";
 
 interface Props {
   text?: string;
 }
 
 export const TextToListFormatter = ({ text }: Props) => {
-  if (!text) return '';
+  if (!text) return "";
 
   const parts = text.split(ulSeparator);
   const before = parts[0];
 
-  const paragraphs = before.split('<br>').filter(Boolean);
+  const paragraphs = before.split("<br>").filter(Boolean);
 
   const list = !text.includes(ulSeparator)
     ? []
     : parts[1]
-        .replaceAll(ulSeparator, '')
-        .replaceAll('</ul>', '')
-        .replaceAll('</li>', '')
-        .split('<li>')
+        .replaceAll(ulSeparator, "")
+        .replaceAll("</ul>", "")
+        .replaceAll("</li>", "")
+        .split("<li>")
         .filter(Boolean);
 
   return (

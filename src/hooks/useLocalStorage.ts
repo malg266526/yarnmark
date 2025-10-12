@@ -1,6 +1,10 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from "react";
 
-export const useLocalStorage = <T>(key: string, initialValue: T, parser?: (rawValue: string) => T) => {
+export const useLocalStorage = <T>(
+  key: string,
+  initialValue: T,
+  parser?: (rawValue: string) => T,
+) => {
   const [value, setValue] = useState(initialValue);
 
   const updateValue = useCallback(
@@ -8,19 +12,21 @@ export const useLocalStorage = <T>(key: string, initialValue: T, parser?: (rawVa
       localStorage.setItem(key, JSON.stringify(value));
       setValue(value);
     },
-    [key]
+    [key],
   );
 
   useEffect(() => {
     try {
       const rawValue = localStorage.getItem(key);
       if (rawValue) {
-        const parsedValue: T = parser ? parser(rawValue) : (JSON.parse(rawValue) as T);
+        const parsedValue: T = parser
+          ? parser(rawValue)
+          : (JSON.parse(rawValue) as T);
 
         updateValue(parsedValue);
       }
     } catch (e) {
-      console.error('useLocalStorage: ', e);
+      console.error("useLocalStorage: ", e);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

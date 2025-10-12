@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { RedesignSpacings } from '../styles/spacings';
-import React, { ReactNode } from 'react';
+import styled from "styled-components";
+import { RedesignSpacings } from "../styles/spacings";
+import React, { ReactNode } from "react";
 
 export const RoundBorderWrapper = styled.div`
   display: flex;

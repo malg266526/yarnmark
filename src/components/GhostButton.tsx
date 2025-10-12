@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Button } from './Button';
-import { RedesignSpacings } from '../styles/spacings';
-import { BackgroundColors } from '../styles/theme';
+import React from "react";
+import styled from "styled-components";
+import { Button } from "./Button";
+import { RedesignSpacings } from "../styles/spacings";
+import { BackgroundColors } from "../styles/theme";
 
 const GhostButtonLayout = styled(Button)`
   display: flex;

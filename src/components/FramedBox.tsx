@@ -1,11 +1,11 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
-import knittingSvgUrl from '../assets/images/skein3.svg';
-import { RedesignSpacings } from '../styles/spacings';
-import { Colors } from '../styles/theme';
-import { ScreenSize } from '../styles/screeen-size';
+import React from "react";
+import styled, { css } from "styled-components";
+import knittingSvgUrl from "../assets/images/skein3.svg";
+import { RedesignSpacings } from "../styles/spacings";
+import { Colors } from "../styles/theme";
+import { ScreenSize } from "../styles/screeen-size";
 
-type FrameWidth = `${number}${'px' | '%'}`;
+type FrameWidth = `${number}${"px" | "%"}`;
 
 const backgroundOffset = 20;
 
@@ -15,7 +15,7 @@ const Root = styled.div`
   max-width: 100%;
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     left: -${backgroundOffset}px;
     top: ${backgroundOffset}px;
@@ -38,7 +38,11 @@ const OuterRoot = styled.div`
   }
 `;
 
-const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: keyof typeof RedesignSpacings }>`
+const Frame = styled.div<{
+  width?: FrameWidth;
+  height?: FrameWidth;
+  padding: keyof typeof RedesignSpacings;
+}>`
   ${({ width }) =>
     width &&
     css`
@@ -62,7 +66,7 @@ const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: key
 
   &:before {
     pointer-events: none;
-    content: '';
+    content: "";
     position: absolute;
     top: 4px;
     left: 4px;

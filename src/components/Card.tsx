@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Card = styled.div<{
-  flexDirection?: 'row' | 'column';
+  flexDirection?: "row" | "column";
   width?: `${number}%` | `${number}px`;
   height?: `${number}%` | `${number}px`;
 }>`
@@ -9,7 +9,7 @@ export const Card = styled.div<{
   height: ${({ height }) => height};
 
   display: flex;
-  flex-direction: ${({ flexDirection: direction }) => direction || 'column'};
+  flex-direction: ${({ flexDirection: direction }) => direction || "column"};
 
   background-color: white;
   align-items: center;

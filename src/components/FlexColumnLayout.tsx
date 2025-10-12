@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { RedesignSpacings } from '../styles/spacings';
+import styled from "styled-components";
+import { RedesignSpacings } from "../styles/spacings";
 
 export const FlexColumnLayout = styled.div<{
   fullHeight?: boolean;
@@ -13,12 +13,14 @@ export const FlexColumnLayout = styled.div<{
   flex-wrap: wrap;
   flex-direction: column;
 
-  width: ${({ width }) => width || 'initial'};
+  width: ${({ width }) => width || "initial"};
 
-  gap: ${({ gap }) => RedesignSpacings[gap || 'md']};
-  padding: ${({ padding }) => RedesignSpacings[padding || 'md']};
+  gap: ${({ gap }) => RedesignSpacings[gap || "md"]};
+  padding: ${({ padding }) => RedesignSpacings[padding || "md"]};
 
-  height: ${({ fullHeight: isFullHeight }) => (isFullHeight ? '100%' : 'initial')};
-  justify-content: ${({ justifyContent }) => (justifyContent ? justifyContent : 'initial')};
-  align-items: ${({ align }) => (align ? align : 'center')};
+  height: ${({ fullHeight: isFullHeight }) =>
+    isFullHeight ? "100%" : "initial"};
+  justify-content: ${({ justifyContent }) =>
+    justifyContent ? justifyContent : "initial"};
+  align-items: ${({ align }) => (align ? align : "center")};
 `;

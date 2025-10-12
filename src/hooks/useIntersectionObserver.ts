@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo } from "react";
 
 export interface UseIntersectionObserverParams {
   containerRef: React.MutableRefObject<HTMLElement | null>;
@@ -9,7 +9,7 @@ export interface UseIntersectionObserverParams {
 export const useIntersectionObserver = ({
   containerRef,
   elementToObserveRef,
-  callback
+  callback,
 }: UseIntersectionObserverParams) => {
   const observerCallback = useCallback(
     (entries: IntersectionObserverEntry[]) => {
@@ -18,17 +18,17 @@ export const useIntersectionObserver = ({
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
+    [],
   );
 
   const observer = useMemo(
     () =>
       new IntersectionObserver(observerCallback, {
         root: containerRef.current,
-        rootMargin: '0px',
-        threshold: 1
+        rootMargin: "0px",
+        threshold: 1,
       }),
-    [containerRef, observerCallback]
+    [containerRef, observerCallback],
   );
 
   useEffect(() => {

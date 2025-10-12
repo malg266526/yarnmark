@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
-type ObjectFit = 'cover' | 'contain' | 'unset';
+type ObjectFit = "cover" | "contain" | "unset";
 
 // TODO: FullSizePicture & Picture - consider unification or some other solution
 
@@ -11,11 +11,11 @@ export const BackgroundPicture = styled.picture<{
   objectFit?: ObjectFit;
 }>`
   position: absolute;
-  left: ${({ size }) => (size ? 'unset' : 0)};
-  top: ${({ size }) => (size ? 'unset' : 0)};
-  width: ${({ size }) => size || '100%'};
-  max-width: ${({ size }) => size || '100%'};
-  height: ${({ size }) => (size ? '90%' : '100%')};
+  left: ${({ size }) => (size ? "unset" : 0)};
+  top: ${({ size }) => (size ? "unset" : 0)};
+  width: ${({ size }) => size || "100%"};
+  max-width: ${({ size }) => size || "100%"};
+  height: ${({ size }) => (size ? "90%" : "100%")};
   max-height: 100%;
   z-index: 0;
 
@@ -25,7 +25,7 @@ export const BackgroundPicture = styled.picture<{
     height: 100%;
     max-height: 100%;
     object-position: center;
-    object-fit: ${({ objectFit }) => objectFit || 'cover'};
+    object-fit: ${({ objectFit }) => objectFit || "cover"};
   }
 
   ${({ filter }) =>

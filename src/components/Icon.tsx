@@ -1,30 +1,32 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const sizeToIconWidth: Record<SizeKey, string> = {
-  xxl: '80px',
-  xl: '60px',
-  lg: '40px',
-  md: '30px',
-  sm: '22px',
-  xs: '16px',
-  xxs: '10px'
+  xxl: "80px",
+  xl: "60px",
+  lg: "40px",
+  md: "30px",
+  sm: "22px",
+  xs: "16px",
+  xxs: "10px",
 };
 
-type SizeKey = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs' | 'xxs';
+type SizeKey = "xxl" | "xl" | "lg" | "md" | "sm" | "xs" | "xxs";
 
 export interface IconProps {
-  size: SizeKey | `${number}${'px' | '%'}`;
+  size: SizeKey | `${number}${"px" | "%"}`;
   src: string;
   dropShadow?: boolean;
   zIndex?: number;
 }
 
-const isCustomValue = (value: IconProps['size']): value is `${number}${'px' | '%'}` =>
-  value.includes('%') || value.includes('px');
+const isCustomValue = (
+  value: IconProps["size"],
+): value is `${number}${"px" | "%"}` =>
+  value.includes("%") || value.includes("px");
 
 export const Icon = styled.span<IconProps>`
   position: relative;
-  z-index: ${({ zIndex }) => (typeof zIndex === 'number' ? zIndex : 1)};
+  z-index: ${({ zIndex }) => (typeof zIndex === "number" ? zIndex : 1)};
   display: inline-block;
   ${({ size }) =>
     isCustomValue(size)

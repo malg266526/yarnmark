@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 export type QueueEffect = {
   delay: number;
@@ -7,7 +7,9 @@ export type QueueEffect = {
 
 export const useEffectQueue = (queue: QueueEffect[]) => {
   useEffect(() => {
-    const timeouts = queue.map(({ delay, effect }) => setTimeout(effect, delay));
+    const timeouts = queue.map(({ delay, effect }) =>
+      setTimeout(effect, delay),
+    );
 
     return () => {
       timeouts.forEach(clearTimeout);

@@ -1,18 +1,18 @@
-import React from 'react';
-import styled from 'styled-components';
-import { ScreenSize } from '../styles/screeen-size';
-import { RedesignSpacings } from '../styles/spacings';
-import { usePhone } from '../hooks/usePhone';
-import { PageContent } from '../components/PageContent';
-import { Header } from './menu/Header';
-import { Band } from '../components/bands/Band';
-import { WoolPicture } from '../components/WoolPicture';
-import { SlantedCornersBox } from '../components/SlantedCornersBox';
-import { CenteredSection } from '../components/CenteredSection';
-import { BandTitle } from '../components/bands/BandTitle';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
-import { BackgroundColors } from '../styles/theme';
-import { Hall } from '../components/Hall';
+import React from "react";
+import styled from "styled-components";
+import { ScreenSize } from "../styles/screeen-size";
+import { RedesignSpacings } from "../styles/spacings";
+import { usePhone } from "../hooks/usePhone";
+import { PageContent } from "../components/PageContent";
+import { Header } from "./menu/Header";
+import { Band } from "../components/bands/Band";
+import { WoolPicture } from "../components/WoolPicture";
+import { SlantedCornersBox } from "../components/SlantedCornersBox";
+import { CenteredSection } from "../components/CenteredSection";
+import { BandTitle } from "../components/bands/BandTitle";
+import { useTypedTranslation } from "../translations/useTypedTranslation";
+import { BackgroundColors } from "../styles/theme";
+import { Hall } from "../components/Hall";
 
 const InvitationBoxWrapper = styled.div`
   padding-left: 240px;
@@ -53,11 +53,16 @@ export const HallMapPage = () => {
     <PageContent variant="wide" padding="none">
       <Header />
 
-      <Band.Wallpaper id="infoForVendorsIntro" picture={<WoolPicture />} size="md" justify="flex-start">
+      <Band.Wallpaper
+        id="infoForVendorsIntro"
+        picture={<WoolPicture />}
+        size="md"
+        justify="flex-start"
+      >
         <InvitationBoxWrapper>
           <SlantedCornersBox overflowSize="10px" width="500px" padding="lg">
             <CenteredSection>
-              <BandTitle>{t('hallMap.title')}</BandTitle>
+              <BandTitle>{t("hallMap.title")}</BandTitle>
             </CenteredSection>
           </SlantedCornersBox>
         </InvitationBoxWrapper>
@@ -67,7 +72,8 @@ export const HallMapPage = () => {
         id="hallMap"
         size="sm"
         color={BackgroundColors.navigationBand}
-        padding={isPhone ? 'sm' : 'lg'}>
+        padding={isPhone ? "sm" : "lg"}
+      >
         <MapWithLegend>
           <Hall multiplier={isPhone ? 13 : 26} />
         </MapWithLegend>
