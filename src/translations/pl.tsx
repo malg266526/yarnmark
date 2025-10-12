@@ -47,8 +47,9 @@ export const pl = {
     },
     hallMap: {
       title: 'Mapa hali',
-      premiumStand: 'Miejsce Premium 4x4m',
-      standardStand: 'Miejsce Standard 4x2,5m',
+      premiumStand: 'Miejsce Premium 3x5.5m',
+      standardStand: 'Miejsce Standard 3x3,5m',
+      standard2Stand: 'Miejsce Standard 3x4m',
       miniStand: 'Miejsce Mini 3x2m',
       taken: 'Miejsce zarezerwowane'
     },
