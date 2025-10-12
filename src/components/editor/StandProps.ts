@@ -2,6 +2,7 @@ export const StandColorsMap = {
   premium: '#4CBB17',
   normal1: '#FFAA33',
   normal2: '#EC5800',
+  normal3: '#cc457b',
   small1: '#7897b0',
   small2: '#a0bfd6',
   taken: '#d3d3d3',

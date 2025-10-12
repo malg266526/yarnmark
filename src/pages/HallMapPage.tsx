@@ -75,7 +75,7 @@ export const HallMapPage = () => {
         padding={isPhone ? "sm" : "lg"}
       >
         <MapWithLegend>
-          <Hall multiplier={isPhone ? 13 : 26} />
+          <Hall multiplier={isPhone ? 13 : 20} />
         </MapWithLegend>
       </Band.CenteredColumn>
     </PageContent>

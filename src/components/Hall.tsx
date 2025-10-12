@@ -16,6 +16,7 @@ const standColorSchema = zod.union([
   zod.literal("premium"),
   zod.literal("normal1"),
   zod.literal("normal2"),
+  zod.literal("normal3"),
   zod.literal("small1"),
 
   zod.literal("small2"),
@@ -89,8 +90,10 @@ type HallConfigurationState =
 export const Hall = ({ multiplier }: HallType) => {
   // FIXME: this should be removed once the editor saves that in a normalized way
   const SIZE_MULTIPLIER_FOR_NORMALIZATION = 2;
+
   const [hallConfigurationState, setHallConfigurationState] =
     useState<HallConfigurationState>({ status: "pending" });
+
   const [containerSize, setContainerSize] = useState<{
     width: number;
     height: number;
@@ -110,7 +113,7 @@ export const Hall = ({ multiplier }: HallType) => {
           if (
             size.width <
             standConfiguration.start.col +
-              standConfiguration.width * SIZE_MULTIPLIER_FOR_NORMALIZATION
+            standConfiguration.width * SIZE_MULTIPLIER_FOR_NORMALIZATION
           ) {
             size.width =
               standConfiguration.start.col +
@@ -119,7 +122,7 @@ export const Hall = ({ multiplier }: HallType) => {
           if (
             size.height <
             standConfiguration.start.row +
-              standConfiguration.height * SIZE_MULTIPLIER_FOR_NORMALIZATION
+            standConfiguration.height * SIZE_MULTIPLIER_FOR_NORMALIZATION
           ) {
             size.height =
               standConfiguration.start.row +

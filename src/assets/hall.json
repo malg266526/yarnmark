@@ -22,7 +22,7 @@
     "index": "a0",
     "type": "other",
     "isHorizontal": false,
-    "width": 3,
+    "width": 5,
     "height": 3,
     "color": "tech",
     "description": "Wejście dla wystawców",
@@ -281,7 +281,7 @@
     "isHorizontal": false,
     "width": 3,
     "height": 4,
-    "color": "normal2",
+    "color": "normal3",
     "start": {
       "row": 80,
       "col": 0
@@ -350,7 +350,7 @@
     "width": 2.5,
     "height": 3,
     "color": "tech",
-    "description": "Toalety",
+    "description": "Przejście do toalet",
     "start": {
       "row": 82,
       "col": 27
