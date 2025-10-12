@@ -3,11 +3,14 @@ export const StandColorsMap = {
   normal1: '#FFAA33',
   normal2: '#EC5800',
   small1: '#7897b0',
+  
   small2: '#a0bfd6',
   taken: '#d3d3d3',
   taken2: '#dfdfdf',
   tech: '#e5f6df'
 } as const;
+
+export type StandColor = keyof typeof StandColorsMap;
 
 export type StandType = 'premium' | 'mini' | 'standard' | 'other';
 
@@ -21,7 +24,7 @@ export interface StandProps {
   type: StandType;
   width?: number;
   height?: number;
-  color?: keyof typeof StandColorsMap;
+  color?: StandColor;
   isHorizontal?: boolean;
   start?: Coordinate;
   end?: Coordinate;
