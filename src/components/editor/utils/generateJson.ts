@@ -1,7 +1,21 @@
-import { StandProps } from "../StandProps";
+import { Coordinate, StandColor, StandProps, StandType } from "../StandProps";
+
+export type StandsJsonFile = {
+    index: string;
+    vendor?: string | null;
+    description: string | null;
+    type: StandType;
+    color: StandColor | null;
+    width: number | null;
+    height: number | null;
+    isHorizontal: boolean;
+    start: Coordinate | null;
+    end?: Coordinate | null;
+}
 
 export const generateStandsJSON = (stands: StandProps[]) => {
-    const cleaned = stands.map((stand) => ({
+    // FIXME this name should be more meaningful
+    const cleaned: StandsJsonFile[] = stands.map((stand) => ({
         index: stand.index,
         vendor: stand.vendor ?? null,
         description: stand.description ?? null,
