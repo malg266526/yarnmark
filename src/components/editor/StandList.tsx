@@ -71,7 +71,8 @@ export const StandList = () => {
               onClick={(e) => {
                 e.stopPropagation();
                 removeStand(stand);
-              }}>
+              }}
+            >
               Remove
             </RemoveButton>
           </StandItem>

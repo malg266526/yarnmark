@@ -183,7 +183,8 @@ export const StandForm = ({ start, end }: StandFormProps) => {
             style={{
               backgroundColor: stand.color ? StandColorsMap[stand.color] : '#fff',
               color: stand.color ? '#fff' : '#000'
-            }}>
+            }}
+          >
             <option value="">Select color</option>
             {colorOptions.map((key) => (
               <ColorOption key={key} color={StandColorsMap[key]} value={key}>
