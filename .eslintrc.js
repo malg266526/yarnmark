@@ -1,3 +1,5 @@
+const prettierRcConfig = require('./.prettierrc.json');
+
 module.exports = {
   extends: [
     'eslint:recommended',
@@ -45,16 +47,7 @@ module.exports = {
     'no-debugger': 1,
     'prettier/prettier': [
       'error',
-      {
-        trailingComma: 'none',
-        tabWidth: 2,
-        semi: true,
-        singleQuote: true,
-        bracketSpacing: true,
-        jsxBracketSameLine: false,
-        printWidth: 120,
-        endOfLine: 'lf'
-      }
+      prettierRcConfig
     ],
     'react/no-unescaped-entities': 0,
     'react/jsx-tag-spacing': [

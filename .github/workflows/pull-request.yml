@@ -15,25 +15,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: Use Node.js ${{ env.node_version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.node_version }}
-          ccache: 'yarn-v2-nocache'
+          cache: 'yarn'
 
       - name: Install dependencies
         id: install
-        run: yarn install --frozen-dependencies --force
+        run: yarn install --frozen-dependencies
 
       - name: Typecheck
         id: typecheck
         if: always()
         run: yarn typecheck
-
-      - name: Run Prettier Fix
-        run: yarn format
 
       - name: Lint
         id: lint
