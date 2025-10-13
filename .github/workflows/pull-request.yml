@@ -4,7 +4,7 @@
 name: Pull Request
 
 env:
-  node_version: 18
+  node_version: 20
   artifact_retention_days: 3
 
 on: pull_request

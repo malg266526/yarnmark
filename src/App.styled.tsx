@@ -5,19 +5,6 @@ import { RedesignSpacings } from './styles/spacings';
 import { BackgroundColors, TextColors } from './styles/theme';
 import { FontSize } from './styles/font-size';
 
-export const Overlay = styled.div`
-  height: 100vh;
-  width: 100vw;
-
-  position: absolute;
-  top: 0;
-  z-index: -1;
-
-  overflow: hidden;
-  //FIXME: Try different version of background image and color/overlay of background image and cleanup when final decision is made
-  // background: rgba(0, 0, 0, 0.2);
-`;
-
 export const Root = styled.main`
   width: 100%;
   display: flex;
