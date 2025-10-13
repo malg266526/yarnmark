@@ -57,7 +57,7 @@ export const pl = {
     welcomeBand: {
       invitation: 'Serdecznie zapraszamy na III edycję targów włóczki w stolicy Małopolski!',
       // when: '26/04/2025r w godz. 10:00 - 17:00',
-      when: 'Kwiecień 2026',
+      when: '18 Kwietnia 2026',
       where: 'Hala 100-lecia KS Cracovia',
       haveFun: 'Życzymy udanych łowów i świetnej zabawy!',
       seeYou: 'Do zobaczenia!'
