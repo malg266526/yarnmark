@@ -30,6 +30,9 @@ jobs:
         if: always()
         run: yarn typecheck
 
+      - name: Run Prettier Fix
+        run: yarn format
+
       - name: Lint
         id: lint
         if: always()
