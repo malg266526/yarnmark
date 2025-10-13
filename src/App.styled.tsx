@@ -5,14 +5,6 @@ import { RedesignSpacings } from './styles/spacings';
 import { BackgroundColors, TextColors } from './styles/theme';
 import { FontSize } from './styles/font-size';
 
-export const Image = styled.img`
-  object-fit: cover;
-  z-index: -1;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-`;
-
 export const Overlay = styled.div`
   height: 100vh;
   width: 100vw;
