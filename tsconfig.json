@@ -3,16 +3,10 @@
     "target": "ES2019",
     "module": "ES2022",
     "strict": true,
-    "lib": [
-      "DOM",
-      "ES2020",
-      "ES2021.String"
-    ],
+    "lib": ["DOM", "ES2020", "ES2021.String"],
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
-    "typeRoots": [
-      "./src/types.ts"
-    ],
+    "typeRoots": ["./src/types.ts"],
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "moduleResolution": "Node"

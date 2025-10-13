@@ -67,7 +67,8 @@ export const HallMapPage = () => {
         id="hallMap"
         size="sm"
         color={BackgroundColors.navigationBand}
-        padding={isPhone ? 'sm' : 'lg'}>
+        padding={isPhone ? 'sm' : 'lg'}
+      >
         <MapWithLegend>
           <Hall multiplier={isPhone ? 13 : 20} />
         </MapWithLegend>

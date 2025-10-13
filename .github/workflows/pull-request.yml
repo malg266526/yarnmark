@@ -14,28 +14,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ env.node_version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ env.node_version }}
-        cache: 'yarn'
-        
-    - name: Install dependencies
-      id: install
-      run: yarn install --frozen-dependencies
-      
-    - name: Typecheck
-      id: typecheck
-      if: always()
-      run: yarn typecheck
-      
-    - name: Lint
-      id: lint
-      if: always()
-      run: yarn lint
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ env.node_version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node_version }}
+          cache: 'yarn'
 
-    - name: Bundle
-      id: bundle
-      if: always()
-      run: yarn bundle
+      - name: Install dependencies
+        id: install
+        run: yarn install --frozen-dependencies
+
+      - name: Typecheck
+        id: typecheck
+        if: always()
+        run: yarn typecheck
+
+      - name: Lint
+        id: lint
+        if: always()
+        run: yarn lint
+
+      - name: Bundle
+        id: bundle
+        if: always()
+        run: yarn bundle

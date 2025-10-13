@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const size = 16;
 
@@ -27,9 +27,7 @@ interface RowIndexesProps {
 }
 
 export const RowIndexes = ({ rows }: RowIndexesProps) => {
-  const labels = Array.from({ length: rows }, (_, i) =>
-    (i * 0.5).toFixed(1)
-  );
+  const labels = Array.from({ length: rows }, (_, i) => (i * 0.5).toFixed(1));
 
   return (
     <RowIndexesContainer>
@@ -41,5 +39,5 @@ export const RowIndexes = ({ rows }: RowIndexesProps) => {
         <Indicator key={index}>{label}</Indicator>
       ))}
     </RowIndexesContainer>
-  )
+  );
 };

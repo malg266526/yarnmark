@@ -1,17 +1,17 @@
 name: 'Deploy'
-on: 
+on:
   workflow_dispatch:
-    inputs: 
+    inputs:
       environment:
         type: choice
         description: Target environment
         options:
-        - test
-        - production
-        
+          - test
+          - production
+
 env:
   node_version: 18
-  
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -36,5 +36,3 @@ jobs:
       - name: Deploy to test
         if: ${{ inputs.environment == 'test' }}
         run: npx netlify-cli deploy --prod --dir=./dist --site="${{ secrets.NETLIFY_TEST_SITE_ID }}" --auth="${{ secrets.NETLIFY_AUTH_TOKEN }}"
-       
-

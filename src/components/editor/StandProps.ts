@@ -29,4 +29,3 @@ export interface StandProps {
   start?: Coordinate;
   end?: Coordinate;
 }
-

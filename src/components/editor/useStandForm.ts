@@ -1,47 +1,47 @@
-import { useState } from "react";
-import { StandColorsMap, StandProps, StandType } from "./StandProps";
-import { getSizeForOrientation, StandSizes } from "./utils/getSizeForOrientation";
-import { DefaultStand, DefaultTypeColorMap, useEditor } from "./EditorContext";
+import { useState } from 'react';
+import { StandColorsMap, StandProps, StandType } from './StandProps';
+import { getSizeForOrientation, StandSizes } from './utils/getSizeForOrientation';
+import { DefaultStand, DefaultTypeColorMap, useEditor } from './EditorContext';
 
 export const useStandForm = (onSubmit: (stand: StandProps) => void) => {
-    const { currentStand, setCurrentStand } = useEditor();
+  const { currentStand, setCurrentStand } = useEditor();
 
-    const handleTypeChange = (type: StandProps["type"]) => {
-        const size = getSizeForOrientation(type, currentStand.isHorizontal);
-        const defaultColor = DefaultTypeColorMap[type];
+  const handleTypeChange = (type: StandProps['type']) => {
+    const size = getSizeForOrientation(type, currentStand.isHorizontal);
+    const defaultColor = DefaultTypeColorMap[type];
 
-        setCurrentStand({ ...currentStand, type, width: size.width, height: size.height, color: defaultColor, });
-    };
+    setCurrentStand({ ...currentStand, type, width: size.width, height: size.height, color: defaultColor });
+  };
 
-    const handleOrientationChange = (isHorizontal: boolean) => {
-        const size = getSizeForOrientation(currentStand.type, isHorizontal);
-        setCurrentStand({ ...currentStand, isHorizontal, width: size.width, height: size.height });
-    };
+  const handleOrientationChange = (isHorizontal: boolean) => {
+    const size = getSizeForOrientation(currentStand.type, isHorizontal);
+    setCurrentStand({ ...currentStand, isHorizontal, width: size.width, height: size.height });
+  };
 
-    const updateField = <K extends keyof StandProps>(field: K, value: StandProps[K]) => {
-        setCurrentStand({ ...currentStand, [field]: value });
-    };
+  const updateField = <K extends keyof StandProps>(field: K, value: StandProps[K]) => {
+    setCurrentStand({ ...currentStand, [field]: value });
+  };
 
-    const reset = () => setCurrentStand(DefaultStand);
+  const reset = () => setCurrentStand(DefaultStand);
 
-    const submit = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!currentStand.index || !currentStand.type) return;
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!currentStand.index || !currentStand.type) return;
 
-        console.log('Submitting stand:', currentStand);
+    console.log('Submitting stand:', currentStand);
 
-        onSubmit(currentStand);
-        reset();
-    };
+    onSubmit(currentStand);
+    reset();
+  };
 
-    return {
-        stand: currentStand,
-        setStand: setCurrentStand,
-        handleTypeChange,
-        handleOrientationChange,
-        updateField,
-        submit,
-        reset,
-        isValid: !!currentStand.index && !!currentStand.type,
-    };
+  return {
+    stand: currentStand,
+    setStand: setCurrentStand,
+    handleTypeChange,
+    handleOrientationChange,
+    updateField,
+    submit,
+    reset,
+    isValid: !!currentStand.index && !!currentStand.type
+  };
 };

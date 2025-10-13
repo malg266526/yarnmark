@@ -76,7 +76,7 @@ export const App = () => {
           <Route path="/statutes" element={<StatutesPage />} />
           <Route path="/hall" element={<HallMapPage />} />
           <Route path="/schedule" element={<WorkshopsSchedule />} />
-          <Route path='/editor' element={<EditorPage />} />
+          <Route path="/editor" element={<EditorPage />} />
         </Routes>
 
         <Footer id="footer">

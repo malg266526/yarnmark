@@ -1,3 +1,3 @@
 export interface Metadata {
-  [K: string]: number
+  [K: string]: number;
 }

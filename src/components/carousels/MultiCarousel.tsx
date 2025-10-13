@@ -151,7 +151,8 @@ export const MultiCarousel = ({ items, style = DefaultStyleConfig }: MultiCarous
                   if (node) {
                     itemsRef.current[index] = node;
                   }
-                }}>
+                }}
+              >
                 {item}
               </MultiCarouselSlide>
             ))}

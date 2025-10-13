@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import { Coordinate, StandColorsMap, StandProps } from "./StandProps";
-import { Button, CtaButton } from "../Button";
-import { useEditor } from "./EditorContext";
-import { useStandForm } from "./useStandForm";
-import { RedesignSpacings } from "../../styles/spacings";
+import React from 'react';
+import styled from 'styled-components';
+import { Coordinate, StandColorsMap, StandProps } from './StandProps';
+import { Button, CtaButton } from '../Button';
+import { useEditor } from './EditorContext';
+import { useStandForm } from './useStandForm';
+import { RedesignSpacings } from '../../styles/spacings';
 
 // Extra styled container for layout and background
 const Container = styled.div`
@@ -15,7 +15,7 @@ const Container = styled.div`
   padding: 24px 16px;
   background: #f9f9f9;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 `;
 
 const Form = styled.form`
@@ -51,10 +51,10 @@ const ButtonRow = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: ${RedesignSpacings.md}
+  gap: ${RedesignSpacings.md};
 `;
 
-const Select = styled.select` 
+const Select = styled.select`
   flex: 1;
   padding: 6px 10px;
   border: 1px solid #bbb;
@@ -65,20 +65,13 @@ const Select = styled.select`
 `;
 
 const ColorOption = styled.option<{ color?: string }>`
-  background-color: ${({ color }) => color || "white"};
-  color: ${({ color }) => (color ? "#fff" : "#000")};
+  background-color: ${({ color }) => color || 'white'};
+  color: ${({ color }) => (color ? '#fff' : '#000')};
 `;
 
-const colorOptions = Object.keys(
-  StandColorsMap
-) as (keyof typeof StandColorsMap)[];
+const colorOptions = Object.keys(StandColorsMap) as (keyof typeof StandColorsMap)[];
 
-const StandTypes: Array<"premium" | "mini" | "standard" | "other"> = [
-  "premium",
-  "mini",
-  "standard",
-  "other"
-];
+const StandTypes: Array<'premium' | 'mini' | 'standard' | 'other'> = ['premium', 'mini', 'standard', 'other'];
 
 interface StandFormProps {
   start: Coordinate | undefined;
@@ -88,12 +81,13 @@ interface StandFormProps {
 export const StandForm = ({ start, end }: StandFormProps) => {
   const { addStand, currentStand, updateStand, stands } = useEditor();
 
-  const { stand, handleTypeChange, handleOrientationChange, updateField, submit, isValid } =
-    useStandForm(() => addStand({ ...stand, start, end }));
+  const { stand, handleTypeChange, handleOrientationChange, updateField, submit, isValid } = useStandForm(() =>
+    addStand({ ...stand, start, end })
+  );
 
-  const isEditMode = !!stands.find(stand => stand.id === currentStand.id)
+  const isEditMode = !!stands.find((stand) => stand.id === currentStand.id);
 
-  console.log("isEditMode", isEditMode)
+  console.log('isEditMode', isEditMode);
 
   return (
     <Container>
@@ -113,7 +107,7 @@ export const StandForm = ({ start, end }: StandFormProps) => {
           <Input
             id="stand-vendor"
             type="text"
-            value={stand.vendor || ""}
+            value={stand.vendor || ''}
             onChange={(e) => updateField('vendor', e.target.value)}
           />
         </FieldRow>
@@ -122,15 +116,15 @@ export const StandForm = ({ start, end }: StandFormProps) => {
           <Input
             id="stand-description"
             type="text"
-            value={stand.description || ""}
+            value={stand.description || ''}
             onChange={(e) => updateField('description', e.target.value)}
           />
         </FieldRow>
         <FieldRow>
           <Label>Type:</Label>
-          <div style={{ display: "flex", gap: 16 }}>
-            {StandTypes.map(type => (
-              <label key={type} style={{ display: "flex", alignItems: "center", gap: 4 }}>
+          <div style={{ display: 'flex', gap: 16 }}>
+            {StandTypes.map((type) => (
+              <label key={type} style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                 <input
                   type="radio"
                   name="stand-type"
@@ -161,13 +155,8 @@ export const StandForm = ({ start, end }: StandFormProps) => {
             type="number"
             min={0}
             step={0.5}
-            value={stand.width ?? ""}
-            onChange={(e) =>
-              updateField(
-                "width",
-                e.target.value === "" ? undefined : Number(e.target.value)
-              )
-            }
+            value={stand.width ?? ''}
+            onChange={(e) => updateField('width', e.target.value === '' ? undefined : Number(e.target.value))}
           />
         </FieldRow>
 
@@ -177,14 +166,9 @@ export const StandForm = ({ start, end }: StandFormProps) => {
             id="stand-height"
             type="number"
             min={0}
-            value={stand.height ?? ""}
+            value={stand.height ?? ''}
             step={0.5}
-            onChange={(e) =>
-              updateField(
-                "height",
-                e.target.value === "" ? undefined : Number(e.target.value)
-              )
-            }
+            onChange={(e) => updateField('height', e.target.value === '' ? undefined : Number(e.target.value))}
           />
         </FieldRow>
 
@@ -192,20 +176,13 @@ export const StandForm = ({ start, end }: StandFormProps) => {
           <Label htmlFor="stand-color">Color:</Label>
           <Select
             id="stand-color"
-            value={stand.color || ""}
+            value={stand.color || ''}
             onChange={(e) =>
-              updateField(
-                "color",
-                e.target.value === ""
-                  ? undefined
-                  : (e.target.value as keyof typeof StandColorsMap)
-              )
+              updateField('color', e.target.value === '' ? undefined : (e.target.value as keyof typeof StandColorsMap))
             }
             style={{
-              backgroundColor: stand.color
-                ? StandColorsMap[stand.color]
-                : "#fff",
-              color: stand.color ? "#fff" : "#000",
+              backgroundColor: stand.color ? StandColorsMap[stand.color] : '#fff',
+              color: stand.color ? '#fff' : '#000'
             }}
           >
             <option value="">Select color</option>
@@ -218,7 +195,7 @@ export const StandForm = ({ start, end }: StandFormProps) => {
         </FieldRow>
         <ButtonRow>
           {isEditMode && (
-            <Button type='button' onClick={() => updateStand(currentStand)}>
+            <Button type="button" onClick={() => updateStand(currentStand)}>
               Update
             </Button>
           )}

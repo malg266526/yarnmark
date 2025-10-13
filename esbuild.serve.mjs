@@ -1,10 +1,11 @@
 import { appConfig } from './esbuild.config.mjs';
-import { createServer } from 'esbuild-server'
+import { createServer } from 'esbuild-server';
 
-createServer({
-  ...appConfig,
-  sourcemap: true
-},
+createServer(
+  {
+    ...appConfig,
+    sourcemap: true
+  },
   {
     port: 8090,
     open: true,
