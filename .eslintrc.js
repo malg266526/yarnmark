@@ -51,7 +51,7 @@ module.exports = {
         semi: true,
         singleQuote: true,
         bracketSpacing: true,
-        jsxBracketSameLine: true,
+        jsxBracketSameLine: false,
         printWidth: 120,
         endOfLine: 'lf'
       }

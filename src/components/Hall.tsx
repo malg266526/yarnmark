@@ -157,8 +157,7 @@ export const Hall = ({ multiplier }: HallType) => {
                 left={standConfiguration.start.col * multiplier}
                 top={standConfiguration.start.row * multiplier}
                 height={standConfiguration.height * multiplier * SIZE_MULTIPLIER_FOR_NORMALIZATION}
-                width={standConfiguration.width * multiplier * SIZE_MULTIPLIER_FOR_NORMALIZATION}
-              >
+                width={standConfiguration.width * multiplier * SIZE_MULTIPLIER_FOR_NORMALIZATION}>
                 {standConfiguration.type !== 'other' && <div>{standConfiguration.index}</div>}
                 {standConfiguration.vendor && <div>{standConfiguration.vendor}</div>}
                 {standConfiguration.description && (
