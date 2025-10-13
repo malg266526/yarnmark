@@ -52,7 +52,8 @@ module.exports = {
         singleQuote: true,
         bracketSpacing: true,
         jsxBracketSameLine: true,
-        printWidth: 120
+        printWidth: 120,
+        endOfLine: 'lf'
       }
     ],
     'react/no-unescaped-entities': 0,
