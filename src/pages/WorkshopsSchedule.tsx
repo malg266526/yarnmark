@@ -79,8 +79,7 @@ export const WorkshopsSchedule = () => {
         id="hallMap"
         size="sm"
         color={BackgroundColors.navigationBand}
-        padding={isPhone ? 'sm' : 'lg'}
-      >
+        padding={isPhone ? 'sm' : 'lg'}>
         <Table>
           <Th>
             <Typography size="md" weight="bold">

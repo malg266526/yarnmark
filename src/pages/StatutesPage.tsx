@@ -51,8 +51,7 @@ export const StatutesPage = () => {
         size="xs"
         color={BackgroundColors.navigationBand}
         stretchOnMobile
-        padding={isPhone ? 'sm' : 'xxl'}
-      >
+        padding={isPhone ? 'sm' : 'xxl'}>
         <Band.BeamTitle>Regulamin Krakoskiego Yarnmarku</Band.BeamTitle>
 
         <StatueContent>
@@ -163,8 +162,7 @@ export const StatutesPage = () => {
         size="xs"
         color={BackgroundColors.navigationBand}
         stretchOnMobile
-        padding={isPhone ? 'sm' : 'xxl'}
-      >
+        padding={isPhone ? 'sm' : 'xxl'}>
         <Band.BeamTitle>Regulamin Warsztatów</Band.BeamTitle>
 
         <StatueContent>

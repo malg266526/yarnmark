@@ -7,6 +7,8 @@
     "lint": "eslint src/**/*.{ts,tsx}",
     "typecheck": "tsc --noEmit --skipLibCheck",
     "prettier": "prettier src/**/*.{ts,tsx} --write",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix && prettier --write .",
+    "format": "prettier --write .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./esbuild.serve.mjs",
     "bundle": "node ./esbuild.bundle.mjs",
@@ -42,7 +44,7 @@
     "eslint-plugin-prettier": "5.0.0",
     "eslint-plugin-react": "7.33.2",
     "eslint-plugin-react-hooks": "4.6.0",
-    "prettier": "3.0.3",
+    "prettier": "^3.6.2",
     "react-router-dom": "6.16.0",
     "typescript": "5.2.2"
   },

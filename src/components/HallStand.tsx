@@ -95,8 +95,7 @@ export const HallStand = ({ stand, height, desktopMultiplier, showFinishedMap }:
       height={stand.height || height}
       color={showFinishedMap && stand.readyColor ? stand.readyColor : stand.color}
       multiplier={multiplier}
-      isTaken={Boolean(stand.who)}
-    >
+      isTaken={Boolean(stand.who)}>
       <div>
         <StandIndex>{stand.index}</StandIndex>
         <StandWho>{stand.who}</StandWho>

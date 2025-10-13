@@ -92,8 +92,8 @@ export const Editor = () => {
             const background = stand
               ? StandColorsMap[stand.color || 'taken']
               : isSelected(row, col)
-              ? '#90ee90'
-              : '#fff';
+                ? '#90ee90'
+                : '#fff';
 
             const hasCoords = stand?.start && stand?.end;
 

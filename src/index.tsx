@@ -20,8 +20,8 @@ const browserLanguage =
   browserDefaultLanguage === DEFAULT_PL_BROWSER_SETTINGS
     ? 'pl'
     : browserDefaultLanguage === DEFAULT_DE_BROWSER_SETTINGS
-    ? 'de'
-    : 'en';
+      ? 'de'
+      : 'en';
 
 const defaultLanguage = localStorageLanguage ? localStorageLanguage : browserLanguage;
 
