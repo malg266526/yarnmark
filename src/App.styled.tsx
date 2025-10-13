@@ -5,7 +5,6 @@ import { RedesignSpacings } from './styles/spacings';
 import { BackgroundColors, TextColors } from './styles/theme';
 import { FontSize } from './styles/font-size';
 
-
 export const Root = styled.main`
   width: 100%;
   display: flex;
