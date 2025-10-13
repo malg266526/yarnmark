@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import { StandColorsMap, StandProps, StandType } from './StandProps';
-import { getSizeForOrientation, StandSizes } from './utils/getSizeForOrientation';
+import { StandColorsMap, StandProps } from './StandProps';
+import { getSizeForOrientation } from './utils/getSizeForOrientation';
 import { DefaultStand, DefaultTypeColorMap, useEditor } from './EditorContext';
 
 export const useStandForm = (onSubmit: (stand: StandProps) => void) => {

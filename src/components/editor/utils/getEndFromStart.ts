@@ -1,5 +1,3 @@
-import { Coordinate } from '../StandProps';
-
 const SQUARE_SIZE_M = 0.5; // 1 square = 0.5 meters
 
 export const getEndFromStart = (start: { row: number; col: number }, widthM: number, heightM: number) => {

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { useEditor } from './EditorContext';
 import React from 'react';
 import { RedesignSpacings } from '../../styles/spacings';
-import { Button } from '../Button';
 
 const ListContainer = styled.div`
   display: flex;
@@ -72,8 +71,7 @@ export const StandList = () => {
               onClick={(e) => {
                 e.stopPropagation();
                 removeStand(stand);
-              }}
-            >
+              }}>
               Remove
             </RemoveButton>
           </StandItem>
