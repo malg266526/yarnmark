@@ -1,4 +1,4 @@
-import { StandColorsMap, StandProps } from './StandProps';
+import { StandProps } from './StandProps';
 import { getSizeForOrientation } from './utils/getSizeForOrientation';
 import { DefaultStand, DefaultTypeColorMap, useEditor } from './EditorContext';
 
