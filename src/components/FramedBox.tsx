@@ -38,7 +38,11 @@ const OuterRoot = styled.div`
   }
 `;
 
-const Frame = styled.div<{ width?: FrameWidth; height?: FrameWidth; padding: keyof typeof RedesignSpacings }>`
+const Frame = styled.div<{
+  width?: FrameWidth;
+  height?: FrameWidth;
+  padding: keyof typeof RedesignSpacings;
+}>`
   ${({ width }) =>
     width &&
     css`

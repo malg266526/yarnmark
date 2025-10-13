@@ -89,7 +89,8 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
           display: 'flex',
           zIndex: 2
         }
-      }}>
+      }}
+    >
       <ModalContent>
         <RowLayout wide justify="space-between">
           <GhostButton onClick={close}>
@@ -161,7 +162,8 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
             // disabled={workshop.isSoldOut}
             disabled
             onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}
-            aria-label="open tickets page">
+            aria-label="open tickets page"
+          >
             {t('workshops.buyTicket')}
           </CtaButton>
         </FlexColumnLayout>

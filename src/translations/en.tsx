@@ -48,9 +48,10 @@ export const en: TranslationsShape = {
     },
     whereToEat: 'Where to eat?',
     hallMap: {
-      title: 'Hall map',
-      premiumStand: 'Premium spot 4x4m',
-      standardStand: 'Standard spot 4x2,5m',
+      title: 'Hallenplan',
+      premiumStand: 'Premium spot 3x3,5m',
+      standardStand: 'Standard spot 3x3,5m',
+      standard2Stand: 'Standard spot 3x4m',
       miniStand: 'Mini spot 3x2m',
       taken: 'Reserved'
     },
@@ -131,8 +132,8 @@ export const en: TranslationsShape = {
       title: 'Contact'
     },
     infoForVendorsPage: {
-      title: 'Information for vendors 2025',
-      invitation: 'We heartily invite you to participate in II edition of Krakoski Yarnmark!',
+      title: 'Information for vendors 2026',
+      invitation: 'We heartily invite you to participate in III edition of Krakoski Yarnmark!',
       organisationInfo: 'Below a bit of organisational information for you.',
       hallInfo: {
         title: 'Hall',
@@ -169,6 +170,11 @@ export const en: TranslationsShape = {
       },
       registration: {
         title: 'Reservations',
+        wantToJoin: 'Do you want to become a vendor at Krakoski Yarnmark 2026?',
+        newForm:
+          'This year we are accepting applications in a new format - details coming soon on our social media and here.',
+        extraInfoByMail:
+          'Would you like to receive additional information via email? Write to<strong>krakoski.yarnmark@gmail.com</strong > ',
         beAVendor:
           'If you wanna join the great group of our vendors write us an email! Email address: <strong>krakoski.yarnmark@gmail.com</strong>',
         start: 'Spot reservations start on Monday <strong>22.01.2024r.</strong> at 12:00 AM',

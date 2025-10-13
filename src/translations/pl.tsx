@@ -47,8 +47,9 @@ export const pl = {
     },
     hallMap: {
       title: 'Mapa hali',
-      premiumStand: 'Miejsce Premium 4x4m',
-      standardStand: 'Miejsce Standard 4x2,5m',
+      premiumStand: 'Miejsce Premium 3x5.5m',
+      standardStand: 'Miejsce Standard 3x3,5m',
+      standard2Stand: 'Miejsce Standard 3x4m',
       miniStand: 'Miejsce Mini 3x2m',
       taken: 'Miejsce zarezerwowane'
     },
@@ -131,19 +132,19 @@ export const pl = {
       title: 'Kontakt'
     },
     infoForVendorsPage: {
-      title: 'Informacje dla wystawców 2025',
-      invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w II edycji Krakoskiego Yarnmarku!',
+      title: 'Informacje dla wystawców 2026',
+      invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w III edycji Krakoskiego Yarnmarku!',
       organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was.',
       hallInfo: {
         title: 'Hala',
         area: 'Mamy do dyspozycji powierzchnię <strong>1142m2</strong>.',
-        openHours: 'Wejście na halę w celu rozłożenia stoiska będzie możliwe od godz. 5:00. Na miejscu będzie portier.',
+        openHours: 'Wejście na halę w celu rozłożenia stoiska będzie możliwe od godz. 5:00.',
         ramp: 'Z parkingu prosto na halę prowadzi rampa, bez potrzeby korzystania ze schodów czy wind.',
         participants:
           'Wejście dla odwiedzających targi będzie znajdować się od ulicy Focha, gdzie do hali głównej udadzą się efektownym zejściem, z którego będzie widać całą halę wystawienniczą.',
         stands: 'Na hali będą trzy rodzaje stoisk:',
-        standPremium: '<strong>Premium 4x4m</strong>',
-        standardStand: '<strong>Standard 4x2,5m</strong>',
+        standPremium: '<strong>Premium 3x5.5m</strong>',
+        standardStand: '<strong>Standard 3x3,5m</strong>',
         miniStand: '<strong>Mini 3x2m</strong>',
         tables:
           'Stoisko premium posiada 2 krzesła oraz 2 stoły 160x80cm. Stoisko standard posiada 2 krzesła oraz 2 stoły 140x70cm, a stoisko Mini 2 krzesła oraz 1 stół 140x70cm',
@@ -169,6 +170,11 @@ export const pl = {
       },
       registration: {
         title: 'Zapisy',
+        wantToJoin: 'Chcesz zostać wystawcą na Krakoski Yarnmark 2026?',
+        newForm:
+          'Tegoroczne zgłoszenia przyjmujemy w nowej formie - szczegóły już wkrótce na naszych mediach społecznościowych oraz tutaj.',
+        extraInfoByMail:
+          'Chcesz zostać dodatkowo poinformowany drogą mailową? Napisz na <strong>krakoski.yarnmark@gmail.com</strong>',
         beAVendor:
           'Jeśli chcesz dołączyć do wspaniałego grona naszych wystawców, napisz do nas! Email kontaktowy: <strong>krakoski.yarnmark@gmail.com</strong>',
         start: 'Możliwość zakupu stoiska startuje w poniedziałek <strong>22.01.2024r.</strong> o godz. 12:00.',

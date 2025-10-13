@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { RowLayout } from './RowLayout';
-import { HallColors } from '../styles/theme';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import { RedesignSpacings } from '../styles/spacings';
+import { StandColorsMap } from './editor/StandProps';
 
 const LegendRoot = styled.div`
   display: flex;
@@ -12,10 +12,10 @@ const LegendRoot = styled.div`
   margin: ${RedesignSpacings.sm};
 `;
 
-const ColorSample = styled.div<{ color?: keyof typeof HallColors }>`
+const ColorSample = styled.div<{ color: keyof typeof StandColorsMap }>`
   width: 50px;
   height: 50px;
-  background-color: ${({ color }) => HallColors[color || 'empty']};
+  background-color: ${({ color }) => StandColorsMap[color] || 'white'};
 `;
 
 export const HallLegend = () => {
@@ -36,6 +36,11 @@ export const HallLegend = () => {
       <RowLayout gap="xs">
         <ColorSample color="normal2" />
         <p>{t('hallMap.standardStand')}</p>
+      </RowLayout>
+
+      <RowLayout gap="xs">
+        <ColorSample color="normal3" />
+        <p>{t('hallMap.standard2Stand')}</p>
       </RowLayout>
 
       <RowLayout gap="xs">

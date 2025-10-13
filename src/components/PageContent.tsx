@@ -2,7 +2,10 @@ import styled from 'styled-components';
 import { RedesignSpacings } from '../styles/spacings';
 import { Theme } from '../styles/theme';
 
-export const PageContent = styled.div<{ variant: 'wide' | 'narrow'; padding?: 'none' }>`
+export const PageContent = styled.div<{
+  variant: 'wide' | 'narrow';
+  padding?: 'none';
+}>`
   width: ${({ variant }) => (variant === 'narrow' ? Theme.pageContentWidth : '100%')};
   max-width: 100%;
 

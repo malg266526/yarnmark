@@ -49,8 +49,9 @@ export const de: TranslationsShape = {
     whereToEat: 'Wo man essen kann?',
     hallMap: {
       title: 'Hallenplan',
-      premiumStand: 'Premium spot 4x4m',
-      standardStand: 'Standard spot 4x2,5m',
+      premiumStand: 'Premium spot 3x3,5m',
+      standardStand: 'Standard spot 3x3,5m',
+      standard2Stand: 'Standard spot 3x4m',
       miniStand: 'Mini spot 3x2m',
       taken: 'Reserved'
     },
@@ -134,7 +135,7 @@ export const de: TranslationsShape = {
       title: 'Kontakt'
     },
     infoForVendorsPage: {
-      title: 'Informationen für Aussteller 2025',
+      title: 'Informationen für Aussteller 2026',
       invitation: 'Wir laden dich herzlich ein, an der 2. Ausgabe des Krakow Wool Yarnmark teilzunehmen!',
       organisationInfo: 'Unten findest du einige organisatorische Informationen.',
       hallInfo: {
@@ -173,6 +174,11 @@ export const de: TranslationsShape = {
       },
       registration: {
         title: 'Anmeldungen',
+        wantToJoin: 'Do you want to become a vendor at Krakoski Yarnmark 2026?',
+        newForm:
+          'This year we are accepting applications in a new format - details coming soon on our social media and here.',
+        extraInfoByMail:
+          'Would you like to receive additional information via email? Write to<strong>krakoski.yarnmark@gmail.com</strong > ',
         beAVendor:
           'Wenn Sie sich der wunderbaren Gruppe unserer Aussteller anschließen möchten, schreiben Sie uns! Kontakt E-mail: <strong>krakoski.yarnmark@gmail.com</strong>',
         start: 'Die Möglichkeit zum Kauf eines Standes beginnt am Montag, <strong>22. Januar 2024</strong> um 12:00',

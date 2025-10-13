@@ -507,7 +507,8 @@ export const Carouselge = Object.assign(
         onTouchMove={onTouchMove}
         onTouchEnd={(e) =>
           onMouseUp({ button: 0, screenX: e.changedTouches[0].screenX, screenY: e.changedTouches[0].screenY })
-        }>
+        }
+      >
         <ItemDataContext.Provider value={{ getStyle, activeIndex: selectedIndex }}>
           <OuterWrapper>
             <ClickElement
@@ -518,7 +519,8 @@ export const Carouselge = Object.assign(
                 if (isIndexValid(selectedIndex - 1)) {
                   onChange(selectedIndex - 1);
                 }
-              }}>
+              }}
+            >
               <IconifyIcon icon="mdi:arrow-left" width="50" />
             </ClickElement>
             <ClickElement
@@ -529,7 +531,8 @@ export const Carouselge = Object.assign(
                 if (isIndexValid(selectedIndex + 1)) {
                   onChange(selectedIndex + 1);
                 }
-              }}>
+              }}
+            >
               <IconifyIcon icon="mdi:arrow-right" width="50" />
             </ClickElement>
             <ChildrenWrapper ref={childrenWrapperRef} transition={transitionTime}>

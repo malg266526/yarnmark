@@ -16,22 +16,22 @@ type ExtractTranslationKeys<
 > = TranslationJson extends string
   ? `${Prefix}`
   : Keys extends infer Key extends keyof TranslationJson
-  ? TranslationJson[Key] extends string
-    ? ExtractTranslationKeys<
-        TranslationJson[Key],
-        never,
-        `${Prefix extends '' ? '' : `${Prefix}.`}${Key extends string ? Key : 3}`,
-        Result
-      >
-    : TranslationJson[Key] extends Tree
-    ? ExtractTranslationKeys<
-        TranslationJson[Key],
-        keyof TranslationJson[Key],
-        `${Prefix extends '' ? '' : `${Prefix}.`}${Key extends string ? Key : 3}`,
-        Result
-      >
-    : 1
-  : 2;
+    ? TranslationJson[Key] extends string
+      ? ExtractTranslationKeys<
+          TranslationJson[Key],
+          never,
+          `${Prefix extends '' ? '' : `${Prefix}.`}${Key extends string ? Key : 3}`,
+          Result
+        >
+      : TranslationJson[Key] extends Tree
+        ? ExtractTranslationKeys<
+            TranslationJson[Key],
+            keyof TranslationJson[Key],
+            `${Prefix extends '' ? '' : `${Prefix}.`}${Key extends string ? Key : 3}`,
+            Result
+          >
+        : 1
+    : 2;
 
 type ReplaceString<
   Str extends string,

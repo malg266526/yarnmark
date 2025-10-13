@@ -71,6 +71,7 @@ export const HallColors = {
   premium: '#4CBB17', // Kelly Green
   normal1: '#FFAA33', // Yellow Orange
   normal2: '#EC5800', // Persimmon
+  normal3: '#ba63b9',
   small1: '#7897b0',
   small2: '#a0bfd6',
   taken: '#d3d3d3',

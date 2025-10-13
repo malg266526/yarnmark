@@ -1,6 +1,6 @@
 name: Bundle metadata
 
-on: 
+on:
   workflow_call:
     inputs:
       branch:
@@ -13,37 +13,36 @@ on:
         required: true
         type: string
 
-jobs:  
+jobs:
   upload-metadata:
     name: Upload metadata
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-      with:
-        ref: ${{ inputs.branch }}
-    - name: Use Node.js ${{ env.node_version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ env.node_version }}
-        cache: 'yarn'
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.branch }}
+      - name: Use Node.js ${{ env.node_version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node_version }}
+          cache: 'yarn'
 
-    - name: Install
-      run: yarn install --frozen-lockfile
-     
-    - name: Bundle
-      run: yarn bundle
+      - name: Install
+        run: yarn install --frozen-lockfile
 
-    - name: Transpile helper files
-      run: yarn transpile-workflow-files
+      - name: Bundle
+        run: yarn bundle
 
-    - name: Create metadata file
-      run: yarn stats -- --out=${{ inputs.output }} --dir=dist --extensions=".js,.html,.css"
+      - name: Transpile helper files
+        run: yarn transpile-workflow-files
 
-    - name: Upload metadata
-      uses: actions/upload-artifact@v3
-      with:
-        name: ${{ inputs.output }}
-        path: ${{ inputs.output }}
-        retention-days: ${{ inputs.retention }}
-  
+      - name: Create metadata file
+        run: yarn stats -- --out=${{ inputs.output }} --dir=dist --extensions=".js,.html,.css"
+
+      - name: Upload metadata
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ inputs.output }}
+          path: ${{ inputs.output }}
+          retention-days: ${{ inputs.retention }}

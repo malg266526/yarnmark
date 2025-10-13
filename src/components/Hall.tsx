@@ -1,126 +1,176 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { hallMapConfig, HallStandType } from '../assets/hallMapConfig';
-import { usePhone } from '../hooks/usePhone';
+import zod from 'zod';
 import { HallColors } from '../styles/theme';
-import { HallStand } from './HallStand';
-import { RowLayout } from './RowLayout';
+import hallJson from '../assets/hall.json';
+import { StandColorsMap } from './editor/StandProps';
+import { Typography } from './Typography';
+import { usePhone } from '../hooks/usePhone';
 
-const Container = styled.div`
+const standTypeSchema = zod.union([
+  zod.literal('premium'),
+  zod.literal('mini'),
+  zod.literal('standard'),
+  zod.literal('other')
+]);
+
+const standColorSchema = zod.union([
+  zod.literal('premium'),
+  zod.literal('normal1'),
+  zod.literal('normal2'),
+  zod.literal('normal3'),
+  zod.literal('small1'),
+
+  zod.literal('small2'),
+  zod.literal('taken'),
+  zod.literal('taken2'),
+  zod.literal('tech')
+]);
+
+const hallSchema = zod.array(
+  zod.object({
+    id: zod.string(),
+    index: zod.string(),
+    vendor: zod.string().optional(),
+    description: zod.string().optional(),
+    type: standTypeSchema,
+    color: standColorSchema,
+    width: zod.number(),
+    height: zod.number(),
+    isHorizontal: zod.boolean(),
+    start: zod.object({
+      row: zod.number(),
+      col: zod.number()
+    }),
+    end: zod.object({
+      row: zod.number(),
+      col: zod.number()
+    })
+  })
+);
+
+const StandElement = styled.div<{
+  left: number;
+  top: number;
+  color: string;
+  width: number;
+  height: number;
+}>`
+  position: absolute;
+  left: ${({ left }) => left}px;
+  top: ${({ top }) => top}px;
+  width: ${({ width }) => width}px;
+  height: ${({ height }) => height}px;
+
+  background-color: ${({ color }) => color};
+
   display: flex;
-  flex: 0;
   flex-direction: column;
-  background-color: ${HallColors.empty};
-  align-self: center;
-  width: min-content;
+  align-items: center;
+  justify-content: center;
 `;
 
-type Direction = 'row' | 'column';
-
-type Line = {
-  width?: number;
-  height: number;
-
-  stands: HallStandType[];
-  direction: Direction;
-};
-
-const HallLine = styled.div<{
-  direction?: Direction;
-  height?: number;
-  width?: number;
-  alignItems?: 'flex-end' | 'flex-start';
-  multiplier: number;
-}>`
+const Container = styled.div<{ width: number; height: number }>`
   display: flex;
-  flex: 0;
-  flex-direction: ${({ direction }) => direction || 'row'};
+  background-color: ${HallColors.empty};
+  position: relative;
 
-  height: ${({ height, multiplier }) => (height ? `${height * multiplier}px` : 'initial')};
-  width: ${({ width, multiplier }) => (width ? `${width * multiplier}px` : 'initial')};
-
-  align-items: ${({ alignItems }) => alignItems || 'flex-start'};
+  width: ${({ width }) => width}px;
+  height: ${({ height }) => height}px;
 `;
 
 type HallType = {
-  multiplier?: number;
+  multiplier: number;
   showFinishedMap?: boolean;
 };
 
-export const Hall = ({ showFinishedMap, multiplier: propsMultiplier }: HallType) => {
+type HallConfigurationState =
+  | { status: 'pending' }
+  | { status: 'error'; error: Error }
+  | { status: 'success'; schema: zod.infer<typeof hallSchema> };
+
+export const Hall = ({ multiplier }: HallType) => {
+  // FIXME: this should be removed once the editor saves that in a normalized way
+  const SIZE_MULTIPLIER_FOR_NORMALIZATION = 2;
+
+  const [hallConfigurationState, setHallConfigurationState] = useState<HallConfigurationState>({ status: 'pending' });
+
   const isPhone = usePhone();
-  const desktopMultiplier = propsMultiplier || 20;
-  const multiplier = isPhone ? 13 : desktopMultiplier;
+
+  const [containerSize, setContainerSize] = useState<{
+    width: number;
+    height: number;
+  }>({ height: 200, width: 200 });
+
+  useEffect(() => {
+    const validHallConfiguration = hallSchema.safeParse(hallJson);
+
+    if (validHallConfiguration.success) {
+      setHallConfigurationState({
+        status: 'success',
+        schema: validHallConfiguration.data
+      });
+
+      const calculatedContainerDimenions = validHallConfiguration.data.reduce(
+        (size, standConfiguration) => {
+          if (
+            size.width <
+            standConfiguration.start.col + standConfiguration.width * SIZE_MULTIPLIER_FOR_NORMALIZATION
+          ) {
+            size.width = standConfiguration.start.col + standConfiguration.width * SIZE_MULTIPLIER_FOR_NORMALIZATION;
+          }
+          if (
+            size.height <
+            standConfiguration.start.row + standConfiguration.height * SIZE_MULTIPLIER_FOR_NORMALIZATION
+          ) {
+            size.height = standConfiguration.start.row + standConfiguration.height * SIZE_MULTIPLIER_FOR_NORMALIZATION;
+          }
+
+          return size;
+        },
+        { width: 0, height: 0 }
+      );
+      setContainerSize(calculatedContainerDimenions);
+
+      return;
+    }
+
+    setHallConfigurationState({
+      status: 'error',
+      error: validHallConfiguration.error
+    });
+    console.warn('validHallConfiguration', validHallConfiguration.error);
+  }, []);
 
   return (
-    <Container id="hall">
-      {(hallMapConfig.topRows as Line[]).map((row, index) => (
-        <HallLine height={row.height} key={index} multiplier={multiplier}>
-          {row.stands.map((stand, index) => (
-            <HallStand
-              key={index}
-              stand={stand}
-              height={row.height}
-              desktopMultiplier={desktopMultiplier}
-              showFinishedMap={showFinishedMap}
-            />
-          ))}
-        </HallLine>
-      ))}
-
-      <HallLine multiplier={multiplier}>
-        {(hallMapConfig.middleColumns as Line[]).map((column, index) => (
-          <HallLine
-            width={column.width}
-            key={index}
-            direction="column"
-            alignItems={index === 5 ? 'flex-end' : 'flex-start'}
-            multiplier={multiplier}>
-            {column.stands.map((stand, index) =>
-              stand.pair ? (
-                <RowLayout gap="none" key={`row_${stand.pair[0].index}_${stand.pair[1].index}`}>
-                  <HallStand
-                    key={stand.pair[0].index}
-                    stand={stand.pair[0]}
-                    width={column.width}
-                    desktopMultiplier={desktopMultiplier}
-                    showFinishedMap={showFinishedMap}
-                  />
-                  <HallStand
-                    key={stand.pair[1].index}
-                    stand={stand.pair[1]}
-                    width={column.width}
-                    desktopMultiplier={desktopMultiplier}
-                    showFinishedMap={showFinishedMap}
-                  />
-                </RowLayout>
-              ) : (
-                <HallStand
-                  key={index}
-                  stand={stand}
-                  width={column.width}
-                  desktopMultiplier={desktopMultiplier}
-                  showFinishedMap={showFinishedMap}
-                />
-              )
-            )}
-          </HallLine>
-        ))}
-      </HallLine>
-
-      {(hallMapConfig.bottomRows as Line[]).map((row, index) => (
-        <HallLine height={row.height} key={index} alignItems="flex-end" multiplier={multiplier}>
-          {row.stands.map((stand, index) => (
-            <HallStand
-              key={index}
-              stand={stand}
-              height={row.height}
-              desktopMultiplier={desktopMultiplier}
-              showFinishedMap={showFinishedMap}
-            />
-          ))}
-        </HallLine>
-      ))}
-    </Container>
+    <>
+      {hallConfigurationState.status === 'error' && <div>Failed to parse data</div>}
+      {hallConfigurationState.status === 'pending' && <div>Loading data...</div>}
+      {hallConfigurationState.status === 'success' && (
+        <Container id="hall" height={containerSize.height * multiplier} width={containerSize.width * multiplier}>
+          {hallConfigurationState.schema.map((standConfiguration) => {
+            return (
+              <StandElement
+                id={standConfiguration.id}
+                key={standConfiguration.id}
+                color={StandColorsMap[standConfiguration.color]}
+                left={standConfiguration.start.col * multiplier}
+                top={standConfiguration.start.row * multiplier}
+                height={standConfiguration.height * multiplier * SIZE_MULTIPLIER_FOR_NORMALIZATION}
+                width={standConfiguration.width * multiplier * SIZE_MULTIPLIER_FOR_NORMALIZATION}
+              >
+                {standConfiguration.type !== 'other' && <div>{standConfiguration.index}</div>}
+                {standConfiguration.vendor && <div>{standConfiguration.vendor}</div>}
+                {standConfiguration.description && (
+                  <div>
+                    <Typography size={isPhone ? 'xxs' : 'xs'}>{standConfiguration.description}</Typography>
+                  </div>
+                )}
+              </StandElement>
+            );
+          })}
+        </Container>
+      )}
+    </>
   );
 };

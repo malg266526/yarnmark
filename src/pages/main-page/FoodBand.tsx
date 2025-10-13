@@ -193,7 +193,8 @@ export const FoodBand = ({ id }: FoodBandType) => {
       size="md"
       color={BackgroundColors.navigationBand}
       padding={rensponsivePadding}
-      gap="md">
+      gap="md"
+    >
       <Band.Title>{t('foodBand.whereToEat')}</Band.Title>
 
       <LayoutWithActiveButton>
@@ -201,7 +202,8 @@ export const FoodBand = ({ id }: FoodBandType) => {
           <ImageButton
             active={activeButton === 'foodtruckBezogrodek'}
             onClick={() => onRestaurantClick('foodtruckBezogrodek')}
-            icon={<Icon size="md" src={burgerImageUrl} />}>
+            icon={<Icon size="md" src={burgerImageUrl} />}
+          >
             Food Truck Park Bezogródek
           </ImageButton>
 
@@ -209,7 +211,8 @@ export const FoodBand = ({ id }: FoodBandType) => {
             active={activeButton === 'coffeehouse'}
             icon={<Icon size="md" src={cupcakeImageUrl} />}
             onClick={() => onRestaurantClick('coffeehouse')}
-            ref={framedBoxRef}>
+            ref={framedBoxRef}
+          >
             Kawiarnia na hali
           </ImageButton>
         </ButtonsWrapper>

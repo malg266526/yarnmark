@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
-export const useLocalStorage = <T>(initialValue: T, key: string, parser: (rawValue: string) => T) => {
+export const useLocalStorage = <T>(key: string, initialValue: T, parser?: (rawValue: string) => T) => {
   const [value, setValue] = useState(initialValue);
 
   const updateValue = useCallback(
@@ -15,7 +15,9 @@ export const useLocalStorage = <T>(initialValue: T, key: string, parser: (rawVal
     try {
       const rawValue = localStorage.getItem(key);
       if (rawValue) {
-        updateValue(parser(rawValue));
+        const parsedValue: T = parser ? parser(rawValue) : (JSON.parse(rawValue) as T);
+
+        updateValue(parsedValue);
       }
     } catch (e) {
       console.error('useLocalStorage: ', e);

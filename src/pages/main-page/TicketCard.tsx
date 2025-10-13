@@ -109,7 +109,8 @@ export const TicketCard = () => {
           onClick={onBuyTicketClicked}
           aria-label="buy_ticket"
           shouldShake={shouldShake}
-          disabled={!TicketsToggles.enabled}>
+          disabled={!TicketsToggles.enabled}
+        >
           {t('tickets.buyTicket')}
           {/*{t('tickets.availableSoon')}*/}
         </BuyTicketLink>

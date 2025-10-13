@@ -52,27 +52,20 @@ export const ForVendorsPage = () => {
         size="xs"
         color={BackgroundColors.navigationBand}
         stretchOnMobile
-        padding={isPhone ? 'sm' : 'xxl'}>
+        padding={isPhone ? 'sm' : 'xxl'}
+      >
         <Band.BeamTitle>{t('infoForVendorsPage.registration.title')}</Band.BeamTitle>
 
         <PlainInfo>
           <Typography size="md">
-            <Trans i18nKey="infoForVendorsPage.registration.beAVendor" />
+            <Trans i18nKey="infoForVendorsPage.registration.wantToJoin" />
           </Typography>
           <Typography size="md">
-            <Trans i18nKey="infoForVendorsPage.registration.when" />
+            <Trans i18nKey="infoForVendorsPage.registration.newForm" />
           </Typography>
-          <Typography size="md">{t('infoForVendorsPage.registration.where')}</Typography>
-
-          {/*          <SecondaryLink
-            to="https://wloczykijki.pl/pl_PL/c/Krakoski-Yarnmark-Welny/355?preview=true"
-            target="_blank"
-            rel="noreferrer">
-            <Typography size="md">{t('infoForVendorsPage.registration.buyHere')}</Typography>
-          </SecondaryLink>*/}
-
-          <Typography size="md">{t('infoForVendorsPage.registration.feedback')}</Typography>
-          <Typography size="md">{t('infoForVendorsPage.registration.return')}</Typography>
+          <Typography size="md">
+            <Trans i18nKey="infoForVendorsPage.registration.extraInfoByMail" />
+          </Typography>
         </PlainInfo>
       </Band.NarrowColumn>
 
@@ -84,7 +77,8 @@ export const ForVendorsPage = () => {
         size="xs"
         color={BackgroundColors.navigationBand}
         stretchOnMobile
-        padding={isPhone ? 'sm' : 'xxl'}>
+        padding={isPhone ? 'sm' : 'xxl'}
+      >
         <Band.BeamTitle>{t('infoForVendorsPage.hallInfo.title')}</Band.BeamTitle>
 
         <PlainInfo>
@@ -127,7 +121,8 @@ export const ForVendorsPage = () => {
         size="xs"
         color={BackgroundColors.navigationBand}
         stretchOnMobile
-        padding={isPhone ? 'sm' : 'xxl'}>
+        padding={isPhone ? 'sm' : 'xxl'}
+      >
         <Band.BeamTitle>{t('infoForVendorsPage.parking.title')}</Band.BeamTitle>
 
         <PlainInfo>
@@ -143,7 +138,8 @@ export const ForVendorsPage = () => {
         size="xs"
         color={BackgroundColors.navigationBand}
         stretchOnMobile
-        padding={isPhone ? 'sm' : 'xxl'}>
+        padding={isPhone ? 'sm' : 'xxl'}
+      >
         <Band.BeamTitle>{t('infoForVendorsPage.marketing.title')}</Band.BeamTitle>
 
         <PlainInfo>
@@ -161,7 +157,8 @@ export const ForVendorsPage = () => {
         size="sm"
         color={BackgroundColors.navigationBand}
         stretchOnMobile
-        padding={isPhone ? 'sm' : 'xxl'}>
+        padding={isPhone ? 'xxs' : 'xxl'}
+      >
         <Band.BeamTitle>{t('infoForVendorsPage.stands.title')}</Band.BeamTitle>
 
         <PlainInfo>
@@ -171,7 +168,7 @@ export const ForVendorsPage = () => {
         </PlainInfo>
 
         <HallWrapper id="hall_wrapper">
-          <Hall />
+          <Hall multiplier={isPhone ? 7 : 15} />
           <HallLegend />
         </HallWrapper>
       </Band.NarrowColumn>
