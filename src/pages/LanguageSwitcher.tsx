@@ -116,9 +116,9 @@ export const LanguageSwitcher = ({ isOpen }: LanguageSwitcherProps) => {
         <Button onClick={() => onChangeLanguageClicked('en')} aria-label="change_language_to_en">
           <Icon size={flagIconSize} src={greatBritainIcon} />
         </Button>
-        <Button onClick={() => onChangeLanguageClicked('de')} aria-label="change_language_to_de">
+        {/* <Button onClick={() => onChangeLanguageClicked('de')} aria-label="change_language_to_de">
           <Icon size={flagIconSize} src={germanyIcon} />
-        </Button>
+        </Button> */}
       </Flags>
     </Root>
   );

@@ -146,8 +146,8 @@ export const en: TranslationsShape = {
         participants:
           'Entrance for fair participants will be on the side of Foch street, where they will enter the main hall efective descent from which whole exhibition hall will be visible.',
         stands: 'There will be three types of spots in the hall:',
-        standPremium: '<strong>Premium 4x4m</strong>',
-        standardStand: '<strong>Standard 4x2,5m</strong>',
+        standPremium: '<strong>Premium 3x5.5m</strong>',
+        standardStand: '<strong>Standard 3x3,5m</strong>',
         miniStand: '<strong>Mini 3x2m</strong>',
         tables:
           'Premium spot includes 2 chairs and 2 tables 160x80cm. Standard spot includes 2 chairs and 2 tables 140x70cm, while a Mini spot includes 2 chairs  and 1 table 140x70cm',
