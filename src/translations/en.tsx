@@ -19,7 +19,8 @@ export const en: TranslationsShape = {
       cruiseTickets: 'Cruise tickets',
       memories: 'Memories',
       hallMap: 'Mapa hali',
-      food: 'Food'
+      food: 'Food',
+      statuteForVendors: 'Regulamin sprzedaży stoisk'
     },
     tickets: {
       buyTicketsAndWorkshops: '<0>Buy</0> ticket to the fair or choose the workshops option',
@@ -363,6 +364,40 @@ export const en: TranslationsShape = {
         bursa2: 'Bursa - sala ?'
       },
       soldOut: 'Sold out'
+    },
+    vendorsStatue: {
+      title: 'Regulamin sprzedaży stoisk 2026',
+      intro:
+        'Obserwując różnego rodzaju targi zagraniczne jak i polskie, oraz dostosowując się do wymagań i konkurencyjności targów o tematyce dziewiarskiej, Organizatorki Krakoskiego Yarnmarku postanowiły zmienić koncepcję sprzedaży stoisk. Regulamin jest stworzony aby jasno określić zasady jakimi Organizatorki Krakoskiego Yarnmarku będą się kierować przy wyborze wystawców. Z uwagi na szacunek dla Wystawców jak i Uczestników, chcemy aby Krakoski Yarnmark był miejscem różnorodności, ale z dominującym jednak aspektem dziewiarskim.',
+      explanationIntro: 'W poniższym regulaminie kiedy mowa o:',
+      explanation1:
+        '<strong>Targach</strong> - mowa o Krakowskim Yarnmarku 2026 odbywającym się w terminie 18.04.2026r',
+      explanation2:
+        '<strong>Wystawcy</strong> - mowa o Przedsiębiorcy wybranym przez Organizatorki Krakoskiego Yarnmarku, który otrzymał stoisko, wskazane w formularzu zgłoszeniowym',
+      explanation3:
+        '<strong>Potencjalnym Wystawcy</strong> - przedsiębiorca, który wypełnił formularz zgłoszeniowy oraz ubiegający się o stoisko na Krakoskim Yarnmarku i możliwość wystawienia swoich produktów lub/i towarów na sprzedaż, w terminie po ogłoszeniu listy wystawców znajdujący się na liście rezerwowej',
+      condition1: 'Podstawą ubiegania się o stoisko na Krakoskim Yarnmarku jest wypełnienie formularza zgłoszeniowego.',
+      condition2:
+        'Wypełnienie formularza zgłoszeniowego NIE wiąże się z koniecznością natychmiastowej płatności oraz NIE gwarantuje miejsca na targach i NIE stanowi zawarcia umowy pomiędzy Organizatorem a Wystawcą.',
+      condition3: 'Kolejność nadesłanych zgłoszeń nie będzie brana pod uwagę przy wyborze Wystawcy.',
+      condition4: '<strong>Potencjalny Wystawca:</strong>',
+      subcondition4a: 'Przy zakupie stoiska premium nie może dokupić stoiska standard ani mini',
+      subcondition4b: 'Może zakupić tylko jedno stoisko mini',
+      subcondition4c: 'Nie może kupić więcej niż 2 stoiska standard',
+      condition5:
+        'Stoiska premium oraz standard mogą być współdzielone przez więcej niż jednego <strong>Wystawcę</strong>.',
+      condition6: 'Termin nadsyłania zgłoszeń mija <strong>XX.XX.2025</strong> o godz. <strong>XX:XX</strong>.',
+      condition7:
+        'Organizatorki zastrzegają sobie wybór <strong>Wystawców</strong>. Informacja o wyborze zostanie wysłana do <strong>XX.XX.2025</strong>. Pozostali <strong>Potencjalni Wystawcy</strong> otrzymają e-maila z informacją o wpisaniu na listę rezerwową.',
+      condition8:
+        '<strong>Wystawca</strong>, który otrzymał informację o wyborze otrzymuje równocześnie fakturę, którą musi opłacić w terminie <strong>X dni roboczych</strong>. W przypadku braku wpłaty w terminie, jego stoisko otrzymuje kolejny <strong>Potencjalny Wystawca</strong> z listy rezerwowej.',
+      condition9: 'W przypadku rezygnacji uczestnictwa w Krakoskim Yarnmarku:',
+      subcondition9a: 'na minimum 60 dni przed Targami Organizator zwraca 100% opłaty za stoisko',
+      subcondition9b: 'na minimum 30 dni przed Targami Organizator zwraca 50% opłaty za stoisko',
+      subcondition9c:
+        'na mniej niż 30 dni przed Targami Organizator nie zwraca <strong>Wystawcy</strong> opłaty za sprzedane stoisko. ',
+      condition10:
+        '<strong>Wystawca</strong> deklaruje, że ma świadomość wymiarów i wyposażenia wybranego przez siebie stoiska. Wystawca oświadcza, że będzie nie wychodzić stoiskiem, towarem lub reklamą  poza granice wskazane przez Organizatorki.'
     }
   }
 };
