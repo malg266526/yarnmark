@@ -134,8 +134,8 @@ export const en: TranslationsShape = {
     },
     infoForVendorsPage: {
       title: 'Information for vendors 2026',
-      seeStatue: 'Regulamin sprzedaży stoisk:',
-      here: 'Tutaj',
+      seeStatue: 'Terms and Conditions for the sale of vendors stands:',
+      here: 'Here',
       invitation: 'We heartily invite you to participate in III edition of Krakoski Yarnmark!',
       organisationInfo: 'Below a bit of organisational information for you.',
       hallInfo: {
@@ -368,16 +368,15 @@ export const en: TranslationsShape = {
       soldOut: 'Sold out'
     },
     vendorsStatue: {
-      title: 'Regulamin sprzedaży stoisk 2026',
+      title: 'Terms and Conditions for the sale of vendors stands 2026',
       intro:
-        'Obserwując różnego rodzaju targi zagraniczne jak i polskie, oraz dostosowując się do wymagań i konkurencyjności targów o tematyce dziewiarskiej, Organizatorki Krakoskiego Yarnmarku postanowiły zmienić koncepcję sprzedaży stoisk. Regulamin jest stworzony aby jasno określić zasady jakimi Organizatorki Krakoskiego Yarnmarku będą się kierować przy wyborze wystawców. Z uwagi na szacunek dla Wystawców jak i Uczestników, chcemy aby Krakoski Yarnmark był miejscem różnorodności, ale z dominującym jednak aspektem dziewiarskim.',
-      explanationIntro: 'W poniższym regulaminie kiedy mowa o:',
-      explanation1:
-        '<strong>Targach</strong> - mowa o Krakowskim Yarnmarku 2026 odbywającym się w terminie 18.04.2026r',
+        'Observing various trade fairs, both in Poland and abroad, and taking into account the requirements and competitiveness of knitting-themed events, the Organizers of Krakoski Yarnmark have decided to change the concept of stand sales. This Regulation has been created to clearly define the principles by which the Organizers of Krakoski Yarnmark will be guided when selecting vendors. Out of respect for both Vendors and Visitors, we wish for Krakoski Yarnmark to be a place of diversity, while maintaining a dominant focus on knitting.',
+      explanationIntro: 'In this document, the following terms refer to:',
+      explanation1: '<strong>Trade Fair</strong> - shall mean Krakoski Yarnmark 2026, to be held on 18.04.2026r',
       explanation2:
-        '<strong>Wystawcy</strong> - mowa o Przedsiębiorcy wybranym przez Organizatorki Krakoskiego Yarnmarku, który otrzymał stoisko, wskazane w formularzu zgłoszeniowym',
+        '<strong>Vendor</strong> - shall mean a participant selected by the Organizers of Krakoski Yarnmark, who has been allocated a stand as indicated in the application form.',
       explanation3:
-        '<strong>Potencjalnym Wystawcy</strong> - przedsiębiorca, który wypełnił formularz zgłoszeniowy oraz ubiegający się o stoisko na Krakoskim Yarnmarku i możliwość wystawienia swoich produktów lub/i towarów na sprzedaż, w terminie po ogłoszeniu listy wystawców znajdujący się na liście rezerwowej',
+        '<strong>Potential Vendor</strong> - hall mean an entrepreneur who has completed the application form and is applying for a stand at Krakoski Yarnmark, seeking the opportunity to display and/or sell their products or goods, and who, following the announcement of the list of confirmed vendors, is placed on the reserve list.',
       condition1: 'Podstawą ubiegania się o stoisko na Krakoskim Yarnmarku jest wypełnienie formularza zgłoszeniowego.',
       condition2:
         'Wypełnienie formularza zgłoszeniowego NIE wiąże się z koniecznością natychmiastowej płatności oraz NIE gwarantuje miejsca na targach i NIE stanowi zawarcia umowy pomiędzy Organizatorem a Wystawcą.',
