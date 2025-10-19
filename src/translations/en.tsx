@@ -134,6 +134,8 @@ export const en: TranslationsShape = {
     },
     infoForVendorsPage: {
       title: 'Information for vendors 2026',
+      seeStatue: 'Regulamin sprzedaży stoisk:',
+      here: 'Tutaj',
       invitation: 'We heartily invite you to participate in III edition of Krakoski Yarnmark!',
       organisationInfo: 'Below a bit of organisational information for you.',
       hallInfo: {

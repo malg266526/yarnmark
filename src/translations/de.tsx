@@ -138,6 +138,8 @@ export const de: TranslationsShape = {
     infoForVendorsPage: {
       title: 'Informationen für Aussteller 2026',
       invitation: 'Wir laden dich herzlich ein, an der 2. Ausgabe des Krakow Wool Yarnmark teilzunehmen!',
+      seeStatue: 'Regulamin sprzedaży stoisk:',
+      here: 'Tutaj',
       organisationInfo: 'Unten findest du einige organisatorische Informationen.',
       hallInfo: {
         title: 'Halle',

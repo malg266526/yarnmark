@@ -4,7 +4,7 @@ import { RedesignSpacings } from '../styles/spacings';
 export const RowLayout = styled.div<{
   wide?: boolean;
   gap?: keyof typeof RedesignSpacings;
-  justify?: 'center' | 'space-evenly' | 'space-between';
+  justify?: 'center' | 'space-evenly' | 'space-between' | 'flex-start';
   align?: 'center' | 'flex-start';
 }>`
   width: ${({ wide }) => (wide ? '100%' : 'initial')};

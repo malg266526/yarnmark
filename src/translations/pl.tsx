@@ -134,6 +134,8 @@ export const pl = {
     },
     infoForVendorsPage: {
       title: 'Informacje dla wystawców 2026',
+      seeStatue: 'Regulamin sprzedaży stoisk:',
+      here: 'Tutaj',
       invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w III edycji Krakoskiego Yarnmarku!',
       organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was.',
       hallInfo: {
