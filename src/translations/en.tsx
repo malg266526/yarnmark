@@ -377,28 +377,30 @@ export const en: TranslationsShape = {
         '<strong>Vendor</strong> - shall mean a participant selected by the Organizers of Krakoski Yarnmark, who has been allocated a stand as indicated in the application form.',
       explanation3:
         '<strong>Potential Vendor</strong> - hall mean an entrepreneur who has completed the application form and is applying for a stand at Krakoski Yarnmark, seeking the opportunity to display and/or sell their products or goods, and who, following the announcement of the list of confirmed vendors, is placed on the reserve list.',
-      condition1: 'Podstawą ubiegania się o stoisko na Krakoskim Yarnmarku jest wypełnienie formularza zgłoszeniowego.',
+      condition1:
+        'The basis for applying for a stand at the Krakoski Yarnmark is the completion of the application form.',
       condition2:
-        'Wypełnienie formularza zgłoszeniowego NIE wiąże się z koniecznością natychmiastowej płatności oraz NIE gwarantuje miejsca na targach i NIE stanowi zawarcia umowy pomiędzy Organizatorem a Wystawcą.',
-      condition3: 'Kolejność nadesłanych zgłoszeń nie będzie brana pod uwagę przy wyborze Wystawcy.',
-      condition4: '<strong>Potencjalny Wystawca:</strong>',
-      subcondition4a: 'Przy zakupie stoiska premium nie może dokupić stoiska standard ani mini',
-      subcondition4b: 'Może zakupić tylko jedno stoisko mini',
-      subcondition4c: 'Nie może kupić więcej niż 2 stoiska standard',
-      condition5:
-        'Stoiska premium oraz standard mogą być współdzielone przez więcej niż jednego <strong>Wystawcę</strong>.',
-      condition6: 'Termin nadsyłania zgłoszeń mija <strong>XX.XX.2025</strong> o godz. <strong>XX:XX</strong>.',
+        'Completing the application form does NOT entail an obligation of immediate payment, does NOT guarantee a place at the Trade Fair, and does NOT constitute the conclusion of an agreement between the Organizer and the Vendor.',
+      condition3:
+        'The order in which applications are submitted shall not be taken into consideration when selecting Vendors.',
+      condition4: '<strong>Potential Vendor::</strong>',
+      subcondition4a:
+        'When purchasing a Premium stand, the Vendor may not purchase a Standard or Mini stand in addition.',
+      subcondition4b: 'The Vendor may purchase only one Mini stand.',
+      subcondition4c: 'The Vendor may not purchase more than two Standard stands.',
+      condition5: 'Premium and Standard stands may be shared by more than one <strong>Vendor</strong>.',
+      condition6: 'The deadline for submitting applications is <strong>XX.XX.2025</strong> at <strong>XX:XX</strong>.',
       condition7:
-        'Organizatorki zastrzegają sobie wybór <strong>Wystawców</strong>. Informacja o wyborze zostanie wysłana do <strong>XX.XX.2025</strong>. Pozostali <strong>Potencjalni Wystawcy</strong> otrzymają e-maila z informacją o wpisaniu na listę rezerwową.',
+        'The Organizers reserve the right to select <strong>Vendors</strong>. Notification of selection will be sent by <strong>XX.XX.2025</strong>. Remaining <strong>Potential Vendors</strong> will receive an email informing them of their placement on the reserve list.',
       condition8:
-        '<strong>Wystawca</strong>, który otrzymał informację o wyborze otrzymuje równocześnie fakturę, którą musi opłacić w terminie <strong>X dni roboczych</strong>. W przypadku braku wpłaty w terminie, jego stoisko otrzymuje kolejny <strong>Potencjalny Wystawca</strong> z listy rezerwowej.',
-      condition9: 'W przypadku rezygnacji uczestnictwa w Krakoskim Yarnmarku:',
-      subcondition9a: 'na minimum 60 dni przed Targami Organizator zwraca 100% opłaty za stoisko',
-      subcondition9b: 'na minimum 30 dni przed Targami Organizator zwraca 50% opłaty za stoisko',
+        'A <strong>Vendor</strong>, who has received notification of selection will simultaneously receive an invoice, which must be paid within <strong>X business days</strong>. In the event of non-payment within the deadline, the stand will be offered to the next <strong>Potential Vendor</strong> on the reserve list.',
+      condition9: 'In the event of withdrawal from participation in the Krakoski Yarnmark:',
+      subcondition9a: 'At least 60 days before the Trade Fair, the Organizer shall refund 100% of the stand fee.',
+      subcondition9b: 'At least 30 days before the Trade Fair, the Organizer shall refund 50% of the stand fee.',
       subcondition9c:
-        'na mniej niż 30 dni przed Targami Organizator nie zwraca <strong>Wystawcy</strong> opłaty za sprzedane stoisko. ',
+        'Less than 30 days before the Trade Fair, the Organizer shall not refund the stand fee to the <strong>Vendor</strong>.',
       condition10:
-        '<strong>Wystawca</strong> deklaruje, że ma świadomość wymiarów i wyposażenia wybranego przez siebie stoiska. Wystawca oświadcza, że będzie nie wychodzić stoiskiem, towarem lub reklamą  poza granice wskazane przez Organizatorki.'
+        'The <strong>Vendor</strong> declares that they are aware of the dimensions and equipment of the stand they have selected. The Vendor undertakes not to extend the stand, merchandise, or advertising beyond the boundaries specified by the Organizers.'
     }
   }
 };
