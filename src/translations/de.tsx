@@ -382,13 +382,15 @@ export const de: TranslationsShape = {
         '<strong>Wystawcy</strong> - mowa o Przedsiębiorcy wybranym przez Organizatorki Krakoskiego Yarnmarku, który otrzymał stoisko, wskazane w formularzu zgłoszeniowym',
       explanation3:
         '<strong>Potencjalnym Wystawcy</strong> - przedsiębiorca, który wypełnił formularz zgłoszeniowy oraz ubiegający się o stoisko na Krakoskim Yarnmarku i możliwość wystawienia swoich produktów lub/i towarów na sprzedaż, w terminie po ogłoszeniu listy wystawców znajdujący się na liście rezerwowej',
+      explanation4:
+        '<strong>Formularz Zgłoszeniowy</strong> - formularz dostępny pod link stanowiący podstawę do bycia branym pod uwagę jako Potencjalny Wystawca.',
       condition1: 'Podstawą ubiegania się o stoisko na Krakoskim Yarnmarku jest wypełnienie formularza zgłoszeniowego.',
       condition2:
         'Wypełnienie formularza zgłoszeniowego NIE wiąże się z koniecznością natychmiastowej płatności oraz NIE gwarantuje miejsca na targach i NIE stanowi zawarcia umowy pomiędzy Organizatorem a Wystawcą.',
       condition3: 'Kolejność nadesłanych zgłoszeń nie będzie brana pod uwagę przy wyborze Wystawcy.',
       condition4: '<strong>Potencjalny Wystawca:</strong>',
       subcondition4a: 'Przy zakupie stoiska premium nie może dokupić stoiska standard ani mini',
-      subcondition4b: 'Może zakupić tylko jedno stoisko mini',
+      subcondition4b: 'The Vendor may not purchase more than one Mini stand.',
       subcondition4c: 'Nie może kupić więcej niż 2 stoiska standard',
       condition5:
         'Stoiska premium oraz standard mogą być współdzielone przez więcej niż jednego <strong>Wystawcę</strong>.',

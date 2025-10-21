@@ -377,23 +377,26 @@ export const en: TranslationsShape = {
         '<strong>Vendor</strong> - shall mean a participant selected by the Organizers of Krakoski Yarnmark, who has been allocated a stand as indicated in the application form.',
       explanation3:
         '<strong>Potential Vendor</strong> - hall mean an entrepreneur who has completed the application form and is applying for a stand at Krakoski Yarnmark, seeking the opportunity to display and/or sell their products or goods, and who, following the announcement of the list of confirmed vendors, is placed on the reserve list.',
+      explanation4:
+        '<strong>Formularz Zgłoszeniowy</strong> - formularz dostępny pod link stanowiący podstawę do bycia branym pod uwagę jako Potencjalny Wystawca.',
       condition1:
         'The basis for applying for a stand at the Krakoski Yarnmark is the completion of the application form.',
       condition2:
         'Completing the application form does NOT entail an obligation of immediate payment, does NOT guarantee a place at the Trade Fair, and does NOT constitute the conclusion of an agreement between the Organizer and the Vendor.',
       condition3:
         'The order in which applications are submitted shall not be taken into consideration when selecting Vendors.',
-      condition4: '<strong>Potential Vendor::</strong>',
+      condition4: '<strong>Potential Vendor:</strong>',
       subcondition4a:
         'When purchasing a Premium stand, the Vendor may not purchase a Standard or Mini stand in addition.',
-      subcondition4b: 'The Vendor may purchase only one Mini stand.',
+      subcondition4b: 'The Vendor may not purchase more than one Mini stand.',
       subcondition4c: 'The Vendor may not purchase more than two Standard stands.',
-      condition5: 'Premium and Standard stands may be shared by more than one <strong>Vendor</strong>.',
-      condition6: 'The deadline for submitting applications is <strong>XX.XX.2025</strong> at <strong>XX:XX</strong>.',
+      condition5:
+        'Premium and Standard stands may be shared by more than one <strong>Vendor</strong>. Vendors organize themselves among themselves, notifying the Organizers about sharing a stand. Notification of stand sharing must be sent by January 31, 2026.',
+      condition6: 'The deadline for submitting applications is <strong>16.11.2025</strong> at <strong>23:59</strong>.',
       condition7:
-        'The Organizers reserve the right to select <strong>Vendors</strong>. Notification of selection will be sent by <strong>XX.XX.2025</strong>. Remaining <strong>Potential Vendors</strong> will receive an email informing them of their placement on the reserve list.',
+        'The Organizers reserve the right to select <strong>Vendors</strong>. Notification of selection will be sent at <strong>25.11.2025</strong>. Remaining <strong>Potential Vendors</strong> will receive an email informing them of their placement on the reserve list.',
       condition8:
-        'A <strong>Vendor</strong>, who has received notification of selection will simultaneously receive an invoice, which must be paid within <strong>X business days</strong>. In the event of non-payment within the deadline, the stand will be offered to the next <strong>Potential Vendor</strong> on the reserve list.',
+        'A <strong>Vendor</strong>, who has received notification of selection will simultaneously receive an invoice, which must be paid by <strong>2.12.2025r.</strong>. The date of receipt of the payment to the account indicated on the invoice is decisive. In the event of non-payment within the deadline, the stand will be offered to the next <strong>Potential Vendor</strong> on the reserve list.',
       condition9: 'In the event of withdrawal from participation in the Krakoski Yarnmark:',
       subcondition9a: 'At least 60 days before the Trade Fair, the Organizer shall refund 100% of the stand fee.',
       subcondition9b: 'At least 30 days before the Trade Fair, the Organizer shall refund 50% of the stand fee.',

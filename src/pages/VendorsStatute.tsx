@@ -77,6 +77,9 @@ export const VendorStatutePage = () => {
             <li>
               <Trans i18nKey="vendorsStatue.explanation3" />
             </li>
+            <li>
+              <Trans i18nKey="vendorsStatue.explanation4" />
+            </li>
           </ol>
 
           <CenteredH2>{t('vendorsStatue.title')}</CenteredH2>
