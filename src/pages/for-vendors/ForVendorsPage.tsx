@@ -16,6 +16,8 @@ import styled from 'styled-components';
 import { ScreenSize } from '../../styles/screeen-size';
 import { Hall } from '../../components/Hall';
 import { HallLegend } from '../../components/HallLegend';
+import { RowLayout } from '../../components/RowLayout';
+import { Link } from '../../components/Link';
 
 const InvitationBoxWrapper = styled.div`
   padding-left: 240px;
@@ -66,6 +68,13 @@ export const ForVendorsPage = () => {
           <Typography size="md">
             <Trans i18nKey="infoForVendorsPage.registration.extraInfoByMail" />
           </Typography>
+
+          <RowLayout justify="flex-start">
+            <Typography size="md">{t('infoForVendorsPage.seeStatue')}</Typography>
+            <Link to="/info-for-vendors-statue">
+              <Typography size="md">{t('infoForVendorsPage.here')}</Typography>
+            </Link>
+          </RowLayout>
         </PlainInfo>
       </Band.NarrowColumn>
 

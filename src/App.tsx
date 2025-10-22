@@ -20,6 +20,7 @@ import { Typography } from './components/Typography';
 import { usePhone } from './hooks/usePhone';
 import { WorkshopsSchedule } from './pages/WorkshopsSchedule';
 import { EditorPage } from './pages/EditorPage';
+import { VendorStatutePage } from './pages/VendorsStatute';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -77,6 +78,7 @@ export const App = () => {
           <Route path="/hall" element={<HallMapPage />} />
           <Route path="/schedule" element={<WorkshopsSchedule />} />
           <Route path="/editor" element={<EditorPage />} />
+          <Route path="/info-for-vendors-statue" element={<VendorStatutePage />} />
         </Routes>
 
         <Footer id="footer">

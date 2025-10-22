@@ -19,7 +19,8 @@ export const pl = {
       statutes: 'Regulamin',
       tickets: 'Bilety',
       hallMap: 'Mapa hali',
-      food: 'Jedzonko'
+      food: 'Jedzonko',
+      statuteForVendors: 'Regulamin sprzedaży stoisk'
     },
     tickets: {
       buyTicketsAndWorkshops: '<0>Kup</0> bilet na targi lub wybierz opcję z warsztatami',
@@ -133,6 +134,8 @@ export const pl = {
     },
     infoForVendorsPage: {
       title: 'Informacje dla wystawców 2026',
+      seeStatue: 'Regulamin sprzedaży stoisk:',
+      here: 'Tutaj',
       invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w III edycji Krakoskiego Yarnmarku!',
       organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was.',
       hallInfo: {
@@ -364,6 +367,42 @@ export const pl = {
         bursa2: 'Bursa - sala B - al. Focha 39'
       },
       soldOut: 'Wyprzedane'
+    },
+    vendorsStatue: {
+      title: 'Regulamin sprzedaży stoisk 2026',
+      intro:
+        'Obserwując różnego rodzaju targi zagraniczne jak i polskie, oraz dostosowując się do wymagań i konkurencyjności targów o tematyce dziewiarskiej, Organizatorki Krakoskiego Yarnmarku postanowiły zmienić koncepcję sprzedaży stoisk. Regulamin jest stworzony aby jasno określić zasady jakimi Organizatorki Krakoskiego Yarnmarku będą się kierować przy wyborze wystawców. Z uwagi na szacunek dla Wystawców jak i Uczestników, chcemy aby Krakoski Yarnmark był miejscem różnorodności, ale z dominującym jednak aspektem dziewiarskim.',
+      explanationIntro: 'W poniższym regulaminie kiedy mowa o:',
+      explanation1:
+        '<strong>Targach</strong> - mowa o Krakowskim Yarnmarku 2026 odbywającym się w terminie 18.04.2026r',
+      explanation2:
+        '<strong>Wystawcy</strong> - mowa o Przedsiębiorcy wybranym przez Organizatorki Krakoskiego Yarnmarku, który otrzymał stoisko, wskazane w formularzu zgłoszeniowym',
+      explanation3:
+        '<strong>Potencjalnym Wystawcy</strong> - przedsiębiorca, który wypełnił formularz zgłoszeniowy oraz ubiegający się o stoisko na Krakoskim Yarnmarku i możliwość wystawienia swoich produktów lub/i towarów na sprzedaż, w terminie po ogłoszeniu listy wystawców znajdujący się na liście rezerwowej',
+      explanation4:
+        '<strong>Formularz Zgłoszeniowy</strong> - formularz dostępny pod link stanowiący podstawę do bycia branym pod uwagę jako Potencjalny Wystawca.',
+      condition1: 'Podstawą ubiegania się o stoisko na Krakoskim Yarnmarku jest wypełnienie formularza zgłoszeniowego.',
+      condition2:
+        'Wypełnienie formularza zgłoszeniowego NIE wiąże się z koniecznością natychmiastowej płatności oraz NIE gwarantuje miejsca na targach i NIE stanowi zawarcia umowy pomiędzy Organizatorem a Wystawcą.',
+      condition3: 'Kolejność nadesłanych zgłoszeń nie będzie brana pod uwagę przy wyborze Wystawcy.',
+      condition4: '<strong>Potencjalny Wystawca:</strong>',
+      subcondition4a: 'Przy zakupie stoiska premium nie może dokupić stoiska standard ani mini',
+      subcondition4b: 'Nie może kupić więcej niż 1 stoisko mini',
+      subcondition4c: 'Nie może kupić więcej niż 2 stoiska standard',
+      condition5:
+        'Stoiska premium oraz standard mogą być współdzielone przez więcej niż jednego <strong>Wystawcę</strong>. Wystawcy sami organizują się między sobą, powiadamiając Organizatorki o współdzieleniu stoiska. O współdzieleniu stoiska powiadomienie należy wysłać do 31.01.2026r.',
+      condition6: 'Termin wypełnienia formularza mija <strong>16.11.2025</strong> o godz. <strong>23:59</strong>.',
+      condition7:
+        'Organizatorki zastrzegają sobie wybór <strong>Wystawców</strong>. Informacja o wyborze zostanie wysłana <strong>25.11.2025</strong>. Pozostali <strong>Potencjalni Wystawcy</strong> otrzymają e-maila z informacją o wpisaniu na listę rezerwową.',
+      condition8:
+        '<strong>Wystawca</strong>, który otrzymał informację o wyborze otrzymuje równocześnie fakturę, którą musi opłacić w terminie do<strong>2.12.2025r.</strong>. Decyduje data wpłynięcia opłaty na konto wskazane na fakturze. W przypadku braku wpłaty w terminie, jego stoisko otrzymuje kolejny <strong>Potencjalny Wystawca</strong> z listy rezerwowej.',
+      condition9: 'W przypadku rezygnacji uczestnictwa w Krakoskim Yarnmarku:',
+      subcondition9a: 'na minimum 60 dni przed Targami Organizatorki zwracają 100% opłaty za stoisko',
+      subcondition9b: 'na minimum 30 dni przed Targami Organizatorki zwracają 50% opłaty za stoisko',
+      subcondition9c:
+        'na mniej niż 30 dni przed Targami Organizatorki nie zwraca <strong>Wystawcy</strong> opłaty za sprzedane stoisko. ',
+      condition10:
+        '<strong>Wystawca</strong> deklaruje, że ma świadomość wymiarów i wyposażenia wybranego przez siebie stoiska. Wystawca oświadcza, że nie będzie wykraczać poza wskazane przez Organizatorki granice stoiska sprzętem, towarem lub reklamą.'
     }
   }
 };
