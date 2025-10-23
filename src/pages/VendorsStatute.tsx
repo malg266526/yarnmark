@@ -89,7 +89,7 @@ export const VendorStatutePage = () => {
                   <Link
                     key="tickets_url"
                     target="_blank"
-                    href="http://localhost:8090/info-for-vendors"
+                    href="https://docs.google.com/forms/d/1v33Xps7qGVO9jwpa-iAj5vjQM70gjz2HFksviCHichs/edit"
                     aria-label="tickets"
                     style={{ pointerEvents: 'none' }}
                   />
