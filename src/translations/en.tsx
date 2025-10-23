@@ -19,8 +19,12 @@ export const en: TranslationsShape = {
       cruiseTickets: 'Cruise tickets',
       memories: 'Memories',
       hallMap: 'Mapa hali',
+<<<<<<< Updated upstream
+      food: 'Food'
+=======
       food: 'Food',
-      statuteForVendors: 'Regulamin sprzedaży stoisk'
+      statuteForVendors: 'Terms and Conditions for the sale of stands'
+>>>>>>> Stashed changes
     },
     tickets: {
       buyTicketsAndWorkshops: '<0>Buy</0> ticket to the fair or choose the workshops option',
@@ -366,9 +370,12 @@ export const en: TranslationsShape = {
         bursa2: 'Bursa - sala ?'
       },
       soldOut: 'Sold out'
+<<<<<<< Updated upstream
+=======
     },
     vendorsStatue: {
       title: 'Terms and Conditions for the sale of vendors stands 2026',
+      subtitle: 'Conditions for the sale of vendors stands 2026',
       intro:
         'Observing various trade fairs, both in Poland and abroad, and taking into account the requirements and competitiveness of knitting-themed events, the Organizers of Krakoski Yarnmark have decided to change the concept of stand sales. This Regulation has been created to clearly define the principles by which the Organizers of Krakoski Yarnmark will be guided when selecting vendors. Out of respect for both Vendors and Visitors, we wish for Krakoski Yarnmark to be a place of diversity, while maintaining a dominant focus on knitting.',
       explanationIntro: 'In this document, the following terms refer to:',
@@ -376,9 +383,9 @@ export const en: TranslationsShape = {
       explanation2:
         '<strong>Vendor</strong> - shall mean a participant selected by the Organizers of Krakoski Yarnmark, who has been allocated a stand as indicated in the application form.',
       explanation3:
-        '<strong>Potential Vendor</strong> - hall mean an entrepreneur who has completed the application form and is applying for a stand at Krakoski Yarnmark, seeking the opportunity to display and/or sell their products or goods, and who, following the announcement of the list of confirmed vendors, is placed on the reserve list.',
+        '<strong>Potential Vendor</strong> - shall mean an entrepreneur who has completed the application form and is applying for a stand at Krakoski Yarnmark, seeking the opportunity to display and/or sell their products or goods, and who, following the announcement of the list of confirmed vendors, is placed on the reserve list.',
       explanation4:
-        '<strong>Formularz Zgłoszeniowy</strong> - formularz dostępny pod link stanowiący podstawę do bycia branym pod uwagę jako Potencjalny Wystawca.',
+        '<strong>Application Form</strong> - the form available at the <0>link</0> which is the basis for being considered as a <strong>Potential Vendor</strong>.',
       condition1:
         'The basis for applying for a stand at the Krakoski Yarnmark is the completion of the application form.',
       condition2:
@@ -404,6 +411,7 @@ export const en: TranslationsShape = {
         'Less than 30 days before the Trade Fair, the Organizer shall not refund the stand fee to the <strong>Vendor</strong>.',
       condition10:
         'The <strong>Vendor</strong> declares that they are aware of the dimensions and equipment of the stand they have selected. The Vendor undertakes not to extend the stand, merchandise, or advertising beyond the boundaries specified by the Organizers.'
+>>>>>>> Stashed changes
     }
   }
 };
