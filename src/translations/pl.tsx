@@ -175,9 +175,8 @@ export const pl = {
         title: 'Zapisy',
         wantToJoin: 'Chcesz zostać wystawcą na Krakoski Yarnmark 2026?',
         newForm:
-          'Tegoroczne zgłoszenia przyjmujemy w nowej formie - szczegóły już wkrótce na naszych mediach społecznościowych oraz tutaj.',
-        extraInfoByMail:
-          'Chcesz zostać dodatkowo poinformowany drogą mailową? Napisz na <strong>krakoski.yarnmark@gmail.com</strong>',
+          'Zapraszamy do wypełnienia formularza zgłoszeniowego - <0>link</0> (Formularz zostanie udostępniony 27.10.2025).',
+        extraInfoByMail: 'Masz dodatkowe pytania? Napisz na <strong>krakoski.yarnmark@gmail.com</strong>',
         beAVendor:
           'Jeśli chcesz dołączyć do wspaniałego grona naszych wystawców, napisz do nas! Email kontaktowy: <strong>krakoski.yarnmark@gmail.com</strong>',
         start: 'Możliwość zakupu stoiska startuje w poniedziałek <strong>22.01.2024r.</strong> o godz. 12:00.',

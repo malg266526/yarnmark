@@ -87,10 +87,10 @@ export const VendorStatutePage = () => {
                 i18nKey="vendorsStatue.explanation4"
                 components={[
                   <Link
-                    key="tickets_url"
+                    key="application_form_url"
                     target="_blank"
                     href="https://docs.google.com/forms/d/1v33Xps7qGVO9jwpa-iAj5vjQM70gjz2HFksviCHichs/edit"
-                    aria-label="tickets"
+                    aria-label="applicationForm"
                     style={{ pointerEvents: 'none' }}
                   />
                 ]}
