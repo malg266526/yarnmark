@@ -1,6 +1,6 @@
 import React from 'react';
 import { SlantedCornersBox } from '../../components/SlantedCornersBox';
-import { BackgroundColors } from '../../styles/theme';
+import { BackgroundColors, TextColors } from '../../styles/theme';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Trans } from 'react-i18next';
 import { HallWrapper, PlainInfo, Separator } from './ForVendorsPage.styled';
@@ -18,6 +18,11 @@ import { Hall } from '../../components/Hall';
 import { HallLegend } from '../../components/HallLegend';
 import { RowLayout } from '../../components/RowLayout';
 import { Link } from '../../components/Link';
+
+const SimpleLink = styled.a`
+  color: ${TextColors.accent};
+  text-decoration: none;
+`;
 
 const InvitationBoxWrapper = styled.div`
   padding-left: 240px;
@@ -63,7 +68,18 @@ export const ForVendorsPage = () => {
             <Trans i18nKey="infoForVendorsPage.registration.wantToJoin" />
           </Typography>
           <Typography size="md">
-            <Trans i18nKey="infoForVendorsPage.registration.newForm" />
+            <Trans
+              i18nKey="infoForVendorsPage.registration.newForm"
+              components={[
+                <SimpleLink
+                  key="application_form_url"
+                  target="_blank"
+                  href="https://docs.google.com/forms/d/1v33Xps7qGVO9jwpa-iAj5vjQM70gjz2HFksviCHichs/edit"
+                  aria-label="applicationForm"
+                  style={{ pointerEvents: 'none' }}
+                />
+              ]}
+            />
           </Typography>
           <Typography size="md">
             <Trans i18nKey="infoForVendorsPage.registration.extraInfoByMail" />

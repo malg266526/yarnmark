@@ -373,6 +373,7 @@ export const de: TranslationsShape = {
     },
     vendorsStatue: {
       title: 'Regulamin sprzedaży stoisk 2026',
+      subtitle: 'Conditions for the sale of vendors stands 2026',
       intro:
         'Obserwując różnego rodzaju targi zagraniczne jak i polskie, oraz dostosowując się do wymagań i konkurencyjności targów o tematyce dziewiarskiej, Organizatorki Krakoskiego Yarnmarku postanowiły zmienić koncepcję sprzedaży stoisk. Regulamin jest stworzony aby jasno określić zasady jakimi Organizatorki Krakoskiego Yarnmarku będą się kierować przy wyborze wystawców. Z uwagi na szacunek dla Wystawców jak i Uczestników, chcemy aby Krakoski Yarnmark był miejscem różnorodności, ale z dominującym jednak aspektem dziewiarskim.',
       explanationIntro: 'W poniższym regulaminie kiedy mowa o:',

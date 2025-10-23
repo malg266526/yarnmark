@@ -7,7 +7,7 @@
     "width": 3,
     "height": 3,
     "color": "tech",
-    "description": "Wejście",
+    "description": "Wejście / Entrance",
     "start": {
       "row": 82,
       "col": 46
@@ -25,7 +25,7 @@
     "width": 5,
     "height": 3,
     "color": "tech",
-    "description": "Wejście dla wystawców",
+    "description": "Wejście dla wystawców / Vendors entrance",
     "start": {
       "row": 0,
       "col": 0
@@ -350,7 +350,7 @@
     "width": 2.5,
     "height": 3,
     "color": "tech",
-    "description": "Przejście do toalet",
+    "description": "Przejście do toalet / Passage to toilets",
     "start": {
       "row": 82,
       "col": 27
@@ -504,7 +504,7 @@
     "width": 3,
     "height": 0.5,
     "color": "tech",
-    "description": "Socjal",
+    "description": "to vendors room",
     "start": {
       "row": 64,
       "col": 1
