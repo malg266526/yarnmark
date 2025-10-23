@@ -370,8 +370,6 @@ export const de: TranslationsShape = {
         bursa2: 'Bursa - sala ?'
       },
       soldOut: 'Ausverkauft'
-<<<<<<< Updated upstream
-=======
     },
     vendorsStatue: {
       title: 'Regulamin sprzedaży stoisk 2026',
@@ -409,7 +407,6 @@ export const de: TranslationsShape = {
         'na mniej niż 30 dni przed Targami Organizator nie zwraca <strong>Wystawcy</strong> opłaty za sprzedane stoisko. ',
       condition10:
         '<strong>Wystawca</strong> deklaruje, że ma świadomość wymiarów i wyposażenia wybranego przez siebie stoiska. Wystawca oświadcza, że będzie nie wychodzić stoiskiem, towarem lub reklamą  poza granice wskazane przez Organizatorki.'
->>>>>>> Stashed changes
     }
   }
 };

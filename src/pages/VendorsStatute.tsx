@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SlantedCornersBox } from '../components/SlantedCornersBox';
-import { BackgroundColors } from '../styles/theme';
+import { BackgroundColors, TextColors } from '../styles/theme';
 import { Header } from './menu/Header';
 import { CenteredSection } from '../components/CenteredSection';
 import { BandTitle } from '../components/bands/BandTitle';
@@ -14,6 +14,11 @@ import { usePhone } from '../hooks/usePhone';
 import { PlainInfo, Separator } from './for-vendors/ForVendorsPage.styled';
 import { Typography } from '../components/Typography';
 import { Trans } from 'react-i18next';
+
+const Link = styled.a`
+  color: ${TextColors.accent};
+  text-decoration: none;
+`;
 
 const InvitationBoxWrapper = styled.div`
   padding-left: 240px;
@@ -78,11 +83,22 @@ export const VendorStatutePage = () => {
               <Trans i18nKey="vendorsStatue.explanation3" />
             </li>
             <li>
-              <Trans i18nKey="vendorsStatue.explanation4" />
+              <Trans
+                i18nKey="vendorsStatue.explanation4"
+                components={[
+                  <Link
+                    key="tickets_url"
+                    target="_blank"
+                    href="http://localhost:8090/info-for-vendors"
+                    aria-label="tickets"
+                    style={{ pointerEvents: 'none' }}
+                  />
+                ]}
+              />
             </li>
           </ol>
 
-          <CenteredH2>{t('vendorsStatue.title')}</CenteredH2>
+          <CenteredH2>{t('vendorsStatue.subtitle')}</CenteredH2>
 
           <ol>
             <li>{t('vendorsStatue.condition1')}</li>

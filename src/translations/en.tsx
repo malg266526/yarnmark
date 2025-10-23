@@ -19,12 +19,8 @@ export const en: TranslationsShape = {
       cruiseTickets: 'Cruise tickets',
       memories: 'Memories',
       hallMap: 'Mapa hali',
-<<<<<<< Updated upstream
-      food: 'Food'
-=======
       food: 'Food',
       statuteForVendors: 'Terms and Conditions for the sale of stands'
->>>>>>> Stashed changes
     },
     tickets: {
       buyTicketsAndWorkshops: '<0>Buy</0> ticket to the fair or choose the workshops option',
@@ -370,8 +366,6 @@ export const en: TranslationsShape = {
         bursa2: 'Bursa - sala ?'
       },
       soldOut: 'Sold out'
-<<<<<<< Updated upstream
-=======
     },
     vendorsStatue: {
       title: 'Terms and Conditions for the sale of vendors stands 2026',
@@ -411,7 +405,6 @@ export const en: TranslationsShape = {
         'Less than 30 days before the Trade Fair, the Organizer shall not refund the stand fee to the <strong>Vendor</strong>.',
       condition10:
         'The <strong>Vendor</strong> declares that they are aware of the dimensions and equipment of the stand they have selected. The Vendor undertakes not to extend the stand, merchandise, or advertising beyond the boundaries specified by the Organizers.'
->>>>>>> Stashed changes
     }
   }
 };

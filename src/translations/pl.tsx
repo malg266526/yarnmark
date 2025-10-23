@@ -367,8 +367,6 @@ export const pl = {
         bursa2: 'Bursa - sala B - al. Focha 39'
       },
       soldOut: 'Wyprzedane'
-<<<<<<< Updated upstream
-=======
     },
     vendorsStatue: {
       title: 'Regulamin sprzedaży stoisk 2026',
@@ -407,7 +405,6 @@ export const pl = {
         'na mniej niż 30 dni przed Targami Organizatorki nie zwraca <strong>Wystawcy</strong> opłaty za sprzedane stoisko. ',
       condition10:
         '<strong>Wystawca</strong> deklaruje, że ma świadomość wymiarów i wyposażenia wybranego przez siebie stoiska. Wystawca oświadcza, że nie będzie wykraczać poza wskazane przez Organizatorki granice stoiska sprzętem, towarem lub reklamą.'
->>>>>>> Stashed changes
     }
   }
 };
