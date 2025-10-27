@@ -1,6 +1,6 @@
 import React from 'react';
 import { SlantedCornersBox } from '../../components/SlantedCornersBox';
-import { BackgroundColors, TextColors } from '../../styles/theme';
+import { BackgroundColors } from '../../styles/theme';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Trans, useTranslation } from 'react-i18next';
 import { HallWrapper, PlainInfo, Separator } from './ForVendorsPage.styled';
