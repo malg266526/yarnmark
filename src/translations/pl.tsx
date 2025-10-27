@@ -174,8 +174,7 @@ export const pl = {
       registration: {
         title: 'Zapisy',
         wantToJoin: 'Chcesz zostać wystawcą na Krakoski Yarnmark 2026?',
-        newForm:
-          'Zapraszamy do wypełnienia formularza zgłoszeniowego - <0>link</0> (Formularz zostanie udostępniony 27.10.2025).',
+        newForm: 'Zapraszamy do wypełnienia formularza zgłoszeniowego: <0>Formularz</0>.',
         extraInfoByMail: 'Masz dodatkowe pytania? Napisz na <strong>krakoski.yarnmark@gmail.com</strong>',
         beAVendor:
           'Jeśli chcesz dołączyć do wspaniałego grona naszych wystawców, napisz do nas! Email kontaktowy: <strong>krakoski.yarnmark@gmail.com</strong>',

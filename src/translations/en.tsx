@@ -174,10 +174,9 @@ export const en: TranslationsShape = {
       registration: {
         title: 'Reservations',
         wantToJoin: 'Do you want to become a vendor at Krakoski Yarnmark 2026?',
-        newForm:
-          'We invite you to fill out the application form - <0>link</0> (The form will be available on October 27, 2025).',
+        newForm: 'We invite you to fill out the application form: <0>Form</0>.',
         extraInfoByMail:
-          'Would you like to receive additional information via email? Write to<strong>krakoski.yarnmark@gmail.com</strong > ',
+          'Would you like to receive additional information via email? Write to <strong>krakoski.yarnmark@gmail.com</strong > ',
         beAVendor:
           'If you wanna join the great group of our vendors write us an email! Email address: <strong>krakoski.yarnmark@gmail.com</strong>',
         start: 'Spot reservations start on Monday <strong>22.01.2024r.</strong> at 12:00 AM',
@@ -368,8 +367,8 @@ export const en: TranslationsShape = {
       soldOut: 'Sold out'
     },
     vendorsStatue: {
-      title: 'Terms and Conditions for the sale of vendors stands 2026',
-      subtitle: 'Conditions for the sale of vendors stands 2026',
+      title: 'Terms and Conditions for the sale of the vendors stands 2026',
+      subtitle: 'Conditions for the sale of the vendors stands 2026',
       intro:
         'Observing various trade fairs, both in Poland and abroad, and taking into account the requirements and competitiveness of knitting-themed events, the Organizers of Krakoski Yarnmark have decided to change the concept of stand sales. This Regulation has been created to clearly define the principles by which the Organizers of Krakoski Yarnmark will be guided when selecting vendors. Out of respect for both Vendors and Visitors, we wish for Krakoski Yarnmark to be a place of diversity, while maintaining a dominant focus on knitting.',
       explanationIntro: 'In this document, the following terms refer to:',
