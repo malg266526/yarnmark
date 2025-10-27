@@ -2,7 +2,7 @@ import React from 'react';
 import { SlantedCornersBox } from '../../components/SlantedCornersBox';
 import { BackgroundColors, TextColors } from '../../styles/theme';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { Trans } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { HallWrapper, PlainInfo, Separator } from './ForVendorsPage.styled';
 import { usePhone } from '../../hooks/usePhone';
 import { Header } from '../menu/Header';
@@ -18,11 +18,7 @@ import { Hall } from '../../components/Hall';
 import { HallLegend } from '../../components/HallLegend';
 import { RowLayout } from '../../components/RowLayout';
 import { Link } from '../../components/Link';
-
-const SimpleLink = styled.a`
-  color: ${TextColors.accent};
-  text-decoration: none;
-`;
+import { FontSize } from '../../styles/font-size';
 
 const InvitationBoxWrapper = styled.div`
   padding-left: 240px;
@@ -32,9 +28,22 @@ const InvitationBoxWrapper = styled.div`
   }
 `;
 
+const MdLink = styled(Link)`
+  font-size: ${FontSize.md};
+`;
+
 export const ForVendorsPage = () => {
   const t = useTypedTranslation();
+  const { i18n } = useTranslation();
   const isPhone = usePhone();
+
+  const links: Record<string, string> = {
+    pl: 'https://docs.google.com/forms/d/1v33Xps7qGVO9jwpa-iAj5vjQM70gjz2HFksviCHichs/edit',
+    en: 'https://docs.google.com/forms/d/15Npi8i8ujiGyyxhMJIJxMvHLxBstbVArAWoo67DsjQs/edit',
+    de: 'https://docs.google.com/forms/d/15Npi8i8ujiGyyxhMJIJxMvHLxBstbVArAWoo67DsjQs/edit'
+  };
+
+  const formLink = links[i18n.language] || links.en;
 
   return (
     <PageContent variant="wide" padding="none">
@@ -71,13 +80,7 @@ export const ForVendorsPage = () => {
             <Trans
               i18nKey="infoForVendorsPage.registration.newForm"
               components={[
-                <SimpleLink
-                  key="application_form_url"
-                  target="_blank"
-                  href="https://docs.google.com/forms/d/1v33Xps7qGVO9jwpa-iAj5vjQM70gjz2HFksviCHichs/edit"
-                  aria-label="applicationForm"
-                  style={{ pointerEvents: 'none' }}
-                />
+                <MdLink key="application_form_url" target="_blank" to={formLink} aria-label="applicationForm" />
               ]}
             />
           </Typography>
