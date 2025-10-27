@@ -38,9 +38,9 @@ export const ForVendorsPage = () => {
   const isPhone = usePhone();
 
   const links: Record<string, string> = {
-    pl: 'https://docs.google.com/forms/d/1v33Xps7qGVO9jwpa-iAj5vjQM70gjz2HFksviCHichs/edit',
-    en: 'https://docs.google.com/forms/d/15Npi8i8ujiGyyxhMJIJxMvHLxBstbVArAWoo67DsjQs/edit',
-    de: 'https://docs.google.com/forms/d/15Npi8i8ujiGyyxhMJIJxMvHLxBstbVArAWoo67DsjQs/edit'
+    pl: 'https://docs.google.com/forms/d/e/1FAIpQLSdTs7hXzvlXz157H-rxGuz8Pn428g_TPmDdKVGHdHhY95EtJg/viewform?usp=dialog',
+    en: 'https://docs.google.com/forms/d/e/1FAIpQLSel1l_OJKZFrPVGaotywJABBE4xIdvRyFoyYDEvTKvSU6vb0Q/viewform?usp=sharing&ouid=102752904430891841779',
+    de: 'https://docs.google.com/forms/d/e/1FAIpQLSel1l_OJKZFrPVGaotywJABBE4xIdvRyFoyYDEvTKvSU6vb0Q/viewform?usp=sharing&ouid=102752904430891841779'
   };
 
   const formLink = links[i18n.language] || links.en;
