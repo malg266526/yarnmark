@@ -71,10 +71,26 @@ const StandIndex = styled.div`
   white-space: nowrap;
 `;
 
+const StandVendor = styled.div`
+  position: absolute;
+  z-index: 2;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 14px; /* adjust if needed */
+  color: #111;
+  pointer-events: none; /* allow clicks to pass through */
+  user-select: none;
+  white-space: nowrap;
+`;
+
 export const Editor = () => {
   const { start, end, handleMouseDown, handleMouseEnter, handleMouseUp, handleClick } = useMouseHandlers();
 
   const { stands, currentStand } = useEditor();
+
+  console.log('Editor render', { stands, currentStand });
 
   const getStandAtCell = (row: number, col: number) => {
     return stands.find((stand) => isWithinBox(row, col, stand.start, stand.end)) || null;
@@ -114,7 +130,15 @@ export const Editor = () => {
                 onMouseUp={handleMouseUp}
                 onClick={() => handleClick(row, col, currentStand.width ?? 1, currentStand.height ?? 1)}
               >
-                {isMiddle && stand ? <StandIndex>{stand.index}</StandIndex> : ''}
+                {isMiddle && stand ? (
+                  <StandIndex>
+                    {stand.index}
+
+                    <StandVendor>{stand.vendor}</StandVendor>
+                  </StandIndex>
+                ) : (
+                  ''
+                )}
               </Square>
             );
           })
