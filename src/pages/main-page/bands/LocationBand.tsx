@@ -1,20 +1,20 @@
-import { Band } from '../../components/bands/Band';
-import halaAvifImageSrc from '../../assets/images/hala.avif';
-import halaWebpImageSrc from '../../assets/images/hala.webp';
-import halaJpgImageSrc from '../../assets/images/hala.jpg';
+import { Band } from '../../../components/bands/Band';
+import halaAvifImageSrc from '../../../assets/images/hala.avif';
+import halaWebpImageSrc from '../../../assets/images/hala.webp';
+import halaJpgImageSrc from '../../../assets/images/hala.jpg';
 import React from 'react';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { SlantedCornersBox } from '../../components/SlantedCornersBox';
+import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { SlantedCornersBox } from '../../../components/SlantedCornersBox';
 import { Trans } from 'react-i18next';
 import styled from 'styled-components';
-import { Typography } from '../../components/Typography';
-import { BackgroundPicture } from '../../components/BackgroundPicture';
-import { BackgroundColors } from '../../styles/theme';
-import { RedesignSpacings } from '../../styles/spacings';
-import { DropShadow, Radius } from '../../styles/cards';
-import { useToggle } from '../../hooks/useToggle';
-import chevronDownIcon from '../../assets/figmaIcons/chevron_down-icon.svg';
-import { Icon } from '../../components/Icon';
+import { Typography } from '../../../components/Typography';
+import { BackgroundPicture } from '../../../components/BackgroundPicture';
+import { BackgroundColors } from '../../../styles/theme';
+import { RedesignSpacings } from '../../../styles/spacings';
+import { DropShadow, Radius } from '../../../styles/cards';
+import { useToggle } from '../../../hooks/useToggle';
+import chevronDownIcon from '../../../assets/figmaIcons/chevron_down-icon.svg';
+import { Icon } from '../../../components/Icon';
 
 const MapIframeWrapper = styled.div`
   z-index: 1;

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Band } from '../../components/bands/Band';
+import { Band } from '../../../../components/bands/Band';
 import { TicketCard } from './TicketCard';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../styles/spacings';
-import { Typography } from '../../components/Typography';
+import { RedesignSpacings } from '../../../../styles/spacings';
+import { Typography } from '../../../../components/Typography';
 
 const Content = styled.div`
   display: flex;

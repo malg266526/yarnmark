@@ -1,19 +1,19 @@
 import React from 'react';
-import { SecondaryLink } from '../../components/Link';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { FlexColumnLayout } from '../../components/FlexColumnLayout';
-import { Typography } from '../../components/Typography';
-import { Band } from '../../components/bands/Band';
-import { Picture } from '../../components/Picture';
+import { SecondaryLink } from '../../../components/Link';
+import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
+import { Typography } from '../../../components/Typography';
+import { Band } from '../../../components/bands/Band';
+import { Picture } from '../../../components/Picture';
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../styles/spacings';
-import { ScreenSize } from '../../styles/screeen-size';
-import { yarnmarkLogoPictureConfig } from '../../assets/yarnmarkLogoPictureConfig';
-import bagUrlPng from '../../assets/images/bag.png';
-import bagUrlWebp from '../../assets/images/bag_webp.webp';
-import bagUrlAvif from '../../assets/images/bag_avif.avif';
-import { RowLayout } from '../../components/RowLayout';
-import { usePhone } from '../../hooks/usePhone';
+import { RedesignSpacings } from '../../../styles/spacings';
+import { ScreenSize } from '../../../styles/screeen-size';
+import { yarnmarkLogoPictureConfig } from '../../../assets/yarnmarkLogoPictureConfig';
+import bagUrlPng from '../../../assets/images/bag.png';
+import bagUrlWebp from '../../../assets/images/bag_webp.webp';
+import bagUrlAvif from '../../../assets/images/bag_avif.avif';
+import { RowLayout } from '../../../components/RowLayout';
+import { usePhone } from '../../../hooks/usePhone';
 
 const Root = styled(FlexColumnLayout)`
   padding: ${RedesignSpacings.xl} 0;

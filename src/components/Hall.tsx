@@ -79,6 +79,11 @@ const Container = styled.div<{ width: number; height: number }>`
   height: ${({ height }) => height}px;
 `;
 
+const VendorSlot = styled.div`
+  text-align: center;
+  font-size: 14px;
+`;
+
 type HallType = {
   multiplier: number;
   showFinishedMap?: boolean;
@@ -160,7 +165,7 @@ export const Hall = ({ multiplier }: HallType) => {
                 width={standConfiguration.width * multiplier * SIZE_MULTIPLIER_FOR_NORMALIZATION}
               >
                 {standConfiguration.type !== 'other' && <div>{standConfiguration.index}</div>}
-                {standConfiguration.vendor && <div>{standConfiguration.vendor}</div>}
+                {standConfiguration.vendor && <VendorSlot>{standConfiguration.vendor}</VendorSlot>}
                 {standConfiguration.description && (
                   <div>
                     <Typography size={isPhone ? 'xxs' : 'xs'}>{standConfiguration.description}</Typography>
