@@ -17,7 +17,6 @@ import { WorkshopsDesktopBand } from './workshops/WorkshopsDesktopBand';
 import { WorkshopsMobileSchedule } from './workshops/WorkshopsMobileSchedule';
 import { FoodBand } from './FoodBand';
 import { BandsToggles } from '../../toggles';
-import { VendorsList2025 } from './VendorsList2025';
 import { TicketCard } from './bands/ticket/TicketCard';
 import { VendorsList } from './VendorsList';
 
@@ -65,7 +64,7 @@ export const MainPage = () => {
           <Band.SecondaryTitle>{t('vendors')} 2025</Band.SecondaryTitle>
 
           <Band.CenteredColumn id="vendors" size="lg" padding="none" color={BackgroundColors.vendors}>
-            <VendorsList2025 />
+            <VendorsList />
           </Band.CenteredColumn>
 
           {BandsToggles.foodEnabled && <FoodBand id="food" />}
