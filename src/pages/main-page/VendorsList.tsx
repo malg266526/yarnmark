@@ -194,7 +194,7 @@ export const VendorsList = () => {
     <Grid>
       <LogoLink to="https://7oczek.pl/pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={87 / divider}
+          width={80 / divider}
           height={100 / divider}
           alt="7oczek_logo"
           picture={{
@@ -236,8 +236,8 @@ export const VendorsList = () => {
 
       <LogoLink to="https://judytamarcol.pl/alemasztocudne/" target="_blank" rel="noreferrer">
         <Picture
-          width={100 / divider}
-          height={100 / divider}
+          width={130 / divider}
+          height={90 / divider}
           alt="alemasztocudne_logo"
           picture={{
             fallbackUrl: alemasztocudneLogoUrl,
@@ -297,7 +297,7 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      <LogoLink to="https://google.com" target="_blank" rel="noreferrer">
+      <LogoLink to="https://brioszka.com.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100 / divider}
           height={100 / divider}
@@ -360,10 +360,10 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      <LogoLink to="https://google.com" target="_blank" rel="noreferrer">
+      <LogoLink to="https://dziergaweczki.pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={100 / divider}
-          height={100 / divider}
+          width={140 / divider}
+          height={50 / divider}
           alt="dziergaweczki_logo"
           picture={{
             fallbackUrl: dziergaweczki,
@@ -404,7 +404,7 @@ export const VendorsList = () => {
 
       <LogoLink to="https://frra.pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={100 / divider}
+          width={120 / divider}
           height={47 / divider}
           alt="furora_yarns_logo"
           picture={{
@@ -444,10 +444,10 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      <LogoLink to="https://google.com" target="_blank" rel="noreferrer">
+      <LogoLink to="https://www.instagram.com/halbanka_rekodzielo/" target="_blank" rel="noreferrer">
         <Picture
-          width={100 / divider}
-          height={100 / divider}
+          width={120 / divider}
+          height={80 / divider}
           alt="halbanka_logo"
           picture={{
             fallbackUrl: halbanka,
@@ -486,10 +486,10 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      <LogoLink to="https://judytamarcol.pl/alemasztocudne/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://kolokniei.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100 / divider}
-          height={100 / divider}
+          height={90 / divider}
           alt="koło_kniei_logo"
           picture={{
             fallbackUrl: koloKniei,
@@ -518,9 +518,9 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      <LogoLink to="https://google.com" target="_blank" rel="noreferrer">
+      <LogoLink to="https://liloppi.pl/pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={100 / divider}
+          width={120 / divider}
           height={100 / divider}
           alt="liloppi_logo"
           picture={{
@@ -539,7 +539,7 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      <LogoLink to="https://www.lusiaknits.com/" target="_blank" rel="noreferrer">
+      <LogoLink to="https://www.facebook.com/lukaceramika/?locale=pl_PL" target="_blank" rel="noreferrer">
         <Picture
           width={100 / divider}
           height={100 / divider}
@@ -604,8 +604,8 @@ export const VendorsList = () => {
 
       <LogoLink to="https://www.martinslab.com/" target="_blank" rel="noreferrer">
         <Picture
-          width={100 / divider}
-          height={50 / divider}
+          width={95 / divider}
+          height={100 / divider}
           alt="martin's_lab_logo"
           picture={{
             fallbackUrl: martinslabLogoUrl,
@@ -665,10 +665,10 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      <LogoLink to="https://google.com" target="_blank" rel="noreferrer">
+      <LogoLink to="https://mokosza.com/" target="_blank" rel="noreferrer">
         <Picture
-          width={100 / divider}
-          height={100 / divider}
+          width={120 / divider}
+          height={60 / divider}
           alt="mokosza_logo"
           picture={{
             fallbackUrl: mokosza,
@@ -730,7 +730,7 @@ export const VendorsList = () => {
 
       <LogoLink to="https://paciorkowceiwisielce.carrd.co/" target="_blank" rel="noreferrer">
         <Picture
-          width={87 / divider}
+          width={100 / divider}
           height={100 / divider}
           alt="paciorkowce_i_wisielce_logo"
           picture={{
@@ -749,10 +749,10 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      <LogoLink to="https://google.com" target="_blank" rel="noreferrer">
+      <LogoLink to="https://pimotki.pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={100 / divider}
-          height={100 / divider}
+          width={120 / divider}
+          height={90 / divider}
           alt="pimotki_logo"
           picture={{
             fallbackUrl: pimotki,
@@ -770,7 +770,7 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      <LogoLink to="https://google.com" target="_blank" rel="noreferrer">
+      <LogoLink to="https://noiklawo.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100 / divider}
           height={100 / divider}
@@ -802,10 +802,10 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      <LogoLink to="https://google.com" target="_blank" rel="noreferrer">
+      <LogoLink to="https://www.instagram.com/szklarka_/" target="_blank" rel="noreferrer">
         <Picture
-          width={100 / divider}
-          height={100 / divider}
+          width={120 / divider}
+          height={40 / divider}
           alt="szklarka_logo"
           picture={{
             fallbackUrl: szklarka,
@@ -823,7 +823,6 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      {/* The Knitting Box (Zaktualizowano dane z zeszłego roku) */}
       <LogoLink to="https://theknittingbox.pl" target="_blank" rel="noreferrer">
         <Picture
           width={92 / divider}
@@ -845,7 +844,6 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      {/* Time to Knit (Zaktualizowano dane z zeszłego roku) */}
       <LogoLink to="https://www.timetoknit.pl" target="_blank" rel="noreferrer">
         <Picture
           width={100 / divider}
@@ -867,7 +865,6 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      {/* Wełna Bawełna */}
       <LogoLink to="https://welnabawelna.pl/" target="_blank" rel="noreferrer">
         <Picture
           width={100 / divider}
@@ -889,8 +886,7 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      {/* Winter Bee Candle (MOCK - przywrócony wpis) */}
-      <LogoLink to="https://google.com" target="_blank" rel="noreferrer">
+      <LogoLink to="https://winterbee.pl" target="_blank" rel="noreferrer">
         <Picture
           width={100 / divider}
           height={100 / divider}
@@ -974,7 +970,7 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      <LogoLink to="https://google.com" target="_blank" rel="noreferrer">
+      <LogoLink to="https://woolmorning.pl/sklep" target="_blank" rel="noreferrer">
         <Picture
           width={100 / divider}
           height={100 / divider}
@@ -995,11 +991,11 @@ export const VendorsList = () => {
         />
       </LogoLink>
 
-      <LogoLink to="https://google.com" target="_blank" rel="noreferrer">
+      <LogoLink to="https://www.rm.com.pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={100 / divider}
+          width={80 / divider}
           height={100 / divider}
-          alt="wydawnictwo_rn_logo"
+          alt="wydawnictwo_rm_logo"
           picture={{
             fallbackUrl: wydawnictwoRn,
             sources: [
