@@ -8,7 +8,7 @@ import infoIcon from '../../assets/figmaIcons/menu/info_icon.svg';
 import ticketIcon from '../../assets/figmaIcons/menu/ticket_icon.svg';
 import homeIcon from '../../assets/figmaIcons/menu/home_icon.svg';
 import shopIcon from '../../assets/figmaIcons/menu/shop_icon.svg';
-import workshopIcons from '../../assets/figmaIcons/menu/workshops_icon.svg';
+// import workshopIcons from '../../assets/figmaIcons/menu/workshops_icon.svg';
 import paintingIcon from '../../assets/figmaIcons/menu/painting_icon.svg';
 import pinEllipseIcon from '../../assets/figmaIcons/menu/pin_ellipse_icon.svg';
 import handshakeIcon from '../../assets/figmaIcons/menu/handshake_icon.svg';

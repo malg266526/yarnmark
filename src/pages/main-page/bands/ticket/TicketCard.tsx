@@ -5,7 +5,7 @@ import { useTypedTranslation } from '../../../../translations/useTypedTranslatio
 import styled, { css } from 'styled-components';
 import { Card } from '../../../../components/Card';
 import { RedesignSpacings } from '../../../../styles/spacings';
-import { GrayScale, TextColors } from '../../../../styles/theme';
+import { TextColors } from '../../../../styles/theme';
 import { ScreenSize } from '../../../../styles/screeen-size';
 import { Radius } from '../../../../styles/cards';
 import { FontSize } from '../../../../styles/font-size';
@@ -32,9 +32,9 @@ const TicketTitle = styled(Typography)`
   color: ${TextColors.secondary};
 `;
 
-const TicketPrice = styled(Typography)<{ disabled?: boolean }>`
-  color: ${({ disabled }) => (disabled ? GrayScale[800] : TextColors.accent)};
-`;
+// const TicketPrice = styled(Typography)<{ disabled?: boolean }>`
+//   color: ${({ disabled }) => (disabled ? GrayScale[800] : TextColors.accent)};
+// `;
 
 const ShakeAnimationFrames = css`
   @keyframes shake {
