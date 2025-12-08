@@ -48,24 +48,24 @@ export const MainPage = () => {
             <TicketCard />
           </Band.CenteredColumn>
 
-          <Band.Empty id="lastEdition" color={BackgroundColors.ticketBand} padding="sm">
-            <LastEditionBand />
-          </Band.Empty>
-
           {/*<CruiseBand id="cruise" />*/}
 
           {/*<WorkshopsScheduleMobileBand id="schedule" />*/}
 
-          <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
+          {/* <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
           <Band.Empty id="workshops" padding="xs">
             <WorkshopsMobileSchedule />
-          </Band.Empty>
+          </Band.Empty> */}
 
           <Band.SecondaryTitle>{t('vendors')} 2025</Band.SecondaryTitle>
 
           <Band.CenteredColumn id="vendors" size="lg" padding="none" color={BackgroundColors.vendors}>
             <VendorsList />
           </Band.CenteredColumn>
+
+          <Band.Empty id="lastEdition" color={BackgroundColors.ticketBand} padding="sm">
+            <LastEditionBand />
+          </Band.Empty>
 
           {BandsToggles.foodEnabled && <FoodBand id="food" />}
         </>
