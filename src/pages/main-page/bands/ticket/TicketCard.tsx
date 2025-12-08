@@ -1,16 +1,16 @@
-import { FlexColumnLayout } from '../../components/FlexColumnLayout';
-import { Typography } from '../../components/Typography';
+import { FlexColumnLayout } from '../../../../components/FlexColumnLayout';
+import { Typography } from '../../../../components/Typography';
 import React from 'react';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import styled, { css } from 'styled-components';
-import { Card } from '../../components/Card';
-import { RedesignSpacings } from '../../styles/spacings';
-import { GrayScale, TextColors } from '../../styles/theme';
-import { ScreenSize } from '../../styles/screeen-size';
-import { Radius } from '../../styles/cards';
-import { FontSize } from '../../styles/font-size';
-import { CtaButton } from '../../components/Button';
-import { TicketsToggles } from '../../toggles';
+import { Card } from '../../../../components/Card';
+import { RedesignSpacings } from '../../../../styles/spacings';
+import { TextColors } from '../../../../styles/theme';
+import { ScreenSize } from '../../../../styles/screeen-size';
+import { Radius } from '../../../../styles/cards';
+import { FontSize } from '../../../../styles/font-size';
+import { CtaButton } from '../../../../components/Button';
+import { TicketsToggles } from '../../../../toggles';
 
 const TicketCardLayout = styled(Card)`
   width: 376px;
@@ -32,9 +32,9 @@ const TicketTitle = styled(Typography)`
   color: ${TextColors.secondary};
 `;
 
-const TicketPrice = styled(Typography)<{ disabled?: boolean }>`
-  color: ${({ disabled }) => (disabled ? GrayScale[800] : TextColors.accent)};
-`;
+// const TicketPrice = styled(Typography)<{ disabled?: boolean }>`
+//   color: ${({ disabled }) => (disabled ? GrayScale[800] : TextColors.accent)};
+// `;
 
 const ShakeAnimationFrames = css`
   @keyframes shake {
@@ -111,18 +111,18 @@ export const TicketCard = () => {
           shouldShake={shouldShake}
           disabled={!TicketsToggles.enabled}
         >
-          {t('tickets.buyTicket')}
-          {/*{t('tickets.availableSoon')}*/}
+          {/* {t('tickets.buyTicket')} */}
+          {t('tickets.availableSoon')}
         </BuyTicketLink>
 
         <Typography size="sm">
-          26/04/2025r {t('tickets.at')} 10:00 {t('tickets.hours')}
+          18/04/2026r {t('tickets.at')} 10:00 {t('tickets.hours')}
         </Typography>
 
         <Typography size="sm">Hala 100-lecia KS Cracovia</Typography>
-        <TicketPrice size="md" disabled={!TicketsToggles.enabled}>
+        {/* <TicketPrice size="md" disabled={!TicketsToggles.enabled}>
           {t('tickets.price')} 30zl
-        </TicketPrice>
+        </TicketPrice> */}
       </FlexColumnLayout>
     </TicketCardLayout>
   );

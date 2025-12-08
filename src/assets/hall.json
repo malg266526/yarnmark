@@ -51,7 +51,8 @@
     "end": {
       "row": 5,
       "col": 19
-    }
+    },
+    "vendor": "Lusia Knits"
   },
   {
     "id": "mgl5lmv2-rf2z8vs",
@@ -68,7 +69,8 @@
     "end": {
       "row": 5,
       "col": 26
-    }
+    },
+    "vendor": "Biferno"
   },
   {
     "id": "mgl5mosd-zy7ymt5",
@@ -85,7 +87,8 @@
     "end": {
       "row": 5,
       "col": 33
-    }
+    },
+    "vendor": "Biferno"
   },
   {
     "id": "mgl5mz0x-9lgguya",
@@ -102,7 +105,8 @@
     "end": {
       "row": 5,
       "col": 40
-    }
+    },
+    "vendor": "Luka ceramika & Paciorkowce i Wisielce"
   },
   {
     "id": "mgl5ogvq-pqucf09",
@@ -119,7 +123,8 @@
     "end": {
       "row": 5,
       "col": 51
-    }
+    },
+    "vendor": "Dye Dye Done"
   },
   {
     "id": "mgl60s92-lscpjj7",
@@ -136,7 +141,8 @@
     "end": {
       "row": 21,
       "col": 51
-    }
+    },
+    "vendor": "Strikke"
   },
   {
     "id": "mgl613ar-ngm5blq",
@@ -153,7 +159,8 @@
     "end": {
       "row": 28,
       "col": 51
-    }
+    },
+    "vendor": "Wełna Bawełna"
   },
   {
     "id": "mgl618tt-1yiapaw",
@@ -170,7 +177,8 @@
     "end": {
       "row": 35,
       "col": 51
-    }
+    },
+    "vendor": "Wełna Bawełna"
   },
   {
     "id": "mgl64q1f-x7w94p5",
@@ -187,7 +195,8 @@
     "end": {
       "row": 42,
       "col": 51
-    }
+    },
+    "vendor": "Time to Knit"
   },
   {
     "id": "mgl64v4d-yqddbkl",
@@ -204,7 +213,8 @@
     "end": {
       "row": 49,
       "col": 51
-    }
+    },
+    "vendor": "Kokonki"
   },
   {
     "id": "mgl6517j-mjhaicf",
@@ -221,7 +231,8 @@
     "end": {
       "row": 56,
       "col": 51
-    }
+    },
+    "vendor": "Kokonki"
   },
   {
     "id": "mgl65aou-ptdjo6e",
@@ -238,7 +249,8 @@
     "end": {
       "row": 63,
       "col": 51
-    }
+    },
+    "vendor": "Martin's Lab"
   },
   {
     "id": "mgl65qbi-2kfiih9",
@@ -255,7 +267,8 @@
     "end": {
       "row": 74,
       "col": 51
-    }
+    },
+    "vendor": "Liloppi"
   },
   {
     "id": "mgl66pt4-1ygebgf",
@@ -272,7 +285,8 @@
     "end": {
       "row": 87,
       "col": 45
-    }
+    },
+    "vendor": "Gabo Wool"
   },
   {
     "id": "mgl68zf8-rfy5hgh",
@@ -289,7 +303,8 @@
     "end": {
       "row": 87,
       "col": 5
-    }
+    },
+    "vendor": "Centrum Włóczek Bafpol"
   },
   {
     "id": "mgl6econ-j4mlyk8",
@@ -306,7 +321,8 @@
     "end": {
       "row": 87,
       "col": 12
-    }
+    },
+    "vendor": "Centrum Włóczek Bafpol"
   },
   {
     "id": "mgl6ektc-rbbbi4w",
@@ -323,7 +339,8 @@
     "end": {
       "row": 87,
       "col": 19
-    }
+    },
+    "vendor": "Brioszka"
   },
   {
     "id": "mgl6et3j-e9giz38",
@@ -340,7 +357,8 @@
     "end": {
       "row": 87,
       "col": 26
-    }
+    },
+    "vendor": "Brioszka"
   },
   {
     "id": "mgl6fi1f-6o60rka",
@@ -375,7 +393,8 @@
     "end": {
       "row": 87,
       "col": 38
-    }
+    },
+    "vendor": "Gabo Wool"
   },
   {
     "id": "mgl6kh0d-1jnqs8s",
@@ -392,7 +411,8 @@
     "end": {
       "row": 21,
       "col": 6
-    }
+    },
+    "vendor": "Motkomania"
   },
   {
     "id": "mgl6l031-6oufobz",
@@ -409,7 +429,8 @@
     "end": {
       "row": 28,
       "col": 6
-    }
+    },
+    "vendor": "WoolMorning"
   },
   {
     "id": "mgl6l6xj-wvxnju7",
@@ -426,7 +447,8 @@
     "end": {
       "row": 35,
       "col": 6
-    }
+    },
+    "vendor": "Yarnpower"
   },
   {
     "id": "mgl6lej8-i38l6td",
@@ -443,7 +465,8 @@
     "end": {
       "row": 42,
       "col": 6
-    }
+    },
+    "vendor": "Dziergaweczki"
   },
   {
     "id": "mgl6lzj5-6kpu2mj",
@@ -460,7 +483,8 @@
     "end": {
       "row": 49,
       "col": 6
-    }
+    },
+    "vendor": "Miss Knitski"
   },
   {
     "id": "mgl6mdh4-mwhosiw",
@@ -477,7 +501,8 @@
     "end": {
       "row": 56,
       "col": 6
-    }
+    },
+    "vendor": "Pimotki"
   },
   {
     "id": "mgl6mkfw-8hallfi",
@@ -494,17 +519,18 @@
     "end": {
       "row": 63,
       "col": 6
-    }
+    },
+    "vendor": "Pimotki"
   },
   {
     "id": "mgl6n8xv-mczs30e",
     "index": "A3",
     "type": "other",
     "isHorizontal": false,
-    "width": 3,
+    "width": 4,
     "height": 0.5,
     "color": "tech",
-    "description": "to vendors room",
+    "description": "do socjalnego",
     "start": {
       "row": 64,
       "col": 1
@@ -529,7 +555,8 @@
     "end": {
       "row": 75,
       "col": 6
-    }
+    },
+    "vendor": "Włóczykijki"
   },
   {
     "id": "mgl6ush4-p91myjt",
@@ -546,7 +573,8 @@
     "end": {
       "row": 20,
       "col": 18
-    }
+    },
+    "vendor": "Włóczkotki"
   },
   {
     "id": "mgl6v4gk-ouwx9zh",
@@ -563,7 +591,8 @@
     "end": {
       "row": 26,
       "col": 18
-    }
+    },
+    "vendor": "Mokosza"
   },
   {
     "id": "mgl6vc2j-3qc7l5j",
@@ -580,7 +609,8 @@
     "end": {
       "row": 32,
       "col": 18
-    }
+    },
+    "vendor": "Winter Bee Candle"
   },
   {
     "id": "mgl6wf6b-2ayxfbb",
@@ -597,7 +627,8 @@
     "end": {
       "row": 21,
       "col": 31
-    }
+    },
+    "vendor": "Mila Druciarnia"
   },
   {
     "id": "mgl6wl89-uat4n17",
@@ -614,7 +645,8 @@
     "end": {
       "row": 21,
       "col": 37
-    }
+    },
+    "vendor": "Sama se uszyj"
   },
   {
     "id": "mgl6wrxx-idnr7z0",
@@ -631,7 +663,8 @@
     "end": {
       "row": 28,
       "col": 31
-    }
+    },
+    "vendor": "Mila Druciarnia"
   },
   {
     "id": "mgl6wwic-tvap3dc",
@@ -648,7 +681,8 @@
     "end": {
       "row": 35,
       "col": 37
-    }
+    },
+    "vendor": "Animotki"
   },
   {
     "id": "mgl6x1b7-40fayv0",
@@ -665,7 +699,8 @@
     "end": {
       "row": 28,
       "col": 37
-    }
+    },
+    "vendor": "Woolloop"
   },
   {
     "id": "mgl6x7j0-3q74q4a",
@@ -682,7 +717,8 @@
     "end": {
       "row": 35,
       "col": 31
-    }
+    },
+    "vendor": "Hanka mi zrobiła"
   },
   {
     "id": "mgl6yx3j-a6gbbdv",
@@ -699,7 +735,8 @@
     "end": {
       "row": 50,
       "col": 20
-    }
+    },
+    "vendor": "Furora Yarns"
   },
   {
     "id": "mgl6z2cb-1uxwbpm",
@@ -716,7 +753,8 @@
     "end": {
       "row": 50,
       "col": 26
-    }
+    },
+    "vendor": "The Knitting Box"
   },
   {
     "id": "mgl6zbss-39u5b6d",
@@ -733,7 +771,8 @@
     "end": {
       "row": 57,
       "col": 20
-    }
+    },
+    "vendor": "Furora Yarns"
   },
   {
     "id": "mgl6zfsg-fr2jl43",
@@ -750,7 +789,8 @@
     "end": {
       "row": 57,
       "col": 26
-    }
+    },
+    "vendor": "Mania Chomikuje"
   },
   {
     "id": "mgl6zjh0-jwq4ubf",
@@ -767,7 +807,8 @@
     "end": {
       "row": 64,
       "col": 20
-    }
+    },
+    "vendor": "7oczek"
   },
   {
     "id": "mgl6zxpt-k5hpk88",
@@ -784,7 +825,8 @@
     "end": {
       "row": 64,
       "col": 26
-    }
+    },
+    "vendor": "Alemasztocudne & Koło kniei"
   },
   {
     "id": "mgl71r2j-qkagdvk",
@@ -801,7 +843,8 @@
     "end": {
       "row": 71,
       "col": 20
-    }
+    },
+    "vendor": "7oczek"
   },
   {
     "id": "mgl71yd5-znghfel",
@@ -818,7 +861,8 @@
     "end": {
       "row": 71,
       "col": 26
-    }
+    },
+    "vendor": "Floral Fiber Fusion & Halbanka"
   },
   {
     "id": "mgl72tsa-qs2e7an",
@@ -835,7 +879,8 @@
     "end": {
       "row": 71,
       "col": 37
-    }
+    },
+    "vendor": "Wydawnictwo RN"
   },
   {
     "id": "mgl76hx7-qw6e0d0",
@@ -852,7 +897,8 @@
     "end": {
       "row": 65,
       "col": 37
-    }
+    },
+    "vendor": "Okki Handmade"
   },
   {
     "id": "mgl76tw7-mgn1xq1",
@@ -869,7 +915,8 @@
     "end": {
       "row": 59,
       "col": 37
-    }
+    },
+    "vendor": "Agna Wool Art"
   },
   {
     "id": "mgl775wk-c5g9xg2",
@@ -886,6 +933,7 @@
     "end": {
       "row": 53,
       "col": 37
-    }
+    },
+    "vendor": "Szklarka"
   }
 ]
