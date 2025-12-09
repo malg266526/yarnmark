@@ -57,7 +57,7 @@ export const MainPage = () => {
             <WorkshopsMobileSchedule />
           </Band.Empty> */}
 
-          <Band.SecondaryTitle>{t('vendors')} 2025</Band.SecondaryTitle>
+          <Band.SecondaryTitle>{t('vendors')}</Band.SecondaryTitle>
 
           <Band.CenteredColumn id="vendors" size="lg" padding="none" color={BackgroundColors.vendors}>
             <VendorsList />
