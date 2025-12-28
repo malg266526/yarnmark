@@ -13,12 +13,14 @@ import { WoolPicture } from '../../components/WoolPicture';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { BackgroundColors } from '../../styles/theme';
 import { TicketCardBand } from './bands/ticket/TicketCardBand';
-// import { WorkshopsDesktopBand } from './workshops/WorkshopsDesktopBand';
+import { PatternsBand } from './bands/PatternsBand';
+import { WorkshopsDesktopBand } from './workshops/WorkshopsDesktopBand';
 // import { WorkshopsMobileSchedule } from './workshops/WorkshopsMobileSchedule';
 import { FoodBand } from './FoodBand';
 import { BandsToggles } from '../../toggles';
 import { TicketCard } from './bands/ticket/TicketCard';
 import { VendorsList } from './VendorsList';
+import { CruiseBand } from './bands/CruiseBand';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -48,7 +50,7 @@ export const MainPage = () => {
             <TicketCard />
           </Band.CenteredColumn>
 
-          {/*<CruiseBand id="cruise" />*/}
+          {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 
           {/*<WorkshopsScheduleMobileBand id="schedule" />*/}
 
@@ -93,11 +95,14 @@ export const MainPage = () => {
 
           <TicketCardBand />
 
+
           <LocationBand id="location" />
 
-          {/*<CruiseBand id="cruise" />*/}
+          {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 
-          {/* <WorkshopsDesktopBand id="workshops" /> */}
+          {BandsToggles.workshopsEnabled && <WorkshopsDesktopBand id="workshops" />}
+
+          <PatternsBand />
 
           {BandsToggles.foodEnabled && <FoodBand id="food" />}
 

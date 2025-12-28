@@ -81,6 +81,24 @@ export const pl = {
       savedStories: 'w relacji wyróżnionej',
       bottle: 'Smocza Butelka'
     },
+    patternsBand: {
+      title: 'Wzory Yarnmarkowe',
+      viewOnRavelry: 'Zobacz wzór na Ravelry',
+      slides: {
+        waterAlt: 'woda',
+        wineAlt: 'kieliszek wina',
+        ticketAlt: 'bilet',
+        mapAlt: 'mapa'
+      },
+      patterns: {
+        naPoleTee: { title: 'Na Pole Tee' },
+        atropa: { title: 'Atropa' }
+      },
+      authorship: {
+        monikaPrefix: 'Autorstwa Moni',
+        annaPrefix: 'Autorstwa Ani'
+      }
+    },
     spotBand: {
       title: 'Gdzie?',
       address: 'Aleja Marszałka Ferdynanda Focha 40',
