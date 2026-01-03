@@ -96,7 +96,7 @@ export const PatternsBand = () => {
           </Carousel>
         </CarouselContainer>
 
-        <FlexColumnLayout padding="none" gap="md" align="flex-start" style={{ flex: '0 0 32%', maxWidth: '32%' }}>
+        <FlexColumnLayout padding="none" gap="md" style={{ flex: '0 0 32%', maxWidth: '32%' }}>
           <FlexColumnLayout padding="none" gap="xs">
             <Typography size="lg" weight="bold">
               {t('patternsBand.patterns.naPoleTee.title')}
