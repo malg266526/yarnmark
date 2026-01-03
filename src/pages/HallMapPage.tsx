@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ScreenSize } from '../styles/screeen-size';
-import { RedesignSpacings } from '../styles/spacings';
 import { usePhone } from '../hooks/usePhone';
 import { PageContent } from '../components/PageContent';
 import { Header } from './menu/Header';
@@ -12,7 +11,7 @@ import { CenteredSection } from '../components/CenteredSection';
 import { BandTitle } from '../components/bands/BandTitle';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import { BackgroundColors } from '../styles/theme';
-import { Hall } from '../components/Hall';
+import HallImageSvg from '../assets/mapa_hali_jasna.svg';
 
 const InvitationBoxWrapper = styled.div`
   padding-left: 240px;
@@ -22,28 +21,7 @@ const InvitationBoxWrapper = styled.div`
   }
 `;
 
-const MapWithLegend = styled.div`
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  justify-content: center;
-  padding: ${RedesignSpacings.sm};
-  z-index: 1;
-
-  @media (max-width: ${ScreenSize.smallPc}) {
-    flex-direction: column;
-    align-items: center;
-    overflow-x: scroll;
-  }
-
-  @media (max-width: ${ScreenSize.smallPc}) {
-    align-items: flex-start;
-  }
-
-  @media (max-width: ${ScreenSize.phone}) {
-    padding: 0;
-  }
-`;
+const MapImage = styled.img``;
 
 export const HallMapPage = () => {
   const isPhone = usePhone();
@@ -69,9 +47,7 @@ export const HallMapPage = () => {
         color={BackgroundColors.navigationBand}
         padding={isPhone ? 'sm' : 'lg'}
       >
-        <MapWithLegend>
-          <Hall multiplier={isPhone ? 13 : 20} />
-        </MapWithLegend>
+        <MapImage src={HallImageSvg} />
       </Band.CenteredColumn>
     </PageContent>
   );

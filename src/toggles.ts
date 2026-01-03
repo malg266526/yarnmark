@@ -4,6 +4,6 @@ export const TicketsToggles = {
 
 export const BandsToggles = {
   foodEnabled: false,
-  hallMapEnabled: false,
+  hallMapEnabled: true,
   ticketEnabled: false
 };
