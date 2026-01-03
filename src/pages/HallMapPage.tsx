@@ -21,11 +21,17 @@ const InvitationBoxWrapper = styled.div`
   }
 `;
 
+const MapContainer = styled.div<{ isPhone: boolean }>`
+  overflow-y: ${({ isPhone }) => (isPhone ? 'scroll' : 'auto')};
+`;
+
 const MapImage = styled.img``;
 
 export const HallMapPage = () => {
   const isPhone = usePhone();
   const t = useTypedTranslation();
+
+  const BandType = isPhone ? Band.Solid : Band.CenteredColumn;
 
   return (
     <PageContent variant="wide" padding="none">
@@ -41,14 +47,11 @@ export const HallMapPage = () => {
         </InvitationBoxWrapper>
       </Band.Wallpaper>
 
-      <Band.CenteredColumn
-        id="hallMap"
-        size="sm"
-        color={BackgroundColors.navigationBand}
-        padding={isPhone ? 'sm' : 'lg'}
-      >
-        <MapImage src={HallImageSvg} />
-      </Band.CenteredColumn>
+      <BandType id="hallMap" size="sm" color={BackgroundColors.navigationBand} padding={isPhone ? 'none' : 'lg'}>
+        <MapContainer isPhone={isPhone}>
+          <MapImage src={HallImageSvg} />
+        </MapContainer>
+      </BandType>
     </PageContent>
   );
 };
