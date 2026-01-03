@@ -5,7 +5,7 @@ import { RowLayout } from '../../../components/RowLayout';
 import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
 import { Typography } from '../../../components/Typography';
 import { Carousel } from 'react-bootstrap';
-import { Link } from '../../../components/Link';
+import { Link, SecondaryLink } from '../../../components/Link';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 
 // Zdjęcia slajdów – korzystamy z istniejących zasobów z /assets/images
@@ -14,11 +14,29 @@ import waterJpgSrc from '../../../assets/images/water.jpg';
 import wineAvifSrc from '../../../assets/images/wine.avif';
 import wineWebpSrc from '../../../assets/images/wine.webp';
 import wineJpgSrc from '../../../assets/images/wine.jpg';
-import ticketAvifSrc from '../../../assets/images/ticket.avif';
-import ticketWebpSrc from '../../../assets/images/ticket.webp';
-import ticketJpgSrc from '../../../assets/images/ticket.jpg';
-import mapWebpSrc from '../../../assets/images/map.webp';
-import mapJpgSrc from '../../../assets/images/map.jpg';
+import styled from 'styled-components';
+
+const CarouselContainer = styled.div`
+  /* flex-grow: 0, flex-shrink: 0, flex-basis: 60% */
+  flex: 0 0 60%;
+
+  width: 60%;
+  max-width: 60%;
+
+  overflow: hidden;
+  // aspect-ratio: 16 / 9;
+`;
+
+const CarouselImage = styled.img`
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+`;
+
+const RowContent = styled(RowLayout)`
+  width: 80%;
+`;
 
 export const PatternsBand = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -35,9 +53,8 @@ export const PatternsBand = () => {
     >
       <Band.Title>{t('patternsBand.title')}</Band.Title>
 
-      <RowLayout wide justify="space-between" align="flex-start">
-        {/* Lewa kolumna: karuzela zdjęć */}
-        <div style={{ flex: '0 0 64%', maxWidth: '64%' }}>
+      <RowContent justify="space-between">
+        <CarouselContainer>
           <Carousel
             activeIndex={currentSlideIndex}
             onSelect={(selectedIndex) => setCurrentSlideIndex(selectedIndex)}
@@ -50,12 +67,7 @@ export const PatternsBand = () => {
             <Carousel.Item>
               <picture>
                 <source srcSet={waterWebpSrc} type="image/webp" />
-                <img
-                  loading="lazy"
-                  src={waterJpgSrc}
-                  alt={t('patternsBand.slides.waterAlt')}
-                  style={{ width: '100%', height: '500px', objectFit: 'cover', display: 'block' }}
-                />
+                <CarouselImage loading="lazy" src={waterJpgSrc} alt={t('patternsBand.slides.waterAlt')} />
               </picture>
             </Carousel.Item>
 
@@ -63,72 +75,59 @@ export const PatternsBand = () => {
               <picture>
                 <source srcSet={wineAvifSrc} type="image/avif" />
                 <source srcSet={wineWebpSrc} type="image/webp" />
-                <img
-                  loading="lazy"
-                  src={wineJpgSrc}
-                  alt={t('patternsBand.slides.wineAlt')}
-                  style={{ width: '100%', height: '500px', objectFit: 'cover', display: 'block' }}
-                />
+                <CarouselImage loading="lazy" src={wineJpgSrc} alt={t('patternsBand.slides.wineAlt')} />
               </picture>
             </Carousel.Item>
 
-            <Carousel.Item>
-              <picture>
-                <source srcSet={ticketAvifSrc} type="image/avif" />
-                <source srcSet={ticketWebpSrc} type="image/webp" />
-                <img
-                  loading="lazy"
-                  src={ticketJpgSrc}
-                  alt={t('patternsBand.slides.ticketAlt')}
-                  style={{ width: '100%', height: '500px', objectFit: 'cover', display: 'block' }}
-                />
-              </picture>
-            </Carousel.Item>
+            {/*<Carousel.Item>*/}
+            {/*  <picture>*/}
+            {/*    <source srcSet={ticketAvifSrc} type="image/avif" />*/}
+            {/*    <source srcSet={ticketWebpSrc} type="image/webp" />*/}
+            {/*    <CarouselImage loading="lazy" src={ticketJpgSrc} alt={t('patternsBand.slides.ticketAlt')} />*/}
+            {/*  </picture>*/}
+            {/*</Carousel.Item>*/}
 
-            <Carousel.Item>
-              <picture>
-                <source srcSet={mapWebpSrc} type="image/webp" />
-                <img
-                  loading="lazy"
-                  src={mapJpgSrc}
-                  alt={t('patternsBand.slides.mapAlt')}
-                  style={{ width: '100%', height: '500px', objectFit: 'cover', display: 'block' }}
-                />
-              </picture>
-            </Carousel.Item>
+            {/*<Carousel.Item>*/}
+            {/*  <picture>*/}
+            {/*    <source srcSet={mapWebpSrc} type="image/webp" />*/}
+            {/*    <CarouselImage loading="lazy" src={mapJpgSrc} alt={t('patternsBand.slides.mapAlt')} />*/}
+            {/*  </picture>*/}
+            {/*</Carousel.Item>*/}
           </Carousel>
-        </div>
+        </CarouselContainer>
 
-        {/* Prawa kolumna: dwa wzory */}
         <FlexColumnLayout padding="none" gap="md" align="flex-start" style={{ flex: '0 0 32%', maxWidth: '32%' }}>
-          <FlexColumnLayout padding="none" gap="xs" align="flex-start">
-            <Typography size="lg" weight="bold">{t('patternsBand.patterns.naPoleTee.title')}</Typography>
+          <FlexColumnLayout padding="none" gap="xs">
+            <Typography size="lg" weight="bold">
+              {t('patternsBand.patterns.naPoleTee.title')}
+            </Typography>
             <Link to="https://www.ravelry.com/patterns/library/na-pole-tee" target="_blank" rel="noreferrer">
               {t('patternsBand.viewOnRavelry')}
             </Link>
-            <Typography size="sm">
+            <Typography size="md">
               {t('patternsBand.authorship.monikaPrefix')}{' '}
-              <Link to="https://www.instagram.com/made_me_knit/" target="_blank" rel="noreferrer">
+              <SecondaryLink to="https://www.instagram.com/made_me_knit/" target="_blank" rel="noreferrer">
                 @made_me_knit
-              </Link>
+              </SecondaryLink>
             </Typography>
           </FlexColumnLayout>
 
-          <FlexColumnLayout padding="none" gap="xs" align="flex-start">
-            <Typography size="lg" weight="bold">{t('patternsBand.patterns.atropa.title')}</Typography>
+          <FlexColumnLayout padding="none" gap="xs">
+            <Typography size="lg" weight="bold">
+              {t('patternsBand.patterns.atropa.title')}
+            </Typography>
             <Link to="https://www.ravelry.com/patterns/library/atropa-2" target="_blank" rel="noreferrer">
               {t('patternsBand.viewOnRavelry')}
             </Link>
-            <Typography size="sm">
+            <Typography size="md">
               {t('patternsBand.authorship.annaPrefix')}{' '}
-              <Link to="https://www.instagram.com/moracraft.handmade/" target="_blank" rel="noreferrer">
-                moracraft.handmade
-              </Link>
+              <SecondaryLink to="https://www.instagram.com/moracraft.handmade/" target="_blank" rel="noreferrer">
+                @moracraft.handmade
+              </SecondaryLink>
             </Typography>
           </FlexColumnLayout>
         </FlexColumnLayout>
-      </RowLayout>
+      </RowContent>
     </Band.CenteredColumn>
   );
 };
-
