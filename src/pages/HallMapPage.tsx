@@ -25,7 +25,9 @@ const MapContainer = styled.div<{ isPhone: boolean }>`
   overflow-y: ${({ isPhone }) => (isPhone ? 'scroll' : 'auto')};
 `;
 
-const MapImage = styled.img``;
+const MapImage = styled.img<{ isPhone: boolean }>`
+  width: ${({ isPhone }) => (isPhone ? '100%' : 'auto')};
+`;
 
 export const HallMapPage = () => {
   const isPhone = usePhone();
@@ -49,7 +51,7 @@ export const HallMapPage = () => {
 
       <BandType id="hallMap" size="sm" color={BackgroundColors.navigationBand} padding={isPhone ? 'none' : 'lg'}>
         <MapContainer isPhone={isPhone}>
-          <MapImage src={HallImageSvg} />
+          <MapImage src={HallImageSvg} isPhone={isPhone} />
         </MapContainer>
       </BandType>
     </PageContent>
