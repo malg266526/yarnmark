@@ -25,9 +25,7 @@ const MapContainer = styled.div<{ isPhone: boolean }>`
   overflow-y: ${({ isPhone }) => (isPhone ? 'scroll' : 'auto')};
 `;
 
-const MapImage = styled.img`
-  // overflow-y: scroll;
-`;
+const MapImage = styled.img``;
 
 export const HallMapPage = () => {
   const isPhone = usePhone();
