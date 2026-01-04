@@ -12,10 +12,6 @@ import napoleAvifSrc from '../../../assets/napole/napole.avif';
 import napoleWebpSrc from '../../../assets/napole/napole.webp';
 import napoleJpgSrc from '../../../assets/napole/napole.jpg';
 
-import napole1AvifSrc from '../../../assets/napole/napole1.avif';
-import napole1WebpSrc from '../../../assets/napole/napole1.webp';
-import napole1JpgSrc from '../../../assets/napole/napole1.jpg';
-
 import napole2AvifSrc from '../../../assets/napole/napole2.avif';
 import napole2WebpSrc from '../../../assets/napole/napole2.webp';
 import napole2JpgSrc from '../../../assets/napole/napole2.jpeg';
@@ -28,10 +24,10 @@ import styled from 'styled-components';
 
 const CarouselContainer = styled.div`
   /* flex-grow: 0, flex-shrink: 0, flex-basis: 60% */
-  flex: 0 0 60%;
+  flex: 0 0 66%;
 
-  width: 60%;
-  max-width: 60%;
+  width: 66%;
+  max-width: 66%;
 
   overflow: hidden;
   // aspect-ratio: 16 / 9;
@@ -40,7 +36,7 @@ const CarouselContainer = styled.div`
 const CarouselImage = styled.img`
   width: 100%;
   height: 500px;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 `;
 
@@ -92,34 +88,11 @@ export const PatternsBand = () => {
 
             <Carousel.Item>
               <picture>
-                <source srcSet={napole1AvifSrc} type="image/avif" />
-                <source srcSet={napole1WebpSrc} type="image/webp" />
-                <CarouselImage loading="lazy" src={napole1JpgSrc} alt={t('patternsBand.slides.wineAlt')} />
-              </picture>
-            </Carousel.Item>
-
-            <Carousel.Item>
-              <picture>
                 <source srcSet={napoleAvifSrc} type="image/avif" />
                 <source srcSet={napoleWebpSrc} type="image/webp" />
                 <CarouselImage loading="lazy" src={napoleJpgSrc} alt={t('patternsBand.slides.wineAlt')} />
               </picture>
             </Carousel.Item>
-
-            {/*<Carousel.Item>*/}
-            {/*  <picture>*/}
-            {/*    <source srcSet={ticketAvifSrc} type="image/avif" />*/}
-            {/*    <source srcSet={ticketWebpSrc} type="image/webp" />*/}
-            {/*    <CarouselImage loading="lazy" src={ticketJpgSrc} alt={t('patternsBand.slides.ticketAlt')} />*/}
-            {/*  </picture>*/}
-            {/*</Carousel.Item>*/}
-
-            {/*<Carousel.Item>*/}
-            {/*  <picture>*/}
-            {/*    <source srcSet={mapWebpSrc} type="image/webp" />*/}
-            {/*    <CarouselImage loading="lazy" src={mapJpgSrc} alt={t('patternsBand.slides.mapAlt')} />*/}
-            {/*  </picture>*/}
-            {/*</Carousel.Item>*/}
           </Carousel>
         </CarouselContainer>
 
