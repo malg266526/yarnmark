@@ -95,7 +95,6 @@ export const MainPage = () => {
 
           <TicketCardBand />
 
-
           <LocationBand id="location" />
 
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}

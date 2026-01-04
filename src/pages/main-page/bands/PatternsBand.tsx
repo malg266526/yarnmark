@@ -8,12 +8,22 @@ import { Carousel } from 'react-bootstrap';
 import { Link, SecondaryLink } from '../../../components/Link';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 
-// Zdjęcia slajdów – korzystamy z istniejących zasobów z /assets/images
-import waterWebpSrc from '../../../assets/images/water.webp';
-import waterJpgSrc from '../../../assets/images/water.jpg';
-import wineAvifSrc from '../../../assets/images/wine.avif';
-import wineWebpSrc from '../../../assets/images/wine.webp';
-import wineJpgSrc from '../../../assets/images/wine.jpg';
+import napoleAvifSrc from '../../../assets/napole/napole.avif';
+import napoleWebpSrc from '../../../assets/napole/napole.webp';
+import napoleJpgSrc from '../../../assets/napole/napole.jpg';
+
+import napole1AvifSrc from '../../../assets/napole/napole1.avif';
+import napole1WebpSrc from '../../../assets/napole/napole1.webp';
+import napole1JpgSrc from '../../../assets/napole/napole1.jpg';
+
+import napole2AvifSrc from '../../../assets/napole/napole2.avif';
+import napole2WebpSrc from '../../../assets/napole/napole2.webp';
+import napole2JpgSrc from '../../../assets/napole/napole2.jpeg';
+
+import grupoweAvifSrc from '../../../assets/napole/grupowe.avif';
+import grupoweWebpSrc from '../../../assets/napole/grupowe.webp';
+import grupoweJpgSrc from '../../../assets/napole/grupowe.jpeg';
+
 import styled from 'styled-components';
 
 const CarouselContainer = styled.div`
@@ -66,16 +76,33 @@ export const PatternsBand = () => {
           >
             <Carousel.Item>
               <picture>
-                <source srcSet={waterWebpSrc} type="image/webp" />
-                <CarouselImage loading="lazy" src={waterJpgSrc} alt={t('patternsBand.slides.waterAlt')} />
+                <source srcSet={grupoweAvifSrc} type="image/avif" />
+                <source srcSet={grupoweWebpSrc} type="image/webp" />
+                <CarouselImage loading="lazy" src={grupoweJpgSrc} alt={t('patternsBand.slides.wineAlt')} />
               </picture>
             </Carousel.Item>
 
             <Carousel.Item>
               <picture>
-                <source srcSet={wineAvifSrc} type="image/avif" />
-                <source srcSet={wineWebpSrc} type="image/webp" />
-                <CarouselImage loading="lazy" src={wineJpgSrc} alt={t('patternsBand.slides.wineAlt')} />
+                <source srcSet={napole2AvifSrc} type="image/avif" />
+                <source srcSet={napole2WebpSrc} type="image/webp" />
+                <CarouselImage loading="lazy" src={napole2JpgSrc} alt={t('patternsBand.slides.wineAlt')} />
+              </picture>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <picture>
+                <source srcSet={napole1AvifSrc} type="image/avif" />
+                <source srcSet={napole1WebpSrc} type="image/webp" />
+                <CarouselImage loading="lazy" src={napole1JpgSrc} alt={t('patternsBand.slides.wineAlt')} />
+              </picture>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <picture>
+                <source srcSet={napoleAvifSrc} type="image/avif" />
+                <source srcSet={napoleWebpSrc} type="image/webp" />
+                <CarouselImage loading="lazy" src={napoleJpgSrc} alt={t('patternsBand.slides.wineAlt')} />
               </picture>
             </Carousel.Item>
 
