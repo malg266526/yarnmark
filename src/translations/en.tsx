@@ -82,6 +82,24 @@ export const en: TranslationsShape = {
       savedStories: 'w relacji wyróżnionej',
       bottle: 'Dragon Bottle'
     },
+    patternsBand: {
+      title: 'Yarnmark Patterns',
+      viewOnRavelry: 'See pattern on Ravelry',
+      slides: {
+        waterAlt: 'water',
+        wineAlt: 'glass of wine',
+        ticketAlt: 'ticket',
+        mapAlt: 'map'
+      },
+      patterns: {
+        naPoleTee: { title: 'Na Pole Tee' },
+        atropa: { title: 'Atropa' }
+      },
+      authorship: {
+        monikaPrefix: 'By Monia',
+        annaPrefix: 'By Ania'
+      }
+    },
     spotBand: {
       title: 'Where?',
       address: 'Avenue Marszałka Ferdynanda Focha 40',

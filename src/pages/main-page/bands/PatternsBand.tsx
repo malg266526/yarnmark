@@ -1,0 +1,145 @@
+import React, { useState } from 'react';
+import { Band } from '../../../components/bands/Band';
+import { BackgroundColors } from '../../../styles/theme';
+import { RowLayout } from '../../../components/RowLayout';
+import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
+import { Typography } from '../../../components/Typography';
+import { Link, SecondaryLink } from '../../../components/Link';
+import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+
+import grupoweAvifSrc from '../../../assets/napole/grupowe.avif';
+import grupoweWebpSrc from '../../../assets/napole/grupowe.webp';
+import grupoweJpgSrc from '../../../assets/napole/grupowe.jpeg';
+
+import napoleAvifSrc from '../../../assets/napole/napole.avif';
+import napoleWebpSrc from '../../../assets/napole/napole.webp';
+import napoleJpgSrc from '../../../assets/napole/napole.jpg';
+
+import napole2AvifSrc from '../../../assets/napole/napole2.avif';
+import napole2WebpSrc from '../../../assets/napole/napole2.webp';
+import napole2JpgSrc from '../../../assets/napole/napole2.jpeg';
+
+import styled from 'styled-components';
+import { Picture } from '../../../components/Picture';
+import { Carousel } from 'react-bootstrap';
+
+const CarouselContainer = styled.div`
+  /* flex-grow: 0, flex-shrink: 0, flex-basis: 60% */
+  flex: 0 0 25%;
+
+  width: 25%;
+  max-width: 25%;
+
+  overflow: hidden;
+  // aspect-ratio: 16 / 9;
+`;
+
+const CarouselImage = styled.img`
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
+  display: block;
+`;
+
+const RowContent = styled(RowLayout)`
+  width: 100%;
+`;
+
+export const PatternsBand = () => {
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const t = useTypedTranslation();
+
+  return (
+    <Band.CenteredColumn
+      id="patterns"
+      size="md"
+      gap="lg"
+      padding="xxxl"
+      color={BackgroundColors.patterns}
+      justify="center"
+    >
+      <Band.Title>{t('patternsBand.title')}</Band.Title>
+
+      <RowContent justify="space-between">
+        <Picture
+          picture={{
+            fallbackUrl: grupoweJpgSrc,
+            sources: [
+              {
+                type: 'image/webp',
+                url: grupoweWebpSrc
+              },
+              {
+                type: 'image/avif',
+                url: grupoweAvifSrc
+              }
+            ]
+          }}
+          alt="yarnmark_girls"
+          width={1000}
+          //height={500}
+        />
+
+        <FlexColumnLayout padding="none" gap="md">
+          <FlexColumnLayout padding="none" gap="xs">
+            <Typography size="lg" weight="bold">
+              {t('patternsBand.patterns.naPoleTee.title')}
+            </Typography>
+            <Link to="https://www.ravelry.com/patterns/library/na-pole-tee" target="_blank" rel="noreferrer">
+              {t('patternsBand.viewOnRavelry')}
+            </Link>
+            <Typography size="md">
+              {t('patternsBand.authorship.monikaPrefix')}{' '}
+              <SecondaryLink to="https://www.instagram.com/made_me_knit/" target="_blank" rel="noreferrer">
+                @made_me_knit
+              </SecondaryLink>
+            </Typography>
+          </FlexColumnLayout>
+
+          <FlexColumnLayout padding="none" gap="xs">
+            <Typography size="lg" weight="bold">
+              {t('patternsBand.patterns.atropa.title')}
+            </Typography>
+            <Link to="https://www.ravelry.com/patterns/library/atropa-2" target="_blank" rel="noreferrer">
+              {t('patternsBand.viewOnRavelry')}
+            </Link>
+            <Typography size="md">
+              {t('patternsBand.authorship.annaPrefix')}{' '}
+              <SecondaryLink to="https://www.instagram.com/moracraft.handmade/" target="_blank" rel="noreferrer">
+                @moracraft.handmade
+              </SecondaryLink>
+            </Typography>
+          </FlexColumnLayout>
+        </FlexColumnLayout>
+
+        <CarouselContainer>
+          <Carousel
+            activeIndex={currentSlideIndex}
+            onSelect={(selectedIndex) => setCurrentSlideIndex(selectedIndex)}
+            controls
+            indicators
+            interval={4000}
+            pause={false}
+            fade={false}
+          >
+            <Carousel.Item>
+              <picture>
+                <source srcSet={napole2AvifSrc} type="image/avif" />
+                <source srcSet={napole2WebpSrc} type="image/webp" />
+                <CarouselImage loading="lazy" src={napole2JpgSrc} alt={t('patternsBand.slides.wineAlt')} />
+              </picture>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <picture>
+                <source srcSet={napoleAvifSrc} type="image/avif" />
+                <source srcSet={napoleWebpSrc} type="image/webp" />
+                <CarouselImage loading="lazy" src={napoleJpgSrc} alt={t('patternsBand.slides.wineAlt')} />
+              </picture>
+            </Carousel.Item>
+          </Carousel>
+        </CarouselContainer>
+      </RowContent>
+    </Band.CenteredColumn>
+  );
+};

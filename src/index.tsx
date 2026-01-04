@@ -9,6 +9,7 @@ import isPropValid from '@emotion/is-prop-valid';
 import { en } from './translations/en';
 import { pl } from './translations/pl';
 import { de } from './translations/de';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const DEFAULT_PL_BROWSER_SETTINGS = 'pl-PL';
 const DEFAULT_DE_BROWSER_SETTINGS = 'de-DE';

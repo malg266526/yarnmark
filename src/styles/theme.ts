@@ -13,6 +13,7 @@ export const BackgroundColors = {
 
   lastEditionBand: 'rgba(233, 232, 232, 1)',
   vendors: `linear-gradient(180deg, #EAE9E9 1.96%, rgba(244, 243, 243, 0.83) 12.51%, rgba(255, 255, 255, 0.65) 24.29%, #FFF 78.04%, #F3F2F2 91.01%, #EAE9E9 100%);`,
+  patterns: `linear-gradient(180deg, #F9F9F9 2%, rgba(252, 251, 251, 0.9) 14%, rgba(255, 255, 255, 0.85) 28%, #FFFFFF 60%, #F5F5F5 86%, #ECEBEB 100%)`,
 
   green: {
     strong: '#326213',
