@@ -4,9 +4,12 @@ import { BackgroundColors } from '../../../styles/theme';
 import { RowLayout } from '../../../components/RowLayout';
 import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
 import { Typography } from '../../../components/Typography';
-import { Carousel } from 'react-bootstrap';
 import { Link, SecondaryLink } from '../../../components/Link';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+
+import grupoweAvifSrc from '../../../assets/napole/grupowe.avif';
+import grupoweWebpSrc from '../../../assets/napole/grupowe.webp';
+import grupoweJpgSrc from '../../../assets/napole/grupowe.jpeg';
 
 import napoleAvifSrc from '../../../assets/napole/napole.avif';
 import napoleWebpSrc from '../../../assets/napole/napole.webp';
@@ -16,18 +19,16 @@ import napole2AvifSrc from '../../../assets/napole/napole2.avif';
 import napole2WebpSrc from '../../../assets/napole/napole2.webp';
 import napole2JpgSrc from '../../../assets/napole/napole2.jpeg';
 
-import grupoweAvifSrc from '../../../assets/napole/grupowe.avif';
-import grupoweWebpSrc from '../../../assets/napole/grupowe.webp';
-import grupoweJpgSrc from '../../../assets/napole/grupowe.jpeg';
-
 import styled from 'styled-components';
+import { Picture } from '../../../components/Picture';
+import { Carousel } from 'react-bootstrap';
 
 const CarouselContainer = styled.div`
   /* flex-grow: 0, flex-shrink: 0, flex-basis: 60% */
-  flex: 0 0 66%;
+  flex: 0 0 25%;
 
-  width: 66%;
-  max-width: 66%;
+  width: 25%;
+  max-width: 25%;
 
   overflow: hidden;
   // aspect-ratio: 16 / 9;
@@ -41,7 +42,7 @@ const CarouselImage = styled.img`
 `;
 
 const RowContent = styled(RowLayout)`
-  width: 80%;
+  width: 100%;
 `;
 
 export const PatternsBand = () => {
@@ -60,43 +61,26 @@ export const PatternsBand = () => {
       <Band.Title>{t('patternsBand.title')}</Band.Title>
 
       <RowContent justify="space-between">
-        <CarouselContainer>
-          <Carousel
-            activeIndex={currentSlideIndex}
-            onSelect={(selectedIndex) => setCurrentSlideIndex(selectedIndex)}
-            controls
-            indicators
-            interval={4000}
-            pause={false}
-            fade={false}
-          >
-            <Carousel.Item>
-              <picture>
-                <source srcSet={grupoweAvifSrc} type="image/avif" />
-                <source srcSet={grupoweWebpSrc} type="image/webp" />
-                <CarouselImage loading="lazy" src={grupoweJpgSrc} alt={t('patternsBand.slides.wineAlt')} />
-              </picture>
-            </Carousel.Item>
+        <Picture
+          picture={{
+            fallbackUrl: grupoweJpgSrc,
+            sources: [
+              {
+                type: 'image/webp',
+                url: grupoweWebpSrc
+              },
+              {
+                type: 'image/avif',
+                url: grupoweAvifSrc
+              }
+            ]
+          }}
+          alt="yarnmark_girls"
+          width={1000}
+          //height={500}
+        />
 
-            <Carousel.Item>
-              <picture>
-                <source srcSet={napole2AvifSrc} type="image/avif" />
-                <source srcSet={napole2WebpSrc} type="image/webp" />
-                <CarouselImage loading="lazy" src={napole2JpgSrc} alt={t('patternsBand.slides.wineAlt')} />
-              </picture>
-            </Carousel.Item>
-
-            <Carousel.Item>
-              <picture>
-                <source srcSet={napoleAvifSrc} type="image/avif" />
-                <source srcSet={napoleWebpSrc} type="image/webp" />
-                <CarouselImage loading="lazy" src={napoleJpgSrc} alt={t('patternsBand.slides.wineAlt')} />
-              </picture>
-            </Carousel.Item>
-          </Carousel>
-        </CarouselContainer>
-
-        <FlexColumnLayout padding="none" gap="md" style={{ flex: '0 0 32%', maxWidth: '32%' }}>
+        <FlexColumnLayout padding="none" gap="md">
           <FlexColumnLayout padding="none" gap="xs">
             <Typography size="lg" weight="bold">
               {t('patternsBand.patterns.naPoleTee.title')}
@@ -127,6 +111,34 @@ export const PatternsBand = () => {
             </Typography>
           </FlexColumnLayout>
         </FlexColumnLayout>
+
+        <CarouselContainer>
+          <Carousel
+            activeIndex={currentSlideIndex}
+            onSelect={(selectedIndex) => setCurrentSlideIndex(selectedIndex)}
+            controls
+            indicators
+            interval={4000}
+            pause={false}
+            fade={false}
+          >
+            <Carousel.Item>
+              <picture>
+                <source srcSet={napole2AvifSrc} type="image/avif" />
+                <source srcSet={napole2WebpSrc} type="image/webp" />
+                <CarouselImage loading="lazy" src={napole2JpgSrc} alt={t('patternsBand.slides.wineAlt')} />
+              </picture>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <picture>
+                <source srcSet={napoleAvifSrc} type="image/avif" />
+                <source srcSet={napoleWebpSrc} type="image/webp" />
+                <CarouselImage loading="lazy" src={napoleJpgSrc} alt={t('patternsBand.slides.wineAlt')} />
+              </picture>
+            </Carousel.Item>
+          </Carousel>
+        </CarouselContainer>
       </RowContent>
     </Band.CenteredColumn>
   );
