@@ -20,7 +20,8 @@ export const en: TranslationsShape = {
       memories: 'Memories',
       hallMap: 'Mapa hali',
       food: 'Food',
-      statuteForVendors: 'Terms and Conditions for the sale of stands'
+      statuteForVendors: 'Terms and Conditions for the sale of stands',
+      yarnmarkPatterns: 'Yarnmark patterns'
     },
     tickets: {
       buyTicketsAndWorkshops: '<0>Buy</0> ticket to the fair or choose the workshops option',
