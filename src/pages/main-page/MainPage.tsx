@@ -81,6 +81,12 @@ export const MainPage = () => {
             </InvitationCardWrapper>
           </Band.Wallpaper>
 
+          <NavigationBand />
+
+          <TicketCardBand />
+
+          <LocationBand id="location" />
+
           <Band.CenteredColumn
             id="vendors"
             size="md"
@@ -92,12 +98,6 @@ export const MainPage = () => {
             <Band.Title>{t('vendors')}</Band.Title>
             <VendorsList />
           </Band.CenteredColumn>
-
-          <NavigationBand />
-
-          <TicketCardBand />
-
-          <LocationBand id="location" />
 
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 
