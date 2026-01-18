@@ -65,11 +65,13 @@ export const MainPage = () => {
             <VendorsList />
           </Band.CenteredColumn>
 
+          <PatternsBand />
+
+          {BandsToggles.foodEnabled && <FoodBand id="food" />}
+
           <Band.Empty id="lastEdition" color={BackgroundColors.ticketBand} padding="sm">
             <LastEditionBand />
           </Band.Empty>
-
-          {BandsToggles.foodEnabled && <FoodBand id="food" />}
         </>
       ) : (
         <>
