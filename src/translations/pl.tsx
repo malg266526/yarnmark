@@ -22,7 +22,8 @@ export const pl = {
       food: 'Jedzonko',
       statuteForVendors: 'Regulamin sprzedaży stoisk',
       yarnmarkPatterns: 'Wzory yarnmarkowe',
-      after: 'After'
+      after: 'After',
+      lagrugru: 'LaGruGru'
     },
     tickets: {
       buyTicketsAndWorkshops: '<0>Kup</0> bilet na targi lub wybierz opcję z warsztatami',

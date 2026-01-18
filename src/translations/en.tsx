@@ -21,6 +21,7 @@ export const en: TranslationsShape = {
       hallMap: 'Mapa hali',
       food: 'Food',
       statuteForVendors: 'Terms and Conditions for the sale of stands',
+      lagrugru: 'LaGruGru',
       yarnmarkPatterns: 'Yarnmark patterns',
       after: 'After'
     },

@@ -19,6 +19,7 @@ export const de = {
       hallMap: 'Mapa hali',
       food: 'Essen',
       statuteForVendors: 'Regulamin sprzedaży stoisk',
+      lagrugru: 'LaGruGru',
       yarnmarkPatterns: 'Yarnmark patterns',
       after: 'After'
     },
