@@ -25,28 +25,24 @@ import { Carousel } from 'react-bootstrap';
 import { usePhone } from '../../../hooks/usePhone';
 
 const CarouselContainer = styled.div`
-  /* flex-grow: 0, flex-shrink: 0, flex-basis: 60% */
-  // flex: 0 0 25%;
-
+  /* Let the content (vertical photos) define the height */
   width: 90%;
   max-width: 90%;
-
-  // overflow: hidden;
-  aspect-ratio: 16 / 9;
+  margin: 0 auto;
 `;
 
 const CarouselImage = styled.img`
   width: 100%;
-  height: 500px;
   object-fit: contain;
   display: block;
+  height: 300px;
+  aspect-ratio: 3/4;
 `;
 
 const PatternContentContainer = styled(RowLayout)<{ direction: 'row' | 'column' }>`
   width: 100%;
   flex-direction: ${({ direction }) => direction};
   align-items: center;
-  justify-content: flex-start;
   text-align: center;
 `;
 
@@ -68,7 +64,7 @@ export const PatternsBand = () => {
     >
       <Band.Title>{t('patternsBand.title')}</Band.Title>
 
-      <PatternContentContainer direction={contentDirection} justify="space-evenly">
+      <PatternContentContainer direction={contentDirection} justify={isPhone ? 'flex-start' : 'space-evenly'}>
         <FlexColumnLayout padding="none" gap="md">
           <FlexColumnLayout padding="none" gap="xxs">
             <Typography size={isPhone ? 'md' : 'lg'} weight="bold">
@@ -118,7 +114,6 @@ export const PatternsBand = () => {
             }}
             alt="yarnmark_girls"
             width={1000}
-            //height={500}
           />
         )}
 
@@ -129,7 +124,7 @@ export const PatternsBand = () => {
               onSelect={(selectedIndex) => setCurrentSlideIndex(selectedIndex)}
               controls
               indicators
-              interval={4000}
+              interval={3000}
               pause={false}
               fade={false}
             >
