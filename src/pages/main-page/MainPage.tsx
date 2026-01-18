@@ -65,7 +65,7 @@ export const MainPage = () => {
             <VendorsList />
           </Band.CenteredColumn>
 
-          <PatternsBand />
+          <PatternsBand id="patterns" />
 
           {BandsToggles.foodEnabled && <FoodBand id="food" />}
 
@@ -103,7 +103,7 @@ export const MainPage = () => {
 
           {BandsToggles.workshopsEnabled && <WorkshopsDesktopBand id="workshops" />}
 
-          <PatternsBand />
+          <PatternsBand id="patterns" />
 
           {BandsToggles.foodEnabled && <FoodBand id="food" />}
 

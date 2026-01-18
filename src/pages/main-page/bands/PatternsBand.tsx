@@ -46,7 +46,11 @@ const PatternContentContainer = styled(RowLayout)<{ direction: 'row' | 'column' 
   text-align: center;
 `;
 
-export const PatternsBand = () => {
+type PatternsBandType = {
+  id: string;
+};
+
+export const PatternsBand = ({ id }: PatternsBandType) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const t = useTypedTranslation();
   const isPhone = usePhone();
@@ -55,7 +59,7 @@ export const PatternsBand = () => {
 
   return (
     <Band.CenteredColumn
-      id="patterns"
+      id={id}
       size="md"
       gap={isPhone ? 'sm' : 'lg'}
       padding={isPhone ? 'md' : 'xxxl'}
