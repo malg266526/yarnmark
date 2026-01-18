@@ -6,6 +6,6 @@ export const BandsToggles = {
   foodEnabled: false,
   hallMapEnabled: true,
   ticketEnabled: true,
-  cruiseEnabled: false,
+  cruiseEnabled: true,
   workshopsEnabled: false
 };
