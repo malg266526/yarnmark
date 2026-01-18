@@ -21,6 +21,7 @@ import { BandsToggles } from '../../toggles';
 import { TicketCard } from './bands/ticket/TicketCard';
 import { VendorsList } from './VendorsList';
 import { CruiseBand } from './bands/CruiseBand';
+import { LaGruGruBand } from './bands/LaGruGruBand';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -49,6 +50,8 @@ export const MainPage = () => {
           <Band.CenteredColumn color={BackgroundColors.ticketBand} id="TicketBand" size="lg" padding="lg">
             <TicketCard />
           </Band.CenteredColumn>
+
+          <LaGruGruBand />
 
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 
@@ -84,6 +87,8 @@ export const MainPage = () => {
           <NavigationBand />
 
           <TicketCardBand />
+
+          <LaGruGruBand />
 
           <LocationBand id="location" />
 

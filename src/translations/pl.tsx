@@ -20,7 +20,8 @@ export const pl = {
       tickets: 'Bilety',
       hallMap: 'Mapa hali',
       food: 'Jedzonko',
-      statuteForVendors: 'Regulamin sprzedaży stoisk'
+      statuteForVendors: 'Regulamin sprzedaży stoisk',
+      lagrugru: 'LaGruGru'
     },
     tickets: {
       buyTicketsAndWorkshops: '<0>Kup</0> bilet na targi lub wybierz opcję z warsztatami',

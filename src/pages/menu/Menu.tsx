@@ -27,6 +27,7 @@ import { ScreenSize } from '../../styles/screeen-size';
 import closeMenuIcon from '../../assets/figmaIcons/menu/close_icon.svg';
 import dotsStrokeIcon from '../../assets/figmaIcons/dots_icon.svg';
 import burgerImageUrl from '../../assets/iconify/burger.svg';
+import lagrugruIcon from '../../assets/figmaIcons/bird.svg';
 import { BandsToggles, TicketsToggles } from '../../toggles';
 
 const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
@@ -252,6 +253,11 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
         <MenuItem href="/home#vendors" isOpen={isMenuExpanded} aria-label="vendors_menu_item" onClick={closeMenu}>
           <Icon size="sm" zIndex={0} src={shopIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.vendors')}</Typography>}
+        </MenuItem>
+
+        <MenuItem href="/home#lagrugru" isOpen={isMenuExpanded} aria-label="lagrugru_menu_item" onClick={closeMenu}>
+          <Icon size="sm" zIndex={0} src={lagrugruIcon} />
+          {isMenuExpanded && <Typography size="sm">{t('menu.lagrugru')}</Typography>}
         </MenuItem>
 
         <MenuItem
