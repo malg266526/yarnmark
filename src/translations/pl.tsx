@@ -104,6 +104,9 @@ export const pl = {
         annaPrefix: 'Autorstwa Ani'
       }
     },
+    lagrugruBand: {
+      title: 'LaGruGru!'
+    },
     spotBand: {
       title: 'Gdzie?',
       address: 'Aleja Marszałka Ferdynanda Focha 40',

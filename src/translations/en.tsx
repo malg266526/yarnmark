@@ -105,6 +105,9 @@ export const en: TranslationsShape = {
         annaPrefix: 'By Ania'
       }
     },
+    lagrugruBand: {
+      title: 'LaGruGru!'
+    },
     spotBand: {
       title: 'Where?',
       address: 'Avenue Marszałka Ferdynanda Focha 40',

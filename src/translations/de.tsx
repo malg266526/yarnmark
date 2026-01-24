@@ -102,6 +102,9 @@ export const de = {
         annaPrefix: 'Von Ania'
       }
     },
+    lagrugruBand: {
+      title: 'LaGruGru!'
+    },
     spotBand: {
       title: 'Wo?',
       address: 'die Alee Marszałka Ferdynanda Focha 40',
