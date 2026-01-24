@@ -19,13 +19,13 @@ import napole2AvifSrc from '../../../assets/napole/napole2.avif';
 import napole2WebpSrc from '../../../assets/napole/napole2.webp';
 import napole2JpgSrc from '../../../assets/napole/napole2.jpeg';
 
-import magdaAvifSrc from '../../../assets/napole/magda.avif';
-import magdaWebpSrc from '../../../assets/napole/magda.webp';
-import magdaJpgSrc from '../../../assets/napole/magda.jpg';
+import magdaAvifSrc from '../../../assets/napole/magda-napole.avif';
+import magdaWebpSrc from '../../../assets/napole/magda-napole.webp';
+import magdaJpgSrc from '../../../assets/napole/magda-napole.jpg';
 
-import klaudiaAvifSrc from '../../../assets/napole/klaudia.avif';
-import klaudiaWebpSrc from '../../../assets/napole/klaudia.webp';
-import klaudiaJpgSrc from '../../../assets/napole/klaudia.jpg';
+import klaudiaAvifSrc from '../../../assets/napole/klaudia-napole.avif';
+import klaudiaWebpSrc from '../../../assets/napole/klaudia-napole.webp';
+import klaudiaJpgSrc from '../../../assets/napole/klaudia-napole.jpg';
 
 import styled from 'styled-components';
 import { Picture } from '../../../components/Picture';
