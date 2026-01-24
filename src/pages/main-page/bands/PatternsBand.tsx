@@ -19,6 +19,14 @@ import napole2AvifSrc from '../../../assets/napole/napole2.avif';
 import napole2WebpSrc from '../../../assets/napole/napole2.webp';
 import napole2JpgSrc from '../../../assets/napole/napole2.jpeg';
 
+import magdaAvifSrc from '../../../assets/napole/magda-napole.avif';
+import magdaWebpSrc from '../../../assets/napole/magda-napole.webp';
+import magdaJpgSrc from '../../../assets/napole/magda-napole.jpg';
+
+import klaudiaAvifSrc from '../../../assets/napole/klaudia-napole.avif';
+import klaudiaWebpSrc from '../../../assets/napole/klaudia-napole.webp';
+import klaudiaJpgSrc from '../../../assets/napole/klaudia-napole.jpg';
+
 import styled from 'styled-components';
 import { Picture } from '../../../components/Picture';
 import { Carousel } from 'react-bootstrap';
@@ -145,6 +153,22 @@ export const PatternsBand = ({ id }: PatternsBandType) => {
                   <source srcSet={napoleAvifSrc} type="image/avif" />
                   <source srcSet={napoleWebpSrc} type="image/webp" />
                   <CarouselImage loading="lazy" src={napoleJpgSrc} alt={t('patternsBand.slides.wineAlt')} />
+                </picture>
+              </Carousel.Item>
+
+              <Carousel.Item>
+                <picture>
+                  <source srcSet={magdaAvifSrc} type="image/avif" />
+                  <source srcSet={magdaWebpSrc} type="image/webp" />
+                  <CarouselImage loading="lazy" src={magdaJpgSrc} alt={t('patternsBand.slides.wineAlt')} />
+                </picture>
+              </Carousel.Item>
+
+              <Carousel.Item>
+                <picture>
+                  <source srcSet={klaudiaAvifSrc} type="image/avif" />
+                  <source srcSet={klaudiaWebpSrc} type="image/webp" />
+                  <CarouselImage loading="lazy" src={klaudiaJpgSrc} alt={t('patternsBand.slides.wineAlt')} />
                 </picture>
               </Carousel.Item>
             </Carousel>
