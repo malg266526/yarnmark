@@ -6,26 +6,46 @@ import { Picture } from '../../../components/Picture';
 import { usePhone } from '../../../hooks/usePhone';
 import { RedesignSpacings } from '../../../styles/spacings';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
-import { TextCarousel } from '../../../components/carousels/TextCarousel';
+import { TextCarousel, TextCarouselItem } from '../../../components/carousels/TextCarousel';
 import grupoweJpgSrc from '../../../assets/napole/grupowe.jpeg';
 
 interface StyledProps {
   isPhone: boolean;
 }
 
-const carouselItems = [
+const carouselItems: TextCarouselItem[] = [
   {
-    subtitle: 'Kim jesteśmy?',
-    description: 'Grupą pasjonatów, która zamienia rzemiosło w przestrzeń spotkań. Tutaj każde oczko ma swoją historię.'
-  },
-  {
-    subtitle: 'Nasze spotkania',
-    description: 'Tworzymy w przyjaznej atmosferze, dzieląc się splotami i inspiracją przy wspólnej kawie.'
-  },
-  {
-    subtitle: 'Dołącz do nas',
+    title: 'LaGrrrrruGru',
+    subtitle: 'Zestaw szydełkowy na krakoskiego amigurumi gołąbka',
     description:
-      'Niezależnie od Twojego doświadczenia, zawsze znajdziemy miejsce dla kolejnej pary rąk i nowych pomysłów.'
+      'Kompletny box: wyjątkowy, dedykowany wzór by SisHomemade, włóczka oraz akcesoria. Potrzebujesz jedynie szydełka. Wzór otrzymasz w wersji elektronicznej',
+    button: {
+      title: 'Kupisz tutaj'
+    }
+  },
+  {
+    title: 'Wybierz Swój Rozmiar!',
+    subtitle: 'Dwa rozmiary do wyboru - 10cm i 15cm',
+    description:
+      'Obydwa rozmiary zawierają brelok. Box zawiera wzór oraz ilość włóczki potrzebną do wykonania wybranego przez ciebie rozmiaru',
+    extraParagraph: 'Cena: 79zł zestaw mały, 89zł zestaw duży'
+  },
+  {
+    title: 'Kolor Niespodzianka!',
+    subtitle: 'Różne warianty kolorystyczne oraz gołąbkowe dodatki',
+    description:
+      'LaGruGru dostępny będzie w wielu wariantach kolorystycznych, ale...  kolor, który otrzymasz pozostaje niespodzianką! Czy trafi ci się klasyczek, szalona wersja multikolor, romantyczna, a może złoty a skromny? Dowiesz się otwierając paczkę!',
+    extraParagraph:
+      'Niektóre gołąbki będą zawierały również extra atrybuty. Dodatkowa karta wzoru oraz włóczką będą w boxie. Czy dostaniesz LaGruGru w koronie? A może z obwarzankiem? Tutaj również zdecyduje los!'
+  },
+  {
+    title: 'Warsztat towarzyszący',
+    subtitle: 'LaGruGru z SisHomemade',
+    description:
+      'Na warsztacie z Sis zaczniesz ??. Wzór oraz box otrzymasz na miejscu. Wymagana umiejętność zrobienia łańcuszka oraz półsłupka',
+    button: {
+      title: 'Więcej info o warsztatach'
+    }
   }
 ];
 
@@ -66,7 +86,7 @@ export const LaGruGruBand = () => {
           <Picture picture={{ fallbackUrl: grupoweJpgSrc }} alt="Grupa LaGruGru" width={isPhone ? 400 : 400} />
         </ImageWrapper>
 
-        <TextCarousel title="Poznaj nas bliżej" items={carouselItems} />
+        <TextCarousel items={carouselItems} />
       </ContentGrid>
     </Band.CenteredColumn>
   );
