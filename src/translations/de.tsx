@@ -125,6 +125,28 @@ export const de: TranslationsShape = {
       accessibleByCar: 'Mit dem Auto',
       googleMaps: 'How to get to the fair with google maps'
     },
+    after: {
+      title: '#CHODŹŻENAAFTER',
+      location: 'Ort',
+      addressLabel: 'Adresse',
+      addressFull: 'św. Tomasza 35, 31-027 Kraków',
+      hob: 'House of Beer (die Party findet im Keller statt, ein exklusiver Bereich nur für Yarnmark-Teilnehmer)',
+      onlyAdults: 'Diese Veranstaltung ist nur für Erwachsene.',
+      closeToMainStation: 'in der Nähe des Hauptbahnhofs, direkt am Marktplatz',
+      startTime: 'Beginn',
+      timeDetails: 'Das Afterparty-Programm beginnt um 18:00 Uhr, Einlass ist jedoch bereits ab 17:00 Uhr.',
+      priceIncluded: 'Der Preis beinhaltet den Eintritt zum Yarnmark sowie zur Afterparty',
+      token:
+        'Jeder Teilnehmer erhält mit seinem Ticket einen Jeton, der an der Bar gegen ein Getränk nach Wahl eingetauscht werden kann.',
+      schedule: 'Veranstaltungsplan: ',
+      scheduleItems: {
+        entry: '<strong>17:00</strong> Einlass',
+        welcome: '<strong>18:00</strong> Begrüßung der Teilnehmer, Zeit für Bestellungen',
+        contests: '<strong>19:30</strong> – Wettbewerbe mit Preisen',
+        knitting: '<strong>21:00</strong> – Zeit zum Stricken und Bewundern der Beute',
+        end: '<strong>1:45</strong> Ende der Party'
+      }
+    },
     cashmereTicketsBand: {
       beautifulCruise: 'Machen Sie eine wunderschöne Kreuzfahrt mit dem “Strickschiff”!',
       pleaseBeEarly: 'We kindly ask you to arrive at the cruise departure point 15 minutes in advance.',

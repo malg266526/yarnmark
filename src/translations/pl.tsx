@@ -123,6 +123,27 @@ export const pl = {
       accessibleByCar: 'Dojazd samochodem',
       googleMaps: 'Jak dotrzeć na targi z google maps'
     },
+    after: {
+      title: '#CHODŹŻENAAFTER',
+      location: 'Miejsce',
+      addressLabel: 'Adres',
+      addressFull: 'św. Tomasza 35, 31-027 Kraków',
+      hob: 'House of Beer (impreza odbędzie się w piwnicy lokalu, zamknięta przestrzeń tylko dla uczestników Yarnmarku)',
+      onlyAdults: 'Wydarzenie skierowane tylko do osób pełnoletnich.',
+      closeToMainStation: 'w pobliżu Dworca Głównego, obok Rynku',
+      startTime: 'Czas startu',
+      timeDetails: 'Program afterparty zaczynamy o 18:00, ale wstęp od 17:00.',
+      priceIncluded: 'Cena zawiera bilet wstępu na Yarnmark oraz na afterparty',
+      token: 'Każdy uczestnik w ramach biletu dostanie żeton, który będzie można wymienić na wybrany napój na barze.',
+      schedule: 'Plan wydarzenia: ',
+      scheduleItems: {
+        entry: '<strong>17:00</strong> wstęp uczestników',
+        welcome: '<strong>18:00</strong> przywitanie uczestników, czas na zamówienia napojów i jedzenia',
+        contests: '<strong>19:30</strong> – konkursy z nagrodami',
+        knitting: '<strong>21:00</strong> – czas na dzierganie i zachwyty nad Yarnmarkowymi łupami',
+        end: '<strong>01:45</strong> koniec imprezy'
+      }
+    },
     cashmereTicketsBand: {
       beautifulCruise: 'Dzieeergostatkiem w piękny rejs!',
       map: {
