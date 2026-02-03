@@ -13,7 +13,7 @@ import ticketJpgSrc from '../../../assets/images/ticket.jpg';
 import { Trans } from 'react-i18next';
 import mapWebpSrc from '../../../assets/images/map.webp';
 import mapJpgSrc from '../../../assets/images/map.jpg';
-import { CruiseMap } from '../../../components/CruiseMap';
+import { AfterPartySection } from '../../../components/AfterPartySection';
 import React, { useState } from 'react';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 import { Typography } from '../../../components/Typography';
@@ -34,7 +34,7 @@ const ShipPicture = (
   </BackgroundPicture>
 );
 
-export const CruiseBand = ({ id }: CruiseBandType) => {
+export const AfterBand = ({ id }: CruiseBandType) => {
   const isPhone = usePhone();
   const t = useTypedTranslation();
 
@@ -61,11 +61,11 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
 
           <FlexColumnLayout gap="sm" padding="none" align="flex-start">
             <Typography size={sectionTitleSize} weight="bold">
-              {t('cashmereTicketsBand.beautifulCruise')}
+              {t('after.title')}
             </Typography>
 
-            <Typography size="sm">{t('cashmereTicketsBand.invitation')}</Typography>
-            <Typography size="sm">{t('cashmereTicketsBand.ship')}</Typography>
+            <Typography size="sm">todo</Typography>
+            <Typography size="sm">todo</Typography>
           </FlexColumnLayout>
         </Carouselge.Item>
 
@@ -81,11 +81,19 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
 
           <FlexColumnLayout gap="sm" padding="none" align="flex-start">
             <Typography size={sectionTitleSize} weight="bold">
-              {t('cashmereTicketsBand.prosecco.title')}
+              {t('after.location')}
             </Typography>
 
-            <Typography size="sm">{t('cashmereTicketsBand.prosecco.intro')}</Typography>
-            <Typography size="sm">{t('cashmereTicketsBand.prosecco.description')}</Typography>
+            <Typography size="sm">{t('after.addressFull')}</Typography>
+
+            <Typography size="sm">{t('after.hob')}</Typography>
+            <Typography size="sm">{t('after.closeToMainStation')}</Typography>
+
+            <Typography size={sectionTitleSize} weight="bold">
+              {t('after.startTime')}
+            </Typography>
+
+            <Typography size="sm">{t('after.timeDetails')}</Typography>
           </FlexColumnLayout>
         </Carouselge.Item>
 
@@ -117,12 +125,17 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
               <Typography size={sectionTitleSize} weight="bold">
                 {t('cashmereTicketsBand.map.price')}:
               </Typography>
-              <Typography size="sm">130 zł </Typography>
-              <Typography size="sm">
-                <Trans i18nKey="cashmereTicketsBand.map.priceIncludesYarnmarkTicket" />
+              <Typography size="md" weight="bold">
+                80 zł
               </Typography>
               <Typography size="sm">
-                <Trans i18nKey="cashmereTicketsBand.pleaseBeEarly" />
+                <Trans i18nKey="after.priceIncluded" />
+              </Typography>
+              <Typography size="sm">
+                <Trans i18nKey="after.token" />
+              </Typography>
+              <Typography size="sm" weight="bold">
+                {t('after.onlyAdults')}
               </Typography>
             </FlexColumnLayout>
           </FlexColumnLayout>
@@ -137,7 +150,7 @@ export const CruiseBand = ({ id }: CruiseBandType) => {
             <img src={mapJpgSrc} alt="map" />
           </Carouselge.ItemBackground>
 
-          <CruiseMap />
+          <AfterPartySection />
         </Carouselge.Item>
       </Carouselge>
     </Band.Wallpaper>
