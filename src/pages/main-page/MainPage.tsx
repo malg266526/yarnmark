@@ -84,6 +84,7 @@ export const MainPage = () => {
           </Band.Wallpaper>
 
           <NavigationBand />
+          {BandsToggles.afterEnabled && <AfterBand id="after" />}
 
           <TicketCardBand />
 
@@ -102,7 +103,6 @@ export const MainPage = () => {
           </Band.CenteredColumn>
 
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
-          {BandsToggles.afterEnabled && <AfterBand id="after" />}
 
           {BandsToggles.workshopsEnabled && <WorkshopsDesktopBand id="workshops" />}
 

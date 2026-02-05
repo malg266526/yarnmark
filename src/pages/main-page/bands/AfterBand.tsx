@@ -1,18 +1,6 @@
-import shipAvifSrc from '../../../assets/images/ship.avif';
-import shipJpgSrc from '../../../assets/images/ship.jpg';
 import { Carouselge } from '../../../components/carousels/Carouselge';
-import waterWebpSrc from '../../../assets/images/water.webp';
-import waterJpgSrc from '../../../assets/images/water.jpg';
-import wineAvifSrc from '../../../assets/images/wine.avif';
-import wineWebpSrc from '../../../assets/images/wine.webp';
-import wineJpgSrc from '../../../assets/images/wine.jpg';
 import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
-import ticketAvifSrc from '../../../assets/images/ticket.avif';
-import ticketWebpSrc from '../../../assets/images/ticket.webp';
-import ticketJpgSrc from '../../../assets/images/ticket.jpg';
 import { Trans } from 'react-i18next';
-import mapWebpSrc from '../../../assets/images/map.webp';
-import mapJpgSrc from '../../../assets/images/map.jpg';
 import { AfterPartySection } from '../../../components/AfterPartySection';
 import React, { useState } from 'react';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
@@ -22,15 +10,31 @@ import { Band } from '../../../components/bands/Band';
 import { usePhone } from '../../../hooks/usePhone';
 import { Link } from '../../../components/Link';
 import { LinkWrapper } from '../MainPage.styled';
+import tapsJpgSrc from '../../../assets/images/after/taps_wide.jpg';
+import tapsAvifSrc from '../../../assets/images/after/taps_wide.avif';
+import tapsWebpSrc from '../../../assets/images/after/taps_wide.webp';
+import hopJpgSrc from '../../../assets/images/after/hop.jpg';
+import hopAvifSrc from '../../../assets/images/after/hop.avif';
+import hopWebpSrc from '../../../assets/images/after/hop.webp';
+import krakowJpgSrc from '../../../assets/images/after/krakow.jpg';
+import krakowAvifSrc from '../../../assets/images/after/krakow.avif';
+import krakowWebpSrc from '../../../assets/images/after/krakow.webp';
+import ticketJpgSrc from '../../../assets/images/after/ticket.jpg';
+import ticketAvifSrc from '../../../assets/images/after/ticket.avif';
+import ticketWebpSrc from '../../../assets/images/after/ticket.webp';
+import raveJpgSrc from '../../../assets/images/after/rave2.jpg';
+import raveAvifSrc from '../../../assets/images/after/rave2.avif';
+import raveWebpSrc from '../../../assets/images/after/rave2.webp';
 
 type CruiseBandType = {
   id: string;
 };
 
-const ShipPicture = (
-  <BackgroundPicture filter="grayscale(0.2) brightness(1.3) contrast(0.8)" opacity={0.8} objectFit="cover">
-    <source srcSet={shipAvifSrc} type="image/avif" />
-    <img loading="lazy" src={shipJpgSrc} alt="sailing ship" />
+const TapsPicture = (
+  <BackgroundPicture filter="grayscale(0.1) brightness(1.3) contrast(0.8)" opacity={0.8} objectFit="cover">
+    <source srcSet={tapsAvifSrc} type="image/avif" />
+    <source srcSet={tapsWebpSrc} type="image/webp" />
+    <img loading="lazy" src={tapsJpgSrc} alt="taps" />
   </BackgroundPicture>
 );
 
@@ -43,7 +47,7 @@ export const AfterBand = ({ id }: CruiseBandType) => {
   const sectionTitleSize = isPhone ? 'lg' : 'xl';
 
   return (
-    <Band.Wallpaper id={id} size="lg" justify="flex-end" picture={ShipPicture} padding={isPhone ? 'sm' : 'xl'}>
+    <Band.Wallpaper id={id} size="lg" justify="flex-end" picture={TapsPicture} padding={isPhone ? 'sm' : 'xl'}>
       <Carouselge
         height="600px"
         selectedIndex={selectedIndex}
@@ -55,8 +59,9 @@ export const AfterBand = ({ id }: CruiseBandType) => {
             variant="bottom"
             background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 95%)"
           >
-            <source srcSet={waterWebpSrc} type="image/webp" />
-            <img src={waterJpgSrc} alt="water visible on the ship" />
+            <source srcSet={hopAvifSrc} type="image/avif" />
+            <source srcSet={hopWebpSrc} type="image/webp" />
+            <img src={hopJpgSrc} alt="water visible on the ship" />
           </Carouselge.ItemBackground>
 
           <FlexColumnLayout gap="sm" padding="none" align="flex-start">
@@ -74,9 +79,9 @@ export const AfterBand = ({ id }: CruiseBandType) => {
             background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)"
             variant="bottom"
           >
-            <source srcSet={wineAvifSrc} type="image/avif" />
-            <source srcSet={wineWebpSrc} type="image/webp" />
-            <img src={wineJpgSrc} alt="glass of wine" />
+            <source srcSet={krakowAvifSrc} type="image/avif" />
+            <source srcSet={krakowWebpSrc} type="image/webp" />
+            <img src={krakowJpgSrc} alt="glass of wine" />
           </Carouselge.ItemBackground>
 
           <FlexColumnLayout gap="sm" padding="none" align="flex-start">
@@ -146,8 +151,9 @@ export const AfterBand = ({ id }: CruiseBandType) => {
             variant="bottom"
             background="linear-gradient(0deg, transparent 0%, rgb(255, 255, 255) 80%)"
           >
-            <source srcSet={mapWebpSrc} type="image/webp" />
-            <img src={mapJpgSrc} alt="map" />
+            <source srcSet={raveAvifSrc} type="image/avif" />
+            <source srcSet={raveWebpSrc} type="image/webp" />
+            <img src={raveJpgSrc} alt="map" />
           </Carouselge.ItemBackground>
 
           <AfterPartySection />
