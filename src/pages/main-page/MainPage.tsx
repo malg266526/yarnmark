@@ -21,6 +21,7 @@ import { BandsToggles } from '../../toggles';
 import { TicketCard } from './bands/ticket/TicketCard';
 import { VendorsList } from './VendorsList';
 import { CruiseBand } from './bands/CruiseBand';
+import { WorkshopsScheduleMobileBand } from './workshops/WorkshopsScheduleMobileBand';
 import { AfterBand } from './bands/AfterBand';
 
 export const MainPage = () => {
@@ -51,12 +52,12 @@ export const MainPage = () => {
             <TicketCard />
           </Band.CenteredColumn>
 
-          {/*<WorkshopsScheduleMobileBand id="schedule" />*/}
+          {BandsToggles.workshopsEnabled && <WorkshopsScheduleMobileBand id="schedule" />}
 
-          {/* <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
-          <Band.Empty id="workshops" padding="xs">
-            <WorkshopsMobileSchedule />
-          </Band.Empty> */}
+          {/*/!* <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>*/}
+          {/*<Band.Empty id="workshops" padding="xs">*/}
+          {/*  <WorkshopsMobileSchedule />*/}
+          {/*</Band.Empty> *!/*/}
 
           <Band.SecondaryTitle>{t('vendors')}</Band.SecondaryTitle>
 
