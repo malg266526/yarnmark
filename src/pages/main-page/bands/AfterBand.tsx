@@ -61,7 +61,7 @@ export const AfterBand = ({ id }: CruiseBandType) => {
           >
             <source srcSet={hopAvifSrc} type="image/avif" />
             <source srcSet={hopWebpSrc} type="image/webp" />
-            <img src={hopJpgSrc} alt="water visible on the ship" />
+            <img src={hopJpgSrc} alt="hop" />
           </Carouselge.ItemBackground>
 
           <FlexColumnLayout gap="sm" padding="none" align="flex-start">
@@ -81,7 +81,7 @@ export const AfterBand = ({ id }: CruiseBandType) => {
           >
             <source srcSet={krakowAvifSrc} type="image/avif" />
             <source srcSet={krakowWebpSrc} type="image/webp" />
-            <img src={krakowJpgSrc} alt="glass of wine" />
+            <img src={krakowJpgSrc} alt="krakow" />
           </Carouselge.ItemBackground>
 
           <FlexColumnLayout gap="sm" padding="none" align="flex-start">
@@ -109,7 +109,7 @@ export const AfterBand = ({ id }: CruiseBandType) => {
           >
             <source srcSet={ticketAvifSrc} type="image/avif" />
             <source srcSet={ticketWebpSrc} type="image/webp" />
-            <img src={ticketJpgSrc} alt="ticket lying around" />
+            <img src={ticketJpgSrc} alt="ticket" />
           </Carouselge.ItemBackground>
 
           <FlexColumnLayout gap="sm" padding="none" align="flex-start">
@@ -153,7 +153,7 @@ export const AfterBand = ({ id }: CruiseBandType) => {
           >
             <source srcSet={raveAvifSrc} type="image/avif" />
             <source srcSet={raveWebpSrc} type="image/webp" />
-            <img src={raveJpgSrc} alt="map" />
+            <img src={raveJpgSrc} alt="rave" />
           </Carouselge.ItemBackground>
 
           <AfterPartySection />
