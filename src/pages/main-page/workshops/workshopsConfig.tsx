@@ -48,8 +48,8 @@ export type WorkshopsEntry = {
 export const WorkshopsConfig: WorkshopsEntry[] = [
   // --- SKEIN ---
   {
-    topicKey: 'workshops.skein.title',
-    time: '12:00 - 15:00',
+    topicKey: 'workshops.skein.title_sat',
+    time: '13:00 - 16:00',
     weekDay: 'saturday',
     leading: 'Skein x @pixeldzierga',
     picture: { fallback: skeinUrl, sources: [{ type: 'image/webp', url: skeinUrlWebp }] },
@@ -62,13 +62,13 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     aboutMe: 'workshops.skein.aboutMe'
   },
   {
-    topicKey: 'workshops.skein.title',
-    time: '10:00 - 13:00',
+    topicKey: 'workshops.skein.title_sun',
+    time: '11:00 - 14:00',
     weekDay: 'sunday',
     leading: 'Skein x @pixeldzierga',
     picture: { fallback: skeinUrl, sources: [{ type: 'image/webp', url: skeinUrlWebp }] },
     isSoldOut: false,
-    room: 'skein' as any,
+    room: 'skein',
     price: 310,
     ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Punch-Needle/3457',
     description: 'workshops.skein.description',
@@ -132,7 +132,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     description: 'workshops.inka.description',
     materials: 'workshops.inka.materials',
     aboutMe: 'workshops.inka.aboutMe'
-  }
+  },
 
   {
     topicKey: 'workshops.kroopa.title_beginner',
@@ -251,8 +251,6 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     aboutMe: 'workshops.knitolog.aboutMe'
   },
 
-
-
   // --- EDKNITTED ---
   {
     topicKey: 'workshops.edknitted.title',
@@ -282,7 +280,5 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     description: 'workshops.nowehafty.description',
     materials: 'workshops.nowehafty.materials',
     aboutMe: 'workshops.nowehafty.aboutMe'
-  },
-
-
+  }
 ];

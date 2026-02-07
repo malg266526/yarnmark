@@ -396,17 +396,25 @@ export const pl = {
 
       // --- SKEIN ---
       skein: {
-        title: 'Punch Needle',
+        title_sat: 'Punch Needle - Sobota',
+        title_sun: 'Punch Needle - Niedziela',
         materials:
           'Materiały zapewnia prowadzący:\n' +
           '<ul>' +
           '<li>torba, igła, tamborek, materiał, włóczki, wzory, znikopis</li>' +
           '</ul>',
         description:
-          'Dlaczego punch needle? Bo ma niski próg wejścia, błędy łatwo usunąć, a efekty robią piorunujące wrażenie. Każdy uczestnik otrzyma torbę, na której wyhaftuje swój projekt oraz pełny zestaw startowy (igła, tamborek, materiały video).',
+          'Dlaczego punch needle? Bo prócz niskiego progu wejścia (czytaj: łatwo się tego nauczyć), daje wiele możliwości modyfikacji, błędy można łatwo usunąć, a efekty pracy są szybkie i robią piorunujące wrażenie. Warsztaty obejmują  naukę podstaw techniki haftu magiczna igłą. Naukę doboru igły do materiału, przewlekania włóczki przez igłę oraz przenoszenia wzoru na materiał.<br>' +
+          'Każdy z uczestników otrzyma swoją torbę, na której będzie wykonywał haft punch needle :)',
         aboutMe:
-          'Wolę nazywać swoją pracę rzemieślniczą, bo do artysty nie dorosłam.\n' +
-          'Na haft magiczną igłą trafiła przypadkiem. Z pasji szeroko pojęty TWÓRCA. Wełna pozwala jej poznawać świat fakturą, kolorem i zapachem.'
+          'Wolę nazywać swoją pracę rzemieślniczą, bo do artysty nie dorosłam.<br>' +
+          'Na metodę haftu techniką magiczną igłą trafiłam przypadkiem, szukając techniki do pracy nad motoryką małą dla dzieci. Z wykształcenia jestem diagnostą laboratoryjnym, na co dzień oceniającym cytologię szyjki macicy, z pasji szeroko pojętym TWÓRCĄ.<br>' +
+          '<br>' +
+          'Sam proces cieszy mnie najbardziej, a jeśli efekt jest zadowalający, brnę dalej i dalej i dalej… aż do wyczerpania tematu.<br>' +
+          '<br>' +
+          'Dlaczego punch needle? Oprócz niskiego progu wejścia (czytaj: łatwo się tego nauczyć), daje wiele możliwości modyfikacji, błędy można łatwo usunąć, a efekty pracy są szybkie i robią piorunujące wrażenie.<br>' +
+          '<br>' +
+          'Miłość do wełnianych tkanin i materiałów wybuchła kilka lat wcześniej, podczas wielopieluchowania dzieci, przekształciła się w codzienność przez noszone ubrania i pozwoliła zakiełkować na nowo podczas tworzenia obrazów i przedmiotów codziennego użytku. Wełna ma nie tylko wspaniałe właściwości, ale pozwala poznać się wielowymiarowo: fakturą, kolorem i zapachem, co sprawia, że samodzielnie wykonana praca daje dużo satysfakcji.'
       },
 
       // --- SPLOTKA ---
