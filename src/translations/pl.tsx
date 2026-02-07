@@ -331,17 +331,18 @@ export const pl = {
           '<li>Miara krawiecka, markery agrafkowe, nożyczki</li>' +
           '</ul>',
         materials_heels:
-          '<ul>' +
-          '<li>Włóczka: dowolna, najlepiej grubsza</li>' +
-          '<li>Druty: 2-4 komplety dopasowane do włóczki</li>' +
-          '<li>Markery, igła dziewiarska, nożyczki, resztki włóczki</li>' +
-          '</ul>',
+          '<ul>' + '<li>Włóczka - info wkrótce</li>' + '<li>Druty: 2-4 komplety dopasowane do włóczki</li>' + '</ul>',
         description_socks:
           'Czy marzysz o własnoręcznie wydzierganych skarpetkach, ale na samą myśl o pięcie robi Ci się słabo? Nie taki diabeł straszny, jak go malują. Na tym warsztacie przekonasz się, że dzierganie skarpetek może być logiczne, przyjemne i naprawdę satysfakcjonujące.<br>Podczas warsztatu będziemy dziergać skarpetki od góry, krok po kroku, na podstawie gotowego wzoru. W trakcie pracy omówimy wszystkie kluczowe elementy, dzięki którym kolejne pary zrobisz już z pełną swobodą.<br>Na warsztacie dowiesz się m.in.:<ul><li>z jakiej włóczki najlepiej dziergać skarpetki,</li><li>czy wybrać druty na żyłce czy 5 drutów skarpetkowych,</li><li>jak dziergać metodą magic loop,</li><li>ile oczek nabrać, by skarpetka dobrze leżała,</li><li>jak formować klasyczną piętę z klapką,</li><li>jak dopasować piętę do wysokiego podbicia,</li><li>jak uformować palce i estetycznie zamknąć oczka.</li></ul>Warsztat idealny dla osób, które chcą zrobić swoje pierwsze skarpetki bez stresu i zrozumieć, jak naprawdę działa ich konstrukcja.<br>Warsztat jest odpowiedni także dla początkujących – potrzebna jest umiejętność robienia prawych i lewych oczek oraz umiejźtność korzystania z drutów na żyłce lub pięciu skarpetkowych.',
         description_heels:
           'Różne rodzaje pięt. Znajdź piętę, którą naprawdę polubisz!<br>Czy wciąż szukasz tej jedynej metody na idealną skarpetę? A może boisz się, że wyrabianie pięty to „wyższa szkoła jazdy”? Czas to zmienić i sprawdzić, która technika stanie się Twoją ulubioną – bez względu na to, czy dziergasz od góry, czy od palców.<br>Nie ma jednej najlepszej pięty – najlepsza jest ta, która dla Ciebie jest najwygodniejsza.<br>Przejdziemy przez różne konstrukcje pięt, by wybrać technikę, z którą polubisz się najbardziej:<ul><li>Pięta klasyczna z klapką: Ta tradycyjna technika jest zawsze niezawodna.</li><li>Pięta rzędymi skróconymi: Może to właśne ta pięta jest dla Ciebie.</li><li>Pięta dorabiana: Odkryjesz sprytny sposób na dodanie pięty na samym końcu.</li><li>Pięta Fleegle: Ciekawa pięta dla odważnych.</li></ul>Dla kogo jest ten warsztat? Dla każdego, kto chce przestać walczyć z piętą, a zacząć czerpać radość z jej robienia.<br>Na warsztacie potrzebna jest umiejętność robienia prawych i lewych oczek oraz posługiwania się w okrążeniach drutami na żyłce lub pięcioma drutami skarpetkowymi.<br>Przyjdź i wybierz metodę, którą naprawdę polubisz!',
         aboutMe:
-          'Iwona Eriksson mieszka w Szwecji, skąd chłonie tradycje dziewiarskie. Od 10 lat uczy na YouTube, prowadzi podcast „Zmagania Drutoterapii” i tworzy autorskie kursy.'
+          'Nazywam się Iwona Eriksson i dziergam na drutach „od zawsze”.<br>' +
+          'Od wielu lat mieszkam w Szwecji, chłonę tutejsze tradycje dziewiarstwa, ale jednocześnie pielęgnuję i rozwijam dziewiarstwo polskie.<br>' +
+          'Od ponad 10 lat uczę robienia na drutach na YouTube, a także tworzę kursy dziewiarskie na moich własnych stronach www. Piszę dziewiarskie wzory, prowadzę dziewiarski podcast „Zmagania Drutoterapii” oraz tematyczne transmisje na żywo.<br>' +
+          'Uczę się nowych technik, konstrukcji, ściegów i kolekcjonuję piękne włóczki.<br>' +
+          'Dziewiarstwo jest moją pasją, ale mam także wiele innych zainteresowań jak historia, parapsychologia i fizyka kwantowa. Kocham zwierzęta, mój ogród i naturę.<br>' +
+          'Będzie mi bardzo miło podzielić się z wami moją wiedzą.'
       },
 
       // --- KNITOLOG ---

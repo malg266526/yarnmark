@@ -16,6 +16,7 @@ import backIcon from '../../../assets/figmaIcons/back_arrow_icon.svg';
 import closeStrokeIcon from '../../../assets/figmaIcons/close_stroke_icon.svg';
 import { Icon } from '../../../components/Icon';
 import { TextToListFormatter } from '../../../components/TextToListFormatter';
+import { Trans } from 'react-i18next';
 
 const WorkshopModalLayout = styled(Modal)`
   display: flex;
@@ -150,7 +151,9 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
             <>
               <FlexColumnLayout padding="none" gap="sm">
                 <WorkshopSectionTitle size="md">O prowadzącej:</WorkshopSectionTitle>
-                <Typography size="sm">{aboutMe ? t(aboutMe) : '-'}</Typography>
+                <Typography size="sm">
+                  <Trans>{aboutMe ? t(aboutMe) : '-'}</Trans>
+                </Typography>
               </FlexColumnLayout>
             </>
           )}
