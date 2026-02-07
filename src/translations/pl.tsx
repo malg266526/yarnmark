@@ -373,15 +373,13 @@ export const pl = {
       edknitted: {
         title: 'Wzory 101',
         description:
-          'To Twoja dziewiarska mapa świata. Dowiesz się:\n' +
-          '<ul>' +
-          '<li>Jak interpretować schematy i skróty (od k2tog po ssk)</li>' +
-          '<li>Jak czytać wzory polskie i zagraniczne</li>' +
-          '<li>Jak rozumieć drobne niuanse języka dziewiarskiego</li>' +
-          '</ul>\n' +
-          'Możesz przynieść fragment wzoru, który sprawił Ci trudność – przeanalizujemy go razem!',
+          'Czy zdarza Ci się patrzeć na opis wzoru i zastanawiać:<br>„Dlaczego te oczka się nie zgadzają?”<br>„Co autorka miała na myśli…?”<br>„Jak odczytać ten schemat i co mam zrobić w tym miejscu?”<br><br>Warsztaty „Wzory 101 – Jak czytać i rozumieć wzory na druty” stworzyłam z myślą o dziewiarkach i dziewiarzach, którzy potrafią robić na drutach, ale zmagają się z interpretacją wzorów.<br>Podczas warsztatów nauczysz się:<ul><li>o podstawowych rodzajach wzorów i jak je interpretować,</li><li>jak czytać schematy i przekładać je „na druty”,</li><li>rozumieć skróty i oznaczenia używane w polskich i zagranicznych wzorach,</li><li>rozróżniać drobne niuanse języka dziewiarskiego.</li></ul>Po warsztatach przestaniesz się obawiać (zagranicznych) wzorów i z większą pewnością sięgniesz po trudniejsze projekty.<br>To Twoja dziewiarska mapa świata – od „k2tog” po „ssk”, od „rząd parzysty” po „powtórz *-*”.',
+        materials:
+          'Przygotuj fragment wzoru, który sprawił Ci trudność – przeanalizujemy go wspólnie podczas warsztatów :)<br>' +
+          'Dodatkowo, zabierz ze sobą coś do pisania i dobry humor!',
         aboutMe:
-          'Asia to zawodowa tłumaczka i tech edytorka wzorów. Pomaga projektantkom tworzyć instrukcje, które są jasne dla każdego.'
+          'Zawodowo: tłumacz, tech edytor wzorów na druty, wielozadaniowiec i świetny organizator.<br>' +
+          'Prywatnie: mama dwójki Maluchów, kochająca żona i zapalona dziewiarka. Dzierganie otworzyło jej drzwi do nowego świata, w którym realizuje swoje pasje i pomaga projektantkom oraz dziewiarkom. '
       },
 
       // --- NOWE HAFTY ---

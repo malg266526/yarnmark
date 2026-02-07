@@ -280,7 +280,7 @@ export const en: TranslationsShape = {
         bursa2: 'Bursa - sala B - al. Focha 39',
         skein: 'Skein - Zakopiańska 56 (wejście Lokal 19, 20. 1. piętro)',
         forum: 'Forum Przestrzenie - Marii Konopnickiej 28',
-        reading_room: 'Czytelnia'
+        reading_room: 'Czytelnia w bibliotece - al. Focha 39'
       },
 
       // --- KROOPA ---
@@ -323,7 +323,7 @@ export const en: TranslationsShape = {
       // --- IWONA ERIKSSON ---
       iwona: {
         title_socks: 'Zrozumieć skarpetki. Skarpetki od góry dla początkujących.',
-        title_heels: 'Różne rodzaje pięt',
+        title_heels: 'Różne rodzaje pięt - Niedziela',
         materials_socks:
           '<ul>' +
           '<li>Włóczka: Fiesta Dropsa, Novita 7brother lub podobna</li>' +
@@ -331,54 +331,49 @@ export const en: TranslationsShape = {
           '<li>Miara krawiecka, markery agrafkowe, nożyczki</li>' +
           '</ul>',
         materials_heels:
-          '<ul>' +
-          '<li>Włóczka: dowolna, najlepiej grubsza</li>' +
-          '<li>Druty: 2-4 komplety dopasowane do włóczki</li>' +
-          '<li>Markery, igła dziewiarska, nożyczki, resztki włóczki</li>' +
-          '</ul>',
+          '<ul>' + '<li>Włóczka - info wkrótce</li>' + '<li>Druty: 2-4 komplety dopasowane do włóczki</li>' + '</ul>',
         description_socks:
           'Czy marzysz o własnoręcznie wydzierganych skarpetkach, ale na samą myśl o pięcie robi Ci się słabo? Nie taki diabeł straszny, jak go malują. Na tym warsztacie przekonasz się, że dzierganie skarpetek może być logiczne, przyjemne i naprawdę satysfakcjonujące.<br>Podczas warsztatu będziemy dziergać skarpetki od góry, krok po kroku, na podstawie gotowego wzoru. W trakcie pracy omówimy wszystkie kluczowe elementy, dzięki którym kolejne pary zrobisz już z pełną swobodą.<br>Na warsztacie dowiesz się m.in.:<ul><li>z jakiej włóczki najlepiej dziergać skarpetki,</li><li>czy wybrać druty na żyłce czy 5 drutów skarpetkowych,</li><li>jak dziergać metodą magic loop,</li><li>ile oczek nabrać, by skarpetka dobrze leżała,</li><li>jak formować klasyczną piętę z klapką,</li><li>jak dopasować piętę do wysokiego podbicia,</li><li>jak uformować palce i estetycznie zamknąć oczka.</li></ul>Warsztat idealny dla osób, które chcą zrobić swoje pierwsze skarpetki bez stresu i zrozumieć, jak naprawdę działa ich konstrukcja.<br>Warsztat jest odpowiedni także dla początkujących – potrzebna jest umiejętność robienia prawych i lewych oczek oraz umiejźtność korzystania z drutów na żyłce lub pięciu skarpetkowych.',
         description_heels:
           'Różne rodzaje pięt. Znajdź piętę, którą naprawdę polubisz!<br>Czy wciąż szukasz tej jedynej metody na idealną skarpetę? A może boisz się, że wyrabianie pięty to „wyższa szkoła jazdy”? Czas to zmienić i sprawdzić, która technika stanie się Twoją ulubioną – bez względu na to, czy dziergasz od góry, czy od palców.<br>Nie ma jednej najlepszej pięty – najlepsza jest ta, która dla Ciebie jest najwygodniejsza.<br>Przejdziemy przez różne konstrukcje pięt, by wybrać technikę, z którą polubisz się najbardziej:<ul><li>Pięta klasyczna z klapką: Ta tradycyjna technika jest zawsze niezawodna.</li><li>Pięta rzędymi skróconymi: Może to właśne ta pięta jest dla Ciebie.</li><li>Pięta dorabiana: Odkryjesz sprytny sposób na dodanie pięty na samym końcu.</li><li>Pięta Fleegle: Ciekawa pięta dla odważnych.</li></ul>Dla kogo jest ten warsztat? Dla każdego, kto chce przestać walczyć z piętą, a zacząć czerpać radość z jej robienia.<br>Na warsztacie potrzebna jest umiejętność robienia prawych i lewych oczek oraz posługiwania się w okrążeniach drutami na żyłce lub pięcioma drutami skarpetkowymi.<br>Przyjdź i wybierz metodę, którą naprawdę polubisz!',
         aboutMe:
-          'Iwona Eriksson mieszka w Szwecji, skąd chłonie tradycje dziewiarskie. Od 10 lat uczy na YouTube, prowadzi podcast „Zmagania Drutoterapii” i tworzy autorskie kursy.'
+          'Nazywam się Iwona Eriksson i dziergam na drutach „od zawsze”.<br>' +
+          'Od wielu lat mieszkam w Szwecji, chłonę tutejsze tradycje dziewiarstwa, ale jednocześnie pielęgnuję i rozwijam dziewiarstwo polskie.<br>' +
+          'Od ponad 10 lat uczę robienia na drutach na YouTube, a także tworzę kursy dziewiarskie na moich własnych stronach www. Piszę dziewiarskie wzory, prowadzę dziewiarski podcast „Zmagania Drutoterapii” oraz tematyczne transmisje na żywo.<br>' +
+          'Uczę się nowych technik, konstrukcji, ściegów i kolekcjonuję piękne włóczki.<br>' +
+          'Dziewiarstwo jest moją pasją, ale mam także wiele innych zainteresowań jak historia, parapsychologia i fizyka kwantowa. Kocham zwierzęta, mój ogród i naturę.<br>' +
+          'Będzie mi bardzo miło podzielić się z wami moją wiedzą.'
       },
 
       // --- KNITOLOG ---
       knitolog: {
-        title_tricks: 'Moje dziewiarskie triki i techniki',
-        title_jacquard: 'Żakard i Ladderback Jacquard',
+        title_tricks: 'Moje dziewiarskie triki, techniki i inne myki',
+        title_jacquard: 'Żakard i Ladderback Jacquard - Niedziela',
         materials_tricks:
           '<ul>' +
-          '<li>Włóczka: Karisma (100m/50g), jasna, bez włosków</li>' +
-          '<li>Druty: 4.0 mm na żyłce</li>' +
-          '<li>Dodatkowe druty na odłożenie oczek</li>' +
+          '<li>Włóczkę zapewnia sponsor - <strong>Włóczykijki</strong></li>' +
+          '<li>Druty: 4.0 mm z żyłką do pracy w okrążeniach</li>' +
+          '<li>Dodatkowe druty na odłożenie oczek (dowolnej długości)</li>' +
           '</ul>',
         materials_jacquard:
           '<ul>' +
-          '<li>Dwie kontrastowe włóczki (Karisma), jednolite, bez włosków</li>' +
+          '<li>Włóczkę zapewnia sponsor - <strong>Włóczykijki</strong></li>' +
           '<li>Druty: 4.0 mm na żyłce lub skarpetkowe</li>' +
-          '<li>Kilka markerów</li>' +
+          '<li>Kilka sztuk markerów</li>' +
           '</ul>',
         description_tricks:
-          'Pokażę Ci, jak sprawić, by dzianina była estetyczna i wyglądała „jak ze sklepu”. Przejdziemy przez szereg autorskich technik wykończeniowych zgromadzonych przez 8 lat projektowania.',
+          'Podczas warsztatu przedstawię moje sposoby aby dzianina była estetyczna, pięknie wykończona i wyglądała "jak ze sklepu". Pokażę szereg technik i trików, które zgromadziłam podczas ośmiu lat projektowania swetrów. .',
         description_jacquard:
-          'Podstawy żakardu dla początkujących oraz metoda Ladderback Jacquard dla zaawansowanych (niewidoczne długie przejścia nitek). Będziemy pracować na specjalnym wzorze na mitenki.',
+          'Warsztat przeznaczony jest zarówno dla osób początkujących , jak i trochę zaawansowanych. Podczas warsztatów omówię podstawy żakardu. Jak dobierać włóczkę, druty i jak komponować kolory w żakardzie, jak trzymać nitki, aby robótka wyglądała estetycznie. Omówione zostaną zagadnienia koloru dominującego. Będziemy pracować na specjalnie zaprojektowanym wzorze na mitenki. Dla osób początkujących przygotowałam łatwiejszy projekt. Dla osób które już pracowały z żakardem, będzie przygotowany wzór z metodą Ladderback Jacquard.',
         aboutMe:
-          'Dorota Morawiak-Lichota (Knitolog) to projektantka z ponad 90 wzorami na koncie. Od lat edukuje dziewiarki na targach w całej Polsce.'
+          'Dorota Morawiak-Lichota (Knitolog), od 8 lat projektuje i publikuje na Ravelry wzory dziewiarskie. W swojej ofercie ma 90 projektów, które cieszą się dużym powodzeniem i sprzedawane są na całym świecie. Ponadto, od ponad 3 lat edukatorka dziergania, która prowadzi warsztaty dziewiarskie prawie na wszystkich targach włóczkowych.'
       },
 
       // --- EDKNITTED ---
       edknitted: {
-        title: 'Wzory 101 – Jak czytać i rozumieć opisy',
+        title: 'Wzory 101',
         description:
-          'To Twoja dziewiarska mapa świata. Dowiesz się:\n' +
-          '<ul>' +
-          '<li>Jak interpretować schematy i skróty (od k2tog po ssk)</li>' +
-          '<li>Jak czytać wzory polskie i zagraniczne</li>' +
-          '<li>Jak rozumieć drobne niuanse języka dziewiarskiego</li>' +
-          '</ul>\n' +
-          'Możesz przynieść fragment wzoru, który sprawił Ci trudność – przeanalizujemy go razem!',
+          'Czy zdarza Ci się patrzeć na opis wzoru i zastanawiać:<br>„Dlaczego te oczka się nie zgadzają?”<br>„Co autorka miała na myśli…?”<br>„Jak odczytać ten schemat i co mam zrobić w tym miejscu?”<br><br>Warsztaty „Wzory 101 – Jak czytać i rozumieć wzory na druty” stworzyłam z myślą o dziewiarkach i dziewiarzach, którzy potrafią robić na drutach, ale zmagają się z interpretacją wzorów.<br>Podczas warsztatów nauczysz się:<ul><li>o podstawowych rodzajach wzorów i jak je interpretować,</li><li>jak czytać schematy i przekładać je „na druty”,</li><li>rozumieć skróty i oznaczenia używane w polskich i zagranicznych wzorach,</li><li>rozróżniać drobne niuanse języka dziewiarskiego.</li></ul>Po warsztatach przestaniesz się obawiać (zagranicznych) wzorów i z większą pewnością sięgniesz po trudniejsze projekty.<br>To Twoja dziewiarska mapa świata – od „k2tog” po „ssk”, od „rząd parzysty” po „powtórz *-*”.',
         aboutMe:
           'Asia to zawodowa tłumaczka i tech edytorka wzorów. Pomaga projektantkom tworzyć instrukcje, które są jasne dla każdego.'
       },

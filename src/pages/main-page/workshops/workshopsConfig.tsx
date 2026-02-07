@@ -215,6 +215,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     picture: { fallback: edknittedUrl, sources: [{ type: 'image/webp', url: edknittedUrlWebp }] },
     room: 'library',
     isSoldOut: false,
+    materials: 'workshops.edknitted.materials',
     price: 180,
     description: 'workshops.edknitted.description',
     ticketUrl:
