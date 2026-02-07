@@ -285,7 +285,8 @@ export const en: TranslationsShape = {
 
       // --- KROOPA ---
       kroopa: {
-        title_beginner: 'Zakard Początkujący',
+        title_beginner: 'Podstawy Żakardu - Sobota',
+        title_beginner_sun: 'Podstawy Żakardu - Niedziela',
         materials_sat:
           '<ul>' +
           '<li>Włóczkę zapewnia sponsor <strong>GABO Wool<strong></li>' +
@@ -321,7 +322,7 @@ export const en: TranslationsShape = {
 
       // --- IWONA ERIKSSON ---
       iwona: {
-        title_socks: 'Zrozumieć skarpetki (od góry)',
+        title_socks: 'Zrozumieć skarpetki. Skarpetki od góry dla początkujących.',
         title_heels: 'Różne rodzaje pięt',
         materials_socks:
           '<ul>' +
@@ -336,15 +337,9 @@ export const en: TranslationsShape = {
           '<li>Markery, igła dziewiarska, nożyczki, resztki włóczki</li>' +
           '</ul>',
         description_socks:
-          'Przekonaj się, że dzierganie skarpetek może być logiczne i przyjemne. Na podstawie gotowego wzoru przejdziemy przez kluczowe elementy: od dobierania włóczki, przez formowanie klasycznej pięty z klapką, po estetyczne zamknięcie palców.',
+          'Czy marzysz o własnoręcznie wydzierganych skarpetkach, ale na samą myśl o pięcie robi Ci się słabo? Nie taki diabeł straszny, jak go malują. Na tym warsztacie przekonasz się, że dzierganie skarpetek może być logiczne, przyjemne i naprawdę satysfakcjonujące.<br>Podczas warsztatu będziemy dziergać skarpetki od góry, krok po kroku, na podstawie gotowego wzoru. W trakcie pracy omówimy wszystkie kluczowe elementy, dzięki którym kolejne pary zrobisz już z pełną swobodą.<br>Na warsztacie dowiesz się m.in.:<ul><li>z jakiej włóczki najlepiej dziergać skarpetki,</li><li>czy wybrać druty na żyłce czy 5 drutów skarpetkowych,</li><li>jak dziergać metodą magic loop,</li><li>ile oczek nabrać, by skarpetka dobrze leżała,</li><li>jak formować klasyczną piętę z klapką,</li><li>jak dopasować piętę do wysokiego podbicia,</li><li>jak uformować palce i estetycznie zamknąć oczka.</li></ul>Warsztat idealny dla osób, które chcą zrobić swoje pierwsze skarpetki bez stresu i zrozumieć, jak naprawdę działa ich konstrukcja.<br>Warsztat jest odpowiedni także dla początkujących – potrzebna jest umiejętność robienia prawych i lewych oczek oraz umiejźtność korzystania z drutów na żyłce lub pięciu skarpetkowych.',
         description_heels:
-          'Znajdź piętę, którą naprawdę polubisz! Przejdziemy przez różne konstrukcje:\n' +
-          '<ul>' +
-          '<li>Klasyczna z klapką</li>' +
-          '<li>Rzędami skróconymi</li>' +
-          '<li>Pięta dorabiana (na końcu)</li>' +
-          '<li>Pięta Fleegle</li>' +
-          '</ul>',
+          'Różne rodzaje pięt. Znajdź piętę, którą naprawdę polubisz!<br>Czy wciąż szukasz tej jedynej metody na idealną skarpetę? A może boisz się, że wyrabianie pięty to „wyższa szkoła jazdy”? Czas to zmienić i sprawdzić, która technika stanie się Twoją ulubioną – bez względu na to, czy dziergasz od góry, czy od palców.<br>Nie ma jednej najlepszej pięty – najlepsza jest ta, która dla Ciebie jest najwygodniejsza.<br>Przejdziemy przez różne konstrukcje pięt, by wybrać technikę, z którą polubisz się najbardziej:<ul><li>Pięta klasyczna z klapką: Ta tradycyjna technika jest zawsze niezawodna.</li><li>Pięta rzędymi skróconymi: Może to właśne ta pięta jest dla Ciebie.</li><li>Pięta dorabiana: Odkryjesz sprytny sposób na dodanie pięty na samym końcu.</li><li>Pięta Fleegle: Ciekawa pięta dla odważnych.</li></ul>Dla kogo jest ten warsztat? Dla każdego, kto chce przestać walczyć z piętą, a zacząć czerpać radość z jej robienia.<br>Na warsztacie potrzebna jest umiejętność robienia prawych i lewych oczek oraz posługiwania się w okrążeniach drutami na żyłce lub pięcioma drutami skarpetkowymi.<br>Przyjdź i wybierz metodę, którą naprawdę polubisz!',
         aboutMe:
           'Iwona Eriksson mieszka w Szwecji, skąd chłonie tradycje dziewiarskie. Od 10 lat uczy na YouTube, prowadzi podcast „Zmagania Drutoterapii” i tworzy autorskie kursy.'
       },
@@ -393,7 +388,7 @@ export const en: TranslationsShape = {
         title: 'Haftujemy kwiaty na wiosnę!',
         materials: 'Wszystkie materiały i akcesoria są w cenie warsztatu.',
         description:
-          'Stwórz swój własny mini tamborek z kwiatowym motywom. Podczas spotkania nauczymy się podstaw haftu ręcznego w miłej, kreatywnej atmosferze. Idealne dla osób bez żadnego doświadczenia!',
+          'Stwórz swój własny mini tamborek z kwiatowym motywem. Podczas spotkania nauczymy się podstaw haftu ręcznego w miłej, kreatywnej atmosferze. Idealne dla osób bez żadnego doświadczenia!',
         aboutMe:
           'Katarzyna Kępka (Nowe Hafty) łączy tradycyjne techniki z nowoczesnym podejściem do koloru. Pokazuje, że haft to przede wszystkim relaks.'
       },
@@ -465,7 +460,7 @@ export const en: TranslationsShape = {
     },
     vendorsStatue: {
       title: 'Terms and Conditions for the sale of the vendors stands 2026',
-      subtitle: 'Conditions for the sale of the vendors stands 2026',
+      subtitle: 'Conditions for the sale of vendors stands 2026',
       intro:
         'Observing various trade fairs, both in Poland and abroad, and taking into account the requirements and competitiveness of knitting-themed events, the Organizers of Krakoski Yarnmark have decided to change the concept of stand sales. This Regulation has been created to clearly define the principles by which the Organizers of Krakoski Yarnmark will be guided when selecting vendors. Out of respect for both Vendors and Visitors, we wish for Krakoski Yarnmark to be a place of diversity, while maintaining a dominant focus on knitting.',
       explanationIntro: 'In this document, the following terms refer to:',
