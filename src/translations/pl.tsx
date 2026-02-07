@@ -419,15 +419,10 @@ export const pl = {
 
       // --- SPLOTKA ---
       splotka: {
-        title: 'Tkana makatka – warsztaty od podstaw',
+        title: 'Tkana makatka ze splotką',
         materials: 'Wszystkie materiały zapewnia Splotka.',
         description:
-          'Wykonaj swoją pierwszą dekorację ścienną (18x30 cm). Pracujemy w duchu ZERO WASTE, wykorzystując sznurki, len, konopie i polską przędzę. Nauczysz się:\n' +
-          '<ul>' +
-          '<li>Obsługi krosna harfowego</li>' +
-          '<li>4 podstawowych splotów</li>' +
-          '<li>Wykańczania pracy i dodawania frędzli</li>' +
-          '</ul>',
+          'Warsztaty tkania od podstaw, na których wykonacie swoją pierwszą dekorację ścienną o wymiarach ok. 18 × 30 cm. Podczas kameralnego spotkania poznacie tajniki tradycyjnego rzemiosła od mistrzyni tkactwa - Splotki.  Nie jest wymagane wcześniejsze doświadczenie. <br>Zajęcia odbywają się w duchu ZERO WASTE – nic się nie marnuje. Wykorzystywać będziemy między innymi sznurki, włóczki ale i ręcznie przędzoną wełnę, len, konopie i polską przędzę spod Zakopca. Wszystkie niezbędne rzeczy dostępne na miejscu, wystarczy przynieść ze sobą odrobinę uśmiechu. Po zakończonych warsztatach istnieje możliwość zakupu narzędzi w promocyjnej cenie. <br><br>Program warsztatów obejmuje:<ul><li>naukę tkania na krośnie harfowym,</li><li>poznanie co najmniej 4 podstawowych splotów,</li><li>dobór materiałów i kolorów,</li><li>utrzymywanie napięcia wątku i osnowy,</li><li>wyrównywanie krawędzi i dodawanie frędzli,</li><li>wykończenie makatki,</li><li>recykling materiałów („zrzutów”).</li></ul>',
         aboutMe:
           'Monika Splotka to artystka sztuki włókna. Tka od 2004 roku, specjalizując się w kilimach łączących rzemiosło ze współczesnym designem.'
       },

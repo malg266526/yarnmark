@@ -375,46 +375,55 @@ export const de = {
         title: 'Wzory 101',
         description:
           'Czy zdarza Ci się patrzeć na opis wzoru i zastanawiać:<br>„Dlaczego te oczka się nie zgadzają?”<br>„Co autorka miała na myśli…?”<br>„Jak odczytać ten schemat i co mam zrobić w tym miejscu?”<br><br>Warsztaty „Wzory 101 – Jak czytać i rozumieć wzory na druty” stworzyłam z myślą o dziewiarkach i dziewiarzach, którzy potrafią robić na drutach, ale zmagają się z interpretacją wzorów.<br>Podczas warsztatów nauczysz się:<ul><li>o podstawowych rodzajach wzorów i jak je interpretować,</li><li>jak czytać schematy i przekładać je „na druty”,</li><li>rozumieć skróty i oznaczenia używane w polskich i zagranicznych wzorach,</li><li>rozróżniać drobne niuanse języka dziewiarskiego.</li></ul>Po warsztatach przestaniesz się obawiać (zagranicznych) wzorów i z większą pewnością sięgniesz po trudniejsze projekty.<br>To Twoja dziewiarska mapa świata – od „k2tog” po „ssk”, od „rząd parzysty” po „powtórz *-*”.',
+        materials:
+          'Przygotuj fragment wzoru, który sprawił Ci trudność – przeanalizujemy go wspólnie podczas warsztatów :)<br>' +
+          'Dodatkowo, zabierz ze sobą coś do pisania i dobry humor!',
         aboutMe:
-          'Asia to zawodowa tłumaczka i tech edytorka wzorów. Pomaga projektantkom tworzyć instrukcje, które są jasne dla każdego.'
+          'Zawodowo: tłumacz, tech edytor wzorów na druty, wielozadaniowiec i świetny organizator.<br>' +
+          'Prywatnie: mama dwójki Maluchów, kochająca żona i zapalona dziewiarka. Dzierganie otworzyło jej drzwi do nowego świata, w którym realizuje swoje pasje i pomaga projektantkom oraz dziewiarkom. '
       },
 
       // --- NOWE HAFTY ---
       nowehafty: {
         title: 'Haftujemy kwiaty na wiosnę!',
-        materials: 'Wszystkie materiały i akcesoria są w cenie warsztatu.',
+        materials: 'Wszystkie materiały i akcesoria w cenie warsztatu.',
         description:
-          'Stwórz swój własny mini tamborek z kwiatowym motywem. Podczas spotkania nauczymy się podstaw haftu ręcznego w miłej, kreatywnej atmosferze. Idealne dla osób bez żadnego doświadczenia!',
+          'Zapraszamy na warsztaty haftowania, podczas których każda uczestniczka stworzy swój własny mini tamborek z kwiatowym motywem. Nauczymy się podstaw haftu ręcznego, spędzimy czas kreatywnie i w miłej atmosferze.\n' +
+          'Nie potrzebujesz doświadczenia, a wszystkie materiały i akcesoria będą czekać na miejscu.<br>' +
+          'Przyjdź, wyhaftuj wiosnę i zabierz ją ze sobą do domu!!',
         aboutMe:
-          'Katarzyna Kępka (Nowe Hafty) łączy tradycyjne techniki z nowoczesnym podejściem do koloru. Pokazuje, że haft to przede wszystkim relaks.'
+          'Katarzyna Kępka — twórczyni projektu NoweHafty. Zajmuje się haftem ręcznym, łącząc tradycyjne techniki z nowoczesnym podejściem do wzoru i koloru. Prowadzi warsztaty haftowania, podczas których pokazuje, że haft to przyjemność, relaks i przestrzeń na własną kreatywność — nawet bez wcześniejszego doświadczenia.'
       },
 
       // --- SKEIN ---
       skein: {
-        title: 'Punch Needle',
+        title_sat: 'Punch Needle - Sobota',
+        title_sun: 'Punch Needle - Niedziela',
         materials:
           'Materiały zapewnia prowadzący:\n' +
           '<ul>' +
           '<li>torba, igła, tamborek, materiał, włóczki, wzory, znikopis</li>' +
           '</ul>',
         description:
-          'Dlaczego punch needle? Bo ma niski próg wejścia, błędy łatwo usunąć, a efekty robią piorunujące wrażenie. Każdy uczestnik otrzyma torbę, na której wyhaftuje swój projekt oraz pełny zestaw startowy (igła, tamborek, materiały video).',
+          'Dlaczego punch needle? Bo prócz niskiego progu wejścia (czytaj: łatwo się tego nauczyć), daje wiele możliwości modyfikacji, błędy można łatwo usunąć, a efekty pracy są szybkie i robią piorunujące wrażenie. Warsztaty obejmują  naukę podstaw techniki haftu magiczna igłą. Naukę doboru igły do materiału, przewlekania włóczki przez igłę oraz przenoszenia wzoru na materiał.<br>' +
+          'Każdy z uczestników otrzyma swoją torbę, na której będzie wykonywał haft punch needle :)',
         aboutMe:
-          'Wolę nazywać swoją pracę rzemieślniczą, bo do artysty nie dorosłam.\n' +
-          'Na haft magiczną igłą trafiła przypadkiem. Z pasji szeroko pojęty TWÓRCA. Wełna pozwala jej poznawać świat fakturą, kolorem i zapachem.'
+          'Wolę nazywać swoją pracę rzemieślniczą, bo do artysty nie dorosłam.<br>' +
+          'Na metodę haftu techniką magiczną igłą trafiłam przypadkiem, szukając techniki do pracy nad motoryką małą dla dzieci. Z wykształcenia jestem diagnostą laboratoryjnym, na co dzień oceniającym cytologię szyjki macicy, z pasji szeroko pojętym TWÓRCĄ.<br>' +
+          '<br>' +
+          'Sam proces cieszy mnie najbardziej, a jeśli efekt jest zadowalający, brnę dalej i dalej i dalej… aż do wyczerpania tematu.<br>' +
+          '<br>' +
+          'Dlaczego punch needle? Oprócz niskiego progu wejścia (czytaj: łatwo się tego nauczyć), daje wiele możliwości modyfikacji, błędy można łatwo usunąć, a efekty pracy są szybkie i robią piorunujące wrażenie.<br>' +
+          '<br>' +
+          'Miłość do wełnianych tkanin i materiałów wybuchła kilka lat wcześniej, podczas wielopieluchowania dzieci, przekształciła się w codzienność przez noszone ubrania i pozwoliła zakiełkować na nowo podczas tworzenia obrazów i przedmiotów codziennego użytku. Wełna ma nie tylko wspaniałe właściwości, ale pozwala poznać się wielowymiarowo: fakturą, kolorem i zapachem, co sprawia, że samodzielnie wykonana praca daje dużo satysfakcji.'
       },
 
       // --- SPLOTKA ---
       splotka: {
-        title: 'Tkana makatka – warsztaty od podstaw',
+        title: 'Tkana makatka ze splotką',
         materials: 'Wszystkie materiały zapewnia Splotka.',
         description:
-          'Wykonaj swoją pierwszą dekorację ścienną (18x30 cm). Pracujemy w duchu ZERO WASTE, wykorzystując sznurki, len, konopie i polską przędzę. Nauczysz się:\n' +
-          '<ul>' +
-          '<li>Obsługi krosna harfowego</li>' +
-          '<li>4 podstawowych splotów</li>' +
-          '<li>Wykańczania pracy i dodawania frędzli</li>' +
-          '</ul>',
+          'Warsztaty tkania od podstaw, na których wykonacie swoją pierwszą dekorację ścienną o wymiarach ok. 18 × 30 cm. Podczas kameralnego spotkania poznacie tajniki tradycyjnego rzemiosła od mistrzyni tkactwa - Splotki.  Nie jest wymagane wcześniejsze doświadczenie. <br>Zajęcia odbywają się w duchu ZERO WASTE – nic się nie marnuje. Wykorzystywać będziemy między innymi sznurki, włóczki ale i ręcznie przędzoną wełnę, len, konopie i polską przędzę spod Zakopca. Wszystkie niezbędne rzeczy dostępne na miejscu, wystarczy przynieść ze sobą odrobinę uśmiechu. Po zakończonych warsztatach istnieje możliwość zakupu narzędzi w promocyjnej cenie. <br><br>Program warsztatów obejmuje:<ul><li>naukę tkania na krośnie harfowym,</li><li>poznanie co najmniej 4 podstawowych splotów,</li><li>dobór materiałów i kolorów,</li><li>utrzymywanie napięcia wątku i osnowy,</li><li>wyrównywanie krawędzi i dodawanie frędzli,</li><li>wykończenie makatki,</li><li>recykling materiałów („zrzutów”).</li></ul>',
         aboutMe:
           'Monika Splotka to artystka sztuki włókna. Tka od 2004 roku, specjalizując się w kilimach łączących rzemiosło ze współczesnym designem.'
       },
