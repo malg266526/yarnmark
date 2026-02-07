@@ -21,7 +21,8 @@ export const en: TranslationsShape = {
       hallMap: 'Mapa hali',
       food: 'Food',
       statuteForVendors: 'Terms and Conditions for the sale of stands',
-      yarnmarkPatterns: 'Yarnmark patterns'
+      yarnmarkPatterns: 'Yarnmark patterns',
+      after: 'After'
     },
     tickets: {
       buyTicketsAndWorkshops: '<0>Buy</0> ticket to the fair or choose the workshops option',
@@ -122,6 +123,30 @@ export const en: TranslationsShape = {
       howToGetToUs: 'How to get to us?',
       accessibleByCar: 'Accessible by car',
       googleMaps: 'How to get to the fair with google maps'
+    },
+    after: {
+      title: '#CHODŹŻENAAFTER',
+      invitation:
+        'When the buzz of the fair settles, we’ll head to a cozy brick cellar by the market square for some craft-style relaxation at House Of Beer. <br>With good food and refreshing drinks, we’ll celebrate our time together, show off our Yarnmarket treasures, and keep on knitting — just the way we like it most.',
+      location: 'Venue',
+      addressLabel: 'Address',
+      addressFull: '35 św. Tomasza St., 31-027 Krakow',
+      hob: 'House of Beer (the party will take place in the basement, a private space exclusive to Yarnmark participants)',
+      onlyAdults: 'The event is open to adults only.',
+      closeToMainStation: 'near the Main Station, next to the Main Square',
+      startTime: 'Start time',
+      timeDetails: 'The afterparty program begins at 6:00 PM, but doors open at 5:00 PM.',
+      priceIncluded: 'The price includes entry to both Yarnmark and the afterparty',
+      token:
+        'Each participant will receive a token as part of their ticket, which can be exchanged for a drink of choice at the bar.',
+      schedule: 'Event schedule: ',
+      scheduleItems: {
+        entry: '<strong>5:00 PM</strong> doors open',
+        welcome: '<strong>6:00 PM</strong> welcome, time to order food and drinks',
+        contests: '<strong>7:30 PM</strong> – contests with prizes',
+        knitting: '<strong>9:00 PM</strong> – knitting time & admiring Yarnmark hauls',
+        end: '<strong>1:45 AM</strong> end of the party'
+      }
     },
     cashmereTicketsBand: {
       beautifulCruise: 'Beautiful cruise on the Knitting-ship!',

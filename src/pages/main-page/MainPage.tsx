@@ -21,6 +21,7 @@ import { BandsToggles } from '../../toggles';
 import { TicketCard } from './bands/ticket/TicketCard';
 import { VendorsList } from './VendorsList';
 import { CruiseBand } from './bands/CruiseBand';
+import { AfterBand } from './bands/AfterBand';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -51,6 +52,7 @@ export const MainPage = () => {
           </Band.CenteredColumn>
 
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
+          {BandsToggles.afterEnabled && <AfterBand id="after" />}
 
           {/*<WorkshopsScheduleMobileBand id="schedule" />*/}
 
@@ -64,6 +66,8 @@ export const MainPage = () => {
           <Band.CenteredColumn id="vendors" size="lg" padding="none" color={BackgroundColors.vendors}>
             <VendorsList />
           </Band.CenteredColumn>
+
+          {BandsToggles.afterEnabled && <AfterBand id="after" />}
 
           <PatternsBand id="patterns" />
 
@@ -102,6 +106,8 @@ export const MainPage = () => {
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 
           {BandsToggles.workshopsEnabled && <WorkshopsDesktopBand id="workshops" />}
+
+          {BandsToggles.afterEnabled && <AfterBand id="after" />}
 
           <PatternsBand id="patterns" />
 
