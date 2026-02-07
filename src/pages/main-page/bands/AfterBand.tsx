@@ -120,7 +120,8 @@ export const AfterBand = ({ id }: CruiseBandType) => {
 
             <LinkWrapper>
               <Link
-                disabled
+                onClick={(e) => e.preventDefault()}
+                style={{ pointerEvents: 'none', opacity: 0.5 }}
                 target="_blank"
                 to="https://wloczykijki.pl/pl_PL/p/Bilet-wstepu-na-Krakoski-Yarnmark-2025-REJS/3451"
               >
