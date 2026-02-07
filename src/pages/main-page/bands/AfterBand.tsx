@@ -19,9 +19,9 @@ import hopWebpSrc from '../../../assets/images/after/hop.webp';
 import krakowJpgSrc from '../../../assets/images/after/krakow.jpg';
 import krakowAvifSrc from '../../../assets/images/after/krakow.avif';
 import krakowWebpSrc from '../../../assets/images/after/krakow.webp';
-import ticketJpgSrc from '../../../assets/images/after/ticket.jpg';
-import ticketAvifSrc from '../../../assets/images/after/ticket.avif';
-import ticketWebpSrc from '../../../assets/images/after/ticket.webp';
+import ticketJpgSrc from '../../../assets/images/after/entry-ticket.jpg';
+import ticketAvifSrc from '../../../assets/images/after/entry-ticket.avif';
+import ticketWebpSrc from '../../../assets/images/after/entry-ticket.webp';
 import raveJpgSrc from '../../../assets/images/after/rave2.jpg';
 import raveAvifSrc from '../../../assets/images/after/rave2.avif';
 import raveWebpSrc from '../../../assets/images/after/rave2.webp';
@@ -69,8 +69,9 @@ export const AfterBand = ({ id }: CruiseBandType) => {
               {t('after.title')}
             </Typography>
 
-            <Typography size="sm">todo</Typography>
-            <Typography size="sm">todo</Typography>
+            <Typography size="sm">
+              <Trans>{t('after.invitation')}</Trans>
+            </Typography>
           </FlexColumnLayout>
         </Carouselge.Item>
 
@@ -119,6 +120,7 @@ export const AfterBand = ({ id }: CruiseBandType) => {
 
             <LinkWrapper>
               <Link
+                disabled
                 target="_blank"
                 to="https://wloczykijki.pl/pl_PL/p/Bilet-wstepu-na-Krakoski-Yarnmark-2025-REJS/3451"
               >

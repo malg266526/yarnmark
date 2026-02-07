@@ -28,6 +28,7 @@ import closeMenuIcon from '../../assets/figmaIcons/menu/close_icon.svg';
 import dotsStrokeIcon from '../../assets/figmaIcons/dots_icon.svg';
 import burgerImageUrl from '../../assets/iconify/burger.svg';
 import shirtIcon from '../../assets/figmaIcons/menu/shirt.svg';
+import partyIcon from '../../assets/iconify/party-icon.svg';
 import { BandsToggles, TicketsToggles } from '../../toggles';
 
 const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
@@ -253,6 +254,11 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
         <MenuItem href="/home#vendors" isOpen={isMenuExpanded} aria-label="vendors_menu_item" onClick={closeMenu}>
           <Icon size="sm" zIndex={0} src={shopIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.vendors')}</Typography>}
+        </MenuItem>
+
+        <MenuItem href="/home#after" isOpen={isMenuExpanded} aria-label="after_menu_item" onClick={closeMenu}>
+          <Icon size="sm" zIndex={0} src={partyIcon} />
+          {isMenuExpanded && <Typography size="sm">{t('menu.after')}</Typography>}
         </MenuItem>
 
         <MenuItem href="/home#patterns" isOpen={isMenuExpanded} aria-label="patterns_menu_item" onClick={closeMenu}>

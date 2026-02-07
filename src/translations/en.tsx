@@ -21,7 +21,8 @@ export const en: TranslationsShape = {
       hallMap: 'Mapa hali',
       food: 'Food',
       statuteForVendors: 'Terms and Conditions for the sale of stands',
-      yarnmarkPatterns: 'Yarnmark patterns'
+      yarnmarkPatterns: 'Yarnmark patterns',
+      after: 'After'
     },
     tickets: {
       buyTicketsAndWorkshops: '<0>Buy</0> ticket to the fair or choose the workshops option',
@@ -125,6 +126,8 @@ export const en: TranslationsShape = {
     },
     after: {
       title: '#CHODŹŻENAAFTER',
+      invitation:
+        'When the buzz of the fair settles, we’ll head to a cozy brick cellar by the market square for some craft-style relaxation at House Of Beer. <br>With good food and refreshing drinks, we’ll celebrate our time together, show off our Yarnmarket treasures, and keep on knitting — just the way we like it most.',
       location: 'Venue',
       addressLabel: 'Address',
       addressFull: '35 św. Tomasza St., 31-027 Krakow',

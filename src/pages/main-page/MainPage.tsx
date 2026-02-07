@@ -67,6 +67,8 @@ export const MainPage = () => {
             <VendorsList />
           </Band.CenteredColumn>
 
+          {BandsToggles.afterEnabled && <AfterBand id="after" />}
+
           <PatternsBand id="patterns" />
 
           {BandsToggles.foodEnabled && <FoodBand id="food" />}

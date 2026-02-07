@@ -21,7 +21,8 @@ export const pl = {
       hallMap: 'Mapa hali',
       food: 'Jedzonko',
       statuteForVendors: 'Regulamin sprzedaży stoisk',
-      yarnmarkPatterns: 'Wzory yarnmarkowe'
+      yarnmarkPatterns: 'Wzory yarnmarkowe',
+      after: 'After'
     },
     tickets: {
       buyTicketsAndWorkshops: '<0>Kup</0> bilet na targi lub wybierz opcję z warsztatami',
@@ -125,6 +126,9 @@ export const pl = {
     },
     after: {
       title: '#CHODŹŻENAAFTER',
+      invitation:
+        'Gdy targowy gwar ucichnie, przeniesiemy się do ceglanej piwnicy przy rynku, gdzie czeka nas rzemieślniczy relaks w House Of Beer.<br>' +
+        'Przy dobrym jedzeniu i orzeźwiających napojach będziemy celebrować wspólny czas, yarnmarkowe łupy i dziergać dalej — dokładnie tak, jak lubimy najbardziej!',
       location: 'Miejsce',
       addressLabel: 'Adres',
       addressFull: 'św. Tomasza 35, 31-027 Kraków',
