@@ -285,7 +285,8 @@ export const pl = {
 
       // --- KROOPA ---
       kroopa: {
-        title_beginner: 'Zakard Początkujący',
+        title_beginner: 'Podstawy Żakardu - Sobota',
+        title_beginner_sun: 'Podstawy Żakardu - Niedziela',
         materials_sat:
           '<ul>' +
           '<li>Włóczkę zapewnia sponsor <strong>GABO Wool<strong></li>' +
@@ -293,8 +294,8 @@ export const pl = {
           '</ul>',
         materials_sun:
           '<ul>' +
-          '<li>Włóczkę (dwa motki Aran/Worsted, biały i kontrastowy) zapewnia <strong>XXX</strong></li>' +
-          '<li>Druty we własnym zakresie: <strong>4.5 mm</strong> do żakardu + druty <strong>3-3.5 mm</strong> do ściągacza (żyłka min. 60 cm do Magic Loop)</li>' +
+          '<li>Włóczkę (dwa motki Aran/Worsted, biały i kontrastowy)</li>' +
+          '<li>Druty: <strong>4.5 mm</strong> do żakardu + druty <strong>3-3.5 mm</strong> do ściągacza (żyłka min. 60 cm do Magic Loop)</li>' +
           '</ul>',
         description:
           'Praca na wzorze na komin żakardowy dla początkujących, podobny do Easy Peasy Cowl. ' +
@@ -313,9 +314,10 @@ export const pl = {
           '<li>odpowiem na pytania i wątpliwości uczestników</li></ul>' +
           'Uczestnicy w trakcie warsztatów rozpoczną przerabianie swoich kominów i otrzymają ode mnie wskazówki jak dokończyć je w domu.<br>Uczestniczy powinni mieć opanowane podstawowe umiejętności: nabieranie oczek, przerabianie ściągaczem, dodawanie oczek, praca ściegiem gładkim w okrążeniach.',
         aboutMe:
-          'Karolina Adamczyk na drutach robi od dziecka. To jej sposób na relaks i oderwanie od codzienności. Najbardziej kocha kolorowe wzory na czapkach i skarpetach.\n' +
-          'Blog: kroopaknits.pl\n' +
-          'IG: @kroopa.knits'
+          'Karolina Adamczyk na drutach robi od dziecka, a od kilku lat naprawdę intensywnie. ' +
+          'Jest to jej wielka pasja i uzależnienie do tego stopnia, że robótkę ma praktycznie zawsze przy sobie.  ' +
+          'Najbardziej lubi robić wełniane czapki, skarpety i rękawiczki w kolorowe wzory. ' +
+          'Jest to dla niej sposób na relaks, odpoczynek, oderwanie od problemów dnia codziennego.'
       },
 
       // --- IWONA ERIKSSON ---

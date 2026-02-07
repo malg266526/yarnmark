@@ -75,7 +75,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     }
   },
   {
-    topicKey: 'workshops.kroopa.title_beginner',
+    topicKey: 'workshops.kroopa.title_beginner_sun',
     time: '9:00 - 12:30',
     weekDay: 'sunday',
     leading: 'Karolina Kroopa Knits',
