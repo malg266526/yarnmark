@@ -46,6 +46,94 @@ export type WorkshopsEntry = {
 };
 
 export const WorkshopsConfig: WorkshopsEntry[] = [
+  // --- SKEIN ---
+  {
+    topicKey: 'workshops.skein.title',
+    time: '12:00 - 15:00',
+    weekDay: 'saturday',
+    leading: 'Skein x @pixeldzierga',
+    picture: { fallback: skeinUrl, sources: [{ type: 'image/webp', url: skeinUrlWebp }] },
+    isSoldOut: false,
+    room: 'conference',
+    price: 310,
+    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Punch-Needle/3457',
+    description: 'workshops.skein.description',
+    materials: 'workshops.skein.materials',
+    aboutMe: 'workshops.skein.aboutMe'
+  },
+  {
+    topicKey: 'workshops.skein.title',
+    time: '10:00 - 13:00',
+    weekDay: 'sunday',
+    leading: 'Skein x @pixeldzierga',
+    picture: { fallback: skeinUrl, sources: [{ type: 'image/webp', url: skeinUrlWebp }] },
+    isSoldOut: false,
+    room: 'skein' as any,
+    price: 310,
+    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Punch-Needle/3457',
+    description: 'workshops.skein.description',
+    materials: 'workshops.skein.materials',
+    aboutMe: 'workshops.skein.aboutMe'
+  },
+  // --- SPLOTKA ---
+  {
+    topicKey: 'workshops.splotka.title',
+    time: '15:00 - 18:00', // Przykładowy czas
+    leading: 'Monika Splotka',
+    picture: yarnmarkLogoPictureConfig, // Zmień na właściwy import zdjęcia
+    isSoldOut: false,
+    room: 'bursa2',
+    price: 310,
+    ticketUrl: 'workshops.splotka.url',
+    description: 'workshops.splotka.description',
+    materials: 'workshops.splotka.materials',
+    aboutMe: 'workshops.splotka.aboutMe'
+  },
+  // --- SIS HOMEMADE ---
+  {
+    topicKey: 'workshops.sishomemade.title',
+    time: '10:00 - 13:00',
+    leading: 'Sis Homemade',
+    picture: yarnmarkLogoPictureConfig,
+    isSoldOut: false,
+    room: 'bursa2',
+    price: 200,
+    ticketUrl: 'workshops.sishomemade.url',
+    description: 'workshops.sishomemade.description',
+    materials: 'workshops.sishomemade.materials',
+    aboutMe: 'workshops.sishomemade.aboutMe'
+  },
+
+  // --- DRUTUTU ---
+  {
+    topicKey: 'workshops.drutututu.title',
+    time: '9:00 - 12:00',
+    leading: 'Magdalena @Drutu.tutu',
+    picture: { fallback: magdaUrl, sources: [{ type: 'image/webp', url: magdaUrlWebp }] },
+    isSoldOut: false,
+    room: 'bursa2',
+    price: 120,
+    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Druty-podstawy/3455',
+    description: 'workshops.drutututu.description',
+    materials: 'workshops.drutututu.materials',
+    aboutMe: 'workshops.drutututu.aboutMe'
+  },
+
+  // --- INKA ---
+  {
+    topicKey: 'workshops.inka.title',
+    time: '13:00 - 15:30',
+    leading: 'Dagmara (Inka)',
+    picture: yarnmarkLogoPictureConfig,
+    isSoldOut: false,
+    room: 'bursa2',
+    price: 120,
+    ticketUrl: 'workshops.inka.url',
+    description: 'workshops.inka.description',
+    materials: 'workshops.inka.materials',
+    aboutMe: 'workshops.inka.aboutMe'
+  }
+
   {
     topicKey: 'workshops.kroopa.title_beginner',
     time: '9:00 - 12:30',
@@ -163,49 +251,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     aboutMe: 'workshops.knitolog.aboutMe'
   },
 
-  // --- SKEIN ---
-  {
-    topicKey: 'workshops.skein.title',
-    time: '12:00 - 15:00',
-    weekDay: 'saturday',
-    leading: 'Skein x @pixeldzierga',
-    picture: { fallback: skeinUrl, sources: [{ type: 'image/webp', url: skeinUrlWebp }] },
-    isSoldOut: false,
-    room: 'conference',
-    price: 310,
-    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Punch-Needle/3457',
-    description: 'workshops.skein.description',
-    materials: 'workshops.skein.materials',
-    aboutMe: 'workshops.skein.aboutMe'
-  },
-  {
-    topicKey: 'workshops.skein.title',
-    time: '10:00 - 13:00',
-    weekDay: 'sunday',
-    leading: 'Skein x @pixeldzierga',
-    picture: { fallback: skeinUrl, sources: [{ type: 'image/webp', url: skeinUrlWebp }] },
-    isSoldOut: false,
-    room: 'skein' as any,
-    price: 310,
-    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Punch-Needle/3457',
-    description: 'workshops.skein.description',
-    materials: 'workshops.skein.materials',
-    aboutMe: 'workshops.skein.aboutMe'
-  },
-  // --- SPLOTKA ---
-  {
-    topicKey: 'workshops.splotka.title',
-    time: '15:00 - 18:00', // Przykładowy czas
-    leading: 'Monika Splotka',
-    picture: yarnmarkLogoPictureConfig, // Zmień na właściwy import zdjęcia
-    isSoldOut: false,
-    room: 'bursa2',
-    price: 310,
-    ticketUrl: 'workshops.splotka.url',
-    description: 'workshops.splotka.description',
-    materials: 'workshops.splotka.materials',
-    aboutMe: 'workshops.splotka.aboutMe'
-  },
+
 
   // --- EDKNITTED ---
   {
@@ -226,7 +272,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
   // --- NOWE HAFTY ---
   {
     topicKey: 'workshops.nowehafty.title',
-    time: '14:00 - 16:00',
+    time: '12:30 - 14:30',
     leading: 'Katarzyna Kępka (Nowe Hafty)',
     picture: yarnmarkLogoPictureConfig,
     isSoldOut: false,
@@ -238,48 +284,5 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     aboutMe: 'workshops.nowehafty.aboutMe'
   },
 
-  // --- SIS HOMEMADE ---
-  {
-    topicKey: 'workshops.sishomemade.title',
-    time: '10:00 - 13:00',
-    leading: 'Sis Homemade',
-    picture: yarnmarkLogoPictureConfig,
-    isSoldOut: false,
-    room: 'bursa2',
-    price: 200,
-    ticketUrl: 'workshops.sishomemade.url',
-    description: 'workshops.sishomemade.description',
-    materials: 'workshops.sishomemade.materials',
-    aboutMe: 'workshops.sishomemade.aboutMe'
-  },
 
-  // --- DRUTUTU ---
-  {
-    topicKey: 'workshops.drutututu.title',
-    time: '9:00 - 12:00',
-    leading: 'Magdalena @Drutu.tutu',
-    picture: { fallback: magdaUrl, sources: [{ type: 'image/webp', url: magdaUrlWebp }] },
-    isSoldOut: false,
-    room: 'bursa2',
-    price: 120,
-    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Druty-podstawy/3455',
-    description: 'workshops.drutututu.description',
-    materials: 'workshops.drutututu.materials',
-    aboutMe: 'workshops.drutututu.aboutMe'
-  },
-
-  // --- INKA ---
-  {
-    topicKey: 'workshops.inka.title',
-    time: '13:00 - 15:30',
-    leading: 'Dagmara (Inka)',
-    picture: yarnmarkLogoPictureConfig,
-    isSoldOut: false,
-    room: 'bursa2',
-    price: 120,
-    ticketUrl: 'workshops.inka.url',
-    description: 'workshops.inka.description',
-    materials: 'workshops.inka.materials',
-    aboutMe: 'workshops.inka.aboutMe'
-  }
 ];

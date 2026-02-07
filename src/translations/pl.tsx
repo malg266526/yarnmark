@@ -385,11 +385,13 @@ export const pl = {
       // --- NOWE HAFTY ---
       nowehafty: {
         title: 'Haftujemy kwiaty na wiosnę!',
-        materials: 'Wszystkie materiały i akcesoria są w cenie warsztatu.',
+        materials: 'Wszystkie materiały i akcesoria w cenie warsztatu.',
         description:
-          'Stwórz swój własny mini tamborek z kwiatowym motywem. Podczas spotkania nauczymy się podstaw haftu ręcznego w miłej, kreatywnej atmosferze. Idealne dla osób bez żadnego doświadczenia!',
+          'Zapraszamy na warsztaty haftowania, podczas których każda uczestniczka stworzy swój własny mini tamborek z kwiatowym motywem. Nauczymy się podstaw haftu ręcznego, spędzimy czas kreatywnie i w miłej atmosferze.\n' +
+          'Nie potrzebujesz doświadczenia, a wszystkie materiały i akcesoria będą czekać na miejscu.<br>' +
+          'Przyjdź, wyhaftuj wiosnę i zabierz ją ze sobą do domu!!',
         aboutMe:
-          'Katarzyna Kępka (Nowe Hafty) łączy tradycyjne techniki z nowoczesnym podejściem do koloru. Pokazuje, że haft to przede wszystkim relaks.'
+          'Katarzyna Kępka — twórczyni projektu NoweHafty. Zajmuje się haftem ręcznym, łącząc tradycyjne techniki z nowoczesnym podejściem do wzoru i koloru. Prowadzi warsztaty haftowania, podczas których pokazuje, że haft to przyjemność, relaks i przestrzeń na własną kreatywność — nawet bez wcześniejszego doświadczenia.'
       },
 
       // --- SKEIN ---
