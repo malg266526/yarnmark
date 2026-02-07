@@ -280,7 +280,7 @@ export const pl = {
         bursa2: 'Bursa - sala B - al. Focha 39',
         skein: 'Skein - Zakopiańska 56 (wejście Lokal 19, 20. 1. piętro)',
         forum: 'Forum Przestrzenie - Marii Konopnickiej 28',
-        reading_room: 'Czytelnia'
+        reading_room: 'Czytelnia w bibliotece - al. Focha 39'
       },
 
       // --- KROOPA ---
@@ -323,7 +323,7 @@ export const pl = {
       // --- IWONA ERIKSSON ---
       iwona: {
         title_socks: 'Zrozumieć skarpetki. Skarpetki od góry dla początkujących.',
-        title_heels: 'Różne rodzaje pięt',
+        title_heels: 'Różne rodzaje pięt - Niedziela',
         materials_socks:
           '<ul>' +
           '<li>Włóczka: Fiesta Dropsa, Novita 7brother lub podobna</li>' +
@@ -347,31 +347,31 @@ export const pl = {
 
       // --- KNITOLOG ---
       knitolog: {
-        title_tricks: 'Moje dziewiarskie triki i techniki',
-        title_jacquard: 'Żakard i Ladderback Jacquard',
+        title_tricks: 'Moje dziewiarskie triki, techniki i inne myki',
+        title_jacquard: 'Żakard i Ladderback Jacquard - Niedziela',
         materials_tricks:
           '<ul>' +
-          '<li>Włóczka: Karisma (100m/50g), jasna, bez włosków</li>' +
-          '<li>Druty: 4.0 mm na żyłce</li>' +
-          '<li>Dodatkowe druty na odłożenie oczek</li>' +
+          '<li>Włóczkę zapewnia sponsor - <strong>Włóczykijki</strong></li>' +
+          '<li>Druty: 4.0 mm z żyłką do pracy w okrążeniach</li>' +
+          '<li>Dodatkowe druty na odłożenie oczek (dowolnej długości)</li>' +
           '</ul>',
         materials_jacquard:
           '<ul>' +
-          '<li>Dwie kontrastowe włóczki (Karisma), jednolite, bez włosków</li>' +
+          '<li>Włóczkę zapewnia sponsor - <strong>Włóczykijki</strong></li>' +
           '<li>Druty: 4.0 mm na żyłce lub skarpetkowe</li>' +
-          '<li>Kilka markerów</li>' +
+          '<li>Kilka sztuk markerów</li>' +
           '</ul>',
         description_tricks:
-          'Pokażę Ci, jak sprawić, by dzianina była estetyczna i wyglądała „jak ze sklepu”. Przejdziemy przez szereg autorskich technik wykończeniowych zgromadzonych przez 8 lat projektowania.',
+          'Podczas warsztatu przedstawię moje sposoby aby dzianina była estetyczna, pięknie wykończona i wyglądała "jak ze sklepu". Pokażę szereg technik i trików, które zgromadziłam podczas ośmiu lat projektowania swetrów. .',
         description_jacquard:
-          'Podstawy żakardu dla początkujących oraz metoda Ladderback Jacquard dla zaawansowanych (niewidoczne długie przejścia nitek). Będziemy pracować na specjalnym wzorze na mitenki.',
+          'Warsztat przeznaczony jest zarówno dla osób początkujących , jak i trochę zaawansowanych. Podczas warsztatów omówię podstawy żakardu. Jak dobierać włóczkę, druty i jak komponować kolory w żakardzie, jak trzymać nitki, aby robótka wyglądała estetycznie. Omówione zostaną zagadnienia koloru dominującego. Będziemy pracować na specjalnie zaprojektowanym wzorze na mitenki. Dla osób początkujących przygotowałam łatwiejszy projekt. Dla osób które już pracowały z żakardem, będzie przygotowany wzór z metodą Ladderback Jacquard.',
         aboutMe:
-          'Dorota Morawiak-Lichota (Knitolog) to projektantka z ponad 90 wzorami na koncie. Od lat edukuje dziewiarki na targach w całej Polsce.'
+          'Dorota Morawiak-Lichota (Knitolog), od 8 lat projektuje i publikuje na Ravelry wzory dziewiarskie. W swojej ofercie ma 90 projektów, które cieszą się dużym powodzeniem i sprzedawane są na całym świecie. Ponadto, od ponad 3 lat edukatorka dziergania, która prowadzi warsztaty dziewiarskie prawie na wszystkich targach włóczkowych.'
       },
 
       // --- EDKNITTED ---
       edknitted: {
-        title: 'Wzory 101 – Jak czytać i rozumieć opisy',
+        title: 'Wzory 101',
         description:
           'To Twoja dziewiarska mapa świata. Dowiesz się:\n' +
           '<ul>' +
