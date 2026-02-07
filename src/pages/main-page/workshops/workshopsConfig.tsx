@@ -48,7 +48,7 @@ export type WorkshopsEntry = {
 export const WorkshopsConfig: WorkshopsEntry[] = [
   {
     topicKey: 'workshops.kroopa.title_beginner',
-    time: '9:00 - 12:00',
+    time: '9:00 - 12:30',
     weekDay: 'saturday',
     leading: 'Karolina Kroopa Knits',
     picture: {
@@ -76,7 +76,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
   },
   {
     topicKey: 'workshops.kroopa.title_beginner',
-    time: '9:00 - 12:00',
+    time: '9:00 - 12:30',
     weekDay: 'sunday',
     leading: 'Karolina Kroopa Knits',
     picture: {

@@ -287,26 +287,31 @@ export const pl = {
       kroopa: {
         title_beginner: 'Zakard Początkujący',
         materials_sat:
-          'Materiały zapewnia prowadzący:\n' +
           '<ul>' +
-          '<li>Włóczkę (dwa motki Aran/Worsted, biały i kontrastowy) zapewnia GABO</li>' +
-          '<li>Druty we własnym zakresie: 4.5 mm do żakardu + druty 3-3.5 mm do ściągacza (żyłka min. 60 cm do Magic Loop)</li>' +
+          '<li>Włóczkę zapewnia sponsor <strong>GABO Wool<strong></li>' +
+          '<li>Druty we własnym zakresie: <strong>4.5 mm</strong> do żakardu + druty <strong>3-3.5 mm</strong> do ściągacza (żyłka min. 60 cm do Magic Loop)</li>' +
           '</ul>',
         materials_sun:
-          'Materiały zapewnia prowadzący:\n' +
           '<ul>' +
-          '<li>Włóczkę (dwa motki Aran/Worsted, biały i kontrastowy) zapewnia XXX</li>' +
-          '<li>Druty we własnym zakresie: 4.5 mm do żakardu + druty 3-3.5 mm do ściągacza (żyłka min. 60 cm do Magic Loop)</li>' +
+          '<li>Włóczkę (dwa motki Aran/Worsted, biały i kontrastowy) zapewnia <strong>XXX</strong></li>' +
+          '<li>Druty we własnym zakresie: <strong>4.5 mm</strong> do żakardu + druty <strong>3-3.5 mm</strong> do ściągacza (żyłka min. 60 cm do Magic Loop)</li>' +
           '</ul>',
         description:
-          'Praca na wzorze na komin żakardowy dla początkujących, podobny do Easy Peasy Cowl. Warsztaty są dla osób, które potrafią robić na drutach, ale nigdy nie próbowały żakardu.\n\n' +
-          'Podczas 30-minutowej prezentacji poznasz teorię, a potem przejdziemy do praktyki:\n' +
+          'Praca na wzorze na komin żakardowy dla początkujących, podobny do Easy Peasy Cowl. ' +
+          'Warsztaty są dla osób początkujących we wzorach żakardowych (np. Dla takich, które nigdy jeszcze nie próbowały tej techniki), ale potrafiących robić na drutach.' +
+          '<br>Warsztaty rozpocznę ok 30 minutową prezentacją, w trakcie której zdradzę wszystko co wiem na temat przerabiania wzorów żakardowych.' +
+          '<br>Na warsztatach pokażę uczestnikom:' +
           '<ul>' +
-          '<li>Dwa sposoby trzymania nitek</li>' +
-          '<li>Jak dołączać kolor i zawijać nitki</li>' +
-          '<li>Dobór kolorów, rozmiaru drutów i dbanie o elastyczność</li>' +
-          '</ul>\n' +
-          'Wymagane umiejętności: nabieranie oczek, ściągacz, dodawanie oczek, praca w okrążeniach.',
+          '<li>dwa sposoby trzymania dwóch nitek i pracy z nimi</li>' +
+          '<li>opcjonalnie jak przerabiać trzema kolorami w jednym okrążeniu</li>' +
+          '<li>jak dołączać nowy kolor</li>' +
+          '<li>jak i kiedy zawijać nitki przy żakardzie</li>' +
+          '<li>opowiem o wyborze kolorów</li>' +
+          '<li>opowiem o doborze rozmiaru drutów</li>' +
+          '<li>opowiem o elastyczności dzianiny</li>' +
+          '<li>przydatne wskazówki do pracy z żakardami</li>' +
+          '<li>odpowiem na pytania i wątpliwości uczestników</li></ul>' +
+          '<br><br>Uczestnicy w trakcie warsztatów rozpoczną przerabianie swoich kominów i otrzymają ode mnie wskazówki jak dokończyć je w domu.<br>Uczestniczy powinni mieć opanowane podstawowe umiejętności: nabieranie oczek, przerabianie ściągaczem, dodawanie oczek, praca ściegiem gładkim w okrążeniach.',
         aboutMe:
           'Karolina Adamczyk na drutach robi od dziecka. To jej sposób na relaks i oderwanie od codzienności. Najbardziej kocha kolorowe wzory na czapkach i skarpetach.\n' +
           'Blog: kroopaknits.pl\n' +

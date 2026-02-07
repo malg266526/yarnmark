@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FlexColumnLayout } from './FlexColumnLayout';
 import { ScreenSize } from '../styles/screeen-size';
 import { RedesignSpacings } from '../styles/spacings';
+import { Trans } from 'react-i18next';
 
 const WorkshopUl = styled.ul`
   margin: 0;
@@ -50,13 +51,17 @@ export const TextToListFormatter = ({ text }: Props) => {
       {before && (
         <FlexColumnLayout padding="none" align="flex-start" gap="xs">
           {paragraphs.map((line, index) => (
-            <p key={`${index}_line`}>{line}</p>
+            <p key={`${index}_line`}>
+              <Trans>{line}</Trans>
+            </p>
           ))}
         </FlexColumnLayout>
       )}
       <WorkshopUl>
         {list.map((item, index) => (
-          <li key={`${index}_li`}>{item}</li>
+          <li key={`${index}_li`}>
+            <Trans>{item}</Trans>
+          </li>
         ))}
       </WorkshopUl>
     </Scrollable>

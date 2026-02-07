@@ -287,7 +287,6 @@ export const en: TranslationsShape = {
       kroopa: {
         title_beginner: 'Zakard Początkujący',
         materials_sat:
-          'Materiały zapewnia prowadzący:\n' +
           '<ul>' +
           '<li>Włóczkę (dwa motki Aran/Worsted, biały i kontrastowy) zapewnia GABO</li>' +
           '<li>Druty we własnym zakresie: 4.5 mm do żakardu + druty 3-3.5 mm do ściągacza (żyłka min. 60 cm do Magic Loop)</li>' +
