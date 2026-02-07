@@ -311,7 +311,7 @@ export const pl = {
           '<li>opowiem o elastyczności dzianiny</li>' +
           '<li>przydatne wskazówki do pracy z żakardami</li>' +
           '<li>odpowiem na pytania i wątpliwości uczestników</li></ul>' +
-          '<br><br>Uczestnicy w trakcie warsztatów rozpoczną przerabianie swoich kominów i otrzymają ode mnie wskazówki jak dokończyć je w domu.<br>Uczestniczy powinni mieć opanowane podstawowe umiejętności: nabieranie oczek, przerabianie ściągaczem, dodawanie oczek, praca ściegiem gładkim w okrążeniach.',
+          'Uczestnicy w trakcie warsztatów rozpoczną przerabianie swoich kominów i otrzymają ode mnie wskazówki jak dokończyć je w domu.<br>Uczestniczy powinni mieć opanowane podstawowe umiejętności: nabieranie oczek, przerabianie ściągaczem, dodawanie oczek, praca ściegiem gładkim w okrążeniach.',
         aboutMe:
           'Karolina Adamczyk na drutach robi od dziecka. To jej sposób na relaks i oderwanie od codzienności. Najbardziej kocha kolorowe wzory na czapkach i skarpetach.\n' +
           'Blog: kroopaknits.pl\n' +

@@ -23,32 +23,24 @@ const Scrollable = styled.div`
   }
 `;
 
-const ulSeparator = '<ul>';
+const ulStartSeparator = '<ul>';
+const ulEndSeparator = '</ul>';
 
 interface Props {
   text?: string;
 }
 
 export const TextToListFormatter = ({ text }: Props) => {
-  if (!text) return '';
+  if (!text) return null;
 
-  const parts = text.split(ulSeparator);
-  const before = parts[0];
+  const ulStartIndex = text.indexOf(ulStartSeparator);
+  const ulEndIndex = text.indexOf(ulEndSeparator);
 
-  const paragraphs = before.split('<br>').filter(Boolean);
-
-  const list = !text.includes(ulSeparator)
-    ? []
-    : parts[1]
-        .replaceAll(ulSeparator, '')
-        .replaceAll('</ul>', '')
-        .replaceAll('</li>', '')
-        .split('<li>')
-        .filter(Boolean);
-
-  return (
-    <Scrollable>
-      {before && (
+  // Case 1: No <ul> tag
+  if (ulStartIndex === -1) {
+    const paragraphs = text.split('<br>').filter(Boolean);
+    return (
+      <Scrollable>
         <FlexColumnLayout padding="none" align="flex-start" gap="xs">
           {paragraphs.map((line, index) => (
             <p key={`${index}_line`}>
@@ -56,14 +48,52 @@ export const TextToListFormatter = ({ text }: Props) => {
             </p>
           ))}
         </FlexColumnLayout>
+      </Scrollable>
+    );
+  }
+
+  // Case 2: <ul> tag exists
+  const beforeText = text.substring(0, ulStartIndex);
+  const listContent = text.substring(ulStartIndex + ulStartSeparator.length, ulEndIndex);
+  const afterText = text.substring(ulEndIndex + ulEndSeparator.length);
+
+  const beforeParagraphs = beforeText.split('<br>').filter(Boolean);
+  const afterParagraphs = afterText.split('<br>').filter(Boolean);
+
+  const listItems = listContent.replaceAll('</li>', '').split('<li>').filter(Boolean);
+
+  return (
+    <Scrollable>
+      {/* Render text before the list */}
+      {beforeParagraphs.length > 0 && (
+        <FlexColumnLayout padding="none" align="flex-start" gap="xs">
+          {beforeParagraphs.map((line, index) => (
+            <p key={`before_${index}_line`}>
+              <Trans>{line}</Trans>
+            </p>
+          ))}
+        </FlexColumnLayout>
       )}
+
+      {/* Render the list */}
       <WorkshopUl>
-        {list.map((item, index) => (
+        {listItems.map((item, index) => (
           <li key={`${index}_li`}>
             <Trans>{item}</Trans>
           </li>
         ))}
       </WorkshopUl>
+
+      {/* Render text after the list */}
+      {afterParagraphs.length > 0 && (
+        <FlexColumnLayout padding="none" align="flex-start" gap="xs" style={{ paddingTop: RedesignSpacings.sm }}>
+          {afterParagraphs.map((line, index) => (
+            <p key={`after_${index}_line`}>
+              <Trans>{line}</Trans>
+            </p>
+          ))}
+        </FlexColumnLayout>
+      )}
     </Scrollable>
   );
 };
