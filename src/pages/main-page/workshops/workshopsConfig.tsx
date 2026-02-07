@@ -42,12 +42,14 @@ export type WorkshopsEntry = {
     other?: string;
   };
   aboutMe?: UnprefixedTranslationKeys;
+  weekDay?: 'saturday' | 'sunday';
 };
 
 export const WorkshopsConfig: WorkshopsEntry[] = [
   {
     topicKey: 'workshops.kroopa.title_beginner',
-    time: '9:00 - 12:00 (SB)',
+    time: '9:00 - 12:00',
+    weekDay: 'saturday',
     leading: 'Karolina Kroopa Knits',
     picture: {
       fallback: kroopaUrl,
@@ -74,7 +76,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
   },
   {
     topicKey: 'workshops.kroopa.title_beginner',
-    time: '9:00 - 12:00 (ND)',
+    time: '9:00 - 12:00',
+    weekDay: 'sunday',
     leading: 'Karolina Kroopa Knits',
     picture: {
       fallback: kroopaUrl,
@@ -103,7 +106,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
   // --- IWONA ERIKSSON ---
   {
     topicKey: 'workshops.iwona.title_socks',
-    time: '12:30 - 15:30 (SB)',
+    time: '12:30 - 15:30',
+    weekDay: 'saturday',
     leading: 'Iwona Eriksson',
     picture: { fallback: iwonaUrl, sources: [{ type: 'image/webp', url: iwonaUrlWebp }] },
     isSoldOut: false,
@@ -116,7 +120,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
   },
   {
     topicKey: 'workshops.iwona.title_heels',
-    time: '9:00 - 12:00 (ND)',
+    time: '9:00 - 12:00',
+    weekDay: 'sunday',
     leading: 'Iwona Eriksson',
     picture: { fallback: iwonaUrl, sources: [{ type: 'image/webp', url: iwonaUrlWebp }] },
     isSoldOut: false,
@@ -131,10 +136,11 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
   // --- KNITOLOG ---
   {
     topicKey: 'workshops.knitolog.title_tricks',
-    time: '9:00 - 12:00 (SB)',
+    time: '9:00 - 12:00',
+    weekDay: 'saturday',
     leading: 'Dorota Morawiak-Lichota (KNITOLOG)',
     picture: { fallback: knitologUrl, sources: [{ type: 'image/webp', url: knitologUrlWebp }] },
-    isSoldOut: true,
+    isSoldOut: false,
     room: 'bursa1',
     price: 200,
     ticketUrl: 'Yarnmark-2025-Warsztaty-Zakard-dla-mniej-lub-bardziej-zaawansowanych/2839',
@@ -144,10 +150,11 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
   },
   {
     topicKey: 'workshops.knitolog.title_jacquard',
-    time: '9:00 - 12:00 (ND)',
+    time: '9:00 - 12:00',
+    weekDay: 'sunday',
     leading: 'Dorota Morawiak-Lichota (KNITOLOG)',
     picture: { fallback: knitologUrl, sources: [{ type: 'image/webp', url: knitologUrlWebp }] },
-    isSoldOut: true,
+    isSoldOut: false,
     room: 'reading_room',
     price: 200,
     ticketUrl: 'Yarnmark-2025-Warsztaty-Zakard-dla-mniej-lub-bardziej-zaawansowanych/2839',
@@ -159,7 +166,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
   // --- SKEIN ---
   {
     topicKey: 'workshops.skein.title',
-    time: '12:00 - 15:00 (SB)',
+    time: '12:00 - 15:00',
+    weekDay: 'saturday',
     leading: 'Skein x @pixeldzierga',
     picture: { fallback: skeinUrl, sources: [{ type: 'image/webp', url: skeinUrlWebp }] },
     isSoldOut: false,
@@ -172,7 +180,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
   },
   {
     topicKey: 'workshops.skein.title',
-    time: '10:00 - 13:00 (ND)',
+    time: '10:00 - 13:00',
+    weekDay: 'sunday',
     leading: 'Skein x @pixeldzierga',
     picture: { fallback: skeinUrl, sources: [{ type: 'image/webp', url: skeinUrlWebp }] },
     isSoldOut: false,
@@ -205,7 +214,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     leading: 'Asia EDKNITTED',
     picture: { fallback: edknittedUrl, sources: [{ type: 'image/webp', url: edknittedUrlWebp }] },
     room: 'library',
-    isSoldOut: true,
+    isSoldOut: false,
     price: 180,
     description: 'workshops.edknitted.description',
     ticketUrl:
@@ -249,7 +258,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     time: '9:00 - 12:00',
     leading: 'Magdalena @Drutu.tutu',
     picture: { fallback: magdaUrl, sources: [{ type: 'image/webp', url: magdaUrlWebp }] },
-    isSoldOut: true,
+    isSoldOut: false,
     room: 'bursa2',
     price: 120,
     ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Druty-podstawy/3455',

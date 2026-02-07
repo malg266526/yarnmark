@@ -275,7 +275,9 @@ export const de = {
         library: 'Biblioteka - al. Focha 39',
         bursa1: 'Bursa - sala A - al. Focha 39',
         bursa2: 'Bursa - sala B - al. Focha 39',
-        skein: 'Skein'
+        skein: 'Skein  - Zakopiańska 56',
+        forum: 'Forum Przestrzenie - Marii Konopnickiej 28',
+        reading_room: 'Reading room'
       },
 
       // --- KROOPA ---

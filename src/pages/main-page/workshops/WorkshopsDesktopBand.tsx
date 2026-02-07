@@ -40,7 +40,7 @@ export const WorkshopsDesktopBand = ({ id }: WorkshopsBandType) => {
 
   return (
     <Band.CenteredColumn id={id} size="lg" gap="xl" padding="xl" color={BackgroundColors.workshopsBand}>
-      <Band.Title>{t('workshops.title')} 2025</Band.Title>
+      <Band.Title>{t('workshops.title')}</Band.Title>
 
       {/*      <ImageSection>
         <StrongCtaButton>{t('tickets.buyTicket')}</StrongCtaButton>

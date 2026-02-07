@@ -83,6 +83,8 @@ export const MainPage = () => {
             </InvitationCardWrapper>
           </Band.Wallpaper>
 
+          {BandsToggles.workshopsEnabled && <WorkshopsDesktopBand id="workshops" />}
+
           <NavigationBand />
 
           <TicketCardBand />

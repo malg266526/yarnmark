@@ -267,6 +267,10 @@ export const pl = {
       freeAdmission: 'Wstęp wolny',
       price: 'Koszt',
       soldOut: 'Wyprzedane',
+      weekdays: {
+        saturday: 'Sobota',
+        sunday: 'Niedziela'
+      },
       room: {
         mirrors: 'Sala lustrzana',
         fencing: 'Sala szermiercza',
@@ -274,7 +278,9 @@ export const pl = {
         library: 'Biblioteka - al. Focha 39',
         bursa1: 'Bursa - sala A - al. Focha 39',
         bursa2: 'Bursa - sala B - al. Focha 39',
-        skein: 'Skein'
+        skein: 'Skein - Zakopiańska 56 (wejście Lokal 19, 20. 1. piętro)',
+        forum: 'Forum Przestrzenie - Marii Konopnickiej 28',
+        reading_room: 'Czytelnia'
       },
 
       // --- KROOPA ---
