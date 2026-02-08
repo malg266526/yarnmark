@@ -421,16 +421,16 @@ export const de = {
       // --- SPLOTKA ---
       splotka: {
         title: 'Tkana makatka ze splotką',
-        materials: 'Wszystkie materiały zapewnia Splotka.',
+        materials: 'Materiały zapewnia prowadzący.',
         description:
           'Warsztaty tkania od podstaw, na których wykonacie swoją pierwszą dekorację ścienną o wymiarach ok. 18 × 30 cm. Podczas kameralnego spotkania poznacie tajniki tradycyjnego rzemiosła od mistrzyni tkactwa - Splotki.  Nie jest wymagane wcześniejsze doświadczenie. <br>Zajęcia odbywają się w duchu ZERO WASTE – nic się nie marnuje. Wykorzystywać będziemy między innymi sznurki, włóczki ale i ręcznie przędzoną wełnę, len, konopie i polską przędzę spod Zakopca. Wszystkie niezbędne rzeczy dostępne na miejscu, wystarczy przynieść ze sobą odrobinę uśmiechu. Po zakończonych warsztatach istnieje możliwość zakupu narzędzi w promocyjnej cenie. <br><br>Program warsztatów obejmuje:<ul><li>naukę tkania na krośnie harfowym,</li><li>poznanie co najmniej 4 podstawowych splotów,</li><li>dobór materiałów i kolorów,</li><li>utrzymywanie napięcia wątku i osnowy,</li><li>wyrównywanie krawędzi i dodawanie frędzli,</li><li>wykończenie makatki,</li><li>recykling materiałów („zrzutów”).</li></ul>',
         aboutMe:
-          'Monika Splotka to artystka sztuki włókna. Tka od 2004 roku, specjalizując się w kilimach łączących rzemiosło ze współczesnym designem.'
+          'Zajęcia prowadzi Monika Splotka – artystka sztuki włókna i rzemieślniczka. Tka od 2004 roku, a od 8 lat organizuje kreatywne warsztaty w Polsce i za granicą. Specjalizuje się w kilimach - tradycyjnym rzemiośle we współczesnym designie. Jej życiowym mottem jest "Zrelaksuj się splotem, a obowiązki? Może potem".'
       },
 
       // --- SIS HOMEMADE ---
       sishomemade: {
-        title: 'AMIGURUMI – Sekretny Projekt Yarnmarku',
+        title: 'AMIGURUMI – Sekretny Projekt Yarnmarku z SisHomemade',
         materials: 'Zestaw La Gru Gru z wzorem, szydełka, druk wzoru.',
         description:
           'Zrób sekretny projekt Yarnmarku z Sis Homemade! Warsztaty skupiają się na technice Amigurumi, czyli tworzeniu uroczych szydełkowych zabawek.',
@@ -440,11 +440,9 @@ export const de = {
       // --- INKA ---
       inka: {
         title: 'Szydełko dla leworęcznych',
-        materials: '<ul><li>1 motek włóczki</li><li>Szydełko 3.5/4 mm</li></ul>',
-        description:
-          'Specjalistyczne warsztaty dla osób leworęcznych. Jeśli zawsze miałaś problem z nauką z ogólnodostępnych tutoriali, te zajęcia są dla Ciebie. Dagmara pokaże Ci, jak swobodnie operować szydełkiem.',
-        aboutMe:
-          'Dagmara (Inka) to doświadczona instruktorka, która udowadnia, że lewa ręka w szydełkowaniu to żaden problem.'
+        materials: 'Materiały - włóczkę i szydełko - dostarcza sponsor warsztatów <strong>Włóczykijki</strong></ul>',
+        description: 'TODO',
+        aboutMe: 'Inka jest super'
       },
 
       // --- DRUTUTUTU ---
@@ -452,17 +450,21 @@ export const de = {
         title: 'Podstawy robienia na drutach',
         materials: '<ul><li>Druty 6 mm (drewno/bambus)</li><li>Pasująca włóczka wełniana</li></ul>',
         description:
-          'Zajęcia dla absolutnie początkujących. Nauczysz się:\n' +
-          '<ul>' +
-          '<li>Jak nabrać oczka</li>' +
-          '<li>Oczka prawe, lewe i brzegowe</li>' +
-          '<li>Pracy w rzędach i kończenia robótki</li>' +
-          '</ul>\n' +
-          'Dzięki temu wydziergasz swój pierwszy szalik lub opaskę!',
+          'Zajęcia dla osób, które chciałyby nauczyć się robić na drutach od podstaw. ' +
+          'Podczas warsztatów nauczysz się jak nabrać włóczkę na druty, jak przerabiać oczka prawe, lewe, brzegowe, jak pracować w rzędach i o co chodzi z prawą i lewą stroną dzianiny ' +
+          'oraz jak zakończyć robótkę. Wszystkie poznane umiejętności przećwiczymy wspólnie. ' +
+          'Dzięki tej wiedzy będziesz w stanie wydziergać szalik, prostą opaskę czy nawet koc.' +
+          'Opowiem też o różnych rodzajach drutów oraz włóczek, pokażę przydatne akcesoria dziewiarskie.',
         aboutMe:
-          'Magda (@drutu.tutu) dzierga od lat i dzieli się swoją wiedzą w internecie. Kocha Włochy, Nutellę i swojego kota Motka.'
+          'Jestem Magda i ponad 10 lat temu pierwszy raz nabrałam oczka na druty. Tamtej robótki nigdy nie skończyłam, ale dwa lata później złapałam bakcyla. Od 2016 roku dzierganie jest częścią mojego życia, z każdym rokiem coraz bardziej istotną.' +
+          '<br><br>' +
+          'W internecie znajdziesz mnie jako <strong>@drutu.tutu</strong>, opowiadam tam o mojej pasji i chętnie dzielę się wiedzą. Współpracuję ze Slow Fashion Cafe, gdzie prowadzę warsztaty dziewiarskie dla początkujących.' +
+          '<br><br>' +
+          'Oprócz robienia na drutach kocham Włochy i język włoski, spanko, Nutellę i mojego kota Motka. ' +
+          '<br>'
       }
     },
+
     vendorsStatue: {
       title: 'Regulamin sprzedaży stoisk 2026',
       subtitle: 'Conditions for the sale of vendors stands 2026',

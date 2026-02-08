@@ -92,8 +92,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
   // --- SIS HOMEMADE ---
   {
     topicKey: 'workshops.sishomemade.title',
-    time: '10:00 - 13:00',
-    leading: 'Sis Homemade',
+    time: '12:30 - 15:30',
+    leading: 'SisHomemade',
     picture: yarnmarkLogoPictureConfig,
     isSoldOut: false,
     room: 'bursa2',
