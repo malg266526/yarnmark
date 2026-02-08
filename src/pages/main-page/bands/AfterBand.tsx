@@ -25,6 +25,7 @@ import ticketWebpSrc from '../../../assets/images/after/entry-ticket.webp';
 import raveJpgSrc from '../../../assets/images/after/rave2.jpg';
 import raveAvifSrc from '../../../assets/images/after/rave2.avif';
 import raveWebpSrc from '../../../assets/images/after/rave2.webp';
+import { TicketsToggles } from '../../../toggles';
 
 type CruiseBandType = {
   id: string;
@@ -120,7 +121,7 @@ export const AfterBand = ({ id }: CruiseBandType) => {
 
             <LinkWrapper>
               <Link
-                disabled
+                disabled={!TicketsToggles.afterTickets}
                 target="_blank"
                 to="https://wloczykijki.pl/pl_PL/p/Bilet-wstepu-na-Krakoski-Yarnmark-2025-REJS/3451"
               >

@@ -238,7 +238,7 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
             href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-warsztaty/358"
             target="_blank"
             isOpen={isMenuExpanded}
-            disabled
+            disabled={!TicketsToggles.workshopTickets}
             aria-label="workshops_tickets_menu_item"
           >
             <Icon size="sm" zIndex={0} src={ticketIcon} />
