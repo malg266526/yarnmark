@@ -46,64 +46,6 @@ export type WorkshopsEntry = {
 };
 
 export const WorkshopsConfig: WorkshopsEntry[] = [
-  // --- SKEIN ---
-  {
-    topicKey: 'workshops.skein.title_sat',
-    time: '13:00 - 16:00',
-    weekDay: 'saturday',
-    leading: 'Skein x @pixeldzierga',
-    picture: { fallback: skeinUrl, sources: [{ type: 'image/webp', url: skeinUrlWebp }] },
-    isSoldOut: false,
-    room: 'conference',
-    price: 310,
-    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Punch-Needle/3457',
-    description: 'workshops.skein.description',
-    materials: 'workshops.skein.materials',
-    aboutMe: 'workshops.skein.aboutMe'
-  },
-  {
-    topicKey: 'workshops.skein.title_sun',
-    time: '11:00 - 14:00',
-    weekDay: 'sunday',
-    leading: 'Skein x @pixeldzierga',
-    picture: { fallback: skeinUrl, sources: [{ type: 'image/webp', url: skeinUrlWebp }] },
-    isSoldOut: false,
-    room: 'skein',
-    price: 310,
-    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Punch-Needle/3457',
-    description: 'workshops.skein.description',
-    materials: 'workshops.skein.materials',
-    aboutMe: 'workshops.skein.aboutMe'
-  },
-  // --- SPLOTKA ---
-  {
-    topicKey: 'workshops.splotka.title',
-    time: '15:00 - 18:00', // Przykładowy czas
-    leading: 'Monika Splotka',
-    picture: yarnmarkLogoPictureConfig, // Zmień na właściwy import zdjęcia
-    isSoldOut: false,
-    room: 'bursa2',
-    price: 310,
-    ticketUrl: 'workshops.splotka.url',
-    description: 'workshops.splotka.description',
-    materials: 'workshops.splotka.materials',
-    aboutMe: 'workshops.splotka.aboutMe'
-  },
-  // --- SIS HOMEMADE ---
-  {
-    topicKey: 'workshops.sishomemade.title',
-    time: '12:30 - 15:30',
-    leading: 'SisHomemade',
-    picture: yarnmarkLogoPictureConfig,
-    isSoldOut: false,
-    room: 'bursa2',
-    price: 200,
-    ticketUrl: 'workshops.sishomemade.url',
-    description: 'workshops.sishomemade.description',
-    materials: 'workshops.sishomemade.materials',
-    aboutMe: 'workshops.sishomemade.aboutMe'
-  },
-
   // --- DRUTUTU ---
   {
     topicKey: 'workshops.drutututu.title',
@@ -134,6 +76,98 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     aboutMe: 'workshops.inka.aboutMe'
   },
 
+  // --- KNITOLOG ---
+  {
+    topicKey: 'workshops.knitolog.title_tricks',
+    time: '9:00 - 12:00',
+    weekDay: 'saturday',
+    leading: 'Dorota Morawiak-Lichota (KNITOLOG)',
+    picture: { fallback: knitologUrl, sources: [{ type: 'image/webp', url: knitologUrlWebp }] },
+    isSoldOut: false,
+    room: 'bursa1',
+    price: 200,
+    ticketUrl: 'Yarnmark-2025-Warsztaty-Zakard-dla-mniej-lub-bardziej-zaawansowanych/2839',
+    description: 'workshops.knitolog.description_tricks',
+    materials: 'workshops.knitolog.materials_tricks',
+    aboutMe: 'workshops.knitolog.aboutMe'
+  },
+  {
+    topicKey: 'workshops.knitolog.title_jacquard',
+    time: '9:00 - 12:00',
+    weekDay: 'sunday',
+    leading: 'Dorota Morawiak-Lichota (KNITOLOG)',
+    picture: { fallback: knitologUrl, sources: [{ type: 'image/webp', url: knitologUrlWebp }] },
+    isSoldOut: false,
+    room: 'reading_room',
+    price: 200,
+    ticketUrl: 'Yarnmark-2025-Warsztaty-Zakard-dla-mniej-lub-bardziej-zaawansowanych/2839',
+    description: 'workshops.knitolog.description_jacquard',
+    materials: 'workshops.knitolog.materials_jacquard',
+    aboutMe: 'workshops.knitolog.aboutMe'
+  },
+
+  // --- EDKNITTED ---
+  {
+    topicKey: 'workshops.edknitted.title',
+    time: '9:00 - 12:00',
+    leading: 'Asia EDKNITTED',
+    picture: { fallback: edknittedUrl, sources: [{ type: 'image/webp', url: edknittedUrlWebp }] },
+    room: 'library',
+    isSoldOut: false,
+    materials: 'workshops.edknitted.materials',
+    price: 180,
+    description: 'workshops.edknitted.description',
+    ticketUrl:
+      'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Polish-Your-Pattern%2C-czyli-jak-odpicowac-swoj-wzor/3454',
+    aboutMe: 'workshops.edknitted.aboutMe'
+  },
+
+  // --- NOWE HAFTY ---
+  {
+    topicKey: 'workshops.nowehafty.title',
+    time: '12:30 - 14:30',
+    leading: 'Katarzyna Kępka (Nowe Hafty)',
+    picture: yarnmarkLogoPictureConfig,
+    isSoldOut: false,
+    room: 'bursa2',
+    price: 150,
+    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Haft-na-welnie/2837',
+    description: 'workshops.nowehafty.description',
+    materials: 'workshops.nowehafty.materials',
+    aboutMe: 'workshops.nowehafty.aboutMe'
+  },
+
+  // --- SPLOTKA ---
+  {
+    topicKey: 'workshops.splotka.title',
+    time: '15:00 - 18:00', // Przykładowy czas
+    leading: 'Monika Splotka',
+    picture: yarnmarkLogoPictureConfig, // Zmień na właściwy import zdjęcia
+    isSoldOut: false,
+    room: 'bursa2',
+    price: 310,
+    ticketUrl: 'workshops.splotka.url',
+    description: 'workshops.splotka.description',
+    materials: 'workshops.splotka.materials',
+    aboutMe: 'workshops.splotka.aboutMe'
+  },
+
+  // --- SIS HOMEMADE ---
+  {
+    topicKey: 'workshops.sishomemade.title',
+    time: '12:30 - 15:30',
+    leading: 'SisHomemade',
+    picture: yarnmarkLogoPictureConfig,
+    isSoldOut: false,
+    room: 'bursa2',
+    price: 200,
+    ticketUrl: 'workshops.sishomemade.url',
+    description: 'workshops.sishomemade.description',
+    materials: 'workshops.sishomemade.materials',
+    aboutMe: 'workshops.sishomemade.aboutMe'
+  },
+
+  // KROOPA
   {
     topicKey: 'workshops.kroopa.title_beginner',
     time: '9:00 - 12:30',
@@ -221,64 +255,33 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     aboutMe: 'workshops.iwona.aboutMe'
   },
 
-  // --- KNITOLOG ---
+  // --- SKEIN ---
   {
-    topicKey: 'workshops.knitolog.title_tricks',
-    time: '9:00 - 12:00',
+    topicKey: 'workshops.skein.title_sat',
+    time: '13:00 - 16:00',
     weekDay: 'saturday',
-    leading: 'Dorota Morawiak-Lichota (KNITOLOG)',
-    picture: { fallback: knitologUrl, sources: [{ type: 'image/webp', url: knitologUrlWebp }] },
+    leading: 'Skein x @pixeldzierga',
+    picture: { fallback: skeinUrl, sources: [{ type: 'image/webp', url: skeinUrlWebp }] },
     isSoldOut: false,
-    room: 'bursa1',
-    price: 200,
-    ticketUrl: 'Yarnmark-2025-Warsztaty-Zakard-dla-mniej-lub-bardziej-zaawansowanych/2839',
-    description: 'workshops.knitolog.description_tricks',
-    materials: 'workshops.knitolog.materials_tricks',
-    aboutMe: 'workshops.knitolog.aboutMe'
+    room: 'conference',
+    price: 310,
+    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Punch-Needle/3457',
+    description: 'workshops.skein.description',
+    materials: 'workshops.skein.materials',
+    aboutMe: 'workshops.skein.aboutMe'
   },
   {
-    topicKey: 'workshops.knitolog.title_jacquard',
-    time: '9:00 - 12:00',
+    topicKey: 'workshops.skein.title_sun',
+    time: '11:00 - 14:00',
     weekDay: 'sunday',
-    leading: 'Dorota Morawiak-Lichota (KNITOLOG)',
-    picture: { fallback: knitologUrl, sources: [{ type: 'image/webp', url: knitologUrlWebp }] },
+    leading: 'Skein x @pixeldzierga',
+    picture: { fallback: skeinUrl, sources: [{ type: 'image/webp', url: skeinUrlWebp }] },
     isSoldOut: false,
-    room: 'reading_room',
-    price: 200,
-    ticketUrl: 'Yarnmark-2025-Warsztaty-Zakard-dla-mniej-lub-bardziej-zaawansowanych/2839',
-    description: 'workshops.knitolog.description_jacquard',
-    materials: 'workshops.knitolog.materials_jacquard',
-    aboutMe: 'workshops.knitolog.aboutMe'
-  },
-
-  // --- EDKNITTED ---
-  {
-    topicKey: 'workshops.edknitted.title',
-    time: '9:00 - 12:00',
-    leading: 'Asia EDKNITTED',
-    picture: { fallback: edknittedUrl, sources: [{ type: 'image/webp', url: edknittedUrlWebp }] },
-    room: 'library',
-    isSoldOut: false,
-    materials: 'workshops.edknitted.materials',
-    price: 180,
-    description: 'workshops.edknitted.description',
-    ticketUrl:
-      'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Polish-Your-Pattern%2C-czyli-jak-odpicowac-swoj-wzor/3454',
-    aboutMe: 'workshops.edknitted.aboutMe'
-  },
-
-  // --- NOWE HAFTY ---
-  {
-    topicKey: 'workshops.nowehafty.title',
-    time: '12:30 - 14:30',
-    leading: 'Katarzyna Kępka (Nowe Hafty)',
-    picture: yarnmarkLogoPictureConfig,
-    isSoldOut: false,
-    room: 'bursa2',
-    price: 150,
-    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Haft-na-welnie/2837',
-    description: 'workshops.nowehafty.description',
-    materials: 'workshops.nowehafty.materials',
-    aboutMe: 'workshops.nowehafty.aboutMe'
+    room: 'skein',
+    price: 310,
+    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Punch-Needle/3457',
+    description: 'workshops.skein.description',
+    materials: 'workshops.skein.materials',
+    aboutMe: 'workshops.skein.aboutMe'
   }
 ];
