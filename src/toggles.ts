@@ -1,5 +1,7 @@
 export const TicketsToggles = {
-  enabled: false
+  enabled: false,
+  workshopTickets: false,
+  afterTickets: false
 };
 
 export const BandsToggles = {

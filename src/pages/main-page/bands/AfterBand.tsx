@@ -25,6 +25,8 @@ import ticketWebpSrc from '../../../assets/images/after/entry-ticket.webp';
 import raveJpgSrc from '../../../assets/images/after/rave2.jpg';
 import raveAvifSrc from '../../../assets/images/after/rave2.avif';
 import raveWebpSrc from '../../../assets/images/after/rave2.webp';
+import { TicketsToggles } from '../../../toggles';
+import styled from 'styled-components';
 
 type CruiseBandType = {
   id: string;
@@ -37,6 +39,17 @@ const TapsPicture = (
     <img loading="lazy" src={tapsJpgSrc} alt="taps" />
   </BackgroundPicture>
 );
+
+const ScrollableContent = styled(FlexColumnLayout)`
+  overflow-y: auto;
+  height: 100%;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+`;
+
+const StyledLinkWrapper = styled(LinkWrapper)`
+  margin-left: 0;
+`;
 
 export const AfterBand = ({ id }: CruiseBandType) => {
   const isPhone = usePhone();
@@ -64,7 +77,7 @@ export const AfterBand = ({ id }: CruiseBandType) => {
             <img src={hopJpgSrc} alt="hop" />
           </Carouselge.ItemBackground>
 
-          <FlexColumnLayout gap="sm" padding="none" align="flex-start">
+          <ScrollableContent gap="sm" padding="none" align="flex-start">
             <Typography size={sectionTitleSize} weight="bold">
               {t('after.title')}
             </Typography>
@@ -72,7 +85,7 @@ export const AfterBand = ({ id }: CruiseBandType) => {
             <Typography size="sm">
               <Trans>{t('after.invitation')}</Trans>
             </Typography>
-          </FlexColumnLayout>
+          </ScrollableContent>
         </Carouselge.Item>
 
         <Carouselge.Item>
@@ -85,7 +98,7 @@ export const AfterBand = ({ id }: CruiseBandType) => {
             <img src={krakowJpgSrc} alt="krakow" />
           </Carouselge.ItemBackground>
 
-          <FlexColumnLayout gap="sm" padding="none" align="flex-start">
+          <ScrollableContent gap="sm" padding="none" align="flex-start">
             <Typography size={sectionTitleSize} weight="bold">
               {t('after.location')}
             </Typography>
@@ -100,7 +113,7 @@ export const AfterBand = ({ id }: CruiseBandType) => {
             </Typography>
 
             <Typography size="sm">{t('after.timeDetails')}</Typography>
-          </FlexColumnLayout>
+          </ScrollableContent>
         </Carouselge.Item>
 
         <Carouselge.Item>
@@ -113,21 +126,20 @@ export const AfterBand = ({ id }: CruiseBandType) => {
             <img src={ticketJpgSrc} alt="ticket" />
           </Carouselge.ItemBackground>
 
-          <FlexColumnLayout gap="sm" padding="none" align="flex-start">
+          <ScrollableContent gap="sm" padding="none" align="flex-start">
             <Typography size={sectionTitleSize} weight="bold">
               {t('cashmereTicketsBand.tickets')}
             </Typography>
 
-            <LinkWrapper>
+            <StyledLinkWrapper>
               <Link
-                onClick={(e) => e.preventDefault()}
-                style={{ pointerEvents: 'none', opacity: 0.5 }}
+                disabled={!TicketsToggles.afterTickets}
                 target="_blank"
                 to="https://wloczykijki.pl/pl_PL/p/Bilet-wstepu-na-Krakoski-Yarnmark-2025-REJS/3451"
               >
                 {t('cashmereTicketsBand.buyTickets')}
               </Link>
-            </LinkWrapper>
+            </StyledLinkWrapper>
 
             <FlexColumnLayout gap="sm" padding="none" align="flex-start">
               <Typography size={sectionTitleSize} weight="bold">
@@ -146,7 +158,7 @@ export const AfterBand = ({ id }: CruiseBandType) => {
                 {t('after.onlyAdults')}
               </Typography>
             </FlexColumnLayout>
-          </FlexColumnLayout>
+          </ScrollableContent>
         </Carouselge.Item>
 
         <Carouselge.Item>
