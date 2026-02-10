@@ -38,12 +38,13 @@ export const pl = {
       cruise: 'Dziergostatek',
       entrance: 'Bilet wstepu',
       whereToBuy: 'Bilet wstępu na Krakoski Yarnmark wykupisz na oficjalnej stronie sklepu włóczykijki.pl!',
-      ticketsStart: 'Sprzedaż startuje 14.02 o godz. 9:00',
       keepYourEmail: 'Zachowaj email z numerem biletu, który dostaniesz po zakupie biletu.',
-      proofOfPurchase: 'Ten dowód zakupu okażesz przy wejsciu na Yarnmark ;)',
+      proofOfPurchase: 'Ten dowód zakupu okażesz przy wejsciu na Yarnmark',
       onlineDeadline: 'Bilety online bedą dostępne w sprzedaży do 16.04, do godz. 18:00.',
       availability: 'W dniu wydarzenia bilety bedą dostępne w kasie na miejscu.',
-      availableSoon: 'Dostępne wkrótce'
+      gadgetGuaranteed: 'Dla pierwszych 1000 osób Yarnmarkowy gadżet 2026 gwarantowany!',
+      availableSoon: 'Start 14.02 9:00',
+      promoPrice: 'cena promocyjna do końca lutego'
     },
     location: {
       findUsOnMaps: 'Znajdź nas za pomocą <0>Google Maps</0>',
