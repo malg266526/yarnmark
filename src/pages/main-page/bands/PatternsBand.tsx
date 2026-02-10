@@ -26,6 +26,10 @@ import magdaJpgSrc from '../../../assets/napole/magda-napole.jpg';
 import klaudiaAvifSrc from '../../../assets/napole/klaudia-napole.avif';
 import klaudiaWebpSrc from '../../../assets/napole/klaudia-napole.webp';
 import klaudiaJpgSrc from '../../../assets/napole/klaudia-napole.jpg';
+import karoJpgSrc from '../../../assets/napole/klaudia-napole.jpg';
+
+import karoAvifSrc from '../../../assets/napole/karo.avif';
+import karoWebpSrc from '../../../assets/napole/karo.webp';
 
 import styled from 'styled-components';
 import { Picture } from '../../../components/Picture';
@@ -140,6 +144,14 @@ export const PatternsBand = ({ id }: PatternsBandType) => {
               pause={false}
               fade={false}
             >
+              <Carousel.Item>
+                <picture>
+                  <source srcSet={karoAvifSrc} type="image/avif" />
+                  <source srcSet={karoWebpSrc} type="image/webp" />
+                  <CarouselImage loading="lazy" src={karoJpgSrc} alt={t('patternsBand.slides.wineAlt')} />
+                </picture>
+              </Carousel.Item>
+
               <Carousel.Item>
                 <picture>
                   <source srcSet={napole2AvifSrc} type="image/avif" />

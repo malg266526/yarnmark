@@ -4,8 +4,9 @@ import knitologUrl from '../../../assets/images/workshops/Knitolog.jfif';
 import edknittedUrl from '../../../assets/images/workshops/edknitted.jfif';
 import edknittedUrlWebp from '../../../assets/images/workshops/edkknitted.webp';
 
-import kroopaUrl from '../../../assets/images/workshops/Kroopa.jfif';
-import kroopaUrlAvif from '../../../assets/images/workshops/Kroopa.avif';
+import kroopaUrl from '../../../assets/images/workshops/Kroopa2.jpg';
+import kroopaUrlAvif from '../../../assets/images/workshops/Kroopa2.avif';
+import kroopaUrlWebp from '../../../assets/images/workshops/Kroopa2.webp';
 
 import iwonaUrl from '../../../assets/images/workshops/iwona.jfif';
 import iwonaUrlWebp from '../../../assets/images/workshops/iwona.webp';
@@ -16,8 +17,23 @@ import magdaUrlWebp from '../../../assets/images/workshops/magda.webp';
 import skeinUrl from '../../../assets/images/workshops/skein2.jfif';
 import skeinUrlWebp from '../../../assets/images/workshops/skein2.webp';
 
+import inkaUrl from '../../../assets/images/workshops/Inka.jpg';
+import inkaUrlAvif from '../../../assets/images/workshops/Inka.avif';
+import inkaUrlWebp from '../../../assets/images/workshops/Inka.webp';
+
+import noweHaftyUrl from '../../../assets/images/workshops/NoweHafty.jpg';
+import noweHaftyUrlAvif from '../../../assets/images/workshops/NoweHafty.avif';
+import noweHaftyUrlWebp from '../../../assets/images/workshops/NoweHafty.webp';
+
+import splotkaUrl from '../../../assets/images/workshops/Splotka.jpg';
+import splotkaUrlAvif from '../../../assets/images/workshops/Splotka.avif';
+import splotkaUrlWebp from '../../../assets/images/workshops/Splotka.webp';
+
+import sisUrl from '../../../assets/images/workshops/Sis.png';
+import sisUrlAvif from '../../../assets/images/workshops/Sis.avif';
+import sisUrlWebp from '../../../assets/images/workshops/skein.webp';
+
 import { UnprefixedTranslationKeys } from '../../../translations/useTypedTranslation';
-import { yarnmarkLogoPictureConfig } from '../../../assets/yarnmarkLogoPictureConfig';
 
 type Room = 'conference' | 'library' | 'bursa1' | 'bursa2' | 'skein' | 'forum' | 'reading_room';
 
@@ -65,8 +81,14 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
   {
     topicKey: 'workshops.inka.title',
     time: '13:00 - 15:30',
-    leading: 'Dagmara (Inka)',
-    picture: yarnmarkLogoPictureConfig,
+    leading: 'Inka',
+    picture: {
+      fallback: inkaUrl,
+      sources: [
+        { type: 'image/avif', url: inkaUrlAvif },
+        { type: 'image/webp', url: inkaUrlWebp }
+      ]
+    },
     isSoldOut: false,
     room: 'reading_room',
     price: 120,
@@ -74,6 +96,27 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     description: 'workshops.inka.description',
     materials: 'workshops.inka.materials',
     aboutMe: 'workshops.inka.aboutMe'
+  },
+
+  // --- SIS HOMEMADE ---
+  {
+    topicKey: 'workshops.sishomemade.title',
+    time: '12:30 - 15:30',
+    leading: 'SisHomemade',
+    picture: {
+      fallback: sisUrl,
+      sources: [
+        { type: 'image/avif', url: sisUrlAvif },
+        { type: 'image/webp', url: sisUrlWebp }
+      ]
+    },
+    isSoldOut: false,
+    room: 'library',
+    price: 200,
+    ticketUrl: 'workshops.sishomemade.url',
+    description: 'workshops.sishomemade.description',
+    materials: 'workshops.sishomemade.materials',
+    aboutMe: 'workshops.sishomemade.aboutMe'
   },
 
   // --- KNITOLOG ---
@@ -127,7 +170,13 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     topicKey: 'workshops.nowehafty.title',
     time: '12:30 - 14:30',
     leading: 'Katarzyna Kępka (Nowe Hafty)',
-    picture: yarnmarkLogoPictureConfig,
+    picture: {
+      fallback: noweHaftyUrl,
+      sources: [
+        { type: 'image/avif', url: noweHaftyUrlAvif },
+        { type: 'image/webp', url: noweHaftyUrlWebp }
+      ]
+    },
     isSoldOut: false,
     room: 'bursa2',
     price: 150,
@@ -142,7 +191,13 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     topicKey: 'workshops.splotka.title',
     time: '15:00 - 18:00', // Przykładowy czas
     leading: 'Monika Splotka',
-    picture: yarnmarkLogoPictureConfig, // Zmień na właściwy import zdjęcia
+    picture: {
+      fallback: splotkaUrl,
+      sources: [
+        { type: 'image/avif', url: splotkaUrlAvif },
+        { type: 'image/webp', url: splotkaUrlWebp }
+      ]
+    },
     isSoldOut: false,
     room: 'bursa2',
     price: 310,
@@ -150,21 +205,6 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     description: 'workshops.splotka.description',
     materials: 'workshops.splotka.materials',
     aboutMe: 'workshops.splotka.aboutMe'
-  },
-
-  // --- SIS HOMEMADE ---
-  {
-    topicKey: 'workshops.sishomemade.title',
-    time: '12:30 - 15:30',
-    leading: 'SisHomemade',
-    picture: yarnmarkLogoPictureConfig,
-    isSoldOut: false,
-    room: 'library',
-    price: 200,
-    ticketUrl: 'workshops.sishomemade.url',
-    description: 'workshops.sishomemade.description',
-    materials: 'workshops.sishomemade.materials',
-    aboutMe: 'workshops.sishomemade.aboutMe'
   },
 
   // KROOPA
@@ -176,10 +216,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     picture: {
       fallback: kroopaUrl,
       sources: [
-        {
-          type: 'image/avif',
-          url: kroopaUrlAvif
-        }
+        { type: 'image/avif', url: kroopaUrlAvif },
+        { type: 'image/webp', url: kroopaUrlWebp }
       ]
     },
     isSoldOut: false,
@@ -204,10 +242,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     picture: {
       fallback: kroopaUrl,
       sources: [
-        {
-          type: 'image/avif',
-          url: kroopaUrlAvif
-        }
+        { type: 'image/avif', url: kroopaUrlAvif },
+        { type: 'image/webp', url: kroopaUrlWebp }
       ]
     },
     isSoldOut: false,
