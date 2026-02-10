@@ -80,6 +80,16 @@ const WorkshopTitle = styled(Typography)`
   }
 `;
 
+const sortByTime = (workshopsA: WorkshopsEntry, workshopsB: WorkshopsEntry) => {
+  const getMinutes = (timeStr: string) => {
+    const startTime = timeStr.split('-')[0].trim(); // Wyciąga "9:00" z "9:00 - 12:00"
+    const [hours, minutes] = startTime.split(':').map(Number);
+    return hours * 60 + minutes;
+  };
+
+  return getMinutes(workshopsA.time) - getMinutes(workshopsB.time);
+};
+
 export const Schedule = () => {
   const isPhone = usePhone();
   const t = useTypedTranslation();
@@ -87,12 +97,12 @@ export const Schedule = () => {
   const titleFontSize = isPhone ? 'sm' : 'md';
   const leadingFontSize = isPhone ? 'xs' : 'sm';
 
-  const saturdayWorkshops = WorkshopsConfig.filter((w) => !w.weekDay || w.weekDay === 'saturday').sort((a, b) =>
-    a.time.localeCompare(b.time)
-  );
+  const saturdayWorkshops = WorkshopsConfig.filter(
+    (currentWorkshop) => !currentWorkshop.weekDay || currentWorkshop.weekDay === 'saturday'
+  ).sort(sortByTime);
 
-  const sundayWorkshops = WorkshopsConfig.filter((w) => w.weekDay === 'sunday').sort((a, b) =>
-    a.time.localeCompare(b.time)
+  const sundayWorkshops = WorkshopsConfig.filter((currentWorkshop) => currentWorkshop.weekDay === 'sunday').sort(
+    sortByTime
   );
 
   const rooms = ['library', 'bursa1', 'conference', 'bursa2', 'reading_room', 'forum', 'skein'] as const;

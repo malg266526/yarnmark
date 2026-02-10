@@ -15,7 +15,6 @@ import { BackgroundColors } from '../../styles/theme';
 import { TicketCardBand } from './bands/ticket/TicketCardBand';
 import { PatternsBand } from './bands/PatternsBand';
 import { WorkshopsDesktopBand } from './workshops/WorkshopsDesktopBand';
-// import { WorkshopsMobileSchedule } from './workshops/WorkshopsMobileSchedule';
 import { FoodBand } from './FoodBand';
 import { BandsToggles } from '../../toggles';
 import { TicketCard } from './bands/ticket/TicketCard';
@@ -85,8 +84,6 @@ export const MainPage = () => {
               <InvitationCard />
             </InvitationCardWrapper>
           </Band.Wallpaper>
-
-          {BandsToggles.workshopsEnabled && <WorkshopsDesktopBand id="workshops" />}
 
           <NavigationBand />
 
