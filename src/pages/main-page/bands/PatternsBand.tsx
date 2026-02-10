@@ -26,8 +26,8 @@ import magdaJpgSrc from '../../../assets/napole/magda-napole.jpg';
 import klaudiaAvifSrc from '../../../assets/napole/klaudia-napole.avif';
 import klaudiaWebpSrc from '../../../assets/napole/klaudia-napole.webp';
 import klaudiaJpgSrc from '../../../assets/napole/klaudia-napole.jpg';
-import karoJpgSrc from '../../../assets/napole/klaudia-napole.jpg';
 
+import karoJpgSrc from '../../../assets/napole/karo.jpeg';
 import karoAvifSrc from '../../../assets/napole/karo.avif';
 import karoWebpSrc from '../../../assets/napole/karo.webp';
 

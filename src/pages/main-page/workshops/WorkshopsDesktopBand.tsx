@@ -10,35 +10,12 @@ import { useWorkshopModalToggle } from './useWorkshopModalToggle';
 import workshopsMapUrlAvif from '../../../assets/images/workshops/mapka_warsztaty.avif';
 import workshopsMapUrl from '../../../assets/images/workshops/mapka_warsztaty.jfif';
 import workshopsMapUrlWepb from '../../../assets/images/workshops/mapka_warsztaty.webp';
-import styled from 'styled-components';
-import { CtaButton } from '../../../components/Button';
-import { Radius } from '../../../styles/cards';
-import { FontSize } from '../../../styles/font-size';
-import { RedesignSpacings } from '../../../styles/spacings';
 import { Schedule } from './Schedule';
 import { Picture } from '../../../components/Picture';
 
 type WorkshopsBandType = {
   id: string;
 };
-
-const ImageSection = styled.div`
-  display: flex;
-  align-items: flex-end;
-`;
-
-// const WoolBackgroundSection = styled.div`
-//   width: 654px;
-//   height: 405px;
-//   flex-shrink: 0;
-//   background: url(${woolImageSrc});
-// `;
-
-const StrongCtaButton = styled(CtaButton)`
-  border-radius: ${Radius.xl};
-  font-size: ${FontSize.xl};
-  margin-bottom: ${RedesignSpacings.xxl};
-`;
 
 export const WorkshopsDesktopBand = ({ id }: WorkshopsBandType) => {
   const t = useTypedTranslation();
