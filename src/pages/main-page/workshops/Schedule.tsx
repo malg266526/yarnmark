@@ -18,11 +18,8 @@ const Table = styled.div<{ columns: number }>`
   grid-gap: ${RedesignSpacings.sm};
 
   @media (max-width: ${ScreenSize.tablet}) {
-    max-width: 100vw;
-    width: 100%;
-    overflow: scroll;
-    min-width: ${({ columns }) => columns * 160}px;
-
+    grid-template-columns: repeat(${({ columns }) => columns}, 160px);
+    width: auto;
     grid-gap: ${RedesignSpacings.xxs};
   }
 `;
@@ -50,6 +47,7 @@ const Cell = styled.div<{ background?: keyof typeof HallColors }>`
   @media (max-width: ${ScreenSize.phone}) {
     padding: ${RedesignSpacings.xs};
     min-height: 120px;
+    gap: ${RedesignSpacings.xxs};
   }
 `;
 
@@ -64,12 +62,30 @@ const TableContainer = styled.div`
   align-items: center;
   gap: ${RedesignSpacings.md};
   width: 100%;
+
+  @media (max-width: ${ScreenSize.tablet}) {
+    align-items: flex-start;
+    overflow-x: auto;
+    padding-bottom: ${RedesignSpacings.sm};
+  }
+`;
+
+const WorkshopTitle = styled(Typography)`
+  @media (max-width: ${ScreenSize.phone}) {
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 `;
 
 export const Schedule = () => {
   const isPhone = usePhone();
   const t = useTypedTranslation();
   const fontSize = isPhone ? 'sm' : 'md';
+  const titleFontSize = isPhone ? 'sm' : 'md';
+  const leadingFontSize = isPhone ? 'xs' : 'sm';
 
   const saturdayWorkshops = WorkshopsConfig.filter((w) => !w.weekDay || w.weekDay === 'saturday').sort((a, b) =>
     a.time.localeCompare(b.time)
@@ -86,8 +102,10 @@ export const Schedule = () => {
 
     return (
       <Cell key={workshop.topicKey + workshop.time} background={color}>
-        <p>{workshop.leading}</p>
-        <h4>{t(workshop.topicKey)}</h4>
+        <Typography size={leadingFontSize}>{workshop.leading}</Typography>
+        <WorkshopTitle size={titleFontSize} weight="bold">
+          {t(workshop.topicKey)}
+        </WorkshopTitle>
         <Typography size={fontSize}>{workshop.time}</Typography>
       </Cell>
     );
@@ -132,12 +150,16 @@ export const Schedule = () => {
 
   return (
     <TableContainer>
-      <Typography size="lg" weight="bold">
+      <Typography size="lg" weight="bold" style={{ alignSelf: 'center', position: 'sticky', left: 0 }}>
         {t('workshops.weekdays.saturday')}
       </Typography>
       {renderTable(saturdayWorkshops)}
 
-      <Typography size="lg" weight="bold" style={{ marginTop: RedesignSpacings.lg }}>
+      <Typography
+        size="lg"
+        weight="bold"
+        style={{ marginTop: RedesignSpacings.sm, alignSelf: 'center', position: 'sticky', left: 0 }}
+      >
         {t('workshops.weekdays.sunday')}
       </Typography>
       {renderTable(sundayWorkshops)}
