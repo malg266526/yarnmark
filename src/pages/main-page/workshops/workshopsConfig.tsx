@@ -80,7 +80,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
   // --- INKA ---
   {
     topicKey: 'workshops.inka.title',
-    time: '13:00 - 15:30',
+    time: '15:00 - 17:30',
     leading: 'Inka',
     picture: {
       fallback: inkaUrl,
