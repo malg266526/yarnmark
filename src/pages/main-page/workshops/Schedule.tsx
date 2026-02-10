@@ -1,17 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import { RedesignSpacings } from '../../../styles/spacings';
-import { HallColors } from '../../../styles/theme';
+import { getHallColorKey, HallColors } from '../../../styles/theme';
 import { Typography } from '../../../components/Typography';
 import { ScreenSize } from '../../../styles/screeen-size';
 import { usePhone } from '../../../hooks/usePhone';
+import { WorkshopsConfig, WorkshopsEntry } from './workshopsConfig';
+import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 
-const Table = styled.div`
+const Table = styled.div<{ columns: number }>`
   display: grid;
   flex: 1;
-  width: 80%;
+  width: 100%;
 
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(${({ columns }) => columns}, 1fr);
   grid-template-rows: auto;
   grid-gap: ${RedesignSpacings.sm};
 
@@ -19,6 +21,7 @@ const Table = styled.div`
     max-width: 100vw;
     width: 100%;
     overflow: scroll;
+    min-width: ${({ columns }) => columns * 160}px;
 
     grid-gap: ${RedesignSpacings.xxs};
   }
@@ -28,6 +31,7 @@ const Th = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 `;
 
 const Cell = styled.div<{ background?: keyof typeof HallColors }>`
@@ -38,97 +42,105 @@ const Cell = styled.div<{ background?: keyof typeof HallColors }>`
   text-align: center;
   padding: ${RedesignSpacings.sm};
   border-radius: ${RedesignSpacings.xxs};
+  min-height: 150px;
+  gap: ${RedesignSpacings.xs};
 
   background-color: ${({ background }) => (background ? HallColors[background] : 'transparent')};
 
   @media (max-width: ${ScreenSize.phone}) {
     padding: ${RedesignSpacings.xs};
+    min-height: 120px;
   }
+`;
+
+const EmptyCell = styled(Cell)`
+  background-color: transparent;
+  box-shadow: none;
+`;
+
+const TableContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: ${RedesignSpacings.md};
+  width: 100%;
 `;
 
 export const Schedule = () => {
   const isPhone = usePhone();
+  const t = useTypedTranslation();
   const fontSize = isPhone ? 'sm' : 'md';
 
+  const saturdayWorkshops = WorkshopsConfig.filter((w) => !w.weekDay || w.weekDay === 'saturday').sort((a, b) =>
+    a.time.localeCompare(b.time)
+  );
+
+  const sundayWorkshops = WorkshopsConfig.filter((w) => w.weekDay === 'sunday').sort((a, b) =>
+    a.time.localeCompare(b.time)
+  );
+
+  const rooms = ['library', 'bursa1', 'conference', 'bursa2', 'reading_room', 'forum', 'skein'] as const;
+
+  const renderCell = (workshop?: WorkshopsEntry, color?: keyof typeof HallColors) => {
+    if (!workshop) return <EmptyCell key={Math.random()} />;
+
+    return (
+      <Cell key={workshop.topicKey + workshop.time} background={color}>
+        <p>{workshop.leading}</p>
+        <h4>{t(workshop.topicKey)}</h4>
+        <Typography size={fontSize}>{workshop.time}</Typography>
+      </Cell>
+    );
+  };
+
+  const renderTable = (workshops: WorkshopsEntry[]) => {
+    const workshopsByRoom: Record<string, WorkshopsEntry[]> = {};
+    rooms.forEach((room) => {
+      workshopsByRoom[room] = workshops.filter((w) => w.room === room);
+    });
+
+    const activeRooms = rooms.filter((room) => workshopsByRoom[room].length > 0);
+
+    if (activeRooms.length === 0) {
+      return null;
+    }
+
+    const maxRows = Math.max(...activeRooms.map((room) => workshopsByRoom[room].length));
+
+    return (
+      <Table columns={activeRooms.length}>
+        {activeRooms.map((room) => (
+          <Th key={room}>
+            <Typography size={fontSize} weight="bold">
+              {t(`workshops.room.${room}`)}
+            </Typography>
+          </Th>
+        ))}
+
+        {Array.from({ length: maxRows }).map((_, rowIndex) => (
+          <React.Fragment key={rowIndex}>
+            {activeRooms.map((room, colIndex) => {
+              const workshop = workshopsByRoom[room][rowIndex];
+              const colorKey = getHallColorKey(colIndex);
+              return renderCell(workshop, colorKey);
+            })}
+          </React.Fragment>
+        ))}
+      </Table>
+    );
+  };
+
   return (
-    <Table>
-      <Th>
-        <Typography size={fontSize} weight="bold">
-          Biblioteka
-        </Typography>
-      </Th>
-      <Th>
-        <Typography size={fontSize} weight="bold">
-          Bursa - Sala A
-        </Typography>
-      </Th>
-      <Th>
-        <Typography size={fontSize} weight="bold">
-          Hala - Sala konferencyjna
-        </Typography>
-      </Th>
-      <Th>
-        <Typography size={fontSize} weight="bold">
-          Bursa - Sala B
-        </Typography>
-      </Th>
+    <TableContainer>
+      <Typography size="lg" weight="bold">
+        {t('workshops.weekdays.saturday')}
+      </Typography>
+      {renderTable(saturdayWorkshops)}
 
-      <Cell background={100}>
-        <p>Edknitted</p>
-        <h3>Polish Your Pattern</h3>
-        <Typography size={fontSize}>9:00 - 12:00</Typography>
-      </Cell>
-
-      <Cell background={200}>
-        <p>Knitolog</p>
-        <h3>Żakard dla mniej lub bardziej zaawansowanych</h3>
-        <Typography size={fontSize}>9:00 - 12:00</Typography>
-      </Cell>
-
-      <Cell background={300}>
-        <p>Lud-art</p>
-        <h3>Haft Ludowy</h3>
-        <Typography size={fontSize}>9:00 - 12:00</Typography>
-      </Cell>
-
-      <Cell background={400}>
-        <p>Drutututu</p>
-        <h3>Druty - podstawy</h3>
-        <Typography size={fontSize}>9:00 - 11:00</Typography>
-      </Cell>
-
-      <Cell background={400}>
-        <p>Skein</p>
-        <h3>Punch needle</h3>
-        <Typography size={fontSize}>12:30 - 15:30</Typography>
-      </Cell>
-
-      <Cell background={300}>
-        <p>Iwona Eriksson</p>
-        <h3>Rzędy skrócone</h3>
-        <Typography size={fontSize}>12:30 - 15:30</Typography>
-      </Cell>
-
-      <Cell background={200}>
-        <p>Kroopa Knits</p>
-        <h3>Podstawy żakardu</h3>
-        <Typography size={fontSize}>12:30 - 16:30</Typography>
-      </Cell>
-
-      <Cell background={100}>
-        <p>Heart of Cotton</p>
-        <h3>Podstawy szydełka</h3>
-        <Typography size={fontSize}>11:30 - 13:30</Typography>
-      </Cell>
-
-      <Cell />
-      <Cell />
-      <Cell />
-      <Cell background={300}>
-        <p>Haftowa Baba</p>
-        <h3>Haft na wełnie</h3>
-        <Typography size={fontSize}>14:00 - 17:00</Typography>
-      </Cell>
-    </Table>
+      <Typography size="lg" weight="bold" style={{ marginTop: RedesignSpacings.lg }}>
+        {t('workshops.weekdays.sunday')}
+      </Typography>
+      {renderTable(sundayWorkshops)}
+    </TableContainer>
   );
 };

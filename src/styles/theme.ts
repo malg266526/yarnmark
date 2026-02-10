@@ -86,3 +86,7 @@ export const HallColors = {
   600: '#2b5213',
   700: '#254212'
 };
+
+export const getHallColorKey = (colIndex: number): keyof typeof HallColors => {
+  return (((colIndex % 4) + 1) * 100) as keyof typeof HallColors;
+};
