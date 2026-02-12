@@ -51,9 +51,6 @@ export const MainPage = () => {
             <TicketCard />
           </Band.CenteredColumn>
 
-          {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
-          {BandsToggles.afterEnabled && <AfterBand id="after" />}
-
           {/*<WorkshopsScheduleMobileBand id="schedule" />*/}
 
           {/* <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
