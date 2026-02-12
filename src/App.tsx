@@ -7,7 +7,7 @@ import talkImageUrl from './assets/iconify/talk.svg';
 import { Icon } from './components/Icon';
 import { MinimalistLayout } from './components/MinimalistLayout';
 import { RowLayout } from './components/RowLayout';
-import { Root, Footer, LeftBackgroundImage, TransparentText, VanillaLink } from './App.styled';
+import { Footer, LeftBackgroundImage, Root, TransparentText, VanillaLink } from './App.styled';
 import { ForVendorsPage } from './pages/for-vendors/ForVendorsPage';
 import { MainPage } from './pages/main-page/MainPage';
 import { useTypedTranslation } from './translations/useTypedTranslation';
@@ -18,7 +18,6 @@ import { ScreenSize } from './styles/screeen-size';
 import { HallMapPage } from './pages/HallMapPage';
 import { Typography } from './components/Typography';
 import { usePhone } from './hooks/usePhone';
-import { WorkshopsSchedule } from './pages/WorkshopsSchedule';
 import { EditorPage } from './pages/EditorPage';
 import { VendorStatutePage } from './pages/VendorsStatute';
 
@@ -76,7 +75,6 @@ export const App = () => {
           <Route path="/info-for-vendors" element={<ForVendorsPage />} />
           <Route path="/statutes" element={<StatutesPage />} />
           <Route path="/hall" element={<HallMapPage />} />
-          <Route path="/schedule" element={<WorkshopsSchedule />} />
           <Route path="/editor" element={<EditorPage />} />
           <Route path="/info-for-vendors-statue" element={<VendorStatutePage />} />
         </Routes>

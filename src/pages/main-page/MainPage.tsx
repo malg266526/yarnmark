@@ -15,13 +15,14 @@ import { BackgroundColors } from '../../styles/theme';
 import { TicketCardBand } from './bands/ticket/TicketCardBand';
 import { PatternsBand } from './bands/PatternsBand';
 import { WorkshopsDesktopBand } from './workshops/WorkshopsDesktopBand';
-// import { WorkshopsMobileSchedule } from './workshops/WorkshopsMobileSchedule';
 import { FoodBand } from './FoodBand';
 import { BandsToggles } from '../../toggles';
 import { TicketCard } from './bands/ticket/TicketCard';
 import { VendorsList } from './VendorsList';
 import { CruiseBand } from './bands/CruiseBand';
+import { WorkshopsScheduleMobileBand } from './workshops/WorkshopsScheduleMobileBand';
 import { AfterBand } from './bands/AfterBand';
+import { WorkshopsMobileSchedule } from './workshops/WorkshopsMobileSchedule';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -51,18 +52,20 @@ export const MainPage = () => {
             <TicketCard />
           </Band.CenteredColumn>
 
-          {/*<WorkshopsScheduleMobileBand id="schedule" />*/}
+          {BandsToggles.workshopsEnabled && <WorkshopsScheduleMobileBand id="schedule" />}
 
-          {/* <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
+          <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
           <Band.Empty id="workshops" padding="xs">
             <WorkshopsMobileSchedule />
-          </Band.Empty> */}
+          </Band.Empty>
 
           <Band.SecondaryTitle>{t('vendors')}</Band.SecondaryTitle>
 
           <Band.CenteredColumn id="vendors" size="lg" padding="none" color={BackgroundColors.vendors}>
             <VendorsList />
           </Band.CenteredColumn>
+
+          {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 
           {BandsToggles.afterEnabled && <AfterBand id="after" />}
 

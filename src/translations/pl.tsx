@@ -266,141 +266,10 @@ export const pl = {
       buyTicket: 'Kup bilet',
       freeAdmission: 'Wstęp wolny',
       price: 'Koszt',
-      edknitted: {
-        title: 'Polish Your Pattern czyli jak odpicować swój wzór',
-        description:
-          'To warsztaty idealne dla wszystkich aspirujących oraz początkujących projektantek. Poznaj\n' +
-          'tajniki dobrze skonstruowanych, czytelnych i zrozumiałych wzorów na druty pod czujnym\n' +
-          'okiem edytora technicznego. Zadbaj o to, żeby dzierganie Twojego projektu było\n' +
-          'najprzyjemniejszym doświadczeniem każdego rękodzielnika! Zamiast poświęcać masę\n' +
-          'czasu na poszukiwanie podpowiedzi i wskazówek dotyczących pisania instrukcji\n' +
-          'dziewiarskich, zapisz się na warsztat i otrzymaj całą wiedzę w pigułce. <br> Nauczysz się między\n' +
-          'innymi: ' +
-          '<ul>' +
-          '<li>jak skonstruować wzór oraz co w nim zawrzeć</li>' +
-          '<li>dlaczego próbka, rozpiska rozmiarów oraz obliczenia mają kluczowe znaczenie</li>' +
-          '<li>jak identyfikować kwestie sporne oraz w jaki sposób sobie z nimi radzić</li>' +
-          '<li>na co zwracać uwagę w przypadku tłumaczenia na inne języki oraz dostosowania instrukcji\n' +
-          'do poszczególnych grup docelowych.</li>' +
-          '</ul>',
-        aboutMe:
-          'Zawodowo: tłumacz, tech edytor wzorów na druty, wielozadaniowiec i świetny organizator.\n' +
-          'Prywatnie: mama dwójki Maluchów, kochająca żona i zapalona dziewiarka. Dzierganie otworzyło jej drzwi do nowego świata, w którym realizuje swoje pasje i pomaga projektantkom oraz dziewiarkom. Znajdziesz ją na Instagramie @edknitted'
-      },
-      ludart: {
-        title: 'Haft ludowy',
-        materials: 'Materiały zapewnia prowadzący',
-        description:
-          'Warsztaty mają na celu zaprezentowanie wzornictwa zdobień na białych elementach stroju ludowego: chustach, koszulach, zapaskach i fartuchach. Uczestnicy podczas warsztatów będą mieli okazję zapoznać się z niezbędnymi ściegami hafciarskimi i wyhaftować na płótnie wzór zaczerpnięty ze stroju krakowskiego',
-        aboutMe:
-          'Stowarzyszenie Miłośników Tradycyjnego Rękodzieła Ludowego i Artystycznego przy Muzeum Etnograficznym im. Seweryna Udzieli w Krakowie działa od 30 lat. Jego myśl przewodnia to "tradycja i współczesność". Na cotygodniowych spotkaniach członkowie, będący przedstawicielami różnych pokoleń i środowisk, zajmują się doskonaleniem technik hafciarskich, koronkarskich, wymianą doświadczeń. Działalność Stowarzyszenia można śledzić na blogu: http://lud-art.blogspot.com/ oraz facebooku: Stowarzyszenie LUD-Art.'
-      },
-      knitolog: {
-        title: 'Żakard dla mniej lub bardziej zaawansowanych',
-        materials:
-          '<ul>' +
-          '<li>druty 4,00 mm na żyłce (długość żyłki do pracy w okrążeniach)</li>' +
-          '<li>kilka sztuk markerów</li>' +
-          '<li>włóczkę zapewnia sponsor warsztatów @strikke.pl!</li>' +
-          '</ul>',
-        description:
-          'Podczas warsztatów nauczysz się metody, którą możesz stosować przy dużych motywach żakardowych. Pozwala ona pracować z długimi przejściami kolorystycznymi i jest niewidoczna na prawej stronie robótki. Przy zastosowaniu tej metody, robótka jest bardziej elastyczna i nie ściąga się. Możesz ją zastosować także przy dużym pojedynczym motywie, w niektórych przypadkach może zastąpić intarsję. <br> Każdy uczestnik warsztatów otrzyma, zaprojektowany przez Dorotę wzór dziewiarski z wykorzystaniem przedstawionej metody.',
-        aboutMe:
-          'W sieci znana jako Knitolog, od 7 lat projektuje i publikuje na Ravelry wzory dziewiarskie. W swojej ofercie ma 79 projektów, które cieszą się dużym powodzeniem i sprzedawane są na całym świecie.'
-      },
-      haftowaBaba: {
-        title: 'Haft na wełnie',
-        materials:
-          '<ul><li>czapkę lub inny udzierg, na którym chcesz wykonać haft.</li><li>HAFTOWA BABA zapewnia wełnę, igły, nożyczki i inne potrzebne akcesoria warsztatowe.</li></ul>',
-        aboutMe:
-          'Kamila, znana w środowisku rękodzielniczym jako Haftowa Baba to rekodzielniczka i edukatorka, która od 6 lat tworzy magię na tkaninach. Jej realistyczne hafty zwierząt i roslin ujęły tysiące w mediach społecznościowych ale też "prawdziwym świecie". Kamila szerzy swoją pasję na warsztatach między innymi z haftu płaskiego.',
-        description:
-          'Na warsztatach nauczycie się jak ozdobić swoje udziergi za pomocą haftu. Pod okiem Kamili - doświadczonej edukatorki i hafciarki, poznacie tajniki haftu na wełnie. Wykonacie kwiatowy wzór, który doda uroku Waszej dzianinie. Haftowa Baba pokaże Wam podstawowe techniki haftu płaskiego i jak z ich pomoca wyczarować wyczarować coś niezwykłego.'
-      },
-      iwona: {
-        title: 'Rzędy skrócone i ich zastosowanie w dzianinie',
-        materials:
-          '<ul>' +
-          '<li>druty na żyłce 4 - 4,5 mm (najlepiej dwa zestawy jeśli takie masz)</li>' +
-          '<li>kilka markerów typu agrafka</li>' +
-          '<li>nożyczki</li>' +
-          '<li>ewentualnie szydełko jeśli masz</li>' +
-          '<li>włóczkę i druty zapewnia sponsor warsztatów Biferno!</li>' +
-          '</ul>',
-        description:
-          '<ul>' +
-          '<li>Co to są rzędy skrócone i jakie mają zastosowanie w dzianinie</li>' +
-          '<li>Na czym polega dzierganie rzędów skróconych</li>' +
-          '<li>W jakich miejscach w robótce można wykorzystać rzędy skrócone</li>' +
-          '<li>Jak wykorzystać rzędy skrócone, żeby nadać dzianinie pożądany kształt</li>' +
-          '<li>Czterech różnych metod rzędów skróconych</li>' +
-          '</ul>',
-        aboutMe:
-          'Nazywam się Iwona Eriksson i dziergam na drutach „od zawsze”.\n' +
-          'Od wielu lat mieszkam w Szwecji, chłonę tutejsze tradycje dziewiarstwa, ale jednocześnie pielęgnuję i rozwijam dziewiarstwo polskie.\n' +
-          'Od ponad 10 lat uczę robienia na drutach na YouTube, a także tworzę kursy dziewiarskie na moich własnych stronach www. Piszę dziewiarskie wzory, prowadzę dziewiarski podcast „Zmagania Drutoterapii” oraz tematyczne transmisje na żywo.\n' +
-          'Uczę się nowych technik, konstrukcji, ściegów i kolekcjonuję piękne włóczki.\n' +
-          'Dziewiarstwo jest moją pasją, ale mam także wiele innych zainteresowań jak historia, parapsychologia i fizyka kwantowa. Kocham zwierzęta, mój ogród i naturę.\n' +
-          'Będzie mi bardzo miło podzielić się z wami moją wiedzą.'
-      },
-      kroopa: {
-        title: 'Podstawy żakardu',
-        materials:
-          '<ul><li>druty w rozmiarze 4.5 z żyłką 60cm</li><li>druty w rozmiarze 3 lub 3.5 z żyłką 60cm</li><li>włóczkę zapewnia sponsor warsztatów Gabo Wool!</li></ul>',
-        description:
-          'W trakcie warsztatów Karolina pokaże Ci jak rozpocząć swoją przygodę z kolorowymi wzorami żakardowymi. Wspólnie rozpoczniemy wykonywanie specjalnie zaprojektowanego na tę okazję wełnianego komina, przygotowanego tak, aby krok po kroku zwiększać trudność i w przyjemny sposób opanowywać trzymanie dwóch nitek. W trakcie warsztatów rozpoczniesz przerabianie swojego komina i dowiesz się jak z łatwością dokończyć go w domu.<br><br>' +
-          'Karolina pokaże Ci dwa sposoby trzymania nitek, nauczy jak dodawać kolejny kolor, podpowie na co zwrócić uwagę przy doborze drutów, włóczki oraz kolorów. Podzieli się tym jak i kiedy zawijać nitki przy żakardach i co to w ogóle znaczy. Zdradzi wszystkie swoje żakardowe sekrety. 😉<br>' +
-          'Podstawowe umiejętności konieczne do wzięcia udziału w warsztacie: <br>' +
-          '<ul>' +
-          '<li>nabieranie oczek</li>' +
-          '<li>przerabianie ściągaczem</li>' +
-          '<li>dodawanie oczek</li>' +
-          '<li>praca ściegiem gładkim w okrążeniach</li></ul>',
-        aboutMe:
-          'Karolina Adamczyk na drutach robi od dziecka, a od kilku lat naprawdę intensywnie. Jest to jej wielka pasja i uzależnienie do tego stopnia, że robótkę ma praktycznie zawsze przy sobie.  Najbardziej lubi robić wełniane czapki, skarpety i rękawiczki w kolorowe wzory. Jest to dla niej sposób na relaks, odpoczynek, oderwanie od problemów dnia codziennego. Karolinę i jej cudownie kolorowe dzieła znajdziesz na blogu, Facebooku, Instagramie oraz na Ravelry i kanale YouTube.'
-      },
-      drutututu: {
-        title: 'Druty - podstawy',
-        description:
-          'Warsztaty idealne dla osób, które chciałyby zacząć robić na drutach i nie wiedzą od czego zacząć. Podczas warsztatów nauczysz się jak nabrać włóczkę na druty, jak przerabiać oczka prawe, lewe, brzegowe, jak pracować w rzędach i o co chodzi z prawą i lewą stroną dzianiny oraz jak zakończyć robótkę. Wszystkie poznane umiejętności przećwiczysz pod okiem Magdy z Drutu.tutu. Dzięki tej wiedzy będziesz w stanie wydziergać szalik, prostą opaskę czy nawet koc.\n' +
-          'Magda opowie też o różnych rodzajach drutów oraz włóczek i pokaże przydatne akcesoria dziewiarskie.',
-        materials: '<ul><li>włóczkę i druty zapewnia sponsor warsztatów Włóczykijki!</li></ul>',
-        aboutMe:
-          'Jestem Magda i ponad 10 lat temu pierwszy raz nabrałam oczka na druty. Tamtej robótki nigdy nie skończyłam, ale dwa lata później złapałam bakcyla. Od 2016 roku dzierganie jest częścią mojego życia, z każdym rokiem coraz bardziej istotną.\n' +
-          'W internecie znajdziesz mnie jako @drutu.tutu, opowiadam tam o mojej pasji i chętnie dzielę się wiedzą. Współpracuję ze Slow Fashion Cafe, gdzie prowadzę warsztaty dziewiarskie dla początkujących.\n' +
-          'Oprócz robienia na drutach kocham Włochy i język włoski, spanko, Nutellę i mojego kota Motka.'
-      },
-      heartofcotton: {
-        title: 'Podstawy szydełka',
-        materials:
-          '<ul><li>igła dziewiarska</li><li>nożyczki</li><li>włóczkę i szydełko zapewnia sponsor warsztatów Włóczykijki!</li></ul>',
-        description:
-          'Warsztaty idealne dla osób, które chciałyby zacząć przygodę z szydełkowaniem i nie wiedzą od czego zacząć. Podczas warsztatów nauczysz się czym są oczka łańcuszka i jak je nabierać, jak pracować w okrążeniach, zrobisz, półsłupek, półsłupek nawijany, bufkę, słupek i oczko ścisłe oraz dowiesz się jak korzystać z gotowych schematów.\n' +
-          'Uczestnicy wykonają dwie podkładki, jedną z bufkami, druga bez.',
-        aboutMe:
-          'Twoim przewodnikiem po tajnikach szydełka będzie Ewa z Heart of Cotton. Ewa zajmuje się dziewiarstwem i tworzy wzory na szydełko. Dzieli się wiedzą oraz zaraża optymizmem i pasją do rękodzieła.\n' +
-          'Jej figurki amigurumi skradną wasze serca a po warsztatach być może porwiecie się na jedną z nich?\n' +
-          'Pasja Ewy to także fotografia - ma na koncie ebooka o fotografii rekodzieła.'
-      },
-      skein: {
-        title: 'Punch Needle',
-        materials:
-          'Materiały zapewnia prowadzący. Każdy uczestnik otrzyma: <ul>' +
-          '<li>igła do haftu Rico Design</li>' +
-          '<li>tamborek Rico Design</li>' +
-          '<li>torba projektowa @ohobohoo_hamaki</li>' +
-          '<li>znikopis</li>' +
-          '<li>łatka zabezpieczająca tył pracy</li>' +
-          '<li>dostęp do materiałów video</li>' +
-          '<li>sznurek bawełniany</li>' +
-          '<li>mały prezent od @skein.pl</li>' +
-          '</ul>',
-        description:
-          'Dlaczego punch needle? Bo prócz niskiego progu wejścia (czytaj: łatwo się tego nauczyć), daje wiele możliwości modyfikacji, błędy można łatwo usunąć, a efekty pracy są szybkie i robią piorunujące wrażenie. Warsztaty obejmują  naukę podstaw techniki haftu magiczna igłą. Naukę doboru igły do materiału, przewlekania włóczki przez igłę oraz przenoszenia wzoru na materiał.\n' +
-          'Każdy z uczestników otrzyma swoją torbę projektową, na której będzie wykonywał haft ze sznurka bawełnianego',
-        aboutMe:
-          'Warsztaty poprowadzi Karolina @pixeldzierga. Woli nazywać swoją pracę rzemieślniczą, bo uważa, że do artysty nie dorosła.\n' +
-          'Na metodę haftu techniką magiczną igłą trafiła przypadkiem, szukając techniki do pracy nad motoryką małą dla dzieci. Z wykształcenia jest diagnostą laboratoryjnym, na co dzień ocenia cytologię szyjki macicy, z pasji natomiast jest szeroko pojętym TWÓRCĄ.'
+      soldOut: 'Wyprzedane',
+      weekdays: {
+        saturday: 'Sobota',
+        sunday: 'Niedziela'
       },
       room: {
         mirrors: 'Sala lustrzana',
@@ -408,9 +277,199 @@ export const pl = {
         conference: 'Sala konferencyjna',
         library: 'Biblioteka - al. Focha 39',
         bursa1: 'Bursa - sala A - al. Focha 39',
-        bursa2: 'Bursa - sala B - al. Focha 39'
+        bursa2: 'Bursa - sala B - al. Focha 39',
+        skein: 'Skein - Zakopiańska 56 (wejście Lokal 19, 20. 1. piętro)',
+        forum: 'Forum Przestrzenie - Marii Konopnickiej 28',
+        reading_room: 'Czytelnia w bibliotece - al. Focha 39'
       },
-      soldOut: 'Wyprzedane'
+
+      // --- KROOPA ---
+      kroopa: {
+        title_beginner: 'Podstawy Żakardu - Sobota',
+        title_beginner_sun: 'Podstawy Żakardu - Niedziela',
+        materials_sat:
+          '<ul>' +
+          '<li>Druty <strong>4.5 mm</strong> do żakardu + druty <strong>3-3.5 mm</strong> do ściągacza (żyłka min. 60 cm do Magic Loop)</li>' +
+          '<li>Włóczkę zapewnia sponsor <strong>GABO Wool<strong></li>' +
+          '</ul>',
+        materials_sun:
+          '<ul>' +
+          '<li>Druty <strong>4.5 mm</strong> do żakardu + druty <strong>3-3.5 mm</strong> do ściągacza (żyłka min. 60 cm do Magic Loop)</li>' +
+          '<li>Włóczkę zapewnia sponsor <strong>Strikke<strong></li>' +
+          '</ul>',
+        description:
+          'Praca na wzorze na komin żakardowy dla początkujących, podobny do Easy Peasy Cowl. ' +
+          'Warsztaty są dla osób początkujących we wzorach żakardowych (np. Dla takich, które nigdy jeszcze nie próbowały tej techniki), ale potrafiących robić na drutach.' +
+          '<br>Warsztaty rozpocznę ok 30 minutową prezentacją, w trakcie której zdradzę wszystko co wiem na temat przerabiania wzorów żakardowych.' +
+          '<br>Na warsztatach pokażę uczestnikom:' +
+          '<ul>' +
+          '<li>dwa sposoby trzymania dwóch nitek i pracy z nimi</li>' +
+          '<li>opcjonalnie jak przerabiać trzema kolorami w jednym okrążeniu</li>' +
+          '<li>jak dołączać nowy kolor</li>' +
+          '<li>jak i kiedy zawijać nitki przy żakardzie</li>' +
+          '<li>opowiem o wyborze kolorów</li>' +
+          '<li>opowiem o doborze rozmiaru drutów</li>' +
+          '<li>opowiem o elastyczności dzianiny</li>' +
+          '<li>przydatne wskazówki do pracy z żakardami</li>' +
+          '<li>odpowiem na pytania i wątpliwości uczestników</li></ul>' +
+          'Uczestnicy w trakcie warsztatów rozpoczną przerabianie swoich kominów i otrzymają ode mnie wskazówki jak dokończyć je w domu.<br>Uczestniczy powinni mieć opanowane podstawowe umiejętności: nabieranie oczek, przerabianie ściągaczem, dodawanie oczek, praca ściegiem gładkim w okrążeniach.',
+        aboutMe:
+          'Karolina Adamczyk na drutach robi od dziecka, a od kilku lat naprawdę intensywnie. ' +
+          'Jest to jej wielka pasja i uzależnienie do tego stopnia, że robótkę ma praktycznie zawsze przy sobie.  ' +
+          'Najbardziej lubi robić wełniane czapki, skarpety i rękawiczki w kolorowe wzory. ' +
+          'Jest to dla niej sposób na relaks, odpoczynek, oderwanie od problemów dnia codziennego.'
+      },
+
+      // --- IWONA ERIKSSON ---
+      iwona: {
+        title_socks: 'Zrozumieć skarpetki. Skarpetki od góry dla początkujących.',
+        title_heels: 'Różne rodzaje pięt - Niedziela',
+        materials_socks:
+          '<ul>' +
+          '<li>Włóczkę zapewnia sponsor <strong>Biferno<strong></li>' +
+          '<li>Druty: 3-3.5 mm (na żyłce lub skarpetkowe)</li>' +
+          '<li>Miara krawiecka, markery agrafkowe, nożyczki</li>' +
+          '</ul>',
+        materials_heels:
+          '<ul>' + '<li>Włóczka - info wkrótce</li>' + '<li>Druty: 2-4 komplety dopasowane do włóczki</li>' + '</ul>',
+        description_socks:
+          'Czy marzysz o własnoręcznie wydzierganych skarpetkach, ale na samą myśl o pięcie robi Ci się słabo? Nie taki diabeł straszny, jak go malują. Na tym warsztacie przekonasz się, że dzierganie skarpetek może być logiczne, przyjemne i naprawdę satysfakcjonujące.<br>Podczas warsztatu będziemy dziergać skarpetki od góry, krok po kroku, na podstawie gotowego wzoru. W trakcie pracy omówimy wszystkie kluczowe elementy, dzięki którym kolejne pary zrobisz już z pełną swobodą.<br>Na warsztacie dowiesz się m.in.:<ul><li>z jakiej włóczki najlepiej dziergać skarpetki,</li><li>czy wybrać druty na żyłce czy 5 drutów skarpetkowych,</li><li>jak dziergać metodą magic loop,</li><li>ile oczek nabrać, by skarpetka dobrze leżała,</li><li>jak formować klasyczną piętę z klapką,</li><li>jak dopasować piętę do wysokiego podbicia,</li><li>jak uformować palce i estetycznie zamknąć oczka.</li></ul>Warsztat idealny dla osób, które chcą zrobić swoje pierwsze skarpetki bez stresu i zrozumieć, jak naprawdę działa ich konstrukcja.<br>Warsztat jest odpowiedni także dla początkujących – potrzebna jest umiejętność robienia prawych i lewych oczek oraz umiejźtność korzystania z drutów na żyłce lub pięciu skarpetkowych.',
+        description_heels:
+          'Różne rodzaje pięt. Znajdź piętę, którą naprawdę polubisz!<br>Czy wciąż szukasz tej jedynej metody na idealną skarpetę? A może boisz się, że wyrabianie pięty to „wyższa szkoła jazdy”? Czas to zmienić i sprawdzić, która technika stanie się Twoją ulubioną – bez względu na to, czy dziergasz od góry, czy od palców.<br>Nie ma jednej najlepszej pięty – najlepsza jest ta, która dla Ciebie jest najwygodniejsza.<br>Przejdziemy przez różne konstrukcje pięt, by wybrać technikę, z którą polubisz się najbardziej:<ul><li>Pięta klasyczna z klapką: Ta tradycyjna technika jest zawsze niezawodna.</li><li>Pięta rzędymi skróconymi: Może to właśne ta pięta jest dla Ciebie.</li><li>Pięta dorabiana: Odkryjesz sprytny sposób na dodanie pięty na samym końcu.</li><li>Pięta Fleegle: Ciekawa pięta dla odważnych.</li></ul>Dla kogo jest ten warsztat? Dla każdego, kto chce przestać walczyć z piętą, a zacząć czerpać radość z jej robienia.<br>Na warsztacie potrzebna jest umiejętność robienia prawych i lewych oczek oraz posługiwania się w okrążeniach drutami na żyłce lub pięcioma drutami skarpetkowymi.<br>Przyjdź i wybierz metodę, którą naprawdę polubisz!',
+        aboutMe:
+          'Nazywam się Iwona Eriksson i dziergam na drutach „od zawsze”.<br>' +
+          'Od wielu lat mieszkam w Szwecji, chłonę tutejsze tradycje dziewiarstwa, ale jednocześnie pielęgnuję i rozwijam dziewiarstwo polskie.<br>' +
+          'Od ponad 10 lat uczę robienia na drutach na YouTube, a także tworzę kursy dziewiarskie na moich własnych stronach www. Piszę dziewiarskie wzory, prowadzę dziewiarski podcast „Zmagania Drutoterapii” oraz tematyczne transmisje na żywo.<br>' +
+          'Uczę się nowych technik, konstrukcji, ściegów i kolekcjonuję piękne włóczki.<br>' +
+          'Dziewiarstwo jest moją pasją, ale mam także wiele innych zainteresowań jak historia, parapsychologia i fizyka kwantowa. Kocham zwierzęta, mój ogród i naturę.<br>' +
+          'Będzie mi bardzo miło podzielić się z wami moją wiedzą.'
+      },
+
+      // --- KNITOLOG ---
+      knitolog: {
+        title_tricks: 'Moje dziewiarskie triki, techniki i inne myki',
+        title_jacquard: 'Żakard - Niedziela',
+        materials_tricks:
+          '<ul>' +
+          '<li>Włóczkę zapewnia sponsor - <strong>Włóczykijki</strong></li>' +
+          '<li>Druty: 4.0 mm z żyłką do pracy w okrążeniach</li>' +
+          '<li>Dodatkowe druty na odłożenie oczek (dowolnej długości)</li>' +
+          '</ul>',
+        materials_jacquard:
+          '<ul>' +
+          '<li>Włóczkę zapewnia sponsor - <strong>Włóczykijki</strong></li>' +
+          '<li>Druty: 4.0 mm na żyłce lub skarpetkowe</li>' +
+          '<li>Kilka sztuk markerów</li>' +
+          '</ul>',
+        description_tricks:
+          'Podczas warsztatu przedstawię moje sposoby aby dzianina była estetyczna, pięknie wykończona i wyglądała "jak ze sklepu". Pokażę szereg technik i trików, które zgromadziłam podczas ośmiu lat projektowania swetrów. .',
+        description_jacquard:
+          'Warsztat przeznaczony jest zarówno dla osób początkujących , jak i trochę zaawansowanych. Podczas warsztatów omówię podstawy żakardu. Jak dobierać włóczkę, druty i jak komponować kolory w żakardzie, jak trzymać nitki, aby robótka wyglądała estetycznie. Omówione zostaną zagadnienia koloru dominującego. Będziemy pracować na specjalnie zaprojektowanym wzorze na mitenki. Dla osób początkujących przygotowałam łatwiejszy projekt. Dla osób które już pracowały z żakardem, będzie przygotowany wzór z metodą Ladderback Jacquard.',
+        aboutMe:
+          'Dorota Morawiak-Lichota (Knitolog), od 8 lat projektuje i publikuje na Ravelry wzory dziewiarskie. W swojej ofercie ma 90 projektów, które cieszą się dużym powodzeniem i sprzedawane są na całym świecie. Ponadto, od ponad 3 lat edukatorka dziergania, która prowadzi warsztaty dziewiarskie prawie na wszystkich targach włóczkowych.'
+      },
+
+      // --- EDKNITTED ---
+      edknitted: {
+        title: 'Wzory 101',
+        description:
+          'Czy zdarza Ci się patrzeć na opis wzoru i zastanawiać:<br>„Dlaczego te oczka się nie zgadzają?”<br>„Co autorka miała na myśli…?”<br>„Jak odczytać ten schemat i co mam zrobić w tym miejscu?”<br><br>Warsztaty „Wzory 101 – Jak czytać i rozumieć wzory na druty” stworzyłam z myślą o dziewiarkach i dziewiarzach, którzy potrafią robić na drutach, ale zmagają się z interpretacją wzorów.<br>Podczas warsztatów nauczysz się:<ul><li>o podstawowych rodzajach wzorów i jak je interpretować,</li><li>jak czytać schematy i przekładać je „na druty”,</li><li>rozumieć skróty i oznaczenia używane w polskich i zagranicznych wzorach,</li><li>rozróżniać drobne niuanse języka dziewiarskiego.</li></ul>Po warsztatach przestaniesz się obawiać (zagranicznych) wzorów i z większą pewnością sięgniesz po trudniejsze projekty.<br>To Twoja dziewiarska mapa świata – od „k2tog” po „ssk”, od „rząd parzysty” po „powtórz *-*”.',
+        materials:
+          'Przygotuj fragment wzoru, który sprawił Ci trudność – przeanalizujemy go wspólnie podczas warsztatów :)<br>' +
+          'Dodatkowo, zabierz ze sobą coś do pisania i dobry humor!',
+        aboutMe:
+          'Zawodowo: tłumacz, tech edytor wzorów na druty, wielozadaniowiec i świetny organizator.<br>' +
+          'Prywatnie: mama dwójki Maluchów, kochająca żona i zapalona dziewiarka. Dzierganie otworzyło jej drzwi do nowego świata, w którym realizuje swoje pasje i pomaga projektantkom oraz dziewiarkom. '
+      },
+
+      // --- NOWE HAFTY ---
+      nowehafty: {
+        title: 'Haftujemy kwiaty na wiosnę!',
+        materials: 'Wszystkie materiały i akcesoria w cenie warsztatu.',
+        description:
+          'Zapraszamy na warsztaty haftowania, podczas których każda uczestniczka stworzy swój własny mini tamborek z kwiatowym motywem. Nauczymy się podstaw haftu ręcznego, spędzimy czas kreatywnie i w miłej atmosferze.\n' +
+          'Nie potrzebujesz doświadczenia, a wszystkie materiały i akcesoria będą czekać na miejscu.<br>' +
+          'Przyjdź, wyhaftuj wiosnę i zabierz ją ze sobą do domu!!',
+        aboutMe:
+          'Katarzyna Kępka — twórczyni projektu NoweHafty. Zajmuje się haftem ręcznym, łącząc tradycyjne techniki z nowoczesnym podejściem do wzoru i koloru. Prowadzi warsztaty haftowania, podczas których pokazuje, że haft to przyjemność, relaks i przestrzeń na własną kreatywność — nawet bez wcześniejszego doświadczenia.'
+      },
+
+      // --- SKEIN ---
+      skein: {
+        title_sat: 'Punch Needle - Sobota',
+        title_sun: 'Punch Needle - Niedziela',
+        materials:
+          'Materiały zapewnia prowadzący:\n' +
+          '<ul>' +
+          '<li>torba, igła, tamborek, materiał, włóczki, wzory, znikopis</li>' +
+          '</ul>',
+        description:
+          'Dlaczego punch needle? Bo prócz niskiego progu wejścia (czytaj: łatwo się tego nauczyć), daje wiele możliwości modyfikacji, błędy można łatwo usunąć, a efekty pracy są szybkie i robią piorunujące wrażenie. Warsztaty obejmują  naukę podstaw techniki haftu magiczna igłą. Naukę doboru igły do materiału, przewlekania włóczki przez igłę oraz przenoszenia wzoru na materiał.<br>' +
+          'Każdy z uczestników otrzyma swoją torbę, na której będzie wykonywał haft punch needle :)',
+        aboutMe:
+          'Wolę nazywać swoją pracę rzemieślniczą, bo do artysty nie dorosłam.<br>' +
+          'Na metodę haftu techniką magiczną igłą trafiłam przypadkiem, szukając techniki do pracy nad motoryką małą dla dzieci. Z wykształcenia jestem diagnostą laboratoryjnym, na co dzień oceniającym cytologię szyjki macicy, z pasji szeroko pojętym TWÓRCĄ.<br>' +
+          '<br>' +
+          'Sam proces cieszy mnie najbardziej, a jeśli efekt jest zadowalający, brnę dalej i dalej i dalej… aż do wyczerpania tematu.<br>' +
+          '<br>' +
+          'Dlaczego punch needle? Oprócz niskiego progu wejścia (czytaj: łatwo się tego nauczyć), daje wiele możliwości modyfikacji, błędy można łatwo usunąć, a efekty pracy są szybkie i robią piorunujące wrażenie.<br>' +
+          '<br>' +
+          'Miłość do wełnianych tkanin i materiałów wybuchła kilka lat wcześniej, podczas wielopieluchowania dzieci, przekształciła się w codzienność przez noszone ubrania i pozwoliła zakiełkować na nowo podczas tworzenia obrazów i przedmiotów codziennego użytku. Wełna ma nie tylko wspaniałe właściwości, ale pozwala poznać się wielowymiarowo: fakturą, kolorem i zapachem, co sprawia, że samodzielnie wykonana praca daje dużo satysfakcji.'
+      },
+
+      // --- SPLOTKA ---
+      splotka: {
+        title: 'Tkana makatka ze splotką',
+        materials: 'Materiały zapewnia prowadząca.',
+        description:
+          'Warsztaty tkania od podstaw, na których wykonacie swoją pierwszą dekorację ścienną o wymiarach ok. 18 × 30 cm. Podczas kameralnego spotkania poznacie tajniki tradycyjnego rzemiosła od mistrzyni tkactwa - Splotki.  Nie jest wymagane wcześniejsze doświadczenie. <br>Zajęcia odbywają się w duchu ZERO WASTE – nic się nie marnuje. Wykorzystywać będziemy między innymi sznurki, włóczki ale i ręcznie przędzoną wełnę, len, konopie i polską przędzę spod Zakopca. Wszystkie niezbędne rzeczy dostępne na miejscu, wystarczy przynieść ze sobą odrobinę uśmiechu. Po zakończonych warsztatach istnieje możliwość zakupu narzędzi w promocyjnej cenie. <br><br>Program warsztatów obejmuje:<ul><li>naukę tkania na krośnie harfowym,</li><li>poznanie co najmniej 4 podstawowych splotów,</li><li>dobór materiałów i kolorów,</li><li>utrzymywanie napięcia wątku i osnowy,</li><li>wyrównywanie krawędzi i dodawanie frędzli,</li><li>wykończenie makatki,</li><li>recykling materiałów („zrzutów”).</li></ul>',
+        aboutMe:
+          'Zajęcia prowadzi Monika Splotka – artystka sztuki włókna i rzemieślniczka. Tka od 2004 roku, a od 8 lat organizuje kreatywne warsztaty w Polsce i za granicą. Specjalizuje się w kilimach - tradycyjnym rzemiośle we współczesnym designie. Jej życiowym mottem jest "Zrelaksuj się splotem, a obowiązki? Może potem".'
+      },
+
+      // --- SIS HOMEMADE ---
+      sishomemade: {
+        title: 'AMIGURUMI – Sekretny Projekt Yarnmarku z SisHomemade',
+        materials: '<ul>' + '<li>Zestaw wraz z wzorem i akcesoriami otrzymacie na miejscu.</li>' + '</ul>',
+        description:
+          'Zapraszamy na warsztaty amigurumi, podczas których wspólnie wykonamy Yarnmarkowe amigurumi na podstawie wzoru zaprojektowanego przez nas, specjalnie na III edycję targów Yarnmark. <br>' +
+          'Warsztaty dedykowane są dla osób, które znają podstawy, takie jak zrobienie oczek i półsłupków. Razem z nami nauczycie się, między innymi, jak zrobić niewidzialne zmniejszenie/zmianę kolorów, początkowy łańcuszek, na którym od razu zrobione są półsłupki oraz jak sprawić, żeby Wasze maskotki były jeszcze piękniejsze. ;)<br>' +
+          'Zapewniamy (wszystkie) potrzebne materiały - nie musicie zabierać ze sobą niczego, poza chęcią do nauki i dobrej zabawy. :)' +
+          'Będzie nam bardzo miło się z Wami spotkać!',
+        aboutMe:
+          'Sishomemade czyli po prostu dwie siostry - Aśka i Anka. Miłość do rękodzieła najwyraźniej wyssałyśmy z mlekiem matki, ale dotarło to do nas dopiero po 25 latach. Od tego czasu tworzymy wzory, dzięki którym każdy może wyczarować coś wyjątkowego własnymi rękami. I zakochać się w szydełkowaniu tak jak my.'
+      },
+
+      // --- INKA ---
+      inka: {
+        title: 'Szydełko dla leworęcznych',
+        materials: 'Materiały - włóczkę i szydełko - dostarcza sponsor warsztatów <strong>Włóczykijki</strong></ul>',
+        description:
+          'Zajęcia dla osób leworęcznych bez doświadczenia w robieniu na szydełku. Nauczysz się jak zrobić magiczne kółko oraz podstawowe sploty, dzięki którym będziesz w stanie zacząć swoją szydełkową przygodę. Z zajęć wyjdziesz ze swoją pierwszą, własnoręcznie wykonaną podkładką pod kubek!',
+        aboutMe:
+          'Jestem Inka, na szydełku robię od 6 lat, a leworęczna jestem od 25 :) Sztuki szydełka uczyłam się od mojej praworęcznej mamy oraz z instruktaży na internecie, które zawsze były robione przez osoby praworęczne. Wymagało to niezłej gimnastyki mentalnej, dlatego chcę się podzielić moim doświadczeniem z innymi leworęcznymi osobami.\n' +
+          '<br>' +
+          'Gdy nie szydełkuję ani nie robię na drutach, spędzam czas na ściance wspinaczkowej albo spacerując po naszym pięknym Krakowie. '
+      },
+
+      // --- DRUTUTUTU ---
+      drutututu: {
+        title: 'Podstawy robienia na drutach',
+        materials: '<ul><li>Druty 6 mm (drewno/bambus)</li><li>Pasująca włóczka wełniana</li></ul>',
+        description:
+          'Zajęcia dla osób, które chciałyby nauczyć się robić na drutach od podstaw. ' +
+          'Podczas warsztatów nauczysz się jak nabrać włóczkę na druty, jak przerabiać oczka prawe, lewe, brzegowe, jak pracować w rzędach i o co chodzi z prawą i lewą stroną dzianiny ' +
+          'oraz jak zakończyć robótkę. Wszystkie poznane umiejętności przećwiczymy wspólnie. ' +
+          'Dzięki tej wiedzy będziesz w stanie wydziergać szalik, prostą opaskę czy nawet koc.' +
+          'Opowiem też o różnych rodzajach drutów oraz włóczek, pokażę przydatne akcesoria dziewiarskie.',
+        aboutMe:
+          'Jestem Magda i ponad 10 lat temu pierwszy raz nabrałam oczka na druty. Tamtej robótki nigdy nie skończyłam, ale dwa lata później złapałam bakcyla. Od 2016 roku dzierganie jest częścią mojego życia, z każdym rokiem coraz bardziej istotną.' +
+          '<br><br>' +
+          'W internecie znajdziesz mnie jako <strong>@drutu.tutu</strong>, opowiadam tam o mojej pasji i chętnie dzielę się wiedzą. Współpracuję ze Slow Fashion Cafe, gdzie prowadzę warsztaty dziewiarskie dla początkujących.' +
+          '<br><br>' +
+          'Oprócz robienia na drutach kocham Włochy i język włoski, spanko, Nutellę i mojego kota Motka. ' +
+          '<br>'
+      }
     },
     vendorsStatue: {
       title: 'Regulamin sprzedaży stoisk 2026',

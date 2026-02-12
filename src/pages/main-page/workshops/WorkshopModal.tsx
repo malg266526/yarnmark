@@ -16,6 +16,7 @@ import backIcon from '../../../assets/figmaIcons/back_arrow_icon.svg';
 import closeStrokeIcon from '../../../assets/figmaIcons/close_stroke_icon.svg';
 import { Icon } from '../../../components/Icon';
 import { TextToListFormatter } from '../../../components/TextToListFormatter';
+import { Trans } from 'react-i18next';
 
 const WorkshopModalLayout = styled(Modal)`
   display: flex;
@@ -74,8 +75,10 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
   const t = useTypedTranslation();
 
   if (!workshop) {
-    return;
+    return null;
   }
+
+  const { weekDay, time, room, picture, topicKey, leading, materials, description, aboutMe, price } = workshop;
 
   return (
     <WorkshopModalLayout
@@ -105,16 +108,17 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
 
         <FlexColumnLayout padding="none" gap="lg" width="100%">
           <Beam>
-            <Typography size="lg">{workshop.time}</Typography>
-            <Typography size="lg">{t(`workshops.room.${workshop.room}`)}</Typography>
+            <Typography size="lg">{time}</Typography>
+            {weekDay && <Typography size="lg">{t(`workshops.weekdays.${weekDay}`)}</Typography>}
+            <Typography size="lg">{t(`workshops.room.${room}`)}</Typography>
           </Beam>
 
           <Picture
             picture={{
-              fallbackUrl: workshop.picture.fallback,
-              sources: workshop.picture.sources
+              fallbackUrl: picture.fallback,
+              sources: picture.sources
             }}
-            alt={t(workshop.topicKey)}
+            alt={t(topicKey)}
             width={150}
             height={150}
             style={{ borderRadius: '50%', objectFit: 'cover' }}
@@ -122,39 +126,41 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
 
           <RowLayout>
             <WorkshopSectionTitle size="md">Prowadząca:</WorkshopSectionTitle>
-            <Typography size="md">{workshop.leading}</Typography>
+            <Typography size="md">{leading}</Typography>
           </RowLayout>
 
           <WorkshopDescription>
-            <FlexColumnLayout padding="none" gap="sm" width={workshop.materials ? '50%' : '100%'}>
+            <FlexColumnLayout padding="none" gap="sm" width={materials ? '50%' : '100%'}>
               <WorkshopSectionTitle size="md">Czego się nauczysz?</WorkshopSectionTitle>
               <Typography size="sm">
-                <TextToListFormatter text={workshop.description ? t(workshop.description) : '-'} />
+                <TextToListFormatter text={description ? t(description) : '-'} />
               </Typography>
             </FlexColumnLayout>
 
-            {workshop.materials && (
+            {materials && (
               <FlexColumnLayout padding="none" gap="sm" width="50%">
                 <WorkshopSectionTitle size="md">Co przynieść?</WorkshopSectionTitle>
                 <Typography size="sm">
-                  <TextToListFormatter text={t(workshop.materials)} />
+                  <TextToListFormatter text={t(materials)} />
                 </Typography>
               </FlexColumnLayout>
             )}
           </WorkshopDescription>
 
-          {workshop.aboutMe && (
+          {aboutMe && (
             <>
               <FlexColumnLayout padding="none" gap="sm">
                 <WorkshopSectionTitle size="md">O prowadzącej:</WorkshopSectionTitle>
-                <Typography size="sm">{workshop.aboutMe ? t(workshop.aboutMe) : '-'}</Typography>
+                <Typography size="sm">
+                  <Trans>{aboutMe ? t(aboutMe) : '-'}</Trans>
+                </Typography>
               </FlexColumnLayout>
             </>
           )}
 
           <PriceInfo>
             <Typography size="md">
-              {t('workshops.price')}: {workshop.price}zł
+              {t('workshops.price')}: {price}zł
             </Typography>
           </PriceInfo>
 
