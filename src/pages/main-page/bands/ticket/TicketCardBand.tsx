@@ -45,10 +45,13 @@ export const TicketCardBand = () => {
 
         <TicketOrderDescription>
           <TicketOrderTypography size="md">{t('tickets.whereToBuy')}</TicketOrderTypography>
+
           <TicketOrderTypography size="md">{t('tickets.keepYourEmail')}</TicketOrderTypography>
           <TicketOrderTypography size="md">{t('tickets.proofOfPurchase')}</TicketOrderTypography>
-          {/*          <TicketOrderTypography size="md">{t('tickets.onlineDeadline')}</TicketOrderTypography>
-          <TicketOrderTypography size="md">{t('tickets.availability')}</TicketOrderTypography>*/}
+          <TicketOrderTypography size="md">{t('tickets.onlineDeadline')}</TicketOrderTypography>
+          <TicketOrderTypography size="md">{t('tickets.gadgetGuaranteed')}</TicketOrderTypography>
+
+          <TicketOrderTypography size="md">{t('tickets.availability')}</TicketOrderTypography>
         </TicketOrderDescription>
       </Content>
     </Band.NarrowColumn>

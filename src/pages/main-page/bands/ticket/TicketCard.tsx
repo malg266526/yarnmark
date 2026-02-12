@@ -5,7 +5,7 @@ import { useTypedTranslation } from '../../../../translations/useTypedTranslatio
 import styled, { css } from 'styled-components';
 import { Card } from '../../../../components/Card';
 import { RedesignSpacings } from '../../../../styles/spacings';
-import { TextColors } from '../../../../styles/theme';
+import { GrayScale, TextColors } from '../../../../styles/theme';
 import { ScreenSize } from '../../../../styles/screeen-size';
 import { Radius } from '../../../../styles/cards';
 import { FontSize } from '../../../../styles/font-size';
@@ -32,9 +32,28 @@ const TicketTitle = styled(Typography)`
   color: ${TextColors.secondary};
 `;
 
-// const TicketPrice = styled(Typography)<{ disabled?: boolean }>`
-//   color: ${({ disabled }) => (disabled ? GrayScale[800] : TextColors.accent)};
-// `;
+const TicketPrice = styled(Typography)<{ disabled?: boolean }>`
+  color: ${({ disabled }) => (disabled ? GrayScale[800] : TextColors.accent)};
+`;
+
+const PriceWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: ${RedesignSpacings.xxs};
+`;
+
+const OldPrice = styled(Typography)`
+  text-decoration: line-through;
+  color: ${GrayScale[600]};
+  opacity: 0.7;
+`;
+
+const PromoInfo = styled(Typography)`
+  color: ${TextColors.secondary};
+  font-size: ${FontSize.xs};
+  font-weight: 500;
+`;
 
 const ShakeAnimationFrames = css`
   @keyframes shake {
@@ -120,9 +139,16 @@ export const TicketCard = () => {
         </Typography>
 
         <Typography size="sm">Hala 100-lecia KS Cracovia</Typography>
-        {/* <TicketPrice size="md" disabled={!TicketsToggles.enabled}>
-          {t('tickets.price')} 30zl
-        </TicketPrice> */}
+        <PriceWrapper>
+          <OldPrice size="sm">32 zł</OldPrice>
+
+          {/* Nowa cena - wyróżniona Twoim kolorem accent */}
+          <TicketPrice size="lg" disabled={!TicketsToggles.enabled}>
+            25 zł
+          </TicketPrice>
+
+          <PromoInfo size="xs">{t('tickets.promoPrice')}</PromoInfo>
+        </PriceWrapper>
       </FlexColumnLayout>
     </TicketCardLayout>
   );

@@ -1,6 +1,4 @@
-import { TranslationsShape } from './pl';
-
-export const de: TranslationsShape = {
+export const de = {
   translation: {
     menu: {
       home: 'Home',

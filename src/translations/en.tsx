@@ -43,7 +43,9 @@ export const en: TranslationsShape = {
       proofOfPurchase: 'You will show this proof of purchase when entering Yarnmark ;)',
       availableSoon: 'Available soon',
       onlineDeadline: 'Online tickets will be available for sale until April 25, 6:00 p.m.',
-      availability: 'On the day of the event, tickets will be available at the on-site box office.'
+      availability: 'On the day of the event, tickets will be available at the on-site box office.',
+      gadgetGuaranteed: 'A Yarnmark 2026 gadget is included with the first 1,000 tickets purchased!',
+      promoPrice: 'Promo price until the end of February'
     },
     location: {
       findUsOnMaps: 'Find Us on <0>Google Maps</0>',
