@@ -42,7 +42,7 @@ export const pl = {
       proofOfPurchase: 'Ten dowód zakupu okażesz przy wejsciu na Yarnmark',
       onlineDeadline: 'Bilety online bedą dostępne w sprzedaży do 16.04, do godz. 18:00.',
       availability: 'W dniu wydarzenia bilety bedą dostępne w kasie na miejscu.',
-      gadgetGuaranteed: 'Dla pierwszych 1000 osób Yarnmarkowy gadżet 2026 gwarantowany!',
+      gadgetGuaranteed: 'Do pierwszych 1000 zakupionych biletów dołączamy Yarnmarkowy gadżet 2026!',
       availableSoon: 'Start 14.02 9:00',
       promoPrice: 'cena promocyjna do końca lutego'
     },

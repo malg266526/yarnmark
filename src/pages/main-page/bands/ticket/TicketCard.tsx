@@ -140,7 +140,7 @@ export const TicketCard = () => {
 
         <Typography size="sm">Hala 100-lecia KS Cracovia</Typography>
         <PriceWrapper>
-          <OldPrice size="sm">35 zł</OldPrice>
+          <OldPrice size="sm">32 zł</OldPrice>
 
           {/* Nowa cena - wyróżniona Twoim kolorem accent */}
           <TicketPrice size="lg" disabled={!TicketsToggles.enabled}>

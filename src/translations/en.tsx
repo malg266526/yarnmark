@@ -44,7 +44,7 @@ export const en: TranslationsShape = {
       availableSoon: 'Available soon',
       onlineDeadline: 'Online tickets will be available for sale until April 25, 6:00 p.m.',
       availability: 'On the day of the event, tickets will be available at the on-site box office.',
-      gadgetGuaranteed: 'Yarnmark 2026 gadget guaranteed for the first 1000 people!',
+      gadgetGuaranteed: 'A Yarnmark 2026 gadget is included with the first 1,000 tickets purchased!',
       promoPrice: 'Promo price until the end of February'
     },
     location: {
