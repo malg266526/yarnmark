@@ -247,7 +247,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
       ]
     },
     isSoldOut: false,
-    room: 'library', // Biblioteka
+    room: 'bursa2', // Biblioteka
     price: 200,
     ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Podstawy-zakardu/3453',
     description: 'workshops.kroopa.description',
@@ -283,7 +283,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     leading: 'Iwona Eriksson',
     picture: { fallback: iwonaUrl, sources: [{ type: 'image/webp', url: iwonaUrlWebp }] },
     isSoldOut: false,
-    room: 'forum',
+    room: 'bursa1',
     price: 200,
     ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Rzedy-skrocone/3452',
     description: 'workshops.iwona.description_heels',
