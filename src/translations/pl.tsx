@@ -331,7 +331,10 @@ export const pl = {
           '<li>Miara krawiecka, markery agrafkowe, nożyczki</li>' +
           '</ul>',
         materials_heels:
-          '<ul>' + '<li>Włóczka - info wkrótce</li>' + '<li>Druty: 2-4 komplety dopasowane do włóczki</li>' + '</ul>',
+          '<ul>' +
+          '<li>Włóczkę dostarcza sponsor <strong>Brioszka</strong></li>' +
+          '<li>Druty: 2-4 komplety dopasowane do włóczki</li>' +
+          '</ul>',
         description_socks:
           'Czy marzysz o własnoręcznie wydzierganych skarpetkach, ale na samą myśl o pięcie robi Ci się słabo? Nie taki diabeł straszny, jak go malują. Na tym warsztacie przekonasz się, że dzierganie skarpetek może być logiczne, przyjemne i naprawdę satysfakcjonujące.<br>Podczas warsztatu będziemy dziergać skarpetki od góry, krok po kroku, na podstawie gotowego wzoru. W trakcie pracy omówimy wszystkie kluczowe elementy, dzięki którym kolejne pary zrobisz już z pełną swobodą.<br>Na warsztacie dowiesz się m.in.:<ul><li>z jakiej włóczki najlepiej dziergać skarpetki,</li><li>czy wybrać druty na żyłce czy 5 drutów skarpetkowych,</li><li>jak dziergać metodą magic loop,</li><li>ile oczek nabrać, by skarpetka dobrze leżała,</li><li>jak formować klasyczną piętę z klapką,</li><li>jak dopasować piętę do wysokiego podbicia,</li><li>jak uformować palce i estetycznie zamknąć oczka.</li></ul>Warsztat idealny dla osób, które chcą zrobić swoje pierwsze skarpetki bez stresu i zrozumieć, jak naprawdę działa ich konstrukcja.<br>Warsztat jest odpowiedni także dla początkujących – potrzebna jest umiejętność robienia prawych i lewych oczek oraz umiejźtność korzystania z drutów na żyłce lub pięciu skarpetkowych.',
         description_heels:
@@ -455,7 +458,7 @@ export const pl = {
       // --- DRUTUTUTU ---
       drutututu: {
         title: 'Podstawy robienia na drutach',
-        materials: '<ul><li>Druty 6 mm (drewno/bambus)</li><li>Pasująca włóczka wełniana</li></ul>',
+        materials: '<ul><li>Druty 6 mm (drewno/bambus)</li><li>Sponsor zostanie potwierdzony wkrótce</li></ul>',
         description:
           'Zajęcia dla osób, które chciałyby nauczyć się robić na drutach od podstaw. ' +
           'Podczas warsztatów nauczysz się jak nabrać włóczkę na druty, jak przerabiać oczka prawe, lewe, brzegowe, jak pracować w rzędach i o co chodzi z prawą i lewą stroną dzianiny ' +
