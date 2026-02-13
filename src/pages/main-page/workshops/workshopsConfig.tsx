@@ -71,7 +71,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     room: 'bursa2',
     price: 120,
-    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Druty-podstawy/3455',
+    ticketUrl: 'https://wloczykijki.pl/pl/p/DRUTU.TUTU-Warsztaty-Podstawy-robienia-na-drutach-SOBOTA/3455',
     description: 'workshops.drutututu.description',
     materials: 'workshops.drutututu.materials',
     aboutMe: 'workshops.drutututu.aboutMe'
@@ -92,7 +92,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     room: 'reading_room',
     price: 120,
-    ticketUrl: 'workshops.inka.url',
+    ticketUrl: 'https://wloczykijki.pl/pl/p/INKA-Warsztaty-Szydelko-dla-leworecznych-SOBOTA-/3901',
     description: 'workshops.inka.description',
     materials: 'workshops.inka.materials',
     aboutMe: 'workshops.inka.aboutMe'
@@ -113,7 +113,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     room: 'library',
     price: 200,
-    ticketUrl: 'workshops.sishomemade.url',
+    ticketUrl:
+      'https://wloczykijki.pl/pl/p/SIS-Homemade-Warsztaty-AMIGURUMI-Zrob-Sekretny-Projekt-Yarnmarku-z-SIS-Homemade-SOBOTA/3906',
     description: 'workshops.sishomemade.description',
     materials: 'workshops.sishomemade.materials',
     aboutMe: 'workshops.sishomemade.aboutMe'
@@ -129,7 +130,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     room: 'bursa1',
     price: 200,
-    ticketUrl: 'Yarnmark-2025-Warsztaty-Zakard-dla-mniej-lub-bardziej-zaawansowanych/2839',
+    ticketUrl:
+      'https://wloczykijki.pl/pl/p/KNITOLOG-Warsztaty-Moje-dziewiarskie-triki%2C-techniki-i-inne-myki-SOBOTA/2839',
     description: 'workshops.knitolog.description_tricks',
     materials: 'workshops.knitolog.materials_tricks',
     aboutMe: 'workshops.knitolog.aboutMe'
@@ -143,7 +145,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     room: 'reading_room',
     price: 200,
-    ticketUrl: 'Yarnmark-2025-Warsztaty-Zakard-dla-mniej-lub-bardziej-zaawansowanych/2839',
+    ticketUrl: 'https://wloczykijki.pl/pl/p/KNITOLOG-Warsztaty-Zakard-NIEDZIELA/3904',
     description: 'workshops.knitolog.description_jacquard',
     materials: 'workshops.knitolog.materials_jacquard',
     aboutMe: 'workshops.knitolog.aboutMe'
@@ -160,8 +162,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     materials: 'workshops.edknitted.materials',
     price: 180,
     description: 'workshops.edknitted.description',
-    ticketUrl:
-      'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Polish-Your-Pattern%2C-czyli-jak-odpicowac-swoj-wzor/3454',
+    ticketUrl: 'https://wloczykijki.pl/pl/p/EDKNITTED-Warsztaty-Wzory-101-SOBOTA/3454',
     aboutMe: 'workshops.edknitted.aboutMe'
   },
 
@@ -180,7 +181,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     room: 'bursa2',
     price: 150,
-    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Haft-na-welnie/2837',
+    ticketUrl: 'https://wloczykijki.pl/pl/p/NOWE-HAFTY-Warsztaty-Haftujemy-kwiaty-na-wiosne-SOBOTA/2836',
     description: 'workshops.nowehafty.description',
     materials: 'workshops.nowehafty.materials',
     aboutMe: 'workshops.nowehafty.aboutMe'
@@ -201,7 +202,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     room: 'bursa2',
     price: 310,
-    ticketUrl: 'workshops.splotka.url',
+    ticketUrl: 'https://wloczykijki.pl/pl/p/SPLOTKA-Warsztaty-Tkana-Makatka-ze-Splotka-SOBOTA/3905',
     description: 'workshops.splotka.description',
     materials: 'workshops.splotka.materials',
     aboutMe: 'workshops.splotka.aboutMe'
@@ -223,7 +224,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     room: 'conference', // Sala konferencyjna
     price: 200,
-    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Podstawy-zakardu/3453',
+    ticketUrl: 'https://wloczykijki.pl/pl/p/KROOPA-Warsztaty-Podstawy-zakardu-SOBOTA/3453',
     description: 'workshops.kroopa.description',
     materials: 'workshops.kroopa.materials_sat', // Gabo Wool
     aboutMe: 'workshops.kroopa.aboutMe',
@@ -249,7 +250,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     room: 'bursa2', // Biblioteka
     price: 200,
-    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Podstawy-zakardu/3453',
+    ticketUrl: 'https://wloczykijki.pl/pl/p/KROOPA-Warsztaty-Podstawy-zakardu-NIEDZELA/3899',
     description: 'workshops.kroopa.description',
     materials: 'workshops.kroopa.materials_sun', // Sponsor XXX
     aboutMe: 'workshops.kroopa.aboutMe',
@@ -271,7 +272,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     room: 'bursa1',
     price: 200,
-    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Rzedy-skrocone/3452',
+    ticketUrl: 'https://wloczykijki.pl/pl/p/IWONA-ERIKSSON-Warsztaty-Skarpetki-od-gory-dla-poczatkujacych-SOBOTA/3902',
     description: 'workshops.iwona.description_socks',
     materials: 'workshops.iwona.materials_socks',
     aboutMe: 'workshops.iwona.aboutMe'
@@ -285,7 +286,8 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     room: 'bursa1',
     price: 200,
-    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Rzedy-skrocone/3452',
+    ticketUrl:
+      'https://wloczykijki.pl/pl/p/IWONA-ERIKSSON-Warsztaty-Rozne-rodzaje-piet-w-skarpetach-cztery-rozne-piety-NIEDZIELA/3903',
     description: 'workshops.iwona.description_heels',
     materials: 'workshops.iwona.materials_heels',
     aboutMe: 'workshops.iwona.aboutMe'
@@ -301,7 +303,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     room: 'conference',
     price: 310,
-    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Punch-Needle/3457',
+    ticketUrl: 'https://wloczykijki.pl/pl/p/SKEIN-Warsztaty-Punch-Needle-SOBOTA/3457',
     description: 'workshops.skein.description',
     materials: 'workshops.skein.materials',
     aboutMe: 'workshops.skein.aboutMe'
@@ -315,7 +317,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     isSoldOut: false,
     room: 'skein',
     price: 310,
-    ticketUrl: 'https://wloczykijki.pl/pl_PL/p/Yarnmark-2025-Warsztaty-Punch-Needle/3457',
+    ticketUrl: 'https://wloczykijki.pl/pl/p/SKEIN-Warsztaty-Punch-Needle-NIEDZIELA/3900',
     description: 'workshops.skein.description',
     materials: 'workshops.skein.materials',
     aboutMe: 'workshops.skein.aboutMe'
