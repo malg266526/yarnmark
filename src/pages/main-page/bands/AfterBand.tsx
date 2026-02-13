@@ -135,7 +135,7 @@ export const AfterBand = ({ id }: CruiseBandType) => {
               <Link
                 disabled={!TicketsToggles.afterTickets}
                 target="_blank"
-                to="https://wloczykijki.pl/pl_PL/p/Bilet-wstepu-na-Krakoski-Yarnmark-2025-REJS/3451"
+                to="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-bilety/357"
               >
                 {t('cashmereTicketsBand.buyTickets')}
               </Link>

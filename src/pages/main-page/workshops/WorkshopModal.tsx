@@ -165,8 +165,7 @@ export const WorkshopModal = ({ isOpen, workshop, close }: WorkshopModalProps) =
           </PriceInfo>
 
           <CtaButton
-            // disabled={workshop.isSoldOut}
-            disabled
+            disabled={workshop.isSoldOut}
             onClick={() => window.open('https://wloczykijki.pl/pl/p/Bilet-wstepu-na-targi-/2832', '_blank')}
             aria-label="open tickets page"
           >

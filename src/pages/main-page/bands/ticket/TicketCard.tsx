@@ -110,7 +110,7 @@ export const TicketCard = () => {
 
   const onBuyTicketClicked = () => {
     localStorage.setItem('isBuyLinkVisited', 'true');
-    window.open('https://wloczykijki.pl/pl_PL/p/Bilet-wstepu-na-Krakoski-Yarnmark-2025/3450', '_blank');
+    window.open('https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-bilety/357', '_blank');
   };
 
   const shouldShake = localStorage.getItem('isBuyLinkVisited') !== 'true';
@@ -130,8 +130,7 @@ export const TicketCard = () => {
           shouldShake={shouldShake}
           disabled={!TicketsToggles.enabled}
         >
-          {/* {t('tickets.buyTicket')} */}
-          {t('tickets.availableSoon')}
+          {t('tickets.buyTicket')}
         </BuyTicketLink>
 
         <Typography size="sm">
