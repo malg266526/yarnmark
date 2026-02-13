@@ -224,7 +224,7 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
 
         <TicketsSection isOpen={isMenuExpanded}>
           <MenuItem
-            href="https://wloczykijki.pl/pl_PL/p/Bilet-wstepu-na-Krakoski-Yarnmark-2025/3450"
+            href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-bilety/357"
             target="_blank"
             isOpen={isMenuExpanded}
             aria-label="yarnmark_ticket_menu_item"
