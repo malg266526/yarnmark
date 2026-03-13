@@ -29,7 +29,7 @@ interface StyledWrapperProps {
 
 const GlassCarouselWrapper = styled.div<StyledWrapperProps>`
   z-index: 2;
-  width: ${({ isPhone }) => (isPhone ? '100%' : '60%')};
+  width: 100%;
   background: rgba(255, 255, 255, 0.75);
   border-radius: 24px;
   padding: ${({ isPhone }) => (isPhone ? RedesignSpacings.md : RedesignSpacings.lg)};

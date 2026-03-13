@@ -7,11 +7,29 @@ import { usePhone } from '../../../hooks/usePhone';
 import { RedesignSpacings } from '../../../styles/spacings';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 import { TextCarousel, TextCarouselItem } from '../../../components/carousels/TextCarousel';
-import grupoweJpgSrc from '../../../assets/napole/grupowe.jpeg';
+import { SlantedCornersBox } from '../../../components/SlantedCornersBox';
+
+import lagrugruJpg from '../../../assets/images/lagrugru/DSC04493.jpg';
+import lagrugruWebp from '../../../assets/images/lagrugru/DSC04493.webp';
+import lagrugruAvif from '../../../assets/images/lagrugru/DSC04493.avif';
 
 interface StyledProps {
   isPhone: boolean;
 }
+
+const lagrugruPictureConfig = {
+  fallbackUrl: lagrugruJpg,
+  sources: [
+    {
+      type: 'image/avif',
+      url: lagrugruAvif
+    },
+    {
+      type: 'image/webp',
+      url: lagrugruWebp
+    }
+  ]
+};
 
 const carouselItems: TextCarouselItem[] = [
   {
@@ -49,27 +67,20 @@ const carouselItems: TextCarouselItem[] = [
   }
 ];
 
-const ContentGrid = styled.div<StyledProps>`
+const TwoColumnLayout = styled.div<StyledProps>`
   display: flex;
   flex-direction: ${({ isPhone }) => (isPhone ? 'column' : 'row')};
-  width: 100%;
-  max-width: 1200px;
+  width: ${({ isPhone }) => (isPhone ? '100%' : '80%')};
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   gap: ${({ isPhone }) => (isPhone ? RedesignSpacings.lg : RedesignSpacings.xl)};
   margin-top: ${({ isPhone }) => (isPhone ? RedesignSpacings.md : RedesignSpacings.xl)};
-`;
 
-const ImageWrapper = styled.div<StyledProps>`
-  z-index: 1;
-  width: ${({ isPhone }) => (isPhone ? '100%' : '400px')};
-  flex-shrink: 0;
-
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  > div {
+    flex: 1;
+    width: ${({ isPhone }) => (isPhone ? '100%' : '50%')};
+    display: flex;
+    justify-content: center;
   }
 `;
 
@@ -81,13 +92,17 @@ export const LaGruGruBand = () => {
     <Band.CenteredColumn id="lagrugru" size="lg" color={BackgroundColors.card} padding={isPhone ? 'lg' : 'xxxl'}>
       <Band.Title>{t('lagrugruBand.title')}</Band.Title>
 
-      <ContentGrid isPhone={isPhone}>
-        <ImageWrapper isPhone={isPhone}>
-          <Picture picture={{ fallbackUrl: grupoweJpgSrc }} alt="Grupa LaGruGru" width={isPhone ? 400 : 400} />
-        </ImageWrapper>
+      <TwoColumnLayout isPhone={isPhone}>
+        <div>
+          <SlantedCornersBox width={isPhone ? '100%' : '700px'} padding="none" overflowSize="10px">
+            <Picture picture={lagrugruPictureConfig} alt="Grupa LaGruGru" width={isPhone ? 300 : 700} />
+          </SlantedCornersBox>
+        </div>
 
-        <TextCarousel items={carouselItems} />
-      </ContentGrid>
+        <div>
+          <TextCarousel items={carouselItems} />
+        </div>
+      </TwoColumnLayout>
     </Band.CenteredColumn>
   );
 };
