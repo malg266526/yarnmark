@@ -5,14 +5,14 @@ import { Typography } from '../Typography';
 import { BackgroundColors } from '../../styles/theme';
 import { RedesignSpacings } from '../../styles/spacings';
 import { usePhone } from '../../hooks/usePhone';
+import { Trans, useTranslation } from 'react-i18next';
 
-// 1. TYPY
 export interface TextCarouselItem {
-  title: string; // Traktowane jako kategoria/nadtytuł
-  subtitle: string; // Traktowane jako główny tytuł slajdu
+  title: string;
+  subtitle: string;
   description: string;
   extraParagraph?: string;
-  isHighlighted?: boolean; // Zastępuje sztywne `activeIndex === 2`
+  isHighlighted?: boolean;
   button?: {
     title?: string;
     callback?: () => void;
@@ -24,8 +24,7 @@ interface TextCarouselProps {
   interval?: number;
 }
 
-// 2. GŁÓWNY KOMPONENT
-export const TextCarousel = ({ items, interval = 10000 }: TextCarouselProps) => {
+export const TextCarousel = ({ items, interval = 50000 }: TextCarouselProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const isPhone = usePhone();
 
@@ -55,21 +54,28 @@ export const TextCarousel = ({ items, interval = 10000 }: TextCarouselProps) => 
 // 3. KOMPONENT SLAJDU (Mały, łatwy do testowania)
 const CarouselSlide = ({ item, isPhone }: { item: TextCarouselItem; isPhone: boolean }) => {
   const { title, subtitle, description, extraParagraph, button } = item;
+  const { t } = useTranslation();
 
   return (
     <SlideContainer>
       <SlideKicker size="sm" weight="bold" color={BackgroundColors.green.strong}>
-        {title}
+        {t(title)}
       </SlideKicker>
 
       <SlideMainContent>
         <Typography size={isPhone ? 'lg' : 'xl'} weight="bold" style={{ marginBottom: '12px' }}>
-          {subtitle}
+          {t(subtitle)}
         </Typography>
 
-        <SlideDescription size="md">{description}</SlideDescription>
+        <SlideDescription size="md">
+          <Trans i18nKey={description} />
+        </SlideDescription>
 
-        {extraParagraph && <SlideDescription size="md">{extraParagraph}</SlideDescription>}
+        {extraParagraph && (
+          <SlideDescription size="md">
+            <Trans i18nKey={extraParagraph} />
+          </SlideDescription>
+        )}
 
         {button?.title && <ActionButton onClick={button.callback}>{button.title}</ActionButton>}
       </SlideMainContent>
