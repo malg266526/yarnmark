@@ -120,9 +120,14 @@ export const pl = {
         description: 'LaGruGru występuje w 8 wariantach kolorystycznych: <strong>Klasyk, Smok, Love, Złoty, Yarnmark, Beżowa Dziewiarka, Zachód Słońca, Matcha Latte</strong>. Do każdego zestawu dorzucamy też jeden z 5ciu dodatków: <strong>Czapka krakoska, Szaliczek, Obwarzanek, Wiosenny wianek, Królewska korona</strong>. Kolory, jak i dodatki wysyłane są losowo – będą dla Ciebie niespodzianką.'
       },
       slide4: {
-        title: 'Specyfikacja i dostępność',
-        subtitle: 'Rozmiary oraz zasady przydziału',
-        description: 'Zestawy DIY przygotowano w dwóch wariantach rozmiarowych: małym oraz dużym. Kolory włóczek oraz wzory dodatków są przypisywane do opakowań w sposób losowy, co nadaje każdemu egzemplarzowi unikatowy charakter.'
+        title: 'Zdobądź swojego gołąbka!',
+        subtitle: 'Znajdź nas w sklepie Włóczykijki.pl',
+        description: 'Znajdziecie nas w sklepie internetowym <strong>Włóczykijki.pl</strong>. Gołąbek dostępny jest w dwóch rozmiarach: <strong>mały</strong> – ok. 9\u202fcm wysokości i <strong>duży</strong> – ok. 13\u202fcm wysokości.'
+      },
+      slide5: {
+        title: 'Warsztaty z SisHomemade',
+        subtitle: 'Naucz się robić własnego gołąbka!',
+        description: 'La Gru Gru <strong>jest przedmiotem warsztatów amigurumi z SisHomemade</strong>. W cenie biletu warsztatowego otrzymujesz zestaw i właśnie na tych warsztatach wykonujesz swojego gołąbka.'
       }
     },
     spotBand: {

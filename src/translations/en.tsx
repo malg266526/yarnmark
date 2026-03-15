@@ -122,9 +122,14 @@ export const en: TranslationsShape = {
       },
 
       slide4: {
-        title: 'Specification and availability',
-        subtitle: 'Sizes and allocation rules',
-        description: 'The DIY sets are prepared in two size variants: small and large. Yarn colors and accessory patterns are assigned to packages randomly, which gives each copy a unique character.'
+        title: 'Get your pigeon!',
+        subtitle: 'Find us in the Włóczykijki.pl store',
+        description: 'You can find the sets in the <strong>Włóczykijki.pl</strong> online store. The set comes in two sizes: <strong>small</strong> – approx. 9\u202fcm tall and <strong>large</strong> – approx. 13\u202fcm tall.'
+      },
+      slide5: {
+        title: 'SisHomemade Workshops',
+        subtitle: 'Learn to crochet your own pigeon!',
+        description: 'La Gru Gru <strong>is the subject of the SisHomemade amigurumi workshops</strong>. With your workshop ticket you receive the kit and it is during these workshops that you create your pigeon.'
       }
     },
     spotBand: {

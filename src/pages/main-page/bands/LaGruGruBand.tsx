@@ -67,7 +67,16 @@ export const LaGruGruBand = () => {
       title: 'lagrugruBand.slide4.title',
       subtitle: 'lagrugruBand.slide4.subtitle',
       description: 'lagrugruBand.slide4.description',
-      isHighlighted: true
+      isHighlighted: true,
+      button: {
+        title: 'LaGruGru',
+        callback: () => window.open('https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-La-Gru-Gru/524', '_blank')
+      }
+    },
+    {
+      title: 'lagrugruBand.slide5.title',
+      subtitle: 'lagrugruBand.slide5.subtitle',
+      description: 'lagrugruBand.slide5.description'
     }
   ];
 
