@@ -21,6 +21,7 @@ export const en: TranslationsShape = {
       hallMap: 'Mapa hali',
       food: 'Food',
       statuteForVendors: 'Terms and Conditions for the sale of stands',
+      lagrugru: 'LaGruGru',
       yarnmarkPatterns: 'Yarnmark patterns',
       after: 'After'
     },
@@ -102,6 +103,33 @@ export const en: TranslationsShape = {
       authorship: {
         monikaPrefix: 'By Monia',
         annaPrefix: 'By Ania'
+      }
+    },
+    lagrugruBand: {
+      title: 'LaGruGru!',
+      slide1: {
+        title: 'Crochet Kit for the Cracow Amigurumi Pigeon',
+        subtitle: 'Meet La Gru Gru! 🐦',
+        description:
+          'In collaboration between <strong>SisHomemade and Yarnmark</strong>, a DIY kit for the Cracow pigeon has been created, including the pattern, necessary yarns, and finishing elements. The project has been designed so that the finished pigeon can serve as a keychain, ready to be attached to a bag or keys.',
+        extraParagraph:
+          'The design allows the finished model to be used as a keychain. The included accessories enable easy attachment to a handbag or keys, giving the product practical utility.'
+      },
+      slide2: {
+        title: 'Festival of Colors!',
+        subtitle: 'Eight faces of La Gru Gru',
+        description: 'LaGruGru comes in 8 color variants: <strong>Classic, Dragon, Love, Golden, Yarnmark, Beige Knitter, Sunset, Matcha Latte</strong>. Each kit also includes one of 5 accessories: <strong>Cracow hat, Scarf, Obwarzanek (Bagel), Spring wreath, Royal crown</strong>. Both colors and accessories are assigned randomly – they will be a surprise for you.'
+      },
+
+      slide4: {
+        title: 'Get your pigeon!',
+        subtitle: 'Find us in the Włóczykijki.pl store',
+        description: 'You can find the sets in the <strong>Włóczykijki.pl</strong> online store. The set comes in two sizes: <strong>small</strong> – approx. 9\u202fcm tall and <strong>large</strong> – approx. 13\u202fcm tall.'
+      },
+      slide5: {
+        title: 'SisHomemade Workshops',
+        subtitle: 'Learn to crochet your own pigeon!',
+        description: 'La Gru Gru <strong>is the subject of the SisHomemade amigurumi workshops</strong>. With your workshop ticket you receive the kit and it is during these workshops that you create your pigeon.'
       }
     },
     spotBand: {

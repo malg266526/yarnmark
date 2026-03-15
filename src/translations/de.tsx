@@ -19,6 +19,7 @@ export const de = {
       hallMap: 'Mapa hali',
       food: 'Essen',
       statuteForVendors: 'Regulamin sprzedaży stoisk',
+      lagrugru: 'LaGruGru',
       yarnmarkPatterns: 'Yarnmark patterns',
       after: 'After'
     },
@@ -100,6 +101,9 @@ export const de = {
         monikaPrefix: 'Von Monia',
         annaPrefix: 'Von Ania'
       }
+    },
+    lagrugruBand: {
+      title: 'LaGruGru!'
     },
     spotBand: {
       title: 'Wo?',
