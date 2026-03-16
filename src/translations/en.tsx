@@ -123,7 +123,7 @@ export const en: TranslationsShape = {
 
       slide4: {
         title: 'Get your pigeon!',
-        subtitle: 'Find us in the Włóczykijki.pl store',
+        subtitle: 'Find it in the Włóczykijki.pl store',
         description: 'You can find the sets in the <strong>Włóczykijki.pl</strong> online store. The set comes in two sizes: <strong>small</strong> – approx. 9\u202fcm tall and <strong>large</strong> – approx. 13\u202fcm tall.'
       },
       slide5: {

@@ -6,6 +6,7 @@ import { BackgroundColors } from '../../styles/theme';
 import { RedesignSpacings } from '../../styles/spacings';
 import { usePhone } from '../../hooks/usePhone';
 import { Trans, useTranslation } from 'react-i18next';
+import { Picture, PictureType } from '../Picture';
 
 export interface TextCarouselItem {
   title: string;
@@ -13,6 +14,8 @@ export interface TextCarouselItem {
   description: string;
   extraParagraph?: string;
   isHighlighted?: boolean;
+  image?: string | PictureType;
+  showOnlyImageOnMobile?: boolean;
   button?: {
     title?: string;
     callback?: () => void;
@@ -53,32 +56,56 @@ export const TextCarousel = ({ items, interval = 50000 }: TextCarouselProps) => 
 
 // 3. KOMPONENT SLAJDU (Mały, łatwy do testowania)
 const CarouselSlide = ({ item, isPhone }: { item: TextCarouselItem; isPhone: boolean }) => {
-  const { title, subtitle, description, extraParagraph, button } = item;
+  const { title, subtitle, description, extraParagraph, button, image } = item;
   const { t } = useTranslation();
 
   return (
-    <SlideContainer>
-      <SlideKicker size="sm" weight="bold" color={BackgroundColors.green.strong}>
-        {t(title)}
-      </SlideKicker>
+    <SlideContainer isPhone={isPhone}>
+      {! (isPhone && item.showOnlyImageOnMobile) && (
+        <TextColumn>
+          <SlideKicker size="sm" weight="bold" color={BackgroundColors.green.strong}>
+            {t(title)}
+          </SlideKicker>
 
-      <SlideMainContent>
-        <Typography size={isPhone ? 'lg' : 'xl'} weight="bold" style={{ marginBottom: '12px' }}>
-          {t(subtitle)}
-        </Typography>
+          <SlideMainContent>
+            <Typography size={isPhone ? 'lg' : 'xl'} weight="bold" style={{ marginBottom: '12px' }}>
+              {t(subtitle)}
+            </Typography>
 
-        <SlideDescription size="md">
-          <Trans i18nKey={description} />
-        </SlideDescription>
+            <SlideDescription size="md">
+              <Trans i18nKey={description} />
+            </SlideDescription>
 
-        {extraParagraph && (
-          <SlideDescription size="md">
-            <Trans i18nKey={extraParagraph} />
-          </SlideDescription>
-        )}
+            {extraParagraph && (
+              <SlideDescription size="md">
+                <Trans i18nKey={extraParagraph} />
+              </SlideDescription>
+            )}
 
-        {button?.title && <ActionButton onClick={button.callback}>{button.title}</ActionButton>}
-      </SlideMainContent>
+            {button?.title && <ActionButton onClick={button.callback}>{button.title}</ActionButton>}
+          </SlideMainContent>
+        </TextColumn>
+      )}
+      {image && (!isPhone || item.showOnlyImageOnMobile) && (
+        <ImageColumn isPhone={isPhone}>
+          {typeof image === 'string' ? (
+            <SlideImage src={image} alt={t(title)} isPhone={isPhone} showOnlyImageOnMobile={item.showOnlyImageOnMobile} />
+          ) : (
+            <Picture
+              picture={image}
+              alt={t(title)}
+              style={{
+                width: isPhone && item.showOnlyImageOnMobile ? '280px' : '250px',
+                height: isPhone && item.showOnlyImageOnMobile ? '280px' : '250px',
+                aspectRatio: '1 / 1',
+                objectFit: 'cover',
+                borderRadius: '16px',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
+              }}
+            />
+          )}
+        </ImageColumn>
+      )}
     </SlideContainer>
   );
 };
@@ -139,12 +166,36 @@ const CarouselWrapper = styled.div<{ isPhone: boolean; isHighlighted: boolean }>
   }
 `;
 
-const SlideContainer = styled.div`
+const SlideContainer = styled.div<{ isPhone: boolean }>`
   height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: ${({ isPhone }) => (isPhone ? 'column' : 'row')};
+  align-items: center;
+  justify-content: space-between;
+  gap: ${RedesignSpacings.lg};
   padding-bottom: 40px; /* Miejsce na kropki (indicators) */
+`;
+
+const TextColumn = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`;
+
+const ImageColumn = styled.div<{ isPhone: boolean }>`
+  flex: ${({ isPhone }) => (isPhone ? 'none' : '0 0 250px')};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const SlideImage = styled.img<{ isPhone: boolean; showOnlyImageOnMobile?: boolean }>`
+  width: ${({ isPhone, showOnlyImageOnMobile }) => (isPhone && showOnlyImageOnMobile ? '280px' : '250px')};
+  height: ${({ isPhone, showOnlyImageOnMobile }) => (isPhone && showOnlyImageOnMobile ? '280px' : '250px')};
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 `;
 
 const SlideMainContent = styled.div`

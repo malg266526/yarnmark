@@ -121,8 +121,8 @@ export const pl = {
       },
       slide4: {
         title: 'Zdobądź swojego gołąbka!',
-        subtitle: 'Znajdź nas w sklepie Włóczykijki.pl',
-        description: 'Znajdziecie nas w sklepie internetowym <strong>Włóczykijki.pl</strong>. Gołąbek dostępny jest w dwóch rozmiarach: <strong>mały</strong> – ok. 9\u202fcm wysokości i <strong>duży</strong> – ok. 13\u202fcm wysokości.'
+        subtitle: 'Znajdź go w sklepie Włóczykijki.pl',
+        description: 'Znajdziecie go w sklepie internetowym <strong>Włóczykijki.pl</strong>. Gołąbek dostępny jest w dwóch rozmiarach: <strong>mały</strong> – ok. 9\u202fcm wysokości i <strong>duży</strong> – ok. 13\u202fcm wysokości.'
       },
       slide5: {
         title: 'Warsztaty z SisHomemade',

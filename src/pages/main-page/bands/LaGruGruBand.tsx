@@ -13,6 +13,13 @@ import lagrugruJpg from '../../../assets/images/lagrugru/DSC04493.jpg';
 import lagrugruWebp from '../../../assets/images/lagrugru/DSC04493.webp';
 import lagrugruAvif from '../../../assets/images/lagrugru/DSC04493.avif';
 
+import slide1Img from '../../../assets/images/lagrugru/DSC04461.jpg';
+import slide2Jpg from '../../../assets/images/lagrugru/DSC04510.jpg';
+import slide2Webp from '../../../assets/images/lagrugru/DSC04510.webp';
+import slide2Avif from '../../../assets/images/lagrugru/DSC04510.avif';
+import slide4Img from '../../../assets/images/lagrugru/DSC04495.jpg';
+import slide5Img from '../../../assets/images/lagrugru/DSC04497.jpg';
+
 interface StyledProps {
   isPhone: boolean;
 }
@@ -48,6 +55,14 @@ const TwoColumnLayout = styled.div<StyledProps>`
   }
 `;
 
+const slide2PictureConfig = {
+  fallbackUrl: slide2Jpg,
+  sources: [
+    { type: 'image/avif', url: slide2Avif },
+    { type: 'image/webp', url: slide2Webp }
+  ]
+};
+
 export const LaGruGruBand = () => {
   const isPhone = usePhone();
   const t = useTypedTranslation();
@@ -56,18 +71,22 @@ export const LaGruGruBand = () => {
     {
       title: 'lagrugruBand.slide1.title',
       subtitle: 'lagrugruBand.slide1.subtitle',
-      description: 'lagrugruBand.slide1.description'
+      description: 'lagrugruBand.slide1.description',
+      image: slide1Img
     },
     {
       title: 'lagrugruBand.slide2.title',
       subtitle: 'lagrugruBand.slide2.subtitle',
-      description: 'lagrugruBand.slide2.description'
+      description: 'lagrugruBand.slide2.description',
+      isHighlighted: true,
+      image: slide2PictureConfig
     },
     {
       title: 'lagrugruBand.slide4.title',
       subtitle: 'lagrugruBand.slide4.subtitle',
       description: 'lagrugruBand.slide4.description',
-      isHighlighted: true,
+      image: slide4Img,
+      showOnlyImageOnMobile: true,
       button: {
         title: 'LaGruGru',
         callback: () => window.open('https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-La-Gru-Gru/524', '_blank')
@@ -76,7 +95,8 @@ export const LaGruGruBand = () => {
     {
       title: 'lagrugruBand.slide5.title',
       subtitle: 'lagrugruBand.slide5.subtitle',
-      description: 'lagrugruBand.slide5.description'
+      description: 'lagrugruBand.slide5.description',
+      image: slide5Img
     }
   ];
 
