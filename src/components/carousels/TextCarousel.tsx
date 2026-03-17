@@ -8,9 +8,6 @@ import { BackgroundColors } from '../../styles/theme';
 import { RedesignSpacings } from '../../styles/spacings';
 import { usePhone } from '../../hooks/usePhone';
 
-// ==========================================
-// 1. TYPY
-// ==========================================
 export interface TextCarouselItem {
   title: string;
   subtitle: string;
@@ -31,9 +28,6 @@ interface TextCarouselProps {
   backgroundImage?: string | PictureType;
 }
 
-// ==========================================
-// 2. GŁÓWNY KOMPONENT
-// ==========================================
 export const TextCarousel = ({ items, interval = 6000, backgroundImage }: TextCarouselProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const isPhone = usePhone();
@@ -63,12 +57,7 @@ export const TextCarousel = ({ items, interval = 6000, backgroundImage }: TextCa
   );
 };
 
-// ==========================================
-// 3. SUB-KOMPONENTY (Logika i układ)
-// ==========================================
-
 const CarouselSlide = ({ item, isPhone }: { item: TextCarouselItem; isPhone: boolean }) => {
-  // Wyciągnięcie trudnych warunków do czytelnych zmiennych
   const shouldShowText = !(isPhone && item.showOnlyImageOnMobile);
   const shouldShowImage = Boolean(item.image) && (!isPhone || item.showOnlyImageOnMobile);
 
@@ -146,11 +135,6 @@ const CarouselBackground = ({ background }: { background?: string | PictureType 
   );
 };
 
-// ==========================================
-// 4. STYLED COMPONENTS (Pogrupowane)
-// ==========================================
-
-// --- Animacje i style współdzielone ---
 const pulseAnimation = keyframes`
   from { filter: saturate(1); }
   to { filter: saturate(1.8); }
@@ -175,7 +159,6 @@ const imageStyles = css<{ isPhone: boolean; showOnlyImageOnMobile?: boolean }>`
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 `;
 
-// --- Layout & Kontenery ---
 const CarouselWrapper = styled.div<{ isPhone: boolean; isHighlighted: boolean }>`
   z-index: 2;
   position: relative;
@@ -217,7 +200,7 @@ const CarouselWrapper = styled.div<{ isPhone: boolean; isHighlighted: boolean }>
 
 const BackgroundContainer = styled.div`
   position: absolute;
-  inset: 0; /* Zastępuje top: 0; left: 0; right: 0; bottom: 0; */
+  inset: 0;
   z-index: 1;
   opacity: 0.2;
   pointer-events: none;
@@ -245,7 +228,6 @@ const SlideContainer = styled.div<{ isPhone: boolean }>`
   padding-bottom: ${({ isPhone }) => (isPhone ? RedesignSpacings.xl : RedesignSpacings.lg)};
   box-sizing: border-box;
 
-  /* Animacja pojawiania się slajdu */
   opacity: 0;
   transform: translateY(4px) scale(0.98);
   filter: blur(4px);
@@ -265,7 +247,6 @@ const SlideContainer = styled.div<{ isPhone: boolean }>`
   }
 `;
 
-// --- Kolumny & Media ---
 const TextColumn = styled.div`
   flex: 1;
   display: flex;
@@ -303,7 +284,6 @@ const StyledPicture = styled(Picture)<{ isPhone: boolean; showOnlyImageOnMobile?
   }
 `;
 
-// --- Typografia & Elementy ---
 const SlideMainContent = styled.div`
   text-align: left;
   display: flex;
@@ -324,6 +304,8 @@ const SlideDescription = styled(Typography)`
 `;
 
 const ActionButton = styled.button<{ isPhone?: boolean }>`
+  width: ${({ isPhone }) => (isPhone ? '100%' : 'fit-content')};
+  align-self: ${({ isPhone }) => (isPhone ? 'stretch' : 'flex-start')};
   margin-top: ${({ isPhone }) => (isPhone ? RedesignSpacings.sm : RedesignSpacings.md)};
   padding: ${({ isPhone }) =>
     isPhone ? `${RedesignSpacings.xs} ${RedesignSpacings.sm}` : `${RedesignSpacings.xs} ${RedesignSpacings.md}`};
