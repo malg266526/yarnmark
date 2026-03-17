@@ -54,14 +54,13 @@ export const TextCarousel = ({ items, interval = 50000 }: TextCarouselProps) => 
   );
 };
 
-// 3. KOMPONENT SLAJDU (Mały, łatwy do testowania)
 const CarouselSlide = ({ item, isPhone }: { item: TextCarouselItem; isPhone: boolean }) => {
   const { title, subtitle, description, extraParagraph, button, image } = item;
   const { t } = useTranslation();
 
   return (
     <SlideContainer isPhone={isPhone}>
-      {! (isPhone && item.showOnlyImageOnMobile) && (
+      {!(isPhone && item.showOnlyImageOnMobile) && (
         <TextColumn>
           <SlideKicker size="sm" weight="bold" color={BackgroundColors.green.strong}>
             {t(title)}
@@ -89,19 +88,18 @@ const CarouselSlide = ({ item, isPhone }: { item: TextCarouselItem; isPhone: boo
       {image && (!isPhone || item.showOnlyImageOnMobile) && (
         <ImageColumn isPhone={isPhone}>
           {typeof image === 'string' ? (
-            <SlideImage src={image} alt={t(title)} isPhone={isPhone} showOnlyImageOnMobile={item.showOnlyImageOnMobile} />
+            <SlideImage
+              src={image}
+              alt={t(title)}
+              isPhone={isPhone}
+              showOnlyImageOnMobile={item.showOnlyImageOnMobile}
+            />
           ) : (
-            <Picture
+            <StyledPicture
               picture={image}
               alt={t(title)}
-              style={{
-                width: isPhone && item.showOnlyImageOnMobile ? '280px' : '250px',
-                height: isPhone && item.showOnlyImageOnMobile ? '280px' : '250px',
-                aspectRatio: '1 / 1',
-                objectFit: 'cover',
-                borderRadius: '16px',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
-              }}
+              isPhone={isPhone}
+              showOnlyImageOnMobile={item.showOnlyImageOnMobile}
             />
           )}
         </ImageColumn>
@@ -109,8 +107,6 @@ const CarouselSlide = ({ item, isPhone }: { item: TextCarouselItem; isPhone: boo
     </SlideContainer>
   );
 };
-
-// 4. STYLED COMPONENTS (Wydzielone na dół pliku dla czystości)
 
 const pulseAnimation = keyframes`
   from { filter: saturate(1); }
@@ -137,11 +133,9 @@ const CarouselWrapper = styled.div<{ isPhone: boolean; isHighlighted: boolean }>
   padding: ${({ isPhone }) => (isPhone ? RedesignSpacings.md : RedesignSpacings.lg)};
   transition: all 0.5s ease;
 
-  /* Domyślne style */
   box-shadow: 1px 8px 25px 0 rgba(60, 30, 30, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.4);
 
-  /* Aplikowanie specjalnego efektu na podstawie danych, a nie sztywnego indexu */
   ${({ isHighlighted }) => isHighlighted && highlightedStyles}
 
   .carousel, .carousel-inner, .carousel-item {
@@ -173,7 +167,7 @@ const SlideContainer = styled.div<{ isPhone: boolean }>`
   align-items: center;
   justify-content: space-between;
   gap: ${RedesignSpacings.lg};
-  padding-bottom: 40px; /* Miejsce na kropki (indicators) */
+  padding-bottom: 40px;
 `;
 
 const TextColumn = styled.div`
@@ -189,13 +183,23 @@ const ImageColumn = styled.div<{ isPhone: boolean }>`
   align-items: center;
 `;
 
-const SlideImage = styled.img<{ isPhone: boolean; showOnlyImageOnMobile?: boolean }>`
+const imageStyles = css<{ isPhone: boolean; showOnlyImageOnMobile?: boolean }>`
   width: ${({ isPhone, showOnlyImageOnMobile }) => (isPhone && showOnlyImageOnMobile ? '280px' : '250px')};
   height: ${({ isPhone, showOnlyImageOnMobile }) => (isPhone && showOnlyImageOnMobile ? '280px' : '250px')};
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+`;
+
+const SlideImage = styled.img<{ isPhone: boolean; showOnlyImageOnMobile?: boolean }>`
+  ${imageStyles}
+`;
+
+const StyledPicture = styled(Picture)<{ isPhone: boolean; showOnlyImageOnMobile?: boolean }>`
+  img {
+    ${imageStyles}
+  }
 `;
 
 const SlideMainContent = styled.div`

@@ -45,10 +45,7 @@ module.exports = {
     'no-undef': 0,
     'object-curly-spacing': ['error', 'always'],
     'no-debugger': 1,
-    'prettier/prettier': [
-      'error',
-      prettierRcConfig
-    ],
+    'prettier/prettier': ['error', prettierRcConfig],
     'react/no-unescaped-entities': 0,
     'react/jsx-tag-spacing': [
       2,
