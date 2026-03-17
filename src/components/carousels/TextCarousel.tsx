@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import { Carousel } from 'react-bootstrap';
+import { Trans, useTranslation } from 'react-i18next';
 import { Typography } from '../Typography';
+import { Picture, PictureType } from '../Picture';
 import { BackgroundColors } from '../../styles/theme';
 import { RedesignSpacings } from '../../styles/spacings';
 import { usePhone } from '../../hooks/usePhone';
-import { Trans, useTranslation } from 'react-i18next';
-import { Picture, PictureType } from '../Picture';
 
+// ==========================================
+// 1. TYPY
+// ==========================================
 export interface TextCarouselItem {
   title: string;
   subtitle: string;
@@ -28,6 +31,9 @@ interface TextCarouselProps {
   backgroundImage?: string | PictureType;
 }
 
+// ==========================================
+// 2. GŁÓWNY KOMPONENT
+// ==========================================
 export const TextCarousel = ({ items, interval = 6000, backgroundImage }: TextCarouselProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const isPhone = usePhone();
@@ -37,14 +43,8 @@ export const TextCarousel = ({ items, interval = 6000, backgroundImage }: TextCa
 
   return (
     <CarouselWrapper isPhone={isPhone} isHighlighted={isCurrentHighlighted}>
-      {backgroundImage && (
-        <BackgroundContainer>
-          <Picture
-            picture={typeof backgroundImage === 'string' ? { fallbackUrl: backgroundImage } : backgroundImage}
-            alt=""
-          />
-        </BackgroundContainer>
-      )}
+      <CarouselBackground background={backgroundImage} />
+
       <Carousel
         activeIndex={activeIndex}
         onSelect={setActiveIndex}
@@ -63,60 +63,94 @@ export const TextCarousel = ({ items, interval = 6000, backgroundImage }: TextCa
   );
 };
 
+// ==========================================
+// 3. SUB-KOMPONENTY (Logika i układ)
+// ==========================================
+
 const CarouselSlide = ({ item, isPhone }: { item: TextCarouselItem; isPhone: boolean }) => {
-  const { title, subtitle, description, extraParagraph, button, image } = item;
-  const { t } = useTranslation();
+  // Wyciągnięcie trudnych warunków do czytelnych zmiennych
+  const shouldShowText = !(isPhone && item.showOnlyImageOnMobile);
+  const shouldShowImage = Boolean(item.image) && (!isPhone || item.showOnlyImageOnMobile);
 
   return (
     <SlideContainer isPhone={isPhone}>
-      {!(isPhone && item.showOnlyImageOnMobile) && (
-        <TextColumn>
-          <SlideKicker size="sm" weight="bold" color={BackgroundColors.green.strong}>
-            {t(title)}
-          </SlideKicker>
-
-          <SlideMainContent>
-            <Typography size={isPhone ? 'md' : 'xl'} weight="bold" style={{ marginBottom: isPhone ? '8px' : '12px' }}>
-              {t(subtitle)}
-            </Typography>
-
-            <SlideDescription size={isPhone ? 'sm' : 'md'}>
-              <Trans i18nKey={description} />
-            </SlideDescription>
-
-            {extraParagraph && (
-              <SlideDescription size={isPhone ? 'sm' : 'md'}>
-                <Trans i18nKey={extraParagraph} />
-              </SlideDescription>
-            )}
-
-            {button?.title && <ActionButton onClick={button.callback} isPhone={isPhone}>{button.title}</ActionButton>}
-          </SlideMainContent>
-        </TextColumn>
-      )}
-      {image && (!isPhone || item.showOnlyImageOnMobile) && (
-        <ImageColumn isPhone={isPhone}>
-          {typeof image === 'string' ? (
-            <SlideImage
-              src={image}
-              alt={t(title)}
-              isPhone={isPhone}
-              showOnlyImageOnMobile={item.showOnlyImageOnMobile}
-            />
-          ) : (
-            <StyledPicture
-              picture={image}
-              alt={t(title)}
-              isPhone={isPhone}
-              showOnlyImageOnMobile={item.showOnlyImageOnMobile}
-            />
-          )}
-        </ImageColumn>
-      )}
+      {shouldShowText && <SlideText item={item} isPhone={isPhone} />}
+      {shouldShowImage && <SlideMedia item={item} isPhone={isPhone} />}
     </SlideContainer>
   );
 };
 
+const SlideText = ({ item, isPhone }: { item: TextCarouselItem; isPhone: boolean }) => {
+  const { t } = useTranslation();
+  const { title, subtitle, description, extraParagraph, button } = item;
+
+  return (
+    <TextColumn>
+      <SlideKicker size="sm" weight="bold" color={BackgroundColors.green.strong}>
+        {t(title)}
+      </SlideKicker>
+
+      <SlideMainContent>
+        <Typography size={isPhone ? 'md' : 'xl'} weight="bold" style={{ marginBottom: isPhone ? '8px' : '12px' }}>
+          {t(subtitle)}
+        </Typography>
+
+        <SlideDescription size={isPhone ? 'sm' : 'md'}>
+          <Trans i18nKey={description} />
+        </SlideDescription>
+
+        {extraParagraph && (
+          <SlideDescription size={isPhone ? 'sm' : 'md'}>
+            <Trans i18nKey={extraParagraph} />
+          </SlideDescription>
+        )}
+
+        {button?.title && (
+          <ActionButton onClick={button.callback} isPhone={isPhone}>
+            {button.title}
+          </ActionButton>
+        )}
+      </SlideMainContent>
+    </TextColumn>
+  );
+};
+
+const SlideMedia = ({ item, isPhone }: { item: TextCarouselItem; isPhone: boolean }) => {
+  const { t } = useTranslation();
+  const { image, title, showOnlyImageOnMobile } = item;
+
+  if (!image) return null;
+
+  const isStringUrl = typeof image === 'string';
+
+  return (
+    <ImageColumn isPhone={isPhone}>
+      {isStringUrl ? (
+        <SlideImage src={image} alt={t(title)} isPhone={isPhone} showOnlyImageOnMobile={showOnlyImageOnMobile} />
+      ) : (
+        <StyledPicture picture={image} alt={t(title)} isPhone={isPhone} showOnlyImageOnMobile={showOnlyImageOnMobile} />
+      )}
+    </ImageColumn>
+  );
+};
+
+const CarouselBackground = ({ background }: { background?: string | PictureType }) => {
+  if (!background) return null;
+
+  const pictureData = typeof background === 'string' ? { fallbackUrl: background } : background;
+
+  return (
+    <BackgroundContainer>
+      <Picture picture={pictureData} alt="" />
+    </BackgroundContainer>
+  );
+};
+
+// ==========================================
+// 4. STYLED COMPONENTS (Pogrupowane)
+// ==========================================
+
+// --- Animacje i style współdzielone ---
 const pulseAnimation = keyframes`
   from { filter: saturate(1); }
   to { filter: saturate(1.8); }
@@ -132,6 +166,16 @@ const highlightedStyles = css`
   animation: ${pulseAnimation} 3s infinite alternate;
 `;
 
+const imageStyles = css<{ isPhone: boolean; showOnlyImageOnMobile?: boolean }>`
+  width: ${({ isPhone, showOnlyImageOnMobile }) => (isPhone && showOnlyImageOnMobile ? '280px' : '250px')};
+  height: ${({ isPhone, showOnlyImageOnMobile }) => (isPhone && showOnlyImageOnMobile ? '280px' : '250px')};
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+`;
+
+// --- Layout & Kontenery ---
 const CarouselWrapper = styled.div<{ isPhone: boolean; isHighlighted: boolean }>`
   z-index: 2;
   position: relative;
@@ -144,7 +188,6 @@ const CarouselWrapper = styled.div<{ isPhone: boolean; isHighlighted: boolean }>
   overflow: hidden;
   display: flex;
   flex-direction: column;
-
   box-shadow: 1px 8px 25px 0 rgba(60, 30, 30, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.4);
 
@@ -158,14 +201,12 @@ const CarouselWrapper = styled.div<{ isPhone: boolean; isHighlighted: boolean }>
   .carousel-indicators {
     bottom: 0;
     z-index: 3;
-
     [data-bs-target] {
       width: 10px;
       height: 10px;
       border-radius: 50%;
       background-color: ${BackgroundColors.green.medium};
       transition: all 0.3s ease;
-
       &.active {
         background-color: ${BackgroundColors.green.strong};
         transform: scale(1.3);
@@ -176,10 +217,7 @@ const CarouselWrapper = styled.div<{ isPhone: boolean; isHighlighted: boolean }>
 
 const BackgroundContainer = styled.div`
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0; /* Zastępuje top: 0; left: 0; right: 0; bottom: 0; */
   z-index: 1;
   opacity: 0.2;
   pointer-events: none;
@@ -194,12 +232,6 @@ const BackgroundContainer = styled.div`
     width: 100%;
     height: 100%;
     display: block;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
   }
 `;
 
@@ -210,10 +242,10 @@ const SlideContainer = styled.div<{ isPhone: boolean }>`
   align-items: center;
   justify-content: space-between;
   gap: ${RedesignSpacings.lg};
-  padding-bottom: ${({ isPhone }) => (isPhone ? '50px' : '40px')}; /* Adjusted for 400px height */
+  padding-bottom: ${({ isPhone }) => (isPhone ? RedesignSpacings.xl : RedesignSpacings.lg)};
   box-sizing: border-box;
 
-  /* Smoother, continuous cross-fade without blinking */
+  /* Animacja pojawiania się slajdu */
   opacity: 0;
   transform: translateY(4px) scale(0.98);
   filter: blur(4px);
@@ -229,10 +261,11 @@ const SlideContainer = styled.div<{ isPhone: boolean }>`
     transition:
       opacity 0.6s ease-in-out,
       transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
-      /* Subtle bounce for "premium" feel */ filter 0.6s ease-in-out;
+      filter 0.6s ease-in-out;
   }
 `;
 
+// --- Kolumny & Media ---
 const TextColumn = styled.div`
   flex: 1;
   display: flex;
@@ -241,7 +274,6 @@ const TextColumn = styled.div`
   padding: 0 ${RedesignSpacings.xs};
   overflow-y: auto;
 
-  /* Custom thin scrollbar */
   &::-webkit-scrollbar {
     width: 4px;
   }
@@ -261,15 +293,6 @@ const ImageColumn = styled.div<{ isPhone: boolean }>`
   align-items: center;
 `;
 
-const imageStyles = css<{ isPhone: boolean; showOnlyImageOnMobile?: boolean }>`
-  width: ${({ isPhone, showOnlyImageOnMobile }) => (isPhone && showOnlyImageOnMobile ? '280px' : '250px')};
-  height: ${({ isPhone, showOnlyImageOnMobile }) => (isPhone && showOnlyImageOnMobile ? '280px' : '250px')};
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-`;
-
 const SlideImage = styled.img<{ isPhone: boolean; showOnlyImageOnMobile?: boolean }>`
   ${imageStyles}
 `;
@@ -280,6 +303,7 @@ const StyledPicture = styled(Picture)<{ isPhone: boolean; showOnlyImageOnMobile?
   }
 `;
 
+// --- Typografia & Elementy ---
 const SlideMainContent = styled.div`
   text-align: left;
   display: flex;
@@ -300,8 +324,9 @@ const SlideDescription = styled(Typography)`
 `;
 
 const ActionButton = styled.button<{ isPhone?: boolean }>`
-  margin-top: ${({ isPhone }) => (isPhone ? '16px' : '24px')};
-  padding: ${({ isPhone }) => (isPhone ? '8px 20px' : '12px 28px')};
+  margin-top: ${({ isPhone }) => (isPhone ? RedesignSpacings.sm : RedesignSpacings.md)};
+  padding: ${({ isPhone }) =>
+    isPhone ? `${RedesignSpacings.xs} ${RedesignSpacings.sm}` : `${RedesignSpacings.xs} ${RedesignSpacings.md}`};
   background-color: #793b3b;
   color: white;
   border: none;
@@ -317,7 +342,6 @@ const ActionButton = styled.button<{ isPhone?: boolean }>`
     background-color: #632f2f;
     transform: translateY(-2px);
   }
-
   &:active {
     transform: translateY(0);
   }
