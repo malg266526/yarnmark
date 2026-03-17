@@ -96,6 +96,8 @@ export const MainPage = () => {
 
           <LocationBand id="location" />
 
+          <LaGruGruBand />
+
           <Band.CenteredColumn
             id="vendors"
             size="md"
@@ -111,8 +113,6 @@ export const MainPage = () => {
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 
           {BandsToggles.workshopsEnabled && <WorkshopsDesktopBand id="workshops" />}
-
-          <LaGruGruBand />
 
           {BandsToggles.afterEnabled && <AfterBand id="after" />}
 

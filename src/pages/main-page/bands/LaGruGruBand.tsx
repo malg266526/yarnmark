@@ -12,13 +12,9 @@ import { SlantedCornersBox } from '../../../components/SlantedCornersBox';
 import lagrugruJpg from '../../../assets/images/lagrugru/DSC04493.jpg';
 import lagrugruWebp from '../../../assets/images/lagrugru/DSC04493.webp';
 import lagrugruAvif from '../../../assets/images/lagrugru/DSC04493.avif';
-
-import slide1Img from '../../../assets/images/lagrugru/DSC04461.jpg';
-import slide2Jpg from '../../../assets/images/lagrugru/DSC04510.jpg';
-import slide2Webp from '../../../assets/images/lagrugru/DSC04510.webp';
-import slide2Avif from '../../../assets/images/lagrugru/DSC04510.avif';
-import slide4Img from '../../../assets/images/lagrugru/DSC04495.jpg';
-import slide5Img from '../../../assets/images/lagrugru/DSC04497.jpg';
+import slide4Jpg from '../../../assets/images/lagrugru/DSC04495.jpg';
+import slide4Webp from '../../../assets/images/lagrugru/DSC04495.webp';
+import slide4Avif from '../../../assets/images/lagrugru/DSC04495.avif';
 
 interface StyledProps {
   isPhone: boolean;
@@ -55,11 +51,11 @@ const TwoColumnLayout = styled.div<StyledProps>`
   }
 `;
 
-const slide2PictureConfig = {
-  fallbackUrl: slide2Jpg,
+const slide4PictureConfig = {
+  fallbackUrl: slide4Jpg,
   sources: [
-    { type: 'image/avif', url: slide2Avif },
-    { type: 'image/webp', url: slide2Webp }
+    { type: 'image/avif', url: slide4Avif },
+    { type: 'image/webp', url: slide4Webp }
   ]
 };
 
@@ -71,22 +67,18 @@ export const LaGruGruBand = () => {
     {
       title: 'lagrugruBand.slide1.title',
       subtitle: 'lagrugruBand.slide1.subtitle',
-      description: 'lagrugruBand.slide1.description',
-      image: slide1Img
+      description: 'lagrugruBand.slide1.description'
     },
     {
       title: 'lagrugruBand.slide2.title',
       subtitle: 'lagrugruBand.slide2.subtitle',
       description: 'lagrugruBand.slide2.description',
-      isHighlighted: true,
-      image: slide2PictureConfig
+      isHighlighted: true
     },
     {
       title: 'lagrugruBand.slide4.title',
       subtitle: 'lagrugruBand.slide4.subtitle',
       description: 'lagrugruBand.slide4.description',
-      image: slide4Img,
-      showOnlyImageOnMobile: true,
       button: {
         title: 'LaGruGru',
         callback: () => window.open('https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-La-Gru-Gru/524', '_blank')
@@ -95,8 +87,7 @@ export const LaGruGruBand = () => {
     {
       title: 'lagrugruBand.slide5.title',
       subtitle: 'lagrugruBand.slide5.subtitle',
-      description: 'lagrugruBand.slide5.description',
-      image: slide5Img
+      description: 'lagrugruBand.slide5.description'
     }
   ];
 
@@ -112,7 +103,7 @@ export const LaGruGruBand = () => {
         </div>
 
         <div>
-          <TextCarousel items={carouselItems} />
+          <TextCarousel items={carouselItems} backgroundImage={slide4PictureConfig} />
         </div>
       </TwoColumnLayout>
     </Band.CenteredColumn>

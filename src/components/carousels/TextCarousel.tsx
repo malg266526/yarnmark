@@ -25,9 +25,10 @@ export interface TextCarouselItem {
 interface TextCarouselProps {
   items: TextCarouselItem[];
   interval?: number;
+  backgroundImage?: string | PictureType;
 }
 
-export const TextCarousel = ({ items, interval = 50000 }: TextCarouselProps) => {
+export const TextCarousel = ({ items, interval = 50000, backgroundImage }: TextCarouselProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const isPhone = usePhone();
 
@@ -36,6 +37,14 @@ export const TextCarousel = ({ items, interval = 50000 }: TextCarouselProps) => 
 
   return (
     <CarouselWrapper isPhone={isPhone} isHighlighted={isCurrentHighlighted}>
+      {backgroundImage && (
+        <BackgroundContainer>
+          <Picture
+            picture={typeof backgroundImage === 'string' ? { fallbackUrl: backgroundImage } : backgroundImage}
+            alt=""
+          />
+        </BackgroundContainer>
+      )}
       <Carousel
         activeIndex={activeIndex}
         onSelect={setActiveIndex}
@@ -132,6 +141,7 @@ const CarouselWrapper = styled.div<{ isPhone: boolean; isHighlighted: boolean }>
   border-radius: 24px;
   padding: ${({ isPhone }) => (isPhone ? RedesignSpacings.md : RedesignSpacings.lg)};
   transition: all 0.5s ease;
+  overflow: hidden;
 
   box-shadow: 1px 8px 25px 0 rgba(60, 30, 30, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.4);
@@ -140,10 +150,12 @@ const CarouselWrapper = styled.div<{ isPhone: boolean; isHighlighted: boolean }>
 
   .carousel, .carousel-inner, .carousel-item {
     height: 100%;
+    z-index: 2;
   }
 
   .carousel-indicators {
     bottom: 0;
+    z-index: 3;
 
     [data-bs-target] {
       width: 10px;
@@ -156,6 +168,35 @@ const CarouselWrapper = styled.div<{ isPhone: boolean; isHighlighted: boolean }>
         background-color: ${BackgroundColors.green.strong};
         transform: scale(1.3);
       }
+    }
+  }
+`;
+
+const BackgroundContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  opacity: 0.2;
+  pointer-events: none;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  picture {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 `;
