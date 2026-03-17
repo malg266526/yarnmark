@@ -54,7 +54,6 @@ export const MainPage = () => {
           </Band.CenteredColumn>
 
           {BandsToggles.workshopsEnabled && <WorkshopsScheduleMobileBand id="schedule" />}
-          <LaGruGruBand />
 
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 
@@ -68,6 +67,8 @@ export const MainPage = () => {
           <Band.CenteredColumn id="vendors" size="lg" padding="none" color={BackgroundColors.vendors}>
             <VendorsList />
           </Band.CenteredColumn>
+
+          <LaGruGruBand />
 
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 
@@ -93,8 +94,6 @@ export const MainPage = () => {
 
           <TicketCardBand />
 
-          <LaGruGruBand />
-
           <LocationBand id="location" />
 
           <Band.CenteredColumn
@@ -112,6 +111,8 @@ export const MainPage = () => {
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 
           {BandsToggles.workshopsEnabled && <WorkshopsDesktopBand id="workshops" />}
+
+          <LaGruGruBand />
 
           {BandsToggles.afterEnabled && <AfterBand id="after" />}
 
