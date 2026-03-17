@@ -22,7 +22,8 @@ export const pl = {
       food: 'Jedzonko',
       statuteForVendors: 'Regulamin sprzedaży stoisk',
       yarnmarkPatterns: 'Wzory yarnmarkowe',
-      after: 'After'
+      after: 'After',
+      lagrugru: 'LaGruGru'
     },
     tickets: {
       buyTicketsAndWorkshops: '<0>Kup</0> bilet na targi lub wybierz opcję z warsztatami',
@@ -101,6 +102,35 @@ export const pl = {
       authorship: {
         monikaPrefix: 'Autorstwa Moni',
         annaPrefix: 'Autorstwa Ani'
+      }
+    },
+    lagrugruBand: {
+      title: 'LaGruGru!',
+      slide1: {
+        title: 'Zestaw szydełkowy na krakoskiego amigurumi gołąbka',
+        subtitle: 'Poznajcie La Gru Gru! 🐦',
+        description:
+          'W ramach współpracy <strong>SisHomemade i Yarnmarku</strong> powstał zestaw DIY na krakoskiego gołąbka, obejmujący wzór, potrzebne włóczki oraz elementy wykończeniowe. Projekt został przemyślany tak, aby gotowy gołąbek mógł służyć jako breloczek, gotowy do zamocowania przy torebce lub kluczach.',
+        extraParagraph:
+          'Konstrukcja pozwala na wykorzystanie gotowego modelu w formie breloczka. Dołączone akcesoria umożliwiają łatwy montaż przy torebce lub kluczach, nadając produktowi walor użytkowy.'
+      },
+      slide2: {
+        title: 'Festiwal kolorów!',
+        subtitle: 'Osiem odsłon La Gru Gru',
+        description:
+          'LaGruGru występuje w 8 wariantach kolorystycznych: <strong>Klasyk, Smok, Love, Złoty, Yarnmark, Beżowa Dziewiarka, Zachód Słońca, Matcha Latte</strong>. Do każdego zestawu dorzucamy też jeden z 5ciu dodatków: <strong>Czapka krakoska, Szaliczek, Obwarzanek, Wiosenny wianek, Królewska korona</strong>. Kolory, jak i dodatki wysyłane są losowo – będą dla Ciebie niespodzianką.'
+      },
+      slide4: {
+        title: 'Zdobądź swojego gołąbka!',
+        subtitle: 'Znajdź go w sklepie Włóczykijki.pl',
+        description:
+          'Znajdziecie go w sklepie internetowym <strong>Włóczykijki.pl</strong>. Gołąbek dostępny jest w dwóch rozmiarach: <strong>mały</strong> – ok. 9\u202fcm wysokości i <strong>duży</strong> – ok. 13\u202fcm wysokości.'
+      },
+      slide5: {
+        title: 'Warsztaty z SisHomemade',
+        subtitle: 'Naucz się robić własnego gołąbka!',
+        description:
+          'La Gru Gru <strong>jest przedmiotem warsztatów amigurumi z SisHomemade</strong>. W cenie biletu warsztatowego otrzymujesz zestaw i właśnie na tych warsztatach wykonujesz swojego gołąbka.'
       }
     },
     spotBand: {

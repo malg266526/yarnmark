@@ -23,6 +23,7 @@ import { CruiseBand } from './bands/CruiseBand';
 import { WorkshopsScheduleMobileBand } from './workshops/WorkshopsScheduleMobileBand';
 import { AfterBand } from './bands/AfterBand';
 import { WorkshopsMobileSchedule } from './workshops/WorkshopsMobileSchedule';
+import { LaGruGruBand } from './bands/LaGruGruBand';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -54,6 +55,8 @@ export const MainPage = () => {
 
           {BandsToggles.workshopsEnabled && <WorkshopsScheduleMobileBand id="schedule" />}
 
+          {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
+
           <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
           <Band.Empty id="workshops" padding="xs">
             <WorkshopsMobileSchedule />
@@ -64,6 +67,8 @@ export const MainPage = () => {
           <Band.CenteredColumn id="vendors" size="lg" padding="none" color={BackgroundColors.vendors}>
             <VendorsList />
           </Band.CenteredColumn>
+
+          <LaGruGruBand />
 
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 
@@ -106,6 +111,8 @@ export const MainPage = () => {
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 
           {BandsToggles.workshopsEnabled && <WorkshopsDesktopBand id="workshops" />}
+
+          <LaGruGruBand />
 
           {BandsToggles.afterEnabled && <AfterBand id="after" />}
 
