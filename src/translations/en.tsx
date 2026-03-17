@@ -292,26 +292,28 @@ export const en: TranslationsShape = {
     },
     goBack: 'Go back',
     workshops: {
-      title: 'Warsztaty',
-      tutor: 'Prowadzący: ',
-      buyTicket: 'Kup bilet',
-      freeAdmission: 'Wstęp wolny',
-      price: 'Koszt',
-      soldOut: 'Wyprzedane',
+      title: 'Workshops',
+      scheduleTitle: 'Workshops schedule',
+      mapTitle: 'Workshops rooms map',
+      tutor: 'Instructors: ',
+      buyTicket: 'Buy a ticket',
+      freeAdmission: 'Free admission',
+      price: 'Price',
+      soldOut: 'Sold out',
       weekdays: {
-        saturday: 'Sobota',
-        sunday: 'Niedziela'
+        saturday: 'Saturday',
+        sunday: 'Sunday'
       },
       room: {
-        mirrors: 'Sala lustrzana',
-        fencing: 'Sala szermiercza',
-        conference: 'Sala konferencyjna',
-        library: 'Biblioteka - al. Focha 39',
-        bursa1: 'Bursa - sala A - al. Focha 39',
-        bursa2: 'Bursa - sala B - al. Focha 39',
-        skein: 'Skein - Zakopiańska 56 (wejście Lokal 19, 20. 1. piętro)',
+        mirrors: 'Mirrors room',
+        fencing: 'Fencing room',
+        conference: 'Conference room',
+        library: 'Library - al. Focha 39',
+        bursa1: 'Bursa - room A - al. Focha 39',
+        bursa2: 'Bursa - room B - al. Focha 39',
+        skein: 'Skein - Zakopiańska 56 (entrance Lokal 19, 20. 1. floor)',
         forum: 'Forum Przestrzenie - Marii Konopnickiej 28',
-        reading_room: 'Czytelnia w bibliotece - al. Focha 39'
+        reading_room: 'Library Reading Room - al. Focha 39'
       },
 
       // --- KROOPA ---
