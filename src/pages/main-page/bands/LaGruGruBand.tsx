@@ -96,11 +96,13 @@ export const LaGruGruBand = () => {
       <Band.Title>{t('lagrugruBand.title')}</Band.Title>
 
       <TwoColumnLayout isPhone={isPhone}>
-        <div>
-          <SlantedCornersBox width={isPhone ? '100%' : '700px'} padding="none" overflowSize="10px">
-            <Picture picture={lagrugruPictureConfig} alt="Grupa LaGruGru" width={isPhone ? 300 : 700} />
-          </SlantedCornersBox>
-        </div>
+        {!isPhone && (
+          <div>
+            <SlantedCornersBox width={isPhone ? '100%' : '700px'} padding="none" overflowSize="10px">
+              <Picture picture={lagrugruPictureConfig} alt="Grupa LaGruGru" width={isPhone ? 300 : 700} />
+            </SlantedCornersBox>
+          </div>
+        )}
 
         <div>
           <TextCarousel items={carouselItems} backgroundImage={slide4PictureConfig} />

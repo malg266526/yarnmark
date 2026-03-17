@@ -28,7 +28,7 @@ interface TextCarouselProps {
   backgroundImage?: string | PictureType;
 }
 
-export const TextCarousel = ({ items, interval = 50000, backgroundImage }: TextCarouselProps) => {
+export const TextCarousel = ({ items, interval = 6000, backgroundImage }: TextCarouselProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const isPhone = usePhone();
 
@@ -76,21 +76,21 @@ const CarouselSlide = ({ item, isPhone }: { item: TextCarouselItem; isPhone: boo
           </SlideKicker>
 
           <SlideMainContent>
-            <Typography size={isPhone ? 'lg' : 'xl'} weight="bold" style={{ marginBottom: '12px' }}>
+            <Typography size={isPhone ? 'md' : 'xl'} weight="bold" style={{ marginBottom: isPhone ? '8px' : '12px' }}>
               {t(subtitle)}
             </Typography>
 
-            <SlideDescription size="md">
+            <SlideDescription size={isPhone ? 'sm' : 'md'}>
               <Trans i18nKey={description} />
             </SlideDescription>
 
             {extraParagraph && (
-              <SlideDescription size="md">
+              <SlideDescription size={isPhone ? 'sm' : 'md'}>
                 <Trans i18nKey={extraParagraph} />
               </SlideDescription>
             )}
 
-            {button?.title && <ActionButton onClick={button.callback}>{button.title}</ActionButton>}
+            {button?.title && <ActionButton onClick={button.callback} isPhone={isPhone}>{button.title}</ActionButton>}
           </SlideMainContent>
         </TextColumn>
       )}
@@ -136,12 +136,14 @@ const CarouselWrapper = styled.div<{ isPhone: boolean; isHighlighted: boolean }>
   z-index: 2;
   position: relative;
   width: 100%;
-  height: 500px;
+  height: ${({ isPhone }) => (isPhone ? '400px' : '500px')};
   background: rgba(255, 255, 255, 0.75);
   border-radius: 24px;
-  padding: ${({ isPhone }) => (isPhone ? RedesignSpacings.md : RedesignSpacings.lg)};
+  padding: ${({ isPhone }) => (isPhone ? RedesignSpacings.sm : RedesignSpacings.lg)};
   transition: all 0.5s ease;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 
   box-shadow: 1px 8px 25px 0 rgba(60, 30, 30, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.4);
@@ -208,13 +210,48 @@ const SlideContainer = styled.div<{ isPhone: boolean }>`
   align-items: center;
   justify-content: space-between;
   gap: ${RedesignSpacings.lg};
-  padding-bottom: 40px;
+  padding-bottom: ${({ isPhone }) => (isPhone ? '50px' : '40px')}; /* Adjusted for 400px height */
+  box-sizing: border-box;
+
+  /* Smoother, continuous cross-fade without blinking */
+  opacity: 0;
+  transform: translateY(4px) scale(0.98);
+  filter: blur(4px);
+  transition:
+    opacity 0.5s ease-in-out,
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.5s ease-in-out;
+
+  .active & {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+    transition:
+      opacity 0.6s ease-in-out,
+      transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
+      /* Subtle bounce for "premium" feel */ filter 0.6s ease-in-out;
+  }
 `;
 
 const TextColumn = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  padding: 0 ${RedesignSpacings.xs};
+  overflow-y: auto;
+
+  /* Custom thin scrollbar */
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
 `;
 
 const ImageColumn = styled.div<{ isPhone: boolean }>`
@@ -245,28 +282,32 @@ const StyledPicture = styled(Picture)<{ isPhone: boolean; showOnlyImageOnMobile?
 
 const SlideMainContent = styled.div`
   text-align: left;
+  display: flex;
+  flex-direction: column;
 `;
 
 const SlideKicker = styled(Typography)`
   margin-bottom: ${RedesignSpacings.xs};
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  font-size: 10px !important;
 `;
 
 const SlideDescription = styled(Typography)`
   line-height: 1.6;
   opacity: 0.9;
+  word-break: break-word;
 `;
 
-const ActionButton = styled.button`
-  margin-top: 24px;
-  padding: 12px 28px;
+const ActionButton = styled.button<{ isPhone?: boolean }>`
+  margin-top: ${({ isPhone }) => (isPhone ? '16px' : '24px')};
+  padding: ${({ isPhone }) => (isPhone ? '8px 20px' : '12px 28px')};
   background-color: #793b3b;
   color: white;
   border: none;
   border-radius: 50px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: ${({ isPhone }) => (isPhone ? '12px' : '14px')};
   cursor: pointer;
   transition:
     background 0.3s,
