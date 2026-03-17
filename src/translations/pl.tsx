@@ -292,6 +292,8 @@ export const pl = {
     goBack: 'Wróć',
     workshops: {
       title: 'Warsztaty',
+      scheduleTitle: 'Harmonogram warsztatów',
+      mapTitle: 'Mapa sal warsztatowych',
       tutor: 'Prowadzący: ',
       buyTicket: 'Kup bilet',
       freeAdmission: 'Wstęp wolny',
