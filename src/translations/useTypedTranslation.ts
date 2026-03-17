@@ -45,5 +45,5 @@ export type UnprefixedTranslationKeys = ReplaceString<TranslationKeys, 'translat
 export const useTypedTranslation = () => {
   const { t } = useTranslation();
 
-  return useCallback((key: UnprefixedTranslationKeys, ...args: any[]) => (t as any)(key, ...args), [t]);
+  return useCallback((key: UnprefixedTranslationKeys) => t(key), [t]);
 };

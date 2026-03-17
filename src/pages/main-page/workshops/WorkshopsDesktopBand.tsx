@@ -56,7 +56,7 @@ export const WorkshopsDesktopBand = ({ id }: WorkshopsBandType) => {
           <Schedule />
         </Accordion>
 
-        <Accordion title={t('workshops.mapTitle', 'Mapa sal warsztatowych')}>
+        <Accordion title={t('workshops.mapTitle')}>
           <MapWrapper>
             <Picture
               picture={{
