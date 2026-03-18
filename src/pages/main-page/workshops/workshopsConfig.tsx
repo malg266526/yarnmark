@@ -17,10 +17,6 @@ import magdaUrlWebp from '../../../assets/images/workshops/magda.webp';
 import skeinUrl from '../../../assets/images/workshops/skein2.jfif';
 import skeinUrlWebp from '../../../assets/images/workshops/skein2.webp';
 
-import inkaUrl from '../../../assets/images/workshops/Inka.jpg';
-import inkaUrlAvif from '../../../assets/images/workshops/Inka.avif';
-import inkaUrlWebp from '../../../assets/images/workshops/Inka.webp';
-
 import noweHaftyUrl from '../../../assets/images/workshops/NoweHafty.jpg';
 import noweHaftyUrlAvif from '../../../assets/images/workshops/NoweHafty.avif';
 import noweHaftyUrlWebp from '../../../assets/images/workshops/NoweHafty.webp';
@@ -62,6 +58,57 @@ export type WorkshopsEntry = {
 };
 
 export const WorkshopsConfig: WorkshopsEntry[] = [
+  // --- SPLOTKA ---
+  {
+    topicKey: 'workshops.splotka.title',
+    time: '15:00 - 18:00', // Przykładowy czas
+    leading: 'Monika Splotka',
+    picture: {
+      fallback: splotkaUrl,
+      sources: [
+        { type: 'image/avif', url: splotkaUrlAvif },
+        { type: 'image/webp', url: splotkaUrlWebp }
+      ]
+    },
+    isSoldOut: false,
+    room: 'bursa2',
+    price: 310,
+    ticketUrl: 'https://wloczykijki.pl/pl/p/SPLOTKA-Warsztaty-Tkana-Makatka-ze-Splotka-SOBOTA/3905',
+    description: 'workshops.splotka.description',
+    materials: 'workshops.splotka.materials',
+    aboutMe: 'workshops.splotka.aboutMe'
+  },
+  // --- IWONA ERIKSSON ---
+  {
+    topicKey: 'workshops.iwona.title_socks',
+    time: '12:30 - 15:30',
+    weekDay: 'saturday',
+    leading: 'Iwona Eriksson',
+    picture: { fallback: iwonaUrl, sources: [{ type: 'image/webp', url: iwonaUrlWebp }] },
+    isSoldOut: false,
+    room: 'bursa1',
+    price: 200,
+    ticketUrl: 'https://wloczykijki.pl/pl/p/IWONA-ERIKSSON-Warsztaty-Skarpetki-od-gory-dla-poczatkujacych-SOBOTA/3902',
+    description: 'workshops.iwona.description_socks',
+    materials: 'workshops.iwona.materials_socks',
+    aboutMe: 'workshops.iwona.aboutMe'
+  },
+  {
+    topicKey: 'workshops.iwona.title_heels',
+    time: '9:00 - 12:00',
+    weekDay: 'sunday',
+    leading: 'Iwona Eriksson',
+    picture: { fallback: iwonaUrl, sources: [{ type: 'image/webp', url: iwonaUrlWebp }] },
+    isSoldOut: false,
+    room: 'bursa1',
+    price: 200,
+    ticketUrl:
+      'https://wloczykijki.pl/pl/p/IWONA-ERIKSSON-Warsztaty-Rozne-rodzaje-piet-w-skarpetach-cztery-rozne-piety-NIEDZIELA/3903',
+    description: 'workshops.iwona.description_heels',
+    materials: 'workshops.iwona.materials_heels',
+    aboutMe: 'workshops.iwona.aboutMe'
+  },
+
   // --- DRUTUTU ---
   {
     topicKey: 'workshops.drutututu.title',
@@ -78,25 +125,25 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
   },
 
   // --- INKA ---
-  {
-    topicKey: 'workshops.inka.title',
-    time: '15:00 - 17:30',
-    leading: 'Inka',
-    picture: {
-      fallback: inkaUrl,
-      sources: [
-        { type: 'image/avif', url: inkaUrlAvif },
-        { type: 'image/webp', url: inkaUrlWebp }
-      ]
-    },
-    isSoldOut: false,
-    room: 'reading_room',
-    price: 120,
-    ticketUrl: 'https://wloczykijki.pl/pl/p/INKA-Warsztaty-Szydelko-dla-leworecznych-SOBOTA-/3901',
-    description: 'workshops.inka.description',
-    materials: 'workshops.inka.materials',
-    aboutMe: 'workshops.inka.aboutMe'
-  },
+  // {
+  //   topicKey: 'workshops.inka.title',
+  //   time: '15:00 - 17:30',
+  //   leading: 'Inka',
+  //   picture: {
+  //     fallback: inkaUrl,
+  //     sources: [
+  //       { type: 'image/avif', url: inkaUrlAvif },
+  //       { type: 'image/webp', url: inkaUrlWebp }
+  //     ]
+  //   },
+  //   isSoldOut: false,
+  //   room: 'reading_room',
+  //   price: 120,
+  //   ticketUrl: 'https://wloczykijki.pl/pl/p/INKA-Warsztaty-Szydelko-dla-leworecznych-SOBOTA-/3901',
+  //   description: 'workshops.inka.description',
+  //   materials: 'workshops.inka.materials',
+  //   aboutMe: 'workshops.inka.aboutMe'
+  // },
 
   // --- SIS HOMEMADE ---
   {
@@ -178,34 +225,13 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
         { type: 'image/webp', url: noweHaftyUrlWebp }
       ]
     },
-    isSoldOut: false,
+    isSoldOut: true,
     room: 'bursa2',
     price: 150,
     ticketUrl: 'https://wloczykijki.pl/pl/p/NOWE-HAFTY-Warsztaty-Haftujemy-kwiaty-na-wiosne-SOBOTA/2836',
     description: 'workshops.nowehafty.description',
     materials: 'workshops.nowehafty.materials',
     aboutMe: 'workshops.nowehafty.aboutMe'
-  },
-
-  // --- SPLOTKA ---
-  {
-    topicKey: 'workshops.splotka.title',
-    time: '15:00 - 18:00', // Przykładowy czas
-    leading: 'Monika Splotka',
-    picture: {
-      fallback: splotkaUrl,
-      sources: [
-        { type: 'image/avif', url: splotkaUrlAvif },
-        { type: 'image/webp', url: splotkaUrlWebp }
-      ]
-    },
-    isSoldOut: false,
-    room: 'bursa2',
-    price: 310,
-    ticketUrl: 'https://wloczykijki.pl/pl/p/SPLOTKA-Warsztaty-Tkana-Makatka-ze-Splotka-SOBOTA/3905',
-    description: 'workshops.splotka.description',
-    materials: 'workshops.splotka.materials',
-    aboutMe: 'workshops.splotka.aboutMe'
   },
 
   // KROOPA
@@ -221,7 +247,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
         { type: 'image/webp', url: kroopaUrlWebp }
       ]
     },
-    isSoldOut: false,
+    isSoldOut: true,
     room: 'conference', // Sala konferencyjna
     price: 200,
     ticketUrl: 'https://wloczykijki.pl/pl/p/KROOPA-Warsztaty-Podstawy-zakardu-SOBOTA/3453',
@@ -247,7 +273,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
         { type: 'image/webp', url: kroopaUrlWebp }
       ]
     },
-    isSoldOut: false,
+    isSoldOut: true,
     room: 'bursa2', // Biblioteka
     price: 200,
     ticketUrl: 'https://wloczykijki.pl/pl/p/KROOPA-Warsztaty-Podstawy-zakardu-NIEDZELA/3899',
@@ -262,37 +288,6 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     }
   },
 
-  // --- IWONA ERIKSSON ---
-  {
-    topicKey: 'workshops.iwona.title_socks',
-    time: '12:30 - 15:30',
-    weekDay: 'saturday',
-    leading: 'Iwona Eriksson',
-    picture: { fallback: iwonaUrl, sources: [{ type: 'image/webp', url: iwonaUrlWebp }] },
-    isSoldOut: false,
-    room: 'bursa1',
-    price: 200,
-    ticketUrl: 'https://wloczykijki.pl/pl/p/IWONA-ERIKSSON-Warsztaty-Skarpetki-od-gory-dla-poczatkujacych-SOBOTA/3902',
-    description: 'workshops.iwona.description_socks',
-    materials: 'workshops.iwona.materials_socks',
-    aboutMe: 'workshops.iwona.aboutMe'
-  },
-  {
-    topicKey: 'workshops.iwona.title_heels',
-    time: '9:00 - 12:00',
-    weekDay: 'sunday',
-    leading: 'Iwona Eriksson',
-    picture: { fallback: iwonaUrl, sources: [{ type: 'image/webp', url: iwonaUrlWebp }] },
-    isSoldOut: false,
-    room: 'bursa1',
-    price: 200,
-    ticketUrl:
-      'https://wloczykijki.pl/pl/p/IWONA-ERIKSSON-Warsztaty-Rozne-rodzaje-piet-w-skarpetach-cztery-rozne-piety-NIEDZIELA/3903',
-    description: 'workshops.iwona.description_heels',
-    materials: 'workshops.iwona.materials_heels',
-    aboutMe: 'workshops.iwona.aboutMe'
-  },
-
   // --- SKEIN ---
   {
     topicKey: 'workshops.skein.title_sat',
@@ -300,7 +295,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     weekDay: 'saturday',
     leading: 'Skein x @pixeldzierga',
     picture: { fallback: skeinUrl, sources: [{ type: 'image/webp', url: skeinUrlWebp }] },
-    isSoldOut: false,
+    isSoldOut: true,
     room: 'conference',
     price: 310,
     ticketUrl: 'https://wloczykijki.pl/pl/p/SKEIN-Warsztaty-Punch-Needle-SOBOTA/3457',
@@ -314,7 +309,7 @@ export const WorkshopsConfig: WorkshopsEntry[] = [
     weekDay: 'sunday',
     leading: 'Skein x @pixeldzierga',
     picture: { fallback: skeinUrl, sources: [{ type: 'image/webp', url: skeinUrlWebp }] },
-    isSoldOut: false,
+    isSoldOut: true,
     room: 'skein',
     price: 310,
     ticketUrl: 'https://wloczykijki.pl/pl/p/SKEIN-Warsztaty-Punch-Needle-NIEDZIELA/3900',
