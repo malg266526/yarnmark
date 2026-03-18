@@ -60,7 +60,7 @@ export const MainPage = () => {
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 
           <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
-          <Band.Empty id="workshops" padding="xs">
+          <Band.Empty id="workshops" padding="xs" color="white">
             <WorkshopsMobileSchedule />
           </Band.Empty>
 
