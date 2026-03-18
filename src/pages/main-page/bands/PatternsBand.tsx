@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Band } from '../../../components/bands/Band';
-import { BackgroundColors } from '../../../styles/theme';
+import { BackgroundColors, GrayScale } from '../../../styles/theme';
 import { RowLayout } from '../../../components/RowLayout';
 import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
 import { Typography } from '../../../components/Typography';
@@ -56,6 +56,17 @@ const PatternContentContainer = styled(RowLayout)<{ direction: 'row' | 'column' 
   flex-direction: ${({ direction }) => direction};
   align-items: center;
   text-align: center;
+`;
+
+const FramedPicture = styled(Picture)`
+  border: 4px solid ${GrayScale[200]};
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.02);
+  }
 `;
 
 type PatternsBandType = {
@@ -114,7 +125,7 @@ export const PatternsBand = ({ id }: PatternsBandType) => {
         </FlexColumnLayout>
 
         {!isPhone && (
-          <Picture
+          <FramedPicture
             picture={{
               fallbackUrl: grupoweJpgSrc,
               sources: [
