@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Band } from '../../../components/bands/Band';
 import { BackgroundColors } from '../../../styles/theme';
 import { Picture } from '../../../components/Picture';
-import { usePhone } from '../../../hooks/usePhone';
+import { useTablet } from '../../../hooks/usePhone';
 import { RedesignSpacings } from '../../../styles/spacings';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 import { TextCarousel, TextCarouselItem } from '../../../components/carousels/TextCarousel';
@@ -17,7 +17,7 @@ import slide4Webp from '../../../assets/images/lagrugru/DSC04495.webp';
 import slide4Avif from '../../../assets/images/lagrugru/DSC04495.avif';
 
 interface StyledProps {
-  isPhone: boolean;
+  isTablet: boolean;
 }
 
 const lagrugruPictureConfig = {
@@ -36,19 +36,19 @@ const lagrugruPictureConfig = {
 
 const TwoColumnLayout = styled.div<StyledProps>`
   display: flex;
-  flex-direction: ${({ isPhone }) => (isPhone ? 'column' : 'row')};
-  width: ${({ isPhone }) => (isPhone ? '100%' : '80%')};
+  flex-direction: ${({ isTablet }) => (isTablet ? 'column' : 'row')};
+  width: ${({ isTablet }) => (isTablet ? '100%' : '80%')};
   align-items: center;
   justify-content: center;
-  gap: ${({ isPhone }) => (isPhone ? RedesignSpacings.lg : RedesignSpacings.xl)};
-  margin-top: ${({ isPhone }) => (isPhone ? RedesignSpacings.md : RedesignSpacings.xl)};
+  gap: ${({ isTablet }) => (isTablet ? RedesignSpacings.lg : RedesignSpacings.xl)};
+  margin-top: ${({ isTablet }) => (isTablet ? RedesignSpacings.md : RedesignSpacings.xl)};
+`;
 
-  > div {
-    flex: 1;
-    width: ${({ isPhone }) => (isPhone ? '100%' : '50%')};
-    display: flex;
-    justify-content: center;
-  }
+const Column = styled.div<{ isTablet: boolean; width?: string }>`
+  flex: 1;
+  width: ${({ isTablet, width }) => (isTablet ? '100%' : width || '50%')};
+  display: flex;
+  justify-content: center;
 `;
 
 const slide4PictureConfig = {
@@ -60,7 +60,7 @@ const slide4PictureConfig = {
 };
 
 export const LaGruGruBand = () => {
-  const isPhone = usePhone();
+  const isTablet = useTablet();
   const t = useTypedTranslation();
 
   const carouselItems: TextCarouselItem[] = [
@@ -92,21 +92,21 @@ export const LaGruGruBand = () => {
   ];
 
   return (
-    <Band.CenteredColumn id="lagrugru" size="lg" color={BackgroundColors.card} padding={isPhone ? 'lg' : 'xxxl'}>
+    <Band.CenteredColumn id="lagrugru" size="lg" color={BackgroundColors.card} padding={isTablet ? 'lg' : 'xxl'}>
       <Band.Title>{t('lagrugruBand.title')}</Band.Title>
 
-      <TwoColumnLayout isPhone={isPhone}>
-        {!isPhone && (
-          <div>
-            <SlantedCornersBox width={isPhone ? '100%' : '700px'} padding="none" overflowSize="10px">
-              <Picture picture={lagrugruPictureConfig} alt="Grupa LaGruGru" width={isPhone ? 300 : 700} />
+      <TwoColumnLayout isTablet={isTablet}>
+        {!isTablet && (
+          <Column isTablet={isTablet} width="45%">
+            <SlantedCornersBox width="500px" padding="none" overflowSize="10px">
+              <Picture picture={lagrugruPictureConfig} alt="Grupa LaGruGru" width={500} />
             </SlantedCornersBox>
-          </div>
+          </Column>
         )}
 
-        <div>
+        <Column isTablet={isTablet} width="65%">
           <TextCarousel items={carouselItems} backgroundImage={slide4PictureConfig} />
-        </div>
+        </Column>
       </TwoColumnLayout>
     </Band.CenteredColumn>
   );
