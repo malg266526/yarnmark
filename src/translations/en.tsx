@@ -23,7 +23,56 @@ export const en: TranslationsShape = {
       statuteForVendors: 'Terms and Conditions for the sale of stands',
       lagrugru: 'LaGruGru',
       yarnmarkPatterns: 'Yarnmark patterns',
-      after: 'After'
+      after: 'After',
+      teamAndPartners: 'Team & Partners'
+    },
+    teamAndPartners: {
+      title: 'Team & Partners',
+      mediaPartners: 'MEDIA PARTNERS',
+      organizers: {
+        ewa: {
+          name: 'Ewa',
+          instagram: 'evvoola',
+          title: 'Kanclerzyni Praw i Paktów Wystawczych',
+          description:
+            'Strażniczka kodeksu i sprawiedliwości. To ona spisuje traktaty z kupcami i dba, by każdy postępował zgodnie z literą prawa.'
+        },
+        monia: {
+          name: 'Monia',
+          instagram: 'made_me_knit',
+          title: 'Heroldka Grodzka i Mistrzyni Nauk',
+          description:
+            'To jej głos niesie się po murach miasta i w najdalsze krainy. Jako Opiekunka Nauk szykuje miejsce dla żaków i czeladników zgłębiających kunszt rzemiosła.'
+        },
+        karo: {
+          name: 'Karo',
+          instagram: 'pannaodszydelka',
+          title: 'Wielka Posłanka i Ochmistrzyni Biesiad',
+          description:
+            'Wysłanniczka Grodu, która w jednej dłoni dzierży sojusze z kramarzami, a w drugiej wieści niosące się w świat. Czuwa nad rynkowymi przymierzami i dba o to, by po trudach pracy nastała legendarna uczta.'
+        },
+        malgo: {
+          name: 'Małgo',
+          instagram: 'malgo_tylkoknit',
+          title: 'Wielka Maesterka Cyfrowych Zwojów',
+          description:
+            'Włada technologiami, o których inni tylko szepczą. Dba o to, by cyfrowe serce Yarnmarku nigdy nie przestało bić.'
+        },
+        dagmara: {
+          name: 'Dagmara',
+          instagram: 'wloczykijki_sklep',
+          title: 'Podskarbiyni Krakowskiego Skarbca',
+          description: 'Trzyma pieczę nad złotem Yarnmarku, by każda moneta była wydana mądrze i zgodnie z planem.'
+        },
+
+        justynka: {
+          name: 'Justynka',
+          instagram: 'wloczykijki_sklep',
+          title: 'Włodarzyni Składów i Królewskich Traktów',
+          description:
+            'Włodarzyni cechu kupieckiego, dbająca o dobrostan gołębi pocztowych i królewskie trakty. Szykuje pamiątkowe znaki, które u bram grodu czekają na każdego gościa.'
+        }
+      }
     },
     tickets: {
       buyTicketsAndWorkshops: '<0>Buy</0> ticket to the fair or choose the workshops option',

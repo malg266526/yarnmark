@@ -1,247 +1,83 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
+import React, { useCallback, useRef, useState } from 'react';
+import styled from 'styled-components';
 import { Band } from '../../../components/bands/Band';
 import { BackgroundColors, GrayScale, TextColors } from '../../../styles/theme';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 import { RedesignSpacings } from '../../../styles/spacings';
 import { usePhone } from '../../../hooks/usePhone';
-import { Typography } from '../../../components/Typography';
-import { Picture } from '../../../components/Picture';
 import { ScreenSize } from '../../../styles/screeen-size';
+import { Picture } from '../../../components/Picture';
+import { Typography } from '../../../components/Typography';
+import { OrganizerDetailsCard } from '../../../components/OrganizerDetailsCard';
+import { ORGANIZER_IMAGES, type OrganizerSlug } from '../../../configs/organizers';
 
 import loveKrakowPng from '../../../assets/team_and_partners/love_krakow.png';
 import loveKrakowWebp from '../../../assets/team_and_partners/love_krakow.webp';
 import loveKrakowAvif from '../../../assets/team_and_partners/love_krakow.avif';
 import eskaSvg from '../../../assets/team_and_partners/ESKA_pantone_outline.svg';
 
-// Team faces
-import ewaAvif from '../../../assets/team_and_partners/ewa_face.avif';
-import ewaWebp from '../../../assets/team_and_partners/ewa_face.webp';
-import ewaJpg from '../../../assets/team_and_partners/ewa_face.jpg';
+const LayoutWithActiveOrganizer = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: center;
+  gap: ${RedesignSpacings.xxxl};
+  margin-top: ${RedesignSpacings.lg};
 
-import moniaAvif from '../../../assets/team_and_partners/monia_face.avif';
-import moniaWebp from '../../../assets/team_and_partners/monia_face.webp';
-import moniaJpg from '../../../assets/team_and_partners/monia_face.jpg';
-
-import karoAvif from '../../../assets/team_and_partners/karo_face.avif';
-import karoWebp from '../../../assets/team_and_partners/karo_face.webp';
-import karoJpeg from '../../../assets/team_and_partners/karo_face.jpeg';
-
-import malgoAvif from '../../../assets/team_and_partners/malgo_face.avif';
-import malgoWebp from '../../../assets/team_and_partners/malgo_face.webp';
-import malgoJpg from '../../../assets/team_and_partners/malgo_face.jpg';
-
-import dagmaraAvif from '../../../assets/team_and_partners/dagmara_face.avif';
-import dagmaraWebp from '../../../assets/team_and_partners/dagmara_face.webp';
-import dagmaraJpg from '../../../assets/team_and_partners/dagmara_face.jpg';
-
-import justynkaAvif from '../../../assets/team_and_partners/justynka_face.avif';
-import justynkaWebp from '../../../assets/team_and_partners/justynka_face.webp';
-import justynkaJpg from '../../../assets/team_and_partners/justynka_face.jpg';
-
-const ORGANIZERS = [
-  {
-    name: 'Ewa',
-    instagram: 'evvoola',
-    image: {
-      fallbackUrl: ewaJpg,
-      sources: [
-        { type: 'image/avif', url: ewaAvif },
-        { type: 'image/webp', url: ewaWebp }
-      ]
-    }
-  },
-  {
-    name: 'Monia',
-    instagram: 'made_me_knit',
-    image: {
-      fallbackUrl: moniaJpg,
-      sources: [
-        { type: 'image/avif', url: moniaAvif },
-        { type: 'image/webp', url: moniaWebp }
-      ]
-    }
-  },
-  {
-    name: 'Karo',
-    instagram: 'pannaodszydelka',
-    image: {
-      // Karo has a .jpeg fallback
-      fallbackUrl: karoJpeg,
-      sources: [
-        { type: 'image/avif', url: karoAvif },
-        { type: 'image/webp', url: karoWebp }
-      ]
-    }
-  },
-  {
-    name: 'Małgo',
-    instagram: 'malgo_tylkoknit',
-    image: {
-      fallbackUrl: malgoJpg,
-      sources: [
-        { type: 'image/avif', url: malgoAvif },
-        { type: 'image/webp', url: malgoWebp }
-      ]
-    }
-  },
-  {
-    name: 'Dagmara',
-    instagram: 'wloczykijki_sklep',
-    image: {
-      fallbackUrl: dagmaraJpg,
-      sources: [
-        { type: 'image/avif', url: dagmaraAvif },
-        { type: 'image/webp', url: dagmaraWebp }
-      ]
-    }
-  },
-  {
-    name: 'Justyna',
-    instagram: 'wloczykijki_sklep',
-    image: {
-      // Files are named justynka_face.*
-      fallbackUrl: justynkaJpg,
-      sources: [
-        { type: 'image/avif', url: justynkaAvif },
-        { type: 'image/webp', url: justynkaWebp }
-      ]
-    }
+  @media (max-width: ${ScreenSize.tablet}) {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: ${RedesignSpacings.xl};
   }
-];
-
-const PARTNERS = [
-  {
-    name: 'Radio Eska',
-    logo: { fallbackUrl: eskaSvg, sources: [] }
-  },
-  {
-    name: 'LoveKraków',
-    logo: {
-      fallbackUrl: loveKrakowPng,
-      sources: [
-        { type: 'image/avif', url: loveKrakowAvif },
-        { type: 'image/webp', url: loveKrakowWebp }
-      ]
-    }
-  }
-];
-
-export const TeamAndPartnersBand = () => {
-  const t = useTypedTranslation();
-  const isPhone = usePhone();
-
-  return (
-    <Band.CenteredColumn
-      id="team-and-partners"
-      size="md"
-      gap={isPhone ? 'md' : 'lg'}
-      padding={isPhone ? 'lg' : 'xxxl'}
-      color={BackgroundColors.card}
-    >
-      <Band.Title>{t('teamAndPartners.title')}</Band.Title>
-
-      <OrganizersGrid>
-        {ORGANIZERS.map((organizer) => (
-          <OrganizerCard key={organizer.name} organizer={organizer} isPhone={isPhone} />
-        ))}
-      </OrganizersGrid>
-
-      <Separator />
-
-      <PartnersSection>
-        <Typography size="lg" weight="bold" color={TextColors.secondary}>
-          {t('teamAndPartners.mediaPartners')}
-        </Typography>
-        <PartnersLogos>
-          {PARTNERS.map((partner) => (
-            <PartnerLogo key={partner.name} partner={partner} />
-          ))}
-        </PartnersLogos>
-      </PartnersSection>
-    </Band.CenteredColumn>
-  );
-};
-
-const OrganizerCard = ({ organizer, isPhone }: { organizer: (typeof ORGANIZERS)[0]; isPhone: boolean }) => {
-  const size = isPhone ? 100 : 120;
-
-  return (
-    <ProfileWrapper>
-      <ProfilePicture picture={organizer.image} alt={organizer.name} width={size} height={size} />
-      <Typography size="md" weight="bold">
-        {organizer.name}
-      </Typography>
-      <InstagramLink
-        href={`https://www.instagram.com/${organizer.instagram}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Typography size="sm" color="inherit">
-          @{organizer.instagram}
-        </Typography>
-      </InstagramLink>
-    </ProfileWrapper>
-  );
-};
-
-const PartnerLogo = ({ partner }: { partner: (typeof PARTNERS)[0] }) => (
-  <LogoWrapper>
-    <Picture picture={partner.logo} alt={partner.name} height={60} />
-  </LogoWrapper>
-);
-
-// --- Style ---
-
-const commonTransition = css`
-  transition: all 0.3s ease-in-out;
 `;
 
 const OrganizersGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: ${RedesignSpacings.lg};
-  width: 100%;
-  max-width: 900px;
+  flex: 1;
+  max-width: 650px;
 
   @media (max-width: ${ScreenSize.phone}) {
     grid-template-columns: repeat(2, 1fr);
+    width: 100%;
     gap: ${RedesignSpacings.md};
   }
 `;
 
-const ProfileWrapper = styled.div`
+const AvatarButton = styled.button<{ $active: boolean }>`
+  background: none;
+  border: none;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: ${RedesignSpacings.xs};
-`;
+  gap: ${RedesignSpacings.sm};
+  transition: all 0.2s ease-in-out;
+  padding: 0;
 
-const ProfilePicture = styled(Picture)`
   img {
     border-radius: 50%;
+    border: 5px solid ${({ $active }) => ($active ? '#793b3b' : GrayScale[100])};
+    transition: all 0.3s ease;
     object-fit: cover;
-    border: 3px solid ${GrayScale[200]};
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    ${commonTransition}
   }
 
   &:hover img {
     transform: scale(1.05);
     border-color: #793b3b;
   }
+
+  ${Typography} {
+    color: ${({ $active }) => ($active ? '#793b3b' : GrayScale[600])};
+  }
 `;
 
-const InstagramLink = styled.a`
-  text-decoration: none;
-  color: #793b3b;
-  ${commonTransition}
-
-  &:hover {
-    opacity: 0.7;
-    text-decoration: underline;
-  }
+const NameGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 `;
 
 const Separator = styled.hr`
@@ -265,10 +101,6 @@ const PartnersLogos = styled.div`
   align-items: center;
   gap: ${RedesignSpacings.xl};
   flex-wrap: wrap;
-
-  @media (max-width: ${ScreenSize.phone}) {
-    gap: ${RedesignSpacings.lg};
-  }
 `;
 
 const LogoWrapper = styled.div`
@@ -276,7 +108,7 @@ const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
   opacity: 0.85;
-  ${commonTransition}
+  transition: all 0.3s ease;
 
   &:hover {
     opacity: 1;
@@ -290,3 +122,99 @@ const LogoWrapper = styled.div`
     object-fit: contain;
   }
 `;
+
+const PARTNERS = [
+  { name: 'Radio Eska', logo: { fallbackUrl: eskaSvg, sources: [] } },
+  {
+    name: 'LoveKraków',
+    logo: {
+      fallbackUrl: loveKrakowPng,
+      sources: [
+        { type: 'image/avif', url: loveKrakowAvif },
+        { type: 'image/webp', url: loveKrakowWebp }
+      ]
+    }
+  }
+];
+
+const organizerSlugs = ['ewa', 'monia', 'karo', 'malgo', 'dagmara', 'justynka'] as readonly OrganizerSlug[];
+
+export const TeamAndPartnersBand = () => {
+  const t = useTypedTranslation();
+  const isPhone = usePhone();
+  const detailRef = useRef<HTMLDivElement | null>(null);
+
+  const [activeSlug, setActiveSlug] = useState<OrganizerSlug>(() => {
+    const randomIndex = Math.floor(Math.random() * organizerSlugs.length);
+    return organizerSlugs[randomIndex];
+  });
+
+  const onOrganizerClick = useCallback(
+    (slug: OrganizerSlug) => {
+      setActiveSlug(slug);
+      if (isPhone) {
+        detailRef.current?.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+    [isPhone]
+  );
+
+  return (
+    <Band.CenteredColumn
+      id="team-and-partners"
+      size="md"
+      color={BackgroundColors.card}
+      padding={isPhone ? 'lg' : 'xxxl'}
+    >
+      <Band.Title>{t('teamAndPartners.title')}</Band.Title>
+
+      <LayoutWithActiveOrganizer>
+        <div ref={detailRef}>
+          <OrganizerDetailsCard
+            name={t(`teamAndPartners.organizers.${activeSlug}.name`)}
+            title={t(`teamAndPartners.organizers.${activeSlug}.title`)}
+            description={t(`teamAndPartners.organizers.${activeSlug}.description`)}
+            instagram={t(`teamAndPartners.organizers.${activeSlug}.instagram`)}
+            image={ORGANIZER_IMAGES[activeSlug]}
+          />
+        </div>
+
+        <OrganizersGrid>
+          {organizerSlugs.map((slug) => (
+            <AvatarButton key={slug} $active={activeSlug === slug} onClick={() => onOrganizerClick(slug)}>
+              <Picture
+                picture={ORGANIZER_IMAGES[slug]}
+                alt={slug}
+                width={isPhone ? 100 : 150}
+                height={isPhone ? 100 : 150}
+              />
+              <NameGroup>
+                <Typography size="md" weight="bold">
+                  {t(`teamAndPartners.organizers.${slug}.name`)}
+                </Typography>
+                <Typography size="md" weight="regular" color={TextColors.secondary}>
+                  {t(`teamAndPartners.organizers.${slug}.title`)}
+                </Typography>
+              </NameGroup>
+            </AvatarButton>
+          ))}
+        </OrganizersGrid>
+      </LayoutWithActiveOrganizer>
+
+      <Separator />
+
+      <PartnersSection>
+        <Typography size="lg" weight="bold" color={TextColors.secondary}>
+          {t('teamAndPartners.mediaPartners')}
+        </Typography>
+        <PartnersLogos>
+          {PARTNERS.map((partner) => (
+            <LogoWrapper key={partner.name}>
+              <Picture picture={partner.logo} alt={partner.name} height={60} />
+            </LogoWrapper>
+          ))}
+        </PartnersLogos>
+      </PartnersSection>
+    </Band.CenteredColumn>
+  );
+};

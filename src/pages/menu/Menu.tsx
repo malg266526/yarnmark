@@ -30,6 +30,7 @@ import burgerImageUrl from '../../assets/iconify/burger.svg';
 import shirtIcon from '../../assets/figmaIcons/menu/shirt.svg';
 import partyIcon from '../../assets/iconify/party-icon.svg';
 import lagrugruIcon from '../../assets/figmaIcons/bird.svg';
+import usersIcon from '../../assets/iconify/users.svg';
 import { BandsToggles, TicketsToggles } from '../../toggles';
 
 const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
@@ -270,6 +271,16 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
         <MenuItem href="/home#lagrugru" isOpen={isMenuExpanded} aria-label="lagrugru_menu_item" onClick={closeMenu}>
           <Icon size="sm" zIndex={0} src={lagrugruIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.lagrugru')}</Typography>}
+        </MenuItem>
+
+        <MenuItem
+          href="/home#team-and-partners"
+          isOpen={isMenuExpanded}
+          aria-label="team_and_partners_menu_item"
+          onClick={closeMenu}
+        >
+          <Icon size="sm" zIndex={0} src={usersIcon} />
+          {isMenuExpanded && <Typography size="sm">{t('menu.teamAndPartners')}</Typography>}
         </MenuItem>
 
         <MenuItem
