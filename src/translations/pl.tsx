@@ -143,8 +143,8 @@ export const pl = {
           title: 'Podskarbiyni Krakowskiego Skarbca',
           description: 'Trzyma pieczę nad złotem Yarnmarku, by każda moneta była wydana mądrze i zgodnie z planem.'
         },
-        justynka: {
-          name: 'Justynka',
+        justyna: {
+          name: 'Justyna',
           instagram: 'wloczykijki_sklep',
           title: 'Włodarzyni Składów i Królewskich Traktów',
           description:

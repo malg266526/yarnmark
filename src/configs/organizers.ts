@@ -21,11 +21,11 @@ import dagmaraAvif from '../assets/team_and_partners/dagmara_face.avif';
 import dagmaraWebp from '../assets/team_and_partners/dagmara_face.webp';
 import dagmaraJpg from '../assets/team_and_partners/dagmara_face.jpg';
 
-import justynkaAvif from '../assets/team_and_partners/justynka_face.avif';
-import justynkaWebp from '../assets/team_and_partners/justynka_face.webp';
-import justynkaJpg from '../assets/team_and_partners/justynka_face.jpg';
+import justynaAvif from '../assets/team_and_partners/justynka_face.avif';
+import justynaWebp from '../assets/team_and_partners/justynka_face.webp';
+import justynaJpg from '../assets/team_and_partners/justynka_face.jpg';
 
-export type OrganizerSlug = 'ewa' | 'monia' | 'karo' | 'malgo' | 'dagmara' | 'justynka';
+export type OrganizerSlug = 'ewa' | 'monia' | 'karo' | 'malgo' | 'dagmara' | 'justyna';
 
 export const ORGANIZER_IMAGES: Record<OrganizerSlug, PictureType> = {
   ewa: {
@@ -63,11 +63,11 @@ export const ORGANIZER_IMAGES: Record<OrganizerSlug, PictureType> = {
       { type: 'image/webp', url: dagmaraWebp }
     ]
   },
-  justynka: {
-    fallbackUrl: justynkaJpg,
+  justyna: {
+    fallbackUrl: justynaJpg,
     sources: [
-      { type: 'image/avif', url: justynkaAvif },
-      { type: 'image/webp', url: justynkaWebp }
+      { type: 'image/avif', url: justynaAvif },
+      { type: 'image/webp', url: justynaWebp }
     ]
   }
 };

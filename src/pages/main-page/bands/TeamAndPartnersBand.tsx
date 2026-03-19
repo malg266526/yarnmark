@@ -137,7 +137,7 @@ const PARTNERS = [
   }
 ];
 
-const organizerSlugs = ['ewa', 'monia', 'karo', 'malgo', 'dagmara', 'justynka'] as readonly OrganizerSlug[];
+const organizerSlugs = ['ewa', 'monia', 'karo', 'malgo', 'dagmara', 'justyna'] as readonly OrganizerSlug[];
 
 export const TeamAndPartnersBand = () => {
   const t = useTypedTranslation();
