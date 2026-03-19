@@ -24,6 +24,7 @@ import { WorkshopsScheduleMobileBand } from './workshops/WorkshopsScheduleMobile
 import { AfterBand } from './bands/AfterBand';
 import { WorkshopsMobileSchedule } from './workshops/WorkshopsMobileSchedule';
 import { LaGruGruBand } from './bands/LaGruGruBand';
+import { TeamAndPartnersBand } from './bands/TeamAndPartnersBand';
 
 export const MainPage = () => {
   const isPhone = usePhone();
@@ -60,7 +61,7 @@ export const MainPage = () => {
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 
           <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
-          <Band.Empty id="workshops" padding="xs">
+          <Band.Empty id="workshops" padding="xs" color="white">
             <WorkshopsMobileSchedule />
           </Band.Empty>
 
@@ -77,6 +78,8 @@ export const MainPage = () => {
           <PatternsBand id="patterns" />
 
           {BandsToggles.foodEnabled && <FoodBand id="food" />}
+
+          <TeamAndPartnersBand />
 
           <Band.Empty id="lastEdition" color={BackgroundColors.ticketBand} padding="sm">
             <LastEditionBand />
@@ -119,6 +122,8 @@ export const MainPage = () => {
           <PatternsBand id="patterns" />
 
           {BandsToggles.foodEnabled && <FoodBand id="food" />}
+
+          <TeamAndPartnersBand />
 
           <Band.CenteredColumn id="lastEdition" color={BackgroundColors.lastEditionBand} padding="sm" gap="lg">
             <LastEditionBand />
