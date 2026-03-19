@@ -104,6 +104,10 @@ export const pl = {
         annaPrefix: 'Autorstwa Ani'
       }
     },
+    teamAndPartners: {
+      title: 'Zespół & Partnerzy',
+      mediaPartners: 'PARTNERZY MEDIALNI'
+    },
     lagrugruBand: {
       title: 'LaGruGru!',
       slide1: {
