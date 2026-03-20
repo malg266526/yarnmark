@@ -79,7 +79,7 @@ export const MainPage = () => {
 
           {BandsToggles.foodEnabled && <FoodBand id="food" />}
 
-          <TeamAndPartnersBand />
+          {BandsToggles.teamAndPartnersEnabled && <TeamAndPartnersBand />}
 
           <Band.Empty id="lastEdition" color={BackgroundColors.ticketBand} padding="sm">
             <LastEditionBand />
@@ -123,7 +123,7 @@ export const MainPage = () => {
 
           {BandsToggles.foodEnabled && <FoodBand id="food" />}
 
-          <TeamAndPartnersBand />
+          {BandsToggles.teamAndPartnersEnabled && <TeamAndPartnersBand />}
 
           <Band.CenteredColumn id="lastEdition" color={BackgroundColors.lastEditionBand} padding="sm" gap="lg">
             <LastEditionBand />

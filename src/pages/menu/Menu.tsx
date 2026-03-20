@@ -273,15 +273,17 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           {isMenuExpanded && <Typography size="sm">{t('menu.lagrugru')}</Typography>}
         </MenuItem>
 
-        <MenuItem
-          href="/home#team-and-partners"
-          isOpen={isMenuExpanded}
-          aria-label="team_and_partners_menu_item"
-          onClick={closeMenu}
-        >
-          <Icon size="sm" zIndex={0} src={usersIcon} />
-          {isMenuExpanded && <Typography size="sm">{t('menu.teamAndPartners')}</Typography>}
-        </MenuItem>
+        {BandsToggles.teamAndPartnersEnabled && (
+          <MenuItem
+            href="/home#team-and-partners"
+            isOpen={isMenuExpanded}
+            aria-label="team_and_partners_menu_item"
+            onClick={closeMenu}
+          >
+            <Icon size="sm" zIndex={0} src={usersIcon} />
+            {isMenuExpanded && <Typography size="sm">{t('menu.teamAndPartners')}</Typography>}
+          </MenuItem>
+        )}
 
         <MenuItem
           href="/home#lastEdition"
