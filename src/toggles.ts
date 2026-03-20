@@ -11,5 +11,6 @@ export const BandsToggles = {
   cruiseEnabled: false,
   workshopsEnabled: true,
   afterEnabled: true,
-  teamAndPartnersEnabled: false
+  teamAndPartnersEnabled: true,
+  partnersEnabled: false
 };

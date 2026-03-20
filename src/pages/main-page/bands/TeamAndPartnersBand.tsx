@@ -10,6 +10,7 @@ import { Picture } from '../../../components/Picture';
 import { Typography } from '../../../components/Typography';
 import { OrganizerDetailsCard } from '../../../components/OrganizerDetailsCard';
 import { ORGANIZER_IMAGES, type OrganizerSlug } from '../../../configs/organizers';
+import { BandsToggles } from '../../../toggles';
 
 import loveKrakowPng from '../../../assets/team_and_partners/love_krakow.png';
 import loveKrakowWebp from '../../../assets/team_and_partners/love_krakow.webp';
@@ -201,20 +202,23 @@ export const TeamAndPartnersBand = () => {
         </OrganizersGrid>
       </LayoutWithActiveOrganizer>
 
-      <Separator />
-
-      <PartnersSection>
-        <Typography size="lg" weight="bold" color={TextColors.secondary}>
-          {t('teamAndPartners.mediaPartners')}
-        </Typography>
-        <PartnersLogos>
-          {PARTNERS.map((partner) => (
-            <LogoWrapper key={partner.name}>
-              <Picture picture={partner.logo} alt={partner.name} height={60} />
-            </LogoWrapper>
-          ))}
-        </PartnersLogos>
-      </PartnersSection>
+      {BandsToggles.partnersEnabled && (
+        <>
+          <Separator />
+          <PartnersSection>
+            <Typography size="lg" weight="bold" color={TextColors.secondary}>
+              {t('teamAndPartners.mediaPartners')}
+            </Typography>
+            <PartnersLogos>
+              {PARTNERS.map((partner) => (
+                <LogoWrapper key={partner.name}>
+                  <Picture picture={partner.logo} alt={partner.name} height={60} />
+                </LogoWrapper>
+              ))}
+            </PartnersLogos>
+          </PartnersSection>
+        </>
+      )}
     </Band.CenteredColumn>
   );
 };
