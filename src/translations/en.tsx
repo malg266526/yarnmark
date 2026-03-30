@@ -321,7 +321,7 @@ export const en: TranslationsShape = {
       bezogrodek: {
         description: 'Foodtruck park',
         discount:
-          'On the day of the event, upon showing your wristband, you will receive a <strong>30%</strong> discount on the bar and a <strong>20%</strong> discount on food trucks: Belgian fries, panini, Thai ice cream, Greek-Mexican cuisine.'
+          'On the day of the event, upon showing your wristband, you will receive a <strong>20%</strong> discount on the bar and a <strong>10%</strong> discount on selected food trucks.'
       },
       bistroblonia: {
         description: 'Todo',
@@ -337,6 +337,10 @@ export const en: TranslationsShape = {
         title: 'Cafe on the hall',
         description:
           'You can drink a coffee or a lemonade here and eat a snacks such as fries. If the weather is good, there will be an open terrace with deckchairs next to the café.'
+      },
+      bikeCafe: {
+        description:
+          'Just like last year, this year you will also be able to buy coffee from Bike Cafe in front of the hall.'
       }
     },
     goBack: 'Go back',

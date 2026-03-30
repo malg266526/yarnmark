@@ -112,7 +112,7 @@ export const de = {
       Ein großer Vorteil dieser Lage ist die gute Verkehrsanbindung – Sie können von jedem Ort aus mit öffentlichen oder privaten Verkehrsmitteln 
       dorthin gelangen.`,
       publicTransport:
-        'Öffis-Nutzer können die Buslinie (direkte Anbindung) und die Straßenbahnlinie nutzen, müssen aber mit einem kurzen Spaziergang über die Blonie Wiesen rechnen.',
+        'Öffis-Nutzer können die Buslinie (direkte Anbindung) and die Straßenbahnlinie nutzen, müssen aber mit einem kurzen Spaziergang über die Blonie Wiesen rechnen.',
       list: 'Die folgende Liste zeigt die Zufahrtsmöglichkeiten vom Krakauer Hauptbahnhof:',
       option1:
         '- Buslinie <strong>152</strong>, Haltestelle <strong>TEATR SŁOWACKIEGO</strong> (6 Minuten zu Fuß vom Bahnhof entfernt) → Richtung Friedhof Olszanica → Haltestelle <strong>INSTYTUT REUMATOLOGII</strong>',
@@ -172,7 +172,7 @@ export const de = {
         intro:
           'Eine Bootsfahrt auf der Weichsel in Krakau ist nicht nur eine attraktive Art, Zeit zu verbringen, sondern auch eine tolle Möglichkeit, sich zu entspannen und die Stadt von einer anderen Seite zu sehen.',
         description:
-          'Während der Kreuzfahrt werden Sie mit einem Glas Prosecco (oder einem Erfrischungsgetränk) verwöhnt, was der Atmosphäre einen Hauch von Luxus verleiht.'
+          'Während der Kreuzfahrt werden Sie mit einem Glas Prosecco (or einem Erfrischungsgetränk) verwöhnt, was der Atmosphäre einen Hauch von Luxus verleiht.'
       },
       buyTickets: 'Tickets können Sie hier kaufen',
       tickets: 'Tickets'
@@ -246,7 +246,7 @@ export const de = {
       bezogrodek: {
         description: 'Foodtruck park',
         discount:
-          'On the day of the event, upon showing your wristband, you will receive a <strong>30%</strong> discount on the bar and a <strong>20%</strong> discount on food trucks: Belgian fries, panini, Thai ice cream, Greek-Mexican cuisine.'
+          'On the day of the event, upon showing your wristband, you will receive a <strong>20%</strong> discount on the bar and a <strong>10%</strong> discount on selected food trucks.'
       },
       bistroblonia: {
         description: 'Todo',
@@ -262,6 +262,10 @@ export const de = {
         title: 'Cafe on the hall',
         description:
           'You can drink a coffee or a lemonade here and eat a snacks such as fries. If the weather is good, there will be an open terrace with deckchairs next to the café.'
+      },
+      bikeCafe: {
+        description:
+          'Wie letztes Jahr kann man auch dieses Jahr vor der Halle Kaffee von Bike Cafe kaufen.'
       }
     },
     goBack: 'Zurück',
@@ -306,7 +310,7 @@ export const de = {
           '</ul>',
         description:
           'Praca na wzorze na komin żakardowy dla początkujących, podobny do Easy Peasy Cowl. ' +
-          'Warsztaty są dla osób początkujących we wzorach żakardowych (np. Dla takich, które nigdy jeszcze nie próbowały tej techniki), ale potrafiących robić na drutach.' +
+          'Warsztaty are for osób początkujących we wzorach żakardowych (np. Dla takich, które nigdy jeszcze nie próbowały tej techniki), ale potrafiących robić na drutach.' +
           '<br>Warsztaty rozpocznę ok 30 minutową prezentacją, w trakcie której zdradzę wszystko co wiem na temat przerabiania wzorów żakardowych.' +
           '<br>Na warsztatach pokażę uczestnikom:' +
           '<ul>' +
@@ -322,7 +326,7 @@ export const de = {
           'Uczestnicy w trakcie warsztatów rozpoczną przerabianie swoich kominów i otrzymają ode mnie wskazówki jak dokończyć je w domu.<br>Uczestniczy powinni mieć opanowane podstawowe umiejętności: nabieranie oczek, przerabianie ściągaczem, dodawanie oczek, praca ściegiem gładkim w okrążeniach.',
         aboutMe:
           'Karolina Adamczyk na drutach robi od dziecka, a od kilku lat naprawdę intensywnie. ' +
-          'Jest to jej wielka pasja i uzależnienie do tego stopnia, że robótkę ma praktycznie zawsze przy sobie.  ' +
+          'Jest to her wielka pasja i uzależnienie do tego stopnia, że robótkę ma praktycznie zawsze przy sobie.  ' +
           'Najbardziej lubi robić wełniane czapki, skarpety i rękawiczki w kolorowe wzory. ' +
           'Jest to dla niej sposób na relaks, odpoczynek, oderwanie od problemów dnia codziennego.'
       },
@@ -342,10 +346,10 @@ export const de = {
         description_socks:
           'Czy marzysz o własnoręcznie wydzierganych skarpetkach, ale na samą myśl o pięcie robi Ci się słabo? Nie taki diabeł straszny, jak go malują. Na tym warsztacie przekonasz się, że dzierganie skarpetek może być logiczne, przyjemne i naprawdę satysfakcjonujące.<br>Podczas warsztatu będziemy dziergać skarpetki od góry, krok po kroku, na podstawie gotowego wzoru. W trakcie pracy omówimy wszystkie kluczowe elementy, dzięki którym kolejne pary zrobisz już z pełną swobodą.<br>Na warsztacie dowiesz się m.in.:<ul><li>z jakiej włóczki najlepiej dziergać skarpetki,</li><li>czy wybrać druty na żyłce czy 5 drutów skarpetkowych,</li><li>jak dziergać metodą magic loop,</li><li>ile oczek nabrać, by skarpetka dobrze leżała,</li><li>jak formować klasyczną piętę z klapką,</li><li>jak dopasować piętę do wysokiego podbicia,</li><li>jak uformować palce i estetycznie zamknąć oczka.</li></ul>Warsztat idealny dla osób, które chcą zrobić swoje pierwsze skarpetki bez stresu i zrozumieć, jak naprawdę działa ich konstrukcja.<br>Warsztat jest odpowiedni także dla początkujących – potrzebna jest umiejętność robienia prawych i lewych oczek oraz umiejźtność korzystania z drutów na żyłce lub pięciu skarpetkowych.',
         description_heels:
-          'Różne rodzaje pięt. Znajdź piętę, którą naprawdę polubisz!<br>Czy wciąż szukasz tej jedynej metody na idealną skarpetę? A może boisz się, że wyrabianie pięty to „wyższa szkoła jazdy”? Czas to zmienić i sprawdzić, która technika stanie się Twoją ulubioną – bez względu na to, czy dziergasz od góry, czy od palców.<br>Nie ma jednej najlepszej pięty – najlepsza jest ta, która dla Ciebie jest najwygodniejsza.<br>Przejdziemy przez różne konstrukcje pięt, by wybrać technikę, z którą polubisz się najbardziej:<ul><li>Pięta klasyczna z klapką: Ta tradycyjna technika jest zawsze niezawodna.</li><li>Pięta rzędymi skróconymi: Może to właśne ta pięta jest dla Ciebie.</li><li>Pięta dorabiana: Odkryjesz sprytny sposób na dodanie pięty na samym końcu.</li><li>Pięta Fleegle: Ciekawa pięta dla odważnych.</li></ul>Dla kogo jest ten warsztat? Dla każdego, kto chce przestać walczyć z piętą, a zacząć czerpać radość z jej robienia.<br>Na warsztacie potrzebna jest umiejętność robienia prawych i lewych oczek oraz posługiwania się w okrążeniach drutami na żyłce lub pięcioma drutami skarpetkowymi.<br>Przyjdź i wybierz metodę, którą naprawdę polubisz!',
+          'Różne rodzaje pięt. Znajdź piętę, którą naprawdę polubisz!<br>Czy wciąż szukasz tej jedynej metody na idealną skarpetę? A może boisz się, że wyrabianie pięty to „wyższa szkoła jazdy”? Czas to zmienić i sprawdzić, która technika stanie się Twoją ulubioną – bez względu na to, czy dziergasz od góry, czy od palców.<br>Nie ma einer besten Pięty – najlepsza jest ta, która dla Ciebie jest najwygodniejsza.<br>Przejdziemy przez różne konstrukcje pięt, by wybrać technikę, z którą polubisz się najbardziej:<ul><li>Pięta klasyczna z klapką: Ta tradycyjna technika jest zawsze niezawodna.</li><li>Pięta rzędymi skróconymi: Może to właśne ta pięta jest dla Ciebie.</li><li>Pięta dorabiana: Odkryjesz sprytny sposób na dodanie pięty na samym końcu.</li><li>Pięta Fleegle: Ciekawa pięta dla odważnych.</li></ul>Dla kogo jest ten warsztat? Dla każdego, kto chce przestać walczyć z piętą, a zacząć czerpać radość z jej robienia.<br>Na warsztacie potrzebna jest umiejętność robienia prawych i lewych oczek oraz posługiwania się w okrążeniach drutami na żyłce lub pięcioma drutami skarpetkowymi.<br>Przyjdź und wybierz metodę, którą naprawdę polubisz!',
         aboutMe:
           'Nazywam się Iwona Eriksson i dziergam na drutach „od zawsze”.<br>' +
-          'Od wielu lat mieszkam w Szwecji, chłonę tutejsze tradycje dziewiarstwa, ale jednocześnie pielęgnuję i rozwijam dziewiarstwo polskie.<br>' +
+          'Od wielu lat mieszkam w Szwecji, chłonę tutejsze tradje dziewiarstwa, ale jednocześnie pielęgnuję i rozwijam dziewiarstwo polskie.<br>' +
           'Od ponad 10 lat uczę robienia na drutach na YouTube, a także tworzę kursy dziewiarskie na moich własnych stronach www. Piszę dziewiarskie wzory, prowadzę dziewiarski podcast „Zmagania Drutoterapii” oraz tematyczne transmisje na żywo.<br>' +
           'Uczę się nowych technik, konstrukcji, ściegów i kolekcjonuję piękne włóczki.<br>' +
           'Dziewiarstwo jest moją pasją, ale mam także wiele innych zainteresowań jak historia, parapsychologia i fizyka kwantowa. Kocham zwierzęta, mój ogród i naturę.<br>' +
@@ -431,7 +435,7 @@ export const de = {
         description:
           'Warsztaty tkania od podstaw, na których wykonacie swoją pierwszą dekorację ścienną o wymiarach ok. 18 × 30 cm. Podczas kameralnego spotkania poznacie tajniki tradycyjnego rzemiosła od mistrzyni tkactwa - Splotki.  Nie jest wymagane wcześniejsze doświadczenie. <br>Zajęcia odbywają się w duchu ZERO WASTE – nic się nie marnuje. Wykorzystywać będziemy między innymi sznurki, włóczki ale i ręcznie przędzoną wełnę, len, konopie i polską przędzę spod Zakopca. Wszystkie niezbędne rzeczy dostępne na miejscu, wystarczy przynieść ze sobą odrobinę uśmiechu. Po zakończonych warsztatach istnieje możliwość zakupu narzędzi w promocyjnej cenie. <br><br>Program warsztatów obejmuje:<ul><li>naukę tkania na krośnie harfowym,</li><li>poznanie co najmniej 4 podstawowych splotów,</li><li>dobór materiałów i kolorów,</li><li>utrzymywanie napięcia wątku i osnowy,</li><li>wyrównywanie krawędzi i dodawanie frędzli,</li><li>wykończenie makatki,</li><li>recykling materiałów („zrzutów”).</li></ul>',
         aboutMe:
-          'Zajęcia prowadzi Monika Splotka – artystka sztuki włókna i rzemieślniczka. Tka od 2004 roku, a od 8 lat organizuje kreatywne warsztaty w Polsce i za granicą. Specjalizuje się w kilimach - tradycyjnym rzemiośle we współczesnym designie. Jej życiowym mottem jest "Zrelaksuj się splotem, a obowiązki? Może potem".'
+          'Zajęcia prowadzi Monika Splotka – artystka sztuki włókna i rzemieślnička. Tka od 2004 roku, a od 8 lat organizuje kreatywne warsztaty in Polsce i za granicą. Specjalizuje się in kilimach - tradycyjnym rzemiośle we współczesnym designie. Jej życiowym mottem jest "Zrelaksuj się splotem, a obowiązki? Może potem".'
       },
 
       // --- SIS HOMEMADE ---
@@ -440,17 +444,17 @@ export const de = {
         materials: '<ul>' + '<li>Zestaw wraz z wzorem i akcesoriami otrzymacie na miejscu.</li>' + '</ul>',
         description:
           'Zapraszamy na warsztaty amigurumi, podczas których wspólnie wykonamy Yarnmarkowe amigurumi na podstawie wzoru zaprojektowanego przez nas, specjalnie na III edycję targów Yarnmark. <br>' +
-          'Warsztaty dedykowane są dla osób, które znają podstawy, takie jak zrobienie oczek i półsłupków. Razem z nami nauczycie się, między innymi, jak zrobić niewidzialne zmniejszenie/zmianę kolorów, początkowy łańcuszek, na którym od razu zrobione są półsłupki oraz jak sprawić, żeby Wasze maskotki były jeszcze piękniejsze. ;)<br>' +
+          'Warsztaty dedykowane for osób, które znają podstawy, takie jak zrobienie oczek i półsłupków. Razem z nami nauczycie się, między innymi, jak zrobić niewidzialne zmniejszenie/zmianę kolorów, początkowy łańcuszek, na którym od razu zrobione są półsłupki oraz jak sprawić, żeby Wasze maskotki były jeszcze piękniejsze. ;)<br>' +
           'Zapewniamy (wszystkie) potrzebne materiały - nie musicie zabierać ze sobą niczego, poza chęcią do nauki i dobrej zabawy. :)' +
           'Będzie nam bardzo miło się z Wami spotkać!',
         aboutMe:
-          'Sishomemade czyli po prostu dwie siostry - Aśka i Anka. Miłość do rękodzieła najwyraźniej wyssałyśmy z mlekiem matki, ale dotarło to do nas dopiero po 25 latach. Od tego czasu tworzymy wzory, dzięki którym każdy może wyczarować coś wyjątkowego własnymi rękami. I zakochać się w szydełkowaniu tak jak my.'
+          'Sishomemade czyli po prostu dwie siostry - Aśka i Anka. Miłość do rękodzieła najwyraźniej wyssałyśmy z mlekiem matki, ale dotarło to do nas dopiero po 25 latach. Od tego czasu tworzymy wzory, dzięki którym każdy może wyczarować coś wyjątkowego własnymi rękami. I zakochać się w szydełkowaniu tak jak mi.'
       },
 
       // --- INKA ---
       inka: {
         title: 'Szydełko dla leworęcznych',
-        materials: 'Materiały - włóczkę i szydełko - dostarcza sponsor warsztatów <strong>Włóczykijki</strong></ul>',
+        materials: 'Materiay - włóczkę i szydełko - dostarcza sponsor warsztatów <strong>Włóczykijki</strong></ul>',
         description:
           'Zajęcia dla osób leworęcznych bez doświadczenia w robieniu na szydełku. Nauczysz się jak zrobić magiczne kółko oraz podstawowe sploty, dzięki którym będziesz w stanie zacząć swoją szydełkową przygodę. Z zajęć wyjdziesz ze swoją pierwszą, własnoręcznie wykonaną podkładką pod kubek!',
         aboutMe:

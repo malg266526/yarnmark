@@ -319,7 +319,7 @@ export const pl = {
       bezogrodek: {
         description: 'Foodtruck park',
         discount:
-          'W dniu wydarzenia, za okazaniem Yarnmarkowej opaski, otrzymujecie <strong>30%</strong> zniżki na bar oraz <strong>20%</strong> na foodtrucki: frytki belgijskie, panini, lody tajskie, kuchnia grecko-meksykańska.'
+          'W dniu wydarzenia, za okazaniem Yarnmarkowej opaski, otrzymujecie <strong>20%</strong> zniżki na bar oraz <strong>10%</strong> na wybrane foodtrucki.'
       },
       bistroblonia: {
         description: 'Todo',
@@ -335,6 +335,9 @@ export const pl = {
         title: 'Kawiarnia na hali',
         description:
           'Znajdziecie tu kawę, lemoniadę oraz przekąski typu frytki. Jeśli pogoda będzie nam sprzyjać, przy kawiarni będzie otwarty taras z leżakami.'
+      },
+      bikeCafe: {
+        description: 'Tak jak w zeszłym roku, w tym również przed halą będzie można zakupić kawę z Bike Cafe.'
       }
     },
     goBack: 'Wróć',

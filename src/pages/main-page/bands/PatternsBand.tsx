@@ -86,7 +86,7 @@ export const PatternsBand = ({ id }: PatternsBandType) => {
       size="md"
       gap={isPhone ? 'sm' : 'lg'}
       padding={isPhone ? 'md' : 'xxxl'}
-      color={BackgroundColors.patterns}
+      color={BackgroundColors.navigationBand}
       justify="center"
     >
       <Band.Title>{t('patternsBand.title')}</Band.Title>
