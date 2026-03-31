@@ -8,21 +8,14 @@ import i18next from 'i18next';
 import isPropValid from '@emotion/is-prop-valid';
 import { en } from './translations/en';
 import { pl } from './translations/pl';
-import { de } from './translations/de';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const DEFAULT_PL_BROWSER_SETTINGS = 'pl-PL';
-const DEFAULT_DE_BROWSER_SETTINGS = 'de-DE';
 
 const localStorageLanguage = localStorage.getItem('language');
 const browserDefaultLanguage = navigator.language;
 
-const browserLanguage =
-  browserDefaultLanguage === DEFAULT_PL_BROWSER_SETTINGS
-    ? 'pl'
-    : browserDefaultLanguage === DEFAULT_DE_BROWSER_SETTINGS
-      ? 'de'
-      : 'en';
+const browserLanguage = browserDefaultLanguage === DEFAULT_PL_BROWSER_SETTINGS ? 'pl' : 'en';
 
 const defaultLanguage = localStorageLanguage ? localStorageLanguage : browserLanguage;
 
@@ -32,8 +25,7 @@ i18next.init({
 
   resources: {
     en,
-    pl,
-    de
+    pl
   }
 });
 

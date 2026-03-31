@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { RedesignSpacings } from '../styles/spacings';
 import polandIcon from '../assets/figmaIcons/poland_round_icon.svg';
 import greatBritainIcon from '../assets/figmaIcons/great_britain_round_icon.svg';
-import germanyIcon from '../assets/figmaIcons/german_round_icon.svg';
 import { Icon } from '../components/Icon';
 import { useToggle } from '../hooks/useToggle';
 import chevronDownIcon from '../assets/figmaIcons/chevron_down-icon.svg';
@@ -62,12 +61,11 @@ const Flags = styled.div<{ isOpen?: boolean }>`
   }
 `;
 
-export type LanguageOption = 'pl' | 'en' | 'de';
+export type LanguageOption = 'pl' | 'en';
 
 const FlagsSrc: Record<string, string> = {
   pl: polandIcon,
-  en: greatBritainIcon,
-  de: germanyIcon
+  en: greatBritainIcon
 };
 
 interface LanguageSwitcherProps {
@@ -116,9 +114,6 @@ export const LanguageSwitcher = ({ isOpen }: LanguageSwitcherProps) => {
         <Button onClick={() => onChangeLanguageClicked('en')} aria-label="change_language_to_en">
           <Icon size={flagIconSize} src={greatBritainIcon} />
         </Button>
-        {/* <Button onClick={() => onChangeLanguageClicked('de')} aria-label="change_language_to_de">
-          <Icon size={flagIconSize} src={germanyIcon} />
-        </Button> */}
       </Flags>
     </Root>
   );

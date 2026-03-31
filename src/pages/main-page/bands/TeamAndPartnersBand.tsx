@@ -16,6 +16,18 @@ import loveKrakowWebp from '../../../assets/team_and_partners/love_krakow.webp';
 import loveKrakowAvif from '../../../assets/team_and_partners/love_krakow.avif';
 import eskaSvg from '../../../assets/team_and_partners/ESKA_pantone_outline.svg';
 
+import lainePng from '../../../assets/team_and_partners/wool/laine.png';
+import laineWebp from '../../../assets/team_and_partners/wool/laine.webp';
+import laineAvif from '../../../assets/team_and_partners/wool/laine.avif';
+import lbaPng from '../../../assets/team_and_partners/wool/lba.png';
+import lbaWebp from '../../../assets/team_and_partners/wool/lba.webp';
+import lbaAvif from '../../../assets/team_and_partners/wool/lba.avif';
+import muudPng from '../../../assets/team_and_partners/wool/muud.png';
+import muudWebp from '../../../assets/team_and_partners/wool/muud.webp';
+import muudAvif from '../../../assets/team_and_partners/wool/muud.avif';
+import myakWebp from '../../../assets/team_and_partners/wool/myak.webp';
+import myakAvif from '../../../assets/team_and_partners/wool/myak.avif';
+
 const LayoutWithActiveOrganizer = styled.div`
   display: flex;
   width: 100%;
@@ -103,8 +115,9 @@ const PartnersLogos = styled.div`
   flex-wrap: wrap;
 `;
 
-const LogoWrapper = styled.div`
-  height: 60px;
+const LogoWrapper = styled.div<{ $height?: number; $width?: number }>`
+  ${({ $width, $height }) =>
+    $width ? `width: ${$width}px; height: auto;` : `height: ${$height || 60}px;`}
   display: flex;
   align-items: center;
   opacity: 0.85;
@@ -115,9 +128,12 @@ const LogoWrapper = styled.div`
     transform: translateY(-2px);
   }
 
+  picture {
+    ${({ $width }) => ($width ? 'width: 100%; height: auto;' : 'height: 100%;')}
+  }
+
   img {
-    height: 100%;
-    width: auto;
+    ${({ $width }) => ($width ? 'width: 100%; height: auto;' : 'height: 100%; width: auto;')}
     max-width: 200px;
     object-fit: contain;
   }
@@ -133,6 +149,46 @@ const PARTNERS = [
         { type: 'image/avif', url: loveKrakowAvif },
         { type: 'image/webp', url: loveKrakowWebp }
       ]
+    }
+  }
+];
+
+const WOOL_PATRONS = [
+  {
+    name: 'Laine',
+    logo: {
+      fallbackUrl: lainePng,
+      sources: [
+        { type: 'image/avif', url: laineAvif },
+        { type: 'image/webp', url: laineWebp }
+      ]
+    }
+  },
+  {
+    name: 'LBA',
+    logo: {
+      fallbackUrl: lbaPng,
+      sources: [
+        { type: 'image/avif', url: lbaAvif },
+        { type: 'image/webp', url: lbaWebp }
+      ]
+    }
+  },
+  {
+    name: 'Muud',
+    logo: {
+      fallbackUrl: muudPng,
+      sources: [
+        { type: 'image/avif', url: muudAvif },
+        { type: 'image/webp', url: muudWebp }
+      ]
+    }
+  },
+  {
+    name: 'Myak',
+    logo: {
+      fallbackUrl: myakWebp,
+      sources: [{ type: 'image/avif', url: myakAvif }]
     }
   }
 ];
@@ -211,6 +267,21 @@ export const TeamAndPartnersBand = () => {
           {PARTNERS.map((partner) => (
             <LogoWrapper key={partner.name}>
               <Picture picture={partner.logo} alt={partner.name} height={60} />
+            </LogoWrapper>
+          ))}
+        </PartnersLogos>
+      </PartnersSection>
+
+      <Separator />
+
+      <PartnersSection>
+        <Typography size="lg" weight="bold" color={TextColors.secondary}>
+          {t('teamAndPartners.woolPatrons')}
+        </Typography>
+        <PartnersLogos>
+          {WOOL_PATRONS.map((partner) => (
+            <LogoWrapper key={partner.name} $width={60}>
+              <Picture picture={partner.logo} alt={partner.name} width={60} />
             </LogoWrapper>
           ))}
         </PartnersLogos>

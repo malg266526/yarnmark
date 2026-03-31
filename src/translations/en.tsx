@@ -29,6 +29,7 @@ export const en: TranslationsShape = {
     teamAndPartners: {
       title: 'Team & Partners',
       mediaPartners: 'MEDIA PARTNERS',
+      woolPatrons: 'WOOL PATRONS',
       organizers: {
         ewa: {
           name: 'Ewa',
