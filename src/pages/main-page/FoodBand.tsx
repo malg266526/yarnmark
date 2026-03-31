@@ -1,4 +1,4 @@
-import { BackgroundColors } from '../../styles/theme';
+import { GrayScale } from '../../styles/theme';
 import { ImageButton } from '../../components/ImageButton';
 import { Icon } from '../../components/Icon';
 import burgerImageUrl from '../../assets/iconify/burger.svg';
@@ -24,7 +24,7 @@ import { Band } from '../../components/bands/Band';
 import { Icon as IconifyIcon } from '@iconify/react';
 import { RowLayout } from '../../components/RowLayout';
 
-type ActiveButtonType = 'foodtruckBezogrodek' | 'coffeehouse';
+type ActiveButtonType = 'foodtruckBezogrodek' | 'coffeehouse' | 'bikeCafe';
 
 type ActiveButtonToImageConfig = Record<
   ActiveButtonType,
@@ -157,6 +157,11 @@ const getActiveButtonToImage: ActiveButtonToImageFunction = (t) => ({
     ),
     title: t('foodBand.coffeehouse.title'),
     description: t('foodBand.coffeehouse.description')
+  },
+  bikeCafe: {
+    image: null,
+    title: 'Bike Cafee',
+    description: t('foodBand.bikeCafe.description')
   }
 });
 
@@ -188,13 +193,7 @@ export const FoodBand = ({ id }: FoodBandType) => {
   );
 
   return (
-    <Band.CenteredColumn
-      id={id}
-      size="md"
-      color={BackgroundColors.navigationBand}
-      padding={rensponsivePadding}
-      gap="md"
-    >
+    <Band.CenteredColumn id={id} size="md" color={GrayScale[100]} padding={rensponsivePadding} gap="md">
       <Band.Title>{t('foodBand.whereToEat')}</Band.Title>
 
       <LayoutWithActiveButton>
@@ -214,6 +213,14 @@ export const FoodBand = ({ id }: FoodBandType) => {
             ref={framedBoxRef}
           >
             Kawiarnia na hali
+          </ImageButton>
+
+          <ImageButton
+            active={activeButton === 'bikeCafe'}
+            icon={<IconifyIcon icon="mdi:coffee" width="24" height="24" />}
+            onClick={() => onRestaurantClick('bikeCafe')}
+          >
+            Bike Cafee
           </ImageButton>
         </ButtonsWrapper>
 
