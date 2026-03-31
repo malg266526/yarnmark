@@ -116,8 +116,7 @@ const PartnersLogos = styled.div`
 `;
 
 const LogoWrapper = styled.div<{ $height?: number; $width?: number }>`
-  ${({ $width, $height }) =>
-    $width ? `width: ${$width}px; height: auto;` : `height: ${$height || 60}px;`}
+  ${({ $width, $height }) => ($width ? `width: ${$width}px; height: auto;` : `height: ${$height || 60}px;`)}
   display: flex;
   align-items: center;
   opacity: 0.85;
@@ -280,7 +279,7 @@ export const TeamAndPartnersBand = () => {
         </Typography>
         <PartnersLogos>
           {WOOL_PATRONS.map((partner) => (
-            <LogoWrapper key={partner.name} $width={60}>
+            <LogoWrapper key={partner.name} $width={100}>
               <Picture picture={partner.logo} alt={partner.name} width={60} />
             </LogoWrapper>
           ))}
