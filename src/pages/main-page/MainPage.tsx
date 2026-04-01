@@ -22,6 +22,7 @@ import { VendorsList } from './VendorsList';
 import { CruiseBand } from './bands/CruiseBand';
 import { WorkshopsScheduleMobileBand } from './workshops/WorkshopsScheduleMobileBand';
 import { AfterBand } from './bands/AfterBand';
+import { GoldenPretzelBand } from './bands/GoldenPretzelBand';
 import { WorkshopsMobileSchedule } from './workshops/WorkshopsMobileSchedule';
 import { LaGruGruBand } from './bands/LaGruGruBand';
 import { TeamAndPartnersBand } from './bands/TeamAndPartnersBand';
@@ -75,6 +76,8 @@ export const MainPage = () => {
 
           {BandsToggles.afterEnabled && <AfterBand id="after" />}
 
+          {BandsToggles.goldenPretzelEnabled && <GoldenPretzelBand id="goldenPretzel" />}
+
           <PatternsBand id="patterns" />
 
           {BandsToggles.foodEnabled && <FoodBand id="food" />}
@@ -118,6 +121,8 @@ export const MainPage = () => {
           {BandsToggles.workshopsEnabled && <WorkshopsDesktopBand id="workshops" />}
 
           {BandsToggles.afterEnabled && <AfterBand id="after" />}
+
+          {BandsToggles.goldenPretzelEnabled && <GoldenPretzelBand id="goldenPretzel" />}
 
           <PatternsBand id="patterns" />
 
