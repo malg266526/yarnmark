@@ -107,8 +107,8 @@ export const pl = {
     },
     teamAndPartners: {
       title: 'Zespół & Partnerzy',
-      mediaPartners: 'PARTNERZY MEDIALNI',
-      woolPatrons: 'PATRONI WŁÓCZKOWI',
+      mediaPartners: 'PATRONI MEDIALNI',
+      woolPatrons: 'PARTNERZY WŁÓCZKOWI',
       organizers: {
         ewa: {
           name: 'Ewa',
