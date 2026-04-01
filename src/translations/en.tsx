@@ -28,8 +28,8 @@ export const en: TranslationsShape = {
     },
     teamAndPartners: {
       title: 'Team & Partners',
-      mediaPartners: 'MEDIA PARTNERS',
-      woolPatrons: 'WOOL PATRONS',
+      mediaPartners: 'MEDIA PATRONS',
+      woolPatrons: 'WOOL PARTNERS',
       organizers: {
         ewa: {
           name: 'Ewa',
