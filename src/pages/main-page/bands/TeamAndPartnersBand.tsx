@@ -27,6 +27,8 @@ import muudWebp from '../../../assets/team_and_partners/wool/muud.webp';
 import muudAvif from '../../../assets/team_and_partners/wool/muud.avif';
 import myakWebp from '../../../assets/team_and_partners/wool/myak.webp';
 import myakAvif from '../../../assets/team_and_partners/wool/myak.avif';
+import rosariosWebp from '../../../assets/team_and_partners/wool/rosarios.webp';
+import rosariosAvif from '../../../assets/team_and_partners/wool/rosarios.avif';
 
 const LayoutWithActiveOrganizer = styled.div`
   display: flex;
@@ -188,7 +190,16 @@ const WOOL_PATRONS = [
     logo: {
       fallbackUrl: myakWebp,
       sources: [{ type: 'image/avif', url: myakAvif }]
-    }
+    },
+    width: 100
+  },
+  {
+    name: 'Rosarios 4',
+    logo: {
+      fallbackUrl: rosariosWebp,
+      sources: [{ type: 'image/avif', url: rosariosAvif }]
+    },
+    width: 150
   }
 ];
 
@@ -279,8 +290,8 @@ export const TeamAndPartnersBand = () => {
         </Typography>
         <PartnersLogos>
           {WOOL_PATRONS.map((partner) => (
-            <LogoWrapper key={partner.name} $width={100}>
-              <Picture picture={partner.logo} alt={partner.name} width={60} />
+            <LogoWrapper key={partner.name} $width={partner.width ?? 100}>
+              <Picture picture={partner.logo} alt={partner.name} width={partner.width ?? 60} />
             </LogoWrapper>
           ))}
         </PartnersLogos>
