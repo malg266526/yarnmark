@@ -1,6 +1,7 @@
 import React, { ReactNode, useState } from 'react';
 import styled from 'styled-components';
 import { RedesignSpacings } from '../../styles/spacings';
+import { ScreenSize } from '../../styles/screeen-size';
 import { Typography } from '../Typography';
 import { BackgroundColors } from '../../styles/theme';
 
@@ -57,6 +58,10 @@ const AccordionInner = styled.div`
 const AccordionBody = styled.div`
   padding: ${RedesignSpacings.sm} ${RedesignSpacings.lg} ${RedesignSpacings.lg};
   display: flow-root;
+
+  @media (max-width: ${ScreenSize.phone}) {
+    padding: ${RedesignSpacings.sm} ${RedesignSpacings.xs} ${RedesignSpacings.lg};
+  }
 `;
 
 export const Accordion = ({ title, children, defaultOpen = false }: AccordionProps) => {
@@ -64,7 +69,7 @@ export const Accordion = ({ title, children, defaultOpen = false }: AccordionPro
 
   return (
     <AccordionContainer>
-      <AccordionHeader onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen}>
+      <AccordionHeader id="accordion_header" onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen}>
         <Typography size="lg" weight="bold">
           {title}
         </Typography>
@@ -75,7 +80,7 @@ export const Accordion = ({ title, children, defaultOpen = false }: AccordionPro
 
       <AccordionContent isOpen={isOpen}>
         <AccordionInner>
-          <AccordionBody>{children}</AccordionBody>
+          <AccordionBody id="accordion_body">{children}</AccordionBody>
         </AccordionInner>
       </AccordionContent>
     </AccordionContainer>

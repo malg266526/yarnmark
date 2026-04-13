@@ -14,7 +14,7 @@ const Container = styled.div`
   overflow-y: scroll;
 
   gap: ${RedesignSpacings.md};
-  padding: ${RedesignSpacings.sm};
+  padding: ${RedesignSpacings.sm} ${RedesignSpacings.xs};
 `;
 
 export const WorkshopsMobileSchedule = () => {
