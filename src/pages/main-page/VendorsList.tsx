@@ -4,10 +4,6 @@ import { RedesignSpacings } from '../../styles/spacings';
 import { Link } from '../../components/Link';
 import { ScreenSize } from '../../styles/screeen-size';
 
-import agnawool from '../../assets/images/minifiedLogos/agnawool.jpg';
-import agnawoolAvif from '../../assets/images/minifiedLogos/agnawool.avif';
-import agnawoolWebp from '../../assets/images/minifiedLogos/agnawool.webp';
-
 import siedemOczekLogoUrl from '../../assets/images/minifiedLogos/7oczek.png';
 import siedemOczekLogoUrlAvif from '../../assets/images/minifiedLogos/7oczek.avif';
 import siedemOczekLogoUrlWebp from '../../assets/images/minifiedLogos/7oczek.webp';
@@ -96,6 +92,10 @@ import theKnittingBoxLogoUrlWebp from '../../assets/images/minifiedLogos/TheKnit
 import timeToKnitLogoUrl from '../../assets/images/minifiedLogos/timetoknit.png';
 import timeToKnitLogoUrlAvif from '../../assets/images/minifiedLogos/timetoknit.avif';
 import timeToKnitLogoUrlWebp from '../../assets/images/minifiedLogos/timetoknit.webp';
+
+import tulinkiLogoUrl from '../../assets/images/minifiedLogos/Tulinki.png';
+import tulinkiLogoUrlAvif from '../../assets/images/minifiedLogos/Tulinki.avif';
+import tulinkiLogoUrlWebp from '../../assets/images/minifiedLogos/Tulinki.webp';
 
 import welnaBawelnaLogoUrl from '../../assets/images/minifiedLogos/WelnaBawelna.jpg';
 import welnaBawelnaLogoUrlAvif from '../../assets/images/minifiedLogos/WelnaBawelna.avif';
@@ -207,27 +207,6 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: siedemOczekLogoUrlAvif
-              }
-            ]
-          }}
-        />
-      </LogoLink>
-
-      <LogoLink to="https://agnawool.art/" target="_blank" rel="noreferrer">
-        <Picture
-          width={85 / divider}
-          height={120 / divider}
-          alt="agna_wool_art_logo"
-          picture={{
-            fallbackUrl: agnawool,
-            sources: [
-              {
-                type: 'image/webp',
-                url: agnawoolWebp
-              },
-              {
-                type: 'image/avif',
-                url: agnawoolAvif
               }
             ]
           }}
@@ -859,6 +838,27 @@ export const VendorsList = () => {
               {
                 type: 'image/avif',
                 url: timeToKnitLogoUrlAvif
+              }
+            ]
+          }}
+        />
+      </LogoLink>
+
+      <LogoLink to="https://www.tulinkimotki.pl/" target="_blank" rel="noreferrer">
+        <Picture
+          width={138 / divider}
+          height={116 / divider}
+          alt="tulinki_logo"
+          picture={{
+            fallbackUrl: tulinkiLogoUrl,
+            sources: [
+              {
+                type: 'image/webp',
+                url: tulinkiLogoUrlWebp
+              },
+              {
+                type: 'image/avif',
+                url: tulinkiLogoUrlAvif
               }
             ]
           }}
