@@ -846,8 +846,8 @@ export const VendorsList = () => {
 
       <LogoLink to="https://www.tulinkimotki.pl/" target="_blank" rel="noreferrer">
         <Picture
-          width={120 / divider}
-          height={101 / divider}
+          width={138 / divider}
+          height={116 / divider}
           alt="tulinki_logo"
           picture={{
             fallbackUrl: tulinkiLogoUrl,
