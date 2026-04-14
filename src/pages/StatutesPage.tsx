@@ -59,7 +59,7 @@ export const StatutesPage = () => {
           <ol>
             <li>
               Włóczykijki s.c. oraz Dziergamy na polu są organizatorami (dalej: “Organizator”) wydarzenia Krakoski
-              Yarnmark (dalej: “Yarnmark”), który odbywa się w dniu 26 kwietnia 2025 roku na terenie Hali Cracovii
+              Yarnmark (dalej: “Yarnmark”), który odbywa się w dniu 18 kwietnia 2026 roku na terenie Hali Cracovii
               (dalej “Hala”) w godzinach od 10:00 do 17:00
             </li>
             <li>
@@ -69,7 +69,7 @@ export const StatutesPage = () => {
                 <li>130 zł premium</li>
               </ul>*/}
               <ol type="a">
-                <li>Możliwość zakupienia biletów drogą elektroniczną kończy się 25.04 o godzinie 18:00</li>
+                <li>Możliwość zakupienia biletów drogą elektroniczną kończy się 17.04 o godzinie 12:00</li>
                 <li>
                   W dniu Yarnmarku będzie możliwość zakupienia biletów na miejscu u Organizatora. Płatność za pomocą
                   bliku, karty lub gotówką

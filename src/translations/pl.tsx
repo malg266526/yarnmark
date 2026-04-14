@@ -237,7 +237,7 @@ export const pl = {
         startAndStop: 'Miejsce startu i zakończenia rejsu:',
         time: 'Godzina rejsu:',
         price: 'Cena',
-        priceIncludesYarnmarkTicket: 'Cena zawiera bilet wejścia na targi <strong>Krakoski Yarnmark 2025</strong>',
+        priceIncludesYarnmarkTicket: 'Cena zawiera bilet wejścia na targi <strong>Krakoski Yarnmark 2026</strong>',
         route: 'Trasa:'
       },
       pleaseBeEarly: 'Bardzo prosimy o przybycie na miejsce startu rejsu 15min. wcześniej.',
