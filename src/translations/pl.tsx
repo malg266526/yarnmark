@@ -417,7 +417,7 @@ export const pl = {
         materials_heels:
           '<ul>' +
           '<li>Włóczkę dostarcza sponsor <strong>Brioszka</strong></li>' +
-          '<li>Druty: 2-4 komplety dopasowane do włóczki</li>' +
+          '<li>Druty: 2-4 komplety dopasowane do włóczki - 2-4mm</li>' +
           '</ul>',
         description_socks:
           'Czy marzysz o własnoręcznie wydzierganych skarpetkach, ale na samą myśl o pięcie robi Ci się słabo? Nie taki diabeł straszny, jak go malują. Na tym warsztacie przekonasz się, że dzierganie skarpetek może być logiczne, przyjemne i naprawdę satysfakcjonujące.<br>Podczas warsztatu będziemy dziergać skarpetki od góry, krok po kroku, na podstawie gotowego wzoru. W trakcie pracy omówimy wszystkie kluczowe elementy, dzięki którym kolejne pary zrobisz już z pełną swobodą.<br>Na warsztacie dowiesz się m.in.:<ul><li>z jakiej włóczki najlepiej dziergać skarpetki,</li><li>czy wybrać druty na żyłce czy 5 drutów skarpetkowych,</li><li>jak dziergać metodą magic loop,</li><li>ile oczek nabrać, by skarpetka dobrze leżała,</li><li>jak formować klasyczną piętę z klapką,</li><li>jak dopasować piętę do wysokiego podbicia,</li><li>jak uformować palce i estetycznie zamknąć oczka.</li></ul>Warsztat idealny dla osób, które chcą zrobić swoje pierwsze skarpetki bez stresu i zrozumieć, jak naprawdę działa ich konstrukcja.<br>Warsztat jest odpowiedni także dla początkujących – potrzebna jest umiejętność robienia prawych i lewych oczek oraz umiejźtność korzystania z drutów na żyłce lub pięciu skarpetkowych.',
