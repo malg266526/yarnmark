@@ -51,11 +51,10 @@ export const MainPage = () => {
         <>
           <InvitationCard />
           <CoreInfoBand id="coreInfo" />
+
           <Band.CenteredColumn color={BackgroundColors.ticketBand} id="TicketBand" size="lg" padding="lg">
             <TicketCard />
           </Band.CenteredColumn>
-
-          <LaGruGruBand />
 
           {BandsToggles.workshopsEnabled && <WorkshopsScheduleMobileBand id="schedule" />}
 
@@ -72,11 +71,13 @@ export const MainPage = () => {
             <VendorsList />
           </Band.CenteredColumn>
 
+          {BandsToggles.goldenPretzelEnabled && <GoldenPretzelBand id="goldenPretzel" />}
+
+          <LaGruGruBand />
+
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 
           {BandsToggles.afterEnabled && <AfterBand id="after" />}
-
-          {BandsToggles.goldenPretzelEnabled && <GoldenPretzelBand id="goldenPretzel" />}
 
           <PatternsBand id="patterns" />
 
@@ -102,8 +103,6 @@ export const MainPage = () => {
 
           <LocationBand id="location" />
 
-          <LaGruGruBand />
-
           <Band.CenteredColumn
             id="vendors"
             size="md"
@@ -120,9 +119,11 @@ export const MainPage = () => {
 
           {BandsToggles.workshopsEnabled && <WorkshopsDesktopBand id="workshops" />}
 
-          {BandsToggles.afterEnabled && <AfterBand id="after" />}
-
           {BandsToggles.goldenPretzelEnabled && <GoldenPretzelBand id="goldenPretzel" />}
+
+          <LaGruGruBand />
+
+          {BandsToggles.afterEnabled && <AfterBand id="after" />}
 
           <PatternsBand id="patterns" />
 

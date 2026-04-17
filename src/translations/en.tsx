@@ -26,6 +26,13 @@ export const en: TranslationsShape = {
       after: 'After',
       teamAndPartners: 'Team & Partners'
     },
+    goldenPretzelBand: {
+      title: 'Yarnmark 2026 Golden Pretzel Competition',
+      paragraph1: "We invite you to vote for your favourite vendor of this year's edition!",
+      paragraph2:
+        'At the reception (or together with your gadget) you will receive a voting card. Write down the vendor whose stand impressed you the most and drop the card into the ballot box at the reception.',
+      paragraph3: 'Voting ends at 3:00 PM, and the winner will be announced at 4:00 PM.'
+    },
     teamAndPartners: {
       title: 'Team & Partners',
       mediaPartners: 'MEDIA PATRONS',

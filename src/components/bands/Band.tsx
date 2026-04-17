@@ -26,6 +26,7 @@ interface CenteredColumnBandProps {
   color: string;
   padding?: keyof typeof RedesignSpacings;
   gap?: keyof typeof RedesignSpacings;
+  style?: React.CSSProperties;
 }
 
 const CenteredColumnBand = ({ id, color, ...props }: CenteredColumnBandProps) => (

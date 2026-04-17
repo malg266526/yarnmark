@@ -26,6 +26,13 @@ export const pl = {
       lagrugru: 'LaGruGru',
       teamAndPartners: 'Zespół & Partnerzy'
     },
+    goldenPretzelBand: {
+      title: 'Plebiscyt o Złotego Obwarzanka Yarnmarku 2026',
+      paragraph1: 'Zapraszamy do głosowania na ulubionego wystawcę tegorocznej edycji!',
+      paragraph2:
+        'Przy recepcji (lub razem z gadżetem) otrzymasz kartę do głosowania. Zapisz na niej wystawcę, którego stoisko urzekło Cię najbardziej i wrzuć karteczkę do urny przy recepcji.',
+      paragraph3: 'Głosowanie trwa do godz. 15:00, a zwycięzcę wyłaniamy o godz. 16:00.'
+    },
     tickets: {
       buyTicketsAndWorkshops: '<0>Kup</0> bilet na targi lub wybierz opcję z warsztatami',
       cruiseTicketHere: 'Bilet na dziergostatek znajdziesz <0>tu</0>',

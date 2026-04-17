@@ -3,21 +3,28 @@ import { Band } from '../../../components/bands/Band';
 import { Typography } from '../../../components/Typography';
 import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
 import { Icon as IconifyIcon } from '@iconify/react';
+import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 
 type GoldenPretzelBandType = {
   id: string;
 };
 
 export const GoldenPretzelBand = ({ id }: GoldenPretzelBandType) => {
+  const t = useTypedTranslation();
+
   return (
-    <Band.CenteredColumn id={id} size="md" padding="xl" gap="md" color="#FFF8E1">
+    <Band.CenteredColumn id={id} padding="md" gap="md" color="#FFF8E1" style={{ paddingBottom: '40px' }}>
       <IconifyIcon icon="noto:pretzel" width="80" height="80" />
-      <Band.Title>Konkurs na złotego obwarzanka!</Band.Title>
+      <Band.Title>{t('goldenPretzelBand.title')}</Band.Title>
       <FlexColumnLayout padding="none" gap="sm" align="center">
         <Typography size="md" style={{ textAlign: 'center', maxWidth: '600px' }}>
-          Zagłosuj na swojego ulubionego wystawcę, najmocniej doceniony wystawca Yarnmarku 2026 otrzyma złotego
-          obwarzanka. Głosowanie będzie trwało do godz. 15, a wyłonienie zwycięzcy o godz. 16:00. Głosowanie odbędzie
-          się poprzez wrzucenie losu na urny przy recepcji.
+          {t('goldenPretzelBand.paragraph1')}
+        </Typography>
+        <Typography size="md" style={{ textAlign: 'center', maxWidth: '600px' }}>
+          {t('goldenPretzelBand.paragraph2')}
+        </Typography>
+        <Typography size="md" style={{ textAlign: 'center', maxWidth: '600px' }}>
+          {t('goldenPretzelBand.paragraph3')}
         </Typography>
       </FlexColumnLayout>
     </Band.CenteredColumn>
