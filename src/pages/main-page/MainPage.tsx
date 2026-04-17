@@ -22,6 +22,7 @@ import { VendorsList } from './VendorsList';
 import { CruiseBand } from './bands/CruiseBand';
 import { WorkshopsScheduleMobileBand } from './workshops/WorkshopsScheduleMobileBand';
 import { AfterBand } from './bands/AfterBand';
+import { GoldenPretzelBand } from './bands/GoldenPretzelBand';
 import { WorkshopsMobileSchedule } from './workshops/WorkshopsMobileSchedule';
 import { LaGruGruBand } from './bands/LaGruGruBand';
 import { TeamAndPartnersBand } from './bands/TeamAndPartnersBand';
@@ -50,11 +51,10 @@ export const MainPage = () => {
         <>
           <InvitationCard />
           <CoreInfoBand id="coreInfo" />
+
           <Band.CenteredColumn color={BackgroundColors.ticketBand} id="TicketBand" size="lg" padding="lg">
             <TicketCard />
           </Band.CenteredColumn>
-
-          <LaGruGruBand />
 
           {BandsToggles.workshopsEnabled && <WorkshopsScheduleMobileBand id="schedule" />}
 
@@ -70,6 +70,10 @@ export const MainPage = () => {
           <Band.CenteredColumn id="vendors" size="lg" padding="none" color={BackgroundColors.vendors}>
             <VendorsList />
           </Band.CenteredColumn>
+
+          {BandsToggles.goldenPretzelEnabled && <GoldenPretzelBand id="goldenPretzel" />}
+
+          <LaGruGruBand />
 
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 
@@ -99,8 +103,6 @@ export const MainPage = () => {
 
           <LocationBand id="location" />
 
-          <LaGruGruBand />
-
           <Band.CenteredColumn
             id="vendors"
             size="md"
@@ -116,6 +118,10 @@ export const MainPage = () => {
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 
           {BandsToggles.workshopsEnabled && <WorkshopsDesktopBand id="workshops" />}
+
+          {BandsToggles.goldenPretzelEnabled && <GoldenPretzelBand id="goldenPretzel" />}
+
+          <LaGruGruBand />
 
           {BandsToggles.afterEnabled && <AfterBand id="after" />}
 
