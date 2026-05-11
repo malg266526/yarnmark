@@ -14,43 +14,21 @@ import {
 import type { VendorApplication } from '../vendors-form/vendorsFormSubmission';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { useTranslation } from 'react-i18next';
-
-type TranslateFn = ReturnType<typeof useTypedTranslation>;
+import { formatBoolean, formatDateTime, formatMainCategory } from './VendorsApplicationsUtils';
 
 interface Props {
   applications: VendorApplication[];
   loading: boolean;
 }
 
-const formatBoolean = (value: boolean | null, t: TranslateFn) => {
-  if (value === null) {
-    return t('vendorsApplicationsPage.values.noAnswer');
-  }
-
-  return value ? t('vendorsApplicationsPage.values.yes') : t('vendorsApplicationsPage.values.no');
-};
-
-const formatMainCategory = (application: VendorApplication, rawT: (key: string) => string, t: TranslateFn) => {
-  if (application.mainCategory === 'other') {
-    return application.mainCategoryOther || t('vendorsApplicationsPage.values.notProvided');
-  }
-
-  if (!application.mainCategory) {
-    return t('vendorsApplicationsPage.values.notProvided');
-  }
-
-  return rawT(`vendorsFormPage.steps.mainCategory.${application.mainCategory}`);
-};
-
-const formatDateTime = (value: string, locale: string) =>
-  new Intl.DateTimeFormat(locale, {
-    dateStyle: 'long',
-    timeStyle: 'medium'
-  }).format(new Date(value));
-
 export const VendorsApplicationsView: React.FC<Props> = ({ applications, loading }) => {
   const t = useTypedTranslation();
   const { t: rawT, i18n } = useTranslation();
+  const booleanLabels = {
+    no: t('vendorsApplicationsPage.values.no'),
+    noAnswer: t('vendorsApplicationsPage.values.noAnswer'),
+    yes: t('vendorsApplicationsPage.values.yes')
+  };
 
   if (loading) {
     return <ApplicationsEmpty>{t('vendorsApplicationsPage.loading')}</ApplicationsEmpty>;
@@ -73,7 +51,13 @@ export const VendorsApplicationsView: React.FC<Props> = ({ applications, loading
 
             <ApplicationField>
               <ApplicationFieldLabel>{t('vendorsApplicationsPage.fields.mainCategory')}</ApplicationFieldLabel>
-              <ApplicationFieldValue>{formatMainCategory(application, rawT, t)}</ApplicationFieldValue>
+              <ApplicationFieldValue>
+                {formatMainCategory(
+                  application,
+                  (categoryKey) => rawT(`vendorsFormPage.steps.mainCategory.${categoryKey}`),
+                  t('vendorsApplicationsPage.values.notProvided')
+                )}
+              </ApplicationFieldValue>
             </ApplicationField>
             <ApplicationField>
               <ApplicationFieldLabel>{t('vendorsApplicationsPage.fields.preferredStands')}</ApplicationFieldLabel>
@@ -85,13 +69,15 @@ export const VendorsApplicationsView: React.FC<Props> = ({ applications, loading
             </ApplicationField>
             <ApplicationField>
               <ApplicationFieldLabel>{t('vendorsApplicationsPage.fields.attendedBefore')}</ApplicationFieldLabel>
-              <ApplicationFieldValue>{formatBoolean(application.attendedBefore, t)}</ApplicationFieldValue>
+              <ApplicationFieldValue>{formatBoolean(application.attendedBefore, booleanLabels)}</ApplicationFieldValue>
             </ApplicationField>
             <ApplicationField>
               <ApplicationFieldLabel>
                 {t('vendorsApplicationsPage.fields.interestedIfUnavailable')}
               </ApplicationFieldLabel>
-              <ApplicationFieldValue>{formatBoolean(application.interestedIfUnavailable, t)}</ApplicationFieldValue>
+              <ApplicationFieldValue>
+                {formatBoolean(application.interestedIfUnavailable, booleanLabels)}
+              </ApplicationFieldValue>
             </ApplicationField>
             <ApplicationField>
               <ApplicationFieldLabel>{t('vendorsApplicationsPage.fields.phone')}</ApplicationFieldLabel>
