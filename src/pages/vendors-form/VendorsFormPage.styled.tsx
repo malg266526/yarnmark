@@ -28,6 +28,14 @@ export const FormLayout = styled.form`
   gap: ${RedesignSpacings.md};
 `;
 
+export const FormSection = styled.section<{ $isFirst?: boolean }>`
+  display: flex;
+  flex-direction: column;
+  gap: ${RedesignSpacings.sm};
+  padding-top: ${({ $isFirst }) => ($isFirst ? 0 : RedesignSpacings.md)};
+  border-top: ${({ $isFirst }) => ($isFirst ? 'none' : `2px solid ${BackgroundColors.green.medium}`)};
+`;
+
 export const Fieldset = styled.fieldset`
   margin: 0;
   padding: 0;
