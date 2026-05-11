@@ -33,9 +33,9 @@ export const VendorsApplicationsPage: React.FC = () => {
         stretchOnMobile
         padding={isPhone ? 'sm' : 'xxl'}
       >
-        <UtilityPageHeader kicker={t('vendorsApplicationsPage.kicker')} title={t('vendorsApplicationsPage.title')} />
-
         <CenteredPlainInfo>
+          <UtilityPageHeader kicker={t('vendorsApplicationsPage.kicker')} title={t('vendorsApplicationsPage.title')} />
+
           <VendorsApplicationsPageStyled>
             <VendorsApplicationsView applications={applications} loading={loading} />
           </VendorsApplicationsPageStyled>
