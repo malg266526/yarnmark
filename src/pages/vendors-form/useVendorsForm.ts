@@ -5,10 +5,13 @@ import { useTranslation } from 'react-i18next';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import type { FieldErrors } from 'react-hook-form';
 import { toggleStandSelection } from './vendorsFormUtils';
-import { createVendorApplication } from '../vendors-applications/vendorsApplicationsStorage';
+import { createVendorApplication, listVendorApplications } from '../vendors-applications/vendorsApplicationsStorage';
 import { VENDORS_FORM_DRAFT_STORAGE_KEY, VENDORS_FORM_MAX_PREFERRED_STANDS } from './vendorsFormConstants';
 import { vendorsFormSchema, type VendorsFormValues } from './vendorsFormSchema';
+import { readLogoFileAsDataUrl } from './vendorsFormLogoUtils';
 import { getInitialVendorsFormDraft, parseVendorsFormDraft } from './vendorsFormStorage';
+import { getHighInterestStandIds, getStandInterestCounts } from './vendorsFormStandInterestUtils';
+import type { VendorApplication } from './vendorsFormSubmission';
 import type { VendorsFormState } from './vendorsFormTypes';
 
 const readInitialDraft = () =>
@@ -47,9 +50,7 @@ export const useVendorsForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const [submittedAt, setSubmittedAt] = useState<string | null>(null);
-  // File objects can't be serialized to localStorage; kept in-memory so a future
-  // submission flow can upload the actual bytes without forcing the user to re-pick.
-  const [logoFile, setLogoFile] = useState<File | null>(null);
+  const [applications, setApplications] = useState<VendorApplication[]>([]);
   const form = useForm<VendorsFormValues>({
     defaultValues: initialDraft.formData,
     mode: 'onSubmit',
@@ -64,11 +65,41 @@ export const useVendorsForm = () => {
     return firstErrorKey ? rawT(firstErrorKey) : '';
   }, [formState.errors, rawT]);
 
-  const updateLogoFile = (file: File | null) => {
-    setLogoFile(file);
-    setValue('logoFileName', file?.name ?? null, { shouldDirty: true, shouldValidate: true });
-    setIsComplete(false);
-    setSubmitError('');
+  useEffect(() => {
+    void listVendorApplications().then((response) => {
+      setApplications(response.applications);
+    });
+  }, []);
+
+  const standInterestCounts = useMemo(() => getStandInterestCounts(applications), [applications]);
+  const highInterestStandIds = useMemo(() => getHighInterestStandIds(applications), [applications]);
+  const highInterestSelectedStandIds = useMemo(
+    () => formData.preferredStands.filter((standId) => highInterestStandIds.includes(standId)),
+    [formData.preferredStands, highInterestStandIds]
+  );
+
+  const updateLogoFile = async (file: File | null) => {
+    if (!file) {
+      setValue('logoFileName', null, { shouldDirty: true, shouldValidate: true });
+      setValue('logoDataUrl', null, { shouldDirty: true, shouldValidate: true });
+      setValue('logoMimeType', null, { shouldDirty: true, shouldValidate: true });
+      setIsComplete(false);
+      setSubmitError('');
+      return;
+    }
+
+    try {
+      const logoDataUrl = await readLogoFileAsDataUrl(file);
+
+      setValue('logoFileName', file.name, { shouldDirty: true, shouldValidate: true });
+      setValue('logoDataUrl', logoDataUrl, { shouldDirty: true, shouldValidate: true });
+      setValue('logoMimeType', file.type || null, { shouldDirty: true, shouldValidate: true });
+      setIsComplete(false);
+      setSubmitError('');
+    } catch (error) {
+      console.error(error);
+      setSubmitError(t('vendorsFormPage.logoUploadError'));
+    }
   };
 
   const toggleStand = (standId: string) => {
@@ -110,6 +141,7 @@ export const useVendorsForm = () => {
       const response = await createVendorApplication(validatedFormData);
 
       setSubmittedAt(response.application.submittedAt);
+      setApplications((currentApplications) => [...currentApplications, response.application]);
       setIsComplete(true);
       reset(validatedFormData);
     } catch (error) {
@@ -147,10 +179,12 @@ export const useVendorsForm = () => {
     currentError,
     formData,
     formState,
+    highInterestSelectedStandIds,
+    highInterestStandIds,
     register,
     isComplete,
     isSubmitting,
-    logoFile,
+    standInterestCounts,
     submitError,
     submittedAtLabel,
     submitForm,

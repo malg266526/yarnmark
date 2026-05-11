@@ -11,6 +11,8 @@ export interface VendorsFormState {
   email: string;
   invoiceDetails: string;
   logoFileName: string | null;
+  logoDataUrl: string | null;
+  logoMimeType: string | null;
   businessDescription: string;
   acceptedStatute: boolean;
 }
@@ -26,6 +28,8 @@ export const INITIAL_VENDORS_FORM_STATE: VendorsFormState = {
   email: '',
   invoiceDetails: '',
   logoFileName: null,
+  logoDataUrl: null,
+  logoMimeType: null,
   businessDescription: '',
   acceptedStatute: false
 };

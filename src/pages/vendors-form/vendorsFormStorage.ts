@@ -40,6 +40,8 @@ export const isVendorsFormState = (value: unknown): value is VendorsFormState =>
     typeof value.email === 'string' &&
     typeof value.invoiceDetails === 'string' &&
     isNullableString(value.logoFileName) &&
+    isNullableString(value.logoDataUrl) &&
+    isNullableString(value.logoMimeType) &&
     typeof value.businessDescription === 'string' &&
     typeof value.acceptedStatute === 'boolean'
   );

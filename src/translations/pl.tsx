@@ -327,6 +327,7 @@ export const pl = {
       submit: 'Wyślij zgłoszenie',
       submitting: 'Wysyłanie...',
       submitError: 'Nie udało się zapisać zgłoszenia. Spróbuj ponownie.',
+      logoUploadError: 'Nie udało się odczytać pliku z logo. Wybierz go ponownie.',
       submissionDateTimeLabel: 'Data i godzina wysłania',
       draftBanner: 'Szkic formularza zapisuje się lokalnie w tej przeglądarce do momentu wysłania zgłoszenia.',
       steps: {
@@ -355,8 +356,13 @@ export const pl = {
           hint: 'Możesz wybrać maksymalnie {{max}} stoiska. Zielone — wolne, pomarańczowe — wybrane przez Ciebie.',
           orderHint: 'Kolejność klikania ma znaczenie — pierwsze kliknięte stoisko traktujemy jako pierwszy wybór.',
           counter: 'Wybrano {{current}} z {{max}}',
+          standInterestCount: '{{standId}}: {{count}} chętnych',
           detailsHint:
             'Szczegółowe informacje o rodzajach, wymiarach i wyposażeniu stoisk znajdziesz na stronie <0>Informacje dla wystawców</0>.',
+          highInterestLabel: 'High Interest',
+          highInterestHint: 'co najmniej 3 chętnych',
+          highInterestWarning:
+            'To stoisko jest bardzo popularne. Szansa na jego otrzymanie jest mniejsza. Rozważ inne lokalizacje jako priorytet. Dotyczy: {{stands}}.',
           legendTitle: 'Typy stoisk',
           premiumLabel: 'Premium',
           premiumSize: '3 × 5,5 m',
@@ -381,8 +387,10 @@ export const pl = {
           title: 'Dane do faktury',
           detailsLabel: 'Dane do faktury',
           detailsPlaceholder: 'Wpisz pełne dane do faktury',
-          logoLabel: 'Nazwa pliku z logo (opcjonalnie)',
-          logoHint: 'Na razie zapisujemy tylko nazwę pliku — właściwe logo dośle się później mailem.'
+          logoLabel: 'Logo (opcjonalnie)',
+          logoHint:
+            'Możesz dodać plik graficzny logo. Po zapisaniu zgłoszenia będzie można go pobrać z panelu zgłoszeń.',
+          logoSavedHint: 'Logo zostało zapisane razem ze zgłoszeniem.'
         },
         businessDescription: {
           title: 'Krótki opis działalności do materiałów promocyjnych',
@@ -456,6 +464,11 @@ export const pl = {
         logoFilename: 'Nazwa pliku z logo',
         businessDescription: 'Opis działalności',
         acceptedStatute: 'Regulamin zaakceptowany'
+      },
+      downloads: {
+        png: 'Pobierz PNG',
+        webp: 'Pobierz WebP',
+        avif: 'Pobierz AVIF'
       },
       values: {
         yes: 'Tak',

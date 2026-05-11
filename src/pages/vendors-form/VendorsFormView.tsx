@@ -10,6 +10,7 @@ import {
   ActionsRow,
   ActionsSpacer,
   CheckboxRow,
+  DownloadActions,
   ErrorText,
   FieldLabel,
   FieldHint,
@@ -27,9 +28,12 @@ import {
   LegendText,
   RadioGroup,
   RadioOption,
+  StandStatusList,
+  StandStatusPill,
   SummaryList,
   TextArea,
-  TextInput
+  TextInput,
+  WarningCard
 } from './VendorsFormPage.styled';
 import {
   VENDORS_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH,
@@ -42,9 +46,12 @@ interface VendorsFormViewProps {
   currentError: string;
   formData: VendorsFormState;
   formState: FormState<VendorsFormValues>;
+  highInterestSelectedStandIds: string[];
+  highInterestStandIds: string[];
   register: UseFormRegister<VendorsFormValues>;
   isComplete: boolean;
   isSubmitting: boolean;
+  standInterestCounts: Map<string, number>;
   submitError: string;
   submittedAtLabel: string | null;
   submitForm: () => Promise<void>;
@@ -60,9 +67,12 @@ export const VendorsFormView = ({
   currentError,
   formData,
   formState,
+  highInterestSelectedStandIds,
+  highInterestStandIds,
   register,
   isComplete,
   isSubmitting,
+  standInterestCounts,
   submitError,
   submittedAtLabel,
   submitForm,
@@ -207,7 +217,11 @@ export const VendorsFormView = ({
             </FieldHint>
             <HallLayout>
               <HallMapColumn>
-                <SelectableHall selectedStandIds={formData.preferredStands} onToggleStand={toggleStand} />
+                <SelectableHall
+                  highInterestStandIds={highInterestStandIds}
+                  selectedStandIds={formData.preferredStands}
+                  onToggleStand={toggleStand}
+                />
               </HallMapColumn>
               <LegendCard aria-label={t('vendorsFormPage.steps.preferredStands.legendTitle')}>
                 <Typography size="sm" weight="bold">
@@ -234,14 +248,49 @@ export const VendorsFormView = ({
                     <LegendSize>{t('vendorsFormPage.steps.preferredStands.miniSize')}</LegendSize>
                   </LegendText>
                 </LegendRow>
+                <LegendRow>
+                  <LegendBadge>HI</LegendBadge>
+                  <LegendText>
+                    {t('vendorsFormPage.steps.preferredStands.highInterestLabel')}
+                    <LegendSize>{t('vendorsFormPage.steps.preferredStands.highInterestHint')}</LegendSize>
+                  </LegendText>
+                </LegendRow>
               </LegendCard>
             </HallLayout>
+            {highInterestSelectedStandIds.length > 0 ? (
+              <StandStatusList>
+                {highInterestSelectedStandIds.map((standId) => (
+                  <StandStatusPill key={standId}>
+                    {standId} · {t('vendorsFormPage.steps.preferredStands.highInterestLabel')}
+                  </StandStatusPill>
+                ))}
+              </StandStatusList>
+            ) : null}
+            {highInterestSelectedStandIds.length > 0 ? (
+              <WarningCard>
+                {rawT('vendorsFormPage.steps.preferredStands.highInterestWarning', {
+                  stands: highInterestSelectedStandIds.join(', ')
+                })}
+              </WarningCard>
+            ) : null}
             <FieldHint>
               <Trans
                 i18nKey="vendorsFormPage.steps.preferredStands.detailsHint"
                 components={[<InlineLink key="vendors_info_link" href="/info-for-vendors" />]}
               />
             </FieldHint>
+            {formData.preferredStands.length > 0 ? (
+              <FieldHint>
+                {formData.preferredStands
+                  .map((standId) =>
+                    rawT('vendorsFormPage.steps.preferredStands.standInterestCount', {
+                      count: standInterestCounts.get(standId) ?? 0,
+                      standId
+                    })
+                  )
+                  .join(' • ')}
+              </FieldHint>
+            ) : null}
           </Fieldset>
         </FormSection>
 
@@ -314,9 +363,16 @@ export const VendorsFormView = ({
                 id="logo_file"
                 type="file"
                 accept="image/*"
-                onChange={(event) => updateLogoFile(event.target.files?.[0] ?? null)}
+                onChange={(event) => {
+                  void updateLogoFile(event.target.files?.[0] ?? null);
+                }}
               />
               <FieldHint>{formData.logoFileName ?? t('vendorsFormPage.steps.invoice.logoHint')}</FieldHint>
+              {formData.logoDataUrl ? (
+                <DownloadActions>
+                  <FieldHint>{t('vendorsFormPage.steps.invoice.logoSavedHint')}</FieldHint>
+                </DownloadActions>
+              ) : null}
             </FieldLabel>
           </Fieldset>
         </FormSection>

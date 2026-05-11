@@ -38,6 +38,8 @@ export const vendorsFormSchema = z
       .refine(isEmailValid, VENDORS_FORM_VALIDATION_KEYS.emailInvalid),
     invoiceDetails: z.string().trim().min(1, VENDORS_FORM_VALIDATION_KEYS.invoiceDetailsRequired),
     logoFileName: z.string().nullable(),
+    logoDataUrl: z.string().nullable(),
+    logoMimeType: z.string().nullable(),
     businessDescription: z
       .string()
       .trim()

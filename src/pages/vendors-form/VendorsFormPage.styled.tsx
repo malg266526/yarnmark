@@ -91,6 +91,36 @@ export const LegendSize = styled.span`
   font-size: ${FontSize.xs};
 `;
 
+export const WarningCard = styled.div`
+  padding: ${RedesignSpacings.sm};
+  border: 1px solid #f59e0b;
+  border-radius: ${Radius.lg};
+  background: #fffbeb;
+  color: #92400e;
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.sm};
+  line-height: 1.5;
+`;
+
+export const StandStatusList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: ${RedesignSpacings.xs};
+`;
+
+export const StandStatusPill = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: ${RedesignSpacings.xxs};
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid ${BackgroundColors.green.medium};
+  background: ${Colors.white};
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.sm};
+  color: ${TextColors.primary};
+`;
+
 export const Fieldset = styled.fieldset`
   margin: 0;
   padding: 0;
@@ -208,6 +238,12 @@ export const ActionsSpacer = styled.span`
 
 export const InlineLink = styled.a`
   color: ${TextColors.accent};
+`;
+
+export const DownloadActions = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: ${RedesignSpacings.xs};
 `;
 
 export const SummaryList = styled.dl`

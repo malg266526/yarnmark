@@ -1,5 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import {
+  ApplicationActionButton,
+  ApplicationActionRow,
   ApplicationCard,
   ApplicationField,
   ApplicationFieldLabel,
@@ -9,7 +11,6 @@ import {
   ApplicationsGrid,
   ApplicationsMeta,
   ApplicationsSection,
-  ApplicationsToggleButton,
   ApplicationsToolbar,
   ApplicationTitle,
   StandGroupCard,
@@ -20,7 +21,7 @@ import {
   StandRequestMeta,
   StandRequestVendor
 } from './VendorsApplicationsPage.styled';
-import type { VendorApplication } from '../vendors-form/vendorsFormSubmission';
+import type { VendorApplication, VendorApplicationStatus } from '../vendors-form/vendorsFormSubmission';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { useTranslation } from 'react-i18next';
 import {
@@ -28,15 +29,22 @@ import {
   formatDateTime,
   formatMainCategory,
   groupApplicationsByStand,
-  sortApplicationsBySubmittedAt
+  sortApplicationsBySubmittedAt,
+  VENDOR_APPLICATION_STATUS_ORDER
 } from './VendorsApplicationsUtils';
+import { downloadVendorApplicationLogo } from './vendorsApplicationsImageUtils';
 
 interface VendorsApplicationsViewProps {
   applications: VendorApplication[];
   loading: boolean;
+  setApplicationStatus: (applicationId: string, status: VendorApplicationStatus) => Promise<void>;
 }
 
-export const VendorsApplicationsView = ({ applications, loading }: VendorsApplicationsViewProps) => {
+export const VendorsApplicationsView = ({
+  applications,
+  loading,
+  setApplicationStatus
+}: VendorsApplicationsViewProps) => {
   const t = useTypedTranslation();
   const { t: rawT, i18n } = useTranslation();
   const [isStandView, setIsStandView] = useState(false);
@@ -60,9 +68,9 @@ export const VendorsApplicationsView = ({ applications, loading }: VendorsApplic
     <ApplicationsSection>
       <ApplicationsMeta>{rawT('vendorsApplicationsPage.savedCount', { count: applications.length })}</ApplicationsMeta>
       <ApplicationsToolbar>
-        <ApplicationsToggleButton type="button" onClick={() => setIsStandView((value) => !value)}>
+        <ApplicationActionButton type="button" onClick={() => setIsStandView((value) => !value)}>
           {isStandView ? t('vendorsApplicationsPage.showCards') : t('vendorsApplicationsPage.showByStand')}
-        </ApplicationsToggleButton>
+        </ApplicationActionButton>
       </ApplicationsToolbar>
       {isStandView ? (
         <StandGroups>
@@ -92,6 +100,26 @@ export const VendorsApplicationsView = ({ applications, loading }: VendorsApplic
                 <ApplicationsMeta>{formatDateTime(application.submittedAt, i18n.language)}</ApplicationsMeta>
               </ApplicationHeader>
 
+              <ApplicationField>
+                <ApplicationFieldLabel>{rawT('vendorsApplicationsPage.fields.status')}</ApplicationFieldLabel>
+                <ApplicationFieldValue>
+                  {rawT(`vendorsApplicationsPage.statuses.${application.status}`)}
+                </ApplicationFieldValue>
+                <ApplicationActionRow>
+                  {VENDOR_APPLICATION_STATUS_ORDER.map((status) => (
+                    <ApplicationActionButton
+                      key={status}
+                      type="button"
+                      aria-pressed={application.status === status}
+                      onClick={() => {
+                        void setApplicationStatus(application.id, status);
+                      }}
+                    >
+                      {rawT(`vendorsApplicationsPage.statuses.${status}`)}
+                    </ApplicationActionButton>
+                  ))}
+                </ApplicationActionRow>
+              </ApplicationField>
               <ApplicationField>
                 <ApplicationFieldLabel>{t('vendorsApplicationsPage.fields.mainCategory')}</ApplicationFieldLabel>
                 <ApplicationFieldValue>
@@ -141,6 +169,34 @@ export const VendorsApplicationsView = ({ applications, loading }: VendorsApplic
                 <ApplicationFieldValue>
                   {application.logoFileName ?? t('vendorsApplicationsPage.values.notProvided')}
                 </ApplicationFieldValue>
+                {application.logoDataUrl ? (
+                  <ApplicationActionRow>
+                    <ApplicationActionButton
+                      type="button"
+                      onClick={() => {
+                        void downloadVendorApplicationLogo(application, 'image/png');
+                      }}
+                    >
+                      {t('vendorsApplicationsPage.downloads.png')}
+                    </ApplicationActionButton>
+                    <ApplicationActionButton
+                      type="button"
+                      onClick={() => {
+                        void downloadVendorApplicationLogo(application, 'image/webp');
+                      }}
+                    >
+                      {t('vendorsApplicationsPage.downloads.webp')}
+                    </ApplicationActionButton>
+                    <ApplicationActionButton
+                      type="button"
+                      onClick={() => {
+                        void downloadVendorApplicationLogo(application, 'image/avif');
+                      }}
+                    >
+                      {t('vendorsApplicationsPage.downloads.avif')}
+                    </ApplicationActionButton>
+                  </ApplicationActionRow>
+                ) : null}
               </ApplicationField>
               <ApplicationField>
                 <ApplicationFieldLabel>{t('vendorsApplicationsPage.fields.businessDescription')}</ApplicationFieldLabel>

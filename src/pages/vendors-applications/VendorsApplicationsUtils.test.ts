@@ -6,7 +6,8 @@ import {
   formatDateTime,
   formatMainCategory,
   groupApplicationsByStand,
-  sortApplicationsBySubmittedAt
+  sortApplicationsBySubmittedAt,
+  VENDOR_APPLICATION_STATUS_ORDER
 } from './VendorsApplicationsUtils.ts';
 
 const BOOLEAN_LABELS = {
@@ -17,6 +18,7 @@ const BOOLEAN_LABELS = {
 
 const getBaseApplication = (): VendorApplication => ({
   id: 'application-1',
+  status: 'new',
   submittedAt: '2026-05-11T10:30:00.000Z',
   storeName: 'Shop name',
   attendedBefore: true,
@@ -28,6 +30,8 @@ const getBaseApplication = (): VendorApplication => ({
   email: 'vendor@example.com',
   invoiceDetails: 'Invoice details',
   logoFileName: 'logo.png',
+  logoDataUrl: 'data:image/png;base64,AAAA',
+  logoMimeType: 'image/png',
   businessDescription: 'Short business description',
   acceptedStatute: true
 });
@@ -154,6 +158,10 @@ test('groupApplicationsByStand groups stands and orders requests by submission d
       ]
     }
   ]);
+});
+
+test('status order is stable for admin controls', () => {
+  assert.deepEqual(VENDOR_APPLICATION_STATUS_ORDER, ['new', 'considered', 'accepted', 'rejected']);
 });
 
 test('sortApplicationsBySubmittedAt returns earliest submissions first', () => {

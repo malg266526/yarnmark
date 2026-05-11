@@ -329,6 +329,7 @@ export const en: TranslationsShape = {
       submit: 'Submit application',
       submitting: 'Submitting...',
       submitError: 'The application could not be saved. Please try again.',
+      logoUploadError: 'The logo file could not be read. Please choose it again.',
       submissionDateTimeLabel: 'Submission date and time',
       draftBanner: 'This draft is stored locally in this browser until you submit the application.',
       steps: {
@@ -357,8 +358,13 @@ export const en: TranslationsShape = {
           hint: 'You can pick up to {{max}} stands. Green — available, orange — selected by you.',
           orderHint: 'Order matters — the first stand you click becomes your top pick.',
           counter: '{{current}} of {{max}} selected',
+          standInterestCount: '{{standId}}: {{count}} interested',
           detailsHint:
             'Detailed information about stand types, dimensions, and equipment is available on the <0>Info for vendors</0> page.',
+          highInterestLabel: 'High Interest',
+          highInterestHint: 'at least 3 interested vendors',
+          highInterestWarning:
+            'This stand is very popular. The chance of receiving it is lower. Consider other locations as a higher priority. Affected stands: {{stands}}.',
           legendTitle: 'Stand types',
           premiumLabel: 'Premium',
           premiumSize: '3 × 5.5 m',
@@ -383,8 +389,10 @@ export const en: TranslationsShape = {
           title: 'Invoice details',
           detailsLabel: 'Invoice details',
           detailsPlaceholder: 'Enter the full invoice details',
-          logoLabel: 'Logo filename (optional)',
-          logoHint: 'For now we only record the filename — please send the actual logo by email later.'
+          logoLabel: 'Logo (optional)',
+          logoHint:
+            'You can upload a logo image. After the application is saved, it can be downloaded from the applications panel.',
+          logoSavedHint: 'The logo will be saved together with the application.'
         },
         businessDescription: {
           title: 'Short business description for promo materials',
@@ -458,6 +466,11 @@ export const en: TranslationsShape = {
         logoFilename: 'Logo filename',
         businessDescription: 'Business description',
         acceptedStatute: 'Terms accepted'
+      },
+      downloads: {
+        png: 'Download PNG',
+        webp: 'Download WebP',
+        avif: 'Download AVIF'
       },
       values: {
         yes: 'Yes',

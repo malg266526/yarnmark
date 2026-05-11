@@ -97,6 +97,25 @@ export const ApplicationFieldValue = styled.div`
   white-space: pre-wrap;
 `;
 
+export const ApplicationActionRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: ${RedesignSpacings.xs};
+`;
+
+export const ApplicationActionButton = styled(Button)`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: ${RedesignSpacings.xxs} ${RedesignSpacings.xs};
+  border: 1px solid ${BackgroundColors.green.medium};
+  border-radius: ${Radius.lg};
+  background: ${Colors.white};
+  color: ${TextColors.secondary};
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.sm};
+`;
+
 export const ApplicationsEmpty = styled.div`
   padding: ${RedesignSpacings.md};
   border-radius: ${Radius.xl};

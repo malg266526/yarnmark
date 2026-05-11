@@ -69,6 +69,7 @@ const StandElement = styled.button<{
   $color: string;
   $width: number;
   $height: number;
+  $isHighInterest: boolean;
   $selectable: boolean;
 }>`
   all: unset;
@@ -78,7 +79,7 @@ const StandElement = styled.button<{
   width: ${({ $width }) => $width}px;
   height: ${({ $height }) => $height}px;
   background-color: ${({ $color }) => $color};
-  border: 1px solid white;
+  border: 2px solid ${({ $isHighInterest }) => ($isHighInterest ? '#D97706' : 'white')};
   box-sizing: border-box;
   cursor: ${({ $selectable }) => ($selectable ? 'pointer' : 'default')};
   display: flex;
@@ -87,22 +88,43 @@ const StandElement = styled.button<{
   text-align: center;
   font-size: 12px;
   color: #111;
+  box-shadow: ${({ $isHighInterest }) => ($isHighInterest ? '0 0 0 1px rgba(217, 119, 6, 0.24)' : 'none')};
 
   &:focus-visible {
     outline: 2px solid #111;
     outline-offset: 1px;
+  }
+
+  &::after {
+    content: ${({ $isHighInterest }) => ($isHighInterest ? "'HI'" : "''")};
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    padding: 1px 4px;
+    border-radius: 999px;
+    background: #fff7ed;
+    color: #9a3412;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1;
   }
 `;
 
 type LoadState = { status: 'pending' } | { status: 'error'; error: Error } | { status: 'success'; stands: Stand[] };
 
 interface SelectableHallProps {
+  highInterestStandIds?: string[];
   selectedStandIds: string[];
   onToggleStand: (standId: string) => void;
   multiplier?: number;
 }
 
-export const SelectableHall = ({ selectedStandIds, onToggleStand, multiplier }: SelectableHallProps) => {
+export const SelectableHall = ({
+  highInterestStandIds = [],
+  selectedStandIds,
+  onToggleStand,
+  multiplier
+}: SelectableHallProps) => {
   const isPhone = usePhone();
   const resolvedMultiplier = multiplier ?? (isPhone ? 7 : 12);
   const [loadState, setLoadState] = useState<LoadState>({ status: 'pending' });
@@ -161,6 +183,7 @@ export const SelectableHall = ({ selectedStandIds, onToggleStand, multiplier }: 
       <Container width={containerSize.width * resolvedMultiplier} height={containerSize.height * resolvedMultiplier}>
         {loadState.stands.map((stand) => {
           const selectable = isStandSelectable(stand);
+          const isHighInterest = highInterestStandIds.includes(stand.id);
           const left = stand.start.col * resolvedMultiplier;
           const top = stand.start.row * resolvedMultiplier;
           const width = stand.width * resolvedMultiplier * SIZE_MULTIPLIER_FOR_NORMALIZATION;
@@ -175,10 +198,11 @@ export const SelectableHall = ({ selectedStandIds, onToggleStand, multiplier }: 
               $width={width}
               $height={height}
               $color={resolveColor(stand)}
+              $isHighInterest={isHighInterest}
               $selectable={selectable}
               disabled={!selectable}
               aria-pressed={selectable ? selectedStandIds.includes(stand.id) : undefined}
-              aria-label={stand.description ?? `Stand ${stand.index}`}
+              aria-label={`${stand.description ?? `Stand ${stand.index}`}${isHighInterest ? ', High Interest' : ''}`}
               onClick={selectable ? () => onToggleStand(stand.id) : undefined}
             >
               {stand.type !== 'other' ? stand.index : stand.description}

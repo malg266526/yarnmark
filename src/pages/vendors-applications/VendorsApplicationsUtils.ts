@@ -1,4 +1,4 @@
-import type { VendorApplication } from '../vendors-form/vendorsFormSubmission';
+import type { VendorApplication, VendorApplicationStatus } from '../vendors-form/vendorsFormSubmission';
 
 export interface BooleanLabels {
   no: string;
@@ -38,6 +38,8 @@ export const formatDateTime = (value: string, locale: string) =>
 
 export const sortApplicationsBySubmittedAt = (applications: VendorApplication[]) =>
   [...applications].sort((left, right) => new Date(left.submittedAt).getTime() - new Date(right.submittedAt).getTime());
+
+export const VENDOR_APPLICATION_STATUS_ORDER: VendorApplicationStatus[] = ['new', 'considered', 'accepted', 'rejected'];
 
 export interface StandApplicationRequest {
   applicationId: string;
