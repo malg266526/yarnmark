@@ -343,7 +343,10 @@ export const pl = {
           yarns: 'Włóczki',
           accessories: 'Akcesoria do drutów i szydełka',
           ceramics: 'Ceramika',
-          candles: 'Świece'
+          candles: 'Świece',
+          other: 'Inne',
+          otherLabel: 'Jaka to kategoria?',
+          otherPlaceholder: 'Wpisz główną kategorię produktów'
         },
         preferredStands: {
           title: 'Wybierz preferowane stoiska na mapie',
@@ -396,6 +399,7 @@ export const pl = {
         storeNameRequired: 'Podaj nazwę sklepu.',
         attendedBeforeRequired: 'Wybierz jedną z odpowiedzi.',
         mainCategoryRequired: 'Wybierz główną kategorię produktów.',
+        mainCategoryOtherRequired: 'Wpisz główną kategorię produktów.',
         interestedIfUnavailableRequired: 'Wybierz jedną z odpowiedzi.',
         phoneRequired: 'Podaj numer telefonu.',
         phoneInvalid: 'Podaj poprawny numer telefonu.',

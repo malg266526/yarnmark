@@ -4,6 +4,22 @@ import { getVendorsFormErrorKey, isEmailValid, isPhoneValid, toggleStandSelectio
 import { INITIAL_VENDORS_FORM_STATE } from './vendorsFormTypes.ts';
 import { getInitialVendorsFormDraft, parseVendorsFormDraft } from './vendorsFormStorage.ts';
 
+const getBaseValidState = () => ({
+  ...INITIAL_VENDORS_FORM_STATE,
+  storeName: 'Shop name',
+  attendedBefore: true,
+  mainCategory: 'yarns' as const,
+  mainCategoryOther: '',
+  preferredStands: [],
+  interestedIfUnavailable: true,
+  phoneNumber: '+48 123 456 789',
+  email: 'vendor@example.com',
+  invoiceDetails: 'Invoice details',
+  logoFileName: 'logo.png',
+  businessDescription: 'Short business description',
+  acceptedStatute: true
+});
+
 test('isEmailValid accepts a valid email', () => {
   assert.equal(isEmailValid('vendor@example.com'), true);
 });
@@ -36,12 +52,24 @@ test('getVendorsFormErrorKey requires main category after attendedBefore', () =>
   assert.equal(getVendorsFormErrorKey(state), 'vendorsFormPage.validation.mainCategoryRequired');
 });
 
+test('getVendorsFormErrorKey requires other main category details when other is selected', () => {
+  const state = {
+    ...INITIAL_VENDORS_FORM_STATE,
+    storeName: 'Shop name',
+    attendedBefore: true,
+    mainCategory: 'other' as const
+  };
+
+  assert.equal(getVendorsFormErrorKey(state), 'vendorsFormPage.validation.mainCategoryOtherRequired');
+});
+
 test('getVendorsFormErrorKey requires fallback interest after category', () => {
   const state = {
     ...INITIAL_VENDORS_FORM_STATE,
     storeName: 'Shop name',
     attendedBefore: true,
-    mainCategory: 'yarns' as const
+    mainCategory: 'other' as const,
+    mainCategoryOther: 'Buttons'
   };
 
   assert.equal(getVendorsFormErrorKey(state), 'vendorsFormPage.validation.interestedIfUnavailableRequired');
@@ -49,13 +77,9 @@ test('getVendorsFormErrorKey requires fallback interest after category', () => {
 
 test('getVendorsFormErrorKey requires phone before email checks', () => {
   const state = {
-    ...INITIAL_VENDORS_FORM_STATE,
-    storeName: 'Shop name',
-    attendedBefore: true,
-    mainCategory: 'yarns' as const,
-    interestedIfUnavailable: true,
+    ...getBaseValidState(),
     phoneNumber: '',
-    email: 'vendor@example.com'
+    acceptedStatute: false
   };
 
   assert.equal(getVendorsFormErrorKey(state), 'vendorsFormPage.validation.phoneRequired');
@@ -63,13 +87,8 @@ test('getVendorsFormErrorKey requires phone before email checks', () => {
 
 test('getVendorsFormErrorKey rejects invalid phone', () => {
   const state = {
-    ...INITIAL_VENDORS_FORM_STATE,
-    storeName: 'Shop name',
-    attendedBefore: true,
-    mainCategory: 'yarns' as const,
-    interestedIfUnavailable: true,
-    phoneNumber: '12345',
-    email: 'vendor@example.com'
+    ...getBaseValidState(),
+    phoneNumber: '12345'
   };
 
   assert.equal(getVendorsFormErrorKey(state), 'vendorsFormPage.validation.phoneInvalid');
@@ -77,12 +96,7 @@ test('getVendorsFormErrorKey rejects invalid phone', () => {
 
 test('getVendorsFormErrorKey requires email after valid phone', () => {
   const state = {
-    ...INITIAL_VENDORS_FORM_STATE,
-    storeName: 'Shop name',
-    attendedBefore: true,
-    mainCategory: 'yarns' as const,
-    interestedIfUnavailable: true,
-    phoneNumber: '+48 123 456 789',
+    ...getBaseValidState(),
     email: ''
   };
 
@@ -91,12 +105,7 @@ test('getVendorsFormErrorKey requires email after valid phone', () => {
 
 test('getVendorsFormErrorKey rejects invalid email', () => {
   const state = {
-    ...INITIAL_VENDORS_FORM_STATE,
-    storeName: 'Shop name',
-    attendedBefore: true,
-    mainCategory: 'yarns' as const,
-    interestedIfUnavailable: true,
-    phoneNumber: '+48 123 456 789',
+    ...getBaseValidState(),
     email: 'vendor.example.com'
   };
 
@@ -105,13 +114,8 @@ test('getVendorsFormErrorKey rejects invalid email', () => {
 
 test('getVendorsFormErrorKey requires invoice details', () => {
   const state = {
-    ...INITIAL_VENDORS_FORM_STATE,
-    storeName: 'Shop name',
-    attendedBefore: true,
-    mainCategory: 'yarns' as const,
-    interestedIfUnavailable: true,
-    phoneNumber: '+48 123 456 789',
-    email: 'vendor@example.com'
+    ...getBaseValidState(),
+    invoiceDetails: ''
   };
 
   assert.equal(getVendorsFormErrorKey(state), 'vendorsFormPage.validation.invoiceDetailsRequired');
@@ -119,14 +123,8 @@ test('getVendorsFormErrorKey requires invoice details', () => {
 
 test('getVendorsFormErrorKey requires business description after invoice details', () => {
   const state = {
-    ...INITIAL_VENDORS_FORM_STATE,
-    storeName: 'Shop name',
-    attendedBefore: true,
-    mainCategory: 'yarns' as const,
-    interestedIfUnavailable: true,
-    phoneNumber: '+48 123 456 789',
-    email: 'vendor@example.com',
-    invoiceDetails: 'Invoice details'
+    ...getBaseValidState(),
+    businessDescription: ''
   };
 
   assert.equal(getVendorsFormErrorKey(state), 'vendorsFormPage.validation.businessDescriptionRequired');
@@ -134,17 +132,8 @@ test('getVendorsFormErrorKey requires business description after invoice details
 
 test('getVendorsFormErrorKey accepts a missing logo filename (logo is optional)', () => {
   const state = {
-    storeName: 'Shop name',
-    attendedBefore: true,
-    mainCategory: 'yarns' as const,
-    preferredStands: [],
-    interestedIfUnavailable: true,
-    phoneNumber: '+48 123 456 789',
-    email: 'vendor@example.com',
-    invoiceDetails: 'Invoice details',
-    logoFileName: null,
-    businessDescription: 'Short business description',
-    acceptedStatute: true
+    ...getBaseValidState(),
+    logoFileName: null
   };
 
   assert.equal(getVendorsFormErrorKey(state), null);
@@ -152,15 +141,7 @@ test('getVendorsFormErrorKey accepts a missing logo filename (logo is optional)'
 
 test('getVendorsFormErrorKey rejects too long business description', () => {
   const state = {
-    ...INITIAL_VENDORS_FORM_STATE,
-    storeName: 'Shop name',
-    attendedBefore: true,
-    mainCategory: 'yarns' as const,
-    interestedIfUnavailable: true,
-    phoneNumber: '+48 123 456 789',
-    email: 'vendor@example.com',
-    invoiceDetails: 'Invoice details',
-    logoFileName: 'logo.png',
+    ...getBaseValidState(),
     businessDescription: 'a'.repeat(2201)
   };
 
@@ -169,35 +150,15 @@ test('getVendorsFormErrorKey rejects too long business description', () => {
 
 test('getVendorsFormErrorKey requires statute acceptance last', () => {
   const state = {
-    ...INITIAL_VENDORS_FORM_STATE,
-    storeName: 'Shop name',
-    attendedBefore: true,
-    mainCategory: 'yarns' as const,
-    interestedIfUnavailable: true,
-    phoneNumber: '+48 123 456 789',
-    email: 'vendor@example.com',
-    invoiceDetails: 'Invoice details',
-    logoFileName: 'logo.png',
-    businessDescription: 'Short business description'
+    ...getBaseValidState(),
+    acceptedStatute: false
   };
 
   assert.equal(getVendorsFormErrorKey(state), 'vendorsFormPage.validation.statuteRequired');
 });
 
 test('getVendorsFormErrorKey returns null for valid data', () => {
-  const state = {
-    storeName: 'Shop name',
-    attendedBefore: true,
-    mainCategory: 'yarns' as const,
-    preferredStands: [],
-    interestedIfUnavailable: true,
-    phoneNumber: '+48 123 456 789',
-    email: 'vendor@example.com',
-    invoiceDetails: 'Invoice details',
-    logoFileName: 'logo.png',
-    businessDescription: 'Short business description',
-    acceptedStatute: true
-  };
+  const state = getBaseValidState();
 
   assert.equal(getVendorsFormErrorKey(state), null);
 });
@@ -211,17 +172,9 @@ test('parseVendorsFormDraft returns null for invalid payload', () => {
 test('parseVendorsFormDraft restores a valid payload', () => {
   const draft = {
     formData: {
-      storeName: 'Shop name',
-      attendedBefore: true,
-      mainCategory: 'yarns' as const,
+      ...getBaseValidState(),
       preferredStands: ['stand-1', 'stand-2'],
-      interestedIfUnavailable: false,
-      phoneNumber: '+48 123 456 789',
-      email: 'vendor@example.com',
-      invoiceDetails: 'Invoice details',
-      logoFileName: 'logo.png',
-      businessDescription: 'Short business description',
-      acceptedStatute: true
+      interestedIfUnavailable: false
     },
     isComplete: true
   };
@@ -235,6 +188,7 @@ test('parseVendorsFormDraft rejects a payload missing preferredStands', () => {
       storeName: 'Shop name',
       attendedBefore: true,
       mainCategory: 'yarns' as const,
+      mainCategoryOther: '',
       interestedIfUnavailable: false,
       phoneNumber: '+48 123 456 789',
       email: 'vendor@example.com',

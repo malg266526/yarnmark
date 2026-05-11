@@ -148,7 +148,28 @@ export const VendorsFormView = ({
                 />
                 <span>{t('vendorsFormPage.steps.mainCategory.candles')}</span>
               </RadioOption>
+              <RadioOption>
+                <input
+                  type="radio"
+                  name="main_category"
+                  checked={formData.mainCategory === 'other'}
+                  onChange={() => updateField('mainCategory', 'other')}
+                />
+                <span>{t('vendorsFormPage.steps.mainCategory.other')}</span>
+              </RadioOption>
             </RadioGroup>
+            {formData.mainCategory === 'other' ? (
+              <FieldLabel htmlFor="main_category_other">
+                {t('vendorsFormPage.steps.mainCategory.otherLabel')}
+                <TextInput
+                  id="main_category_other"
+                  type="text"
+                  value={formData.mainCategoryOther}
+                  placeholder={t('vendorsFormPage.steps.mainCategory.otherPlaceholder')}
+                  onChange={(event) => updateField('mainCategoryOther', event.target.value)}
+                />
+              </FieldLabel>
+            ) : null}
           </Fieldset>
         </FormSection>
 
@@ -356,7 +377,11 @@ export const VendorsFormView = ({
             </dd>
             <dt>{t('vendorsFormPage.summary.mainCategory')}</dt>
             <dd>
-              {formData.mainCategory ? rawT(`vendorsFormPage.steps.mainCategory.${formData.mainCategory}`) : null}
+              {formData.mainCategory === 'other'
+                ? formData.mainCategoryOther
+                : formData.mainCategory
+                  ? rawT(`vendorsFormPage.steps.mainCategory.${formData.mainCategory}`)
+                  : null}
             </dd>
             <dt>{t('vendorsFormPage.summary.preferredStands')}</dt>
             <dd>

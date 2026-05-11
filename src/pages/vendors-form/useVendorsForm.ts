@@ -25,7 +25,19 @@ export const useVendorsForm = () => {
   }, [formData, t]);
 
   const updateField = <K extends keyof VendorsFormState>(key: K, value: VendorsFormState[K]) => {
-    setFormData((prev) => ({ ...prev, [key]: value }));
+    setFormData((prev) => {
+      if (key === 'mainCategory') {
+        const nextCategory = value as VendorsFormState['mainCategory'];
+
+        if (nextCategory !== 'other') {
+          return { ...prev, mainCategory: nextCategory, mainCategoryOther: '' };
+        }
+
+        return { ...prev, mainCategory: nextCategory };
+      }
+
+      return { ...prev, [key]: value };
+    });
     setIsComplete(false);
   };
 

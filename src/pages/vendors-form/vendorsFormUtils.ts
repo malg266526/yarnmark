@@ -5,6 +5,7 @@ export type VendorsFormValidationErrorKey =
   | 'vendorsFormPage.validation.storeNameRequired'
   | 'vendorsFormPage.validation.attendedBeforeRequired'
   | 'vendorsFormPage.validation.mainCategoryRequired'
+  | 'vendorsFormPage.validation.mainCategoryOtherRequired'
   | 'vendorsFormPage.validation.interestedIfUnavailableRequired'
   | 'vendorsFormPage.validation.phoneRequired'
   | 'vendorsFormPage.validation.phoneInvalid'
@@ -42,6 +43,10 @@ export const getVendorsFormErrorKey = (formData: VendorsFormState): VendorsFormV
 
   if (!formData.mainCategory) {
     return 'vendorsFormPage.validation.mainCategoryRequired';
+  }
+
+  if (formData.mainCategory === 'other' && !formData.mainCategoryOther.trim()) {
+    return 'vendorsFormPage.validation.mainCategoryOtherRequired';
   }
 
   if (formData.interestedIfUnavailable === null) {

@@ -12,7 +12,12 @@ const isAttendedBeforeValue = (value: unknown): value is VendorsFormState['atten
   value === null || typeof value === 'boolean';
 
 const isMainCategoryValue = (value: unknown): value is VendorsFormState['mainCategory'] =>
-  value === null || value === 'yarns' || value === 'accessories' || value === 'ceramics' || value === 'candles';
+  value === null ||
+  value === 'yarns' ||
+  value === 'accessories' ||
+  value === 'ceramics' ||
+  value === 'candles' ||
+  value === 'other';
 
 const isNullableString = (value: unknown): value is string | null => value === null || typeof value === 'string';
 
@@ -28,6 +33,7 @@ export const isVendorsFormState = (value: unknown): value is VendorsFormState =>
     typeof value.storeName === 'string' &&
     isAttendedBeforeValue(value.attendedBefore) &&
     isMainCategoryValue(value.mainCategory) &&
+    typeof value.mainCategoryOther === 'string' &&
     isStringArray(value.preferredStands) &&
     isAttendedBeforeValue(value.interestedIfUnavailable) &&
     typeof value.phoneNumber === 'string' &&

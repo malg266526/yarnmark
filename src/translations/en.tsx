@@ -345,7 +345,10 @@ export const en: TranslationsShape = {
           yarns: 'Yarns',
           accessories: 'Knitting & crochet accessories',
           ceramics: 'Ceramics',
-          candles: 'Candles'
+          candles: 'Candles',
+          other: 'Other',
+          otherLabel: 'What category is it?',
+          otherPlaceholder: 'Enter the main product category'
         },
         preferredStands: {
           title: 'Pick your preferred stands on the map',
@@ -398,6 +401,7 @@ export const en: TranslationsShape = {
         storeNameRequired: 'Enter the store name.',
         attendedBeforeRequired: 'Choose one of the answers.',
         mainCategoryRequired: 'Choose the main product category.',
+        mainCategoryOtherRequired: 'Enter the main product category.',
         interestedIfUnavailableRequired: 'Choose one of the answers.',
         phoneRequired: 'Enter a phone number.',
         phoneInvalid: 'Enter a valid phone number.',
