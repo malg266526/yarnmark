@@ -3,76 +3,55 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import type { FieldErrors } from 'react-hook-form';
 import { toggleStandSelection } from './vendorsFormUtils';
-import { createVendorApplication, listVendorApplications } from '../vendors-applications/vendorsApplicationsStorage';
-import { VENDORS_FORM_DRAFT_STORAGE_KEY, VENDORS_FORM_MAX_PREFERRED_STANDS } from './vendorsFormConstants';
-import { vendorsFormSchema, type VendorsFormValues } from './vendorsFormSchema';
-import { readLogoFileAsDataUrl } from './vendorsFormLogoUtils';
+import { createVendorApplication, listStandInterestCounts } from '../vendors-applications/vendorsApplicationsStorage';
+import {
+  VENDORS_FORM_DRAFT_STORAGE_KEY,
+  VENDORS_FORM_LOGO_MAX_BYTES,
+  VENDORS_FORM_MAX_PREFERRED_STANDS
+} from './vendorsFormConstants';
+import { getVendorsFormValidationErrors, vendorsFormSchema, type VendorsFormValues } from './vendorsFormSchema';
+import { LogoTooLargeError, prepareLogoForUpload } from './vendorsFormLogoUtils';
 import { getInitialVendorsFormDraft, parseVendorsFormDraft } from './vendorsFormStorage';
-import { getHighInterestStandIds, getStandInterestCounts } from './vendorsFormStandInterestUtils';
-import type { VendorApplication } from './vendorsFormSubmission';
+import { isHighInterestStand } from './vendorsFormStandInterestUtils';
 import type { VendorsFormState } from './vendorsFormTypes';
 
 const readInitialDraft = () =>
   parseVendorsFormDraft(window.localStorage.getItem(VENDORS_FORM_DRAFT_STORAGE_KEY)) ?? getInitialVendorsFormDraft();
 
-const getFirstErrorKey = (errors: FieldErrors<VendorsFormValues>) => {
-  const errorOrder: Array<keyof VendorsFormValues> = [
-    'storeName',
-    'attendedBefore',
-    'mainCategory',
-    'mainCategoryOther',
-    'interestedIfUnavailable',
-    'phoneNumber',
-    'email',
-    'invoiceDetails',
-    'businessDescription',
-    'acceptedStatute'
-  ];
-
-  for (const fieldName of errorOrder) {
-    const message = errors[fieldName]?.message;
-
-    if (typeof message === 'string') {
-      return message;
-    }
-  }
-
-  return '';
-};
-
 export const useVendorsForm = () => {
   const t = useTypedTranslation();
   const { i18n, t: rawT } = useTranslation();
   const [initialDraft] = useState(readInitialDraft);
+  const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
   const [isComplete, setIsComplete] = useState<boolean>(initialDraft.isComplete);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const [submittedAt, setSubmittedAt] = useState<string | null>(null);
-  const [applications, setApplications] = useState<VendorApplication[]>([]);
+  const [isLoadingLogo, setIsLoadingLogo] = useState(false);
+  const [standInterestCounts, setStandInterestCounts] = useState<Map<string, number>>(() => new Map());
+  const [validationErrors, setValidationErrors] = useState<Partial<Record<keyof VendorsFormValues, string>>>({});
   const form = useForm<VendorsFormValues>({
     defaultValues: initialDraft.formData,
     mode: 'onSubmit',
     resolver: zodResolver(vendorsFormSchema)
   });
-  const { formState, getValues, handleSubmit, register, reset, setValue, watch } = form;
+  const { formState, getValues, register, reset, setValue, trigger, watch } = form;
   const formData = watch();
 
-  const currentError = useMemo(() => {
-    const firstErrorKey = getFirstErrorKey(formState.errors);
-
-    return firstErrorKey ? rawT(firstErrorKey) : '';
-  }, [formState.errors, rawT]);
-
   useEffect(() => {
-    void listVendorApplications().then((response) => {
-      setApplications(response.applications);
+    void listStandInterestCounts().then((response) => {
+      setStandInterestCounts(response.standInterestCounts);
     });
   }, []);
 
-  const standInterestCounts = useMemo(() => getStandInterestCounts(applications), [applications]);
-  const highInterestStandIds = useMemo(() => getHighInterestStandIds(applications), [applications]);
+  const highInterestStandIds = useMemo(
+    () =>
+      [...standInterestCounts.entries()]
+        .filter(([, interestCount]) => isHighInterestStand(interestCount))
+        .map(([standId]) => standId),
+    [standInterestCounts]
+  );
   const highInterestSelectedStandIds = useMemo(
     () => formData.preferredStands.filter((standId) => highInterestStandIds.includes(standId)),
     [formData.preferredStands, highInterestStandIds]
@@ -88,24 +67,30 @@ export const useVendorsForm = () => {
       return;
     }
 
+    setIsLoadingLogo(true);
+
     try {
-      const logoDataUrl = await readLogoFileAsDataUrl(file);
+      const preparedLogo = await prepareLogoForUpload(file, VENDORS_FORM_LOGO_MAX_BYTES);
 
       setValue('logoFileName', file.name, { shouldDirty: true, shouldValidate: true });
-      setValue('logoDataUrl', logoDataUrl, { shouldDirty: true, shouldValidate: true });
-      setValue('logoMimeType', file.type || null, { shouldDirty: true, shouldValidate: true });
+      setValue('logoDataUrl', preparedLogo.dataUrl, { shouldDirty: true, shouldValidate: true });
+      setValue('logoMimeType', preparedLogo.mimeType, { shouldDirty: true, shouldValidate: true });
       setIsComplete(false);
       setSubmitError('');
     } catch (error) {
       console.error(error);
-      setSubmitError(t('vendorsFormPage.logoUploadError'));
+      setSubmitError(
+        t(error instanceof LogoTooLargeError ? 'vendorsFormPage.logoTooLargeError' : 'vendorsFormPage.logoUploadError')
+      );
+    } finally {
+      setIsLoadingLogo(false);
     }
   };
 
   const toggleStand = (standId: string) => {
     const nextValue = toggleStandSelection(getValues('preferredStands'), standId, VENDORS_FORM_MAX_PREFERRED_STANDS);
 
-    setValue('preferredStands', nextValue, { shouldDirty: true });
+    setValue('preferredStands', nextValue, { shouldDirty: true, shouldValidate: hasAttemptedSubmit });
     setIsComplete(false);
     setSubmitError('');
   };
@@ -133,15 +118,43 @@ export const useVendorsForm = () => {
     }).format(new Date(submittedAt));
   }, [i18n.language, submittedAt]);
 
-  const submitForm = handleSubmit(async (validatedFormData) => {
-    setIsSubmitting(true);
+  useEffect(() => {
+    if (!hasAttemptedSubmit) {
+      return;
+    }
+
+    setValidationErrors(getVendorsFormValidationErrors(formData));
+  }, [formData, hasAttemptedSubmit]);
+
+  const submitForm = async () => {
+    setHasAttemptedSubmit(true);
     setSubmitError('');
+    const nextValidationErrors = getVendorsFormValidationErrors(getValues());
+    setValidationErrors(nextValidationErrors);
+
+    const isValid = Object.keys(nextValidationErrors).length === 0 && (await trigger());
+
+    if (!isValid) {
+      return;
+    }
+
+    const validatedFormData = getValues();
+
+    setIsSubmitting(true);
 
     try {
       const response = await createVendorApplication(validatedFormData);
 
       setSubmittedAt(response.application.submittedAt);
-      setApplications((currentApplications) => [...currentApplications, response.application]);
+      setStandInterestCounts((current) => {
+        const next = new Map(current);
+
+        for (const standId of new Set(response.application.preferredStands)) {
+          next.set(standId, (next.get(standId) ?? 0) + 1);
+        }
+
+        return next;
+      });
       setIsComplete(true);
       reset(validatedFormData);
     } catch (error) {
@@ -150,7 +163,7 @@ export const useVendorsForm = () => {
     } finally {
       setIsSubmitting(false);
     }
-  });
+  };
 
   const setCategory = (category: VendorsFormState['mainCategory']) => {
     setValue('mainCategory', category, { shouldDirty: true, shouldValidate: true });
@@ -175,14 +188,30 @@ export const useVendorsForm = () => {
     setSubmitError('');
   };
 
+  const getFieldError = (...fieldNames: Array<keyof VendorsFormValues>): string => {
+    if (!hasAttemptedSubmit) {
+      return '';
+    }
+
+    for (const fieldName of fieldNames) {
+      const messageKey = validationErrors[fieldName] ?? formState.errors[fieldName]?.message;
+
+      if (typeof messageKey === 'string') {
+        return rawT(messageKey);
+      }
+    }
+
+    return '';
+  };
+
   return {
-    currentError,
     formData,
-    formState,
+    getFieldError,
     highInterestSelectedStandIds,
     highInterestStandIds,
     register,
     isComplete,
+    isLoadingLogo,
     isSubmitting,
     standInterestCounts,
     submitError,

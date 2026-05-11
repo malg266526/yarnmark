@@ -11,6 +11,7 @@ export const downloadVendorApplicationLogo = async (
 
   await downloadStoredLogo({
     dataUrl: application.logoDataUrl,
+    storedMimeType: application.logoMimeType,
     preferredMimeType,
     logoFileName: application.logoFileName,
     fallbackStem: application.storeName

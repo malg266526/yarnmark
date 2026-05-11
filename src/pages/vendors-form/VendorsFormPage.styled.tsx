@@ -3,7 +3,7 @@ import { DropShadow, Radius } from '../../styles/cards';
 import { FontSize } from '../../styles/font-size';
 import { ScreenSize } from '../../styles/screeen-size';
 import { RedesignSpacings } from '../../styles/spacings';
-import { BackgroundColors, Colors, FontFamilies, GrayScale, TextColors } from '../../styles/theme';
+import { BackgroundColors, Colors, FontFamilies, GrayScale, TextColors, WarningColors } from '../../styles/theme';
 
 export const FormCard = styled.div`
   width: 100%;
@@ -93,10 +93,10 @@ export const LegendSize = styled.span`
 
 export const WarningCard = styled.div`
   padding: ${RedesignSpacings.sm};
-  border: 1px solid #f59e0b;
+  border: 1px solid ${WarningColors.border};
   border-radius: ${Radius.lg};
-  background: #fffbeb;
-  color: #92400e;
+  background: ${WarningColors.background};
+  color: ${WarningColors.text};
   font-family: ${FontFamilies.primary};
   font-size: ${FontSize.sm};
   line-height: 1.5;
@@ -172,13 +172,13 @@ export const TextArea = styled.textarea`
 
 export const FieldHint = styled.div`
   color: ${TextColors.secondary};
-  font-size: ${FontSize.sm};
+  font-size: ${FontSize.xs};
   line-height: 1.5;
   font-family: ${FontFamilies.primary};
 `;
 
 export const DisclaimerText = styled(FieldHint)`
-  font-size: inherit;
+  font-size: ${FontSize.sm};
 `;
 
 export const InfoRow = styled.div`

@@ -1,10 +1,10 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import type { VendorApplication } from './vendorsFormSubmission.ts';
+import { VENDORS_FORM_HIGH_INTEREST_MIN_REQUESTS } from './vendorsFormConstants.ts';
 import {
   getHighInterestStandIds,
   getStandInterestCounts,
-  HIGH_INTEREST_MIN_REQUESTS,
   isHighInterestStand
 } from './vendorsFormStandInterestUtils.ts';
 
@@ -42,8 +42,8 @@ test('getStandInterestCounts counts each application once per stand', () => {
 });
 
 test('isHighInterestStand returns true from configured threshold', () => {
-  assert.equal(isHighInterestStand(HIGH_INTEREST_MIN_REQUESTS - 1), false);
-  assert.equal(isHighInterestStand(HIGH_INTEREST_MIN_REQUESTS), true);
+  assert.equal(isHighInterestStand(VENDORS_FORM_HIGH_INTEREST_MIN_REQUESTS - 1), false);
+  assert.equal(isHighInterestStand(VENDORS_FORM_HIGH_INTEREST_MIN_REQUESTS), true);
 });
 
 test('getHighInterestStandIds returns only stands with at least three requests', () => {

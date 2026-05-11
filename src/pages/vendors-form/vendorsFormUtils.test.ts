@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { getVendorsFormErrorKey, isEmailValid, isPhoneValid, toggleStandSelection } from './vendorsFormUtils.ts';
 import { INITIAL_VENDORS_FORM_STATE } from './vendorsFormTypes.ts';
 import { getInitialVendorsFormDraft, parseVendorsFormDraft } from './vendorsFormStorage.ts';
+import { getVendorsFormValidationErrors } from './vendorsFormSchema.ts';
 
 const getBaseValidState = () => ({
   ...INITIAL_VENDORS_FORM_STATE,
@@ -225,6 +226,22 @@ test('getInitialVendorsFormDraft returns empty initial state', () => {
   assert.deepEqual(getInitialVendorsFormDraft(), {
     formData: INITIAL_VENDORS_FORM_STATE,
     isComplete: false
+  });
+});
+
+test('getVendorsFormValidationErrors returns multiple missing-section errors at once', () => {
+  assert.deepEqual(getVendorsFormValidationErrors(INITIAL_VENDORS_FORM_STATE), {
+    storeName: 'vendorsFormPage.validation.storeNameRequired',
+    attendedBefore: 'vendorsFormPage.validation.attendedBeforeRequired',
+    mainCategory: 'vendorsFormPage.validation.mainCategoryRequired',
+    preferredStands: 'vendorsFormPage.validation.preferredStandsRequired',
+    interestedIfUnavailable: 'vendorsFormPage.validation.interestedIfUnavailableRequired',
+    phoneNumber: 'vendorsFormPage.validation.phoneRequired',
+    email: 'vendorsFormPage.validation.emailRequired',
+    invoiceDetails: 'vendorsFormPage.validation.invoiceDetailsRequired',
+    logoFileName: 'vendorsFormPage.validation.logoRequired',
+    businessDescription: 'vendorsFormPage.validation.businessDescriptionRequired',
+    acceptedStatute: 'vendorsFormPage.validation.statuteRequired'
   });
 });
 

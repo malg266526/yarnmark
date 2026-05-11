@@ -5,7 +5,7 @@ import hallJson from '../../assets/hall.json';
 import { StandColorsMap } from '../../components/editor/StandProps';
 import { Typography } from '../../components/Typography';
 import { usePhone } from '../../hooks/usePhone';
-import { BackgroundColors, HallColors } from '../../styles/theme';
+import { BackgroundColors, HallColors, WarningColors } from '../../styles/theme';
 
 const SELECTED_COLOR = '#FF8C00';
 
@@ -104,8 +104,8 @@ const StandElement = styled.button<{
     right: 2px;
     padding: 1px 5px;
     border-radius: 999px;
-    background: #fff7ed;
-    color: #9a3412;
+    background: ${WarningColors.badgeBackground};
+    color: ${WarningColors.badgeText};
     font-size: 11px;
     font-weight: 700;
     line-height: 1;

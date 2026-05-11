@@ -1,6 +1,5 @@
-import type { VendorApplication } from './vendorsFormSubmission';
-
-export const HIGH_INTEREST_MIN_REQUESTS = 3;
+import type { VendorApplication } from './vendorsFormSubmission.ts';
+import { VENDORS_FORM_HIGH_INTEREST_MIN_REQUESTS } from './vendorsFormConstants.ts';
 
 export const getStandInterestCounts = (applications: VendorApplication[]) => {
   const counts = new Map<string, number>();
@@ -16,7 +15,7 @@ export const getStandInterestCounts = (applications: VendorApplication[]) => {
   return counts;
 };
 
-export const isHighInterestStand = (interestCount: number) => interestCount >= HIGH_INTEREST_MIN_REQUESTS;
+export const isHighInterestStand = (interestCount: number) => interestCount >= VENDORS_FORM_HIGH_INTEREST_MIN_REQUESTS;
 
 export const getHighInterestStandIds = (applications: VendorApplication[]) =>
   [...getStandInterestCounts(applications).entries()]

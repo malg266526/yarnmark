@@ -3,6 +3,7 @@ import type { VendorsFormState } from '../vendors-form/vendorsFormTypes';
 import { VENDORS_APPLICATIONS_MOCK } from './vendorsApplicationsMock';
 import { isVendorsFormState } from '../vendors-form/vendorsFormStorage';
 import { normalizeStandIds } from '../vendors-form/vendorsFormStandIds';
+import { getStandInterestCounts } from '../vendors-form/vendorsFormStandInterestUtils';
 
 const VENDOR_APPLICATIONS_STORAGE_KEY = 'vendor-applications-json';
 const DEFAULT_VENDOR_APPLICATION_STATUS: VendorApplicationStatus = 'new';
@@ -68,6 +69,12 @@ export const listVendorApplications = async () => {
   };
 };
 
+export const listStandInterestCounts = async () => {
+  return {
+    standInterestCounts: getStandInterestCounts(getEffectiveApplications())
+  };
+};
+
 export const createVendorApplication = async (formData: VendorsFormState) => {
   const application: VendorApplication = {
     id: crypto.randomUUID(),
@@ -76,8 +83,8 @@ export const createVendorApplication = async (formData: VendorsFormState) => {
     ...formData
   };
 
-  const applications = getEffectiveApplications();
-  writeStoredApplications([...applications, application]);
+  const storedApplications = readStoredApplications();
+  writeStoredApplications([...storedApplications, application]);
 
   return {
     application
@@ -85,14 +92,14 @@ export const createVendorApplication = async (formData: VendorsFormState) => {
 };
 
 export const updateVendorApplicationStatus = async (applicationId: string, status: VendorApplicationStatus) => {
-  const applications = getEffectiveApplications();
-  const updatedApplications = applications.map((application) =>
+  const storedApplications = readStoredApplications();
+  const updatedApplications = storedApplications.map((application) =>
     application.id === applicationId ? { ...application, status } : application
   );
 
   writeStoredApplications(updatedApplications);
 
   return {
-    applications: updatedApplications
+    applications: getEffectiveApplications()
   };
 };

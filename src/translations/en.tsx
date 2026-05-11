@@ -330,6 +330,8 @@ export const en: TranslationsShape = {
       submitting: 'Submitting...',
       submitError: 'The application could not be saved. Please try again.',
       logoUploadError: 'The logo file could not be read. Please choose it again.',
+      logoTooLargeError: 'Logo file is too large (max 8 MB). Please choose a smaller one.',
+      logoLoading: 'Processing logo…',
       submissionDateTimeLabel: 'Submission date and time',
       draftBanner: 'This draft is stored locally in this browser until you submit the application.',
       steps: {
@@ -389,7 +391,7 @@ export const en: TranslationsShape = {
           title: 'Invoice details',
           detailsLabel: 'Invoice details',
           detailsPlaceholder: 'Enter the full invoice details',
-          logoLabel: 'Logo (optional)',
+          logoLabel: 'Logo',
           logoHint:
             'You can upload a logo image. After the application is saved, it can be downloaded from the applications panel.',
           logoSavedHint: 'The logo will be saved together with the application.'
@@ -414,11 +416,13 @@ export const en: TranslationsShape = {
         mainCategoryRequired: 'Choose the main product category.',
         mainCategoryOtherRequired: 'Enter the main product category.',
         interestedIfUnavailableRequired: 'Choose one of the answers.',
+        preferredStandsRequired: 'Choose at least one preferred stand.',
         phoneRequired: 'Enter a phone number.',
         phoneInvalid: 'Enter a valid phone number.',
         emailRequired: 'Enter an email address.',
         emailInvalid: 'Enter a valid email address.',
         invoiceDetailsRequired: 'Enter the invoice details.',
+        logoRequired: 'Add a logo file.',
         businessDescriptionRequired: 'Add a business description.',
         businessDescriptionTooLong: 'The business description is too long.',
         statuteRequired: 'You must accept the terms to continue.'

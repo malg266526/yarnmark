@@ -328,6 +328,8 @@ export const pl = {
       submitting: 'Wysyłanie...',
       submitError: 'Nie udało się zapisać zgłoszenia. Spróbuj ponownie.',
       logoUploadError: 'Nie udało się odczytać pliku z logo. Wybierz go ponownie.',
+      logoTooLargeError: 'Plik z logo jest za duży (max 8 MB). Wybierz mniejszy.',
+      logoLoading: 'Przetwarzanie pliku z logo…',
       submissionDateTimeLabel: 'Data i godzina wysłania',
       draftBanner: 'Szkic formularza zapisuje się lokalnie w tej przeglądarce do momentu wysłania zgłoszenia.',
       steps: {
@@ -387,7 +389,7 @@ export const pl = {
           title: 'Dane do faktury',
           detailsLabel: 'Dane do faktury',
           detailsPlaceholder: 'Wpisz pełne dane do faktury',
-          logoLabel: 'Logo (opcjonalnie)',
+          logoLabel: 'Logo',
           logoHint:
             'Możesz dodać plik graficzny logo. Po zapisaniu zgłoszenia będzie można go pobrać z panelu zgłoszeń.',
           logoSavedHint: 'Logo zostało zapisane razem ze zgłoszeniem.'
@@ -412,11 +414,13 @@ export const pl = {
         mainCategoryRequired: 'Wybierz główną kategorię produktów.',
         mainCategoryOtherRequired: 'Wpisz główną kategorię produktów.',
         interestedIfUnavailableRequired: 'Wybierz jedną z odpowiedzi.',
+        preferredStandsRequired: 'Wybierz co najmniej jedno preferowane stoisko.',
         phoneRequired: 'Podaj numer telefonu.',
         phoneInvalid: 'Podaj poprawny numer telefonu.',
         emailRequired: 'Podaj adres e-mail.',
         emailInvalid: 'Podaj poprawny adres e-mail.',
         invoiceDetailsRequired: 'Podaj dane do faktury.',
+        logoRequired: 'Dodaj plik z logo.',
         businessDescriptionRequired: 'Dodaj opis działalności.',
         businessDescriptionTooLong: 'Opis działalności jest za długi.',
         statuteRequired: 'Musisz zaakceptować regulamin, aby przejść dalej.'

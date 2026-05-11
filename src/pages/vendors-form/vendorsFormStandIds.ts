@@ -1,3 +1,7 @@
+// Hand-typed snapshot of src/assets/hall.json: stand.id → stand.index.
+// Keep in sync when hall.json changes (TS 5.2 cannot import JSON in this module
+// without attributes that the test runner rejects; derive from hall.json after
+// the TypeScript upgrade lands).
 const HALL_STAND_INDEX_BY_ID = {
   'mgl5iw69-apfj5ox': 'a1',
   'mgl5l1dd-638vrn7': 'a0',
