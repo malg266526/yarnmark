@@ -15,12 +15,12 @@ const ChevronIcon = styled(Icon)`
   }
 `;
 
-interface Props {
+interface ExpandableProps {
   title: ReactNode;
   children: ReactNode;
 }
 
-export const Expandable = ({ title, children }: Props) => {
+export const Expandable = ({ title, children }: ExpandableProps) => {
   const [isExpanded, toggle] = useToggle();
 
   return (

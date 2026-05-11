@@ -5,6 +5,9 @@
 - Keep page files thin. Page components should compose sections, not own business logic.
 - Put state transitions, validation, and persistence in hooks or pure utilities.
 - Keep presentational components focused on rendering and callbacks only.
+- Do not use `React.FC`.
+- Type component props directly on the function signature.
+- Do not use generic `Props` names. Use component-specific names such as `VendorCardProps`.
 - Extract reusable pure logic into `*Utils.ts` files before it becomes coupled to React.
 - Prefer constants for repeated literals, magic numbers, step counts, storage keys, and route paths.
 - Prefer explicit types for form state, step indexes, and validation results.

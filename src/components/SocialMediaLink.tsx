@@ -14,7 +14,7 @@ const IconButton = styled(Button)`
 
 type Variant = 'instagram' | 'raverly' | 'self';
 
-interface Props {
+interface SocialMediaLinkProps {
   variant: Variant;
   url?: string;
 }
@@ -31,7 +31,7 @@ const VariantToIcon = {
   self: PersonalPageIcon
 };
 
-export const SocialMediaLink = ({ variant, url }: Props) => {
+export const SocialMediaLink = ({ variant, url }: SocialMediaLinkProps) => {
   if (!url) return;
 
   return (

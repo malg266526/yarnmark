@@ -16,7 +16,7 @@ const CenteredPlainInfo = styled(PlainInfo)`
   align-items: center;
 `;
 
-export const VendorsApplicationsPage: React.FC = () => {
+export const VendorsApplicationsPage = () => {
   const isPhone = usePhone();
   const t = useTypedTranslation();
   const { applications, loading } = useVendorsApplications();

@@ -77,7 +77,7 @@ const InstagramLink = styled.a`
   }
 `;
 
-interface Props {
+interface OrganizerDetailsCardProps {
   name: string;
   title?: string;
   description?: string;
@@ -85,7 +85,7 @@ interface Props {
   image: PictureType;
 }
 
-export const OrganizerDetailsCard = ({ name, title, description, instagram, image }: Props) => {
+export const OrganizerDetailsCard = ({ name, title, description, instagram, image }: OrganizerDetailsCardProps) => {
   return (
     <DetailsWrapper key={name}>
       <DetailImageWrapper>

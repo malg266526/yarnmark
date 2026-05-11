@@ -16,12 +16,12 @@ import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { useTranslation } from 'react-i18next';
 import { formatBoolean, formatDateTime, formatMainCategory } from './VendorsApplicationsUtils';
 
-interface Props {
+interface VendorsApplicationsViewProps {
   applications: VendorApplication[];
   loading: boolean;
 }
 
-export const VendorsApplicationsView: React.FC<Props> = ({ applications, loading }) => {
+export const VendorsApplicationsView = ({ applications, loading }: VendorsApplicationsViewProps) => {
   const t = useTypedTranslation();
   const { t: rawT, i18n } = useTranslation();
   const booleanLabels = {
