@@ -1,5 +1,6 @@
 import type { VendorApplication } from './vendorsFormSubmission';
 import type { VendorsFormState } from './vendorsFormTypes';
+import { VENDORS_APPLICATIONS_MOCK } from '../vendors-applications/vendorsApplicationsMock';
 import { isVendorsFormState } from './vendorsFormStorage';
 
 const VENDOR_APPLICATIONS_STORAGE_KEY = 'vendor-applications-json';
@@ -40,7 +41,11 @@ const writeStoredApplications = (applications: VendorApplication[]) => {
 
 export const listVendorApplications = async () => {
   return {
-    applications: readStoredApplications()
+    applications: (() => {
+      const applications = readStoredApplications();
+
+      return applications.length > 0 ? applications : VENDORS_APPLICATIONS_MOCK;
+    })()
   };
 };
 

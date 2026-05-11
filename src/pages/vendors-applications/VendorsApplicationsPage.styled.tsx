@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Radius, DropShadow } from '../../styles/cards';
 import { FontSize } from '../../styles/font-size';
+import { ScreenSize } from '../../styles/screeen-size';
 import { RedesignSpacings } from '../../styles/spacings';
 import { BackgroundColors, BorderColors, Colors, FontFamilies, TextColors } from '../../styles/theme';
 
@@ -23,8 +24,12 @@ export const ApplicationsMeta = styled.div`
 
 export const ApplicationsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: ${RedesignSpacings.md};
+
+  @media (max-width: ${ScreenSize.phone}) {
+    grid-template-columns: minmax(0, 1fr);
+  }
 `;
 
 export const ApplicationCard = styled.article`
