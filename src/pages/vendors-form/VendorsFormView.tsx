@@ -16,9 +16,6 @@ import {
   FormSection,
   HallLayout,
   HallMapColumn,
-  InfoLabel,
-  InfoRow,
-  InfoValue,
   InlineLink,
   LegendBadge,
   LegendCard,
@@ -37,6 +34,7 @@ import {
   VENDORS_FORM_MAX_PREFERRED_STANDS
 } from './vendorsFormConstants';
 import { SelectableHall } from './SelectableHall';
+import { SubmissionDateTimePreview } from './SubmissionDateTimePreview';
 
 interface VendorsFormViewProps {
   currentError: string;
@@ -44,7 +42,6 @@ interface VendorsFormViewProps {
   isComplete: boolean;
   isSubmitting: boolean;
   showErrors: boolean;
-  submissionDateTimePreview: string;
   submitError: string;
   submittedAtLabel: string | null;
   submitForm: () => Promise<void>;
@@ -59,7 +56,6 @@ export const VendorsFormView = ({
   isComplete,
   isSubmitting,
   showErrors,
-  submissionDateTimePreview,
   submitError,
   submittedAtLabel,
   submitForm,
@@ -367,10 +363,7 @@ export const VendorsFormView = ({
 
         <FieldHint>{t('vendorsFormPage.draftBanner')}</FieldHint>
 
-        <InfoRow aria-label="submission_datetime">
-          <InfoLabel>{t('vendorsFormPage.submissionDateTimeLabel')}</InfoLabel>
-          <InfoValue>{submissionDateTimePreview}</InfoValue>
-        </InfoRow>
+        <SubmissionDateTimePreview />
 
         {submitError ? <ErrorText>{submitError}</ErrorText> : null}
 
