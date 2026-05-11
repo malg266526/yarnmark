@@ -47,7 +47,7 @@ export const ApplicationsGrid = styled.div`
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: ${RedesignSpacings.md};
 
-  @media (max-width: ${ScreenSize.phone}) {
+  @media (max-width: ${ScreenSize.tablet}) {
     grid-template-columns: minmax(0, 1fr);
   }
 `;

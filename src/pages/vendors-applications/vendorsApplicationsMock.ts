@@ -1,9 +1,14 @@
 import type { VendorApplication } from '../vendors-form/vendorsFormSubmission';
 
+const HOUR_MS = 60 * 60 * 1000;
+const DAY_MS = 24 * HOUR_MS;
+const MOCK_REFERENCE_TIME = Date.now();
+const submittedAtRelativeToNow = (offsetMs: number) => new Date(MOCK_REFERENCE_TIME - offsetMs).toISOString();
+
 export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
   {
     id: 'mock-application-1',
-    submittedAt: '2026-05-08T08:15:00.000Z',
+    submittedAt: submittedAtRelativeToNow(3 * DAY_MS + 2 * HOUR_MS),
     storeName: 'Włóczki z Krakowa',
     attendedBefore: true,
     mainCategory: 'yarns',
@@ -20,7 +25,7 @@ export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
   },
   {
     id: 'mock-application-2',
-    submittedAt: '2026-05-09T11:40:00.000Z',
+    submittedAt: submittedAtRelativeToNow(2 * DAY_MS + 5 * HOUR_MS),
     storeName: 'Ceramika i Splot',
     attendedBefore: false,
     mainCategory: 'ceramics',
@@ -37,7 +42,7 @@ export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
   },
   {
     id: 'mock-application-3',
-    submittedAt: '2026-05-10T16:05:00.000Z',
+    submittedAt: submittedAtRelativeToNow(DAY_MS + 9 * HOUR_MS),
     storeName: 'Pętelka Studio',
     attendedBefore: true,
     mainCategory: 'other',
@@ -54,7 +59,7 @@ export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
   },
   {
     id: 'mock-application-4',
-    submittedAt: '2026-05-11T08:55:00.000Z',
+    submittedAt: submittedAtRelativeToNow(5 * HOUR_MS),
     storeName: 'Candle Loop',
     attendedBefore: false,
     mainCategory: 'candles',
@@ -71,7 +76,7 @@ export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
   },
   {
     id: 'mock-application-5',
-    submittedAt: '2026-05-11T10:20:00.000Z',
+    submittedAt: submittedAtRelativeToNow(3 * HOUR_MS),
     storeName: 'Akcesoria Mgiełka',
     attendedBefore: true,
     mainCategory: 'accessories',
@@ -88,7 +93,7 @@ export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
   },
   {
     id: 'mock-application-6',
-    submittedAt: '2026-05-11T13:45:00.000Z',
+    submittedAt: submittedAtRelativeToNow(30 * 60 * 1000),
     storeName: 'Len i Konopie',
     attendedBefore: false,
     mainCategory: 'other',

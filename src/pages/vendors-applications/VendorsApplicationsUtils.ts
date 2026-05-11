@@ -43,7 +43,7 @@ export interface StandApplicationRequest {
   applicationId: string;
   storeName: string;
   submittedAt: string;
-  priority: 'highest' | 'medium' | 'compromise';
+  priority: 'highest' | 'medium' | 'lowest';
 }
 
 export interface StandApplicationsGroup {
@@ -51,23 +51,10 @@ export interface StandApplicationsGroup {
   requests: StandApplicationRequest[];
 }
 
-const getStandPriority = (standIndex: number): StandApplicationRequest['priority'] => {
-  if (standIndex === 0) {
-    return 'highest';
-  }
+const PRIORITY_BY_INDEX = ['highest', 'medium', 'lowest'] as const;
 
-  if (standIndex === 1) {
-    return 'medium';
-  }
-
-  return 'compromise';
-};
-
-const priorityOrder: Record<StandApplicationRequest['priority'], number> = {
-  highest: 0,
-  medium: 1,
-  compromise: 2
-};
+const getStandPriority = (standIndex: number): StandApplicationRequest['priority'] =>
+  PRIORITY_BY_INDEX[standIndex] ?? 'lowest';
 
 export const groupApplicationsByStand = (applications: VendorApplication[]): StandApplicationsGroup[] => {
   const standRequests = new Map<string, StandApplicationRequest[]>();
@@ -91,14 +78,8 @@ export const groupApplicationsByStand = (applications: VendorApplication[]): Sta
     .sort(([leftStandId], [rightStandId]) => leftStandId.localeCompare(rightStandId, undefined, { numeric: true }))
     .map(([standId, requests]) => ({
       standId,
-      requests: requests.sort((left, right) => {
-        const priorityDifference = priorityOrder[left.priority] - priorityOrder[right.priority];
-
-        if (priorityDifference !== 0) {
-          return priorityDifference;
-        }
-
-        return new Date(left.submittedAt).getTime() - new Date(right.submittedAt).getTime();
-      })
+      requests: requests.sort(
+        (left, right) => new Date(left.submittedAt).getTime() - new Date(right.submittedAt).getTime()
+      )
     }));
 };

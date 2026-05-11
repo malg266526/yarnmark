@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { listVendorApplications } from '../vendors-form/vendorsApplicationsStorage';
+import { listVendorApplications } from './vendorsApplicationsStorage';
 import type { VendorApplication } from '../vendors-form/vendorsFormSubmission';
 
 export const useVendorsApplications = () => {

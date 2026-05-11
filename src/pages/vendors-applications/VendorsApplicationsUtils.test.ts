@@ -89,7 +89,7 @@ test('formatDateTime formats ISO timestamp for locale', () => {
   assert.equal(formatDateTime('2026-05-11T10:30:00.000Z', 'en-US'), 'May 11, 2026 at 12:30:00 PM');
 });
 
-test('groupApplicationsByStand groups stands and keeps vendor stand preference priority', () => {
+test('groupApplicationsByStand groups stands and orders requests by submission date', () => {
   const applications: VendorApplication[] = [
     {
       ...getBaseApplication(),
@@ -113,7 +113,7 @@ test('groupApplicationsByStand groups stands and keeps vendor stand preference p
       requests: [
         {
           applicationId: 'application-1',
-          priority: 'compromise',
+          priority: 'lowest',
           storeName: 'First Store',
           submittedAt: '2026-05-11T12:00:00.000Z'
         }
@@ -140,16 +140,16 @@ test('groupApplicationsByStand groups stands and keeps vendor stand preference p
       standId: 'S2',
       requests: [
         {
-          applicationId: 'application-1',
-          priority: 'highest',
-          storeName: 'First Store',
-          submittedAt: '2026-05-11T12:00:00.000Z'
-        },
-        {
           applicationId: 'application-2',
           priority: 'medium',
           storeName: 'Second Store',
           submittedAt: '2026-05-11T10:00:00.000Z'
+        },
+        {
+          applicationId: 'application-1',
+          priority: 'highest',
+          storeName: 'First Store',
+          submittedAt: '2026-05-11T12:00:00.000Z'
         }
       ]
     }

@@ -1,7 +1,7 @@
-import type { VendorApplication } from './vendorsFormSubmission';
-import type { VendorsFormState } from './vendorsFormTypes';
-import { VENDORS_APPLICATIONS_MOCK } from '../vendors-applications/vendorsApplicationsMock';
-import { isVendorsFormState } from './vendorsFormStorage';
+import type { VendorApplication } from '../vendors-form/vendorsFormSubmission';
+import type { VendorsFormState } from '../vendors-form/vendorsFormTypes';
+import { VENDORS_APPLICATIONS_MOCK } from './vendorsApplicationsMock';
+import { isVendorsFormState } from '../vendors-form/vendorsFormStorage';
 
 const VENDOR_APPLICATIONS_STORAGE_KEY = 'vendor-applications-json';
 

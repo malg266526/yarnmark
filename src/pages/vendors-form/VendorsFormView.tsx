@@ -198,6 +198,7 @@ export const VendorsFormView = ({
                 max: VENDORS_FORM_MAX_PREFERRED_STANDS
               })}
             </FieldHint>
+            <FieldHint>{t('vendorsFormPage.steps.preferredStands.orderHint')}</FieldHint>
             <FieldHint>
               {rawT('vendorsFormPage.steps.preferredStands.counter', {
                 current: formData.preferredStands.length,
@@ -411,7 +412,7 @@ export const VendorsFormView = ({
             <dt>{t('vendorsFormPage.summary.preferredStands')}</dt>
             <dd>
               {formData.preferredStands.length > 0
-                ? formData.preferredStands.join(', ')
+                ? formData.preferredStands.map((standId, index) => `${index + 1}. ${standId}`).join(', ')
                 : t('vendorsFormPage.summary.notProvided')}
             </dd>
             <dt>{t('vendorsFormPage.summary.interestedIfUnavailable')}</dt>

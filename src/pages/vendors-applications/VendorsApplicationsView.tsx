@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   ApplicationCard,
   ApplicationField,
@@ -45,8 +45,8 @@ export const VendorsApplicationsView = ({ applications, loading }: VendorsApplic
     noAnswer: t('vendorsApplicationsPage.values.noAnswer'),
     yes: t('vendorsApplicationsPage.values.yes')
   };
-  const sortedApplications = sortApplicationsBySubmittedAt(applications);
-  const standGroups = groupApplicationsByStand(applications);
+  const sortedApplications = useMemo(() => sortApplicationsBySubmittedAt(applications), [applications]);
+  const standGroups = useMemo(() => groupApplicationsByStand(applications), [applications]);
 
   if (loading) {
     return <ApplicationsEmpty>{t('vendorsApplicationsPage.loading')}</ApplicationsEmpty>;
@@ -106,7 +106,7 @@ export const VendorsApplicationsView = ({ applications, loading }: VendorsApplic
                 <ApplicationFieldLabel>{t('vendorsApplicationsPage.fields.preferredStands')}</ApplicationFieldLabel>
                 <ApplicationFieldValue>
                   {application.preferredStands.length > 0
-                    ? application.preferredStands.join(', ')
+                    ? application.preferredStands.map((standId, index) => `${index + 1}. ${standId}`).join(', ')
                     : t('vendorsApplicationsPage.values.noneSelected')}
                 </ApplicationFieldValue>
               </ApplicationField>
