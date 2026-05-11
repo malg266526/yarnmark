@@ -199,7 +199,9 @@ export const VendorsFormView = ({
               accept="image/*"
               onChange={(event) => updateField('logoFileName', event.target.files?.[0]?.name || null)}
             />
-            {formData.logoFileName ? <FieldHint>{formData.logoFileName}</FieldHint> : null}
+            <FieldHint>
+              {formData.logoFileName ?? t('vendorsFormPage.steps.invoice.logoHint')}
+            </FieldHint>
           </FieldLabel>
         </Fieldset>
 
@@ -245,9 +247,11 @@ export const VendorsFormView = ({
 
         {showErrors && currentError ? <ErrorText>{currentError}</ErrorText> : null}
 
+        <FieldHint>{t('vendorsFormPage.draftBanner')}</FieldHint>
+
         <ActionsRow>
           <span />
-          <PrimaryButton type="submit">{t('vendorsFormPage.finish')}</PrimaryButton>
+          <PrimaryButton type="submit">{t('vendorsFormPage.saveDraft')}</PrimaryButton>
         </ActionsRow>
       </FormLayout>
 
@@ -280,7 +284,7 @@ export const VendorsFormView = ({
             <dt>{t('vendorsFormPage.summary.invoiceDetails')}</dt>
             <dd>{formData.invoiceDetails}</dd>
             <dt>{t('vendorsFormPage.summary.logo')}</dt>
-            <dd>{formData.logoFileName || '-'}</dd>
+            <dd>{formData.logoFileName ?? t('vendorsFormPage.summary.notProvided')}</dd>
             <dt>{t('vendorsFormPage.summary.businessDescription')}</dt>
             <dd>{formData.businessDescription}</dd>
             <dt>{t('vendorsFormPage.summary.statute')}</dt>

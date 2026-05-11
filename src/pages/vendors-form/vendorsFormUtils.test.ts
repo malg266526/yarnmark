@@ -117,7 +117,7 @@ test('getVendorsFormErrorKey requires invoice details', () => {
   assert.equal(getVendorsFormErrorKey(state), 'vendorsFormPage.validation.invoiceDetailsRequired');
 });
 
-test('getVendorsFormErrorKey requires logo after invoice details', () => {
+test('getVendorsFormErrorKey requires business description after invoice details', () => {
   const state = {
     ...INITIAL_VENDORS_FORM_STATE,
     storeName: 'Shop name',
@@ -129,12 +129,11 @@ test('getVendorsFormErrorKey requires logo after invoice details', () => {
     invoiceDetails: 'Invoice details'
   };
 
-  assert.equal(getVendorsFormErrorKey(state), 'vendorsFormPage.validation.logoRequired');
+  assert.equal(getVendorsFormErrorKey(state), 'vendorsFormPage.validation.businessDescriptionRequired');
 });
 
-test('getVendorsFormErrorKey requires business description', () => {
+test('getVendorsFormErrorKey accepts a missing logo filename (logo is optional)', () => {
   const state = {
-    ...INITIAL_VENDORS_FORM_STATE,
     storeName: 'Shop name',
     attendedBefore: true,
     mainCategory: 'yarns' as const,
@@ -142,10 +141,12 @@ test('getVendorsFormErrorKey requires business description', () => {
     phoneNumber: '+48 123 456 789',
     email: 'vendor@example.com',
     invoiceDetails: 'Invoice details',
-    logoFileName: 'logo.png'
+    logoFileName: null,
+    businessDescription: 'Short business description',
+    acceptedStatute: true
   };
 
-  assert.equal(getVendorsFormErrorKey(state), 'vendorsFormPage.validation.businessDescriptionRequired');
+  assert.equal(getVendorsFormErrorKey(state), null);
 });
 
 test('getVendorsFormErrorKey rejects too long business description', () => {

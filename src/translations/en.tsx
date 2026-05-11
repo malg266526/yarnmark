@@ -326,7 +326,9 @@ export const en: TranslationsShape = {
     vendorsFormPage: {
       title: 'Vendor application form',
       kicker: 'For vendors',
-      finish: 'Finish',
+      saveDraft: 'Save draft',
+      draftBanner:
+        'This draft is stored only in your browser. We do not send it to the organizers yet — submission will be added soon.',
       steps: {
         storeName: {
           title: 'What is the name of your brand or store?',
@@ -361,7 +363,8 @@ export const en: TranslationsShape = {
           title: 'Invoice details',
           detailsLabel: 'Invoice details',
           detailsPlaceholder: 'Enter the full invoice details',
-          logoLabel: 'Upload logo'
+          logoLabel: 'Logo filename (optional)',
+          logoHint: 'For now we only record the filename — please send the actual logo by email later.'
         },
         businessDescription: {
           title: 'Short business description for promo materials',
@@ -385,15 +388,14 @@ export const en: TranslationsShape = {
         emailRequired: 'Enter an email address.',
         emailInvalid: 'Enter a valid email address.',
         invoiceDetailsRequired: 'Enter the invoice details.',
-        logoRequired: 'Upload a logo.',
         businessDescriptionRequired: 'Add a business description.',
         businessDescriptionTooLong: 'The business description is too long.',
         statuteRequired: 'You must accept the terms to continue.'
       },
       summary: {
-        title: 'The form draft is ready',
+        title: 'Draft saved locally',
         description:
-          'For now the data only exists in the browser and has not been submitted yet. In the next step we can add persistent storage.',
+          'Your answers are stored only in this browser — they have not been sent to the organizers yet. Form submission will arrive in a future release.',
         storeName: 'Store name',
         attendedBefore: 'Previous editions',
         mainCategory: 'Main category',
@@ -404,7 +406,8 @@ export const en: TranslationsShape = {
         logo: 'Logo',
         businessDescription: 'Business description',
         statute: 'Terms',
-        accepted: 'Accepted'
+        accepted: 'Accepted',
+        notProvided: 'Not provided'
       }
     },
     foodBand: {

@@ -11,7 +11,6 @@ export type VendorsFormValidationErrorKey =
   | 'vendorsFormPage.validation.emailRequired'
   | 'vendorsFormPage.validation.emailInvalid'
   | 'vendorsFormPage.validation.invoiceDetailsRequired'
-  | 'vendorsFormPage.validation.logoRequired'
   | 'vendorsFormPage.validation.businessDescriptionRequired'
   | 'vendorsFormPage.validation.businessDescriptionTooLong'
   | 'vendorsFormPage.validation.statuteRequired';
@@ -55,10 +54,6 @@ export const getVendorsFormErrorKey = (formData: VendorsFormState): VendorsFormV
 
   if (!formData.invoiceDetails.trim()) {
     return 'vendorsFormPage.validation.invoiceDetailsRequired';
-  }
-
-  if (!formData.logoFileName) {
-    return 'vendorsFormPage.validation.logoRequired';
   }
 
   if (!formData.businessDescription.trim()) {

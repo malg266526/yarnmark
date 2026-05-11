@@ -324,7 +324,9 @@ export const pl = {
     vendorsFormPage: {
       title: 'Formularz zgłoszeniowy wystawców',
       kicker: 'Dla wystawców',
-      finish: 'Zakończ',
+      saveDraft: 'Zapisz szkic',
+      draftBanner:
+        'Ten szkic jest zapisany tylko w Twojej przeglądarce. Nie wysyłamy go jeszcze do organizatorek — wkrótce dodamy taką możliwość.',
       steps: {
         storeName: {
           title: 'Jak nazywa się Twoja marka lub sklep?',
@@ -359,7 +361,8 @@ export const pl = {
           title: 'Dane do faktury',
           detailsLabel: 'Dane do faktury',
           detailsPlaceholder: 'Wpisz pełne dane do faktury',
-          logoLabel: 'Prześlij logo'
+          logoLabel: 'Nazwa pliku z logo (opcjonalnie)',
+          logoHint: 'Na razie zapisujemy tylko nazwę pliku — właściwe logo dośle się później mailem.'
         },
         businessDescription: {
           title: 'Krótki opis działalności do materiałów promocyjnych',
@@ -383,15 +386,14 @@ export const pl = {
         emailRequired: 'Podaj adres e-mail.',
         emailInvalid: 'Podaj poprawny adres e-mail.',
         invoiceDetailsRequired: 'Podaj dane do faktury.',
-        logoRequired: 'Dodaj logo.',
         businessDescriptionRequired: 'Dodaj opis działalności.',
         businessDescriptionTooLong: 'Opis działalności jest za długi.',
         statuteRequired: 'Musisz zaakceptować regulamin, aby przejść dalej.'
       },
       summary: {
-        title: 'Szkic formularza jest gotowy',
+        title: 'Szkic zapisany lokalnie',
         description:
-          'Dane są na razie tylko w przeglądarce i nie zostały jeszcze wysłane. W kolejnym kroku dodamy trwały zapis.',
+          'Dane są zapisane tylko w Twojej przeglądarce — jeszcze nie zostały wysłane do organizatorek. Wysyłka formularza pojawi się w kolejnej wersji strony.',
         storeName: 'Nazwa sklepu',
         attendedBefore: 'Poprzednie edycje',
         mainCategory: 'Główna kategoria',
@@ -402,7 +404,8 @@ export const pl = {
         logo: 'Logo',
         businessDescription: 'Opis działalności',
         statute: 'Regulamin',
-        accepted: 'Zaakceptowano'
+        accepted: 'Zaakceptowano',
+        notProvided: 'Nie podano'
       }
     },
     foodBand: {
