@@ -11,6 +11,11 @@ const isRecord = (value: unknown): value is Record<string, unknown> => typeof va
 const isAttendedBeforeValue = (value: unknown): value is VendorsFormState['attendedBefore'] =>
   value === null || typeof value === 'boolean';
 
+const isMainCategoryValue = (value: unknown): value is VendorsFormState['mainCategory'] =>
+  value === null || value === 'yarns' || value === 'accessories' || value === 'ceramics' || value === 'candles';
+
+const isNullableString = (value: unknown): value is string | null => value === null || typeof value === 'string';
+
 export const isVendorsFormState = (value: unknown): value is VendorsFormState => {
   if (!isRecord(value)) {
     return false;
@@ -19,8 +24,13 @@ export const isVendorsFormState = (value: unknown): value is VendorsFormState =>
   return (
     typeof value.storeName === 'string' &&
     isAttendedBeforeValue(value.attendedBefore) &&
+    isMainCategoryValue(value.mainCategory) &&
+    isAttendedBeforeValue(value.interestedIfUnavailable) &&
     typeof value.phoneNumber === 'string' &&
     typeof value.email === 'string' &&
+    typeof value.invoiceDetails === 'string' &&
+    isNullableString(value.logoFileName) &&
+    typeof value.businessDescription === 'string' &&
     typeof value.acceptedStatute === 'boolean'
   );
 };

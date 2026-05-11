@@ -344,12 +344,36 @@ export const pl = {
           yes: 'Tak, byłam/byłem wystawcą wcześniej',
           no: 'Nie, to mój pierwszy raz'
         },
+        mainCategory: {
+          title: 'Nazwij GŁÓWNĄ kategorię produktów, które oferuje Twój sklep',
+          yarns: 'Włóczki',
+          accessories: 'Akcesoria do drutów i szydełka',
+          ceramics: 'Ceramika',
+          candles: 'Świece'
+        },
+        interestedIfUnavailable: {
+          title: 'Jeśli wybrane stoiska będą niedostępne, czy nadal chcesz otrzymać od nas ofertę?',
+          yes: 'Tak',
+          no: 'Nie'
+        },
         contact: {
           title: 'Jak możemy się z Tobą skontaktować?',
           phoneLabel: 'Numer telefonu',
           phonePlaceholder: '+48 123 456 789',
           emailLabel: 'Adres e-mail',
           emailPlaceholder: 'twoj@sklep.pl'
+        },
+        invoice: {
+          title: 'Dane do faktury',
+          detailsLabel: 'Dane do faktury',
+          detailsPlaceholder: 'Wpisz pełne dane do faktury',
+          logoLabel: 'Prześlij logo'
+        },
+        businessDescription: {
+          title: 'Krótki opis działalności do materiałów promocyjnych',
+          label: 'Opis działalności',
+          placeholder: 'Napisz krótko, czym zajmuje się Twoja marka.',
+          limitHint: '{{current}} / {{max}} znaków'
         },
         statute: {
           title: 'Potwierdzenie regulaminu',
@@ -360,20 +384,31 @@ export const pl = {
       validation: {
         storeNameRequired: 'Podaj nazwę sklepu.',
         attendedBeforeRequired: 'Wybierz jedną z odpowiedzi.',
+        mainCategoryRequired: 'Wybierz główną kategorię produktów.',
+        interestedIfUnavailableRequired: 'Wybierz jedną z odpowiedzi.',
         phoneRequired: 'Podaj numer telefonu.',
         phoneInvalid: 'Podaj poprawny numer telefonu.',
         emailRequired: 'Podaj adres e-mail.',
         emailInvalid: 'Podaj poprawny adres e-mail.',
+        invoiceDetailsRequired: 'Podaj dane do faktury.',
+        logoRequired: 'Dodaj logo.',
+        businessDescriptionRequired: 'Dodaj opis działalności.',
+        businessDescriptionTooLong: 'Opis działalności jest za długi.',
         statuteRequired: 'Musisz zaakceptować regulamin, aby przejść dalej.'
       },
       summary: {
-        title: 'Pierwsza część formularza jest gotowa',
+        title: 'Szkic formularza jest gotowy',
         description:
           'Dane są na razie tylko w przeglądarce i nie zostały jeszcze wysłane. W kolejnym kroku dodamy trwały zapis.',
         storeName: 'Nazwa sklepu',
         attendedBefore: 'Poprzednie edycje',
+        mainCategory: 'Główna kategoria',
+        interestedIfUnavailable: 'Oferta przy braku stoiska',
         phone: 'Telefon',
         email: 'E-mail',
+        invoiceDetails: 'Dane do faktury',
+        logo: 'Logo',
+        businessDescription: 'Opis działalności',
         statute: 'Regulamin',
         accepted: 'Zaakceptowano'
       }

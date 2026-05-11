@@ -1,19 +1,27 @@
-export type StepIndex = 0 | 1 | 2 | 3;
+export type VendorsMainCategory = 'yarns' | 'accessories' | 'ceramics' | 'candles' | null;
 
 export interface VendorsFormState {
   storeName: string;
   attendedBefore: boolean | null;
+  mainCategory: VendorsMainCategory;
+  interestedIfUnavailable: boolean | null;
   phoneNumber: string;
   email: string;
+  invoiceDetails: string;
+  logoFileName: string | null;
+  businessDescription: string;
   acceptedStatute: boolean;
 }
 
 export const INITIAL_VENDORS_FORM_STATE: VendorsFormState = {
   storeName: '',
   attendedBefore: null,
+  mainCategory: null,
+  interestedIfUnavailable: null,
   phoneNumber: '',
   email: '',
+  invoiceDetails: '',
+  logoFileName: null,
+  businessDescription: '',
   acceptedStatute: false
 };
-
-export const TOTAL_VENDORS_FORM_STEPS = 4;

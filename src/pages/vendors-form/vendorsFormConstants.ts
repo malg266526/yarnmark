@@ -1,2 +1,2 @@
-export const VENDORS_FORM_STEP_QUERY_PARAM = 'step';
 export const VENDORS_FORM_DRAFT_STORAGE_KEY = 'vendors-form-draft';
+export const VENDORS_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH = 2200;

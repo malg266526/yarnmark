@@ -79,6 +79,29 @@ export const TextInput = styled.input`
   }
 `;
 
+export const TextArea = styled.textarea`
+  width: 100%;
+  min-height: 140px;
+  padding: 12px 14px;
+  border: 1px solid ${GrayScale[300]};
+  border-radius: ${Radius.lg};
+  font-size: ${FontSize.md};
+  font-family: 'Questrial', sans-serif;
+  background: white;
+  resize: vertical;
+
+  &:focus {
+    outline: 2px solid ${BackgroundColors.green.medium};
+    border-color: ${BackgroundColors.green.strong};
+  }
+`;
+
+export const FieldHint = styled.div`
+  color: ${TextColors.secondary};
+  font-size: ${FontSize.xs};
+  font-family: 'Questrial', sans-serif;
+`;
+
 export const RadioGroup = styled.div`
   display: flex;
   flex-direction: column;

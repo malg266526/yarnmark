@@ -346,12 +346,36 @@ export const en: TranslationsShape = {
           yes: 'Yes, I was a vendor before',
           no: 'No, this is my first time'
         },
+        mainCategory: {
+          title: 'Name the MAIN category of goods that your store offers',
+          yarns: 'Yarns',
+          accessories: 'Knitting & crochet accessories',
+          ceramics: 'Ceramics',
+          candles: 'Candles'
+        },
+        interestedIfUnavailable: {
+          title: 'If selected stands would be unavailable, are you still interested in receiving an offer from us?',
+          yes: 'Yes',
+          no: 'No'
+        },
         contact: {
           title: 'How can we contact you?',
           phoneLabel: 'Phone number',
           phonePlaceholder: '+48 123 456 789',
           emailLabel: 'Email address',
           emailPlaceholder: 'your@store.com'
+        },
+        invoice: {
+          title: 'Invoice details',
+          detailsLabel: 'Invoice details',
+          detailsPlaceholder: 'Enter the full invoice details',
+          logoLabel: 'Upload logo'
+        },
+        businessDescription: {
+          title: 'Short business description for promo materials',
+          label: 'Business description',
+          placeholder: 'Write a short description of your business.',
+          limitHint: '{{current}} / {{max}} characters'
         },
         statute: {
           title: 'Terms confirmation',
@@ -362,20 +386,31 @@ export const en: TranslationsShape = {
       validation: {
         storeNameRequired: 'Enter the store name.',
         attendedBeforeRequired: 'Choose one of the answers.',
+        mainCategoryRequired: 'Choose the main product category.',
+        interestedIfUnavailableRequired: 'Choose one of the answers.',
         phoneRequired: 'Enter a phone number.',
         phoneInvalid: 'Enter a valid phone number.',
         emailRequired: 'Enter an email address.',
         emailInvalid: 'Enter a valid email address.',
+        invoiceDetailsRequired: 'Enter the invoice details.',
+        logoRequired: 'Upload a logo.',
+        businessDescriptionRequired: 'Add a business description.',
+        businessDescriptionTooLong: 'The business description is too long.',
         statuteRequired: 'You must accept the terms to continue.'
       },
       summary: {
-        title: 'The first part of the form is ready',
+        title: 'The form draft is ready',
         description:
           'For now the data only exists in the browser and has not been submitted yet. In the next step we can add persistent storage.',
         storeName: 'Store name',
         attendedBefore: 'Previous editions',
+        mainCategory: 'Main category',
+        interestedIfUnavailable: 'Offer if unavailable',
         phone: 'Phone',
         email: 'Email',
+        invoiceDetails: 'Invoice details',
+        logo: 'Logo',
+        businessDescription: 'Business description',
         statute: 'Terms',
         accepted: 'Accepted'
       }
