@@ -22,29 +22,10 @@ export const FormCard = styled.div`
   }
 `;
 
-export const ProgressRow = styled.div`
-  display: flex;
-  gap: ${RedesignSpacings.xs};
-`;
-
-export const ProgressDot = styled.div<{ $active: boolean; $done: boolean }>`
-  flex: 1;
-  height: 8px;
-  border-radius: ${Radius.xxl};
-  background: ${({ $active, $done }) =>
-    $done ? BackgroundColors.green.strong : $active ? BackgroundColors.green.medium : GrayScale[200]};
-`;
-
 export const FormLayout = styled.form`
   display: flex;
   flex-direction: column;
   gap: ${RedesignSpacings.md};
-`;
-
-export const StepHeader = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${RedesignSpacings.xs};
 `;
 
 export const Fieldset = styled.fieldset`
@@ -139,17 +120,6 @@ export const ActionsRow = styled.div`
   justify-content: space-between;
   gap: ${RedesignSpacings.sm};
   flex-wrap: wrap;
-`;
-
-export const SecondaryButton = styled.button`
-  all: unset;
-  cursor: pointer;
-  border-radius: ${Radius.xxl};
-  padding: ${RedesignSpacings.xxs} ${RedesignSpacings.sm} 3px ${RedesignSpacings.sm};
-  border: 1px solid ${BackgroundColors.green.strong};
-  color: ${TextColors.secondary};
-  font-size: ${FontSize.md};
-  text-transform: uppercase;
 `;
 
 export const InlineLink = styled.a`

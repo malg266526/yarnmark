@@ -27,7 +27,7 @@ export const VendorsFormPage = () => {
         stretchOnMobile
         padding={isPhone ? 'sm' : 'xxl'}
       >
-        <UtilityPageHeader kicker="Dla wystawców" title={t('vendorsFormPage.title')} />
+        <UtilityPageHeader kicker={t('vendorsFormPage.kicker')} title={t('vendorsFormPage.title')} />
 
         <PlainInfo style={{ alignItems: 'center' }}>
           <VendorsFormView {...form} />

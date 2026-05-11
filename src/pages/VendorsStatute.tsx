@@ -80,10 +80,10 @@ export const VendorStatutePage = () => {
         padding={isPhone ? 'sm' : 'xxl'}
       >
         <StatuteStack>
-          <UtilityPageHeader kicker="Dla wystawców" title={t('menu.statuteForVendors')} />
+          <UtilityPageHeader kicker={t('vendorsStatue.kicker')} title={t('menu.statuteForVendors')} />
 
           <IntroBadge>
-            <Typography size="xs">Czytaj przed wysłaniem formularza</Typography>
+            <Typography size="xs">{t('vendorsStatue.badge')}</Typography>
           </IntroBadge>
 
           <SectionCard>

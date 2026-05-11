@@ -323,16 +323,8 @@ export const pl = {
     },
     vendorsFormPage: {
       title: 'Formularz zgłoszeniowy wystawców',
-      formTitle: 'Zgłoszenie krok po kroku',
-      stepCounter: 'Krok {{current}} z {{total}}',
-      next: 'Dalej',
-      back: 'Wstecz',
+      kicker: 'Dla wystawców',
       finish: 'Zakończ',
-      edit: 'Edytuj',
-      helpTitle: 'Aktualny etap',
-      helpDescription:
-        'To jest pierwsza wersja formularza. Na razie działa tylko interaktywny przebieg kroków i walidacja pól po stronie przeglądarki.',
-      questions: 'Masz pytania? Napisz na krakoski.yarnmark@gmail.com.',
       steps: {
         storeName: {
           title: 'Jak nazywa się Twoja marka lub sklep?',
@@ -658,7 +650,14 @@ export const pl = {
           '<br>'
       }
     },
+    statutesPage: {
+      kicker: 'Informacje praktyczne',
+      badge: 'Przeczytaj przed udziałem',
+      heading: 'Regulamin Krakoskiego Yarnmarku'
+    },
     vendorsStatue: {
+      kicker: 'Dla wystawców',
+      badge: 'Czytaj przed wysłaniem formularza',
       title: 'Regulamin sprzedaży stoisk 2026',
       subtitle: 'Regulamin sprzedaży stoisk 2026',
       intro:

@@ -74,18 +74,18 @@ export const StatutesPage = () => {
         padding={isPhone ? 'sm' : 'xxl'}
       >
         <StatutesStack>
-          <UtilityPageHeader kicker="Informacje praktyczne" title={t('menu.statutes')} />
+          <UtilityPageHeader kicker={t('statutesPage.kicker')} title={t('menu.statutes')} />
 
           <IntroRow>
             <IntroBadge>
-              <Typography size="xs">Przeczytaj przed udziałem</Typography>
+              <Typography size="xs">{t('statutesPage.badge')}</Typography>
             </IntroBadge>
           </IntroRow>
 
           <SectionCard>
             <SectionHeading>
               <Typography size="xl" weight="bold">
-                Regulamin Krakoskiego Yarnmarku
+                {t('statutesPage.heading')}
               </Typography>
             </SectionHeading>
 

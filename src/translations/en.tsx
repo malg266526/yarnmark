@@ -325,16 +325,8 @@ export const en: TranslationsShape = {
     },
     vendorsFormPage: {
       title: 'Vendor application form',
-      formTitle: 'Step-by-step application',
-      stepCounter: 'Step {{current}} of {{total}}',
-      next: 'Next',
-      back: 'Back',
+      kicker: 'For vendors',
       finish: 'Finish',
-      edit: 'Edit',
-      helpTitle: 'Current stage',
-      helpDescription:
-        'This is the first version of the form. For now it only includes the interactive step flow and client-side validation.',
-      questions: 'Do you have questions? Write to krakoski.yarnmark@gmail.com.',
       steps: {
         storeName: {
           title: 'What is the name of your brand or store?',
@@ -658,7 +650,14 @@ export const en: TranslationsShape = {
       }
     },
 
+    statutesPage: {
+      kicker: 'Practical information',
+      badge: 'Read before attending',
+      heading: 'Krakoski Yarnmark regulations'
+    },
     vendorsStatue: {
+      kicker: 'For vendors',
+      badge: 'Read before sending the form',
       title: 'Terms and Conditions for the sale of the vendors stands 2026',
       subtitle: 'Conditions for the sale of vendors stands 2026',
       intro:
