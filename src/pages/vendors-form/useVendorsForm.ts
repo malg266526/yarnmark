@@ -14,6 +14,9 @@ export const useVendorsForm = () => {
   const [formData, setFormData] = useState<VendorsFormState>(initialDraft.formData);
   const [isComplete, setIsComplete] = useState<boolean>(initialDraft.isComplete);
   const [showErrors, setShowErrors] = useState(false);
+  // File objects can't be serialized to localStorage; kept in-memory so a future
+  // submission flow can upload the actual bytes without forcing the user to re-pick.
+  const [logoFile, setLogoFile] = useState<File | null>(null);
 
   const currentError = useMemo(() => {
     const errorKey = getVendorsFormErrorKey(formData);
@@ -24,6 +27,11 @@ export const useVendorsForm = () => {
   const updateField = <K extends keyof VendorsFormState>(key: K, value: VendorsFormState[K]) => {
     setFormData((prev) => ({ ...prev, [key]: value }));
     setIsComplete(false);
+  };
+
+  const updateLogoFile = (file: File | null) => {
+    setLogoFile(file);
+    updateField('logoFileName', file?.name ?? null);
   };
 
   useEffect(() => {
@@ -44,8 +52,10 @@ export const useVendorsForm = () => {
     currentError,
     formData,
     isComplete,
+    logoFile,
     showErrors,
     submitForm,
-    updateField
+    updateField,
+    updateLogoFile
   };
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BackgroundColors, Colors, TextColors } from '../styles/theme';
+import { BackgroundColors, BorderColors, Colors, TextColors } from '../styles/theme';
 import { Header } from './menu/Header';
 import { PageContent } from '../components/PageContent';
 import { Band } from '../components/bands/Band';
@@ -46,7 +46,7 @@ const SectionCard = styled.section`
 
 const SectionHeading = styled.div`
   padding-bottom: ${RedesignSpacings.xs};
-  border-bottom: 1px solid rgba(50, 98, 19, 0.18);
+  border-bottom: 1px solid ${BorderColors.subtleGreen};
 `;
 
 const StatuteContent = styled(PlainInfo)`

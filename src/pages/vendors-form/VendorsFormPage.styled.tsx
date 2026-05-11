@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { CtaButton } from '../../components/Button';
-import { Radius } from '../../styles/cards';
+import { DropShadow, Radius } from '../../styles/cards';
 import { FontSize } from '../../styles/font-size';
 import { ScreenSize } from '../../styles/screeen-size';
 import { RedesignSpacings } from '../../styles/spacings';
-import { BackgroundColors, GrayScale, TextColors } from '../../styles/theme';
+import { BackgroundColors, Colors, GrayScale, TextColors } from '../../styles/theme';
 
 export const FormCard = styled.div`
   width: 100%;
@@ -14,8 +14,8 @@ export const FormCard = styled.div`
   gap: ${RedesignSpacings.md};
   padding: ${RedesignSpacings.md};
   border-radius: ${Radius.xl};
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  background: ${Colors.white};
+  box-shadow: ${DropShadow.card};
 
   @media (max-width: ${ScreenSize.phone}) {
     padding: ${RedesignSpacings.sm};

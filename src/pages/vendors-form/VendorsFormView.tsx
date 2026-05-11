@@ -29,6 +29,7 @@ interface VendorsFormViewProps {
   showErrors: boolean;
   submitForm: () => void;
   updateField: <K extends keyof VendorsFormState>(key: K, value: VendorsFormState[K]) => void;
+  updateLogoFile: (file: File | null) => void;
 }
 
 export const VendorsFormView = ({
@@ -37,7 +38,8 @@ export const VendorsFormView = ({
   isComplete,
   showErrors,
   submitForm,
-  updateField
+  updateField,
+  updateLogoFile
 }: VendorsFormViewProps) => {
   const t = useTypedTranslation();
   const { t: rawT } = useTranslation();
@@ -197,7 +199,7 @@ export const VendorsFormView = ({
               id="logo_file"
               type="file"
               accept="image/*"
-              onChange={(event) => updateField('logoFileName', event.target.files?.[0]?.name || null)}
+              onChange={(event) => updateLogoFile(event.target.files?.[0] ?? null)}
             />
             <FieldHint>
               {formData.logoFileName ?? t('vendorsFormPage.steps.invoice.logoHint')}
@@ -270,7 +272,9 @@ export const VendorsFormView = ({
                 : t('vendorsFormPage.steps.attendedBefore.no')}
             </dd>
             <dt>{t('vendorsFormPage.summary.mainCategory')}</dt>
-            <dd>{rawT(`vendorsFormPage.steps.mainCategory.${formData.mainCategory ?? 'yarns'}`)}</dd>
+            <dd>
+              {formData.mainCategory ? rawT(`vendorsFormPage.steps.mainCategory.${formData.mainCategory}`) : null}
+            </dd>
             <dt>{t('vendorsFormPage.summary.interestedIfUnavailable')}</dt>
             <dd>
               {formData.interestedIfUnavailable

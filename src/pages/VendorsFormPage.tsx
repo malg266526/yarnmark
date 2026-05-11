@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { BackgroundColors } from '../styles/theme';
 import { Header } from './menu/Header';
 import { PageContent } from '../components/PageContent';
@@ -9,6 +10,10 @@ import { PlainInfo } from './for-vendors/ForVendorsPage.styled';
 import { VendorsFormView } from './vendors-form/VendorsFormView';
 import { useVendorsForm } from './vendors-form/useVendorsForm';
 import { UtilityPageHeader } from '../components/UtilityPageHeader';
+
+const CenteredPlainInfo = styled(PlainInfo)`
+  align-items: center;
+`;
 
 export const VendorsFormPage = () => {
   const t = useTypedTranslation();
@@ -29,9 +34,9 @@ export const VendorsFormPage = () => {
       >
         <UtilityPageHeader kicker={t('vendorsFormPage.kicker')} title={t('vendorsFormPage.title')} />
 
-        <PlainInfo style={{ alignItems: 'center' }}>
+        <CenteredPlainInfo>
           <VendorsFormView {...form} />
-        </PlainInfo>
+        </CenteredPlainInfo>
       </Band.NarrowColumn>
     </PageContent>
   );
