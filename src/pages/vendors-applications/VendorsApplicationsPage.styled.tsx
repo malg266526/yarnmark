@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Button } from '../../components/Button';
 import { Radius, DropShadow } from '../../styles/cards';
 import { FontSize } from '../../styles/font-size';
 import { ScreenSize } from '../../styles/screeen-size';
@@ -21,7 +22,10 @@ export const ApplicationsToolbar = styled.div`
   justify-content: flex-end;
 `;
 
-export const ApplicationsToggleButton = styled.button`
+export const ApplicationsToggleButton = styled(Button)`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid ${BackgroundColors.green.medium};
   background: ${Colors.white};
   color: ${TextColors.secondary};

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import type { UseFormRegister, FormState, UseFormSetValue } from 'react-hook-form';
+import { CtaButton } from '../../components/Button';
 import { Typography } from '../../components/Typography';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import type { VendorsFormState } from './vendorsFormTypes';
@@ -24,7 +25,6 @@ import {
   LegendRow,
   LegendSize,
   LegendText,
-  PrimaryButton,
   RadioGroup,
   RadioOption,
   SummaryList,
@@ -378,9 +378,9 @@ export const VendorsFormView = ({
 
         <ActionsRow>
           <ActionsSpacer />
-          <PrimaryButton type="submit" disabled={isSubmitting}>
+          <CtaButton type="submit" disabled={isSubmitting}>
             {isSubmitting ? t('vendorsFormPage.submitting') : t('vendorsFormPage.submit')}
-          </PrimaryButton>
+          </CtaButton>
         </ActionsRow>
       </FormLayout>
 
