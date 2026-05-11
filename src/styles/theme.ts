@@ -30,6 +30,10 @@ export const TextColors = {
   accent: '#C0392B'
 };
 
+export const FontFamilies = {
+  primary: "'Questrial', sans-serif"
+} as const;
+
 export const BorderColors = {
   subtleGreen: 'rgba(50, 98, 19, 0.18)'
 };

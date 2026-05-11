@@ -327,6 +327,7 @@ export const en: TranslationsShape = {
       title: 'Vendor application form',
       kicker: 'For vendors',
       saveDraft: 'Save draft',
+      submissionDateTimeLabel: 'Submission date and time',
       draftBanner:
         'This draft is stored only in your browser. We do not send it to the organizers yet — submission will be added soon.',
       steps: {

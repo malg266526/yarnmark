@@ -4,7 +4,7 @@ import { DropShadow, Radius } from '../../styles/cards';
 import { FontSize } from '../../styles/font-size';
 import { ScreenSize } from '../../styles/screeen-size';
 import { RedesignSpacings } from '../../styles/spacings';
-import { BackgroundColors, Colors, GrayScale, TextColors } from '../../styles/theme';
+import { BackgroundColors, Colors, FontFamilies, GrayScale, TextColors } from '../../styles/theme';
 
 export const FormCard = styled.div`
   width: 100%;
@@ -64,7 +64,7 @@ export const LegendRow = styled.div`
   display: flex;
   align-items: center;
   gap: ${RedesignSpacings.xs};
-  font-family: 'Questrial', sans-serif;
+  font-family: ${FontFamilies.primary};
 `;
 
 export const LegendBadge = styled.span`
@@ -106,7 +106,7 @@ export const FieldLabel = styled.label`
   flex-direction: column;
   gap: ${RedesignSpacings.xxs};
   font-size: ${FontSize.sm};
-  font-family: 'Questrial', sans-serif;
+  font-family: ${FontFamilies.primary};
 `;
 
 export const TextInput = styled.input`
@@ -115,7 +115,7 @@ export const TextInput = styled.input`
   border: 1px solid ${GrayScale[300]};
   border-radius: ${Radius.lg};
   font-size: ${FontSize.md};
-  font-family: 'Questrial', sans-serif;
+  font-family: ${FontFamilies.primary};
   background: white;
 
   &:focus {
@@ -131,7 +131,7 @@ export const TextArea = styled.textarea`
   border: 1px solid ${GrayScale[300]};
   border-radius: ${Radius.lg};
   font-size: ${FontSize.md};
-  font-family: 'Questrial', sans-serif;
+  font-family: ${FontFamilies.primary};
   background: white;
   resize: vertical;
 
@@ -144,7 +144,24 @@ export const TextArea = styled.textarea`
 export const FieldHint = styled.div`
   color: ${TextColors.secondary};
   font-size: ${FontSize.xs};
-  font-family: 'Questrial', sans-serif;
+  font-family: ${FontFamilies.primary};
+`;
+
+export const InfoRow = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${RedesignSpacings.xxs};
+  font-family: ${FontFamilies.primary};
+`;
+
+export const InfoLabel = styled.div`
+  font-size: ${FontSize.sm};
+  color: ${TextColors.secondary};
+`;
+
+export const InfoValue = styled.div`
+  font-size: ${FontSize.md};
+  color: ${TextColors.primary};
 `;
 
 export const RadioGroup = styled.div`
@@ -162,21 +179,21 @@ export const RadioOption = styled.label`
   border-radius: ${Radius.lg};
   background: white;
   cursor: pointer;
-  font-family: 'Questrial', sans-serif;
+  font-family: ${FontFamilies.primary};
 `;
 
 export const CheckboxRow = styled.label`
   display: flex;
   align-items: flex-start;
   gap: ${RedesignSpacings.xs};
-  font-family: 'Questrial', sans-serif;
+  font-family: ${FontFamilies.primary};
   line-height: 1.4;
 `;
 
 export const ErrorText = styled.div`
   color: ${TextColors.accent};
   font-size: ${FontSize.sm};
-  font-family: 'Questrial', sans-serif;
+  font-family: ${FontFamilies.primary};
 `;
 
 export const ActionsRow = styled.div`
@@ -195,7 +212,7 @@ export const SummaryList = styled.dl`
   grid-template-columns: max-content 1fr;
   gap: ${RedesignSpacings.xs} ${RedesignSpacings.sm};
   margin: 0;
-  font-family: 'Questrial', sans-serif;
+  font-family: ${FontFamilies.primary};
 
   dt {
     font-weight: 700;
