@@ -439,6 +439,13 @@ export const en: TranslationsShape = {
       loading: 'Loading applications...',
       empty: 'No applications yet.',
       savedCount: '{{count}} applications saved',
+      showByStand: 'Show by stand',
+      showCards: 'Show applications',
+      priorities: {
+        highest: 'Priority: highest',
+        medium: 'Priority: medium',
+        compromise: 'Priority: lowest'
+      },
       fields: {
         mainCategory: 'Main category',
         preferredStands: 'Preferred stands',

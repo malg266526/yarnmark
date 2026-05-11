@@ -437,6 +437,13 @@ export const pl = {
       loading: 'Wczytywanie zgłoszeń...',
       empty: 'Brak zgłoszeń.',
       savedCount: 'Zapisanych zgłoszeń: {{count}}',
+      showByStand: 'Pokaż wg stoiska',
+      showCards: 'Pokaż zgłoszenia',
+      priorities: {
+        highest: 'Priorytet: najwyższy',
+        medium: 'Priorytet: średni',
+        compromise: 'Priorytet: najniższy'
+      },
       fields: {
         mainCategory: 'Główna kategoria',
         preferredStands: 'Preferowane stoiska',
