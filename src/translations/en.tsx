@@ -308,7 +308,8 @@ export const en: TranslationsShape = {
       registration: {
         title: 'Reservations',
         wantToJoin: 'Do you want to become a vendor at Krakoski Yarnmark 2026?',
-        newForm: 'We invite you to fill out the application form: <0>Form</0>.',
+        newForm: 'Please visit the application form page: <0>Form</0>.',
+        directFormLink: 'If you want to open the external form directly, click <0>here</0>.',
         extraInfoByMail:
           'Would you like to receive additional information via email? Write to <strong>krakoski.yarnmark@gmail.com</strong > ',
         beAVendor:
@@ -320,6 +321,20 @@ export const en: TranslationsShape = {
         feedback: 'All data related to payment will be part of feedback confirming spot reservation',
         return:
           'In case of reservation and missing the payment - reservation is cancelled and will be available again for vendors'
+      }
+    },
+    vendorsFormPage: {
+      title: 'Vendor application form',
+      openFormTitle: 'Complete the application',
+      intro: 'This page contains the vendor application forms for Krakoski Yarnmark.',
+      languageHint: 'The main button opens the form version matching the language currently selected on the website.',
+      openCurrentLanguage: 'Open the form',
+      allLinksTitle: 'All language versions',
+      questions: 'Do you have questions? Write to <strong>krakoski.yarnmark@gmail.com</strong>.',
+      links: {
+        pl: 'Polish form',
+        en: 'English form',
+        de: 'German form'
       }
     },
     foodBand: {

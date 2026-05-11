@@ -306,7 +306,8 @@ export const pl = {
       registration: {
         title: 'Zapisy',
         wantToJoin: 'Chcesz zostać wystawcą na Krakoski Yarnmark 2026?',
-        newForm: 'Zapraszamy do wypełnienia formularza zgłoszeniowego: <0>Formularz</0>.',
+        newForm: 'Zapraszamy do strony z formularzem zgłoszeniowym: <0>Formularz</0>.',
+        directFormLink: 'Jeśli chcesz przejść od razu do zewnętrznego formularza, kliknij <0>tutaj</0>.',
         extraInfoByMail: 'Masz dodatkowe pytania? Napisz na <strong>krakoski.yarnmark@gmail.com</strong>',
         beAVendor:
           'Jeśli chcesz dołączyć do wspaniałego grona naszych wystawców, napisz do nas! Email kontaktowy: <strong>krakoski.yarnmark@gmail.com</strong>',
@@ -318,6 +319,20 @@ export const pl = {
           'Wszystkie dane dotyczące płatności będą zawarte w informacji zwrotnej, potwierdzającej rezerwację stoiska.',
         return:
           'W przypadku rezerwacji i nie opłacenia kosztów – rezerwacja zostaje anulowane i zostanie ponownie dostępne dla wystawców.'
+      }
+    },
+    vendorsFormPage: {
+      title: 'Formularz zgłoszeniowy wystawców',
+      openFormTitle: 'Wypełnij zgłoszenie',
+      intro: 'Na tej stronie znajdziesz formularze zgłoszeniowe dla wystawców Krakoskiego Yarnmarku.',
+      languageHint: 'Otworzymy wersję formularza dopasowaną do aktualnie wybranego języka strony.',
+      openCurrentLanguage: 'Otwórz formularz',
+      allLinksTitle: 'Wszystkie wersje językowe',
+      questions: 'Masz pytania? Napisz na <strong>krakoski.yarnmark@gmail.com</strong>.',
+      links: {
+        pl: 'Formularz po polsku',
+        en: 'Formularz po angielsku',
+        de: 'Formularz po niemiecku'
       }
     },
     foodBand: {

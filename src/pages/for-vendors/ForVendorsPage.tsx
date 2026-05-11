@@ -80,6 +80,14 @@ export const ForVendorsPage = () => {
             <Trans
               i18nKey="infoForVendorsPage.registration.newForm"
               components={[
+                <MdLink key="application_form_page" to="/vendors-form" aria-label="applicationFormPage" />
+              ]}
+            />
+          </Typography>
+          <Typography size="md">
+            <Trans
+              i18nKey="infoForVendorsPage.registration.directFormLink"
+              components={[
                 <MdLink key="application_form_url" target="_blank" to={formLink} aria-label="applicationForm" />
               ]}
             />
