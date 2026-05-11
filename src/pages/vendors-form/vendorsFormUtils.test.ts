@@ -9,6 +9,8 @@ import {
   isPhoneValid
 } from './vendorsFormUtils.ts';
 import { INITIAL_VENDORS_FORM_STATE } from './vendorsFormTypes.ts';
+import { getInitialVendorsFormDraft, parseVendorsFormDraft } from './vendorsFormStorage.ts';
+import { getVendorsFormStepFromQuery, getVendorsFormStepQueryValue } from './vendorsFormUrl.ts';
 
 test('isEmailValid accepts a valid email', () => {
   assert.equal(isEmailValid('vendor@example.com'), true);
@@ -86,4 +88,49 @@ test('step helpers clamp navigation correctly', () => {
   assert.equal(getNextVendorsFormStep(3), 3);
   assert.equal(isLastVendorsFormStep(2), false);
   assert.equal(isLastVendorsFormStep(3), true);
+});
+
+test('getVendorsFormStepFromQuery returns first step for missing or invalid values', () => {
+  assert.equal(getVendorsFormStepFromQuery(null), 0);
+  assert.equal(getVendorsFormStepFromQuery('abc'), 0);
+  assert.equal(getVendorsFormStepFromQuery('0'), 0);
+});
+
+test('getVendorsFormStepFromQuery clamps step to available range', () => {
+  assert.equal(getVendorsFormStepFromQuery('1'), 0);
+  assert.equal(getVendorsFormStepFromQuery('4'), 3);
+  assert.equal(getVendorsFormStepFromQuery('99'), 3);
+});
+
+test('getVendorsFormStepQueryValue serializes step to one-based query value', () => {
+  assert.equal(getVendorsFormStepQueryValue(0), '1');
+  assert.equal(getVendorsFormStepQueryValue(3), '4');
+});
+
+test('parseVendorsFormDraft returns null for invalid payload', () => {
+  assert.equal(parseVendorsFormDraft(null), null);
+  assert.equal(parseVendorsFormDraft('not-json'), null);
+  assert.equal(parseVendorsFormDraft(JSON.stringify({ foo: 'bar' })), null);
+});
+
+test('parseVendorsFormDraft restores a valid payload', () => {
+  const draft = {
+    formData: {
+      storeName: 'Shop name',
+      attendedBefore: 'yes' as const,
+      phoneNumber: '+48 123 456 789',
+      email: 'vendor@example.com',
+      acceptedStatute: true
+    },
+    isComplete: true
+  };
+
+  assert.deepEqual(parseVendorsFormDraft(JSON.stringify(draft)), draft);
+});
+
+test('getInitialVendorsFormDraft returns empty initial state', () => {
+  assert.deepEqual(getInitialVendorsFormDraft(), {
+    formData: INITIAL_VENDORS_FORM_STATE,
+    isComplete: false
+  });
 });

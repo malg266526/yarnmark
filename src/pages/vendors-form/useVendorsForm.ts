@@ -1,19 +1,43 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { INITIAL_VENDORS_FORM_STATE, StepIndex, TOTAL_VENDORS_FORM_STEPS, VendorsFormState } from './vendorsFormTypes';
+import { StepIndex, TOTAL_VENDORS_FORM_STEPS, VendorsFormState } from './vendorsFormTypes';
 import {
   getNextVendorsFormStep,
   getPreviousVendorsFormStep,
   getVendorsFormErrorKey,
   isLastVendorsFormStep
 } from './vendorsFormUtils';
+import { VENDORS_FORM_DRAFT_STORAGE_KEY, VENDORS_FORM_STEP_QUERY_PARAM } from './vendorsFormConstants';
+import { getInitialVendorsFormDraft, parseVendorsFormDraft } from './vendorsFormStorage';
+import { getVendorsFormStepFromQuery, getVendorsFormStepQueryValue } from './vendorsFormUrl';
 
 export const useVendorsForm = () => {
   const t = useTypedTranslation();
-  const [step, setStep] = useState<StepIndex>(0);
-  const [formData, setFormData] = useState<VendorsFormState>(INITIAL_VENDORS_FORM_STATE);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialDraft = getInitialVendorsFormDraft();
+  const [step, setStep] = useState<StepIndex>(() =>
+    getVendorsFormStepFromQuery(searchParams.get(VENDORS_FORM_STEP_QUERY_PARAM))
+  );
+  const [formData, setFormData] = useState<VendorsFormState>(() => {
+    if (typeof window === 'undefined') {
+      return initialDraft.formData;
+    }
+
+    return (
+      parseVendorsFormDraft(window.localStorage.getItem(VENDORS_FORM_DRAFT_STORAGE_KEY))?.formData ||
+      initialDraft.formData
+    );
+  });
+
   const [showErrors, setShowErrors] = useState(false);
-  const [isComplete, setIsComplete] = useState(false);
+  const [isComplete, setIsComplete] = useState<boolean>(() => {
+    if (typeof window === 'undefined') {
+      return initialDraft.isComplete;
+    }
+
+    return parseVendorsFormDraft(window.localStorage.getItem(VENDORS_FORM_DRAFT_STORAGE_KEY))?.isComplete || false;
+  });
 
   const currentError = useMemo(() => {
     const errorKey = getVendorsFormErrorKey(step, formData);
@@ -24,6 +48,33 @@ export const useVendorsForm = () => {
   const updateField = <K extends keyof VendorsFormState>(key: K, value: VendorsFormState[K]) => {
     setFormData((prev) => ({ ...prev, [key]: value }));
   };
+
+  useEffect(() => {
+    const stepFromQuery = getVendorsFormStepFromQuery(searchParams.get(VENDORS_FORM_STEP_QUERY_PARAM));
+
+    setStep((currentStep) => (currentStep === stepFromQuery ? currentStep : stepFromQuery));
+  }, [searchParams]);
+
+  useEffect(() => {
+    setSearchParams(
+      (currentSearchParams) => {
+        const nextSearchParams = new URLSearchParams(currentSearchParams);
+
+        nextSearchParams.set(VENDORS_FORM_STEP_QUERY_PARAM, getVendorsFormStepQueryValue(step));
+
+        return nextSearchParams;
+      },
+      { replace: true }
+    );
+  }, [setSearchParams, step]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    window.localStorage.setItem(VENDORS_FORM_DRAFT_STORAGE_KEY, JSON.stringify({ formData, isComplete }));
+  }, [formData, isComplete]);
 
   const goNext = () => {
     if (currentError) {
