@@ -80,7 +80,7 @@ export const App = () => {
           <Route path="/editor" element={<EditorPage />} />
           <Route path="/info-for-vendors-statue" element={<VendorStatutePage />} />
           <Route path="/vendor-form" element={<VendorsFormPage />} />
-          <Route path="/vendor-applications" element={<VendorsApplicationsPage />} />
+          <Route path="/admin" element={<VendorsApplicationsPage />} />
         </Routes>
 
         <Footer id="footer">

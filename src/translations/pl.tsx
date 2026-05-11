@@ -441,19 +441,15 @@ export const pl = {
       }
     },
     vendorsApplicationsPage: {
-      kicker: 'Panel organizatorek',
-      title: 'Zgłoszenia wystawców',
+      kicker: 'Panel administratora',
+      title: 'Panel administratora',
       loading: 'Wczytywanie zgłoszeń...',
       empty: 'Brak zgłoszeń.',
       savedCount: 'Zapisanych zgłoszeń: {{count}}',
-      showByStand: 'Pokaż wg stoiska',
-      showCards: 'Pokaż zgłoszenia',
-      priorities: {
-        highest: 'Pierwszy wybór',
-        medium: 'Drugi wybór',
-        lowest: 'Trzeci wybór'
-      },
+      showByStand: 'Pokaż wg stoisk',
+      showCards: 'Pokaż karty',
       fields: {
+        status: 'Status',
         mainCategory: 'Główna kategoria',
         preferredStands: 'Preferowane stoiska',
         attendedBefore: 'Poprzednie edycje',
@@ -464,6 +460,17 @@ export const pl = {
         logoFilename: 'Nazwa pliku z logo',
         businessDescription: 'Opis działalności',
         acceptedStatute: 'Regulamin zaakceptowany'
+      },
+      statuses: {
+        accepted: 'zaakceptowane',
+        considered: 'rozważane',
+        new: 'nowe',
+        rejected: 'odrzucone'
+      },
+      priorities: {
+        highest: 'Priorytet: najwyższy',
+        medium: 'Priorytet: średni',
+        lowest: 'Priorytet: najniższy'
       },
       downloads: {
         png: 'Pobierz PNG',

@@ -443,19 +443,15 @@ export const en: TranslationsShape = {
       }
     },
     vendorsApplicationsPage: {
-      kicker: 'Organizer panel',
-      title: 'Vendor applications',
+      kicker: 'Admin panel',
+      title: 'Admin panel',
       loading: 'Loading applications...',
       empty: 'No applications yet.',
       savedCount: '{{count}} applications saved',
       showByStand: 'Show by stand',
-      showCards: 'Show applications',
-      priorities: {
-        highest: 'Top pick',
-        medium: 'Second pick',
-        lowest: 'Third pick'
-      },
+      showCards: 'Show cards',
       fields: {
+        status: 'Status',
         mainCategory: 'Main category',
         preferredStands: 'Preferred stands',
         attendedBefore: 'Previous editions',
@@ -466,6 +462,17 @@ export const en: TranslationsShape = {
         logoFilename: 'Logo filename',
         businessDescription: 'Business description',
         acceptedStatute: 'Terms accepted'
+      },
+      statuses: {
+        accepted: 'accepted',
+        considered: 'considered',
+        new: 'new',
+        rejected: 'rejected'
+      },
+      priorities: {
+        highest: 'Priority: highest',
+        medium: 'Priority: medium',
+        lowest: 'Priority: lowest'
       },
       downloads: {
         png: 'Download PNG',

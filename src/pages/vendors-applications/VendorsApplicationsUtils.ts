@@ -37,51 +37,75 @@ export const formatDateTime = (value: string, locale: string) =>
   }).format(new Date(value));
 
 export const sortApplicationsBySubmittedAt = (applications: VendorApplication[]) =>
-  [...applications].sort((left, right) => new Date(left.submittedAt).getTime() - new Date(right.submittedAt).getTime());
+  [...applications].sort((leftApplication, rightApplication) =>
+    leftApplication.submittedAt.localeCompare(rightApplication.submittedAt)
+  );
 
 export const VENDOR_APPLICATION_STATUS_ORDER: VendorApplicationStatus[] = ['new', 'considered', 'accepted', 'rejected'];
 
-export interface StandApplicationRequest {
+export type StandPriority = 'highest' | 'medium' | 'lowest';
+
+export interface StandRequest {
   applicationId: string;
+  priority: StandPriority;
   storeName: string;
   submittedAt: string;
-  priority: 'highest' | 'medium' | 'lowest';
 }
 
-export interface StandApplicationsGroup {
+export interface StandGroup {
+  requests: StandRequest[];
   standId: string;
-  requests: StandApplicationRequest[];
 }
 
-const PRIORITY_BY_INDEX = ['highest', 'medium', 'lowest'] as const;
-
-const getStandPriority = (standIndex: number): StandApplicationRequest['priority'] =>
-  PRIORITY_BY_INDEX[standIndex] ?? 'lowest';
-
-export const groupApplicationsByStand = (applications: VendorApplication[]): StandApplicationsGroup[] => {
-  const standRequests = new Map<string, StandApplicationRequest[]>();
-
-  for (const application of applications) {
-    for (const [standIndex, standId] of application.preferredStands.entries()) {
-      const requests = standRequests.get(standId) ?? [];
-
-      requests.push({
-        applicationId: application.id,
-        storeName: application.storeName,
-        submittedAt: application.submittedAt,
-        priority: getStandPriority(standIndex)
-      });
-
-      standRequests.set(standId, requests);
-    }
+const getStandPriority = (standIndex: number): StandPriority => {
+  if (standIndex === 0) {
+    return 'highest';
   }
 
-  return [...standRequests.entries()]
-    .sort(([leftStandId], [rightStandId]) => leftStandId.localeCompare(rightStandId, undefined, { numeric: true }))
+  if (standIndex === 1) {
+    return 'medium';
+  }
+
+  return 'lowest';
+};
+
+const STAND_PRIORITY_ORDER: Record<StandPriority, number> = {
+  highest: 0,
+  medium: 1,
+  lowest: 2
+};
+
+export const groupApplicationsByStand = (applications: VendorApplication[]): StandGroup[] => {
+  const standGroupsMap = new Map<string, StandRequest[]>();
+
+  for (const application of applications) {
+    application.preferredStands.forEach((standId, standIndex) => {
+      const currentStandRequests = standGroupsMap.get(standId) ?? [];
+
+      currentStandRequests.push({
+        applicationId: application.id,
+        priority: getStandPriority(standIndex),
+        storeName: application.storeName,
+        submittedAt: application.submittedAt
+      });
+
+      standGroupsMap.set(standId, currentStandRequests);
+    });
+  }
+
+  return [...standGroupsMap.entries()]
     .map(([standId, requests]) => ({
       standId,
-      requests: requests.sort(
-        (left, right) => new Date(left.submittedAt).getTime() - new Date(right.submittedAt).getTime()
-      )
-    }));
+      requests: [...requests].sort((leftRequest, rightRequest) => {
+        const priorityDifference =
+          STAND_PRIORITY_ORDER[leftRequest.priority] - STAND_PRIORITY_ORDER[rightRequest.priority];
+
+        if (priorityDifference !== 0) {
+          return priorityDifference;
+        }
+
+        return leftRequest.submittedAt.localeCompare(rightRequest.submittedAt);
+      })
+    }))
+    .sort((leftGroup, rightGroup) => leftGroup.standId.localeCompare(rightGroup.standId, undefined, { numeric: true }));
 };

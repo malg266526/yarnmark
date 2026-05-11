@@ -5,8 +5,9 @@
 - Keep page files thin. Page components should compose sections, not own business logic.
 - Put state transitions, validation, and persistence in hooks or pure utilities.
 - Keep presentational components focused on rendering and callbacks only.
-- Before creating a new component, first check whether an existing shared component can be reused or extended.
-- Prefer extending existing shared UI primitives over creating page-local replacements with overlapping behavior.
+- Before creating any new component, first check whether an existing shared component already covers the need.
+- Do not create a new component only for a small visual variation or active state if an existing component can be reused with props, attributes, or layout wrappers.
+- Prefer reusing existing shared components exactly as they are over adding page-local component variants.
 - Do not use `React.FC`.
 - Type component props directly on the function signature.
 - Do not use generic `Props` names. Use component-specific names such as `VendorCardProps`.
@@ -18,6 +19,9 @@
 - Keep styled-components in `*.styled.tsx` files when a view grows beyond a small local component.
 - Avoid mixing styled-components, business logic, and large JSX trees in one file.
 - Add tests for every extracted pure utility before extending behavior further.
+- Do not introduce regressions in existing behavior, routing, copy, or layout while implementing a new change.
+- Before finishing work, verify that the touched area still preserves the previously established UI rules and interactions, not just the new requirement.
+- If a change risks altering an existing layout rule, restore the old behavior unless the user explicitly asked to change it.
 
 ## Vendors Form
 

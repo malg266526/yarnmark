@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import {
   ApplicationActionButton,
   ApplicationActionRow,
@@ -53,8 +53,8 @@ export const VendorsApplicationsView = ({
     noAnswer: t('vendorsApplicationsPage.values.noAnswer'),
     yes: t('vendorsApplicationsPage.values.yes')
   };
-  const sortedApplications = useMemo(() => sortApplicationsBySubmittedAt(applications), [applications]);
-  const standGroups = useMemo(() => groupApplicationsByStand(applications), [applications]);
+  const sortedApplications = sortApplicationsBySubmittedAt(applications);
+  const standGroups = groupApplicationsByStand(applications);
 
   if (loading) {
     return <ApplicationsEmpty>{t('vendorsApplicationsPage.loading')}</ApplicationsEmpty>;

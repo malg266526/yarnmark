@@ -21,21 +21,6 @@ export const ApplicationsToolbar = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
-
-export const ApplicationsToggleButton = styled(Button)`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid ${BackgroundColors.green.medium};
-  background: ${Colors.white};
-  color: ${TextColors.secondary};
-  border-radius: ${Radius.lg};
-  padding: ${RedesignSpacings.xs} ${RedesignSpacings.sm};
-  font-family: ${FontFamilies.primary};
-  font-size: ${FontSize.sm};
-  cursor: pointer;
-`;
-
 export const ApplicationsMeta = styled.div`
   font-family: ${FontFamilies.primary};
   font-size: ${FontSize.sm};
@@ -114,6 +99,11 @@ export const ApplicationActionButton = styled(Button)`
   color: ${TextColors.secondary};
   font-family: ${FontFamilies.primary};
   font-size: ${FontSize.sm};
+
+  &[aria-pressed='true'] {
+    border-color: ${BackgroundColors.green.strong};
+    background: ${BackgroundColors.green.light};
+  }
 `;
 
 export const ApplicationsEmpty = styled.div`
