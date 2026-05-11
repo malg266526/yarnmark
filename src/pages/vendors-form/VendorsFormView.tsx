@@ -1,8 +1,10 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
+import type { UseFormRegister, FormState, UseFormSetValue } from 'react-hook-form';
 import { Typography } from '../../components/Typography';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import type { VendorsFormState } from './vendorsFormTypes';
+import type { VendorsFormValues } from './vendorsFormSchema';
 import {
   ActionsRow,
   ActionsSpacer,
@@ -39,32 +41,41 @@ import { SubmissionDateTimePreview } from './SubmissionDateTimePreview';
 interface VendorsFormViewProps {
   currentError: string;
   formData: VendorsFormState;
+  formState: FormState<VendorsFormValues>;
+  register: UseFormRegister<VendorsFormValues>;
   isComplete: boolean;
   isSubmitting: boolean;
-  showErrors: boolean;
   submitError: string;
   submittedAtLabel: string | null;
   submitForm: () => Promise<void>;
+  setAcceptedStatute: (value: boolean) => void;
+  setBooleanField: (fieldName: 'attendedBefore' | 'interestedIfUnavailable', value: boolean) => void;
+  setCategory: (category: VendorsFormState['mainCategory']) => void;
+  setValue: UseFormSetValue<VendorsFormValues>;
   toggleStand: (standId: string) => void;
-  updateField: <K extends keyof VendorsFormState>(key: K, value: VendorsFormState[K]) => void;
   updateLogoFile: (file: File | null) => void;
 }
 
 export const VendorsFormView = ({
   currentError,
   formData,
+  formState,
+  register,
   isComplete,
   isSubmitting,
-  showErrors,
   submitError,
   submittedAtLabel,
   submitForm,
+  setAcceptedStatute,
+  setBooleanField,
+  setCategory,
+  setValue,
   toggleStand,
-  updateField,
   updateLogoFile
 }: VendorsFormViewProps) => {
   const t = useTypedTranslation();
   const { t: rawT } = useTranslation();
+  const businessDescriptionField = register('businessDescription');
 
   return (
     <FormCard>
@@ -82,9 +93,8 @@ export const VendorsFormView = ({
               <TextInput
                 id="store_name"
                 type="text"
-                value={formData.storeName}
                 placeholder={t('vendorsFormPage.steps.storeName.placeholder')}
-                onChange={(event) => updateField('storeName', event.target.value)}
+                {...register('storeName')}
               />
             </FieldLabel>
           </Fieldset>
@@ -99,7 +109,7 @@ export const VendorsFormView = ({
                   type="radio"
                   name="attended_before"
                   checked={formData.attendedBefore === true}
-                  onChange={() => updateField('attendedBefore', true)}
+                  onChange={() => setBooleanField('attendedBefore', true)}
                 />
                 <span>{t('vendorsFormPage.steps.attendedBefore.yes')}</span>
               </RadioOption>
@@ -108,7 +118,7 @@ export const VendorsFormView = ({
                   type="radio"
                   name="attended_before"
                   checked={formData.attendedBefore === false}
-                  onChange={() => updateField('attendedBefore', false)}
+                  onChange={() => setBooleanField('attendedBefore', false)}
                 />
                 <span>{t('vendorsFormPage.steps.attendedBefore.no')}</span>
               </RadioOption>
@@ -125,7 +135,7 @@ export const VendorsFormView = ({
                   type="radio"
                   name="main_category"
                   checked={formData.mainCategory === 'yarns'}
-                  onChange={() => updateField('mainCategory', 'yarns')}
+                  onChange={() => setCategory('yarns')}
                 />
                 <span>{t('vendorsFormPage.steps.mainCategory.yarns')}</span>
               </RadioOption>
@@ -134,7 +144,7 @@ export const VendorsFormView = ({
                   type="radio"
                   name="main_category"
                   checked={formData.mainCategory === 'accessories'}
-                  onChange={() => updateField('mainCategory', 'accessories')}
+                  onChange={() => setCategory('accessories')}
                 />
                 <span>{t('vendorsFormPage.steps.mainCategory.accessories')}</span>
               </RadioOption>
@@ -143,7 +153,7 @@ export const VendorsFormView = ({
                   type="radio"
                   name="main_category"
                   checked={formData.mainCategory === 'ceramics'}
-                  onChange={() => updateField('mainCategory', 'ceramics')}
+                  onChange={() => setCategory('ceramics')}
                 />
                 <span>{t('vendorsFormPage.steps.mainCategory.ceramics')}</span>
               </RadioOption>
@@ -152,7 +162,7 @@ export const VendorsFormView = ({
                   type="radio"
                   name="main_category"
                   checked={formData.mainCategory === 'candles'}
-                  onChange={() => updateField('mainCategory', 'candles')}
+                  onChange={() => setCategory('candles')}
                 />
                 <span>{t('vendorsFormPage.steps.mainCategory.candles')}</span>
               </RadioOption>
@@ -161,7 +171,7 @@ export const VendorsFormView = ({
                   type="radio"
                   name="main_category"
                   checked={formData.mainCategory === 'other'}
-                  onChange={() => updateField('mainCategory', 'other')}
+                  onChange={() => setCategory('other')}
                 />
                 <span>{t('vendorsFormPage.steps.mainCategory.other')}</span>
               </RadioOption>
@@ -172,9 +182,8 @@ export const VendorsFormView = ({
                 <TextInput
                   id="main_category_other"
                   type="text"
-                  value={formData.mainCategoryOther}
                   placeholder={t('vendorsFormPage.steps.mainCategory.otherPlaceholder')}
-                  onChange={(event) => updateField('mainCategoryOther', event.target.value)}
+                  {...register('mainCategoryOther')}
                 />
               </FieldLabel>
             ) : null}
@@ -244,7 +253,7 @@ export const VendorsFormView = ({
                   type="radio"
                   name="interested_if_unavailable"
                   checked={formData.interestedIfUnavailable === true}
-                  onChange={() => updateField('interestedIfUnavailable', true)}
+                  onChange={() => setBooleanField('interestedIfUnavailable', true)}
                 />
                 <span>{t('vendorsFormPage.steps.interestedIfUnavailable.yes')}</span>
               </RadioOption>
@@ -253,7 +262,7 @@ export const VendorsFormView = ({
                   type="radio"
                   name="interested_if_unavailable"
                   checked={formData.interestedIfUnavailable === false}
-                  onChange={() => updateField('interestedIfUnavailable', false)}
+                  onChange={() => setBooleanField('interestedIfUnavailable', false)}
                 />
                 <span>{t('vendorsFormPage.steps.interestedIfUnavailable.no')}</span>
               </RadioOption>
@@ -269,9 +278,8 @@ export const VendorsFormView = ({
               <TextInput
                 id="phone_number"
                 type="tel"
-                value={formData.phoneNumber}
                 placeholder={t('vendorsFormPage.steps.contact.phonePlaceholder')}
-                onChange={(event) => updateField('phoneNumber', event.target.value)}
+                {...register('phoneNumber')}
               />
             </FieldLabel>
 
@@ -280,9 +288,8 @@ export const VendorsFormView = ({
               <TextInput
                 id="email_address"
                 type="email"
-                value={formData.email}
                 placeholder={t('vendorsFormPage.steps.contact.emailPlaceholder')}
-                onChange={(event) => updateField('email', event.target.value)}
+                {...register('email')}
               />
             </FieldLabel>
           </Fieldset>
@@ -295,9 +302,8 @@ export const VendorsFormView = ({
               {t('vendorsFormPage.steps.invoice.detailsLabel')}
               <TextArea
                 id="invoice_details"
-                value={formData.invoiceDetails}
                 placeholder={t('vendorsFormPage.steps.invoice.detailsPlaceholder')}
-                onChange={(event) => updateField('invoiceDetails', event.target.value)}
+                {...register('invoiceDetails')}
               />
             </FieldLabel>
 
@@ -321,12 +327,15 @@ export const VendorsFormView = ({
               {t('vendorsFormPage.steps.businessDescription.label')}
               <TextArea
                 id="business_description"
-                value={formData.businessDescription}
+                name={businessDescriptionField.name}
                 placeholder={t('vendorsFormPage.steps.businessDescription.placeholder')}
+                ref={businessDescriptionField.ref}
+                onBlur={businessDescriptionField.onBlur}
                 onChange={(event) =>
-                  updateField(
+                  setValue(
                     'businessDescription',
-                    event.target.value.slice(0, VENDORS_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH)
+                    event.target.value.slice(0, VENDORS_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH),
+                    { shouldDirty: true, shouldValidate: true }
                   )
                 }
               />
@@ -348,7 +357,7 @@ export const VendorsFormView = ({
                 id="accept_statute"
                 type="checkbox"
                 checked={formData.acceptedStatute}
-                onChange={(event) => updateField('acceptedStatute', event.target.checked)}
+                onChange={(event) => setAcceptedStatute(event.target.checked)}
               />
               <span>
                 {t('vendorsFormPage.steps.statute.prefix')}{' '}
@@ -359,7 +368,7 @@ export const VendorsFormView = ({
           </Fieldset>
         </FormSection>
 
-        {showErrors && currentError ? <ErrorText>{currentError}</ErrorText> : null}
+        {formState.submitCount > 0 && currentError ? <ErrorText>{currentError}</ErrorText> : null}
 
         <FieldHint>{t('vendorsFormPage.draftBanner')}</FieldHint>
 
