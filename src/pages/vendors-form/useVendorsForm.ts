@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import type { VendorsFormState } from './vendorsFormTypes';
 import { getVendorsFormErrorKey, toggleStandSelection } from './vendorsFormUtils';
@@ -10,10 +11,12 @@ const readInitialDraft = () =>
 
 export const useVendorsForm = () => {
   const t = useTypedTranslation();
+  const { i18n } = useTranslation();
   const [initialDraft] = useState(readInitialDraft);
   const [formData, setFormData] = useState<VendorsFormState>(initialDraft.formData);
   const [isComplete, setIsComplete] = useState<boolean>(initialDraft.isComplete);
   const [showErrors, setShowErrors] = useState(false);
+  const [submissionDate, setSubmissionDate] = useState(() => new Date());
   // File objects can't be serialized to localStorage; kept in-memory so a future
   // submission flow can upload the actual bytes without forcing the user to re-pick.
   const [logoFile, setLogoFile] = useState<File | null>(null);
@@ -58,6 +61,23 @@ export const useVendorsForm = () => {
     window.localStorage.setItem(VENDORS_FORM_DRAFT_STORAGE_KEY, JSON.stringify({ formData, isComplete }));
   }, [formData, isComplete]);
 
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setSubmissionDate(new Date());
+    }, 1000);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
+
+  const submissionDateTime = useMemo(
+    () =>
+      new Intl.DateTimeFormat(i18n.language, {
+        dateStyle: 'long',
+        timeStyle: 'medium'
+      }).format(submissionDate),
+    [i18n.language, submissionDate]
+  );
+
   const submitForm = () => {
     if (currentError) {
       setShowErrors(true);
@@ -74,6 +94,7 @@ export const useVendorsForm = () => {
     isComplete,
     logoFile,
     showErrors,
+    submissionDateTime,
     submitForm,
     toggleStand,
     updateField,

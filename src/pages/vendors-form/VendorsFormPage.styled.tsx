@@ -147,6 +147,23 @@ export const FieldHint = styled.div`
   font-family: 'Questrial', sans-serif;
 `;
 
+export const InfoRow = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${RedesignSpacings.xxs};
+  font-family: 'Questrial', sans-serif;
+`;
+
+export const InfoLabel = styled.div`
+  font-size: ${FontSize.sm};
+  color: ${TextColors.secondary};
+`;
+
+export const InfoValue = styled.div`
+  font-size: ${FontSize.md};
+  color: ${TextColors.primary};
+`;
+
 export const RadioGroup = styled.div`
   display: flex;
   flex-direction: column;

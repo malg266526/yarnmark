@@ -15,6 +15,9 @@ import {
   FormSection,
   HallLayout,
   HallMapColumn,
+  InfoLabel,
+  InfoRow,
+  InfoValue,
   InlineLink,
   LegendBadge,
   LegendCard,
@@ -39,6 +42,7 @@ interface VendorsFormViewProps {
   formData: VendorsFormState;
   isComplete: boolean;
   showErrors: boolean;
+  submissionDateTime: string;
   submitForm: () => void;
   toggleStand: (standId: string) => void;
   updateField: <K extends keyof VendorsFormState>(key: K, value: VendorsFormState[K]) => void;
@@ -50,6 +54,7 @@ export const VendorsFormView = ({
   formData,
   isComplete,
   showErrors,
+  submissionDateTime,
   submitForm,
   toggleStand,
   updateField,
@@ -354,6 +359,11 @@ export const VendorsFormView = ({
         {showErrors && currentError ? <ErrorText>{currentError}</ErrorText> : null}
 
         <FieldHint>{t('vendorsFormPage.draftBanner')}</FieldHint>
+
+        <InfoRow aria-label="submission_datetime">
+          <InfoLabel>{t('vendorsFormPage.submissionDateTimeLabel')}</InfoLabel>
+          <InfoValue>{submissionDateTime}</InfoValue>
+        </InfoRow>
 
         <ActionsRow>
           <span />

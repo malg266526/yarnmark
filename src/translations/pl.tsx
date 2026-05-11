@@ -325,6 +325,7 @@ export const pl = {
       title: 'Formularz zgłoszeniowy wystawców',
       kicker: 'Dla wystawców',
       saveDraft: 'Zapisz szkic',
+      submissionDateTimeLabel: 'Data i godzina wysłania',
       draftBanner:
         'Ten szkic jest zapisany tylko w Twojej przeglądarce. Nie wysyłamy go jeszcze do organizatorek — wkrótce dodamy taką możliwość.',
       steps: {
