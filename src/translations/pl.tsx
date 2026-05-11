@@ -349,6 +349,8 @@ export const pl = {
           title: 'Wybierz preferowane stoiska na mapie',
           hint: 'Możesz wybrać maksymalnie {{max}} stoiska. Zielone — wolne, pomarańczowe — wybrane przez Ciebie.',
           counter: 'Wybrano {{current}} z {{max}}',
+          detailsHint:
+            'Szczegółowe informacje o rodzajach, wymiarach i wyposażeniu stoisk znajdziesz na stronie <0>Informacje dla wystawców</0>.',
           legendTitle: 'Typy stoisk',
           premiumLabel: 'Premium',
           premiumSize: '3 × 5,5 m',
@@ -385,7 +387,9 @@ export const pl = {
         statute: {
           title: 'Potwierdzenie regulaminu',
           prefix: 'Akceptuję',
-          linkLabel: 'regulamin sprzedaży stoisk'
+          linkLabel: 'regulamin sprzedaży stoisk',
+          complianceHint:
+            'Przestrzeganie zasad wydarzenia i regulaminu pomaga nam budować bezpieczną współpracę. Istotne naruszenia mogą zostać uwzględnione przy ocenie zgłoszeń w kolejnych edycjach.'
         }
       },
       validation: {

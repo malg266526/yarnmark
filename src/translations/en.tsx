@@ -351,6 +351,8 @@ export const en: TranslationsShape = {
           title: 'Pick your preferred stands on the map',
           hint: 'You can pick up to {{max}} stands. Green — available, orange — selected by you.',
           counter: '{{current}} of {{max}} selected',
+          detailsHint:
+            'Detailed information about stand types, dimensions, and equipment is available on the <0>Info for vendors</0> page.',
           legendTitle: 'Stand types',
           premiumLabel: 'Premium',
           premiumSize: '3 × 5.5 m',
@@ -387,7 +389,9 @@ export const en: TranslationsShape = {
         statute: {
           title: 'Terms confirmation',
           prefix: 'I accept the',
-          linkLabel: 'vendor stand terms and conditions'
+          linkLabel: 'vendor stand terms and conditions',
+          complianceHint:
+            'Following the event rules and terms helps us maintain a fair and safe collaboration. Significant breaches may be taken into account when reviewing applications for future editions.'
         }
       },
       validation: {

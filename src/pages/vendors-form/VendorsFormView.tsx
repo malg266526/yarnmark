@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { Typography } from '../../components/Typography';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import type { VendorsFormState } from './vendorsFormTypes';
@@ -197,6 +197,12 @@ export const VendorsFormView = ({
                 </LegendRow>
               </LegendCard>
             </HallLayout>
+            <FieldHint>
+              <Trans
+                i18nKey="vendorsFormPage.steps.preferredStands.detailsHint"
+                components={[<InlineLink key="vendors_info_link" href="/info-for-vendors" />]}
+              />
+            </FieldHint>
           </Fieldset>
         </FormSection>
 
@@ -320,6 +326,7 @@ export const VendorsFormView = ({
                 <InlineLink href="/info-for-vendors-statue">{t('vendorsFormPage.steps.statute.linkLabel')}</InlineLink>
               </span>
             </CheckboxRow>
+            <FieldHint>{t('vendorsFormPage.steps.statute.complianceHint')}</FieldHint>
           </Fieldset>
         </FormSection>
 

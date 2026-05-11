@@ -79,9 +79,7 @@ export const ForVendorsPage = () => {
           <Typography size="md">
             <Trans
               i18nKey="infoForVendorsPage.registration.newForm"
-              components={[
-                <MdLink key="application_form_page" to="/vendors-form" aria-label="applicationFormPage" />
-              ]}
+              components={[<MdLink key="application_form_page" to="/vendors-form" aria-label="applicationFormPage" />]}
             />
           </Typography>
           <Typography size="md">
@@ -163,25 +161,6 @@ export const ForVendorsPage = () => {
 
         <PlainInfo>
           <Typography size="md">{t('infoForVendorsPage.parking.parkingSpace')}</Typography>
-        </PlainInfo>
-      </Band.NarrowColumn>
-
-      <Separator />
-
-      <Band.NarrowColumn
-        id="marketing"
-        gap="lg"
-        size="xs"
-        color={BackgroundColors.navigationBand}
-        stretchOnMobile
-        padding={isPhone ? 'sm' : 'xxl'}
-      >
-        <Band.BeamTitle>{t('infoForVendorsPage.marketing.title')}</Band.BeamTitle>
-
-        <PlainInfo>
-          <Typography size="md">
-            <Trans i18nKey="infoForVendorsPage.marketing.sendLogos" />
-          </Typography>
         </PlainInfo>
       </Band.NarrowColumn>
 
