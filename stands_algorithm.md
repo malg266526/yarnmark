@@ -1,6 +1,6 @@
 # Dokumentacja Systemu Przydziału Stoisk (Model Kaskadowy)
 
-> **Status: szkic projektowy.** Sam algorytm kaskadowy nie jest jeszcze zaimplementowany. Obecna gałąź dodaje pole statusu zgłoszenia oraz sygnał *High Interest* na mapie. Implementacja właściwej alokacji jest TODO (patrz §5).
+> **Status: szkic projektowy.** Sam algorytm kaskadowy nie jest jeszcze zaimplementowany. Obecna gałąź dodaje pole statusu zgłoszenia oraz sygnał _High Interest_ na mapie. Implementacja właściwej alokacji jest TODO (patrz §5).
 
 ## 1. Cel i Główne Założenia
 

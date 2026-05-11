@@ -2,6 +2,9 @@ import type { VendorApplication } from '../vendors-form/vendorsFormSubmission';
 
 export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
   {
+    allocatedStandId: null,
+    allocationIteration: null,
+    allocationState: 'none',
     id: 'mock-application-1',
     status: 'new',
     submittedAt: '2026-05-11T08:15:00.000Z',
@@ -21,6 +24,9 @@ export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
     acceptedStatute: true
   },
   {
+    allocatedStandId: null,
+    allocationIteration: null,
+    allocationState: 'none',
     id: 'mock-application-2',
     status: 'considered',
     submittedAt: '2026-05-11T09:00:00.000Z',
@@ -40,6 +46,9 @@ export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
     acceptedStatute: true
   },
   {
+    allocatedStandId: null,
+    allocationIteration: null,
+    allocationState: 'none',
     id: 'mock-application-3',
     status: 'accepted',
     submittedAt: '2026-05-11T09:30:00.000Z',
@@ -59,6 +68,9 @@ export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
     acceptedStatute: true
   },
   {
+    allocatedStandId: null,
+    allocationIteration: null,
+    allocationState: 'none',
     id: 'mock-application-4',
     status: 'new',
     submittedAt: '2026-05-11T10:10:00.000Z',
@@ -78,8 +90,11 @@ export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
     acceptedStatute: true
   },
   {
+    allocatedStandId: null,
+    allocationIteration: null,
+    allocationState: 'none',
     id: 'mock-application-5',
-    status: 'rejected',
+    status: 'reserve',
     submittedAt: '2026-05-11T11:05:00.000Z',
     storeName: 'Naturalnie Plecione',
     attendedBefore: true,
@@ -97,6 +112,9 @@ export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
     acceptedStatute: true
   },
   {
+    allocatedStandId: null,
+    allocationIteration: null,
+    allocationState: 'none',
     id: 'mock-application-6',
     status: 'considered',
     submittedAt: '2026-05-11T11:40:00.000Z',

@@ -41,7 +41,7 @@ export const sortApplicationsBySubmittedAt = (applications: VendorApplication[])
     leftApplication.submittedAt.localeCompare(rightApplication.submittedAt)
   );
 
-export const VENDOR_APPLICATION_STATUS_ORDER: VendorApplicationStatus[] = ['new', 'considered', 'accepted', 'rejected'];
+export const VENDOR_APPLICATION_STATUS_ORDER: VendorApplicationStatus[] = ['new', 'considered', 'accepted', 'reserve'];
 
 export type StandPriority = 'highest' | 'medium' | 'lowest';
 

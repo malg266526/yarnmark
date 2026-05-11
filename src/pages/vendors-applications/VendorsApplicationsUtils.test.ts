@@ -17,6 +17,9 @@ const BOOLEAN_LABELS = {
 } as const;
 
 const getBaseApplication = (): VendorApplication => ({
+  allocatedStandId: null,
+  allocationIteration: null,
+  allocationState: 'none',
   id: 'application-1',
   status: 'new',
   submittedAt: '2026-05-11T10:30:00.000Z',
@@ -114,7 +117,7 @@ test('sortApplicationsBySubmittedAt returns earliest submissions first', () => {
 });
 
 test('status order is stable for admin controls', () => {
-  assert.deepEqual(VENDOR_APPLICATION_STATUS_ORDER, ['new', 'considered', 'accepted', 'rejected']);
+  assert.deepEqual(VENDOR_APPLICATION_STATUS_ORDER, ['new', 'considered', 'accepted', 'reserve']);
 });
 
 test('groupApplicationsByStand groups applications by selected stand and keeps declared priority', () => {

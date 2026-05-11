@@ -458,6 +458,9 @@ export const en: TranslationsShape = {
         status: 'Status',
         mainCategory: 'Main category',
         preferredStands: 'Preferred stands',
+        allocatedStand: 'Allocated stand',
+        allocationState: 'Allocation state',
+        allocationIteration: 'Allocation iteration',
         attendedBefore: 'Previous editions',
         interestedIfUnavailable: 'Offer if unavailable',
         phone: 'Phone',
@@ -471,7 +474,13 @@ export const en: TranslationsShape = {
         accepted: 'accepted',
         considered: 'considered',
         new: 'new',
-        rejected: 'rejected'
+        reserve: 'reserve'
+      },
+      allocationStates: {
+        confirmed: 'confirmed',
+        'manual-negotiation': 'manual negotiation',
+        none: 'none',
+        suggested: 'suggested'
       },
       priorities: {
         highest: 'Priority: highest',
@@ -487,6 +496,7 @@ export const en: TranslationsShape = {
         yes: 'Yes',
         no: 'No',
         noAnswer: 'No answer',
+        notAssigned: 'Not assigned',
         notProvided: 'Not provided',
         noneSelected: 'None selected'
       }
