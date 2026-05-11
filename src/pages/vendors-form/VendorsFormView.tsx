@@ -13,7 +13,14 @@ import {
   FormCard,
   FormLayout,
   FormSection,
+  HallLayout,
+  HallMapColumn,
   InlineLink,
+  LegendBadge,
+  LegendCard,
+  LegendRow,
+  LegendSize,
+  LegendText,
   PrimaryButton,
   RadioGroup,
   RadioOption,
@@ -21,7 +28,11 @@ import {
   TextArea,
   TextInput
 } from './VendorsFormPage.styled';
-import { VENDORS_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH } from './vendorsFormConstants';
+import {
+  VENDORS_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH,
+  VENDORS_FORM_MAX_PREFERRED_STANDS
+} from './vendorsFormConstants';
+import { SelectableHall } from './SelectableHall';
 
 interface VendorsFormViewProps {
   currentError: string;
@@ -29,6 +40,7 @@ interface VendorsFormViewProps {
   isComplete: boolean;
   showErrors: boolean;
   submitForm: () => void;
+  toggleStand: (standId: string) => void;
   updateField: <K extends keyof VendorsFormState>(key: K, value: VendorsFormState[K]) => void;
   updateLogoFile: (file: File | null) => void;
 }
@@ -39,6 +51,7 @@ export const VendorsFormView = ({
   isComplete,
   showErrors,
   submitForm,
+  toggleStand,
   updateField,
   updateLogoFile
 }: VendorsFormViewProps) => {
@@ -136,6 +149,54 @@ export const VendorsFormView = ({
                 <span>{t('vendorsFormPage.steps.mainCategory.candles')}</span>
               </RadioOption>
             </RadioGroup>
+          </Fieldset>
+        </FormSection>
+
+        <FormSection>
+          <Fieldset>
+            <Typography size="xl">{t('vendorsFormPage.steps.preferredStands.title')}</Typography>
+            <FieldHint>
+              {rawT('vendorsFormPage.steps.preferredStands.hint', {
+                max: VENDORS_FORM_MAX_PREFERRED_STANDS
+              })}
+            </FieldHint>
+            <FieldHint>
+              {rawT('vendorsFormPage.steps.preferredStands.counter', {
+                current: formData.preferredStands.length,
+                max: VENDORS_FORM_MAX_PREFERRED_STANDS
+              })}
+            </FieldHint>
+            <HallLayout>
+              <HallMapColumn>
+                <SelectableHall selectedStandIds={formData.preferredStands} onToggleStand={toggleStand} />
+              </HallMapColumn>
+              <LegendCard aria-label={t('vendorsFormPage.steps.preferredStands.legendTitle')}>
+                <Typography size="sm" weight="bold">
+                  {t('vendorsFormPage.steps.preferredStands.legendTitle')}
+                </Typography>
+                <LegendRow>
+                  <LegendBadge>P</LegendBadge>
+                  <LegendText>
+                    {t('vendorsFormPage.steps.preferredStands.premiumLabel')}
+                    <LegendSize>{t('vendorsFormPage.steps.preferredStands.premiumSize')}</LegendSize>
+                  </LegendText>
+                </LegendRow>
+                <LegendRow>
+                  <LegendBadge>S</LegendBadge>
+                  <LegendText>
+                    {t('vendorsFormPage.steps.preferredStands.standardLabel')}
+                    <LegendSize>{t('vendorsFormPage.steps.preferredStands.standardSize')}</LegendSize>
+                  </LegendText>
+                </LegendRow>
+                <LegendRow>
+                  <LegendBadge>M</LegendBadge>
+                  <LegendText>
+                    {t('vendorsFormPage.steps.preferredStands.miniLabel')}
+                    <LegendSize>{t('vendorsFormPage.steps.preferredStands.miniSize')}</LegendSize>
+                  </LegendText>
+                </LegendRow>
+              </LegendCard>
+            </HallLayout>
           </Fieldset>
         </FormSection>
 
@@ -289,6 +350,12 @@ export const VendorsFormView = ({
             <dt>{t('vendorsFormPage.summary.mainCategory')}</dt>
             <dd>
               {formData.mainCategory ? rawT(`vendorsFormPage.steps.mainCategory.${formData.mainCategory}`) : null}
+            </dd>
+            <dt>{t('vendorsFormPage.summary.preferredStands')}</dt>
+            <dd>
+              {formData.preferredStands.length > 0
+                ? formData.preferredStands.join(', ')
+                : t('vendorsFormPage.summary.notProvided')}
             </dd>
             <dt>{t('vendorsFormPage.summary.interestedIfUnavailable')}</dt>
             <dd>

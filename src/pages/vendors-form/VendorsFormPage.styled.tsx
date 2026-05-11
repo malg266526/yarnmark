@@ -36,6 +36,62 @@ export const FormSection = styled.section<{ $isFirst?: boolean }>`
   border-top: ${({ $isFirst }) => ($isFirst ? 'none' : `2px solid ${BackgroundColors.green.medium}`)};
 `;
 
+export const HallLayout = styled.div`
+  display: flex;
+  gap: ${RedesignSpacings.md};
+  align-items: flex-start;
+  flex-wrap: wrap;
+`;
+
+export const HallMapColumn = styled.div`
+  flex: 1 1 320px;
+  min-width: 0;
+`;
+
+export const LegendCard = styled.aside`
+  flex: 0 0 auto;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: ${RedesignSpacings.xs};
+  padding: ${RedesignSpacings.sm};
+  border: 1px solid ${GrayScale[300]};
+  border-radius: ${Radius.lg};
+  background: white;
+`;
+
+export const LegendRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${RedesignSpacings.xs};
+  font-family: 'Questrial', sans-serif;
+`;
+
+export const LegendBadge = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: ${Radius.md};
+  background: ${BackgroundColors.green.light};
+  border: 1px solid ${BackgroundColors.green.medium};
+  color: ${TextColors.secondary};
+  font-weight: 700;
+  font-size: ${FontSize.sm};
+`;
+
+export const LegendText = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: ${FontSize.sm};
+`;
+
+export const LegendSize = styled.span`
+  color: ${TextColors.secondary};
+  font-size: ${FontSize.xs};
+`;
+
 export const Fieldset = styled.fieldset`
   margin: 0;
   padding: 0;

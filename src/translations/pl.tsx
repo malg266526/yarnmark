@@ -345,6 +345,18 @@ export const pl = {
           ceramics: 'Ceramika',
           candles: 'Świece'
         },
+        preferredStands: {
+          title: 'Wybierz preferowane stoiska na mapie',
+          hint: 'Możesz wybrać maksymalnie {{max}} stoiska. Zielone — wolne, pomarańczowe — wybrane przez Ciebie.',
+          counter: 'Wybrano {{current}} z {{max}}',
+          legendTitle: 'Typy stoisk',
+          premiumLabel: 'Premium',
+          premiumSize: '3 × 5,5 m',
+          standardLabel: 'Standard',
+          standardSize: '3 × 3,5 m',
+          miniLabel: 'Mini',
+          miniSize: '2 × 3 m'
+        },
         interestedIfUnavailable: {
           title: 'Jeśli wybrane stoiska będą niedostępne, czy nadal chcesz otrzymać od nas ofertę?',
           yes: 'Tak',
@@ -397,6 +409,7 @@ export const pl = {
         storeName: 'Nazwa sklepu',
         attendedBefore: 'Poprzednie edycje',
         mainCategory: 'Główna kategoria',
+        preferredStands: 'Preferowane stoiska',
         interestedIfUnavailable: 'Oferta przy braku stoiska',
         phone: 'Telefon',
         email: 'E-mail',

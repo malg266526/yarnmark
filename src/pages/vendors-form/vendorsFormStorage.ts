@@ -16,6 +16,9 @@ const isMainCategoryValue = (value: unknown): value is VendorsFormState['mainCat
 
 const isNullableString = (value: unknown): value is string | null => value === null || typeof value === 'string';
 
+const isStringArray = (value: unknown): value is string[] =>
+  Array.isArray(value) && value.every((entry) => typeof entry === 'string');
+
 export const isVendorsFormState = (value: unknown): value is VendorsFormState => {
   if (!isRecord(value)) {
     return false;
@@ -25,6 +28,7 @@ export const isVendorsFormState = (value: unknown): value is VendorsFormState =>
     typeof value.storeName === 'string' &&
     isAttendedBeforeValue(value.attendedBefore) &&
     isMainCategoryValue(value.mainCategory) &&
+    isStringArray(value.preferredStands) &&
     isAttendedBeforeValue(value.interestedIfUnavailable) &&
     typeof value.phoneNumber === 'string' &&
     typeof value.email === 'string' &&

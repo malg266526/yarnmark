@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import type { VendorsFormState } from './vendorsFormTypes';
-import { getVendorsFormErrorKey } from './vendorsFormUtils';
-import { VENDORS_FORM_DRAFT_STORAGE_KEY } from './vendorsFormConstants';
+import { getVendorsFormErrorKey, toggleStandSelection } from './vendorsFormUtils';
+import { VENDORS_FORM_DRAFT_STORAGE_KEY, VENDORS_FORM_MAX_PREFERRED_STANDS } from './vendorsFormConstants';
 import { getInitialVendorsFormDraft, parseVendorsFormDraft } from './vendorsFormStorage';
 
 const readInitialDraft = () =>
@@ -34,6 +34,14 @@ export const useVendorsForm = () => {
     updateField('logoFileName', file?.name ?? null);
   };
 
+  const toggleStand = (standId: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      preferredStands: toggleStandSelection(prev.preferredStands, standId, VENDORS_FORM_MAX_PREFERRED_STANDS)
+    }));
+    setIsComplete(false);
+  };
+
   useEffect(() => {
     window.localStorage.setItem(VENDORS_FORM_DRAFT_STORAGE_KEY, JSON.stringify({ formData, isComplete }));
   }, [formData, isComplete]);
@@ -55,6 +63,7 @@ export const useVendorsForm = () => {
     logoFile,
     showErrors,
     submitForm,
+    toggleStand,
     updateField,
     updateLogoFile
   };

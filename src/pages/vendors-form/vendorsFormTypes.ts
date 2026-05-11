@@ -4,6 +4,7 @@ export interface VendorsFormState {
   storeName: string;
   attendedBefore: boolean | null;
   mainCategory: VendorsMainCategory;
+  preferredStands: string[];
   interestedIfUnavailable: boolean | null;
   phoneNumber: string;
   email: string;
@@ -17,6 +18,7 @@ export const INITIAL_VENDORS_FORM_STATE: VendorsFormState = {
   storeName: '',
   attendedBefore: null,
   mainCategory: null,
+  preferredStands: [],
   interestedIfUnavailable: null,
   phoneNumber: '',
   email: '',

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { getVendorsFormErrorKey, isEmailValid, isPhoneValid } from './vendorsFormUtils.ts';
+import { getVendorsFormErrorKey, isEmailValid, isPhoneValid, toggleStandSelection } from './vendorsFormUtils.ts';
 import { INITIAL_VENDORS_FORM_STATE } from './vendorsFormTypes.ts';
 import { getInitialVendorsFormDraft, parseVendorsFormDraft } from './vendorsFormStorage.ts';
 
@@ -137,6 +137,7 @@ test('getVendorsFormErrorKey accepts a missing logo filename (logo is optional)'
     storeName: 'Shop name',
     attendedBefore: true,
     mainCategory: 'yarns' as const,
+    preferredStands: [],
     interestedIfUnavailable: true,
     phoneNumber: '+48 123 456 789',
     email: 'vendor@example.com',
@@ -188,6 +189,7 @@ test('getVendorsFormErrorKey returns null for valid data', () => {
     storeName: 'Shop name',
     attendedBefore: true,
     mainCategory: 'yarns' as const,
+    preferredStands: [],
     interestedIfUnavailable: true,
     phoneNumber: '+48 123 456 789',
     email: 'vendor@example.com',
@@ -212,6 +214,7 @@ test('parseVendorsFormDraft restores a valid payload', () => {
       storeName: 'Shop name',
       attendedBefore: true,
       mainCategory: 'yarns' as const,
+      preferredStands: ['stand-1', 'stand-2'],
       interestedIfUnavailable: false,
       phoneNumber: '+48 123 456 789',
       email: 'vendor@example.com',
@@ -226,9 +229,47 @@ test('parseVendorsFormDraft restores a valid payload', () => {
   assert.deepEqual(parseVendorsFormDraft(JSON.stringify(draft)), draft);
 });
 
+test('parseVendorsFormDraft rejects a payload missing preferredStands', () => {
+  const draft = {
+    formData: {
+      storeName: 'Shop name',
+      attendedBefore: true,
+      mainCategory: 'yarns' as const,
+      interestedIfUnavailable: false,
+      phoneNumber: '+48 123 456 789',
+      email: 'vendor@example.com',
+      invoiceDetails: 'Invoice details',
+      logoFileName: 'logo.png',
+      businessDescription: 'Short business description',
+      acceptedStatute: true
+    },
+    isComplete: true
+  };
+
+  assert.equal(parseVendorsFormDraft(JSON.stringify(draft)), null);
+});
+
 test('getInitialVendorsFormDraft returns empty initial state', () => {
   assert.deepEqual(getInitialVendorsFormDraft(), {
     formData: INITIAL_VENDORS_FORM_STATE,
     isComplete: false
   });
+});
+
+test('toggleStandSelection adds a stand when under the cap', () => {
+  assert.deepEqual(toggleStandSelection(['a'], 'b', 3), ['a', 'b']);
+});
+
+test('toggleStandSelection removes a stand that is already selected', () => {
+  assert.deepEqual(toggleStandSelection(['a', 'b', 'c'], 'b', 3), ['a', 'c']);
+});
+
+test('toggleStandSelection refuses to add when at the cap', () => {
+  const current = ['a', 'b', 'c'];
+
+  assert.equal(toggleStandSelection(current, 'd', 3), current);
+});
+
+test('toggleStandSelection still allows removal when at the cap', () => {
+  assert.deepEqual(toggleStandSelection(['a', 'b', 'c'], 'a', 3), ['b', 'c']);
 });

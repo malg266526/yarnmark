@@ -347,6 +347,18 @@ export const en: TranslationsShape = {
           ceramics: 'Ceramics',
           candles: 'Candles'
         },
+        preferredStands: {
+          title: 'Pick your preferred stands on the map',
+          hint: 'You can pick up to {{max}} stands. Green — available, orange — selected by you.',
+          counter: '{{current}} of {{max}} selected',
+          legendTitle: 'Stand types',
+          premiumLabel: 'Premium',
+          premiumSize: '3 × 5.5 m',
+          standardLabel: 'Standard',
+          standardSize: '3 × 3.5 m',
+          miniLabel: 'Mini',
+          miniSize: '2 × 3 m'
+        },
         interestedIfUnavailable: {
           title: 'If selected stands would be unavailable, are you still interested in receiving an offer from us?',
           yes: 'Yes',
@@ -399,6 +411,7 @@ export const en: TranslationsShape = {
         storeName: 'Store name',
         attendedBefore: 'Previous editions',
         mainCategory: 'Main category',
+        preferredStands: 'Preferred stands',
         interestedIfUnavailable: 'Offer if unavailable',
         phone: 'Phone',
         email: 'Email',
