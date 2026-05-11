@@ -6,17 +6,9 @@ import { ScreenSize } from '../../styles/screeen-size';
 import { RedesignSpacings } from '../../styles/spacings';
 import { BackgroundColors, GrayScale, TextColors } from '../../styles/theme';
 
-export const InvitationBoxWrapper = styled.div`
-  padding-left: 240px;
-
-  @media (max-width: ${ScreenSize.phone}) {
-    padding: 0;
-  }
-`;
-
 export const FormCard = styled.div`
   width: 100%;
-  max-width: 720px;
+  max-width: 1100px;
   display: flex;
   flex-direction: column;
   gap: ${RedesignSpacings.md};
