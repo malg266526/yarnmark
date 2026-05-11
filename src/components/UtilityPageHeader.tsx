@@ -7,7 +7,6 @@ import { ScreenSize } from '../styles/screeen-size';
 
 const HeaderRoot = styled.div`
   width: 100%;
-  max-width: 1100px;
   display: flex;
   flex-direction: column;
   gap: ${RedesignSpacings.xxs};

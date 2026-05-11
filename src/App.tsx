@@ -21,6 +21,7 @@ import { usePhone } from './hooks/usePhone';
 import { EditorPage } from './pages/EditorPage';
 import { VendorStatutePage } from './pages/VendorsStatute';
 import { VendorsFormPage } from './pages/VendorsFormPage';
+import { VendorsApplicationsPage } from './pages/VendorsApplicationsPage';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -78,7 +79,8 @@ export const App = () => {
           <Route path="/hall" element={<HallMapPage />} />
           <Route path="/editor" element={<EditorPage />} />
           <Route path="/info-for-vendors-statue" element={<VendorStatutePage />} />
-          <Route path="/vendors-form" element={<VendorsFormPage />} />
+          <Route path="/vendor-form" element={<VendorsFormPage />} />
+          <Route path="/vendor-applications" element={<VendorsApplicationsPage />} />
         </Routes>
 
         <Footer id="footer">

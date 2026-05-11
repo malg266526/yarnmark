@@ -26,11 +26,11 @@ const Scrollable = styled.div`
 const ulStartSeparator = '<ul>';
 const ulEndSeparator = '</ul>';
 
-interface Props {
+interface TextToListFormatterProps {
   text?: string;
 }
 
-export const TextToListFormatter = ({ text }: Props) => {
+export const TextToListFormatter = ({ text }: TextToListFormatterProps) => {
   if (!text) return null;
 
   const ulStartIndex = text.indexOf(ulStartSeparator);

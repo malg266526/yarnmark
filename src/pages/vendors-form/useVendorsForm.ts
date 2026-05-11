@@ -1,103 +1,164 @@
 import { useEffect, useMemo, useState } from 'react';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import type { VendorsFormState } from './vendorsFormTypes';
-import { getVendorsFormErrorKey, toggleStandSelection } from './vendorsFormUtils';
+import type { FieldErrors } from 'react-hook-form';
+import { toggleStandSelection } from './vendorsFormUtils';
+import { createVendorApplication } from './vendorsApplicationsStorage';
 import { VENDORS_FORM_DRAFT_STORAGE_KEY, VENDORS_FORM_MAX_PREFERRED_STANDS } from './vendorsFormConstants';
+import { vendorsFormSchema, type VendorsFormValues } from './vendorsFormSchema';
 import { getInitialVendorsFormDraft, parseVendorsFormDraft } from './vendorsFormStorage';
+import type { VendorsFormState } from './vendorsFormTypes';
 
 const readInitialDraft = () =>
   parseVendorsFormDraft(window.localStorage.getItem(VENDORS_FORM_DRAFT_STORAGE_KEY)) ?? getInitialVendorsFormDraft();
 
+const getFirstErrorKey = (errors: FieldErrors<VendorsFormValues>) => {
+  const errorOrder: Array<keyof VendorsFormValues> = [
+    'storeName',
+    'attendedBefore',
+    'mainCategory',
+    'mainCategoryOther',
+    'interestedIfUnavailable',
+    'phoneNumber',
+    'email',
+    'invoiceDetails',
+    'businessDescription',
+    'acceptedStatute'
+  ];
+
+  for (const fieldName of errorOrder) {
+    const message = errors[fieldName]?.message;
+
+    if (typeof message === 'string') {
+      return message;
+    }
+  }
+
+  return '';
+};
+
 export const useVendorsForm = () => {
   const t = useTypedTranslation();
-  const { i18n } = useTranslation();
+  const { i18n, t: rawT } = useTranslation();
   const [initialDraft] = useState(readInitialDraft);
-  const [formData, setFormData] = useState<VendorsFormState>(initialDraft.formData);
   const [isComplete, setIsComplete] = useState<boolean>(initialDraft.isComplete);
-  const [showErrors, setShowErrors] = useState(false);
-  const [submissionDate, setSubmissionDate] = useState(() => new Date());
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [submittedAt, setSubmittedAt] = useState<string | null>(null);
   // File objects can't be serialized to localStorage; kept in-memory so a future
   // submission flow can upload the actual bytes without forcing the user to re-pick.
   const [logoFile, setLogoFile] = useState<File | null>(null);
+  const form = useForm<VendorsFormValues>({
+    defaultValues: initialDraft.formData,
+    mode: 'onSubmit',
+    resolver: zodResolver(vendorsFormSchema)
+  });
+  const { formState, getValues, handleSubmit, register, reset, setValue, watch } = form;
+  const formData = watch();
 
   const currentError = useMemo(() => {
-    const errorKey = getVendorsFormErrorKey(formData);
+    const firstErrorKey = getFirstErrorKey(formState.errors);
 
-    return errorKey ? t(errorKey) : '';
-  }, [formData, t]);
-
-  const updateField = <K extends keyof VendorsFormState>(key: K, value: VendorsFormState[K]) => {
-    setFormData((prev) => {
-      if (key === 'mainCategory') {
-        const nextCategory = value as VendorsFormState['mainCategory'];
-
-        if (nextCategory !== 'other') {
-          return { ...prev, mainCategory: nextCategory, mainCategoryOther: '' };
-        }
-
-        return { ...prev, mainCategory: nextCategory };
-      }
-
-      return { ...prev, [key]: value };
-    });
-    setIsComplete(false);
-  };
+    return firstErrorKey ? rawT(firstErrorKey) : '';
+  }, [formState.errors, rawT]);
 
   const updateLogoFile = (file: File | null) => {
     setLogoFile(file);
-    updateField('logoFileName', file?.name ?? null);
+    setValue('logoFileName', file?.name ?? null, { shouldDirty: true, shouldValidate: true });
+    setIsComplete(false);
+    setSubmitError('');
   };
 
   const toggleStand = (standId: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      preferredStands: toggleStandSelection(prev.preferredStands, standId, VENDORS_FORM_MAX_PREFERRED_STANDS)
-    }));
+    const nextValue = toggleStandSelection(getValues('preferredStands'), standId, VENDORS_FORM_MAX_PREFERRED_STANDS);
+
+    setValue('preferredStands', nextValue, { shouldDirty: true });
     setIsComplete(false);
+    setSubmitError('');
   };
 
   useEffect(() => {
-    window.localStorage.setItem(VENDORS_FORM_DRAFT_STORAGE_KEY, JSON.stringify({ formData, isComplete }));
-  }, [formData, isComplete]);
-
-  useEffect(() => {
-    const intervalId = window.setInterval(() => {
-      setSubmissionDate(new Date());
-    }, 1000);
-
-    return () => window.clearInterval(intervalId);
-  }, []);
-
-  const submissionDateTime = useMemo(
-    () =>
-      new Intl.DateTimeFormat(i18n.language, {
-        dateStyle: 'long',
-        timeStyle: 'medium'
-      }).format(submissionDate),
-    [i18n.language, submissionDate]
-  );
-
-  const submitForm = () => {
-    if (currentError) {
-      setShowErrors(true);
+    if (isComplete) {
+      window.localStorage.removeItem(VENDORS_FORM_DRAFT_STORAGE_KEY);
       return;
     }
 
-    setShowErrors(false);
-    setIsComplete(true);
+    window.localStorage.setItem(
+      VENDORS_FORM_DRAFT_STORAGE_KEY,
+      JSON.stringify({ formData: formData as VendorsFormState, isComplete })
+    );
+  }, [formData, isComplete]);
+
+  const submittedAtLabel = useMemo(() => {
+    if (!submittedAt) {
+      return null;
+    }
+
+    return new Intl.DateTimeFormat(i18n.language, {
+      dateStyle: 'long',
+      timeStyle: 'medium'
+    }).format(new Date(submittedAt));
+  }, [i18n.language, submittedAt]);
+
+  const submitForm = handleSubmit(async (validatedFormData) => {
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      const response = await createVendorApplication(validatedFormData);
+
+      setSubmittedAt(response.application.submittedAt);
+      setIsComplete(true);
+      reset(validatedFormData);
+    } catch (error) {
+      console.error(error);
+      setSubmitError(t('vendorsFormPage.submitError'));
+    } finally {
+      setIsSubmitting(false);
+    }
+  });
+
+  const setCategory = (category: VendorsFormState['mainCategory']) => {
+    setValue('mainCategory', category, { shouldDirty: true, shouldValidate: true });
+
+    if (category !== 'other') {
+      setValue('mainCategoryOther', '', { shouldDirty: true, shouldValidate: true });
+    }
+
+    setIsComplete(false);
+    setSubmitError('');
+  };
+
+  const setBooleanField = (fieldName: 'attendedBefore' | 'interestedIfUnavailable', value: boolean) => {
+    setValue(fieldName, value, { shouldDirty: true, shouldValidate: true });
+    setIsComplete(false);
+    setSubmitError('');
+  };
+
+  const setAcceptedStatute = (value: boolean) => {
+    setValue('acceptedStatute', value, { shouldDirty: true, shouldValidate: true });
+    setIsComplete(false);
+    setSubmitError('');
   };
 
   return {
     currentError,
     formData,
+    formState,
+    register,
     isComplete,
+    isSubmitting,
     logoFile,
-    showErrors,
-    submissionDateTime,
+    submitError,
+    submittedAtLabel,
     submitForm,
     toggleStand,
-    updateField,
+    setAcceptedStatute,
+    setBooleanField,
+    setCategory,
+    setValue,
     updateLogoFile
   };
 };

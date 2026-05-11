@@ -324,10 +324,11 @@ export const pl = {
     vendorsFormPage: {
       title: 'Formularz zgłoszeniowy wystawców',
       kicker: 'Dla wystawców',
-      saveDraft: 'Zapisz szkic',
+      submit: 'Wyślij zgłoszenie',
+      submitting: 'Wysyłanie...',
+      submitError: 'Nie udało się zapisać zgłoszenia. Spróbuj ponownie.',
       submissionDateTimeLabel: 'Data i godzina wysłania',
-      draftBanner:
-        'Ten szkic jest zapisany tylko w Twojej przeglądarce. Nie wysyłamy go jeszcze do organizatorek — wkrótce dodamy taką możliwość.',
+      draftBanner: 'Szkic formularza zapisuje się lokalnie w tej przeglądarce do momentu wysłania zgłoszenia.',
       steps: {
         storeName: {
           title: 'Jak nazywa się Twoja marka lub sklep?',
@@ -412,10 +413,10 @@ export const pl = {
         statuteRequired: 'Musisz zaakceptować regulamin, aby przejść dalej.'
       },
       summary: {
-        title: 'Szkic zapisany lokalnie',
-        description:
-          'Dane są zapisane tylko w Twojej przeglądarce — jeszcze nie zostały wysłane do organizatorek. Wysyłka formularza pojawi się w kolejnej wersji strony.',
+        title: 'Zgłoszenie zostało zapisane',
+        description: 'Zgłoszenie zostało zapisane i jest widoczne na liście zgłoszeń wystawców.',
         storeName: 'Nazwa sklepu',
+        submittedAt: 'Data zapisania',
         attendedBefore: 'Poprzednie edycje',
         mainCategory: 'Główna kategoria',
         preferredStands: 'Preferowane stoiska',
@@ -428,6 +429,32 @@ export const pl = {
         statute: 'Regulamin',
         accepted: 'Zaakceptowano',
         notProvided: 'Nie podano'
+      }
+    },
+    vendorsApplicationsPage: {
+      kicker: 'Panel organizatorek',
+      title: 'Zgłoszenia wystawców',
+      loading: 'Wczytywanie zgłoszeń...',
+      empty: 'Brak zgłoszeń.',
+      savedCount: 'Zapisanych zgłoszeń: {{count}}',
+      fields: {
+        mainCategory: 'Główna kategoria',
+        preferredStands: 'Preferowane stoiska',
+        attendedBefore: 'Poprzednie edycje',
+        interestedIfUnavailable: 'Oferta przy braku stoiska',
+        phone: 'Telefon',
+        email: 'E-mail',
+        invoiceDetails: 'Dane do faktury',
+        logoFilename: 'Nazwa pliku z logo',
+        businessDescription: 'Opis działalności',
+        acceptedStatute: 'Regulamin zaakceptowany'
+      },
+      values: {
+        yes: 'Tak',
+        no: 'Nie',
+        noAnswer: 'Brak odpowiedzi',
+        notProvided: 'Nie podano',
+        noneSelected: 'Brak'
       }
     },
     foodBand: {
