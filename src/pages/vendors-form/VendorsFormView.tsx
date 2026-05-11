@@ -5,6 +5,7 @@ import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import type { VendorsFormState } from './vendorsFormTypes';
 import {
   ActionsRow,
+  ActionsSpacer,
   CheckboxRow,
   ErrorText,
   FieldLabel,
@@ -41,9 +42,12 @@ interface VendorsFormViewProps {
   currentError: string;
   formData: VendorsFormState;
   isComplete: boolean;
+  isSubmitting: boolean;
   showErrors: boolean;
-  submissionDateTime: string;
-  submitForm: () => void;
+  submissionDateTimePreview: string;
+  submitError: string;
+  submittedAtLabel: string | null;
+  submitForm: () => Promise<void>;
   toggleStand: (standId: string) => void;
   updateField: <K extends keyof VendorsFormState>(key: K, value: VendorsFormState[K]) => void;
   updateLogoFile: (file: File | null) => void;
@@ -53,8 +57,11 @@ export const VendorsFormView = ({
   currentError,
   formData,
   isComplete,
+  isSubmitting,
   showErrors,
-  submissionDateTime,
+  submissionDateTimePreview,
+  submitError,
+  submittedAtLabel,
   submitForm,
   toggleStand,
   updateField,
@@ -68,7 +75,7 @@ export const VendorsFormView = ({
       <FormLayout
         onSubmit={(event) => {
           event.preventDefault();
-          submitForm();
+          void submitForm();
         }}
       >
         <FormSection $isFirst>
@@ -362,12 +369,16 @@ export const VendorsFormView = ({
 
         <InfoRow aria-label="submission_datetime">
           <InfoLabel>{t('vendorsFormPage.submissionDateTimeLabel')}</InfoLabel>
-          <InfoValue>{submissionDateTime}</InfoValue>
+          <InfoValue>{submissionDateTimePreview}</InfoValue>
         </InfoRow>
 
+        {submitError ? <ErrorText>{submitError}</ErrorText> : null}
+
         <ActionsRow>
-          <span />
-          <PrimaryButton type="submit">{t('vendorsFormPage.saveDraft')}</PrimaryButton>
+          <ActionsSpacer />
+          <PrimaryButton type="submit" disabled={isSubmitting}>
+            {isSubmitting ? t('vendorsFormPage.submitting') : t('vendorsFormPage.submit')}
+          </PrimaryButton>
         </ActionsRow>
       </FormLayout>
 
@@ -379,6 +390,8 @@ export const VendorsFormView = ({
           <SummaryList>
             <dt>{t('vendorsFormPage.summary.storeName')}</dt>
             <dd>{formData.storeName}</dd>
+            <dt>{t('vendorsFormPage.summary.submittedAt')}</dt>
+            <dd>{submittedAtLabel ?? t('vendorsFormPage.summary.notProvided')}</dd>
             <dt>{t('vendorsFormPage.summary.attendedBefore')}</dt>
             <dd>
               {formData.attendedBefore

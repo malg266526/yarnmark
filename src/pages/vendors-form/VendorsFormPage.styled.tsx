@@ -203,6 +203,10 @@ export const ActionsRow = styled.div`
   flex-wrap: wrap;
 `;
 
+export const ActionsSpacer = styled.span`
+  min-width: 1px;
+`;
+
 export const InlineLink = styled.a`
   color: ${TextColors.accent};
 `;

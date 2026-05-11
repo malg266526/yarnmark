@@ -326,10 +326,11 @@ export const en: TranslationsShape = {
     vendorsFormPage: {
       title: 'Vendor application form',
       kicker: 'For vendors',
-      saveDraft: 'Save draft',
+      submit: 'Submit application',
+      submitting: 'Submitting...',
+      submitError: 'The application could not be saved. Please try again.',
       submissionDateTimeLabel: 'Submission date and time',
-      draftBanner:
-        'This draft is stored only in your browser. We do not send it to the organizers yet — submission will be added soon.',
+      draftBanner: 'This draft is stored locally in this browser until you submit the application.',
       steps: {
         storeName: {
           title: 'What is the name of your brand or store?',
@@ -414,10 +415,10 @@ export const en: TranslationsShape = {
         statuteRequired: 'You must accept the terms to continue.'
       },
       summary: {
-        title: 'Draft saved locally',
-        description:
-          'Your answers are stored only in this browser — they have not been sent to the organizers yet. Form submission will arrive in a future release.',
+        title: 'Application saved',
+        description: 'The application was saved and is now visible on the vendor applications page.',
         storeName: 'Store name',
+        submittedAt: 'Saved at',
         attendedBefore: 'Previous editions',
         mainCategory: 'Main category',
         preferredStands: 'Preferred stands',

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import type { VendorsFormState } from './vendorsFormTypes';
 import { getVendorsFormErrorKey, toggleStandSelection } from './vendorsFormUtils';
+import { createVendorApplication } from './vendorsApplicationsStorage';
 import { VENDORS_FORM_DRAFT_STORAGE_KEY, VENDORS_FORM_MAX_PREFERRED_STANDS } from './vendorsFormConstants';
 import { getInitialVendorsFormDraft, parseVendorsFormDraft } from './vendorsFormStorage';
 
@@ -16,7 +17,10 @@ export const useVendorsForm = () => {
   const [formData, setFormData] = useState<VendorsFormState>(initialDraft.formData);
   const [isComplete, setIsComplete] = useState<boolean>(initialDraft.isComplete);
   const [showErrors, setShowErrors] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [submissionDate, setSubmissionDate] = useState(() => new Date());
+  const [submittedAt, setSubmittedAt] = useState<string | null>(null);
   // File objects can't be serialized to localStorage; kept in-memory so a future
   // submission flow can upload the actual bytes without forcing the user to re-pick.
   const [logoFile, setLogoFile] = useState<File | null>(null);
@@ -42,6 +46,7 @@ export const useVendorsForm = () => {
       return { ...prev, [key]: value };
     });
     setIsComplete(false);
+    setSubmitError('');
   };
 
   const updateLogoFile = (file: File | null) => {
@@ -55,6 +60,7 @@ export const useVendorsForm = () => {
       preferredStands: toggleStandSelection(prev.preferredStands, standId, VENDORS_FORM_MAX_PREFERRED_STANDS)
     }));
     setIsComplete(false);
+    setSubmitError('');
   };
 
   useEffect(() => {
@@ -69,7 +75,7 @@ export const useVendorsForm = () => {
     return () => window.clearInterval(intervalId);
   }, []);
 
-  const submissionDateTime = useMemo(
+  const submissionDateTimePreview = useMemo(
     () =>
       new Intl.DateTimeFormat(i18n.language, {
         dateStyle: 'long',
@@ -78,23 +84,50 @@ export const useVendorsForm = () => {
     [i18n.language, submissionDate]
   );
 
-  const submitForm = () => {
+  const submittedAtLabel = useMemo(() => {
+    if (!submittedAt) {
+      return null;
+    }
+
+    return new Intl.DateTimeFormat(i18n.language, {
+      dateStyle: 'long',
+      timeStyle: 'medium'
+    }).format(new Date(submittedAt));
+  }, [i18n.language, submittedAt]);
+
+  const submitForm = async () => {
     if (currentError) {
       setShowErrors(true);
       return;
     }
 
+    setIsSubmitting(true);
+    setSubmitError('');
     setShowErrors(false);
-    setIsComplete(true);
+
+    try {
+      const response = await createVendorApplication(formData);
+
+      setSubmittedAt(response.application.submittedAt);
+      setIsComplete(true);
+    } catch (error) {
+      console.error(error);
+      setSubmitError(t('vendorsFormPage.submitError'));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return {
     currentError,
     formData,
     isComplete,
+    isSubmitting,
     logoFile,
     showErrors,
-    submissionDateTime,
+    submissionDateTimePreview,
+    submitError,
+    submittedAtLabel,
     submitForm,
     toggleStand,
     updateField,
