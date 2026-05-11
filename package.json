@@ -9,7 +9,7 @@
     "prettier": "prettier src/**/*.{ts,tsx} --write",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix && prettier --write .",
     "format": "prettier --write .",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --test --experimental-transform-types src/**/*.test.ts",
     "start": "node ./esbuild.serve.mjs",
     "bundle": "node ./esbuild.bundle.mjs",
     "transpile-workflow-files": "esbuild --target=es2022 --allow-overwrite --out-extension:.js=.mjs --outdir=workflow-helpers ./workflow-helpers/**",

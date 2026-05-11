@@ -323,16 +323,59 @@ export const pl = {
     },
     vendorsFormPage: {
       title: 'Formularz zgłoszeniowy wystawców',
-      openFormTitle: 'Wypełnij zgłoszenie',
-      intro: 'Na tej stronie znajdziesz formularze zgłoszeniowe dla wystawców Krakoskiego Yarnmarku.',
-      languageHint: 'Otworzymy wersję formularza dopasowaną do aktualnie wybranego języka strony.',
-      openCurrentLanguage: 'Otwórz formularz',
-      allLinksTitle: 'Wszystkie wersje językowe',
-      questions: 'Masz pytania? Napisz na <strong>krakoski.yarnmark@gmail.com</strong>.',
-      links: {
-        pl: 'Formularz po polsku',
-        en: 'Formularz po angielsku',
-        de: 'Formularz po niemiecku'
+      formTitle: 'Zgłoszenie krok po kroku',
+      stepCounter: 'Krok {{current}} z {{total}}',
+      next: 'Dalej',
+      back: 'Wstecz',
+      finish: 'Zakończ',
+      edit: 'Edytuj',
+      helpTitle: 'Aktualny etap',
+      helpDescription:
+        'To jest pierwsza wersja formularza. Na razie działa tylko interaktywny przebieg kroków i walidacja pól po stronie przeglądarki.',
+      questions: 'Masz pytania? Napisz na krakoski.yarnmark@gmail.com.',
+      steps: {
+        storeName: {
+          title: 'Jak nazywa się Twoja marka lub sklep?',
+          label: 'Nazwa sklepu',
+          placeholder: 'Np. Włóczki z Krakowa'
+        },
+        attendedBefore: {
+          title: 'Czy byłaś lub byłeś z nami na poprzednich edycjach Yarnmarku?',
+          yes: 'Tak, byłam/byłem wystawcą wcześniej',
+          no: 'Nie, to mój pierwszy raz'
+        },
+        contact: {
+          title: 'Jak możemy się z Tobą skontaktować?',
+          phoneLabel: 'Numer telefonu',
+          phonePlaceholder: '+48 123 456 789',
+          emailLabel: 'Adres e-mail',
+          emailPlaceholder: 'twoj@sklep.pl'
+        },
+        statute: {
+          title: 'Potwierdzenie regulaminu',
+          prefix: 'Akceptuję',
+          linkLabel: 'regulamin sprzedaży stoisk'
+        }
+      },
+      validation: {
+        storeNameRequired: 'Podaj nazwę sklepu.',
+        attendedBeforeRequired: 'Wybierz jedną z odpowiedzi.',
+        phoneRequired: 'Podaj numer telefonu.',
+        phoneInvalid: 'Podaj poprawny numer telefonu.',
+        emailRequired: 'Podaj adres e-mail.',
+        emailInvalid: 'Podaj poprawny adres e-mail.',
+        statuteRequired: 'Musisz zaakceptować regulamin, aby przejść dalej.'
+      },
+      summary: {
+        title: 'Pierwsza część formularza jest gotowa',
+        description:
+          'Dane są na razie tylko w przeglądarce i nie zostały jeszcze wysłane. W kolejnym kroku dodamy trwały zapis.',
+        storeName: 'Nazwa sklepu',
+        attendedBefore: 'Poprzednie edycje',
+        phone: 'Telefon',
+        email: 'E-mail',
+        statute: 'Regulamin',
+        accepted: 'Zaakceptowano'
       }
     },
     foodBand: {

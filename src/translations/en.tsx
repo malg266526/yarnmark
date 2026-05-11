@@ -325,16 +325,59 @@ export const en: TranslationsShape = {
     },
     vendorsFormPage: {
       title: 'Vendor application form',
-      openFormTitle: 'Complete the application',
-      intro: 'This page contains the vendor application forms for Krakoski Yarnmark.',
-      languageHint: 'The main button opens the form version matching the language currently selected on the website.',
-      openCurrentLanguage: 'Open the form',
-      allLinksTitle: 'All language versions',
-      questions: 'Do you have questions? Write to <strong>krakoski.yarnmark@gmail.com</strong>.',
-      links: {
-        pl: 'Polish form',
-        en: 'English form',
-        de: 'German form'
+      formTitle: 'Step-by-step application',
+      stepCounter: 'Step {{current}} of {{total}}',
+      next: 'Next',
+      back: 'Back',
+      finish: 'Finish',
+      edit: 'Edit',
+      helpTitle: 'Current stage',
+      helpDescription:
+        'This is the first version of the form. For now it only includes the interactive step flow and client-side validation.',
+      questions: 'Do you have questions? Write to krakoski.yarnmark@gmail.com.',
+      steps: {
+        storeName: {
+          title: 'What is the name of your brand or store?',
+          label: 'Store name',
+          placeholder: 'For example: Wool from Krakow'
+        },
+        attendedBefore: {
+          title: 'Have you already taken part in previous Yarnmark editions?',
+          yes: 'Yes, I was a vendor before',
+          no: 'No, this is my first time'
+        },
+        contact: {
+          title: 'How can we contact you?',
+          phoneLabel: 'Phone number',
+          phonePlaceholder: '+48 123 456 789',
+          emailLabel: 'Email address',
+          emailPlaceholder: 'your@store.com'
+        },
+        statute: {
+          title: 'Terms confirmation',
+          prefix: 'I accept the',
+          linkLabel: 'vendor stand terms and conditions'
+        }
+      },
+      validation: {
+        storeNameRequired: 'Enter the store name.',
+        attendedBeforeRequired: 'Choose one of the answers.',
+        phoneRequired: 'Enter a phone number.',
+        phoneInvalid: 'Enter a valid phone number.',
+        emailRequired: 'Enter an email address.',
+        emailInvalid: 'Enter a valid email address.',
+        statuteRequired: 'You must accept the terms to continue.'
+      },
+      summary: {
+        title: 'The first part of the form is ready',
+        description:
+          'For now the data only exists in the browser and has not been submitted yet. In the next step we can add persistent storage.',
+        storeName: 'Store name',
+        attendedBefore: 'Previous editions',
+        phone: 'Phone',
+        email: 'Email',
+        statute: 'Terms',
+        accepted: 'Accepted'
       }
     },
     foodBand: {

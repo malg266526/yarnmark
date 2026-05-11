@@ -5,6 +5,7 @@
     "strict": true,
     "lib": ["DOM", "ES2020", "ES2021.String"],
     "jsx": "react",
+    "allowImportingTsExtensions": true,
     "allowSyntheticDefaultImports": true,
     "typeRoots": ["./src/types.ts"],
     "resolveJsonModule": true,
