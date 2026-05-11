@@ -353,6 +353,7 @@ export const pl = {
         preferredStands: {
           title: 'Wybierz preferowane stoiska na mapie',
           hint: 'Możesz wybrać maksymalnie {{max}} stoiska. Zielone — wolne, pomarańczowe — wybrane przez Ciebie.',
+          orderHint: 'Kolejność klikania ma znaczenie — pierwsze kliknięte stoisko traktujemy jako pierwszy wybór.',
           counter: 'Wybrano {{current}} z {{max}}',
           detailsHint:
             'Szczegółowe informacje o rodzajach, wymiarach i wyposażeniu stoisk znajdziesz na stronie <0>Informacje dla wystawców</0>.',
@@ -437,6 +438,13 @@ export const pl = {
       loading: 'Wczytywanie zgłoszeń...',
       empty: 'Brak zgłoszeń.',
       savedCount: 'Zapisanych zgłoszeń: {{count}}',
+      showByStand: 'Pokaż wg stoiska',
+      showCards: 'Pokaż zgłoszenia',
+      priorities: {
+        highest: 'Pierwszy wybór',
+        medium: 'Drugi wybór',
+        lowest: 'Trzeci wybór'
+      },
       fields: {
         mainCategory: 'Główna kategoria',
         preferredStands: 'Preferowane stoiska',

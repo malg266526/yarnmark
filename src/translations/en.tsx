@@ -355,6 +355,7 @@ export const en: TranslationsShape = {
         preferredStands: {
           title: 'Pick your preferred stands on the map',
           hint: 'You can pick up to {{max}} stands. Green — available, orange — selected by you.',
+          orderHint: 'Order matters — the first stand you click becomes your top pick.',
           counter: '{{current}} of {{max}} selected',
           detailsHint:
             'Detailed information about stand types, dimensions, and equipment is available on the <0>Info for vendors</0> page.',
@@ -439,6 +440,13 @@ export const en: TranslationsShape = {
       loading: 'Loading applications...',
       empty: 'No applications yet.',
       savedCount: '{{count}} applications saved',
+      showByStand: 'Show by stand',
+      showCards: 'Show applications',
+      priorities: {
+        highest: 'Top pick',
+        medium: 'Second pick',
+        lowest: 'Third pick'
+      },
       fields: {
         mainCategory: 'Main category',
         preferredStands: 'Preferred stands',

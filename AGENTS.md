@@ -5,6 +5,8 @@
 - Keep page files thin. Page components should compose sections, not own business logic.
 - Put state transitions, validation, and persistence in hooks or pure utilities.
 - Keep presentational components focused on rendering and callbacks only.
+- Before creating a new component, first check whether an existing shared component can be reused or extended.
+- Prefer extending existing shared UI primitives over creating page-local replacements with overlapping behavior.
 - Do not use `React.FC`.
 - Type component props directly on the function signature.
 - Do not use generic `Props` names. Use component-specific names such as `VendorCardProps`.

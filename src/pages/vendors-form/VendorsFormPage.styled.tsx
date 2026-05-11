@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { CtaButton } from '../../components/Button';
 import { DropShadow, Radius } from '../../styles/cards';
 import { FontSize } from '../../styles/font-size';
 import { ScreenSize } from '../../styles/screeen-size';
@@ -226,5 +225,3 @@ export const SummaryList = styled.dl`
     margin: 0;
   }
 `;
-
-export const PrimaryButton = CtaButton;

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import type { FieldErrors } from 'react-hook-form';
 import { toggleStandSelection } from './vendorsFormUtils';
-import { createVendorApplication } from './vendorsApplicationsStorage';
+import { createVendorApplication } from '../vendors-applications/vendorsApplicationsStorage';
 import { VENDORS_FORM_DRAFT_STORAGE_KEY, VENDORS_FORM_MAX_PREFERRED_STANDS } from './vendorsFormConstants';
 import { vendorsFormSchema, type VendorsFormValues } from './vendorsFormSchema';
 import { getInitialVendorsFormDraft, parseVendorsFormDraft } from './vendorsFormStorage';

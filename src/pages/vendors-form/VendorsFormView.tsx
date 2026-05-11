@@ -1,6 +1,7 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import type { UseFormRegister, FormState, UseFormSetValue } from 'react-hook-form';
+import { CtaButton } from '../../components/Button';
 import { Typography } from '../../components/Typography';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import type { VendorsFormState } from './vendorsFormTypes';
@@ -24,7 +25,6 @@ import {
   LegendRow,
   LegendSize,
   LegendText,
-  PrimaryButton,
   RadioGroup,
   RadioOption,
   SummaryList,
@@ -198,6 +198,7 @@ export const VendorsFormView = ({
                 max: VENDORS_FORM_MAX_PREFERRED_STANDS
               })}
             </FieldHint>
+            <FieldHint>{t('vendorsFormPage.steps.preferredStands.orderHint')}</FieldHint>
             <FieldHint>
               {rawT('vendorsFormPage.steps.preferredStands.counter', {
                 current: formData.preferredStands.length,
@@ -378,9 +379,9 @@ export const VendorsFormView = ({
 
         <ActionsRow>
           <ActionsSpacer />
-          <PrimaryButton type="submit" disabled={isSubmitting}>
+          <CtaButton type="submit" disabled={isSubmitting}>
             {isSubmitting ? t('vendorsFormPage.submitting') : t('vendorsFormPage.submit')}
-          </PrimaryButton>
+          </CtaButton>
         </ActionsRow>
       </FormLayout>
 
@@ -411,7 +412,7 @@ export const VendorsFormView = ({
             <dt>{t('vendorsFormPage.summary.preferredStands')}</dt>
             <dd>
               {formData.preferredStands.length > 0
-                ? formData.preferredStands.join(', ')
+                ? formData.preferredStands.map((standId, index) => `${index + 1}. ${standId}`).join(', ')
                 : t('vendorsFormPage.summary.notProvided')}
             </dd>
             <dt>{t('vendorsFormPage.summary.interestedIfUnavailable')}</dt>
