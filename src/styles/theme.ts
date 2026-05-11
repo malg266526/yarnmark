@@ -30,6 +30,10 @@ export const TextColors = {
   accent: '#C0392B'
 };
 
+export const BorderColors = {
+  subtleGreen: 'rgba(50, 98, 19, 0.18)'
+};
+
 export const GrayScale = {
   50: '#FFFFFF',
   100: '#ECEBEB',

@@ -308,7 +308,8 @@ export const en: TranslationsShape = {
       registration: {
         title: 'Reservations',
         wantToJoin: 'Do you want to become a vendor at Krakoski Yarnmark 2026?',
-        newForm: 'We invite you to fill out the application form: <0>Form</0>.',
+        newForm: 'Please visit the application form page: <0>Form</0>.',
+        directFormLink: 'If you want to open the external form directly, click <0>here</0>.',
         extraInfoByMail:
           'Would you like to receive additional information via email? Write to <strong>krakoski.yarnmark@gmail.com</strong > ',
         beAVendor:
@@ -320,6 +321,114 @@ export const en: TranslationsShape = {
         feedback: 'All data related to payment will be part of feedback confirming spot reservation',
         return:
           'In case of reservation and missing the payment - reservation is cancelled and will be available again for vendors'
+      }
+    },
+    vendorsFormPage: {
+      title: 'Vendor application form',
+      kicker: 'For vendors',
+      saveDraft: 'Save draft',
+      draftBanner:
+        'This draft is stored only in your browser. We do not send it to the organizers yet — submission will be added soon.',
+      steps: {
+        storeName: {
+          title: 'What is the name of your brand or store?',
+          label: 'Store name',
+          placeholder: 'For example: Wool from Krakow'
+        },
+        attendedBefore: {
+          title: 'Have you already taken part in previous Yarnmark editions?',
+          yes: 'Yes, I was a vendor before',
+          no: 'No, this is my first time'
+        },
+        mainCategory: {
+          title: 'Name the MAIN category of goods that your store offers',
+          yarns: 'Yarns',
+          accessories: 'Knitting & crochet accessories',
+          ceramics: 'Ceramics',
+          candles: 'Candles',
+          other: 'Other',
+          otherLabel: 'What category is it?',
+          otherPlaceholder: 'Enter the main product category'
+        },
+        preferredStands: {
+          title: 'Pick your preferred stands on the map',
+          hint: 'You can pick up to {{max}} stands. Green — available, orange — selected by you.',
+          counter: '{{current}} of {{max}} selected',
+          detailsHint:
+            'Detailed information about stand types, dimensions, and equipment is available on the <0>Info for vendors</0> page.',
+          legendTitle: 'Stand types',
+          premiumLabel: 'Premium',
+          premiumSize: '3 × 5.5 m',
+          standardLabel: 'Standard',
+          standardSize: '3 × 3.5 m',
+          miniLabel: 'Mini',
+          miniSize: '2 × 3 m'
+        },
+        interestedIfUnavailable: {
+          title: 'If selected stands would be unavailable, are you still interested in receiving an offer from us?',
+          yes: 'Yes',
+          no: 'No'
+        },
+        contact: {
+          title: 'How can we contact you?',
+          phoneLabel: 'Phone number',
+          phonePlaceholder: '+48 123 456 789',
+          emailLabel: 'Email address',
+          emailPlaceholder: 'your@store.com'
+        },
+        invoice: {
+          title: 'Invoice details',
+          detailsLabel: 'Invoice details',
+          detailsPlaceholder: 'Enter the full invoice details',
+          logoLabel: 'Logo filename (optional)',
+          logoHint: 'For now we only record the filename — please send the actual logo by email later.'
+        },
+        businessDescription: {
+          title: 'Short business description for promo materials',
+          label: 'Business description',
+          placeholder: 'Write a short description of your business.',
+          limitHint: '{{current}} / {{max}} characters'
+        },
+        statute: {
+          title: 'Terms confirmation',
+          prefix: 'I accept the',
+          linkLabel: 'vendor stand terms and conditions',
+          complianceHint:
+            'Following the event rules and terms helps us maintain a fair and safe collaboration. Significant breaches may be taken into account when reviewing applications for future editions.'
+        }
+      },
+      validation: {
+        storeNameRequired: 'Enter the store name.',
+        attendedBeforeRequired: 'Choose one of the answers.',
+        mainCategoryRequired: 'Choose the main product category.',
+        mainCategoryOtherRequired: 'Enter the main product category.',
+        interestedIfUnavailableRequired: 'Choose one of the answers.',
+        phoneRequired: 'Enter a phone number.',
+        phoneInvalid: 'Enter a valid phone number.',
+        emailRequired: 'Enter an email address.',
+        emailInvalid: 'Enter a valid email address.',
+        invoiceDetailsRequired: 'Enter the invoice details.',
+        businessDescriptionRequired: 'Add a business description.',
+        businessDescriptionTooLong: 'The business description is too long.',
+        statuteRequired: 'You must accept the terms to continue.'
+      },
+      summary: {
+        title: 'Draft saved locally',
+        description:
+          'Your answers are stored only in this browser — they have not been sent to the organizers yet. Form submission will arrive in a future release.',
+        storeName: 'Store name',
+        attendedBefore: 'Previous editions',
+        mainCategory: 'Main category',
+        preferredStands: 'Preferred stands',
+        interestedIfUnavailable: 'Offer if unavailable',
+        phone: 'Phone',
+        email: 'Email',
+        invoiceDetails: 'Invoice details',
+        logo: 'Logo',
+        businessDescription: 'Business description',
+        statute: 'Terms',
+        accepted: 'Accepted',
+        notProvided: 'Not provided'
       }
     },
     foodBand: {
@@ -565,7 +674,14 @@ export const en: TranslationsShape = {
       }
     },
 
+    statutesPage: {
+      kicker: 'Practical information',
+      badge: 'Read before attending',
+      heading: 'Krakoski Yarnmark regulations'
+    },
     vendorsStatue: {
+      kicker: 'For vendors',
+      badge: 'Read before sending the form',
       title: 'Terms and Conditions for the sale of the vendors stands 2026',
       subtitle: 'Conditions for the sale of vendors stands 2026',
       intro:

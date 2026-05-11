@@ -306,7 +306,8 @@ export const pl = {
       registration: {
         title: 'Zapisy',
         wantToJoin: 'Chcesz zostać wystawcą na Krakoski Yarnmark 2026?',
-        newForm: 'Zapraszamy do wypełnienia formularza zgłoszeniowego: <0>Formularz</0>.',
+        newForm: 'Zapraszamy do strony z formularzem zgłoszeniowym: <0>Formularz</0>.',
+        directFormLink: 'Jeśli chcesz przejść od razu do zewnętrznego formularza, kliknij <0>tutaj</0>.',
         extraInfoByMail: 'Masz dodatkowe pytania? Napisz na <strong>krakoski.yarnmark@gmail.com</strong>',
         beAVendor:
           'Jeśli chcesz dołączyć do wspaniałego grona naszych wystawców, napisz do nas! Email kontaktowy: <strong>krakoski.yarnmark@gmail.com</strong>',
@@ -318,6 +319,114 @@ export const pl = {
           'Wszystkie dane dotyczące płatności będą zawarte w informacji zwrotnej, potwierdzającej rezerwację stoiska.',
         return:
           'W przypadku rezerwacji i nie opłacenia kosztów – rezerwacja zostaje anulowane i zostanie ponownie dostępne dla wystawców.'
+      }
+    },
+    vendorsFormPage: {
+      title: 'Formularz zgłoszeniowy wystawców',
+      kicker: 'Dla wystawców',
+      saveDraft: 'Zapisz szkic',
+      draftBanner:
+        'Ten szkic jest zapisany tylko w Twojej przeglądarce. Nie wysyłamy go jeszcze do organizatorek — wkrótce dodamy taką możliwość.',
+      steps: {
+        storeName: {
+          title: 'Jak nazywa się Twoja marka lub sklep?',
+          label: 'Nazwa sklepu',
+          placeholder: 'Np. Włóczki z Krakowa'
+        },
+        attendedBefore: {
+          title: 'Czy byłaś lub byłeś z nami na poprzednich edycjach Yarnmarku?',
+          yes: 'Tak, byłam/byłem wystawcą wcześniej',
+          no: 'Nie, to mój pierwszy raz'
+        },
+        mainCategory: {
+          title: 'Nazwij GŁÓWNĄ kategorię produktów, które oferuje Twój sklep',
+          yarns: 'Włóczki',
+          accessories: 'Akcesoria do drutów i szydełka',
+          ceramics: 'Ceramika',
+          candles: 'Świece',
+          other: 'Inne',
+          otherLabel: 'Jaka to kategoria?',
+          otherPlaceholder: 'Wpisz główną kategorię produktów'
+        },
+        preferredStands: {
+          title: 'Wybierz preferowane stoiska na mapie',
+          hint: 'Możesz wybrać maksymalnie {{max}} stoiska. Zielone — wolne, pomarańczowe — wybrane przez Ciebie.',
+          counter: 'Wybrano {{current}} z {{max}}',
+          detailsHint:
+            'Szczegółowe informacje o rodzajach, wymiarach i wyposażeniu stoisk znajdziesz na stronie <0>Informacje dla wystawców</0>.',
+          legendTitle: 'Typy stoisk',
+          premiumLabel: 'Premium',
+          premiumSize: '3 × 5,5 m',
+          standardLabel: 'Standard',
+          standardSize: '3 × 3,5 m',
+          miniLabel: 'Mini',
+          miniSize: '2 × 3 m'
+        },
+        interestedIfUnavailable: {
+          title: 'Jeśli wybrane stoiska będą niedostępne, czy nadal chcesz otrzymać od nas ofertę?',
+          yes: 'Tak',
+          no: 'Nie'
+        },
+        contact: {
+          title: 'Jak możemy się z Tobą skontaktować?',
+          phoneLabel: 'Numer telefonu',
+          phonePlaceholder: '+48 123 456 789',
+          emailLabel: 'Adres e-mail',
+          emailPlaceholder: 'twoj@sklep.pl'
+        },
+        invoice: {
+          title: 'Dane do faktury',
+          detailsLabel: 'Dane do faktury',
+          detailsPlaceholder: 'Wpisz pełne dane do faktury',
+          logoLabel: 'Nazwa pliku z logo (opcjonalnie)',
+          logoHint: 'Na razie zapisujemy tylko nazwę pliku — właściwe logo dośle się później mailem.'
+        },
+        businessDescription: {
+          title: 'Krótki opis działalności do materiałów promocyjnych',
+          label: 'Opis działalności',
+          placeholder: 'Napisz krótko, czym zajmuje się Twoja marka.',
+          limitHint: '{{current}} / {{max}} znaków'
+        },
+        statute: {
+          title: 'Potwierdzenie regulaminu',
+          prefix: 'Akceptuję',
+          linkLabel: 'regulamin sprzedaży stoisk',
+          complianceHint:
+            'Przestrzeganie zasad wydarzenia i regulaminu pomaga nam budować bezpieczną współpracę. Istotne naruszenia mogą zostać uwzględnione przy ocenie zgłoszeń w kolejnych edycjach.'
+        }
+      },
+      validation: {
+        storeNameRequired: 'Podaj nazwę sklepu.',
+        attendedBeforeRequired: 'Wybierz jedną z odpowiedzi.',
+        mainCategoryRequired: 'Wybierz główną kategorię produktów.',
+        mainCategoryOtherRequired: 'Wpisz główną kategorię produktów.',
+        interestedIfUnavailableRequired: 'Wybierz jedną z odpowiedzi.',
+        phoneRequired: 'Podaj numer telefonu.',
+        phoneInvalid: 'Podaj poprawny numer telefonu.',
+        emailRequired: 'Podaj adres e-mail.',
+        emailInvalid: 'Podaj poprawny adres e-mail.',
+        invoiceDetailsRequired: 'Podaj dane do faktury.',
+        businessDescriptionRequired: 'Dodaj opis działalności.',
+        businessDescriptionTooLong: 'Opis działalności jest za długi.',
+        statuteRequired: 'Musisz zaakceptować regulamin, aby przejść dalej.'
+      },
+      summary: {
+        title: 'Szkic zapisany lokalnie',
+        description:
+          'Dane są zapisane tylko w Twojej przeglądarce — jeszcze nie zostały wysłane do organizatorek. Wysyłka formularza pojawi się w kolejnej wersji strony.',
+        storeName: 'Nazwa sklepu',
+        attendedBefore: 'Poprzednie edycje',
+        mainCategory: 'Główna kategoria',
+        preferredStands: 'Preferowane stoiska',
+        interestedIfUnavailable: 'Oferta przy braku stoiska',
+        phone: 'Telefon',
+        email: 'E-mail',
+        invoiceDetails: 'Dane do faktury',
+        logo: 'Logo',
+        businessDescription: 'Opis działalności',
+        statute: 'Regulamin',
+        accepted: 'Zaakceptowano',
+        notProvided: 'Nie podano'
       }
     },
     foodBand: {
@@ -565,7 +674,14 @@ export const pl = {
           '<br>'
       }
     },
+    statutesPage: {
+      kicker: 'Informacje praktyczne',
+      badge: 'Przeczytaj przed udziałem',
+      heading: 'Regulamin Krakoskiego Yarnmarku'
+    },
     vendorsStatue: {
+      kicker: 'Dla wystawców',
+      badge: 'Czytaj przed wysłaniem formularza',
       title: 'Regulamin sprzedaży stoisk 2026',
       subtitle: 'Regulamin sprzedaży stoisk 2026',
       intro:
