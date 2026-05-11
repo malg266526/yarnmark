@@ -11,6 +11,7 @@ import {
   ActionsSpacer,
   CheckboxRow,
   DownloadActions,
+  DisclaimerText,
   ErrorText,
   FieldLabel,
   FieldHint,
@@ -43,7 +44,6 @@ import { SelectableHall } from './SelectableHall';
 import { SubmissionDateTimePreview } from './SubmissionDateTimePreview';
 
 interface VendorsFormViewProps {
-  currentError: string;
   formData: VendorsFormState;
   formState: FormState<VendorsFormValues>;
   highInterestSelectedStandIds: string[];
@@ -64,7 +64,6 @@ interface VendorsFormViewProps {
 }
 
 export const VendorsFormView = ({
-  currentError,
   formData,
   formState,
   highInterestSelectedStandIds,
@@ -86,6 +85,17 @@ export const VendorsFormView = ({
   const t = useTypedTranslation();
   const { t: rawT } = useTranslation();
   const businessDescriptionField = register('businessDescription');
+  const getFieldError = (...fieldNames: Array<keyof VendorsFormValues>) => {
+    for (const fieldName of fieldNames) {
+      const message = formState.errors[fieldName]?.message;
+
+      if (typeof message === 'string') {
+        return rawT(message);
+      }
+    }
+
+    return '';
+  };
 
   return (
     <FormCard>
@@ -107,6 +117,7 @@ export const VendorsFormView = ({
                 {...register('storeName')}
               />
             </FieldLabel>
+            {formState.submitCount > 0 && getFieldError('storeName') ? <ErrorText>{getFieldError('storeName')}</ErrorText> : null}
           </Fieldset>
         </FormSection>
 
@@ -133,6 +144,9 @@ export const VendorsFormView = ({
                 <span>{t('vendorsFormPage.steps.attendedBefore.no')}</span>
               </RadioOption>
             </RadioGroup>
+            {formState.submitCount > 0 && getFieldError('attendedBefore') ? (
+              <ErrorText>{getFieldError('attendedBefore')}</ErrorText>
+            ) : null}
           </Fieldset>
         </FormSection>
 
@@ -196,6 +210,9 @@ export const VendorsFormView = ({
                   {...register('mainCategoryOther')}
                 />
               </FieldLabel>
+            ) : null}
+            {formState.submitCount > 0 && getFieldError('mainCategory', 'mainCategoryOther') ? (
+              <ErrorText>{getFieldError('mainCategory', 'mainCategoryOther')}</ErrorText>
             ) : null}
           </Fieldset>
         </FormSection>
@@ -273,12 +290,12 @@ export const VendorsFormView = ({
                 })}
               </WarningCard>
             ) : null}
-            <FieldHint>
+            <DisclaimerText>
               <Trans
                 i18nKey="vendorsFormPage.steps.preferredStands.detailsHint"
                 components={[<InlineLink key="vendors_info_link" href="/info-for-vendors" />]}
               />
-            </FieldHint>
+            </DisclaimerText>
             {formData.preferredStands.length > 0 ? (
               <FieldHint>
                 {formData.preferredStands
@@ -290,6 +307,9 @@ export const VendorsFormView = ({
                   )
                   .join(' • ')}
               </FieldHint>
+            ) : null}
+            {formState.submitCount > 0 && getFieldError('preferredStands') ? (
+              <ErrorText>{getFieldError('preferredStands')}</ErrorText>
             ) : null}
           </Fieldset>
         </FormSection>
@@ -317,6 +337,9 @@ export const VendorsFormView = ({
                 <span>{t('vendorsFormPage.steps.interestedIfUnavailable.no')}</span>
               </RadioOption>
             </RadioGroup>
+            {formState.submitCount > 0 && getFieldError('interestedIfUnavailable') ? (
+              <ErrorText>{getFieldError('interestedIfUnavailable')}</ErrorText>
+            ) : null}
           </Fieldset>
         </FormSection>
 
@@ -342,6 +365,9 @@ export const VendorsFormView = ({
                 {...register('email')}
               />
             </FieldLabel>
+            {formState.submitCount > 0 && getFieldError('phoneNumber', 'email') ? (
+              <ErrorText>{getFieldError('phoneNumber', 'email')}</ErrorText>
+            ) : null}
           </Fieldset>
         </FormSection>
 
@@ -374,6 +400,9 @@ export const VendorsFormView = ({
                 </DownloadActions>
               ) : null}
             </FieldLabel>
+            {formState.submitCount > 0 && getFieldError('invoiceDetails', 'logoFileName') ? (
+              <ErrorText>{getFieldError('invoiceDetails', 'logoFileName')}</ErrorText>
+            ) : null}
           </Fieldset>
         </FormSection>
 
@@ -403,6 +432,9 @@ export const VendorsFormView = ({
                 })}
               </FieldHint>
             </FieldLabel>
+            {formState.submitCount > 0 && getFieldError('businessDescription') ? (
+              <ErrorText>{getFieldError('businessDescription')}</ErrorText>
+            ) : null}
           </Fieldset>
         </FormSection>
 
@@ -421,11 +453,12 @@ export const VendorsFormView = ({
                 <InlineLink href="/info-for-vendors-statue">{t('vendorsFormPage.steps.statute.linkLabel')}</InlineLink>
               </span>
             </CheckboxRow>
-            <FieldHint>{t('vendorsFormPage.steps.statute.complianceHint')}</FieldHint>
+            <DisclaimerText>{t('vendorsFormPage.steps.statute.complianceHint')}</DisclaimerText>
+            {formState.submitCount > 0 && getFieldError('acceptedStatute') ? (
+              <ErrorText>{getFieldError('acceptedStatute')}</ErrorText>
+            ) : null}
           </Fieldset>
         </FormSection>
-
-        {formState.submitCount > 0 && currentError ? <ErrorText>{currentError}</ErrorText> : null}
 
         <FieldHint>{t('vendorsFormPage.draftBanner')}</FieldHint>
 

@@ -182,6 +182,24 @@ test('parseVendorsFormDraft restores a valid payload', () => {
   assert.deepEqual(parseVendorsFormDraft(JSON.stringify(draft)), draft);
 });
 
+test('parseVendorsFormDraft normalizes stored hall ids to readable stand ids', () => {
+  const draft = {
+    formData: {
+      ...getBaseValidState(),
+      preferredStands: ['mgl60s92-lscpjj7', 'mgl65qbi-2kfiih9']
+    },
+    isComplete: false
+  };
+
+  assert.deepEqual(parseVendorsFormDraft(JSON.stringify(draft)), {
+    formData: {
+      ...draft.formData,
+      preferredStands: ['P2', 'P3']
+    },
+    isComplete: false
+  });
+});
+
 test('parseVendorsFormDraft rejects a payload missing preferredStands', () => {
   const draft = {
     formData: {

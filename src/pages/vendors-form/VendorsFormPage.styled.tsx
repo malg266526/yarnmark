@@ -172,8 +172,13 @@ export const TextArea = styled.textarea`
 
 export const FieldHint = styled.div`
   color: ${TextColors.secondary};
-  font-size: ${FontSize.xs};
+  font-size: ${FontSize.sm};
+  line-height: 1.5;
   font-family: ${FontFamilies.primary};
+`;
+
+export const DisclaimerText = styled(FieldHint)`
+  font-size: inherit;
 `;
 
 export const InfoRow = styled.div`

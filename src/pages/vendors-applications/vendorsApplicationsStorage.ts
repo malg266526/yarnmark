@@ -2,6 +2,7 @@ import type { VendorApplication, VendorApplicationStatus } from '../vendors-form
 import type { VendorsFormState } from '../vendors-form/vendorsFormTypes';
 import { VENDORS_APPLICATIONS_MOCK } from './vendorsApplicationsMock';
 import { isVendorsFormState } from '../vendors-form/vendorsFormStorage';
+import { normalizeStandIds } from '../vendors-form/vendorsFormStandIds';
 
 const VENDOR_APPLICATIONS_STORAGE_KEY = 'vendor-applications-json';
 const DEFAULT_VENDOR_APPLICATION_STATUS: VendorApplicationStatus = 'new';
@@ -27,6 +28,7 @@ const isVendorApplication = (value: unknown): value is VendorApplication => {
 
 const normalizeVendorApplication = (application: VendorApplication): VendorApplication => ({
   ...application,
+  preferredStands: normalizeStandIds(application.preferredStands),
   status: application.status ?? DEFAULT_VENDOR_APPLICATION_STATUS
 });
 

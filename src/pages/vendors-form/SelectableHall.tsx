@@ -79,7 +79,7 @@ const StandElement = styled.button<{
   width: ${({ $width }) => $width}px;
   height: ${({ $height }) => $height}px;
   background-color: ${({ $color }) => $color};
-  border: 2px solid ${({ $isHighInterest }) => ($isHighInterest ? '#D97706' : 'white')};
+  border: 2px solid white;
   box-sizing: border-box;
   cursor: ${({ $selectable }) => ($selectable ? 'pointer' : 'default')};
   display: flex;
@@ -88,7 +88,6 @@ const StandElement = styled.button<{
   text-align: center;
   font-size: 12px;
   color: #111;
-  box-shadow: ${({ $isHighInterest }) => ($isHighInterest ? '0 0 0 1px rgba(217, 119, 6, 0.24)' : 'none')};
 
   &:focus-visible {
     outline: 2px solid #111;
@@ -96,15 +95,18 @@ const StandElement = styled.button<{
   }
 
   &::after {
-    content: ${({ $isHighInterest }) => ($isHighInterest ? "'HI'" : "''")};
+    content: ${({ $isHighInterest }) => ($isHighInterest ? "'HI'" : 'none')};
+    display: ${({ $isHighInterest }) => ($isHighInterest ? 'inline-flex' : 'none')};
+    align-items: center;
+    justify-content: center;
     position: absolute;
     top: 2px;
     right: 2px;
-    padding: 1px 4px;
+    padding: 1px 5px;
     border-radius: 999px;
     background: #fff7ed;
     color: #9a3412;
-    font-size: 9px;
+    font-size: 11px;
     font-weight: 700;
     line-height: 1;
   }
@@ -171,7 +173,7 @@ export const SelectableHall = ({
       return StandColorsMap[stand.color];
     }
 
-    if (selectedStandIds.includes(stand.id)) {
+    if (selectedStandIds.includes(stand.index)) {
       return SELECTED_COLOR;
     }
 
@@ -183,7 +185,8 @@ export const SelectableHall = ({
       <Container width={containerSize.width * resolvedMultiplier} height={containerSize.height * resolvedMultiplier}>
         {loadState.stands.map((stand) => {
           const selectable = isStandSelectable(stand);
-          const isHighInterest = highInterestStandIds.includes(stand.id);
+          const standSelectionId = stand.index;
+          const isHighInterest = highInterestStandIds.includes(standSelectionId);
           const left = stand.start.col * resolvedMultiplier;
           const top = stand.start.row * resolvedMultiplier;
           const width = stand.width * resolvedMultiplier * SIZE_MULTIPLIER_FOR_NORMALIZATION;
@@ -201,9 +204,9 @@ export const SelectableHall = ({
               $isHighInterest={isHighInterest}
               $selectable={selectable}
               disabled={!selectable}
-              aria-pressed={selectable ? selectedStandIds.includes(stand.id) : undefined}
+              aria-pressed={selectable ? selectedStandIds.includes(standSelectionId) : undefined}
               aria-label={`${stand.description ?? `Stand ${stand.index}`}${isHighInterest ? ', High Interest' : ''}`}
-              onClick={selectable ? () => onToggleStand(stand.id) : undefined}
+              onClick={selectable ? () => onToggleStand(standSelectionId) : undefined}
             >
               {stand.type !== 'other' ? stand.index : stand.description}
             </StandElement>
