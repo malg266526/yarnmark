@@ -10,14 +10,16 @@ import { UtilityPageHeader } from '../components/UtilityPageHeader';
 import { VendorsApplicationsView } from './vendors-applications/VendorsApplicationsView';
 import { useVendorsApplications } from './vendors-applications/useVendorsApplications';
 import { VendorsApplicationsPageStyled } from './vendors-applications/VendorsApplicationsPage.styled';
+import { useTypedTranslation } from '../translations/useTypedTranslation';
 
 const CenteredPlainInfo = styled(PlainInfo)`
   align-items: center;
 `;
 
-const VendorsApplicationsPage: React.FC = () => {
+export const VendorsApplicationsPage: React.FC = () => {
   const isPhone = usePhone();
-  const { applications, loading, error } = useVendorsApplications();
+  const t = useTypedTranslation();
+  const { applications, loading } = useVendorsApplications();
 
   return (
     <PageContent variant="wide" padding="none">
@@ -31,16 +33,14 @@ const VendorsApplicationsPage: React.FC = () => {
         stretchOnMobile
         padding={isPhone ? 'sm' : 'xxl'}
       >
-        <UtilityPageHeader kicker="Panel organizatorek" title="Zgłoszenia wystawców" />
+        <UtilityPageHeader kicker={t('vendorsApplicationsPage.kicker')} title={t('vendorsApplicationsPage.title')} />
 
         <CenteredPlainInfo>
           <VendorsApplicationsPageStyled>
-            <VendorsApplicationsView applications={applications} loading={loading} error={error} />
+            <VendorsApplicationsView applications={applications} loading={loading} />
           </VendorsApplicationsPageStyled>
         </CenteredPlainInfo>
       </Band.NarrowColumn>
     </PageContent>
   );
 };
-
-export default VendorsApplicationsPage;

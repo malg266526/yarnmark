@@ -5,23 +5,13 @@ import type { VendorApplication } from '../vendors-form/vendorsFormSubmission';
 export const useVendorsApplications = () => {
   const [applications, setApplications] = useState<VendorApplication[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchApplications = async () => {
-      try {
-        const response = await listVendorApplications();
-        setApplications(response.applications);
-      } catch (err) {
-        setError('Failed to load applications.');
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchApplications();
+    void listVendorApplications().then((response) => {
+      setApplications(response.applications);
+      setLoading(false);
+    });
   }, []);
 
-  return { applications, loading, error };
+  return { applications, loading };
 };

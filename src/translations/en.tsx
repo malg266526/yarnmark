@@ -433,6 +433,32 @@ export const en: TranslationsShape = {
         notProvided: 'Not provided'
       }
     },
+    vendorsApplicationsPage: {
+      kicker: 'Organizer panel',
+      title: 'Vendor applications',
+      loading: 'Loading applications...',
+      empty: 'No applications yet.',
+      savedCount: '{{count}} applications saved',
+      fields: {
+        mainCategory: 'Main category',
+        preferredStands: 'Preferred stands',
+        attendedBefore: 'Previous editions',
+        interestedIfUnavailable: 'Offer if unavailable',
+        phone: 'Phone',
+        email: 'Email',
+        invoiceDetails: 'Invoice details',
+        logoFilename: 'Logo filename',
+        businessDescription: 'Business description',
+        acceptedStatute: 'Terms accepted'
+      },
+      values: {
+        yes: 'Yes',
+        no: 'No',
+        noAnswer: 'No answer',
+        notProvided: 'Not provided',
+        noneSelected: 'None selected'
+      }
+    },
     foodBand: {
       whereToEat: 'Where to eat?',
       lookHere: 'See here',

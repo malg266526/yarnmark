@@ -1,7 +1,18 @@
 import type { VendorApplication } from './vendorsFormSubmission';
 import type { VendorsFormState } from './vendorsFormTypes';
+import { isVendorsFormState } from './vendorsFormStorage';
 
 const VENDOR_APPLICATIONS_STORAGE_KEY = 'vendor-applications-json';
+
+const isVendorApplication = (value: unknown): value is VendorApplication => {
+  if (typeof value !== 'object' || value === null) {
+    return false;
+  }
+
+  const candidate = value as Record<string, unknown>;
+
+  return typeof candidate.id === 'string' && typeof candidate.submittedAt === 'string' && isVendorsFormState(candidate);
+};
 
 const readStoredApplications = (): VendorApplication[] => {
   const rawValue = window.localStorage.getItem(VENDOR_APPLICATIONS_STORAGE_KEY);
@@ -13,7 +24,11 @@ const readStoredApplications = (): VendorApplication[] => {
   try {
     const parsedValue = JSON.parse(rawValue) as unknown;
 
-    return Array.isArray(parsedValue) ? (parsedValue as VendorApplication[]) : [];
+    if (!Array.isArray(parsedValue)) {
+      return [];
+    }
+
+    return parsedValue.filter(isVendorApplication);
   } catch {
     return [];
   }

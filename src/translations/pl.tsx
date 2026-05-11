@@ -431,6 +431,32 @@ export const pl = {
         notProvided: 'Nie podano'
       }
     },
+    vendorsApplicationsPage: {
+      kicker: 'Panel organizatorek',
+      title: 'Zgłoszenia wystawców',
+      loading: 'Wczytywanie zgłoszeń...',
+      empty: 'Brak zgłoszeń.',
+      savedCount: 'Zapisanych zgłoszeń: {{count}}',
+      fields: {
+        mainCategory: 'Główna kategoria',
+        preferredStands: 'Preferowane stoiska',
+        attendedBefore: 'Poprzednie edycje',
+        interestedIfUnavailable: 'Oferta przy braku stoiska',
+        phone: 'Telefon',
+        email: 'E-mail',
+        invoiceDetails: 'Dane do faktury',
+        logoFilename: 'Nazwa pliku z logo',
+        businessDescription: 'Opis działalności',
+        acceptedStatute: 'Regulamin zaakceptowany'
+      },
+      values: {
+        yes: 'Tak',
+        no: 'Nie',
+        noAnswer: 'Brak odpowiedzi',
+        notProvided: 'Nie podano',
+        noneSelected: 'Brak'
+      }
+    },
     foodBand: {
       whereToEat: 'Gdzie zjeść?',
       lookHere: 'Zobacz tutaj',

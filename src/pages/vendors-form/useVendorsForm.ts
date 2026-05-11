@@ -19,7 +19,6 @@ export const useVendorsForm = () => {
   const [showErrors, setShowErrors] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
-  const [submissionDate, setSubmissionDate] = useState(() => new Date());
   const [submittedAt, setSubmittedAt] = useState<string | null>(null);
   // File objects can't be serialized to localStorage; kept in-memory so a future
   // submission flow can upload the actual bytes without forcing the user to re-pick.
@@ -64,25 +63,13 @@ export const useVendorsForm = () => {
   };
 
   useEffect(() => {
+    if (isComplete) {
+      window.localStorage.removeItem(VENDORS_FORM_DRAFT_STORAGE_KEY);
+      return;
+    }
+
     window.localStorage.setItem(VENDORS_FORM_DRAFT_STORAGE_KEY, JSON.stringify({ formData, isComplete }));
   }, [formData, isComplete]);
-
-  useEffect(() => {
-    const intervalId = window.setInterval(() => {
-      setSubmissionDate(new Date());
-    }, 1000);
-
-    return () => window.clearInterval(intervalId);
-  }, []);
-
-  const submissionDateTimePreview = useMemo(
-    () =>
-      new Intl.DateTimeFormat(i18n.language, {
-        dateStyle: 'long',
-        timeStyle: 'medium'
-      }).format(submissionDate),
-    [i18n.language, submissionDate]
-  );
 
   const submittedAtLabel = useMemo(() => {
     if (!submittedAt) {
@@ -125,7 +112,6 @@ export const useVendorsForm = () => {
     isSubmitting,
     logoFile,
     showErrors,
-    submissionDateTimePreview,
     submitError,
     submittedAtLabel,
     submitForm,
