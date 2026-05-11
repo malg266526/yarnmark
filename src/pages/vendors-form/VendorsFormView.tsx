@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Typography } from '../../components/Typography';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { VendorsFormState } from './vendorsFormTypes';
+import type { VendorsFormState } from './vendorsFormTypes';
 import {
   ActionsRow,
   CheckboxRow,
@@ -93,8 +93,8 @@ export const VendorsFormView = ({
                   <input
                     type="radio"
                     name="attended_before"
-                    checked={formData.attendedBefore === 'yes'}
-                    onChange={() => updateField('attendedBefore', 'yes')}
+                    checked={formData.attendedBefore === true}
+                    onChange={() => updateField('attendedBefore', true)}
                   />
                   <span>{t('vendorsFormPage.steps.attendedBefore.yes')}</span>
                 </RadioOption>
@@ -102,8 +102,8 @@ export const VendorsFormView = ({
                   <input
                     type="radio"
                     name="attended_before"
-                    checked={formData.attendedBefore === 'no'}
-                    onChange={() => updateField('attendedBefore', 'no')}
+                    checked={formData.attendedBefore === false}
+                    onChange={() => updateField('attendedBefore', false)}
                   />
                   <span>{t('vendorsFormPage.steps.attendedBefore.no')}</span>
                 </RadioOption>
@@ -184,7 +184,7 @@ export const VendorsFormView = ({
             <dd>{formData.storeName}</dd>
             <dt>{t('vendorsFormPage.summary.attendedBefore')}</dt>
             <dd>
-              {formData.attendedBefore === 'yes'
+              {formData.attendedBefore
                 ? t('vendorsFormPage.steps.attendedBefore.yes')
                 : t('vendorsFormPage.steps.attendedBefore.no')}
             </dd>

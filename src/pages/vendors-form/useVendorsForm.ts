@@ -20,10 +20,6 @@ export const useVendorsForm = () => {
     getVendorsFormStepFromQuery(searchParams.get(VENDORS_FORM_STEP_QUERY_PARAM))
   );
   const [formData, setFormData] = useState<VendorsFormState>(() => {
-    if (typeof window === 'undefined') {
-      return initialDraft.formData;
-    }
-
     return (
       parseVendorsFormDraft(window.localStorage.getItem(VENDORS_FORM_DRAFT_STORAGE_KEY))?.formData ||
       initialDraft.formData
@@ -32,10 +28,6 @@ export const useVendorsForm = () => {
 
   const [showErrors, setShowErrors] = useState(false);
   const [isComplete, setIsComplete] = useState<boolean>(() => {
-    if (typeof window === 'undefined') {
-      return initialDraft.isComplete;
-    }
-
     return parseVendorsFormDraft(window.localStorage.getItem(VENDORS_FORM_DRAFT_STORAGE_KEY))?.isComplete || false;
   });
 
@@ -69,10 +61,6 @@ export const useVendorsForm = () => {
   }, [setSearchParams, step]);
 
   useEffect(() => {
-    if (typeof window === 'undefined') {
-      return;
-    }
-
     window.localStorage.setItem(VENDORS_FORM_DRAFT_STORAGE_KEY, JSON.stringify({ formData, isComplete }));
   }, [formData, isComplete]);
 

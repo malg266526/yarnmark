@@ -22,7 +22,7 @@ export const getVendorsFormErrorKey = (
     case 0:
       return formData.storeName.trim() ? null : 'vendorsFormPage.validation.storeNameRequired';
     case 1:
-      return formData.attendedBefore ? null : 'vendorsFormPage.validation.attendedBeforeRequired';
+      return formData.attendedBefore === null ? 'vendorsFormPage.validation.attendedBeforeRequired' : null;
     case 2:
       if (!formData.phoneNumber.trim()) {
         return 'vendorsFormPage.validation.phoneRequired';

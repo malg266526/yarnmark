@@ -2,7 +2,7 @@ export type StepIndex = 0 | 1 | 2 | 3;
 
 export interface VendorsFormState {
   storeName: string;
-  attendedBefore: 'yes' | 'no' | '';
+  attendedBefore: boolean | null;
   phoneNumber: string;
   email: string;
   acceptedStatute: boolean;
@@ -10,7 +10,7 @@ export interface VendorsFormState {
 
 export const INITIAL_VENDORS_FORM_STATE: VendorsFormState = {
   storeName: '',
-  attendedBefore: '',
+  attendedBefore: null,
   phoneNumber: '',
   email: '',
   acceptedStatute: false

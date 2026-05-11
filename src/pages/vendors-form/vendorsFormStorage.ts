@@ -9,7 +9,7 @@ export interface VendorsFormDraft {
 const isRecord = (value: unknown): value is Record<string, unknown> => typeof value === 'object' && value !== null;
 
 const isAttendedBeforeValue = (value: unknown): value is VendorsFormState['attendedBefore'] =>
-  value === '' || value === 'yes' || value === 'no';
+  value === null || typeof value === 'boolean';
 
 export const isVendorsFormState = (value: unknown): value is VendorsFormState => {
   if (!isRecord(value)) {

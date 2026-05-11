@@ -69,7 +69,7 @@ test('getVendorsFormErrorKey requires statute acceptance on step 3', () => {
 test('getVendorsFormErrorKey returns null for valid data', () => {
   const state = {
     storeName: 'Shop name',
-    attendedBefore: 'yes' as const,
+    attendedBefore: true,
     phoneNumber: '+48 123 456 789',
     email: 'vendor@example.com',
     acceptedStatute: true
@@ -117,7 +117,7 @@ test('parseVendorsFormDraft restores a valid payload', () => {
   const draft = {
     formData: {
       storeName: 'Shop name',
-      attendedBefore: 'yes' as const,
+      attendedBefore: true,
       phoneNumber: '+48 123 456 789',
       email: 'vendor@example.com',
       acceptedStatute: true
