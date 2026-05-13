@@ -1,4 +1,4 @@
-import type { VendorApplication, VendorApplicationStatus } from '../vendors-form/vendorsFormSubmission';
+import type { VendorApplication, VendorApplicationStatus } from '../vendor-form/vendorFormSubmission.ts';
 
 export interface BooleanLabels {
   no: string;

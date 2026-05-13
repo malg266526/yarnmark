@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import type { VendorApplication } from '../vendors-form/vendorsFormSubmission.ts';
+import type { VendorApplication } from '../vendor-form/vendorFormSubmission.ts';
 import {
   formatBoolean,
   formatDateTime,
@@ -29,6 +29,7 @@ const getBaseApplication = (): VendorApplication => ({
   mainCategoryOther: '',
   preferredStands: ['A1'],
   interestedIfUnavailable: false,
+  sponsorshipInterest: null,
   phoneNumber: '+48 123 456 789',
   email: 'vendor@example.com',
   invoiceDetails: 'Invoice details',

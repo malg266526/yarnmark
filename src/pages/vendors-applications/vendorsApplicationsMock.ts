@@ -1,4 +1,4 @@
-import type { VendorApplication } from '../vendors-form/vendorsFormSubmission';
+import type { VendorApplication } from '../vendor-form/vendorFormSubmission.ts';
 
 export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
   {
@@ -14,6 +14,7 @@ export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
     mainCategoryOther: '',
     preferredStands: ['P2', 'P3', 'P1'],
     interestedIfUnavailable: true,
+    sponsorshipInterest: true,
     phoneNumber: '+48 501 201 301',
     email: 'kontakt@wloczkizkrakowa.pl',
     invoiceDetails: 'Włóczki z Krakowa Sp. z o.o.\nul. Szewska 12\n31-009 Kraków\nNIP: 6761112233',
@@ -36,6 +37,7 @@ export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
     mainCategoryOther: '',
     preferredStands: ['P2', 'M4', 'S6'],
     interestedIfUnavailable: true,
+    sponsorshipInterest: null,
     phoneNumber: '+48 502 202 302',
     email: 'hej@splotiscieg.pl',
     invoiceDetails: 'Splot i Ścieg\nul. Długa 5\n30-001 Kraków\nNIP: 9452223344',
@@ -58,6 +60,7 @@ export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
     mainCategoryOther: '',
     preferredStands: ['P3', 'S8', 'M2'],
     interestedIfUnavailable: false,
+    sponsorshipInterest: false,
     phoneNumber: '+48 503 203 303',
     email: 'kontakt@ceramicznaowca.pl',
     invoiceDetails: 'Ceramiczna Owca\nul. Lea 17\n30-048 Kraków\nNIP: 6773334455',
@@ -80,6 +83,7 @@ export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
     mainCategoryOther: '',
     preferredStands: ['P2', 'P1', 'M3'],
     interestedIfUnavailable: true,
+    sponsorshipInterest: true,
     phoneNumber: '+48 504 204 304',
     email: 'biuro@plomieniknot.pl',
     invoiceDetails: 'Płomień i Knot\nos. Zgody 3/12\n31-949 Kraków\nNIP: 6784445566',
@@ -102,6 +106,7 @@ export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
     mainCategoryOther: 'Makramy i dekoracje tekstylne',
     preferredStands: ['S3', 'S4', 'P3'],
     interestedIfUnavailable: true,
+    sponsorshipInterest: null,
     phoneNumber: '+48 505 205 305',
     email: 'hello@naturalnieplecione.pl',
     invoiceDetails: 'Naturalnie Plecione\nul. Starowiślna 20\n31-032 Kraków\nNIP: 6795556677',
@@ -124,6 +129,7 @@ export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
     mainCategoryOther: '',
     preferredStands: ['S6', 'P1', 'P3'],
     interestedIfUnavailable: true,
+    sponsorshipInterest: false,
     phoneNumber: '+48 506 206 306',
     email: 'kontakt@minimotek.pl',
     invoiceDetails: 'Mini Motek\nul. Karmelicka 9\n31-133 Kraków\nNIP: 9456667788',

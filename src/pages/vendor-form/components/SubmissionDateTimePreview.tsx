@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { InfoLabel, InfoRow, InfoValue } from './VendorsFormPage.styled';
+import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { InfoLabel, InfoRow, InfoValue } from '../VendorFormPage.styled';
 
 export const SubmissionDateTimePreview = () => {
   const t = useTypedTranslation();

@@ -1,12 +1,12 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import type { VendorApplication } from './vendorsFormSubmission.ts';
-import { VENDORS_FORM_HIGH_INTEREST_MIN_REQUESTS } from './vendorsFormConstants.ts';
+import type { VendorApplication } from '../vendorFormSubmission.ts';
+import { VENDOR_FORM_HIGH_INTEREST_MIN_REQUESTS } from '../vendorFormConstants.ts';
 import {
   getHighInterestStandIds,
   getStandInterestCounts,
   isHighInterestStand
-} from './vendorsFormStandInterestUtils.ts';
+} from '../vendorFormStandInterestUtils.ts';
 
 const createApplication = (id: string, preferredStands: string[]): VendorApplication => ({
   allocatedStandId: null,
@@ -21,6 +21,7 @@ const createApplication = (id: string, preferredStands: string[]): VendorApplica
   mainCategoryOther: '',
   preferredStands,
   interestedIfUnavailable: true,
+  sponsorshipInterest: null,
   phoneNumber: '+48 123 456 789',
   email: `${id}@example.com`,
   invoiceDetails: 'Invoice details',
@@ -45,8 +46,8 @@ test('getStandInterestCounts counts each application once per stand', () => {
 });
 
 test('isHighInterestStand returns true from configured threshold', () => {
-  assert.equal(isHighInterestStand(VENDORS_FORM_HIGH_INTEREST_MIN_REQUESTS - 1), false);
-  assert.equal(isHighInterestStand(VENDORS_FORM_HIGH_INTEREST_MIN_REQUESTS), true);
+  assert.equal(isHighInterestStand(VENDOR_FORM_HIGH_INTEREST_MIN_REQUESTS - 1), false);
+  assert.equal(isHighInterestStand(VENDOR_FORM_HIGH_INTEREST_MIN_REQUESTS), true);
 });
 
 test('getHighInterestStandIds returns only stands with at least three requests', () => {

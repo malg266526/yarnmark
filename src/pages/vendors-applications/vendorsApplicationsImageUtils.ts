@@ -1,5 +1,5 @@
-import { downloadStoredLogo } from '../vendors-form/vendorsFormLogoUtils';
-import type { VendorApplication } from '../vendors-form/vendorsFormSubmission';
+import { downloadStoredLogo } from '../vendor-form/vendorFormLogoUtils.ts';
+import type { VendorApplication } from '../vendor-form/vendorFormSubmission.ts';
 
 export const downloadVendorApplicationLogo = async (
   application: VendorApplication,

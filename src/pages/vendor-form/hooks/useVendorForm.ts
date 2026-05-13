@@ -2,27 +2,34 @@ import { useEffect, useMemo, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { toggleStandSelection } from './vendorsFormUtils';
-import { createVendorApplication, listStandInterestCounts } from '../vendors-applications/vendorsApplicationsStorage';
+import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { toggleStandSelection } from '../vendorFormUtils.ts';
 import {
-  VENDORS_FORM_DRAFT_STORAGE_KEY,
-  VENDORS_FORM_LOGO_MAX_BYTES,
-  VENDORS_FORM_MAX_PREFERRED_STANDS
-} from './vendorsFormConstants';
-import { getVendorsFormValidationErrors, vendorsFormSchema, type VendorsFormValues } from './vendorsFormSchema';
-import { LogoTooLargeError, prepareLogoForUpload } from './vendorsFormLogoUtils';
-import { getInitialVendorsFormDraft, parseVendorsFormDraft } from './vendorsFormStorage';
-import { isHighInterestStand } from './vendorsFormStandInterestUtils';
-import type { VendorsFormState } from './vendorsFormTypes';
+  createVendorApplication,
+  listStandInterestCounts
+} from '../../vendors-applications/vendorsApplicationsStorage.ts';
+import {
+  VENDOR_FORM_DRAFT_STORAGE_KEY,
+  VENDOR_FORM_LOGO_MAX_BYTES,
+  VENDOR_FORM_MAX_PREFERRED_STANDS
+} from '../vendorFormConstants.ts';
+import {
+  collectVendorFormValidationErrors,
+  vendorFormValidationSchema,
+  type VendorFormValues
+} from '../vendorFormSchema.ts';
+import { LogoTooLargeError, prepareLogoForUpload } from '../vendorFormLogoUtils.ts';
+import { createEmptyVendorFormDraft, parseStoredVendorFormDraft } from '../vendorFormStorage.ts';
+import { isHighInterestStand } from '../vendorFormStandInterestUtils.ts';
 
-const readInitialDraft = () =>
-  parseVendorsFormDraft(window.localStorage.getItem(VENDORS_FORM_DRAFT_STORAGE_KEY)) ?? getInitialVendorsFormDraft();
+const readStoredVendorFormDraftOrCreateEmptyDraft = () =>
+  parseStoredVendorFormDraft(window.localStorage.getItem(VENDOR_FORM_DRAFT_STORAGE_KEY)) ??
+  createEmptyVendorFormDraft();
 
-export const useVendorsForm = () => {
+export const useVendorForm = () => {
   const t = useTypedTranslation();
   const { i18n, t: rawT } = useTranslation();
-  const [initialDraft] = useState(readInitialDraft);
+  const [initialDraft] = useState(readStoredVendorFormDraftOrCreateEmptyDraft);
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
   const [isComplete, setIsComplete] = useState<boolean>(initialDraft.isComplete);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -30,11 +37,11 @@ export const useVendorsForm = () => {
   const [submittedAt, setSubmittedAt] = useState<string | null>(null);
   const [isLoadingLogo, setIsLoadingLogo] = useState(false);
   const [standInterestCounts, setStandInterestCounts] = useState<Map<string, number>>(() => new Map());
-  const [validationErrors, setValidationErrors] = useState<Partial<Record<keyof VendorsFormValues, string>>>({});
-  const form = useForm<VendorsFormValues>({
+  const [validationErrors, setValidationErrors] = useState<Partial<Record<keyof VendorFormValues, string>>>({});
+  const form = useForm<VendorFormValues>({
     defaultValues: initialDraft.formData,
     mode: 'onSubmit',
-    resolver: zodResolver(vendorsFormSchema)
+    resolver: zodResolver(vendorFormValidationSchema)
   });
   const { formState, getValues, register, reset, setValue, trigger, watch } = form;
   const formData = watch();
@@ -70,7 +77,7 @@ export const useVendorsForm = () => {
     setIsLoadingLogo(true);
 
     try {
-      const preparedLogo = await prepareLogoForUpload(file, VENDORS_FORM_LOGO_MAX_BYTES);
+      const preparedLogo = await prepareLogoForUpload(file, VENDOR_FORM_LOGO_MAX_BYTES);
 
       setValue('logoFileName', file.name, { shouldDirty: true, shouldValidate: true });
       setValue('logoDataUrl', preparedLogo.dataUrl, { shouldDirty: true, shouldValidate: true });
@@ -88,7 +95,7 @@ export const useVendorsForm = () => {
   };
 
   const toggleStand = (standId: string) => {
-    const nextValue = toggleStandSelection(getValues('preferredStands'), standId, VENDORS_FORM_MAX_PREFERRED_STANDS);
+    const nextValue = toggleStandSelection(getValues('preferredStands'), standId, VENDOR_FORM_MAX_PREFERRED_STANDS);
 
     setValue('preferredStands', nextValue, { shouldDirty: true, shouldValidate: hasAttemptedSubmit });
     setIsComplete(false);
@@ -97,14 +104,11 @@ export const useVendorsForm = () => {
 
   useEffect(() => {
     if (isComplete) {
-      window.localStorage.removeItem(VENDORS_FORM_DRAFT_STORAGE_KEY);
+      window.localStorage.removeItem(VENDOR_FORM_DRAFT_STORAGE_KEY);
       return;
     }
 
-    window.localStorage.setItem(
-      VENDORS_FORM_DRAFT_STORAGE_KEY,
-      JSON.stringify({ formData: formData as VendorsFormState, isComplete })
-    );
+    window.localStorage.setItem(VENDOR_FORM_DRAFT_STORAGE_KEY, JSON.stringify({ formData, isComplete }));
   }, [formData, isComplete]);
 
   const submittedAtLabel = useMemo(() => {
@@ -123,13 +127,13 @@ export const useVendorsForm = () => {
       return;
     }
 
-    setValidationErrors(getVendorsFormValidationErrors(formData));
+    setValidationErrors(collectVendorFormValidationErrors(formData));
   }, [formData, hasAttemptedSubmit]);
 
   const submitForm = async () => {
     setHasAttemptedSubmit(true);
     setSubmitError('');
-    const nextValidationErrors = getVendorsFormValidationErrors(getValues());
+    const nextValidationErrors = collectVendorFormValidationErrors(getValues());
     setValidationErrors(nextValidationErrors);
 
     const isValid = Object.keys(nextValidationErrors).length === 0 && (await trigger());
@@ -165,7 +169,7 @@ export const useVendorsForm = () => {
     }
   };
 
-  const setCategory = (category: VendorsFormState['mainCategory']) => {
+  const setCategory = (category: VendorFormValues['mainCategory']) => {
     setValue('mainCategory', category, { shouldDirty: true, shouldValidate: true });
 
     if (category !== 'other') {
@@ -176,7 +180,10 @@ export const useVendorsForm = () => {
     setSubmitError('');
   };
 
-  const setBooleanField = (fieldName: 'attendedBefore' | 'interestedIfUnavailable', value: boolean) => {
+  const setBooleanField = (
+    fieldName: 'attendedBefore' | 'interestedIfUnavailable' | 'sponsorshipInterest',
+    value: boolean
+  ) => {
     setValue(fieldName, value, { shouldDirty: true, shouldValidate: true });
     setIsComplete(false);
     setSubmitError('');
@@ -188,7 +195,7 @@ export const useVendorsForm = () => {
     setSubmitError('');
   };
 
-  const getFieldError = (...fieldNames: Array<keyof VendorsFormValues>): string => {
+  const getFieldError = (...fieldNames: Array<keyof VendorFormValues>): string => {
     if (!hasAttemptedSubmit) {
       return '';
     }

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import type { UseFormRegister, UseFormSetValue } from 'react-hook-form';
-import { CtaButton } from '../../components/Button';
-import { Typography } from '../../components/Typography';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import type { VendorsFormState } from './vendorsFormTypes';
-import type { VendorsFormValues } from './vendorsFormSchema';
+import { CtaButton } from '../../../components/Button';
+import { Typography } from '../../../components/Typography';
+import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import type { VendorFormState } from '../vendorFormTypes.ts';
+import type { VendorFormValues } from '../vendorFormSchema.ts';
 import {
   ActionsRow,
   ActionsSpacer,
@@ -35,20 +35,20 @@ import {
   TextArea,
   TextInput,
   WarningCard
-} from './VendorsFormPage.styled';
+} from '../VendorFormPage.styled';
 import {
-  VENDORS_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH,
-  VENDORS_FORM_MAX_PREFERRED_STANDS
-} from './vendorsFormConstants';
+  VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH,
+  VENDOR_FORM_MAX_PREFERRED_STANDS
+} from '../vendorFormConstants.ts';
 import { SelectableHall } from './SelectableHall';
 import { SubmissionDateTimePreview } from './SubmissionDateTimePreview';
 
-interface VendorsFormViewProps {
-  formData: VendorsFormState;
-  getFieldError: (...fieldNames: Array<keyof VendorsFormValues>) => string;
+interface VendorFormViewProps {
+  formData: VendorFormState;
+  getFieldError: (...fieldNames: Array<keyof VendorFormValues>) => string;
   highInterestSelectedStandIds: string[];
   highInterestStandIds: string[];
-  register: UseFormRegister<VendorsFormValues>;
+  register: UseFormRegister<VendorFormValues>;
   isComplete: boolean;
   isLoadingLogo: boolean;
   isSubmitting: boolean;
@@ -57,14 +57,17 @@ interface VendorsFormViewProps {
   submittedAtLabel: string | null;
   submitForm: () => Promise<void>;
   setAcceptedStatute: (value: boolean) => void;
-  setBooleanField: (fieldName: 'attendedBefore' | 'interestedIfUnavailable', value: boolean) => void;
-  setCategory: (category: VendorsFormState['mainCategory']) => void;
-  setValue: UseFormSetValue<VendorsFormValues>;
+  setBooleanField: (
+    fieldName: 'attendedBefore' | 'interestedIfUnavailable' | 'sponsorshipInterest',
+    value: boolean
+  ) => void;
+  setCategory: (category: VendorFormState['mainCategory']) => void;
+  setValue: UseFormSetValue<VendorFormValues>;
   toggleStand: (standId: string) => void;
   updateLogoFile: (file: File | null) => void;
 }
 
-export const VendorsFormView = ({
+export const VendorFormView = ({
   formData,
   getFieldError,
   highInterestSelectedStandIds,
@@ -83,7 +86,7 @@ export const VendorsFormView = ({
   setValue,
   toggleStand,
   updateLogoFile
-}: VendorsFormViewProps) => {
+}: VendorFormViewProps) => {
   const t = useTypedTranslation();
   const { t: rawT } = useTranslation();
   const businessDescriptionField = register('businessDescription');
@@ -211,14 +214,14 @@ export const VendorsFormView = ({
             <Typography size="xl">{t('vendorsFormPage.steps.preferredStands.title')}</Typography>
             <FieldHint>
               {rawT('vendorsFormPage.steps.preferredStands.hint', {
-                max: VENDORS_FORM_MAX_PREFERRED_STANDS
+                max: VENDOR_FORM_MAX_PREFERRED_STANDS
               })}
             </FieldHint>
             <FieldHint>{t('vendorsFormPage.steps.preferredStands.orderHint')}</FieldHint>
             <FieldHint>
               {rawT('vendorsFormPage.steps.preferredStands.counter', {
                 current: formData.preferredStands.length,
-                max: VENDORS_FORM_MAX_PREFERRED_STANDS
+                max: VENDOR_FORM_MAX_PREFERRED_STANDS
               })}
             </FieldHint>
             <HallLayout>
@@ -332,6 +335,33 @@ export const VendorsFormView = ({
 
         <FormSection>
           <Fieldset>
+            <Typography size="xl">{t('vendorsFormPage.steps.sponsorshipInterest.title')}</Typography>
+            <DisclaimerText>{t('vendorsFormPage.steps.sponsorshipInterest.hint')}</DisclaimerText>
+            <RadioGroup>
+              <RadioOption>
+                <input
+                  type="radio"
+                  name="sponsorship_interest"
+                  checked={formData.sponsorshipInterest === true}
+                  onChange={() => setBooleanField('sponsorshipInterest', true)}
+                />
+                <span>{t('vendorsFormPage.steps.sponsorshipInterest.yes')}</span>
+              </RadioOption>
+              <RadioOption>
+                <input
+                  type="radio"
+                  name="sponsorship_interest"
+                  checked={formData.sponsorshipInterest === false}
+                  onChange={() => setBooleanField('sponsorshipInterest', false)}
+                />
+                <span>{t('vendorsFormPage.steps.sponsorshipInterest.no')}</span>
+              </RadioOption>
+            </RadioGroup>
+          </Fieldset>
+        </FormSection>
+
+        <FormSection>
+          <Fieldset>
             <Typography size="xl">{t('vendorsFormPage.steps.contact.title')}</Typography>
             <FieldLabel htmlFor="phone_number">
               {t('vendorsFormPage.steps.contact.phoneLabel')}
@@ -412,7 +442,7 @@ export const VendorsFormView = ({
                 onChange={(event) =>
                   setValue(
                     'businessDescription',
-                    event.target.value.slice(0, VENDORS_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH),
+                    event.target.value.slice(0, VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH),
                     { shouldDirty: true, shouldValidate: true }
                   )
                 }
@@ -420,7 +450,7 @@ export const VendorsFormView = ({
               <FieldHint>
                 {rawT('vendorsFormPage.steps.businessDescription.limitHint', {
                   current: formData.businessDescription.length,
-                  max: VENDORS_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH
+                  max: VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH
                 })}
               </FieldHint>
             </FieldLabel>
@@ -499,6 +529,14 @@ export const VendorsFormView = ({
               {formData.interestedIfUnavailable
                 ? t('vendorsFormPage.steps.interestedIfUnavailable.yes')
                 : t('vendorsFormPage.steps.interestedIfUnavailable.no')}
+            </dd>
+            <dt>{t('vendorsFormPage.summary.sponsorshipInterest')}</dt>
+            <dd>
+              {formData.sponsorshipInterest === null
+                ? t('vendorsFormPage.summary.notProvided')
+                : formData.sponsorshipInterest
+                  ? t('vendorsFormPage.steps.sponsorshipInterest.yes')
+                  : t('vendorsFormPage.steps.sponsorshipInterest.no')}
             </dd>
             <dt>{t('vendorsFormPage.summary.phone')}</dt>
             <dd>{formData.phoneNumber}</dd>

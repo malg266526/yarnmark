@@ -21,7 +21,7 @@ import {
   StandRequestMeta,
   StandRequestVendor
 } from './VendorsApplicationsPage.styled';
-import type { VendorApplication, VendorApplicationStatus } from '../vendors-form/vendorsFormSubmission';
+import type { VendorApplication, VendorApplicationStatus } from '../vendor-form/vendorFormSubmission.ts';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { useTranslation } from 'react-i18next';
 import {
@@ -168,6 +168,12 @@ export const VendorsApplicationsView = ({
                 </ApplicationFieldLabel>
                 <ApplicationFieldValue>
                   {formatBoolean(application.interestedIfUnavailable, booleanLabels)}
+                </ApplicationFieldValue>
+              </ApplicationField>
+              <ApplicationField>
+                <ApplicationFieldLabel>{t('vendorsApplicationsPage.fields.sponsorshipInterest')}</ApplicationFieldLabel>
+                <ApplicationFieldValue>
+                  {formatBoolean(application.sponsorshipInterest, booleanLabels)}
                 </ApplicationFieldValue>
               </ApplicationField>
               <ApplicationField>
