@@ -329,6 +329,9 @@ export const en: TranslationsShape = {
       submit: 'Submit application',
       submitting: 'Submitting...',
       submitError: 'The application could not be saved. Please try again.',
+      logoUploadError: 'The logo file could not be read. Please choose it again.',
+      logoTooLargeError: 'Logo file is too large (max 8 MB). Please choose a smaller one.',
+      logoLoading: 'Processing logo…',
       submissionDateTimeLabel: 'Submission date and time',
       draftBanner: 'This draft is stored locally in this browser until you submit the application.',
       steps: {
@@ -357,8 +360,13 @@ export const en: TranslationsShape = {
           hint: 'You can pick up to {{max}} stands. Green — available, orange — selected by you.',
           orderHint: 'Order matters — the first stand you click becomes your top pick.',
           counter: '{{current}} of {{max}} selected',
+          standInterestCount: '{{standId}}: {{count}} interested',
           detailsHint:
             'Detailed information about stand types, dimensions, and equipment is available on the <0>Info for vendors</0> page.',
+          highInterestLabel: 'High Interest',
+          highInterestHint: 'at least 3 interested vendors',
+          highInterestWarning:
+            'This stand is very popular. The chance of receiving it is lower. Consider other locations as a higher priority. Affected stands: {{stands}}.',
           legendTitle: 'Stand types',
           premiumLabel: 'Premium',
           premiumSize: '3 × 5.5 m',
@@ -383,8 +391,10 @@ export const en: TranslationsShape = {
           title: 'Invoice details',
           detailsLabel: 'Invoice details',
           detailsPlaceholder: 'Enter the full invoice details',
-          logoLabel: 'Logo filename (optional)',
-          logoHint: 'For now we only record the filename — please send the actual logo by email later.'
+          logoLabel: 'Logo',
+          logoHint:
+            'You can upload a logo image. After the application is saved, it can be downloaded from the applications panel.',
+          logoSavedHint: 'The logo will be saved together with the application.'
         },
         businessDescription: {
           title: 'Short business description for promo materials',
@@ -406,11 +416,13 @@ export const en: TranslationsShape = {
         mainCategoryRequired: 'Choose the main product category.',
         mainCategoryOtherRequired: 'Enter the main product category.',
         interestedIfUnavailableRequired: 'Choose one of the answers.',
+        preferredStandsRequired: 'Choose at least one preferred stand.',
         phoneRequired: 'Enter a phone number.',
         phoneInvalid: 'Enter a valid phone number.',
         emailRequired: 'Enter an email address.',
         emailInvalid: 'Enter a valid email address.',
         invoiceDetailsRequired: 'Enter the invoice details.',
+        logoRequired: 'Add a logo file.',
         businessDescriptionRequired: 'Add a business description.',
         businessDescriptionTooLong: 'The business description is too long.',
         statuteRequired: 'You must accept the terms to continue.'
@@ -435,21 +447,20 @@ export const en: TranslationsShape = {
       }
     },
     vendorsApplicationsPage: {
-      kicker: 'Organizer panel',
-      title: 'Vendor applications',
+      kicker: 'Admin panel',
+      title: 'Admin panel',
       loading: 'Loading applications...',
       empty: 'No applications yet.',
       savedCount: '{{count}} applications saved',
       showByStand: 'Show by stand',
-      showCards: 'Show applications',
-      priorities: {
-        highest: 'Top pick',
-        medium: 'Second pick',
-        lowest: 'Third pick'
-      },
+      showCards: 'Show cards',
       fields: {
+        status: 'Status',
         mainCategory: 'Main category',
         preferredStands: 'Preferred stands',
+        allocatedStand: 'Allocated stand',
+        allocationState: 'Allocation state',
+        allocationIteration: 'Allocation iteration',
         attendedBefore: 'Previous editions',
         interestedIfUnavailable: 'Offer if unavailable',
         phone: 'Phone',
@@ -459,10 +470,33 @@ export const en: TranslationsShape = {
         businessDescription: 'Business description',
         acceptedStatute: 'Terms accepted'
       },
+      statuses: {
+        accepted: 'accepted',
+        considered: 'considered',
+        new: 'new',
+        reserve: 'reserve'
+      },
+      allocationStates: {
+        confirmed: 'confirmed',
+        'manual-negotiation': 'manual negotiation',
+        none: 'none',
+        suggested: 'suggested'
+      },
+      priorities: {
+        highest: 'Priority: highest',
+        medium: 'Priority: medium',
+        lowest: 'Priority: lowest'
+      },
+      downloads: {
+        png: 'Download PNG',
+        webp: 'Download WebP',
+        avif: 'Download AVIF'
+      },
       values: {
         yes: 'Yes',
         no: 'No',
         noAnswer: 'No answer',
+        notAssigned: 'Not assigned',
         notProvided: 'Not provided',
         noneSelected: 'None selected'
       }

@@ -3,7 +3,7 @@ import { DropShadow, Radius } from '../../styles/cards';
 import { FontSize } from '../../styles/font-size';
 import { ScreenSize } from '../../styles/screeen-size';
 import { RedesignSpacings } from '../../styles/spacings';
-import { BackgroundColors, Colors, FontFamilies, GrayScale, TextColors } from '../../styles/theme';
+import { BackgroundColors, Colors, FontFamilies, GrayScale, TextColors, WarningColors } from '../../styles/theme';
 
 export const FormCard = styled.div`
   width: 100%;
@@ -91,6 +91,36 @@ export const LegendSize = styled.span`
   font-size: ${FontSize.xs};
 `;
 
+export const WarningCard = styled.div`
+  padding: ${RedesignSpacings.sm};
+  border: 1px solid ${WarningColors.border};
+  border-radius: ${Radius.lg};
+  background: ${WarningColors.background};
+  color: ${WarningColors.text};
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.sm};
+  line-height: 1.5;
+`;
+
+export const StandStatusList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: ${RedesignSpacings.xs};
+`;
+
+export const StandStatusPill = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: ${RedesignSpacings.xxs};
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid ${BackgroundColors.green.medium};
+  background: ${Colors.white};
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.sm};
+  color: ${TextColors.primary};
+`;
+
 export const Fieldset = styled.fieldset`
   margin: 0;
   padding: 0;
@@ -143,7 +173,12 @@ export const TextArea = styled.textarea`
 export const FieldHint = styled.div`
   color: ${TextColors.secondary};
   font-size: ${FontSize.xs};
+  line-height: 1.5;
   font-family: ${FontFamilies.primary};
+`;
+
+export const DisclaimerText = styled(FieldHint)`
+  font-size: ${FontSize.sm};
 `;
 
 export const InfoRow = styled.div`
@@ -208,6 +243,12 @@ export const ActionsSpacer = styled.span`
 
 export const InlineLink = styled.a`
   color: ${TextColors.accent};
+`;
+
+export const DownloadActions = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: ${RedesignSpacings.xs};
 `;
 
 export const SummaryList = styled.dl`

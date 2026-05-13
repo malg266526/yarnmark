@@ -1,9 +1,17 @@
-import type { VendorApplication } from '../vendors-form/vendorsFormSubmission';
+import type {
+  VendorApplication,
+  VendorApplicationAllocationState,
+  VendorApplicationStatus
+} from '../vendors-form/vendorsFormSubmission';
 import type { VendorsFormState } from '../vendors-form/vendorsFormTypes';
 import { VENDORS_APPLICATIONS_MOCK } from './vendorsApplicationsMock';
 import { isVendorsFormState } from '../vendors-form/vendorsFormStorage';
+import { normalizeStandIds } from '../vendors-form/vendorsFormStandIds';
+import { getStandInterestCounts } from '../vendors-form/vendorsFormStandInterestUtils';
 
 const VENDOR_APPLICATIONS_STORAGE_KEY = 'vendor-applications-json';
+const DEFAULT_VENDOR_APPLICATION_STATUS: VendorApplicationStatus = 'new';
+const DEFAULT_VENDOR_APPLICATION_ALLOCATION_STATE: VendorApplicationAllocationState = 'none';
 
 const isVendorApplication = (value: unknown): value is VendorApplication => {
   if (typeof value !== 'object' || value === null) {
@@ -12,7 +20,47 @@ const isVendorApplication = (value: unknown): value is VendorApplication => {
 
   const candidate = value as Record<string, unknown>;
 
-  return typeof candidate.id === 'string' && typeof candidate.submittedAt === 'string' && isVendorsFormState(candidate);
+  return (
+    typeof candidate.id === 'string' &&
+    typeof candidate.submittedAt === 'string' &&
+    (candidate.status === undefined ||
+      candidate.status === 'new' ||
+      candidate.status === 'considered' ||
+      candidate.status === 'accepted' ||
+      candidate.status === 'reserve' ||
+      candidate.status === 'rejected') &&
+    (candidate.allocatedStandId === undefined ||
+      candidate.allocatedStandId === null ||
+      typeof candidate.allocatedStandId === 'string') &&
+    (candidate.allocationIteration === undefined ||
+      candidate.allocationIteration === null ||
+      typeof candidate.allocationIteration === 'number') &&
+    (candidate.allocationState === undefined ||
+      candidate.allocationState === 'none' ||
+      candidate.allocationState === 'suggested' ||
+      candidate.allocationState === 'confirmed' ||
+      candidate.allocationState === 'manual-negotiation') &&
+    isVendorsFormState(candidate)
+  );
+};
+
+const normalizeVendorApplication = (application: VendorApplication): VendorApplication => {
+  const legacyStatus = (application as { status?: string }).status;
+
+  return {
+    ...application,
+    allocatedStandId: application.allocatedStandId ?? null,
+    allocationIteration: application.allocationIteration ?? null,
+    allocationState: application.allocationState ?? DEFAULT_VENDOR_APPLICATION_ALLOCATION_STATE,
+    preferredStands: normalizeStandIds(application.preferredStands),
+    status: legacyStatus === 'rejected' ? 'reserve' : (application.status ?? DEFAULT_VENDOR_APPLICATION_STATUS)
+  };
+};
+
+const getEffectiveApplications = () => {
+  const storedApplications = readStoredApplications();
+
+  return storedApplications.length > 0 ? storedApplications : VENDORS_APPLICATIONS_MOCK;
 };
 
 const readStoredApplications = (): VendorApplication[] => {
@@ -29,7 +77,7 @@ const readStoredApplications = (): VendorApplication[] => {
       return [];
     }
 
-    return parsedValue.filter(isVendorApplication);
+    return parsedValue.filter(isVendorApplication).map(normalizeVendorApplication);
   } catch {
     return [];
   }
@@ -41,25 +89,44 @@ const writeStoredApplications = (applications: VendorApplication[]) => {
 
 export const listVendorApplications = async () => {
   return {
-    applications: (() => {
-      const applications = readStoredApplications();
+    applications: getEffectiveApplications()
+  };
+};
 
-      return applications.length > 0 ? applications : VENDORS_APPLICATIONS_MOCK;
-    })()
+export const listStandInterestCounts = async () => {
+  return {
+    standInterestCounts: getStandInterestCounts(getEffectiveApplications())
   };
 };
 
 export const createVendorApplication = async (formData: VendorsFormState) => {
   const application: VendorApplication = {
+    allocatedStandId: null,
+    allocationIteration: null,
+    allocationState: DEFAULT_VENDOR_APPLICATION_ALLOCATION_STATE,
     id: crypto.randomUUID(),
+    status: DEFAULT_VENDOR_APPLICATION_STATUS,
     submittedAt: new Date().toISOString(),
     ...formData
   };
 
-  const applications = readStoredApplications();
-  writeStoredApplications([...applications, application]);
+  const storedApplications = readStoredApplications();
+  writeStoredApplications([...storedApplications, application]);
 
   return {
     application
+  };
+};
+
+export const updateVendorApplicationStatus = async (applicationId: string, status: VendorApplicationStatus) => {
+  const storedApplications = readStoredApplications();
+  const updatedApplications = storedApplications.map((application) =>
+    application.id === applicationId ? { ...application, status } : application
+  );
+
+  writeStoredApplications(updatedApplications);
+
+  return {
+    applications: getEffectiveApplications()
   };
 };

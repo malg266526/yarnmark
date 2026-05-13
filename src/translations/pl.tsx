@@ -327,6 +327,9 @@ export const pl = {
       submit: 'Wyślij zgłoszenie',
       submitting: 'Wysyłanie...',
       submitError: 'Nie udało się zapisać zgłoszenia. Spróbuj ponownie.',
+      logoUploadError: 'Nie udało się odczytać pliku z logo. Wybierz go ponownie.',
+      logoTooLargeError: 'Plik z logo jest za duży (max 8 MB). Wybierz mniejszy.',
+      logoLoading: 'Przetwarzanie pliku z logo…',
       submissionDateTimeLabel: 'Data i godzina wysłania',
       draftBanner: 'Szkic formularza zapisuje się lokalnie w tej przeglądarce do momentu wysłania zgłoszenia.',
       steps: {
@@ -355,8 +358,13 @@ export const pl = {
           hint: 'Możesz wybrać maksymalnie {{max}} stoiska. Zielone — wolne, pomarańczowe — wybrane przez Ciebie.',
           orderHint: 'Kolejność klikania ma znaczenie — pierwsze kliknięte stoisko traktujemy jako pierwszy wybór.',
           counter: 'Wybrano {{current}} z {{max}}',
+          standInterestCount: '{{standId}}: {{count}} chętnych',
           detailsHint:
             'Szczegółowe informacje o rodzajach, wymiarach i wyposażeniu stoisk znajdziesz na stronie <0>Informacje dla wystawców</0>.',
+          highInterestLabel: 'High Interest',
+          highInterestHint: 'co najmniej 3 chętnych',
+          highInterestWarning:
+            'To stoisko jest bardzo popularne. Szansa na jego otrzymanie jest mniejsza. Rozważ inne lokalizacje jako priorytet. Dotyczy: {{stands}}.',
           legendTitle: 'Typy stoisk',
           premiumLabel: 'Premium',
           premiumSize: '3 × 5,5 m',
@@ -381,8 +389,10 @@ export const pl = {
           title: 'Dane do faktury',
           detailsLabel: 'Dane do faktury',
           detailsPlaceholder: 'Wpisz pełne dane do faktury',
-          logoLabel: 'Nazwa pliku z logo (opcjonalnie)',
-          logoHint: 'Na razie zapisujemy tylko nazwę pliku — właściwe logo dośle się później mailem.'
+          logoLabel: 'Logo',
+          logoHint:
+            'Możesz dodać plik graficzny logo. Po zapisaniu zgłoszenia będzie można go pobrać z panelu zgłoszeń.',
+          logoSavedHint: 'Logo zostało zapisane razem ze zgłoszeniem.'
         },
         businessDescription: {
           title: 'Krótki opis działalności do materiałów promocyjnych',
@@ -404,11 +414,13 @@ export const pl = {
         mainCategoryRequired: 'Wybierz główną kategorię produktów.',
         mainCategoryOtherRequired: 'Wpisz główną kategorię produktów.',
         interestedIfUnavailableRequired: 'Wybierz jedną z odpowiedzi.',
+        preferredStandsRequired: 'Wybierz co najmniej jedno preferowane stoisko.',
         phoneRequired: 'Podaj numer telefonu.',
         phoneInvalid: 'Podaj poprawny numer telefonu.',
         emailRequired: 'Podaj adres e-mail.',
         emailInvalid: 'Podaj poprawny adres e-mail.',
         invoiceDetailsRequired: 'Podaj dane do faktury.',
+        logoRequired: 'Dodaj plik z logo.',
         businessDescriptionRequired: 'Dodaj opis działalności.',
         businessDescriptionTooLong: 'Opis działalności jest za długi.',
         statuteRequired: 'Musisz zaakceptować regulamin, aby przejść dalej.'
@@ -433,21 +445,20 @@ export const pl = {
       }
     },
     vendorsApplicationsPage: {
-      kicker: 'Panel organizatorek',
-      title: 'Zgłoszenia wystawców',
+      kicker: 'Panel administratora',
+      title: 'Panel administratora',
       loading: 'Wczytywanie zgłoszeń...',
       empty: 'Brak zgłoszeń.',
       savedCount: 'Zapisanych zgłoszeń: {{count}}',
-      showByStand: 'Pokaż wg stoiska',
-      showCards: 'Pokaż zgłoszenia',
-      priorities: {
-        highest: 'Pierwszy wybór',
-        medium: 'Drugi wybór',
-        lowest: 'Trzeci wybór'
-      },
+      showByStand: 'Pokaż wg stoisk',
+      showCards: 'Pokaż karty',
       fields: {
+        status: 'Status',
         mainCategory: 'Główna kategoria',
         preferredStands: 'Preferowane stoiska',
+        allocatedStand: 'Przydzielone stoisko',
+        allocationState: 'Stan alokacji',
+        allocationIteration: 'Iteracja alokacji',
         attendedBefore: 'Poprzednie edycje',
         interestedIfUnavailable: 'Oferta przy braku stoiska',
         phone: 'Telefon',
@@ -457,10 +468,33 @@ export const pl = {
         businessDescription: 'Opis działalności',
         acceptedStatute: 'Regulamin zaakceptowany'
       },
+      statuses: {
+        accepted: 'zaakceptowane',
+        considered: 'rozważane',
+        new: 'nowe',
+        reserve: 'rezerwowy'
+      },
+      allocationStates: {
+        confirmed: 'klepnięte',
+        'manual-negotiation': 'do negocjacji ręcznej',
+        none: 'brak',
+        suggested: 'zasugerowane'
+      },
+      priorities: {
+        highest: 'Priorytet: najwyższy',
+        medium: 'Priorytet: średni',
+        lowest: 'Priorytet: najniższy'
+      },
+      downloads: {
+        png: 'Pobierz PNG',
+        webp: 'Pobierz WebP',
+        avif: 'Pobierz AVIF'
+      },
       values: {
         yes: 'Tak',
         no: 'Nie',
         noAnswer: 'Brak odpowiedzi',
+        notAssigned: 'Nieprzypisane',
         notProvided: 'Nie podano',
         noneSelected: 'Brak'
       }

@@ -19,7 +19,7 @@ const CenteredPlainInfo = styled(PlainInfo)`
 export const VendorsApplicationsPage = () => {
   const isPhone = usePhone();
   const t = useTypedTranslation();
-  const { applications, loading } = useVendorsApplications();
+  const { applications, loading, setApplicationStatus } = useVendorsApplications();
 
   return (
     <PageContent variant="wide" padding="none">
@@ -37,7 +37,11 @@ export const VendorsApplicationsPage = () => {
           <UtilityPageHeader kicker={t('vendorsApplicationsPage.kicker')} title={t('vendorsApplicationsPage.title')} />
 
           <VendorsApplicationsPageStyled>
-            <VendorsApplicationsView applications={applications} loading={loading} />
+            <VendorsApplicationsView
+              applications={applications}
+              loading={loading}
+              setApplicationStatus={setApplicationStatus}
+            />
           </VendorsApplicationsPageStyled>
         </CenteredPlainInfo>
       </Band.NarrowColumn>

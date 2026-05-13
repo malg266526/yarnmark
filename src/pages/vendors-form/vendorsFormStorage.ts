@@ -1,5 +1,6 @@
 import type { VendorsFormState } from './vendorsFormTypes.ts';
 import { INITIAL_VENDORS_FORM_STATE } from './vendorsFormTypes.ts';
+import { normalizeStandIds } from './vendorsFormStandIds.ts';
 
 export interface VendorsFormDraft {
   formData: VendorsFormState;
@@ -40,6 +41,8 @@ export const isVendorsFormState = (value: unknown): value is VendorsFormState =>
     typeof value.email === 'string' &&
     typeof value.invoiceDetails === 'string' &&
     isNullableString(value.logoFileName) &&
+    isNullableString(value.logoDataUrl) &&
+    isNullableString(value.logoMimeType) &&
     typeof value.businessDescription === 'string' &&
     typeof value.acceptedStatute === 'boolean'
   );
@@ -62,7 +65,10 @@ export const parseVendorsFormDraft = (rawValue: string | null): VendorsFormDraft
     }
 
     return {
-      formData: parsedValue.formData,
+      formData: {
+        ...parsedValue.formData,
+        preferredStands: normalizeStandIds(parsedValue.formData.preferredStands)
+      },
       isComplete: parsedValue.isComplete
     };
   } catch {

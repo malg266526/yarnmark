@@ -10,10 +10,12 @@ export const VENDORS_FORM_VALIDATION_KEYS = {
   emailRequired: 'vendorsFormPage.validation.emailRequired',
   interestedIfUnavailableRequired: 'vendorsFormPage.validation.interestedIfUnavailableRequired',
   invoiceDetailsRequired: 'vendorsFormPage.validation.invoiceDetailsRequired',
+  logoRequired: 'vendorsFormPage.validation.logoRequired',
   mainCategoryOtherRequired: 'vendorsFormPage.validation.mainCategoryOtherRequired',
   mainCategoryRequired: 'vendorsFormPage.validation.mainCategoryRequired',
   phoneInvalid: 'vendorsFormPage.validation.phoneInvalid',
   phoneRequired: 'vendorsFormPage.validation.phoneRequired',
+  preferredStandsRequired: 'vendorsFormPage.validation.preferredStandsRequired',
   statuteRequired: 'vendorsFormPage.validation.statuteRequired',
   storeNameRequired: 'vendorsFormPage.validation.storeNameRequired'
 } as const;
@@ -38,6 +40,14 @@ export const vendorsFormSchema = z
       .refine(isEmailValid, VENDORS_FORM_VALIDATION_KEYS.emailInvalid),
     invoiceDetails: z.string().trim().min(1, VENDORS_FORM_VALIDATION_KEYS.invoiceDetailsRequired),
     logoFileName: z.string().nullable(),
+    logoDataUrl: z
+      .string()
+      .regex(/^data:image\/(png|jpe?g|webp|avif|gif);base64,/)
+      .nullable(),
+    logoMimeType: z
+      .string()
+      .regex(/^image\/(png|jpe?g|webp|avif|gif)$/)
+      .nullable(),
     businessDescription: z
       .string()
       .trim()
@@ -70,6 +80,14 @@ export const vendorsFormSchema = z
       });
     }
 
+    if (value.preferredStands.length === 0) {
+      ctx.addIssue({
+        code: 'custom',
+        message: VENDORS_FORM_VALIDATION_KEYS.preferredStandsRequired,
+        path: ['preferredStands']
+      });
+    }
+
     if (value.interestedIfUnavailable === null) {
       ctx.addIssue({
         code: 'custom',
@@ -85,6 +103,36 @@ export const vendorsFormSchema = z
         path: ['acceptedStatute']
       });
     }
+
+    if (!value.logoFileName || !value.logoDataUrl) {
+      ctx.addIssue({
+        code: 'custom',
+        message: VENDORS_FORM_VALIDATION_KEYS.logoRequired,
+        path: ['logoFileName']
+      });
+    }
   });
 
 export type VendorsFormValues = z.infer<typeof vendorsFormSchema>;
+
+export const getVendorsFormValidationErrors = (values: VendorsFormValues) => {
+  const parsedValues = vendorsFormSchema.safeParse(values);
+
+  if (parsedValues.success) {
+    return {} as Partial<Record<keyof VendorsFormValues, string>>;
+  }
+
+  const validationErrors: Partial<Record<keyof VendorsFormValues, string>> = {};
+
+  for (const issue of parsedValues.error.issues) {
+    const fieldName = issue.path[0];
+
+    if (typeof fieldName !== 'string' || fieldName in validationErrors) {
+      continue;
+    }
+
+    validationErrors[fieldName as keyof VendorsFormValues] = issue.message;
+  }
+
+  return validationErrors;
+};

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { listVendorApplications } from './vendorsApplicationsStorage';
-import type { VendorApplication } from '../vendors-form/vendorsFormSubmission';
+import { listVendorApplications, updateVendorApplicationStatus } from './vendorsApplicationsStorage';
+import type { VendorApplication, VendorApplicationStatus } from '../vendors-form/vendorsFormSubmission';
 
 export const useVendorsApplications = () => {
   const [applications, setApplications] = useState<VendorApplication[]>([]);
@@ -13,5 +13,10 @@ export const useVendorsApplications = () => {
     });
   }, []);
 
-  return { applications, loading };
+  const setApplicationStatus = async (applicationId: string, status: VendorApplicationStatus) => {
+    const response = await updateVendorApplicationStatus(applicationId, status);
+    setApplications(response.applications);
+  };
+
+  return { applications, loading, setApplicationStatus };
 };

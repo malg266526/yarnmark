@@ -5,7 +5,7 @@ import hallJson from '../../assets/hall.json';
 import { StandColorsMap } from '../../components/editor/StandProps';
 import { Typography } from '../../components/Typography';
 import { usePhone } from '../../hooks/usePhone';
-import { BackgroundColors, HallColors } from '../../styles/theme';
+import { BackgroundColors, HallColors, WarningColors } from '../../styles/theme';
 
 const SELECTED_COLOR = '#FF8C00';
 
@@ -69,6 +69,7 @@ const StandElement = styled.button<{
   $color: string;
   $width: number;
   $height: number;
+  $isHighInterest: boolean;
   $selectable: boolean;
 }>`
   all: unset;
@@ -78,7 +79,7 @@ const StandElement = styled.button<{
   width: ${({ $width }) => $width}px;
   height: ${({ $height }) => $height}px;
   background-color: ${({ $color }) => $color};
-  border: 1px solid white;
+  border: 2px solid white;
   box-sizing: border-box;
   cursor: ${({ $selectable }) => ($selectable ? 'pointer' : 'default')};
   display: flex;
@@ -92,17 +93,40 @@ const StandElement = styled.button<{
     outline: 2px solid #111;
     outline-offset: 1px;
   }
+
+  &::after {
+    content: ${({ $isHighInterest }) => ($isHighInterest ? "'HI'" : 'none')};
+    display: ${({ $isHighInterest }) => ($isHighInterest ? 'inline-flex' : 'none')};
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    padding: 1px 5px;
+    border-radius: 999px;
+    background: ${WarningColors.badgeBackground};
+    color: ${WarningColors.badgeText};
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+  }
 `;
 
 type LoadState = { status: 'pending' } | { status: 'error'; error: Error } | { status: 'success'; stands: Stand[] };
 
 interface SelectableHallProps {
+  highInterestStandIds?: string[];
   selectedStandIds: string[];
   onToggleStand: (standId: string) => void;
   multiplier?: number;
 }
 
-export const SelectableHall = ({ selectedStandIds, onToggleStand, multiplier }: SelectableHallProps) => {
+export const SelectableHall = ({
+  highInterestStandIds = [],
+  selectedStandIds,
+  onToggleStand,
+  multiplier
+}: SelectableHallProps) => {
   const isPhone = usePhone();
   const resolvedMultiplier = multiplier ?? (isPhone ? 7 : 12);
   const [loadState, setLoadState] = useState<LoadState>({ status: 'pending' });
@@ -149,7 +173,7 @@ export const SelectableHall = ({ selectedStandIds, onToggleStand, multiplier }: 
       return StandColorsMap[stand.color];
     }
 
-    if (selectedStandIds.includes(stand.id)) {
+    if (selectedStandIds.includes(stand.index)) {
       return SELECTED_COLOR;
     }
 
@@ -161,6 +185,8 @@ export const SelectableHall = ({ selectedStandIds, onToggleStand, multiplier }: 
       <Container width={containerSize.width * resolvedMultiplier} height={containerSize.height * resolvedMultiplier}>
         {loadState.stands.map((stand) => {
           const selectable = isStandSelectable(stand);
+          const standSelectionId = stand.index;
+          const isHighInterest = highInterestStandIds.includes(standSelectionId);
           const left = stand.start.col * resolvedMultiplier;
           const top = stand.start.row * resolvedMultiplier;
           const width = stand.width * resolvedMultiplier * SIZE_MULTIPLIER_FOR_NORMALIZATION;
@@ -175,11 +201,12 @@ export const SelectableHall = ({ selectedStandIds, onToggleStand, multiplier }: 
               $width={width}
               $height={height}
               $color={resolveColor(stand)}
+              $isHighInterest={isHighInterest}
               $selectable={selectable}
               disabled={!selectable}
-              aria-pressed={selectable ? selectedStandIds.includes(stand.id) : undefined}
-              aria-label={stand.description ?? `Stand ${stand.index}`}
-              onClick={selectable ? () => onToggleStand(stand.id) : undefined}
+              aria-pressed={selectable ? selectedStandIds.includes(standSelectionId) : undefined}
+              aria-label={`${stand.description ?? `Stand ${stand.index}`}${isHighInterest ? ', High Interest' : ''}`}
+              onClick={selectable ? () => onToggleStand(standSelectionId) : undefined}
             >
               {stand.type !== 'other' ? stand.index : stand.description}
             </StandElement>

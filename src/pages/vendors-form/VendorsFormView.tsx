@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import type { UseFormRegister, FormState, UseFormSetValue } from 'react-hook-form';
+import type { UseFormRegister, UseFormSetValue } from 'react-hook-form';
 import { CtaButton } from '../../components/Button';
 import { Typography } from '../../components/Typography';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
@@ -10,9 +10,11 @@ import {
   ActionsRow,
   ActionsSpacer,
   CheckboxRow,
+  DisclaimerText,
+  DownloadActions,
   ErrorText,
-  FieldLabel,
   FieldHint,
+  FieldLabel,
   Fieldset,
   FormCard,
   FormLayout,
@@ -27,9 +29,12 @@ import {
   LegendText,
   RadioGroup,
   RadioOption,
+  StandStatusList,
+  StandStatusPill,
   SummaryList,
   TextArea,
-  TextInput
+  TextInput,
+  WarningCard
 } from './VendorsFormPage.styled';
 import {
   VENDORS_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH,
@@ -39,12 +44,15 @@ import { SelectableHall } from './SelectableHall';
 import { SubmissionDateTimePreview } from './SubmissionDateTimePreview';
 
 interface VendorsFormViewProps {
-  currentError: string;
   formData: VendorsFormState;
-  formState: FormState<VendorsFormValues>;
+  getFieldError: (...fieldNames: Array<keyof VendorsFormValues>) => string;
+  highInterestSelectedStandIds: string[];
+  highInterestStandIds: string[];
   register: UseFormRegister<VendorsFormValues>;
   isComplete: boolean;
+  isLoadingLogo: boolean;
   isSubmitting: boolean;
+  standInterestCounts: Map<string, number>;
   submitError: string;
   submittedAtLabel: string | null;
   submitForm: () => Promise<void>;
@@ -57,12 +65,15 @@ interface VendorsFormViewProps {
 }
 
 export const VendorsFormView = ({
-  currentError,
   formData,
-  formState,
+  getFieldError,
+  highInterestSelectedStandIds,
+  highInterestStandIds,
   register,
   isComplete,
+  isLoadingLogo,
   isSubmitting,
+  standInterestCounts,
   submitError,
   submittedAtLabel,
   submitForm,
@@ -97,6 +108,7 @@ export const VendorsFormView = ({
                 {...register('storeName')}
               />
             </FieldLabel>
+            {getFieldError('storeName') ? <ErrorText>{getFieldError('storeName')}</ErrorText> : null}
           </Fieldset>
         </FormSection>
 
@@ -123,6 +135,7 @@ export const VendorsFormView = ({
                 <span>{t('vendorsFormPage.steps.attendedBefore.no')}</span>
               </RadioOption>
             </RadioGroup>
+            {getFieldError('attendedBefore') ? <ErrorText>{getFieldError('attendedBefore')}</ErrorText> : null}
           </Fieldset>
         </FormSection>
 
@@ -187,6 +200,9 @@ export const VendorsFormView = ({
                 />
               </FieldLabel>
             ) : null}
+            {getFieldError('mainCategory', 'mainCategoryOther') ? (
+              <ErrorText>{getFieldError('mainCategory', 'mainCategoryOther')}</ErrorText>
+            ) : null}
           </Fieldset>
         </FormSection>
 
@@ -207,7 +223,11 @@ export const VendorsFormView = ({
             </FieldHint>
             <HallLayout>
               <HallMapColumn>
-                <SelectableHall selectedStandIds={formData.preferredStands} onToggleStand={toggleStand} />
+                <SelectableHall
+                  highInterestStandIds={highInterestStandIds}
+                  selectedStandIds={formData.preferredStands}
+                  onToggleStand={toggleStand}
+                />
               </HallMapColumn>
               <LegendCard aria-label={t('vendorsFormPage.steps.preferredStands.legendTitle')}>
                 <Typography size="sm" weight="bold">
@@ -234,14 +254,50 @@ export const VendorsFormView = ({
                     <LegendSize>{t('vendorsFormPage.steps.preferredStands.miniSize')}</LegendSize>
                   </LegendText>
                 </LegendRow>
+                <LegendRow>
+                  <LegendBadge>HI</LegendBadge>
+                  <LegendText>
+                    {t('vendorsFormPage.steps.preferredStands.highInterestLabel')}
+                    <LegendSize>{t('vendorsFormPage.steps.preferredStands.highInterestHint')}</LegendSize>
+                  </LegendText>
+                </LegendRow>
               </LegendCard>
             </HallLayout>
-            <FieldHint>
+            {highInterestSelectedStandIds.length > 0 ? (
+              <StandStatusList>
+                {highInterestSelectedStandIds.map((standId) => (
+                  <StandStatusPill key={standId}>
+                    {standId} · {t('vendorsFormPage.steps.preferredStands.highInterestLabel')}
+                  </StandStatusPill>
+                ))}
+              </StandStatusList>
+            ) : null}
+            {highInterestSelectedStandIds.length > 0 ? (
+              <WarningCard>
+                {rawT('vendorsFormPage.steps.preferredStands.highInterestWarning', {
+                  stands: highInterestSelectedStandIds.join(', ')
+                })}
+              </WarningCard>
+            ) : null}
+            <DisclaimerText>
               <Trans
                 i18nKey="vendorsFormPage.steps.preferredStands.detailsHint"
                 components={[<InlineLink key="vendors_info_link" href="/info-for-vendors" />]}
               />
-            </FieldHint>
+            </DisclaimerText>
+            {formData.preferredStands.length > 0 ? (
+              <FieldHint>
+                {formData.preferredStands
+                  .map((standId) =>
+                    rawT('vendorsFormPage.steps.preferredStands.standInterestCount', {
+                      count: standInterestCounts.get(standId) ?? 0,
+                      standId
+                    })
+                  )
+                  .join(' • ')}
+              </FieldHint>
+            ) : null}
+            {getFieldError('preferredStands') ? <ErrorText>{getFieldError('preferredStands')}</ErrorText> : null}
           </Fieldset>
         </FormSection>
 
@@ -268,6 +324,9 @@ export const VendorsFormView = ({
                 <span>{t('vendorsFormPage.steps.interestedIfUnavailable.no')}</span>
               </RadioOption>
             </RadioGroup>
+            {getFieldError('interestedIfUnavailable') ? (
+              <ErrorText>{getFieldError('interestedIfUnavailable')}</ErrorText>
+            ) : null}
           </Fieldset>
         </FormSection>
 
@@ -293,6 +352,9 @@ export const VendorsFormView = ({
                 {...register('email')}
               />
             </FieldLabel>
+            {getFieldError('phoneNumber', 'email') ? (
+              <ErrorText>{getFieldError('phoneNumber', 'email')}</ErrorText>
+            ) : null}
           </Fieldset>
         </FormSection>
 
@@ -314,10 +376,25 @@ export const VendorsFormView = ({
                 id="logo_file"
                 type="file"
                 accept="image/*"
-                onChange={(event) => updateLogoFile(event.target.files?.[0] ?? null)}
+                disabled={isLoadingLogo}
+                onChange={(event) => {
+                  void updateLogoFile(event.target.files?.[0] ?? null);
+                }}
               />
-              <FieldHint>{formData.logoFileName ?? t('vendorsFormPage.steps.invoice.logoHint')}</FieldHint>
+              <FieldHint>
+                {isLoadingLogo
+                  ? t('vendorsFormPage.logoLoading')
+                  : (formData.logoFileName ?? t('vendorsFormPage.steps.invoice.logoHint'))}
+              </FieldHint>
+              {formData.logoDataUrl ? (
+                <DownloadActions>
+                  <FieldHint>{t('vendorsFormPage.steps.invoice.logoSavedHint')}</FieldHint>
+                </DownloadActions>
+              ) : null}
             </FieldLabel>
+            {getFieldError('invoiceDetails', 'logoFileName') ? (
+              <ErrorText>{getFieldError('invoiceDetails', 'logoFileName')}</ErrorText>
+            ) : null}
           </Fieldset>
         </FormSection>
 
@@ -347,6 +424,9 @@ export const VendorsFormView = ({
                 })}
               </FieldHint>
             </FieldLabel>
+            {getFieldError('businessDescription') ? (
+              <ErrorText>{getFieldError('businessDescription')}</ErrorText>
+            ) : null}
           </Fieldset>
         </FormSection>
 
@@ -365,11 +445,10 @@ export const VendorsFormView = ({
                 <InlineLink href="/info-for-vendors-statue">{t('vendorsFormPage.steps.statute.linkLabel')}</InlineLink>
               </span>
             </CheckboxRow>
-            <FieldHint>{t('vendorsFormPage.steps.statute.complianceHint')}</FieldHint>
+            <DisclaimerText>{t('vendorsFormPage.steps.statute.complianceHint')}</DisclaimerText>
+            {getFieldError('acceptedStatute') ? <ErrorText>{getFieldError('acceptedStatute')}</ErrorText> : null}
           </Fieldset>
         </FormSection>
-
-        {formState.submitCount > 0 && currentError ? <ErrorText>{currentError}</ErrorText> : null}
 
         <FieldHint>{t('vendorsFormPage.draftBanner')}</FieldHint>
 

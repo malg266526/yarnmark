@@ -38,6 +38,14 @@ export const BorderColors = {
   subtleGreen: 'rgba(50, 98, 19, 0.18)'
 };
 
+export const WarningColors = {
+  background: '#fffbeb',
+  badgeBackground: '#fff7ed',
+  border: '#f59e0b',
+  text: '#92400e',
+  badgeText: '#9a3412'
+};
+
 export const GrayScale = {
   50: '#FFFFFF',
   100: '#ECEBEB',
