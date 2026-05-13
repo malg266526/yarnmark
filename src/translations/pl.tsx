@@ -456,6 +456,9 @@ export const pl = {
         status: 'Status',
         mainCategory: 'Główna kategoria',
         preferredStands: 'Preferowane stoiska',
+        allocatedStand: 'Przydzielone stoisko',
+        allocationState: 'Stan alokacji',
+        allocationIteration: 'Iteracja alokacji',
         attendedBefore: 'Poprzednie edycje',
         interestedIfUnavailable: 'Oferta przy braku stoiska',
         phone: 'Telefon',
@@ -469,7 +472,13 @@ export const pl = {
         accepted: 'zaakceptowane',
         considered: 'rozważane',
         new: 'nowe',
-        rejected: 'odrzucone'
+        reserve: 'rezerwowy'
+      },
+      allocationStates: {
+        confirmed: 'klepnięte',
+        'manual-negotiation': 'do negocjacji ręcznej',
+        none: 'brak',
+        suggested: 'zasugerowane'
       },
       priorities: {
         highest: 'Priorytet: najwyższy',
@@ -485,6 +494,7 @@ export const pl = {
         yes: 'Tak',
         no: 'Nie',
         noAnswer: 'Brak odpowiedzi',
+        notAssigned: 'Nieprzypisane',
         notProvided: 'Nie podano',
         noneSelected: 'Brak'
       }

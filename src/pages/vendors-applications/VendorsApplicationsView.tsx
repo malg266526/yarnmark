@@ -139,6 +139,24 @@ export const VendorsApplicationsView = ({
                 </ApplicationFieldValue>
               </ApplicationField>
               <ApplicationField>
+                <ApplicationFieldLabel>{t('vendorsApplicationsPage.fields.allocatedStand')}</ApplicationFieldLabel>
+                <ApplicationFieldValue>
+                  {application.allocatedStandId ?? t('vendorsApplicationsPage.values.notAssigned')}
+                </ApplicationFieldValue>
+              </ApplicationField>
+              <ApplicationField>
+                <ApplicationFieldLabel>{t('vendorsApplicationsPage.fields.allocationState')}</ApplicationFieldLabel>
+                <ApplicationFieldValue>
+                  {rawT(`vendorsApplicationsPage.allocationStates.${application.allocationState}`)}
+                </ApplicationFieldValue>
+              </ApplicationField>
+              <ApplicationField>
+                <ApplicationFieldLabel>{t('vendorsApplicationsPage.fields.allocationIteration')}</ApplicationFieldLabel>
+                <ApplicationFieldValue>
+                  {application.allocationIteration ?? t('vendorsApplicationsPage.values.notAssigned')}
+                </ApplicationFieldValue>
+              </ApplicationField>
+              <ApplicationField>
                 <ApplicationFieldLabel>{t('vendorsApplicationsPage.fields.attendedBefore')}</ApplicationFieldLabel>
                 <ApplicationFieldValue>
                   {formatBoolean(application.attendedBefore, booleanLabels)}
