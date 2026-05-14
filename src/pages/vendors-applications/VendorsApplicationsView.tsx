@@ -21,9 +21,8 @@ import {
   StandRequestMeta,
   StandRequestVendor
 } from './VendorsApplicationsPage.styled';
-import type { VendorApplication, VendorApplicationStatus } from '../vendors-form/vendorsFormSubmission';
+import type { VendorApplication, VendorApplicationStatus } from '../vendor-form/vendorFormSubmission.ts';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { useTranslation } from 'react-i18next';
 import {
   formatBoolean,
   formatDateTime,
@@ -46,7 +45,6 @@ export const VendorsApplicationsView = ({
   setApplicationStatus
 }: VendorsApplicationsViewProps) => {
   const t = useTypedTranslation();
-  const { t: rawT, i18n } = useTranslation();
   const [isStandView, setIsStandView] = useState(false);
   const booleanLabels = {
     no: t('vendorsApplicationsPage.values.no'),
@@ -66,7 +64,7 @@ export const VendorsApplicationsView = ({
 
   return (
     <ApplicationsSection>
-      <ApplicationsMeta>{rawT('vendorsApplicationsPage.savedCount', { count: applications.length })}</ApplicationsMeta>
+      <ApplicationsMeta>{t('vendorsApplicationsPage.savedCount', { count: applications.length })}</ApplicationsMeta>
       <ApplicationsToolbar>
         <ApplicationActionButton type="button" onClick={() => setIsStandView((value) => !value)}>
           {isStandView ? t('vendorsApplicationsPage.showCards') : t('vendorsApplicationsPage.showByStand')}
@@ -81,9 +79,9 @@ export const VendorsApplicationsView = ({
                 {standGroup.requests.map((request) => (
                   <StandRequestItem key={`${standGroup.standId}-${request.applicationId}`}>
                     <StandRequestVendor>{request.storeName}</StandRequestVendor>
-                    <StandRequestMeta>{formatDateTime(request.submittedAt, i18n.language)}</StandRequestMeta>
+                    <StandRequestMeta>{formatDateTime(request.submittedAt, t.i18n.language)}</StandRequestMeta>
                     <StandRequestMeta>
-                      {rawT(`vendorsApplicationsPage.priorities.${request.priority}`)}
+                      {t(`vendorsApplicationsPage.priorities.${request.priority}` as const)}
                     </StandRequestMeta>
                   </StandRequestItem>
                 ))}
@@ -97,13 +95,13 @@ export const VendorsApplicationsView = ({
             <ApplicationCard key={application.id}>
               <ApplicationHeader>
                 <ApplicationTitle>{application.storeName}</ApplicationTitle>
-                <ApplicationsMeta>{formatDateTime(application.submittedAt, i18n.language)}</ApplicationsMeta>
+                <ApplicationsMeta>{formatDateTime(application.submittedAt, t.i18n.language)}</ApplicationsMeta>
               </ApplicationHeader>
 
               <ApplicationField>
-                <ApplicationFieldLabel>{rawT('vendorsApplicationsPage.fields.status')}</ApplicationFieldLabel>
+                <ApplicationFieldLabel>{t('vendorsApplicationsPage.fields.status')}</ApplicationFieldLabel>
                 <ApplicationFieldValue>
-                  {rawT(`vendorsApplicationsPage.statuses.${application.status}`)}
+                  {t(`vendorsApplicationsPage.statuses.${application.status}` as const)}
                 </ApplicationFieldValue>
                 <ApplicationActionRow>
                   {VENDOR_APPLICATION_STATUS_ORDER.map((status) => (
@@ -115,7 +113,7 @@ export const VendorsApplicationsView = ({
                         void setApplicationStatus(application.id, status);
                       }}
                     >
-                      {rawT(`vendorsApplicationsPage.statuses.${status}`)}
+                      {t(`vendorsApplicationsPage.statuses.${status}` as const)}
                     </ApplicationActionButton>
                   ))}
                 </ApplicationActionRow>
@@ -125,7 +123,7 @@ export const VendorsApplicationsView = ({
                 <ApplicationFieldValue>
                   {formatMainCategory(
                     application,
-                    (categoryKey) => rawT(`vendorsFormPage.steps.mainCategory.${categoryKey}`),
+                    (categoryKey) => t(`vendorsFormPage.steps.mainCategory.${categoryKey}` as const),
                     t('vendorsApplicationsPage.values.notProvided')
                   )}
                 </ApplicationFieldValue>
@@ -147,7 +145,7 @@ export const VendorsApplicationsView = ({
               <ApplicationField>
                 <ApplicationFieldLabel>{t('vendorsApplicationsPage.fields.allocationState')}</ApplicationFieldLabel>
                 <ApplicationFieldValue>
-                  {rawT(`vendorsApplicationsPage.allocationStates.${application.allocationState}`)}
+                  {t(`vendorsApplicationsPage.allocationStates.${application.allocationState}` as const)}
                 </ApplicationFieldValue>
               </ApplicationField>
               <ApplicationField>
@@ -168,6 +166,12 @@ export const VendorsApplicationsView = ({
                 </ApplicationFieldLabel>
                 <ApplicationFieldValue>
                   {formatBoolean(application.interestedIfUnavailable, booleanLabels)}
+                </ApplicationFieldValue>
+              </ApplicationField>
+              <ApplicationField>
+                <ApplicationFieldLabel>{t('vendorsApplicationsPage.fields.sponsorshipInterest')}</ApplicationFieldLabel>
+                <ApplicationFieldValue>
+                  {formatBoolean(application.sponsorshipInterest, booleanLabels)}
                 </ApplicationFieldValue>
               </ApplicationField>
               <ApplicationField>

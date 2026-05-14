@@ -21,11 +21,14 @@
 
 ## Vendors Form
 
-- `src/pages/VendorsFormPage.tsx` is composition only.
-- `src/pages/vendors-form/useVendorsForm.ts` owns flow orchestration.
-- `src/pages/vendors-form/VendorsFormView.tsx` owns markup only.
-- `src/pages/vendors-form/VendorsFormPage.styled.tsx` owns styling only.
-- `src/pages/vendors-form/vendorsFormUtils.ts` owns pure validation and step utilities.
+- `src/pages/VendorFormPage.tsx` is composition only.
+- `src/pages/vendor-form/hooks/useVendorForm.ts` owns flow orchestration.
+- `src/pages/vendor-form/components/VendorFormView.tsx` owns markup only.
+- `src/pages/vendor-form/components/vendorFormViewContracts.ts` owns the view contract between hook and components.
+- `src/pages/vendor-form/components/` stores vendor form section components; split broad views into dedicated sections before adding more branching.
+- `src/pages/vendor-form/VendorFormPage.styled.tsx` owns styling only.
+- `src/pages/vendor-form/vendorFormUtils.ts` owns pure validation and step utilities.
+- `src/pages/vendor-form/tests/` stores vendor form tests.
 
 ## Forms
 
@@ -52,3 +55,5 @@
 
 - After changes, run `npm test`, `npm run lint`, and `npm run typecheck`.
 - Run Prettier before verification, not as an optional cleanup step afterward.
+- Do not stop at a passing `test` run if `lint` or `typecheck` still report errors or warnings in touched code.
+- Treat ESLint warnings in touched files as work to fix, not as acceptable leftovers.

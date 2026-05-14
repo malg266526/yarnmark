@@ -1,11 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import zod from 'zod';
-import hallJson from '../../assets/hall.json';
-import { StandColorsMap } from '../../components/editor/StandProps';
-import { Typography } from '../../components/Typography';
-import { usePhone } from '../../hooks/usePhone';
-import { BackgroundColors, HallColors, WarningColors } from '../../styles/theme';
+import hallJson from '../../../assets/hall.json';
+import { StandColorsMap } from '../../../components/editor/StandProps';
+import { Typography } from '../../../components/Typography';
+import { usePhone } from '../../../hooks/usePhone';
+import { BackgroundColors, HallColors, WarningColors } from '../../../styles/theme';
 
 const SELECTED_COLOR = '#FF8C00';
 

@@ -380,6 +380,12 @@ export const en: TranslationsShape = {
           yes: 'Yes',
           no: 'No'
         },
+        sponsorshipInterest: {
+          title: 'Are you interested in becoming a sponsor of workshops or contests related to the fair?',
+          hint: 'Choosing neither option does not affect your ability to become a vendor.',
+          yes: 'Yes',
+          no: 'No'
+        },
         contact: {
           title: 'How can we contact you?',
           phoneLabel: 'Phone number',
@@ -436,6 +442,7 @@ export const en: TranslationsShape = {
         mainCategory: 'Main category',
         preferredStands: 'Preferred stands',
         interestedIfUnavailable: 'Offer if unavailable',
+        sponsorshipInterest: 'Workshop or contest sponsor',
         phone: 'Phone',
         email: 'Email',
         invoiceDetails: 'Invoice details',
@@ -463,6 +470,7 @@ export const en: TranslationsShape = {
         allocationIteration: 'Allocation iteration',
         attendedBefore: 'Previous editions',
         interestedIfUnavailable: 'Offer if unavailable',
+        sponsorshipInterest: 'Workshop or contest sponsor',
         phone: 'Phone',
         email: 'Email',
         invoiceDetails: 'Invoice details',

@@ -1,4 +1,4 @@
-import { VENDORS_FORM_LOGO_MAX_DIMENSION } from './vendorsFormConstants';
+import { VENDOR_FORM_LOGO_MAX_DIMENSION } from './vendorFormConstants.ts';
 
 export class LogoTooLargeError extends Error {
   constructor() {
@@ -82,11 +82,11 @@ const downscaleDataUrl = async (dataUrl: string): Promise<{ dataUrl: string; mim
   const image = await dataUrlToImage(dataUrl);
   const longestSide = Math.max(image.naturalWidth, image.naturalHeight);
 
-  if (longestSide <= VENDORS_FORM_LOGO_MAX_DIMENSION) {
+  if (longestSide <= VENDOR_FORM_LOGO_MAX_DIMENSION) {
     return null;
   }
 
-  const scale = VENDORS_FORM_LOGO_MAX_DIMENSION / longestSide;
+  const scale = VENDOR_FORM_LOGO_MAX_DIMENSION / longestSide;
   const canvas = document.createElement('canvas');
 
   canvas.width = Math.round(image.naturalWidth * scale);

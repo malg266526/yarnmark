@@ -378,6 +378,12 @@ export const pl = {
           yes: 'Tak',
           no: 'Nie'
         },
+        sponsorshipInterest: {
+          title: 'Czy interesuje Cię zostanie sponsorem Warsztatów lub Konkursów powiązanych z Targami?',
+          hint: 'Wybór żadnej z opcji nie wpływa na możliwość zostania Wystawcą.',
+          yes: 'Tak',
+          no: 'Nie'
+        },
         contact: {
           title: 'Jak możemy się z Tobą skontaktować?',
           phoneLabel: 'Numer telefonu',
@@ -434,6 +440,7 @@ export const pl = {
         mainCategory: 'Główna kategoria',
         preferredStands: 'Preferowane stoiska',
         interestedIfUnavailable: 'Oferta przy braku stoiska',
+        sponsorshipInterest: 'Sponsor Warsztatów lub Konkursów',
         phone: 'Telefon',
         email: 'E-mail',
         invoiceDetails: 'Dane do faktury',
@@ -461,6 +468,7 @@ export const pl = {
         allocationIteration: 'Iteracja alokacji',
         attendedBefore: 'Poprzednie edycje',
         interestedIfUnavailable: 'Oferta przy braku stoiska',
+        sponsorshipInterest: 'Sponsor Warsztatów lub Konkursów',
         phone: 'Telefon',
         email: 'E-mail',
         invoiceDetails: 'Dane do faktury',

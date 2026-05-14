@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
+import type { i18n as I18n } from 'i18next';
 import { pl } from './pl';
 
 type Tree =
@@ -42,8 +43,19 @@ type ReplaceString<
 type TranslationKeys = ExtractTranslationKeys<typeof pl>;
 export type UnprefixedTranslationKeys = ReplaceString<TranslationKeys, 'translation.', ''>;
 
-export const useTypedTranslation = () => {
-  const { t } = useTranslation();
+type TranslationOptions = Record<string, unknown>;
 
-  return useCallback((key: UnprefixedTranslationKeys) => t(key), [t]);
+type TypedTranslationFunction = ((key: UnprefixedTranslationKeys, options?: TranslationOptions) => string) & {
+  i18n: I18n;
+};
+
+export const useTypedTranslation = (): TypedTranslationFunction => {
+  const { t, i18n } = useTranslation();
+
+  const translate = useCallback(
+    (key: UnprefixedTranslationKeys, options?: TranslationOptions) => t(key, options as never) as unknown as string,
+    [t]
+  );
+
+  return useMemo(() => Object.assign(translate, { i18n }), [translate, i18n]);
 };

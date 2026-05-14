@@ -1,12 +1,13 @@
-export type VendorsMainCategory = 'yarns' | 'accessories' | 'ceramics' | 'candles' | 'other' | null;
+export type VendorFormMainCategory = 'yarns' | 'accessories' | 'ceramics' | 'candles' | 'other' | null;
 
-export interface VendorsFormState {
+export interface VendorFormState {
   storeName: string;
   attendedBefore: boolean | null;
-  mainCategory: VendorsMainCategory;
+  mainCategory: VendorFormMainCategory;
   mainCategoryOther: string;
   preferredStands: string[];
   interestedIfUnavailable: boolean | null;
+  sponsorshipInterest: boolean | null;
   phoneNumber: string;
   email: string;
   invoiceDetails: string;
@@ -17,13 +18,14 @@ export interface VendorsFormState {
   acceptedStatute: boolean;
 }
 
-export const INITIAL_VENDORS_FORM_STATE: VendorsFormState = {
+export const INITIAL_VENDOR_FORM_STATE: VendorFormState = {
   storeName: '',
   attendedBefore: null,
   mainCategory: null,
   mainCategoryOther: '',
   preferredStands: [],
   interestedIfUnavailable: null,
+  sponsorshipInterest: null,
   phoneNumber: '',
   email: '',
   invoiceDetails: '',

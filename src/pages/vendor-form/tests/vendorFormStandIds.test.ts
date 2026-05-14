@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { normalizeStandId, normalizeStandIds } from './vendorsFormStandIds.ts';
+import { normalizeStandId, normalizeStandIds } from '../vendorFormStandIds.ts';
 
 test('normalizeStandId converts hall object id to readable stand index', () => {
   assert.equal(normalizeStandId('mgl60s92-lscpjj7'), 'P2');

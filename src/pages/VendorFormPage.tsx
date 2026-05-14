@@ -7,18 +7,18 @@ import { Band } from '../components/bands/Band';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import { usePhone } from '../hooks/usePhone';
 import { PlainInfo } from './for-vendors/ForVendorsPage.styled';
-import { VendorsFormView } from './vendors-form/VendorsFormView';
-import { useVendorsForm } from './vendors-form/useVendorsForm';
+import { VendorFormView } from './vendor-form/components/VendorFormView';
+import { useVendorForm } from './vendor-form/hooks/useVendorForm';
 import { UtilityPageHeader } from '../components/UtilityPageHeader';
 
 const CenteredPlainInfo = styled(PlainInfo)`
   align-items: center;
 `;
 
-export const VendorsFormPage = () => {
+export const VendorFormPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
-  const form = useVendorsForm();
+  const vendorFormViewProps = useVendorForm();
 
   return (
     <PageContent variant="wide" padding="none">
@@ -35,7 +35,7 @@ export const VendorsFormPage = () => {
         <UtilityPageHeader kicker={t('vendorsFormPage.kicker')} title={t('vendorsFormPage.title')} />
 
         <CenteredPlainInfo>
-          <VendorsFormView {...form} />
+          <VendorFormView {...vendorFormViewProps} />
         </CenteredPlainInfo>
       </Band.NarrowColumn>
     </PageContent>
