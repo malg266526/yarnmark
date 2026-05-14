@@ -26,7 +26,6 @@ export interface VendorsApplicationsCascadeViewProps {
   preferredStandsLabel: string;
   noneSelectedLabel: string;
   notAssignedLabel: string;
-  title: string;
 }
 
 export interface VendorsApplicationsStandGroupsViewProps {

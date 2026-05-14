@@ -23,8 +23,7 @@ export const VendorsApplicationsCascadeView = ({
   manualNegotiationTitle,
   preferredStandsLabel,
   noneSelectedLabel,
-  notAssignedLabel,
-  title
+  notAssignedLabel
 }: VendorsApplicationsCascadeViewProps) => {
   const reservedApplications = getCascadeChoiceReservations(applications);
   const manualNegotiationApplications = getCascadeManualNegotiationReservations(applications);
@@ -32,7 +31,6 @@ export const VendorsApplicationsCascadeView = ({
   return (
     <>
       <AcceptedApplicationsQueue>
-        <AcceptedApplicationsQueueTitle>{title}</AcceptedApplicationsQueueTitle>
         <ApplicationsStack>
           {reservedApplications.map(({ application, reservedStandId }) => (
             <ApplicationCard key={application.id}>

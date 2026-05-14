@@ -73,7 +73,6 @@ export const VendorsApplicationsView = ({
           noneSelectedLabel={t('vendorsApplicationsPage.values.noneSelected')}
           notAssignedLabel={t('vendorsApplicationsPage.values.notAssigned')}
           preferredStandsLabel={t('vendorsApplicationsPage.fields.preferredStands')}
-          title={t('vendorsApplicationsPage.acceptedQueue.title')}
         />
       ) : null}
 
