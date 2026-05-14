@@ -18,7 +18,7 @@ const CenteredPlainInfo = styled(PlainInfo)`
 export const VendorFormPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
-  const form = useVendorForm();
+  const vendorFormViewProps = useVendorForm();
 
   return (
     <PageContent variant="wide" padding="none">
@@ -35,7 +35,7 @@ export const VendorFormPage = () => {
         <UtilityPageHeader kicker={t('vendorsFormPage.kicker')} title={t('vendorsFormPage.title')} />
 
         <CenteredPlainInfo>
-          <VendorFormView {...form} />
+          <VendorFormView {...vendorFormViewProps} />
         </CenteredPlainInfo>
       </Band.NarrowColumn>
     </PageContent>

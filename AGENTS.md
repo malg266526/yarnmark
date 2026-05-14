@@ -24,10 +24,11 @@
 - `src/pages/VendorFormPage.tsx` is composition only.
 - `src/pages/vendor-form/hooks/useVendorForm.ts` owns flow orchestration.
 - `src/pages/vendor-form/components/VendorFormView.tsx` owns markup only.
+- `src/pages/vendor-form/components/vendorFormViewContracts.ts` owns the view contract between hook and components.
+- `src/pages/vendor-form/components/` stores vendor form section components; split broad views into dedicated sections before adding more branching.
 - `src/pages/vendor-form/VendorFormPage.styled.tsx` owns styling only.
 - `src/pages/vendor-form/vendorFormUtils.ts` owns pure validation and step utilities.
 - `src/pages/vendor-form/tests/` stores vendor form tests.
-- `src/pages/vendor-form/components/` stores vendor form feature components.
 
 ## Forms
 

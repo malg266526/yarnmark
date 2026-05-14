@@ -1,14 +1,16 @@
 import { useEffect, useMemo, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
+import type { UnprefixedTranslationKeys } from '../../../translations/useTypedTranslation';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import type { VendorFormViewProps } from '../components/vendorFormViewContracts';
 import { toggleStandSelection } from '../vendorFormUtils.ts';
 import {
   createVendorApplication,
   listStandInterestCounts
 } from '../../vendors-applications/vendorsApplicationsStorage.ts';
 import {
+  VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH,
   VENDOR_FORM_DRAFT_STORAGE_KEY,
   VENDOR_FORM_LOGO_MAX_BYTES,
   VENDOR_FORM_MAX_PREFERRED_STANDS
@@ -26,9 +28,8 @@ const readStoredVendorFormDraftOrCreateEmptyDraft = () =>
   parseStoredVendorFormDraft(window.localStorage.getItem(VENDOR_FORM_DRAFT_STORAGE_KEY)) ??
   createEmptyVendorFormDraft();
 
-export const useVendorForm = () => {
+export const useVendorForm = (): VendorFormViewProps => {
   const t = useTypedTranslation();
-  const { i18n, t: rawT } = useTranslation();
   const [initialDraft] = useState(readStoredVendorFormDraftOrCreateEmptyDraft);
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
   const [isComplete, setIsComplete] = useState<boolean>(initialDraft.isComplete);
@@ -38,13 +39,20 @@ export const useVendorForm = () => {
   const [isLoadingLogo, setIsLoadingLogo] = useState(false);
   const [standInterestCounts, setStandInterestCounts] = useState<Map<string, number>>(() => new Map());
   const [validationErrors, setValidationErrors] = useState<Partial<Record<keyof VendorFormValues, string>>>({});
+
   const form = useForm<VendorFormValues>({
     defaultValues: initialDraft.formData,
     mode: 'onSubmit',
     resolver: zodResolver(vendorFormValidationSchema)
   });
+
   const { formState, getValues, register, reset, setValue, trigger, watch } = form;
   const formData = watch();
+
+  const markFormAsIncompleteAndClearSubmitError = () => {
+    setIsComplete(false);
+    setSubmitError('');
+  };
 
   useEffect(() => {
     void listStandInterestCounts().then((response) => {
@@ -59,6 +67,7 @@ export const useVendorForm = () => {
         .map(([standId]) => standId),
     [standInterestCounts]
   );
+
   const highInterestSelectedStandIds = useMemo(
     () => formData.preferredStands.filter((standId) => highInterestStandIds.includes(standId)),
     [formData.preferredStands, highInterestStandIds]
@@ -69,8 +78,7 @@ export const useVendorForm = () => {
       setValue('logoFileName', null, { shouldDirty: true, shouldValidate: true });
       setValue('logoDataUrl', null, { shouldDirty: true, shouldValidate: true });
       setValue('logoMimeType', null, { shouldDirty: true, shouldValidate: true });
-      setIsComplete(false);
-      setSubmitError('');
+      markFormAsIncompleteAndClearSubmitError();
       return;
     }
 
@@ -82,8 +90,7 @@ export const useVendorForm = () => {
       setValue('logoFileName', file.name, { shouldDirty: true, shouldValidate: true });
       setValue('logoDataUrl', preparedLogo.dataUrl, { shouldDirty: true, shouldValidate: true });
       setValue('logoMimeType', preparedLogo.mimeType, { shouldDirty: true, shouldValidate: true });
-      setIsComplete(false);
-      setSubmitError('');
+      markFormAsIncompleteAndClearSubmitError();
     } catch (error) {
       console.error(error);
       setSubmitError(
@@ -94,12 +101,11 @@ export const useVendorForm = () => {
     }
   };
 
-  const toggleStand = (standId: string) => {
+  const togglePreferredStand = (standId: string) => {
     const nextValue = toggleStandSelection(getValues('preferredStands'), standId, VENDOR_FORM_MAX_PREFERRED_STANDS);
 
     setValue('preferredStands', nextValue, { shouldDirty: true, shouldValidate: hasAttemptedSubmit });
-    setIsComplete(false);
-    setSubmitError('');
+    markFormAsIncompleteAndClearSubmitError();
   };
 
   useEffect(() => {
@@ -116,11 +122,11 @@ export const useVendorForm = () => {
       return null;
     }
 
-    return new Intl.DateTimeFormat(i18n.language, {
+    return new Intl.DateTimeFormat(t.i18n.language, {
       dateStyle: 'long',
       timeStyle: 'medium'
     }).format(new Date(submittedAt));
-  }, [i18n.language, submittedAt]);
+  }, [submittedAt, t.i18n.language]);
 
   useEffect(() => {
     if (!hasAttemptedSubmit) {
@@ -130,7 +136,7 @@ export const useVendorForm = () => {
     setValidationErrors(collectVendorFormValidationErrors(formData));
   }, [formData, hasAttemptedSubmit]);
 
-  const submitForm = async () => {
+  const submitVendorForm = async () => {
     setHasAttemptedSubmit(true);
     setSubmitError('');
     const nextValidationErrors = collectVendorFormValidationErrors(getValues());
@@ -169,33 +175,38 @@ export const useVendorForm = () => {
     }
   };
 
-  const setCategory = (category: VendorFormValues['mainCategory']) => {
+  const setMainCategory = (category: VendorFormValues['mainCategory']) => {
     setValue('mainCategory', category, { shouldDirty: true, shouldValidate: true });
 
     if (category !== 'other') {
       setValue('mainCategoryOther', '', { shouldDirty: true, shouldValidate: true });
     }
 
-    setIsComplete(false);
-    setSubmitError('');
+    markFormAsIncompleteAndClearSubmitError();
   };
 
-  const setBooleanField = (
+  const setBooleanFieldValue = (
     fieldName: 'attendedBefore' | 'interestedIfUnavailable' | 'sponsorshipInterest',
     value: boolean
   ) => {
     setValue(fieldName, value, { shouldDirty: true, shouldValidate: true });
-    setIsComplete(false);
-    setSubmitError('');
+    markFormAsIncompleteAndClearSubmitError();
   };
 
-  const setAcceptedStatute = (value: boolean) => {
+  const setAcceptedStatuteValue = (value: boolean) => {
     setValue('acceptedStatute', value, { shouldDirty: true, shouldValidate: true });
-    setIsComplete(false);
-    setSubmitError('');
+    markFormAsIncompleteAndClearSubmitError();
   };
 
-  const getFieldError = (...fieldNames: Array<keyof VendorFormValues>): string => {
+  const updateBusinessDescription = (value: string) => {
+    setValue('businessDescription', value.slice(0, VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH), {
+      shouldDirty: true,
+      shouldValidate: true
+    });
+    markFormAsIncompleteAndClearSubmitError();
+  };
+
+  const resolveFieldErrorMessage = (...fieldNames: Array<keyof VendorFormValues>): string => {
     if (!hasAttemptedSubmit) {
       return '';
     }
@@ -204,7 +215,7 @@ export const useVendorForm = () => {
       const messageKey = validationErrors[fieldName] ?? formState.errors[fieldName]?.message;
 
       if (typeof messageKey === 'string') {
-        return rawT(messageKey);
+        return t(messageKey as UnprefixedTranslationKeys);
       }
     }
 
@@ -212,23 +223,31 @@ export const useVendorForm = () => {
   };
 
   return {
-    formData,
-    getFieldError,
-    highInterestSelectedStandIds,
-    highInterestStandIds,
-    register,
-    isComplete,
-    isLoadingLogo,
-    isSubmitting,
-    standInterestCounts,
-    submitError,
-    submittedAtLabel,
-    submitForm,
-    toggleStand,
-    setAcceptedStatute,
-    setBooleanField,
-    setCategory,
-    setValue,
-    updateLogoFile
+    derivedState: {
+      highInterestSelectedStandIds,
+      highInterestStandIds,
+      standInterestCounts
+    },
+    formActions: {
+      setAcceptedStatuteValue,
+      setBooleanFieldValue,
+      setMainCategory,
+      submitVendorForm,
+      togglePreferredStand,
+      updateBusinessDescription,
+      updateLogoFile
+    },
+    formBindings: {
+      formData,
+      register,
+      resolveFieldErrorMessage
+    },
+    formStatus: {
+      isComplete,
+      isLoadingLogo,
+      isSubmitting,
+      submitError,
+      submittedAtLabel
+    }
   };
 };

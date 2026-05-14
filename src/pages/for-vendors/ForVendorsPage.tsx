@@ -2,7 +2,7 @@ import React from 'react';
 import { SlantedCornersBox } from '../../components/SlantedCornersBox';
 import { BackgroundColors } from '../../styles/theme';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { Trans, useTranslation } from 'react-i18next';
+import { Trans } from 'react-i18next';
 import { HallWrapper, PlainInfo, Separator } from './ForVendorsPage.styled';
 import { usePhone } from '../../hooks/usePhone';
 import { Header } from '../menu/Header';
@@ -34,7 +34,6 @@ const MdLink = styled(Link)`
 
 export const ForVendorsPage = () => {
   const t = useTypedTranslation();
-  const { i18n } = useTranslation();
   const isPhone = usePhone();
 
   const links: Record<string, string> = {
@@ -43,7 +42,7 @@ export const ForVendorsPage = () => {
     de: 'https://docs.google.com/forms/d/e/1FAIpQLSel1l_OJKZFrPVGaotywJABBE4xIdvRyFoyYDEvTKvSU6vb0Q/viewform?usp=sharing&ouid=102752904430891841779'
   };
 
-  const formLink = links[i18n.language] || links.en;
+  const formLink = links[t.i18n.language] || links.en;
 
   return (
     <PageContent variant="wide" padding="none">

@@ -1,11 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 import { InfoLabel, InfoRow, InfoValue } from '../VendorFormPage.styled';
 
 export const SubmissionDateTimePreview = () => {
   const t = useTypedTranslation();
-  const { i18n } = useTranslation();
   const [now, setNow] = useState(() => new Date());
 
   useEffect(() => {
@@ -16,11 +14,11 @@ export const SubmissionDateTimePreview = () => {
 
   const formatted = useMemo(
     () =>
-      new Intl.DateTimeFormat(i18n.language, {
+      new Intl.DateTimeFormat(t.i18n.language, {
         dateStyle: 'long',
         timeStyle: 'medium'
       }).format(now),
-    [i18n.language, now]
+    [now, t.i18n.language]
   );
 
   return (
