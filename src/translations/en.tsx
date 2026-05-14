@@ -465,6 +465,9 @@ export const en: TranslationsShape = {
       acceptedQueue: {
         title: 'Step 1. Accepted vendors sorted by form submission time'
       },
+      manualNegotiation: {
+        title: 'Manual negotiation'
+      },
       fields: {
         status: 'Status',
         mainCategory: 'Main category',

@@ -463,6 +463,9 @@ export const pl = {
       acceptedQueue: {
         title: 'Krok 1. Zaakceptowani wystawcy według czasu wysłania formularza'
       },
+      manualNegotiation: {
+        title: 'Do negocjacji ręcznej'
+      },
       fields: {
         status: 'Status',
         mainCategory: 'Główna kategoria',

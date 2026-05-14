@@ -68,10 +68,26 @@ export const parseStoredVendorApplications = (rawValue: string | null): VendorAp
   }
 };
 
+export const mergeStoredVendorApplicationsWithMocks = (
+  storedApplications: VendorApplication[],
+  mockApplications: VendorApplication[]
+) => {
+  const storedApplicationsById = new Map(storedApplications.map((application) => [application.id, application]));
+  const mergedApplications = mockApplications.map((mockApplication) => {
+    return storedApplicationsById.get(mockApplication.id) ?? mockApplication;
+  });
+  const mockApplicationIds = new Set(mockApplications.map((application) => application.id));
+  const storedOnlyApplications = storedApplications.filter((application) => !mockApplicationIds.has(application.id));
+
+  return [...mergedApplications, ...storedOnlyApplications];
+};
+
 const getStoredOrMockVendorApplications = () => {
   const storedApplications = readStoredVendorApplications();
 
-  return storedApplications.length > 0 ? storedApplications : VENDORS_APPLICATIONS_MOCK;
+  return storedApplications.length > 0
+    ? mergeStoredVendorApplicationsWithMocks(storedApplications, VENDORS_APPLICATIONS_MOCK)
+    : VENDORS_APPLICATIONS_MOCK;
 };
 
 const readStoredVendorApplications = (): VendorApplication[] =>

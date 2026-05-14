@@ -20,9 +20,12 @@ export interface VendorsApplicationsCardsViewProps {
 
 export interface VendorsApplicationsCascadeViewProps {
   applications: VendorApplication[];
+  allocatedStandLabel: string;
   locale: string;
+  manualNegotiationTitle: string;
   preferredStandsLabel: string;
   noneSelectedLabel: string;
+  notAssignedLabel: string;
   title: string;
 }
 

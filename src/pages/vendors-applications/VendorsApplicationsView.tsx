@@ -66,9 +66,12 @@ export const VendorsApplicationsView = ({
 
       {viewMode === 'cascade' ? (
         <VendorsApplicationsCascadeView
+          allocatedStandLabel={t('vendorsApplicationsPage.fields.allocatedStand')}
           applications={applications}
           locale={t.i18n.language}
+          manualNegotiationTitle={t('vendorsApplicationsPage.manualNegotiation.title')}
           noneSelectedLabel={t('vendorsApplicationsPage.values.noneSelected')}
+          notAssignedLabel={t('vendorsApplicationsPage.values.notAssigned')}
           preferredStandsLabel={t('vendorsApplicationsPage.fields.preferredStands')}
           title={t('vendorsApplicationsPage.acceptedQueue.title')}
         />
