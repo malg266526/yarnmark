@@ -21,6 +21,8 @@ export interface VendorsApplicationsCardsViewProps {
 export interface VendorsApplicationsCascadeViewProps {
   applications: VendorApplication[];
   locale: string;
+  preferredStandsLabel: string;
+  noneSelectedLabel: string;
   title: string;
 }
 

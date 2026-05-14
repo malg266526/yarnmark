@@ -6,6 +6,7 @@ import {
   ApplicationHeader,
   ApplicationsStack,
   ApplicationsMeta,
+  ApplicationsMetaRow,
   ApplicationTitle
 } from './VendorsApplicationsPage.styled';
 import { formatDateTime, getAcceptedApplicationsSortedBySubmittedAt } from './VendorsApplicationsUtils';
@@ -14,6 +15,8 @@ import { VendorsApplicationsCascadeViewProps } from './vendorsApplicationsViewCo
 export const VendorsApplicationsCascadeView = ({
   applications,
   locale,
+  preferredStandsLabel,
+  noneSelectedLabel,
   title
 }: VendorsApplicationsCascadeViewProps) => {
   const acceptedApplications = getAcceptedApplicationsSortedBySubmittedAt(applications);
@@ -26,7 +29,13 @@ export const VendorsApplicationsCascadeView = ({
           <ApplicationCard key={application.id}>
             <ApplicationHeader>
               <ApplicationTitle>{application.storeName}</ApplicationTitle>
-              <ApplicationsMeta>{formatDateTime(application.submittedAt, locale)}</ApplicationsMeta>
+              <ApplicationsMetaRow>
+                <ApplicationsMeta>{formatDateTime(application.submittedAt, locale)}</ApplicationsMeta>
+                <ApplicationsMeta>
+                  {preferredStandsLabel}:{' '}
+                  {application.preferredStands.length > 0 ? application.preferredStands.join(', ') : noneSelectedLabel}
+                </ApplicationsMeta>
+              </ApplicationsMetaRow>
             </ApplicationHeader>
           </ApplicationCard>
         ))}

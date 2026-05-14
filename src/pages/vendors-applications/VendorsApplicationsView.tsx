@@ -68,6 +68,8 @@ export const VendorsApplicationsView = ({
         <VendorsApplicationsCascadeView
           applications={applications}
           locale={t.i18n.language}
+          noneSelectedLabel={t('vendorsApplicationsPage.values.noneSelected')}
+          preferredStandsLabel={t('vendorsApplicationsPage.fields.preferredStands')}
           title={t('vendorsApplicationsPage.acceptedQueue.title')}
         />
       ) : null}
