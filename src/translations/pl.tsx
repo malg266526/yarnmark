@@ -459,6 +459,10 @@ export const pl = {
       savedCount: 'Zapisanych zgłoszeń: {{count}}',
       showByStand: 'Pokaż wg stoisk',
       showCards: 'Pokaż karty',
+      showCascadeStandAllocation: 'Kaskadowe przypisanie stoisk',
+      acceptedQueue: {
+        title: 'Krok 1. Zaakceptowani wystawcy według czasu wysłania formularza'
+      },
       fields: {
         status: 'Status',
         mainCategory: 'Główna kategoria',
