@@ -4,7 +4,7 @@ import {
   AcceptedApplicationsQueueTitle,
   ApplicationCard,
   ApplicationHeader,
-  ApplicationsGrid,
+  ApplicationsStack,
   ApplicationsMeta,
   ApplicationTitle
 } from './VendorsApplicationsPage.styled';
@@ -21,7 +21,7 @@ export const VendorsApplicationsCascadeView = ({
   return (
     <AcceptedApplicationsQueue>
       <AcceptedApplicationsQueueTitle>{title}</AcceptedApplicationsQueueTitle>
-      <ApplicationsGrid>
+      <ApplicationsStack>
         {acceptedApplications.map((application) => (
           <ApplicationCard key={application.id}>
             <ApplicationHeader>
@@ -30,7 +30,7 @@ export const VendorsApplicationsCascadeView = ({
             </ApplicationHeader>
           </ApplicationCard>
         ))}
-      </ApplicationsGrid>
+      </ApplicationsStack>
     </AcceptedApplicationsQueue>
   );
 };

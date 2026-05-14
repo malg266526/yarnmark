@@ -47,15 +47,21 @@ export const VendorsApplicationsView = ({
     <ApplicationsSection>
       <ApplicationsMeta>{t('vendorsApplicationsPage.savedCount', { count: applications.length })}</ApplicationsMeta>
       <ApplicationsToolbar>
-        <ApplicationActionButton
-          type="button"
-          onClick={() => setViewMode(viewMode === 'cascade' ? 'cards' : 'cascade')}
-        >
-          {t('vendorsApplicationsPage.showCascadeStandAllocation')}
-        </ApplicationActionButton>
-        <ApplicationActionButton type="button" onClick={() => setViewMode(viewMode === 'stands' ? 'cards' : 'stands')}>
-          {viewMode === 'stands' ? t('vendorsApplicationsPage.showCards') : t('vendorsApplicationsPage.showByStand')}
-        </ApplicationActionButton>
+        {viewMode !== 'cards' ? (
+          <ApplicationActionButton type="button" onClick={() => setViewMode('cards')}>
+            {t('vendorsApplicationsPage.showCards')}
+          </ApplicationActionButton>
+        ) : null}
+        {viewMode !== 'cascade' ? (
+          <ApplicationActionButton type="button" onClick={() => setViewMode('cascade')}>
+            {t('vendorsApplicationsPage.showCascadeStandAllocation')}
+          </ApplicationActionButton>
+        ) : null}
+        {viewMode !== 'stands' ? (
+          <ApplicationActionButton type="button" onClick={() => setViewMode('stands')}>
+            {t('vendorsApplicationsPage.showByStand')}
+          </ApplicationActionButton>
+        ) : null}
       </ApplicationsToolbar>
 
       {viewMode === 'cascade' ? (

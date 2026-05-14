@@ -93,6 +93,12 @@ export const ApplicationsGrid = styled.div`
   }
 `;
 
+export const ApplicationsStack = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${RedesignSpacings.md};
+`;
+
 export const ApplicationCard = styled.article`
   display: flex;
   flex-direction: column;
