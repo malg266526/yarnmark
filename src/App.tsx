@@ -22,6 +22,7 @@ import { EditorPage } from './pages/EditorPage';
 import { VendorStatutePage } from './pages/VendorsStatute';
 import { VendorFormPage } from './pages/VendorFormPage';
 import { VendorsApplicationsPage } from './pages/VendorsApplicationsPage';
+import { AdminLayout } from './pages/admin/AdminLayout';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -77,10 +78,15 @@ export const App = () => {
           <Route path="/info-for-vendors" element={<ForVendorsPage />} />
           <Route path="/statutes" element={<StatutesPage />} />
           <Route path="/hall" element={<HallMapPage />} />
-          <Route path="/editor" element={<EditorPage />} />
           <Route path="/info-for-vendors-statue" element={<VendorStatutePage />} />
-          <Route path="/vendor-form" element={<VendorFormPage />} />
-          <Route path="/admin" element={<VendorsApplicationsPage />} />
+          <Route path="/editor" element={<Navigate to="/admin/editor" replace />} />
+          <Route path="/vendor-form" element={<Navigate to="/admin/vendor-form" replace />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<Navigate to="/admin/applications" replace />} />
+            <Route path="editor" element={<EditorPage />} />
+            <Route path="vendor-form" element={<VendorFormPage />} />
+            <Route path="applications" element={<VendorsApplicationsPage />} />
+          </Route>
         </Routes>
 
         <Footer id="footer">

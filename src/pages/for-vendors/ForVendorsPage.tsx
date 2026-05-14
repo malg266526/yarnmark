@@ -78,7 +78,9 @@ export const ForVendorsPage = () => {
           <Typography size="md">
             <Trans
               i18nKey="infoForVendorsPage.registration.newForm"
-              components={[<MdLink key="application_form_page" to="/vendor-form" aria-label="applicationFormPage" />]}
+              components={[
+                <MdLink key="application_form_page" to="/admin/vendor-form" aria-label="applicationFormPage" />
+              ]}
             />
           </Typography>
           <Typography size="md">
