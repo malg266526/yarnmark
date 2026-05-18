@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getEndFromStart } from './getEndFromStart';
+import { clampStandOriginToHall } from './hallGeometry';
 
 export const useMouseHandlers = () => {
   const [dragging, setDragging] = useState(false);
@@ -23,9 +24,18 @@ export const useMouseHandlers = () => {
   };
 
   const handleClick = (row: number, col: number, standWidth: number, standHeight: number) => {
-    const start = { row, col };
+    const start = clampStandOriginToHall({ row, col }, standWidth, standHeight);
 
     const end = getEndFromStart(start, standWidth, standHeight);
+
+    console.info('[EditorGridClick]', {
+      requestedRow: row,
+      requestedCol: col,
+      standWidth,
+      standHeight,
+      resolvedStart: start,
+      resolvedEnd: end
+    });
 
     setStart(start);
     setEnd(end);

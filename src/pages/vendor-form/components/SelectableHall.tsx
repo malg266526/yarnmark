@@ -6,6 +6,7 @@ import { StandColorsMap } from '../../../components/editor/StandProps';
 import { Typography } from '../../../components/Typography';
 import { usePhone } from '../../../hooks/usePhone';
 import { BackgroundColors, HallColors, WarningColors } from '../../../styles/theme';
+import { GRID_COLS, GRID_ROWS } from '../../../components/editor/utils/hallGeometry';
 
 const SELECTED_COLOR = '#FF8C00';
 
@@ -146,19 +147,8 @@ export const SelectableHall = ({
       return { width: 0, height: 0 };
     }
 
-    return loadState.stands.reduce(
-      (size, stand) => {
-        const rightEdge = stand.start.col + stand.width * SIZE_MULTIPLIER_FOR_NORMALIZATION;
-        const bottomEdge = stand.start.row + stand.height * SIZE_MULTIPLIER_FOR_NORMALIZATION;
-
-        return {
-          width: Math.max(size.width, rightEdge),
-          height: Math.max(size.height, bottomEdge)
-        };
-      },
-      { width: 0, height: 0 }
-    );
-  }, [loadState]);
+    return { width: GRID_COLS, height: GRID_ROWS };
+  }, [loadState.status]);
 
   if (loadState.status === 'pending') {
     return <Typography size="sm">Loading…</Typography>;

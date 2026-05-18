@@ -6,6 +6,7 @@ import hallJson from '../assets/hall.json';
 import { StandColorsMap } from './editor/StandProps';
 import { Typography } from './Typography';
 import { usePhone } from '../hooks/usePhone';
+import { GRID_COLS, GRID_ROWS } from './editor/utils/hallGeometry';
 
 const standTypeSchema = zod.union([
   zod.literal('premium'),
@@ -116,26 +117,7 @@ export const Hall = ({ multiplier }: HallType) => {
         schema: validHallConfiguration.data
       });
 
-      const calculatedContainerDimenions = validHallConfiguration.data.reduce(
-        (size, standConfiguration) => {
-          if (
-            size.width <
-            standConfiguration.start.col + standConfiguration.width * SIZE_MULTIPLIER_FOR_NORMALIZATION
-          ) {
-            size.width = standConfiguration.start.col + standConfiguration.width * SIZE_MULTIPLIER_FOR_NORMALIZATION;
-          }
-          if (
-            size.height <
-            standConfiguration.start.row + standConfiguration.height * SIZE_MULTIPLIER_FOR_NORMALIZATION
-          ) {
-            size.height = standConfiguration.start.row + standConfiguration.height * SIZE_MULTIPLIER_FOR_NORMALIZATION;
-          }
-
-          return size;
-        },
-        { width: 0, height: 0 }
-      );
-      setContainerSize(calculatedContainerDimenions);
+      setContainerSize({ width: GRID_COLS, height: GRID_ROWS });
 
       return;
     }
