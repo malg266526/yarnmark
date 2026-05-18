@@ -465,6 +465,23 @@ export const en: TranslationsShape = {
       acceptedQueue: {
         title: 'Step 1. Accepted vendors sorted by form submission time'
       },
+      cascadeAlgorithm: {
+        title: 'How the algorithm works',
+        steps: {
+          acceptVendors:
+            'The organizer first accepts selected vendors by setting their status to "accepted" in the "Show cards" section.',
+          sortAccepted:
+            'The system takes only accepted applications and sorts them by the earliest submitted form first.',
+          checkPreferences:
+            'Next, for each vendor in order, it checks the preferred stands from highest priority to lowest priority and assigns the first stand that is still available at that moment.',
+          sendToManualNegotiation:
+            'If all selected stands are already taken, the application moves to the manual negotiation section.',
+          confirmedAssignments:
+            'After the assignments are generated, the organizer approves the chosen suggestions. Only then does the stand receive the official "confirmed" status and become finally occupied.',
+          nextIterations:
+            'If some assignments are not approved or some vendors still have no available stand from their priority list, the algorithm can be run again for the remaining free stands in the next iteration.'
+        }
+      },
       manualNegotiation: {
         title: 'Manual negotiation'
       },

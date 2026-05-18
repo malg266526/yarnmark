@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  AcceptedApplicationsQueueDescription,
   AcceptedApplicationsQueue,
   AcceptedApplicationsQueueTitle,
   ApplicationCard,
@@ -17,6 +18,8 @@ import {
 import { VendorsApplicationsCascadeViewProps } from './vendorsApplicationsViewContracts';
 
 export const VendorsApplicationsCascadeView = ({
+  algorithmSteps,
+  algorithmTitle,
   allocatedStandLabel,
   applications,
   locale,
@@ -30,6 +33,15 @@ export const VendorsApplicationsCascadeView = ({
 
   return (
     <>
+      <AcceptedApplicationsQueue>
+        <AcceptedApplicationsQueueTitle>{algorithmTitle}</AcceptedApplicationsQueueTitle>
+        <AcceptedApplicationsQueueDescription start={0}>
+          {algorithmSteps.map((step) => (
+            <li key={step}>{step}</li>
+          ))}
+        </AcceptedApplicationsQueueDescription>
+      </AcceptedApplicationsQueue>
+
       <AcceptedApplicationsQueue>
         <ApplicationsStack>
           {reservedApplications.map(({ application, reservedStandId }) => (

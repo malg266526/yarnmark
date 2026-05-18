@@ -11,6 +11,7 @@ import { isWithinBox } from './utils/isWithinBox';
 import { CtaButton } from '../Button';
 import { saveHallToFile } from './utils/saveHallToFile';
 import { StandList } from './StandList';
+import { ColIndexes } from './ColIndexes';
 
 const GRID_COLS = 52; // 26m / 0.5m
 const GRID_ROWS = 88; // 44m / 0.5m
@@ -30,13 +31,31 @@ const StandDetailsContainer = styled.div`
   gap: ${RedesignSpacings.md};
 `;
 
+const GridLayout = styled.div`
+  display: grid;
+  grid-template-areas:
+    '. col-indexes'
+    'row-indexes grid';
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+`;
+
+const ColIndexesArea = styled.div`
+  grid-area: col-indexes;
+`;
+
+const RowIndexesArea = styled.div`
+  grid-area: row-indexes;
+`;
+
 const GridContainer = styled.div`
   display: grid;
   grid-template-rows: repeat(${GRID_ROWS}, ${size}px);
   grid-template-columns: repeat(${GRID_COLS}, ${size}px);
+  min-height: calc(${GRID_ROWS} * ${size + 1}px - 1px);
   gap: 1px;
   background: #ccc;
-  overflow: auto;
+  grid-area: grid;
 `;
 
 const Square = styled.div<{
@@ -100,10 +119,17 @@ export const Editor = () => {
 
   return (
     <EditorContainer>
-      <RowIndexes rows={GRID_ROWS} />
-      <GridContainer>
-        {Array.from({ length: GRID_ROWS }).map((_, row) =>
-          Array.from({ length: GRID_COLS }).map((_, col) => {
+      <GridLayout>
+        <ColIndexesArea>
+          <ColIndexes cols={GRID_COLS} />
+        </ColIndexesArea>
+        <RowIndexesArea>
+          <RowIndexes rows={GRID_ROWS} />
+        </RowIndexesArea>
+        <GridContainer>
+          {Array.from({ length: GRID_ROWS * GRID_COLS }, (_, i) => {
+            const row = Math.floor(i / GRID_COLS);
+            const col = i % GRID_COLS;
             const stand = getStandAtCell(row, col);
             const background = stand
               ? StandColorsMap[stand.color || 'taken']
@@ -133,7 +159,6 @@ export const Editor = () => {
                 {isMiddle && stand ? (
                   <StandIndex>
                     {stand.index}
-
                     <StandVendor>{stand.vendor}</StandVendor>
                   </StandIndex>
                 ) : (
@@ -141,9 +166,9 @@ export const Editor = () => {
                 )}
               </Square>
             );
-          })
-        )}
-      </GridContainer>
+          })}
+        </GridContainer>
+      </GridLayout>
       <StandDetailsContainer>
         <StandInfo start={start} end={end} />
         <StandForm start={start} end={end} />

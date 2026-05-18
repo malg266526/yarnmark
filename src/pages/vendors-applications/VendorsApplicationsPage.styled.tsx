@@ -35,6 +35,17 @@ export const AcceptedApplicationsQueueTitle = styled.h2`
   color: ${TextColors.primary};
 `;
 
+export const AcceptedApplicationsQueueDescription = styled.ol`
+  margin: 0;
+  padding-left: ${RedesignSpacings.md};
+  display: flex;
+  flex-direction: column;
+  gap: ${RedesignSpacings.xs};
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.sm};
+  color: ${TextColors.secondary};
+`;
+
 export const AcceptedApplicationsQueueList = styled.div`
   display: flex;
   flex-direction: column;

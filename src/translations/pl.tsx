@@ -463,6 +463,23 @@ export const pl = {
       acceptedQueue: {
         title: 'Krok 1. Zaakceptowani wystawcy według czasu wysłania formularza'
       },
+      cascadeAlgorithm: {
+        title: 'Jak działa algorytm',
+        steps: {
+          acceptVendors:
+            'Organizator najpierw akceptuje wybranych wystawców, ustawiając status "zaakceptowane" w sekcji "Pokaż karty".',
+          sortAccepted:
+            'System bierze tylko zaakceptowane zgłoszenia i sortuje je od najwcześniej wysłanego formularza.',
+          checkPreferences:
+            'Następnie dla każdego wystawcy po kolei sprawdza jego listę preferowanych stoisk od najwyższego priorytetu do najniższego i przypisuje pierwsze stoisko, które w tym momencie pozostaje jeszcze wolne.',
+          sendToManualNegotiation:
+            'Jeśli wszystkie wybrane stoiska są już zajęte, zgłoszenie trafia do sekcji negocjacji ręcznej.',
+          confirmedAssignments:
+            'Po wygenerowaniu przypisań organizator zatwierdza wybrane propozycje. Dopiero wtedy dane stoisko dostaje oficjalny status "klepnięte" i jest ostatecznie zajęte.',
+          nextIterations:
+            'Jeśli część przypisań nie zostanie zatwierdzona albo dla części wystawców nadal nie ma miejsca z ich priorytetów, algorytm można uruchomić ponownie dla pozostałych wolnych stoisk w kolejnej iteracji.'
+        }
+      },
       manualNegotiation: {
         title: 'Do negocjacji ręcznej'
       },

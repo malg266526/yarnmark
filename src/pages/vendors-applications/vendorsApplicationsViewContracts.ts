@@ -19,6 +19,8 @@ export interface VendorsApplicationsCardsViewProps {
 }
 
 export interface VendorsApplicationsCascadeViewProps {
+  algorithmSteps: string[];
+  algorithmTitle: string;
   applications: VendorApplication[];
   allocatedStandLabel: string;
   locale: string;

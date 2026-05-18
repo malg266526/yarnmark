@@ -47,25 +47,36 @@ export const VendorsApplicationsView = ({
     <ApplicationsSection>
       <ApplicationsMeta>{t('vendorsApplicationsPage.savedCount', { count: applications.length })}</ApplicationsMeta>
       <ApplicationsToolbar>
-        {viewMode !== 'cards' ? (
-          <ApplicationActionButton type="button" onClick={() => setViewMode('cards')}>
-            {t('vendorsApplicationsPage.showCards')}
-          </ApplicationActionButton>
-        ) : null}
-        {viewMode !== 'cascade' ? (
-          <ApplicationActionButton type="button" onClick={() => setViewMode('cascade')}>
-            {t('vendorsApplicationsPage.showCascadeStandAllocation')}
-          </ApplicationActionButton>
-        ) : null}
-        {viewMode !== 'stands' ? (
-          <ApplicationActionButton type="button" onClick={() => setViewMode('stands')}>
-            {t('vendorsApplicationsPage.showByStand')}
-          </ApplicationActionButton>
-        ) : null}
+        <ApplicationActionButton aria-pressed={viewMode === 'cards'} type="button" onClick={() => setViewMode('cards')}>
+          {t('vendorsApplicationsPage.showCards')}
+        </ApplicationActionButton>
+        <ApplicationActionButton
+          aria-pressed={viewMode === 'cascade'}
+          type="button"
+          onClick={() => setViewMode('cascade')}
+        >
+          {t('vendorsApplicationsPage.showCascadeStandAllocation')}
+        </ApplicationActionButton>
+        <ApplicationActionButton
+          aria-pressed={viewMode === 'stands'}
+          type="button"
+          onClick={() => setViewMode('stands')}
+        >
+          {t('vendorsApplicationsPage.showByStand')}
+        </ApplicationActionButton>
       </ApplicationsToolbar>
 
       {viewMode === 'cascade' ? (
         <VendorsApplicationsCascadeView
+          algorithmSteps={[
+            t('vendorsApplicationsPage.cascadeAlgorithm.steps.acceptVendors'),
+            t('vendorsApplicationsPage.cascadeAlgorithm.steps.sortAccepted'),
+            t('vendorsApplicationsPage.cascadeAlgorithm.steps.checkPreferences'),
+            t('vendorsApplicationsPage.cascadeAlgorithm.steps.sendToManualNegotiation'),
+            t('vendorsApplicationsPage.cascadeAlgorithm.steps.confirmedAssignments'),
+            t('vendorsApplicationsPage.cascadeAlgorithm.steps.nextIterations')
+          ]}
+          algorithmTitle={t('vendorsApplicationsPage.cascadeAlgorithm.title')}
           allocatedStandLabel={t('vendorsApplicationsPage.fields.allocatedStand')}
           applications={applications}
           locale={t.i18n.language}
