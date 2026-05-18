@@ -461,6 +461,13 @@ export const en: TranslationsShape = {
       savedCount: '{{count}} applications saved',
       showByStand: 'Show by stand',
       showCards: 'Show cards',
+      showCascadeStandAllocation: 'Cascading stand allocation',
+      acceptedQueue: {
+        title: 'Step 1. Accepted vendors sorted by form submission time'
+      },
+      manualNegotiation: {
+        title: 'Manual negotiation'
+      },
       fields: {
         status: 'Status',
         mainCategory: 'Main category',
