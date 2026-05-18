@@ -1,4 +1,4 @@
-const SQUARE_SIZE_M = 0.5; // 1 square = 0.5 meters
+import { SQUARE_SIZE_M } from './hallGeometry';
 
 export const getEndFromStart = (start: { row: number; col: number }, widthM: number, heightM: number) => {
   const widthSquares = Math.ceil(widthM / SQUARE_SIZE_M);

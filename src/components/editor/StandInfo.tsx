@@ -1,4 +1,5 @@
 import React from 'react';
+import { SQUARE_SIZE_M } from './utils/hallGeometry';
 
 interface StandInfoProps {
   start: { row: number; col: number } | undefined;
@@ -12,8 +13,8 @@ export const StandInfo = ({ start, end }: StandInfoProps) => {
 
   const rowCount = Math.abs(end.row - start.row) + 1;
   const colCount = Math.abs(end.col - start.col) + 1;
-  const heightM = rowCount * 0.5;
-  const widthM = colCount * 0.5;
+  const heightM = rowCount * SQUARE_SIZE_M;
+  const widthM = colCount * SQUARE_SIZE_M;
   const sizeM2 = heightM * widthM;
 
   return (
