@@ -30,6 +30,14 @@
 - `src/pages/vendor-form/vendorFormUtils.ts` owns pure validation and step utilities.
 - `src/pages/vendor-form/tests/` stores vendor form tests.
 
+## Translations
+
+- Never hardcode user-facing text directly in JSX. Always source it through `useTypedTranslation` and the `src/translations/en.tsx` / `src/translations/pl.tsx` files.
+- Add new keys to `pl.tsx` first (it is the source of the `TranslationsShape` type), then mirror the key in `en.tsx`.
+- Use interpolation (`{{value}}`) for dynamic parts instead of string concatenation.
+- For a fixed set of variants (e.g. an enum-like union), use a dynamic key such as `t(\`namespace.key.${variant}\` as const)` rather than a manual lookup map.
+- This applies to admin/internal tooling pages (e.g. the Editor) as well as public-facing pages — do not treat internal tools as exempt.
+
 ## Forms
 
 - For simple forms, lightweight local state is acceptable.

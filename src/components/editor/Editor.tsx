@@ -12,6 +12,7 @@ import { CtaButton } from '../Button';
 import { saveHallToFile } from './utils/saveHallToFile';
 import { StandList } from './StandList';
 import { ColIndexes } from './ColIndexes';
+import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import {
   GAP_PX,
   GRID_COLS,
@@ -102,6 +103,21 @@ const GridRow = styled.div`
   line-height: 1;
 `;
 
+const ClearAllButton = styled.button`
+  all: unset;
+  cursor: pointer;
+  background-color: #ef4444;
+  color: white;
+  padding: ${RedesignSpacings.xxs} ${RedesignSpacings.sm} 3px ${RedesignSpacings.sm};
+  border-radius: 999px;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+
+  &:hover {
+    background-color: #dc2626;
+  }
+`;
+
 const GridFooter = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -158,9 +174,11 @@ const StandVendor = styled.div`
 `;
 
 export const Editor = () => {
-  const { start, end, handleMouseDown, handleMouseEnter, handleMouseUp, handleClick } = useMouseHandlers();
+  const t = useTypedTranslation();
+  const { start, end, handleMouseDown, handleMouseEnter, handleMouseUp, handleClick, setStart, setEnd } =
+    useMouseHandlers();
 
-  const { stands, currentStand } = useEditor();
+  const { stands, currentStand, clearStands } = useEditor();
   const gridContainerRef = useRef<HTMLDivElement | null>(null);
   const rowIndexesRef = useRef<HTMLDivElement | null>(null);
 
@@ -196,7 +214,7 @@ export const Editor = () => {
     <EditorContainer>
       <GridSection>
         <HallSizeInfo>
-          Hall size: {HALL_WIDTH_M}m × {HALL_HEIGHT_M}m ({GRID_COLS} × {GRID_ROWS} squares)
+          {t('editorPage.hallSize', { width: HALL_WIDTH_M, height: HALL_HEIGHT_M, cols: GRID_COLS, rows: GRID_ROWS })}
         </HallSizeInfo>
         <GridScroller>
           <>
@@ -268,9 +286,7 @@ export const Editor = () => {
                 </GridContainer>
               </GridBody>
             </GridChrome>
-            <GridFooter>
-              {HALL_WIDTH_M}m width, {HALL_HEIGHT_M}m height
-            </GridFooter>
+            <GridFooter>{t('editorPage.gridFooter', { width: HALL_WIDTH_M, height: HALL_HEIGHT_M })}</GridFooter>
           </>
         </GridScroller>
       </GridSection>
@@ -279,8 +295,20 @@ export const Editor = () => {
         <StandForm start={start} end={end} />
 
         <CtaButton type="submit" onClick={() => saveHallToFile(stands)}>
-          Generate JSON
+          {t('editorPage.generateJson')}
         </CtaButton>
+        <ClearAllButton
+          type="button"
+          onClick={() => {
+            if (window.confirm(t('editorPage.clearAllConfirm'))) {
+              clearStands();
+              setStart(undefined);
+              setEnd(undefined);
+            }
+          }}
+        >
+          {t('editorPage.clearAll')}
+        </ClearAllButton>
         <StandList />
       </StandDetailsContainer>
     </EditorContainer>

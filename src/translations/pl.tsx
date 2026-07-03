@@ -820,6 +820,44 @@ export const pl = {
         'na mniej niż 30 dni przed Targami Organizatorki nie zwraca <strong>Wystawcy</strong> opłaty za sprzedane stoisko. ',
       condition10:
         '<strong>Wystawca</strong> deklaruje, że ma świadomość wymiarów i wyposażenia wybranego przez siebie stoiska. Wystawca oświadcza, że nie będzie wykraczać poza wskazane przez Organizatorki granice stoiska sprzętem, towarem lub reklamą.'
+    },
+    editorPage: {
+      kicker: 'Admin',
+      title: 'Edytor',
+      hallSize: 'Wielkość hali: {{width}}m × {{height}}m ({{cols}} × {{rows}} kratek)',
+      gridFooter: '{{width}}m szerokości, {{height}}m wysokości',
+      generateJson: 'Generuj JSON',
+      clearAll: 'Wyczyść wszystko',
+      clearAllConfirm: 'Usunąć wszystkie stoiska? Tej operacji nie można cofnąć.',
+      standInfo: {
+        title: 'Informacje o stoisku',
+        noSelection: 'Nie wybrano stoiska',
+        height: 'Wysokość: {{value}} m',
+        width: 'Szerokość: {{value}} m',
+        size: 'Powierzchnia: {{value}} m²'
+      },
+      standForm: {
+        indexLabel: 'Numer stoiska:',
+        vendorLabel: 'Wystawca:',
+        descriptionLabel: 'Opis:',
+        typeLabel: 'Typ:',
+        horizontalLabel: 'Poziomo:',
+        widthLabel: 'Szerokość:',
+        heightLabel: 'Wysokość:',
+        colorLabel: 'Kolor:',
+        selectColor: 'Wybierz kolor',
+        update: 'Aktualizuj',
+        addStand: 'Dodaj stoisko',
+        types: {
+          premium: 'premium',
+          mini: 'mini',
+          standard: 'standard',
+          other: 'inne'
+        }
+      },
+      standList: {
+        remove: 'Usuń'
+      }
     }
   }
 };
