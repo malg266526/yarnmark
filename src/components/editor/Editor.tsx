@@ -28,9 +28,12 @@ const rulerWidthPx = 48;
 
 const EditorContainer = styled.div`
   display: flex;
-  align-items: flex-start;
-  gap: ${RedesignSpacings.md};
+  flex-direction: row;
   flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  gap: ${RedesignSpacings.md};
 `;
 
 const StandDetailsContainer = styled.div`
@@ -43,8 +46,9 @@ const StandDetailsContainer = styled.div`
 const GridSection = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: ${RedesignSpacings.sm};
-  min-width: 0;
+  flex: 0 0 auto;
 `;
 
 const HallSizeInfo = styled.div`
@@ -55,6 +59,8 @@ const GridScroller = styled.div`
   max-width: 100%;
   overflow-x: auto;
   overflow-y: visible;
+  padding-right: ${SQUARE_PX}px;
+  padding-bottom: ${SQUARE_PX}px;
 `;
 
 const GridChrome = styled.div`

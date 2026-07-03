@@ -3,14 +3,17 @@ import { usePhone } from '../../hooks/usePhone';
 import { BackgroundColors } from '../../styles/theme';
 import { UtilityPageHeader } from '../../components/UtilityPageHeader';
 import { AdminPageBody, AdminPagePanel } from './AdminPageLayout.styled';
+import { RedesignSpacings } from '../../styles/spacings';
 
 interface AdminPageLayoutProps {
   children: ReactNode;
   kicker?: ReactNode;
   title: ReactNode;
+  desktopPadding?: keyof typeof RedesignSpacings;
+  maxWidth?: `${number}%` | `${number}px`;
 }
 
-export const AdminPageLayout = ({ children, kicker, title }: AdminPageLayoutProps) => {
+export const AdminPageLayout = ({ children, kicker, title, desktopPadding, maxWidth }: AdminPageLayoutProps) => {
   const isPhone = usePhone();
 
   return (
@@ -20,7 +23,8 @@ export const AdminPageLayout = ({ children, kicker, title }: AdminPageLayoutProp
       size="xs"
       color={BackgroundColors.navigationBand}
       stretchOnMobile
-      padding={isPhone ? 'sm' : 'xxl'}
+      padding={isPhone ? 'sm' : desktopPadding || 'xxl'}
+      maxWidth={maxWidth}
     >
       <UtilityPageHeader kicker={kicker} title={title} />
 

@@ -8,7 +8,7 @@ export const EditorPage = () => {
   const t = useTypedTranslation();
 
   return (
-    <AdminPageLayout kicker={t('editorPage.kicker')} title={t('editorPage.title')}>
+    <AdminPageLayout kicker={t('editorPage.kicker')} title={t('editorPage.title')} desktopPadding="sm" maxWidth="100%">
       <EditorProvider>
         <Editor />
       </EditorProvider>

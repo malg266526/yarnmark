@@ -35,9 +35,10 @@ const CenteredColumnBand = ({ id, color, ...props }: CenteredColumnBandProps) =>
 
 type NarrowColumnBandProps = CenteredColumnBandProps & {
   stretchOnMobile?: boolean;
+  maxWidth?: `${number}%` | `${number}px`;
 };
 
-const NarrowColumnBand = ({ id, color, stretchOnMobile, ...props }: NarrowColumnBandProps) => {
+const NarrowColumnBand = ({ id, color, stretchOnMobile, maxWidth, ...props }: NarrowColumnBandProps) => {
   const isPhone = usePhone();
 
   return (
@@ -46,7 +47,7 @@ const NarrowColumnBand = ({ id, color, stretchOnMobile, ...props }: NarrowColumn
       color={color}
       direction="column"
       align="center"
-      maxWidth={stretchOnMobile && isPhone ? '100%' : '85%'}
+      maxWidth={maxWidth ?? (stretchOnMobile && isPhone ? '100%' : '85%')}
       justify="space-evenly"
       {...props}
     />
