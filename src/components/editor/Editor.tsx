@@ -5,8 +5,9 @@ import { StandInfo } from './StandInfo';
 import { StandForm } from './StandForm';
 import { useEditor } from './EditorContext';
 import { useMouseHandlers } from './utils/useMouseHandlers';
+import { useStandDrag } from './utils/useStandDrag';
 import { RedesignSpacings } from '../../styles/spacings';
-import { StandColorsMap } from './StandProps';
+import { StandColorsMap, StandProps } from './StandProps';
 import { isWithinBox } from './utils/isWithinBox';
 import { CtaButton } from '../Button';
 import { saveHallToFile } from './utils/saveHallToFile';
@@ -134,6 +135,8 @@ const GridFooter = styled.div`
 const Square = styled.div<{
   background: string;
   isInsideStand?: boolean;
+  movable?: boolean;
+  isDragging?: boolean;
 }>`
   width: ${SQUARE_PX}px;
   height: ${SQUARE_PX}px;
@@ -149,6 +152,7 @@ const Square = styled.div<{
   border: ${({ isInsideStand }) => (isInsideStand ? '1px solid #f0f0f0' : '1px solid #bbb')};
   transition: background 0.1s ease;
   position: relative;
+  cursor: ${({ isDragging, movable }) => (isDragging ? 'grabbing' : movable ? 'grab' : 'default')};
 `;
 
 const StandIndex = styled.div`
@@ -185,14 +189,63 @@ export const Editor = () => {
     useMouseHandlers();
 
   const { stands, currentStand, clearStands } = useEditor();
+  const standDrag = useStandDrag();
   const gridContainerRef = useRef<HTMLDivElement | null>(null);
   const rowIndexesRef = useRef<HTMLDivElement | null>(null);
 
+  const effectiveStands = standDrag.preview
+    ? stands.map((stand) =>
+        stand.id === standDrag.preview!.standId
+          ? { ...stand, start: standDrag.preview!.start, end: standDrag.preview!.end }
+          : stand
+      )
+    : stands;
+
   const getStandAtCell = (row: number, col: number) => {
-    return stands.find((stand) => isWithinBox(row, col, stand.start, stand.end)) || null;
+    return effectiveStands.find((stand) => isWithinBox(row, col, stand.start, stand.end)) || null;
   };
 
+  const isSelectedStand = (stand: StandProps | null): stand is StandProps =>
+    !!stand && !!stand.start && !!stand.end && stand.id === currentStand.id;
+
   const isSelected = (row: number, col: number) => isWithinBox(row, col, start, end);
+
+  const handleCellMouseDown = (row: number, col: number) => {
+    const stand = getStandAtCell(row, col);
+
+    if (isSelectedStand(stand)) {
+      standDrag.beginDrag(stand, row, col);
+      return;
+    }
+
+    handleMouseDown(row, col);
+  };
+
+  const handleCellMouseEnter = (row: number, col: number) => {
+    if (standDrag.isDragging) {
+      standDrag.dragOver(row, col);
+      return;
+    }
+
+    handleMouseEnter(row, col);
+  };
+
+  const handleCellMouseUp = () => {
+    if (standDrag.isDragging) {
+      standDrag.endDrag();
+      return;
+    }
+
+    handleMouseUp();
+  };
+
+  const handleCellClick = (row: number, col: number) => {
+    if (standDrag.consumeClickAfterDrag()) {
+      return;
+    }
+
+    handleClick(row, col, currentStand.width ?? 1, currentStand.height ?? 1);
+  };
 
   useEffect(() => {
     const gridElement = gridContainerRef.current;
@@ -271,10 +324,12 @@ export const Editor = () => {
                             data-col={col}
                             background={background}
                             isInsideStand={isInsideStand}
-                            onMouseDown={() => handleMouseDown(row, col)}
-                            onMouseEnter={() => handleMouseEnter(row, col)}
-                            onMouseUp={handleMouseUp}
-                            onClick={() => handleClick(row, col, currentStand.width ?? 1, currentStand.height ?? 1)}
+                            movable={isSelectedStand(stand)}
+                            isDragging={standDrag.isDragging}
+                            onMouseDown={() => handleCellMouseDown(row, col)}
+                            onMouseEnter={() => handleCellMouseEnter(row, col)}
+                            onMouseUp={handleCellMouseUp}
+                            onClick={() => handleCellClick(row, col)}
                           >
                             {isMiddle && stand ? (
                               <StandIndex>
