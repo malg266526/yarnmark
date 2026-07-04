@@ -122,6 +122,15 @@ const ClearAllButton = styled.button`
   &:hover {
     background-color: #dc2626;
   }
+
+  &:active {
+    background-color: #b91c1c;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #b91c1c;
+    outline-offset: 2px;
+  }
 `;
 
 const GridFooter = styled.div`
