@@ -1,6 +1,6 @@
 import React from 'react';
-import { VendorsApplicationsView } from './VendorsApplicationsView';
-import { useVendorsApplications } from './useVendorsApplications';
+import { VendorsApplicationsView } from './components/VendorsApplicationsView';
+import { useVendorsApplications } from './hooks/useVendorsApplications';
 import { VendorsApplicationsPageStyled } from './VendorsApplicationsPage.styled';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import { AdminPageLayout } from '../../AdminPageLayout';

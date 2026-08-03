@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react';
-import { listVendorApplications, updateVendorApplicationStatus } from './vendorsApplicationsStorage';
-import type { VendorApplication, VendorApplicationStatus } from '../../../vendor-form/vendorFormSubmission.ts';
+import {
+  listVendorApplications,
+  updateVendorApplicationStatus
+} from '../../../../../domain/vendorApplications/vendorsApplicationsStorage';
+import type {
+  VendorApplication,
+  VendorApplicationStatus
+} from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
 
 export const useVendorsApplications = () => {
   const [applications, setApplications] = useState<VendorApplication[]>([]);

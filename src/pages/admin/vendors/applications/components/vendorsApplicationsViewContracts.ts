@@ -1,4 +1,7 @@
-import type { VendorApplication, VendorApplicationStatus } from '../../../vendor-form/vendorFormSubmission.ts';
+import type {
+  VendorApplication,
+  VendorApplicationStatus
+} from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
 
 export type ApplicationsViewMode = 'cards' | 'cascade' | 'stands';
 

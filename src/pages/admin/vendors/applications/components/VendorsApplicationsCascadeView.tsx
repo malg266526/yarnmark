@@ -9,12 +9,9 @@ import {
   ApplicationsMeta,
   ApplicationsMetaRow,
   ApplicationTitle
-} from './VendorsApplicationsPage.styled';
-import {
-  formatDateTime,
-  getCascadeChoiceReservations,
-  getCascadeManualNegotiationReservations
-} from './VendorsApplicationsUtils';
+} from '../VendorsApplicationsPage.styled';
+import { formatDateTime } from '../utils/vendorsApplicationsFormatters';
+import { getCascadeChoiceReservations, getCascadeManualNegotiationReservations } from '../utils/standAllocationUtils';
 import { VendorsApplicationsCascadeViewProps } from './vendorsApplicationsViewContracts';
 
 export const VendorsApplicationsCascadeView = ({

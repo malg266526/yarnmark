@@ -1,9 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { isEmailValid, isPhoneValid, toggleStandSelection } from '../vendorFormUtils.ts';
-import { INITIAL_VENDOR_FORM_STATE } from '../vendorFormTypes.ts';
+import {
+  isEmailValid,
+  isPhoneValid,
+  toggleStandSelection
+} from '../../../domain/vendorApplications/vendorFormUtils.ts';
+import { INITIAL_VENDOR_FORM_STATE } from '../../../domain/vendorApplications/vendorFormTypes.ts';
 import { createEmptyVendorFormDraft, parseStoredVendorFormDraft } from '../vendorFormStorage.ts';
-import { collectVendorFormValidationErrors } from '../vendorFormSchema.ts';
+import { collectVendorFormValidationErrors } from '../../../domain/vendorApplications/vendorFormSchema.ts';
 
 const createValidVendorFormState = () => ({
   ...INITIAL_VENDOR_FORM_STATE,

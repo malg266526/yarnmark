@@ -7,8 +7,9 @@ import {
   StandRequestList,
   StandRequestMeta,
   StandRequestVendor
-} from './VendorsApplicationsPage.styled';
-import { formatDateTime, groupApplicationsByStand } from './VendorsApplicationsUtils';
+} from '../VendorsApplicationsPage.styled';
+import { formatDateTime } from '../utils/vendorsApplicationsFormatters';
+import { groupApplicationsByStand } from '../utils/standGroupingUtils';
 import { VendorsApplicationsStandGroupsViewProps } from './vendorsApplicationsViewContracts';
 
 export const VendorsApplicationsStandGroupsView = ({

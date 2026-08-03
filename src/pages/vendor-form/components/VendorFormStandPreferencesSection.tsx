@@ -22,7 +22,7 @@ import {
   StandStatusPill,
   WarningCard
 } from '../VendorFormPage.styled';
-import { VENDOR_FORM_MAX_PREFERRED_STANDS } from '../vendorFormConstants.ts';
+import { VENDOR_FORM_MAX_PREFERRED_STANDS } from '../../../domain/vendorApplications/vendorFormConstants.ts';
 import { SelectableHall } from './SelectableHall';
 import type { VendorFormActions, VendorFormBindings, VendorFormDerivedState } from './vendorFormViewContracts';
 

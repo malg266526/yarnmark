@@ -46,42 +46,6 @@ export const AcceptedApplicationsQueueDescription = styled.ol`
   color: ${TextColors.secondary};
 `;
 
-export const AcceptedApplicationsQueueList = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${RedesignSpacings.xs};
-`;
-
-export const AcceptedApplicationsQueueItem = styled.div`
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) max-content;
-  gap: ${RedesignSpacings.sm};
-  align-items: baseline;
-  padding-bottom: ${RedesignSpacings.xs};
-  border-bottom: 1px solid ${BorderColors.subtleGreen};
-
-  &:last-child {
-    padding-bottom: 0;
-    border-bottom: 0;
-  }
-
-  @media (max-width: ${ScreenSize.phone}) {
-    grid-template-columns: minmax(0, 1fr);
-  }
-`;
-
-export const AcceptedApplicationsQueueStoreName = styled.div`
-  font-family: ${FontFamilies.primary};
-  font-size: ${FontSize.md};
-  color: ${TextColors.primary};
-`;
-
-export const AcceptedApplicationsQueueTimestamp = styled.div`
-  font-family: ${FontFamilies.primary};
-  font-size: ${FontSize.sm};
-  color: ${TextColors.secondary};
-`;
-
 export const ApplicationsToolbar = styled.div`
   display: flex;
   justify-content: flex-end;

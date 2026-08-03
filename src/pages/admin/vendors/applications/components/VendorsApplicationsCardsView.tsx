@@ -10,15 +10,11 @@ import {
   ApplicationsGrid,
   ApplicationsMeta,
   ApplicationTitle
-} from './VendorsApplicationsPage.styled';
-import { downloadVendorApplicationLogo } from './vendorsApplicationsImageUtils';
-import {
-  formatBoolean,
-  formatDateTime,
-  formatMainCategory,
-  sortApplicationsBySubmittedAt,
-  VENDOR_APPLICATION_STATUS_ORDER
-} from './VendorsApplicationsUtils';
+} from '../VendorsApplicationsPage.styled';
+import { downloadVendorApplicationLogo } from '../utils/vendorsApplicationsImageUtils';
+import { formatBoolean, formatDateTime, formatMainCategory } from '../utils/vendorsApplicationsFormatters';
+import { sortApplicationsBySubmittedAt } from '../utils/standAllocationUtils';
+import { VENDOR_APPLICATION_STATUS_ORDER } from '../vendorsApplicationsConstants';
 import { VendorsApplicationsCardsViewProps } from './vendorsApplicationsViewContracts';
 
 export const VendorsApplicationsCardsView = ({
