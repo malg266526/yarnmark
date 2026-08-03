@@ -21,7 +21,7 @@ import { usePhone } from './hooks/usePhone';
 import { EditorPage } from './pages/EditorPage';
 import { VendorStatutePage } from './pages/VendorsStatute';
 import { VendorFormPage } from './pages/VendorFormPage';
-import { VendorsApplicationsPage } from './pages/VendorsApplicationsPage';
+import { VendorsApplicationsPage } from './pages/admin/vendors/applications/VendorsApplicationsPage';
 import { AdminLayout } from './pages/admin/AdminLayout';
 
 const GlobalStyle = createGlobalStyle`

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import type { VendorApplication } from '../vendor-form/vendorFormSubmission.ts';
+import type { VendorApplication } from '../../../../vendor-form/vendorFormSubmission.ts';
 import {
   formatBoolean,
   formatDateTime,
@@ -11,7 +11,7 @@ import {
   groupApplicationsByStand,
   sortApplicationsBySubmittedAt,
   VENDOR_APPLICATION_STATUS_ORDER
-} from './VendorsApplicationsUtils.ts';
+} from '../VendorsApplicationsUtils.ts';
 
 const BOOLEAN_LABELS = {
   no: 'No',

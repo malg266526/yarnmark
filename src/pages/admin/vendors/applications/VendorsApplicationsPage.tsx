@@ -1,9 +1,9 @@
 import React from 'react';
-import { VendorsApplicationsView } from './vendors-applications/VendorsApplicationsView';
-import { useVendorsApplications } from './vendors-applications/useVendorsApplications';
-import { VendorsApplicationsPageStyled } from './vendors-applications/VendorsApplicationsPage.styled';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
-import { AdminPageLayout } from './admin/AdminPageLayout';
+import { VendorsApplicationsView } from './VendorsApplicationsView';
+import { useVendorsApplications } from './useVendorsApplications';
+import { VendorsApplicationsPageStyled } from './VendorsApplicationsPage.styled';
+import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
+import { AdminPageLayout } from '../../AdminPageLayout';
 
 export const VendorsApplicationsPage = () => {
   const t = useTypedTranslation();

@@ -3,11 +3,11 @@ import type {
   VendorApplication,
   VendorApplicationAllocationState,
   VendorApplicationStatus
-} from '../vendor-form/vendorFormSubmission.ts';
-import type { VendorFormState } from '../vendor-form/vendorFormTypes.ts';
+} from '../../../vendor-form/vendorFormSubmission.ts';
+import type { VendorFormState } from '../../../vendor-form/vendorFormTypes.ts';
 import { VENDORS_APPLICATIONS_MOCK } from './vendorsApplicationsMock.ts';
-import { vendorFormStateSchema } from '../vendor-form/vendorFormSchema.ts';
-import { getStandInterestCounts } from '../vendor-form/vendorFormStandInterestUtils.ts';
+import { vendorFormStateSchema } from '../../../vendor-form/vendorFormSchema.ts';
+import { getStandInterestCounts } from '../../../vendor-form/vendorFormStandInterestUtils.ts';
 
 const VENDOR_APPLICATIONS_STORAGE_KEY = 'vendor-applications-json';
 const DEFAULT_VENDOR_APPLICATION_STATUS: VendorApplicationStatus = 'new';

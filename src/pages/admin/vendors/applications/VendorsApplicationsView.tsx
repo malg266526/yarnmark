@@ -6,8 +6,8 @@ import {
   ApplicationsSection,
   ApplicationsToolbar
 } from './VendorsApplicationsPage.styled';
-import type { VendorApplication, VendorApplicationStatus } from '../vendor-form/vendorFormSubmission.ts';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import type { VendorApplication, VendorApplicationStatus } from '../../../vendor-form/vendorFormSubmission.ts';
+import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import { ApplicationsViewMode } from './vendorsApplicationsViewContracts';
 import { VendorsApplicationsCardsView } from './VendorsApplicationsCardsView';
 import { VendorsApplicationsCascadeView } from './VendorsApplicationsCascadeView';

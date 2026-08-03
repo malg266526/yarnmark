@@ -8,7 +8,7 @@ import { toggleStandSelection } from '../vendorFormUtils.ts';
 import {
   createVendorApplication,
   listStandInterestCounts
-} from '../../vendors-applications/vendorsApplicationsStorage.ts';
+} from '../../admin/vendors/applications/vendorsApplicationsStorage.ts';
 import {
   VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH,
   VENDOR_FORM_DRAFT_STORAGE_KEY,

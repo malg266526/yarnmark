@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { mergeStoredVendorApplicationsWithMocks, parseStoredVendorApplications } from './vendorsApplicationsStorage.ts';
+import {
+  mergeStoredVendorApplicationsWithMocks,
+  parseStoredVendorApplications
+} from '../vendorsApplicationsStorage.ts';
 
 const createStoredVendorApplicationPayload = () => ({
   allocatedStandId: null,

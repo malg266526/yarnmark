@@ -1,4 +1,4 @@
-import type { VendorApplication } from '../vendor-form/vendorFormSubmission.ts';
+import type { VendorApplication } from '../../../vendor-form/vendorFormSubmission.ts';
 
 export const VENDORS_APPLICATIONS_MOCK: VendorApplication[] = [
   {
