@@ -1,9 +1,13 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Typography } from '../../components/Typography';
+import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { useAdminAuth } from './useAdminAuth';
+import { AdminLoginView } from './AdminLoginView';
 import {
   AdminBrand,
   AdminKicker,
+  AdminLogoutButton,
   AdminMain,
   AdminNav,
   AdminNavLink,
@@ -24,6 +28,13 @@ const ADMIN_LINKS = [
 ] as const;
 
 export const AdminLayout = () => {
+  const t = useTypedTranslation();
+  const { isAuthenticated, login, logout } = useAdminAuth();
+
+  if (!isAuthenticated) {
+    return <AdminLoginView onSubmit={login} />;
+  }
+
   return (
     <AdminRoot>
       <AdminShell>
@@ -44,6 +55,10 @@ export const AdminLayout = () => {
               </AdminNavLink>
             ))}
           </AdminNav>
+
+          <AdminLogoutButton type="button" onClick={logout}>
+            <Typography size="md">{t('adminLogin.logout')}</Typography>
+          </AdminLogoutButton>
         </AdminSidebar>
 
         <AdminMain>

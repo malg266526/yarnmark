@@ -89,6 +89,20 @@ export const AdminNavLink = styled(NavLink)`
   }
 `;
 
+export const AdminLogoutButton = styled.button`
+  all: unset;
+  cursor: pointer;
+  margin-top: auto;
+  padding: ${RedesignSpacings.xs} ${RedesignSpacings.sm};
+  border-radius: 10px;
+  border: 1px solid ${BorderColors.subtleGreen};
+  color: ${TextColors.secondary};
+
+  &:hover {
+    background: ${GrayScale[50]};
+  }
+`;
+
 export const AdminMain = styled.main`
   min-width: 0;
   padding: ${RedesignSpacings.lg};

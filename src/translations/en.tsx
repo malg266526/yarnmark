@@ -863,6 +863,14 @@ export const en: TranslationsShape = {
       standList: {
         remove: 'Remove'
       }
+    },
+    adminLogin: {
+      kicker: 'Admin',
+      title: 'Admin panel',
+      passwordLabel: 'Password',
+      submit: 'Log in',
+      error: 'Incorrect password',
+      logout: 'Log out'
     }
   }
 };

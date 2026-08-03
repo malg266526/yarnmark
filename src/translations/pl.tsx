@@ -862,6 +862,14 @@ export const pl = {
       standList: {
         remove: 'Usuń'
       }
+    },
+    adminLogin: {
+      kicker: 'Admin',
+      title: 'Panel administracyjny',
+      passwordLabel: 'Hasło',
+      submit: 'Zaloguj',
+      error: 'Nieprawidłowe hasło',
+      logout: 'Wyloguj'
     }
   }
 };

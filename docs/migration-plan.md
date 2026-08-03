@@ -38,12 +38,12 @@ Utworzenie wspólnego layoutu dla strefy partnera (analogicznie do `AdminLayout`
 - **Czas na analizę biznesową:** 1h (ustalić, czy przy tylko 2 podstronach partner potrzebuje w ogóle własnej nawigacji/layoutu, czy to nadmiarowe teraz)
 - **Czas na refaktor:** 2–3h
 
-## 5. Mechanizm autoryzacji / RBAC dla `/admin/*`
+## 5. Mechanizm autoryzacji / RBAC dla `/admin/*` — ✅ Zrobione (wariant lekki)
 
-Dziś `AdminLayout` nie ma żadnego guarda — każdy z linkiem wchodzi bez logowania. To największy i najbardziej niepewny punkt planu, bo w projekcie nie istnieje żaden backend/usługa auth.
+Zaimplementowano wariant "lekka bramka po stronie klienta" (wybrany przez użytkownika zamiast pełnego backendu): jedno wspólne hasło (`adminAuthConstants.ts`), ekran logowania (`AdminLoginView`), stan zalogowania w `localStorage` (`useAdminAuth`), guard w `AdminLayout` + przycisk wylogowania. **To nie jest prawdziwe RBAC** — hasło trafia do zbundlowanego JS i jest trywialne do obejścia przez devtools/edycję `localStorage`. Wystarczające jako odstraszacz dla przypadkowych gości narzędzia wewnętrznego bez wrażliwych danych płatniczych; prawdziwy backend auth (Firebase/własny) pozostaje nieotwartą opcją na przyszłość, gdyby wymagania się zaostrzyły.
 
-- **Czas na analizę biznesową:** 4–8h (kto ma mieć rolę admina, jaki mechanizm logowania — hasło w zmiennej środowiskowej, Firebase Auth, własny backend; wymagania co do sesji/wygasania; czy to w ogóle mieści się w budżecie na SPA bez backendu)
-- **Czas na refaktor:** silnie zależny od wybranego rozwiązania — wstępnie 2–5 dni roboczych (16–40h) na guard tras + ekran logowania + integrację z wybranym dostawcą. **Wymaga osobnego doprecyzowania zakresu przed wyceną finalną.**
+- **Czas na analizę biznesową:** 0h (decyzja podjęta: jedno wspólne hasło, wariant lekki)
+- **Czas na refaktor:** ~1.5h
 
 ## 6. Nowa strona `/workshops/apply`
 
@@ -90,12 +90,12 @@ Weryfikacja `Menu.tsx`/`Header.tsx` po zmianach ścieżek — upewnić się, że
 | 2. Rename `/admin/vendors/applications` | 0.5h              | 1h                     |
 | 3. `/vendor/statute`                    | 1h                | 1–1.5h                 |
 | 4. Strefa Partner                       | 1h                | 2–3h                   |
-| 5. RBAC / auth                          | 4–8h              | 16–40h                 |
+| 5. RBAC / auth (wariant lekki)          | 0h                | 1.5h                   |
 | 6. `/workshops/apply`                   | 3–4h              | 8–12h                  |
 | 7. `/admin/workshops/applications`      | 2h                | 8h                     |
 | 8. `/portal/dashboard`                  | 4h                | 16–24h                 |
 | 9. Nawigacja/stopka                     | 0.5h              | 1h                     |
 | 10. Weryfikacja końcowa                 | 0h                | 2h                     |
-| **Razem**                               | **~16.5–21h**     | **~55.5–93h**          |
+| **Razem**                               | **~11.5–13h**     | **~40–52h**            |
 
-Punkty 5 i 8 są największym źródłem niepewności (brak istniejącego backendu/auth) — zalecane osobne doprecyzowanie zakresu przed przystąpieniem do wyceny sprintu.
+Punkt 8 pozostaje największym źródłem niepewności — zależy od punktu 5, a skoro punkt 5 jest teraz lekką bramką klienta (bez realnej identyfikacji użytkownika), `/portal/dashboard` nadal wymaga osobnej decyzji, jak (i czy w ogóle bez backendu) powiązać zgłoszenie z „kontem".
