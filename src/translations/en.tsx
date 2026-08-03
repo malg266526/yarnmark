@@ -563,6 +563,10 @@ export const en: TranslationsShape = {
       }
     },
     goBack: 'Go back',
+    confirmModal: {
+      confirm: 'Confirm',
+      cancel: 'Cancel'
+    },
     workshops: {
       title: 'Workshops',
       scheduleTitle: 'Workshops schedule',

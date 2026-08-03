@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { RowIndexes } from './RowIndexes';
 import { StandInfo } from './StandInfo';
@@ -10,6 +10,7 @@ import { RedesignSpacings } from '../../styles/spacings';
 import { StandColorsMap, StandProps } from './StandProps';
 import { isWithinBox } from './utils/isWithinBox';
 import { CtaButton } from '../Button';
+import { ConfirmModal } from '../ConfirmModal';
 import { saveHallToFile } from './utils/saveHallToFile';
 import { StandList } from './StandList';
 import { ColIndexes } from './ColIndexes';
@@ -201,6 +202,14 @@ export const Editor = () => {
   const standDrag = useStandDrag();
   const gridContainerRef = useRef<HTMLDivElement | null>(null);
   const rowIndexesRef = useRef<HTMLDivElement | null>(null);
+  const [isClearConfirmOpen, setIsClearConfirmOpen] = useState(false);
+
+  const handleClearAll = () => {
+    clearStands();
+    setStart(undefined);
+    setEnd(undefined);
+    setIsClearConfirmOpen(false);
+  };
 
   const effectiveStands = standDrag.preview
     ? stands.map((stand) =>
@@ -367,20 +376,20 @@ export const Editor = () => {
         <CtaButton type="submit" onClick={() => saveHallToFile(stands)}>
           {t('editorPage.generateJson')}
         </CtaButton>
-        <ClearAllButton
-          type="button"
-          onClick={() => {
-            if (window.confirm(t('editorPage.clearAllConfirm'))) {
-              clearStands();
-              setStart(undefined);
-              setEnd(undefined);
-            }
-          }}
-        >
+        <ClearAllButton type="button" onClick={() => setIsClearConfirmOpen(true)}>
           {t('editorPage.clearAll')}
         </ClearAllButton>
         <StandList />
       </StandDetailsContainer>
+
+      <ConfirmModal
+        isOpen={isClearConfirmOpen}
+        message={t('editorPage.clearAllConfirm')}
+        confirmLabel={t('editorPage.clearAll')}
+        variant="danger"
+        onConfirm={handleClearAll}
+        onCancel={() => setIsClearConfirmOpen(false)}
+      />
     </EditorContainer>
   );
 };

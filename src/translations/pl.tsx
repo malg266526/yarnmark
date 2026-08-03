@@ -560,6 +560,10 @@ export const pl = {
       }
     },
     goBack: 'Wróć',
+    confirmModal: {
+      confirm: 'Potwierdź',
+      cancel: 'Anuluj'
+    },
     workshops: {
       title: 'Warsztaty',
       scheduleTitle: 'Harmonogram warsztatów',
