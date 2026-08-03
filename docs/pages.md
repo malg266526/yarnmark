@@ -10,10 +10,13 @@ This document lists all the pages in the application, their visibility, and whet
 | `/info-for-vendors`        | Yes     | Visible | `ForVendorsPage`          |
 | `/statutes`                | Yes     | Visible | `StatutesPage`            |
 | `/hall`                    | Yes     | Visible | `HallMapPage`             |
-| `/editor`                  | No      | Hidden  | `EditorPage`              |
 | `/info-for-vendors-statue` | No      | Hidden  | `VendorStatutePage`       |
-| `/vendors-form`            | No      | Hidden  | `VendorsFormPage`         |
-| `/vendors-applications`    | No      | Hidden  | `VendorsApplicationsPage` |
+| `/admin`                   | No      | Hidden  | `AdminLayout` (redirects to `/admin/applications`) |
+| `/admin/editor`            | No      | Hidden  | `EditorPage`              |
+| `/admin/vendor-form`       | No      | Hidden  | `VendorFormPage`          |
+| `/admin/applications`      | No      | Hidden  | `VendorsApplicationsPage` |
+
+Legacy paths `/editor` and `/vendor-form` still exist and redirect to `/admin/editor` and `/admin/vendor-form` respectively (kept for old bookmarks/links).
 
 ## Menu Links
 

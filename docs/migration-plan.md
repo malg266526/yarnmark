@@ -10,12 +10,12 @@ Czasy są szacunkowe (roboczogodziny), zakładają jednego dewelopera i brak nie
 
 ---
 
-## 1. Synchronizacja `docs/pages.md` ze stanem faktycznym
+## 1. Synchronizacja `docs/pages.md` ze stanem faktycznym — ✅ Zrobione
 Zaktualizować tabelę ścieżek tak, by odzwierciedlała istniejące już `/admin/*`, zamiast nieaktualnych `/editor`, `/vendors-form`, `/vendors-applications`.
 - **Czas na analizę biznesową:** 0.5h (potwierdzić z zespołem, że obecny stan `/admin/*` to docelowy kierunek, a nie stan przejściowy)
 - **Czas na refaktor:** 0.5h
 
-## 2. Ujednolicenie nazw pod `/admin` (`applications` → `vendors/applications`)
+## 2. Ujednolicenie nazw pod `/admin` (`applications` → `vendors/applications`) — ✅ Zrobione
 Zmiana `/admin/applications` na `/admin/vendors/applications`, żeby zrobić miejsce na przyszłe `/admin/workshops/applications`. Aktualizacja `App.tsx`, linków w `AdminLayout.tsx` (`ADMIN_LINKS`), ewentualnych testów/importów.
 - **Czas na analizę biznesową:** 0.5h (potwierdzić docelowe nazewnictwo — narzędzie wewnętrzne, brak ryzyka SEO/zakładek zewnętrznych)
 - **Czas na refaktor:** 1h

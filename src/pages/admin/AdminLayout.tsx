@@ -15,7 +15,7 @@ import {
 const ADMIN_LINKS = [
   {
     label: 'Applications',
-    to: '/admin/applications'
+    to: '/admin/vendors/applications'
   },
   {
     label: 'Vendor form',

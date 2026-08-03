@@ -82,10 +82,10 @@ export const App = () => {
           <Route path="/editor" element={<Navigate to="/admin/editor" replace />} />
           <Route path="/vendor-form" element={<Navigate to="/admin/vendor-form" replace />} />
           <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<Navigate to="/admin/applications" replace />} />
+            <Route index element={<Navigate to="/admin/vendors/applications" replace />} />
             <Route path="editor" element={<EditorPage />} />
             <Route path="vendor-form" element={<VendorFormPage />} />
-            <Route path="applications" element={<VendorsApplicationsPage />} />
+            <Route path="vendors/applications" element={<VendorsApplicationsPage />} />
           </Route>
         </Routes>
 

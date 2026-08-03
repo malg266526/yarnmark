@@ -15,6 +15,7 @@
 - Debug logging is temporary. If you add `console.*` or instrumentation to investigate, track exactly what you added and remove precisely that once the cause is found. Do not leave introduced logging in committed code.
 - Verify the actual outcome, not just that it compiles. For UI/layout, confirm in the running app/browser; for logic, exercise the path. If you could not verify a specific way, state that plainly rather than claiming it works.
 - Report faithfully: if something is unverified, partially done, or a workaround, say so.
+- When executing a step from a plan tracked in a document (e.g. a migration plan under `docs/`), mark that step done in the document itself once it is implemented and verified — don't just report completion in chat and leave the doc stale.
 
 ## Clean Code
 
