@@ -97,7 +97,7 @@ export const ForVendorsPage = () => {
 
           <RowLayout justify="flex-start">
             <Typography size="md">{t('infoForVendorsPage.seeStatue')}</Typography>
-            <Link to="/info-for-vendors-statue">
+            <Link to="/vendor/statute">
               <Typography size="md">{t('infoForVendorsPage.here')}</Typography>
             </Link>
           </RowLayout>

@@ -27,7 +27,7 @@ export const VendorFormStatuteSection = ({ formActions, formBindings }: VendorFo
           />
           <span>
             {t('vendorsFormPage.steps.statute.prefix')}{' '}
-            <InlineLink href="/info-for-vendors-statue">{t('vendorsFormPage.steps.statute.linkLabel')}</InlineLink>
+            <InlineLink href="/vendor/statute">{t('vendorsFormPage.steps.statute.linkLabel')}</InlineLink>
           </span>
         </CheckboxRow>
         <DisclaimerText>{t('vendorsFormPage.steps.statute.complianceHint')}</DisclaimerText>

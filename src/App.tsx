@@ -78,7 +78,8 @@ export const App = () => {
           <Route path="/info-for-vendors" element={<ForVendorsPage />} />
           <Route path="/statutes" element={<StatutesPage />} />
           <Route path="/hall" element={<HallMapPage />} />
-          <Route path="/info-for-vendors-statue" element={<VendorStatutePage />} />
+          <Route path="/vendor/statute" element={<VendorStatutePage />} />
+          <Route path="/info-for-vendors-statue" element={<Navigate to="/vendor/statute" replace />} />
           <Route path="/editor" element={<Navigate to="/admin/editor" replace />} />
           <Route path="/vendor-form" element={<Navigate to="/admin/vendor-form" replace />} />
           <Route path="/admin" element={<AdminLayout />}>
