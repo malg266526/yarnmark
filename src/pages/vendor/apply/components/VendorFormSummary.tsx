@@ -1,6 +1,6 @@
 import React from 'react';
-import { Typography } from '../../../components/Typography';
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { Typography } from '../../../../components/Typography';
+import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import { Fieldset, SummaryList } from '../VendorFormPage.styled';
 import type { VendorFormBindings, VendorFormStatusState } from './vendorFormViewContracts';
 

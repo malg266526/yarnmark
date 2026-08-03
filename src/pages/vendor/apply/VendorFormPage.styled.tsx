@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { DropShadow, Radius } from '../../styles/cards';
-import { FontSize } from '../../styles/font-size';
-import { ScreenSize } from '../../styles/screeen-size';
-import { RedesignSpacings } from '../../styles/spacings';
-import { BackgroundColors, Colors, FontFamilies, GrayScale, TextColors, WarningColors } from '../../styles/theme';
+import { DropShadow, Radius } from '../../../styles/cards';
+import { FontSize } from '../../../styles/font-size';
+import { ScreenSize } from '../../../styles/screeen-size';
+import { RedesignSpacings } from '../../../styles/spacings';
+import { BackgroundColors, Colors, FontFamilies, GrayScale, TextColors, WarningColors } from '../../../styles/theme';
 
 export const FormCard = styled.div`
   width: 100%;

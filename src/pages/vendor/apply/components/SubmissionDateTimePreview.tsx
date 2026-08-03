@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import { InfoLabel, InfoRow, InfoValue } from '../VendorFormPage.styled';
 
 export const SubmissionDateTimePreview = () => {

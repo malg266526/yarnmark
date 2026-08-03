@@ -1,7 +1,7 @@
 import React from 'react';
 import { Trans } from 'react-i18next';
-import { Typography } from '../../../components/Typography';
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { Typography } from '../../../../components/Typography';
+import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import {
   DisclaimerText,
   ErrorText,
@@ -22,7 +22,7 @@ import {
   StandStatusPill,
   WarningCard
 } from '../VendorFormPage.styled';
-import { VENDOR_FORM_MAX_PREFERRED_STANDS } from '../../../domain/vendorApplications/vendorFormConstants.ts';
+import { VENDOR_FORM_MAX_PREFERRED_STANDS } from '../../../../domain/vendorApplications/vendorFormConstants.ts';
 import { SelectableHall } from './SelectableHall';
 import type { VendorFormActions, VendorFormBindings, VendorFormDerivedState } from './vendorFormViewContracts';
 

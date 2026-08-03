@@ -1,28 +1,28 @@
 import { useEffect, useMemo, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import type { UnprefixedTranslationKeys } from '../../../translations/useTypedTranslation';
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import type { UnprefixedTranslationKeys } from '../../../../translations/useTypedTranslation';
+import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import type { VendorFormViewProps } from '../components/vendorFormViewContracts';
-import { toggleStandSelection } from '../../../domain/vendorApplications/vendorFormUtils.ts';
+import { toggleStandSelection } from '../../../../domain/vendorApplications/vendorFormUtils.ts';
 import {
   createVendorApplication,
   listStandInterestCounts
-} from '../../../domain/vendorApplications/vendorsApplicationsStorage.ts';
+} from '../../../../domain/vendorApplications/vendorsApplicationsStorage.ts';
 import {
   VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH,
   VENDOR_FORM_DRAFT_STORAGE_KEY,
   VENDOR_FORM_LOGO_MAX_BYTES,
   VENDOR_FORM_MAX_PREFERRED_STANDS
-} from '../../../domain/vendorApplications/vendorFormConstants.ts';
+} from '../../../../domain/vendorApplications/vendorFormConstants.ts';
 import {
   collectVendorFormValidationErrors,
   vendorFormValidationSchema,
   type VendorFormValues
-} from '../../../domain/vendorApplications/vendorFormSchema.ts';
-import { LogoTooLargeError, prepareLogoForUpload } from '../../../domain/vendorApplications/vendorFormLogoUtils.ts';
+} from '../../../../domain/vendorApplications/vendorFormSchema.ts';
+import { LogoTooLargeError, prepareLogoForUpload } from '../../../../domain/vendorApplications/vendorFormLogoUtils.ts';
 import { createEmptyVendorFormDraft, parseStoredVendorFormDraft } from '../vendorFormStorage.ts';
-import { isHighInterestStand } from '../../../domain/vendorApplications/vendorFormStandInterestUtils.ts';
+import { isHighInterestStand } from '../../../../domain/vendorApplications/vendorFormStandInterestUtils.ts';
 
 const readStoredVendorFormDraftOrCreateEmptyDraft = () =>
   parseStoredVendorFormDraft(window.localStorage.getItem(VENDOR_FORM_DRAFT_STORAGE_KEY)) ??

@@ -1,6 +1,6 @@
 import React from 'react';
-import { CtaButton } from '../../../components/Button';
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { CtaButton } from '../../../../components/Button';
+import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import { ActionsRow, ActionsSpacer, ErrorText, FieldHint } from '../VendorFormPage.styled';
 import { SubmissionDateTimePreview } from './SubmissionDateTimePreview';
 import type { VendorFormStatusState } from './vendorFormViewContracts';

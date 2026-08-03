@@ -1,6 +1,6 @@
 import React from 'react';
-import { Typography } from '../../../components/Typography';
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { Typography } from '../../../../components/Typography';
+import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import { CheckboxRow, DisclaimerText, ErrorText, Fieldset, FormSection, InlineLink } from '../VendorFormPage.styled';
 import type { VendorFormActions, VendorFormBindings } from './vendorFormViewContracts';
 

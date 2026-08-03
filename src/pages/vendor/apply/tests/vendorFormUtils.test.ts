@@ -4,10 +4,10 @@ import {
   isEmailValid,
   isPhoneValid,
   toggleStandSelection
-} from '../../../domain/vendorApplications/vendorFormUtils.ts';
-import { INITIAL_VENDOR_FORM_STATE } from '../../../domain/vendorApplications/vendorFormTypes.ts';
+} from '../../../../domain/vendorApplications/vendorFormUtils.ts';
+import { INITIAL_VENDOR_FORM_STATE } from '../../../../domain/vendorApplications/vendorFormTypes.ts';
 import { createEmptyVendorFormDraft, parseStoredVendorFormDraft } from '../vendorFormStorage.ts';
-import { collectVendorFormValidationErrors } from '../../../domain/vendorApplications/vendorFormSchema.ts';
+import { collectVendorFormValidationErrors } from '../../../../domain/vendorApplications/vendorFormSchema.ts';
 
 const createValidVendorFormState = () => ({
   ...INITIAL_VENDOR_FORM_STATE,

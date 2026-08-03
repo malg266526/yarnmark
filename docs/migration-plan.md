@@ -31,7 +31,7 @@ Nowa publiczna ścieżka partnerska + przekierowanie ze starej ścieżki (analog
 - **Czas na analizę biznesową:** 1h (sprawdzić, czy stara ścieżka jest gdziekolwiek linkowana z zewnątrz — social media, dokumenty PDF dla wystawców — i czy wymaga trwałego przekierowania)
 - **Czas na refaktor:** 1–1.5h
 
-## 4. Wydzielenie strefy „Partner” (`/vendor/*`)
+## 4. Wydzielenie strefy „Partner” (`/vendor/*`) — ✅ Zrobione
 
 Utworzenie wspólnego layoutu dla strefy partnera (analogicznie do `AdminLayout`), pogrupowanie `VendorStatutePage` i `VendorFormPage` pod wspólnym prefiksem tras w `App.tsx`. Struktura folderów: nowy `src/pages/partner/` obok istniejącego `src/pages/admin/`.
 

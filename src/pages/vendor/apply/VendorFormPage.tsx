@@ -1,8 +1,8 @@
 import React from 'react';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
-import { VendorFormView } from './vendor-form/components/VendorFormView';
-import { useVendorForm } from './vendor-form/hooks/useVendorForm';
-import { AdminPageLayout } from './admin/AdminPageLayout';
+import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { VendorFormView } from './components/VendorFormView';
+import { useVendorForm } from './hooks/useVendorForm';
+import { AdminPageLayout } from '../../admin/AdminPageLayout';
 
 export const VendorFormPage = () => {
   const t = useTypedTranslation();

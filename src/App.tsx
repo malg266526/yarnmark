@@ -19,8 +19,8 @@ import { HallMapPage } from './pages/HallMapPage';
 import { Typography } from './components/Typography';
 import { usePhone } from './hooks/usePhone';
 import { EditorPage } from './pages/EditorPage';
-import { VendorStatutePage } from './pages/VendorsStatute';
-import { VendorFormPage } from './pages/VendorFormPage';
+import { VendorStatutePage } from './pages/vendor/statute/VendorStatutePage';
+import { VendorFormPage } from './pages/vendor/apply/VendorFormPage';
 import { VendorsApplicationsPage } from './pages/admin/vendors/applications/VendorsApplicationsPage';
 import { AdminLayout } from './pages/admin/AdminLayout';
 
@@ -80,12 +80,13 @@ export const App = () => {
           <Route path="/hall" element={<HallMapPage />} />
           <Route path="/vendor/statute" element={<VendorStatutePage />} />
           <Route path="/info-for-vendors-statue" element={<Navigate to="/vendor/statute" replace />} />
+          <Route path="/vendor/apply" element={<VendorFormPage />} />
           <Route path="/editor" element={<Navigate to="/admin/editor" replace />} />
-          <Route path="/vendor-form" element={<Navigate to="/admin/vendor-form" replace />} />
+          <Route path="/vendor-form" element={<Navigate to="/vendor/apply" replace />} />
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<Navigate to="/admin/vendors/applications" replace />} />
             <Route path="editor" element={<EditorPage />} />
-            <Route path="vendor-form" element={<VendorFormPage />} />
+            <Route path="vendor-form" element={<Navigate to="/vendor/apply" replace />} />
             <Route path="vendors/applications" element={<VendorsApplicationsPage />} />
           </Route>
         </Routes>

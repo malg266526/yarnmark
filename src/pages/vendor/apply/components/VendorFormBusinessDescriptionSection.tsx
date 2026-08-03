@@ -1,8 +1,8 @@
 import React from 'react';
-import { Typography } from '../../../components/Typography';
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { Typography } from '../../../../components/Typography';
+import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import { ErrorText, FieldHint, FieldLabel, Fieldset, FormSection, TextArea } from '../VendorFormPage.styled';
-import { VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH } from '../../../domain/vendorApplications/vendorFormConstants.ts';
+import { VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH } from '../../../../domain/vendorApplications/vendorFormConstants.ts';
 import type { VendorFormActions, VendorFormBindings } from './vendorFormViewContracts';
 
 interface VendorFormBusinessDescriptionSectionProps {

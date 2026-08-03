@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BackgroundColors, BorderColors, Colors, TextColors } from '../styles/theme';
-import { Header } from './menu/Header';
-import { PageContent } from '../components/PageContent';
-import { Band } from '../components/bands/Band';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
-import { usePhone } from '../hooks/usePhone';
-import { PlainInfo } from './for-vendors/ForVendorsPage.styled';
-import { UtilityPageHeader } from '../components/UtilityPageHeader';
-import { Typography } from '../components/Typography';
-import { RedesignSpacings } from '../styles/spacings';
-import { Radius as CardRadius, DropShadow as CardShadow } from '../styles/cards';
+import { BackgroundColors, BorderColors, Colors, TextColors } from '../../../styles/theme';
+import { Header } from '../../menu/Header';
+import { PageContent } from '../../../components/PageContent';
+import { Band } from '../../../components/bands/Band';
+import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { usePhone } from '../../../hooks/usePhone';
+import { PlainInfo } from '../../for-vendors/ForVendorsPage.styled';
+import { UtilityPageHeader } from '../../../components/UtilityPageHeader';
+import { Typography } from '../../../components/Typography';
+import { RedesignSpacings } from '../../../styles/spacings';
+import { Radius as CardRadius, DropShadow as CardShadow } from '../../../styles/cards';
 import { Trans } from 'react-i18next';
 
 const Link = styled.a`

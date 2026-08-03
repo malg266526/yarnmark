@@ -18,10 +18,6 @@ const ADMIN_LINKS = [
     to: '/admin/vendors/applications'
   },
   {
-    label: 'Vendor form',
-    to: '/admin/vendor-form'
-  },
-  {
     label: 'Editor',
     to: '/admin/editor'
   }

@@ -1,7 +1,7 @@
 import { z } from 'zod';
-import type { VendorFormState } from '../../domain/vendorApplications/vendorFormTypes.ts';
-import { INITIAL_VENDOR_FORM_STATE } from '../../domain/vendorApplications/vendorFormTypes.ts';
-import { vendorFormStateSchema } from '../../domain/vendorApplications/vendorFormSchema.ts';
+import type { VendorFormState } from '../../../domain/vendorApplications/vendorFormTypes.ts';
+import { INITIAL_VENDOR_FORM_STATE } from '../../../domain/vendorApplications/vendorFormTypes.ts';
+import { vendorFormStateSchema } from '../../../domain/vendorApplications/vendorFormSchema.ts';
 
 export interface VendorFormDraft {
   formData: VendorFormState;
