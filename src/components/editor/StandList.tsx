@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useEditor } from './EditorContext';
 import React from 'react';
 import { RedesignSpacings } from '../../styles/spacings';
+import { useTypedTranslation } from '../../translations/useTypedTranslation';
 
 const ListContainer = styled.div`
   display: flex;
@@ -56,6 +57,7 @@ const RemoveButton = styled.button`
 `;
 
 export const StandList = () => {
+  const t = useTypedTranslation();
   const { stands, removeStand, setCurrentStand, currentStand } = useEditor();
 
   return (
@@ -73,7 +75,7 @@ export const StandList = () => {
                 removeStand(stand);
               }}
             >
-              Remove
+              {t('editorPage.standList.remove')}
             </RemoveButton>
           </StandItem>
         );

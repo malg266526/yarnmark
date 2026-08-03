@@ -1,17 +1,20 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { RowIndexes } from './RowIndexes';
 import { StandInfo } from './StandInfo';
 import { StandForm } from './StandForm';
 import { useEditor } from './EditorContext';
 import { useMouseHandlers } from './utils/useMouseHandlers';
+import { useStandDrag } from './utils/useStandDrag';
 import { RedesignSpacings } from '../../styles/spacings';
-import { StandColorsMap } from './StandProps';
+import { StandColorsMap, StandProps } from './StandProps';
 import { isWithinBox } from './utils/isWithinBox';
 import { CtaButton } from '../Button';
+import { ConfirmModal } from '../ConfirmModal';
 import { saveHallToFile } from './utils/saveHallToFile';
 import { StandList } from './StandList';
 import { ColIndexes } from './ColIndexes';
+import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import {
   GAP_PX,
   GRID_COLS,
@@ -27,9 +30,12 @@ const rulerWidthPx = 48;
 
 const EditorContainer = styled.div`
   display: flex;
-  align-items: flex-start;
-  gap: ${RedesignSpacings.md};
+  flex-direction: row;
   flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  gap: ${RedesignSpacings.md};
 `;
 
 const StandDetailsContainer = styled.div`
@@ -42,8 +48,9 @@ const StandDetailsContainer = styled.div`
 const GridSection = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: ${RedesignSpacings.sm};
-  min-width: 0;
+  flex: 0 0 auto;
 `;
 
 const HallSizeInfo = styled.div`
@@ -54,6 +61,8 @@ const GridScroller = styled.div`
   max-width: 100%;
   overflow-x: auto;
   overflow-y: visible;
+  padding-right: ${SQUARE_PX}px;
+  padding-bottom: ${SQUARE_PX}px;
 `;
 
 const GridChrome = styled.div`
@@ -102,6 +111,30 @@ const GridRow = styled.div`
   line-height: 1;
 `;
 
+const ClearAllButton = styled.button`
+  all: unset;
+  cursor: pointer;
+  background-color: #ef4444;
+  color: white;
+  padding: ${RedesignSpacings.xxs} ${RedesignSpacings.sm} 3px ${RedesignSpacings.sm};
+  border-radius: 999px;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+
+  &:hover {
+    background-color: #dc2626;
+  }
+
+  &:active {
+    background-color: #b91c1c;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #b91c1c;
+    outline-offset: 2px;
+  }
+`;
+
 const GridFooter = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -112,6 +145,8 @@ const GridFooter = styled.div`
 const Square = styled.div<{
   background: string;
   isInsideStand?: boolean;
+  movable?: boolean;
+  isDragging?: boolean;
 }>`
   width: ${SQUARE_PX}px;
   height: ${SQUARE_PX}px;
@@ -127,6 +162,7 @@ const Square = styled.div<{
   border: ${({ isInsideStand }) => (isInsideStand ? '1px solid #f0f0f0' : '1px solid #bbb')};
   transition: background 0.1s ease;
   position: relative;
+  cursor: ${({ isDragging, movable }) => (isDragging ? 'grabbing' : movable ? 'grab' : 'default')};
 `;
 
 const StandIndex = styled.div`
@@ -158,17 +194,76 @@ const StandVendor = styled.div`
 `;
 
 export const Editor = () => {
-  const { start, end, handleMouseDown, handleMouseEnter, handleMouseUp, handleClick } = useMouseHandlers();
+  const t = useTypedTranslation();
+  const { start, end, handleMouseDown, handleMouseEnter, handleMouseUp, handleClick, setStart, setEnd } =
+    useMouseHandlers();
 
-  const { stands, currentStand } = useEditor();
+  const { stands, currentStand, clearStands } = useEditor();
+  const standDrag = useStandDrag();
   const gridContainerRef = useRef<HTMLDivElement | null>(null);
   const rowIndexesRef = useRef<HTMLDivElement | null>(null);
+  const [isClearConfirmOpen, setIsClearConfirmOpen] = useState(false);
 
-  const getStandAtCell = (row: number, col: number) => {
-    return stands.find((stand) => isWithinBox(row, col, stand.start, stand.end)) || null;
+  const handleClearAll = () => {
+    clearStands();
+    setStart(undefined);
+    setEnd(undefined);
+    setIsClearConfirmOpen(false);
   };
 
+  const effectiveStands = standDrag.preview
+    ? stands.map((stand) =>
+        stand.id === standDrag.preview!.standId
+          ? { ...stand, start: standDrag.preview!.start, end: standDrag.preview!.end }
+          : stand
+      )
+    : stands;
+
+  const getStandAtCell = (row: number, col: number) => {
+    return effectiveStands.find((stand) => isWithinBox(row, col, stand.start, stand.end)) || null;
+  };
+
+  const isSelectedStand = (stand: StandProps | null): stand is StandProps =>
+    !!stand && !!stand.start && !!stand.end && stand.id === currentStand.id;
+
   const isSelected = (row: number, col: number) => isWithinBox(row, col, start, end);
+
+  const handleCellMouseDown = (row: number, col: number) => {
+    const stand = getStandAtCell(row, col);
+
+    if (isSelectedStand(stand)) {
+      standDrag.beginDrag(stand, row, col);
+      return;
+    }
+
+    handleMouseDown(row, col);
+  };
+
+  const handleCellMouseEnter = (row: number, col: number) => {
+    if (standDrag.isDragging) {
+      standDrag.dragOver(row, col);
+      return;
+    }
+
+    handleMouseEnter(row, col);
+  };
+
+  const handleCellMouseUp = () => {
+    if (standDrag.isDragging) {
+      standDrag.endDrag();
+      return;
+    }
+
+    handleMouseUp();
+  };
+
+  const handleCellClick = (row: number, col: number) => {
+    if (standDrag.consumeClickAfterDrag()) {
+      return;
+    }
+
+    handleClick(row, col, currentStand.width ?? 1, currentStand.height ?? 1);
+  };
 
   useEffect(() => {
     const gridElement = gridContainerRef.current;
@@ -196,7 +291,7 @@ export const Editor = () => {
     <EditorContainer>
       <GridSection>
         <HallSizeInfo>
-          Hall size: {HALL_WIDTH_M}m × {HALL_HEIGHT_M}m ({GRID_COLS} × {GRID_ROWS} squares)
+          {t('editorPage.hallSize', { width: HALL_WIDTH_M, height: HALL_HEIGHT_M, cols: GRID_COLS, rows: GRID_ROWS })}
         </HallSizeInfo>
         <GridScroller>
           <>
@@ -247,10 +342,12 @@ export const Editor = () => {
                             data-col={col}
                             background={background}
                             isInsideStand={isInsideStand}
-                            onMouseDown={() => handleMouseDown(row, col)}
-                            onMouseEnter={() => handleMouseEnter(row, col)}
-                            onMouseUp={handleMouseUp}
-                            onClick={() => handleClick(row, col, currentStand.width ?? 1, currentStand.height ?? 1)}
+                            movable={isSelectedStand(stand)}
+                            isDragging={standDrag.isDragging}
+                            onMouseDown={() => handleCellMouseDown(row, col)}
+                            onMouseEnter={() => handleCellMouseEnter(row, col)}
+                            onMouseUp={handleCellMouseUp}
+                            onClick={() => handleCellClick(row, col)}
                           >
                             {isMiddle && stand ? (
                               <StandIndex>
@@ -268,9 +365,7 @@ export const Editor = () => {
                 </GridContainer>
               </GridBody>
             </GridChrome>
-            <GridFooter>
-              {HALL_WIDTH_M}m width, {HALL_HEIGHT_M}m height
-            </GridFooter>
+            <GridFooter>{t('editorPage.gridFooter', { width: HALL_WIDTH_M, height: HALL_HEIGHT_M })}</GridFooter>
           </>
         </GridScroller>
       </GridSection>
@@ -279,10 +374,22 @@ export const Editor = () => {
         <StandForm start={start} end={end} />
 
         <CtaButton type="submit" onClick={() => saveHallToFile(stands)}>
-          Generate JSON
+          {t('editorPage.generateJson')}
         </CtaButton>
+        <ClearAllButton type="button" onClick={() => setIsClearConfirmOpen(true)}>
+          {t('editorPage.clearAll')}
+        </ClearAllButton>
         <StandList />
       </StandDetailsContainer>
+
+      <ConfirmModal
+        isOpen={isClearConfirmOpen}
+        message={t('editorPage.clearAllConfirm')}
+        confirmLabel={t('editorPage.clearAll')}
+        variant="danger"
+        onConfirm={handleClearAll}
+        onCancel={() => setIsClearConfirmOpen(false)}
+      />
     </EditorContainer>
   );
 };

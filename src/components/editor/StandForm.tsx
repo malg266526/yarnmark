@@ -5,6 +5,7 @@ import { Button, CtaButton } from '../Button';
 import { useEditor } from './EditorContext';
 import { useStandForm } from './useStandForm';
 import { RedesignSpacings } from '../../styles/spacings';
+import { useTypedTranslation } from '../../translations/useTypedTranslation';
 
 // Extra styled container for layout and background
 const Container = styled.div`
@@ -79,6 +80,7 @@ interface StandFormProps {
 }
 
 export const StandForm = ({ start, end }: StandFormProps) => {
+  const t = useTypedTranslation();
   const { addStand, currentStand, updateStand, stands } = useEditor();
 
   const { stand, handleTypeChange, handleOrientationChange, updateField, submit, isValid } = useStandForm(() =>
@@ -93,7 +95,7 @@ export const StandForm = ({ start, end }: StandFormProps) => {
     <Container>
       <Form onSubmit={submit}>
         <FieldRow>
-          <Label htmlFor="stand-index">Stand Index:</Label>
+          <Label htmlFor="stand-index">{t('editorPage.standForm.indexLabel')}</Label>
           <Input
             id="stand-index"
             type="text"
@@ -103,7 +105,7 @@ export const StandForm = ({ start, end }: StandFormProps) => {
           />
         </FieldRow>
         <FieldRow>
-          <Label htmlFor="stand-vendor">Vendor:</Label>
+          <Label htmlFor="stand-vendor">{t('editorPage.standForm.vendorLabel')}</Label>
           <Input
             id="stand-vendor"
             type="text"
@@ -112,7 +114,7 @@ export const StandForm = ({ start, end }: StandFormProps) => {
           />
         </FieldRow>
         <FieldRow>
-          <Label htmlFor="stand-description">Description:</Label>
+          <Label htmlFor="stand-description">{t('editorPage.standForm.descriptionLabel')}</Label>
           <Input
             id="stand-description"
             type="text"
@@ -121,7 +123,7 @@ export const StandForm = ({ start, end }: StandFormProps) => {
           />
         </FieldRow>
         <FieldRow>
-          <Label>Type:</Label>
+          <Label>{t('editorPage.standForm.typeLabel')}</Label>
           <div style={{ display: 'flex', gap: 16 }}>
             {StandTypes.map((type) => (
               <label key={type} style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
@@ -133,13 +135,13 @@ export const StandForm = ({ start, end }: StandFormProps) => {
                   checked={stand.type === type}
                   onChange={() => handleTypeChange(type)}
                 />
-                {type}
+                {t(`editorPage.standForm.types.${type}` as const)}
               </label>
             ))}
           </div>
         </FieldRow>
         <FieldRow>
-          <Label htmlFor="stand-horizontal">Horizontal:</Label>
+          <Label htmlFor="stand-horizontal">{t('editorPage.standForm.horizontalLabel')}</Label>
           <input
             id="stand-horizontal"
             type="checkbox"
@@ -149,7 +151,7 @@ export const StandForm = ({ start, end }: StandFormProps) => {
         </FieldRow>
 
         <FieldRow>
-          <Label htmlFor="stand-width">Width:</Label>
+          <Label htmlFor="stand-width">{t('editorPage.standForm.widthLabel')}</Label>
           <Input
             id="stand-width"
             type="number"
@@ -161,7 +163,7 @@ export const StandForm = ({ start, end }: StandFormProps) => {
         </FieldRow>
 
         <FieldRow>
-          <Label htmlFor="stand-height">Height:</Label>
+          <Label htmlFor="stand-height">{t('editorPage.standForm.heightLabel')}</Label>
           <Input
             id="stand-height"
             type="number"
@@ -173,7 +175,7 @@ export const StandForm = ({ start, end }: StandFormProps) => {
         </FieldRow>
 
         <FieldRow>
-          <Label htmlFor="stand-color">Color:</Label>
+          <Label htmlFor="stand-color">{t('editorPage.standForm.colorLabel')}</Label>
           <Select
             id="stand-color"
             value={stand.color || ''}
@@ -185,7 +187,7 @@ export const StandForm = ({ start, end }: StandFormProps) => {
               color: stand.color ? '#fff' : '#000'
             }}
           >
-            <option value="">Select color</option>
+            <option value="">{t('editorPage.standForm.selectColor')}</option>
             {colorOptions.map((key) => (
               <ColorOption key={key} color={StandColorsMap[key]} value={key}>
                 {key}
@@ -196,12 +198,12 @@ export const StandForm = ({ start, end }: StandFormProps) => {
         <ButtonRow>
           {isEditMode && (
             <Button type="button" onClick={() => updateStand(currentStand)}>
-              Update
+              {t('editorPage.standForm.update')}
             </Button>
           )}
 
           <CtaButton type="submit" disabled={!isValid}>
-            Add Stand
+            {t('editorPage.standForm.addStand')}
           </CtaButton>
         </ButtonRow>
       </Form>

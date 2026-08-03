@@ -1,5 +1,6 @@
 import React from 'react';
 import { SQUARE_SIZE_M } from './utils/hallGeometry';
+import { useTypedTranslation } from '../../translations/useTypedTranslation';
 
 interface StandInfoProps {
   start: { row: number; col: number } | undefined;
@@ -7,8 +8,10 @@ interface StandInfoProps {
 }
 
 export const StandInfo = ({ start, end }: StandInfoProps) => {
+  const t = useTypedTranslation();
+
   if (!start || !end) {
-    return <div style={{ minWidth: 120 }}>No stand selected</div>;
+    return <div style={{ minWidth: 120 }}>{t('editorPage.standInfo.noSelection')}</div>;
   }
 
   const rowCount = Math.abs(end.row - start.row) + 1;
@@ -20,11 +23,11 @@ export const StandInfo = ({ start, end }: StandInfoProps) => {
   return (
     <div style={{ minWidth: 120, padding: 8, background: '#f5f5f5', border: '1px solid #bbb', borderRadius: 4 }}>
       <div>
-        <strong>Stand Info</strong>
+        <strong>{t('editorPage.standInfo.title')}</strong>
       </div>
-      <div>Height: {heightM} m</div>
-      <div>Width: {widthM} m</div>
-      <div>Size: {sizeM2} m²</div>
+      <div>{t('editorPage.standInfo.height', { value: heightM })}</div>
+      <div>{t('editorPage.standInfo.width', { value: widthM })}</div>
+      <div>{t('editorPage.standInfo.size', { value: sizeM2 })}</div>
     </div>
   );
 };

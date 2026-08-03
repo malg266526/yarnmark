@@ -563,6 +563,10 @@ export const en: TranslationsShape = {
       }
     },
     goBack: 'Go back',
+    confirmModal: {
+      confirm: 'Confirm',
+      cancel: 'Cancel'
+    },
     workshops: {
       title: 'Workshops',
       scheduleTitle: 'Workshops schedule',
@@ -821,6 +825,44 @@ export const en: TranslationsShape = {
         'Less than 30 days before the Trade Fair, the Organizer shall not refund the stand fee to the <strong>Vendor</strong>.',
       condition10:
         'The <strong>Vendor</strong> declares that they are aware of the dimensions and equipment of the stand they have selected. The Vendor undertakes not to extend the stand, merchandise, or advertising beyond the boundaries specified by the Organizers.'
+    },
+    editorPage: {
+      kicker: 'Admin',
+      title: 'Editor',
+      hallSize: 'Hall size: {{width}}m × {{height}}m ({{cols}} × {{rows}} squares)',
+      gridFooter: '{{width}}m width, {{height}}m height',
+      generateJson: 'Generate JSON',
+      clearAll: 'Clear All',
+      clearAllConfirm: 'Remove all stands? This cannot be undone.',
+      standInfo: {
+        title: 'Stand Info',
+        noSelection: 'No stand selected',
+        height: 'Height: {{value}} m',
+        width: 'Width: {{value}} m',
+        size: 'Size: {{value}} m²'
+      },
+      standForm: {
+        indexLabel: 'Stand Index:',
+        vendorLabel: 'Vendor:',
+        descriptionLabel: 'Description:',
+        typeLabel: 'Type:',
+        horizontalLabel: 'Horizontal:',
+        widthLabel: 'Width:',
+        heightLabel: 'Height:',
+        colorLabel: 'Color:',
+        selectColor: 'Select color',
+        update: 'Update',
+        addStand: 'Add Stand',
+        types: {
+          premium: 'premium',
+          mini: 'mini',
+          standard: 'standard',
+          other: 'other'
+        }
+      },
+      standList: {
+        remove: 'Remove'
+      }
     }
   }
 };
