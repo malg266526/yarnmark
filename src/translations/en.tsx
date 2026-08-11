@@ -453,6 +453,58 @@ export const en: TranslationsShape = {
         notProvided: 'Not provided'
       }
     },
+    workshopsFormPage: {
+      title: 'Workshop tutor application form',
+      kicker: 'For workshop tutors',
+      submit: 'Submit application',
+      submitting: 'Submitting...',
+      submitError: 'The application could not be saved. Please try again.',
+      submissionDateTimeLabel: 'Submission date and time',
+      draftBanner: 'This draft is stored locally in this browser until you submit the application.',
+      steps: {
+        basics: {
+          title: 'Basic information',
+          tutorNameLabel: 'Tutor full name',
+          tutorNamePlaceholder: 'For example: Anna Kowalska',
+          workshopTitleLabel: 'Workshop title',
+          workshopTitlePlaceholder: 'For example: Crochet basics'
+        },
+        contact: {
+          title: 'How can we contact you?',
+          phoneLabel: 'Phone number',
+          phonePlaceholder: '+48 123 456 789',
+          emailLabel: 'Email address',
+          emailPlaceholder: 'your@address.com'
+        },
+        description: {
+          title: 'Short workshop description',
+          label: 'Workshop description',
+          placeholder: 'Write a short description of the workshop.',
+          limitHint: '{{current}} / {{max}} characters'
+        }
+      },
+      validation: {
+        tutorNameRequired: 'Enter the tutor full name.',
+        workshopTitleRequired: 'Enter the workshop title.',
+        descriptionRequired: 'Add a workshop description.',
+        descriptionTooLong: 'The workshop description is too long.',
+        phoneRequired: 'Enter a phone number.',
+        phoneInvalid: 'Enter a valid phone number.',
+        emailRequired: 'Enter an email address.',
+        emailInvalid: 'Enter a valid email address.'
+      },
+      summary: {
+        title: 'Application saved',
+        description: 'The application has been saved.',
+        tutorName: 'Tutor',
+        workshopTitle: 'Workshop title',
+        submittedAt: 'Saved at',
+        phone: 'Phone',
+        email: 'Email',
+        workshopDescription: 'Workshop description',
+        notProvided: 'Not provided'
+      }
+    },
     vendorsApplicationsPage: {
       kicker: 'Admin panel',
       title: 'Admin panel',
@@ -871,6 +923,14 @@ export const en: TranslationsShape = {
       submit: 'Log in',
       error: 'Incorrect password',
       logout: 'Log out'
+    },
+    adminLayout: {
+      kicker: 'Admin',
+      navigationLabel: 'Admin navigation',
+      links: {
+        applications: 'Applications',
+        editor: 'Editor'
+      }
     }
   }
 };

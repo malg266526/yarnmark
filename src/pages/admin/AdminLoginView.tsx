@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Typography } from '../../components/Typography';
+import { UtilityPageHeader } from '../../components/UtilityPageHeader';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import {
   AdminLoginCard,
   AdminLoginError,
   AdminLoginField,
   AdminLoginInput,
-  AdminLoginKicker,
   AdminLoginRoot,
   AdminLoginSubmit
 } from './AdminLogin.styled';
@@ -31,13 +31,7 @@ export const AdminLoginView = ({ onSubmit }: AdminLoginViewProps) => {
   return (
     <AdminLoginRoot>
       <AdminLoginCard onSubmit={handleSubmit}>
-        <AdminLoginKicker>
-          <Typography size="xs">{t('adminLogin.kicker')}</Typography>
-        </AdminLoginKicker>
-
-        <Typography size="xl" weight="bold">
-          {t('adminLogin.title')}
-        </Typography>
+        <UtilityPageHeader kicker={t('adminLogin.kicker')} title={t('adminLogin.title')} titleSize="xl" />
 
         <AdminLoginField>
           <Typography size="sm">{t('adminLogin.passwordLabel')}</Typography>

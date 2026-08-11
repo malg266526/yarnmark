@@ -27,12 +27,6 @@ export const AdminLoginCard = styled.form`
   border: 1px solid ${BorderColors.subtleGreen};
 `;
 
-export const AdminLoginKicker = styled.span`
-  color: ${TextColors.secondary};
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-`;
-
 export const AdminLoginField = styled.div`
   display: flex;
   flex-direction: column;

@@ -45,9 +45,9 @@ Zaimplementowano wariant "lekka bramka po stronie klienta" (wybrany przez użytk
 - **Czas na analizę biznesową:** 0h (decyzja podjęta: jedno wspólne hasło, wariant lekki)
 - **Czas na refaktor:** ~1.5h
 
-## 6. Nowa strona `/workshops/apply`
+## 6. Nowa strona `/workshops/apply` — ✅ Zrobione
 
-Formularz zgłoszeniowy dla prowadzących warsztaty, wzorowany na istniejącym `vendor-form` (hooki, schema Zod, storage), ale dla nowej domeny danych.
+Formularz zgłoszeniowy dla prowadzących warsztaty, wzorowany na istniejącym `vendor-form` (hooki, schema Zod, storage), ale dla nowej domeny danych. Zaimplementowano minimalny zestaw pól (imię i nazwisko prowadzącego, tytuł warsztatu, krótki opis, telefon, e-mail) — bez odpowiedników pól specyficznych dla wystawców (stoiska, faktura, logo, regulamin). Zgłoszenia zapisywane lokalnie (`src/domain/workshopApplications/workshopsApplicationsStorage.ts`), analogicznie do `vendorsApplicationsStorage.ts`; panel administracyjny do ich przeglądania pozostaje przedmiotem punktu 7.
 
 - **Czas na analizę biznesową:** 3–4h (jakie pola różnią się od formularza wystawcy, jaki workflow weryfikacji zgłoszeń warsztatowych)
 - **Czas na refaktor:** 8–12h (reużycie wzorców z `src/pages/vendor-form/`: `*Schema.ts`, `*Storage.ts`, hooki, komponenty widoku)

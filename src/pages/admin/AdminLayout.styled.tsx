@@ -51,12 +51,6 @@ export const AdminBrand = styled.div`
   gap: ${RedesignSpacings.xxs};
 `;
 
-export const AdminKicker = styled.span`
-  color: ${TextColors.secondary};
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-`;
-
 export const AdminNav = styled.nav`
   display: flex;
   flex-direction: column;

@@ -21,6 +21,7 @@ import { usePhone } from './hooks/usePhone';
 import { EditorPage } from './pages/EditorPage';
 import { VendorStatutePage } from './pages/vendor/statute/VendorStatutePage';
 import { VendorFormPage } from './pages/vendor/apply/VendorFormPage';
+import { WorkshopFormPage } from './pages/workshops/apply/WorkshopFormPage';
 import { VendorsApplicationsPage } from './pages/admin/vendors/applications/VendorsApplicationsPage';
 import { AdminLayout } from './pages/admin/AdminLayout';
 
@@ -81,6 +82,7 @@ export const App = () => {
           <Route path="/vendor/statute" element={<VendorStatutePage />} />
           <Route path="/info-for-vendors-statue" element={<Navigate to="/vendor/statute" replace />} />
           <Route path="/vendor/apply" element={<VendorFormPage />} />
+          <Route path="/workshops/apply" element={<WorkshopFormPage />} />
           <Route path="/editor" element={<Navigate to="/admin/editor" replace />} />
           <Route path="/vendor-form" element={<Navigate to="/vendor/apply" replace />} />
           <Route path="/admin" element={<AdminLayout />}>

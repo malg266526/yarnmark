@@ -1,13 +1,15 @@
-import { useLocalStorage } from '../../hooks/useLocalStorage';
-import { ADMIN_AUTH_STORAGE_KEY, ADMIN_PASSWORD } from './adminAuthConstants';
+import { useState } from 'react';
+import { ADMIN_PASSWORD } from './adminAuthConstants';
+import { readStoredAdminAuth, writeStoredAdminAuth } from './adminAuthStorage';
 
 export const useAdminAuth = () => {
-  const [isAuthenticated, setIsAuthenticated] = useLocalStorage<boolean>(ADMIN_AUTH_STORAGE_KEY, false);
+  const [isAuthenticated, setIsAuthenticated] = useState(readStoredAdminAuth);
 
   const login = (password: string): boolean => {
     const isPasswordCorrect = password === ADMIN_PASSWORD;
 
     if (isPasswordCorrect) {
+      writeStoredAdminAuth(true);
       setIsAuthenticated(true);
     }
 
@@ -15,6 +17,7 @@ export const useAdminAuth = () => {
   };
 
   const logout = () => {
+    writeStoredAdminAuth(false);
     setIsAuthenticated(false);
   };
 
