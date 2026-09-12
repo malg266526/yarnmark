@@ -459,6 +459,10 @@ export const pl = {
       submitError: 'Nie udało się zapisać zgłoszenia. Spróbuj ponownie.',
       submissionDateTimeLabel: 'Data i godzina wysłania',
       draftBanner: 'Szkic formularza zapisuje się lokalnie w tej przeglądarce do momentu wysłania zgłoszenia.',
+      logoUploadError: 'Nie udało się odczytać pliku z logo. Wybierz go ponownie.',
+      logoTooLargeError: 'Plik z logo jest za duży (max 8 MB). Wybierz mniejszy.',
+      logoUnsupportedFormatError: 'Nieobsługiwany format pliku. Wybierz plik JPG, PNG, WebP, AVIF lub GIF.',
+      logoLoading: 'Przetwarzanie pliku z logo…',
       steps: {
         basics: {
           title: 'Podstawowe informacje',
@@ -466,6 +470,18 @@ export const pl = {
           tutorNamePlaceholder: 'Np. Anna Kowalska',
           workshopTitleLabel: 'Tytuł warsztatu',
           workshopTitlePlaceholder: 'Np. Podstawy szydełkowania'
+        },
+        participants: {
+          title: 'Liczba uczestników',
+          minLabel: 'Minimalna liczba uczestników',
+          maxLabel: 'Maksymalna liczba uczestników'
+        },
+        experienceLevel: {
+          title: 'Poziom zaawansowania uczestników',
+          beginner: 'Początkujący',
+          intermediate: 'Średnio zaawansowany',
+          advanced: 'Zaawansowany',
+          any: 'Dowolny'
         },
         contact: {
           title: 'Jak możemy się z Tobą skontaktować?',
@@ -477,8 +493,41 @@ export const pl = {
         description: {
           title: 'Krótki opis warsztatu',
           label: 'Opis warsztatu',
-          placeholder: 'Napisz krótko, na czym polega warsztat.',
           limitHint: '{{current}} / {{max}} znaków'
+        },
+        logistics: {
+          title: 'Organizacja warsztatu',
+          durationLabel: 'Czas trwania',
+          durationPlaceholder: 'Np. 3h',
+          participantsShouldBringLabel: 'Co powinien przynieść uczestnik?',
+          participantsShouldBringPlaceholder: 'np. wełna, druty, nożyczki',
+          roomRequirementsLabel: 'Wymagania co do sali',
+          requiredEquipmentLabel: 'Potrzebny sprzęt',
+          requiredEquipmentPlaceholder: 'Np. flipchart, monitor, rzutnik...',
+          requiredEquipmentHint: 'Jeśli nie potrzebujesz dodatkowego sprzętu, zostaw to pole puste.'
+        },
+        pricing: {
+          title: 'Wynagrodzenie',
+          grossPricePerParticipantLabel: 'Kwota brutto za osobę (zł)'
+        },
+        contractType: {
+          title: 'Typ umowy',
+          commission: 'Umowa zlecenie',
+          specificWork: 'Umowa o dzieło',
+          invoice: 'Faktura VAT / działalność gospodarcza',
+          other: 'Inne',
+          otherLabel: 'Jaki to typ umowy?',
+          otherPlaceholder: 'Wpisz typ umowy'
+        },
+        logo: {
+          title: 'Logo lub zdjęcie prowadzącego',
+          label: 'Wybierz plik',
+          hint: 'Dodaj logo lub zdjęcie w formacie JPG, PNG lub WebP.',
+          savedHint: 'Plik został zapisany.'
+        },
+        additionalInfo: {
+          title: 'Informacje dodatkowe',
+          placeholder: 'Miejsce na dodatkowe informacje dla organizatora.'
         }
       },
       validation: {
@@ -486,6 +535,17 @@ export const pl = {
         workshopTitleRequired: 'Podaj tytuł warsztatu.',
         descriptionRequired: 'Dodaj opis warsztatu.',
         descriptionTooLong: 'Opis warsztatu jest za długi.',
+        minParticipantsRequired: 'Podaj minimalną liczbę uczestników.',
+        maxParticipantsRequired: 'Podaj maksymalną liczbę uczestników.',
+        maxParticipantsTooSmall: 'Maksymalna liczba uczestników nie może być mniejsza niż minimalna.',
+        experienceLevelRequired: 'Wybierz poziom zaawansowania uczestników.',
+        durationRequired: 'Podaj czas trwania warsztatu.',
+        participantsShouldBringRequired: 'Podaj, co powinien przynieść uczestnik.',
+        roomRequirementsRequired: 'Podaj wymagania co do sali.',
+        grossPricePerParticipantRequired: 'Podaj kwotę brutto za osobę.',
+        contractTypeRequired: 'Wybierz typ umowy.',
+        contractTypeOtherRequired: 'Podaj typ umowy.',
+        logoRequired: 'Dodaj logo lub zdjęcie prowadzącego.',
         phoneRequired: 'Podaj numer telefonu.',
         phoneInvalid: 'Podaj poprawny numer telefonu.',
         emailRequired: 'Podaj adres e-mail.',
@@ -497,6 +557,18 @@ export const pl = {
         tutorName: 'Prowadzący',
         workshopTitle: 'Tytuł warsztatu',
         submittedAt: 'Data zapisania',
+        participants: 'Liczba uczestników',
+        participantsRange: '{{min}}–{{max}}',
+        experienceLevel: 'Poziom zaawansowania',
+        duration: 'Czas trwania',
+        participantsShouldBring: 'Co ma przynieść uczestnik',
+        roomRequirements: 'Wymagania co do sali',
+        requiredEquipment: 'Sprzęt zapewniany przez organizatora',
+        grossPricePerParticipant: 'Kwota brutto za osobę',
+        grossPricePerParticipantValue: '{{price}} zł',
+        contractType: 'Typ umowy',
+        logo: 'Logo',
+        additionalInfo: 'Informacje dodatkowe',
         phone: 'Telefon',
         email: 'E-mail',
         workshopDescription: 'Opis warsztatu',

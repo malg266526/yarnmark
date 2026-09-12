@@ -25,7 +25,6 @@ export const WorkshopFormDescriptionSection = ({ formActions, formBindings }: Wo
           <TextArea
             id="workshop_description"
             name={descriptionField.name}
-            placeholder={t('workshopsFormPage.steps.description.placeholder')}
             ref={descriptionField.ref}
             onBlur={descriptionField.onBlur}
             onChange={(event) => updateDescription(event.target.value)}

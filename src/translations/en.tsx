@@ -461,6 +461,10 @@ export const en: TranslationsShape = {
       submitError: 'The application could not be saved. Please try again.',
       submissionDateTimeLabel: 'Submission date and time',
       draftBanner: 'This draft is stored locally in this browser until you submit the application.',
+      logoUploadError: 'The logo file could not be read. Please choose it again.',
+      logoTooLargeError: 'Logo file is too large (max 8 MB). Please choose a smaller one.',
+      logoUnsupportedFormatError: 'Unsupported file format. Please choose a JPG, PNG, WebP, AVIF or GIF file.',
+      logoLoading: 'Processing logo…',
       steps: {
         basics: {
           title: 'Basic information',
@@ -468,6 +472,18 @@ export const en: TranslationsShape = {
           tutorNamePlaceholder: 'For example: Anna Kowalska',
           workshopTitleLabel: 'Workshop title',
           workshopTitlePlaceholder: 'For example: Crochet basics'
+        },
+        participants: {
+          title: 'Number of participants',
+          minLabel: 'Minimum number of participants',
+          maxLabel: 'Maximum number of participants'
+        },
+        experienceLevel: {
+          title: 'Participants experience level',
+          beginner: 'Beginner',
+          intermediate: 'Intermediate',
+          advanced: 'Advanced',
+          any: 'Any'
         },
         contact: {
           title: 'How can we contact you?',
@@ -479,8 +495,41 @@ export const en: TranslationsShape = {
         description: {
           title: 'Short workshop description',
           label: 'Workshop description',
-          placeholder: 'Write a short description of the workshop.',
           limitHint: '{{current}} / {{max}} characters'
+        },
+        logistics: {
+          title: 'Workshop logistics',
+          durationLabel: 'Duration',
+          durationPlaceholder: 'For example: 3h',
+          participantsShouldBringLabel: 'What should the participant bring?',
+          participantsShouldBringPlaceholder: 'e.g. yarn, needles, scissors',
+          roomRequirementsLabel: 'Room requirements',
+          requiredEquipmentLabel: 'Required equipment',
+          requiredEquipmentPlaceholder: 'For example: flipchart, monitor, projector...',
+          requiredEquipmentHint: 'Leave this field empty if you do not need any additional equipment.'
+        },
+        pricing: {
+          title: 'Payment',
+          grossPricePerParticipantLabel: 'Gross price per participant (PLN)'
+        },
+        contractType: {
+          title: 'Contract type',
+          commission: 'Contract of mandate',
+          specificWork: 'Contract for specific work',
+          invoice: 'VAT invoice / business activity',
+          other: 'Other',
+          otherLabel: 'What type of contract is it?',
+          otherPlaceholder: 'Enter the contract type'
+        },
+        logo: {
+          title: "Tutor's logo or photo",
+          label: 'Choose a file',
+          hint: 'Add a logo or photo in JPG, PNG or WebP format.',
+          savedHint: 'The file has been saved.'
+        },
+        additionalInfo: {
+          title: 'Additional information',
+          placeholder: 'Space for additional information for the organizer.'
         }
       },
       validation: {
@@ -488,6 +537,17 @@ export const en: TranslationsShape = {
         workshopTitleRequired: 'Enter the workshop title.',
         descriptionRequired: 'Add a workshop description.',
         descriptionTooLong: 'The workshop description is too long.',
+        minParticipantsRequired: 'Enter the minimum number of participants.',
+        maxParticipantsRequired: 'Enter the maximum number of participants.',
+        maxParticipantsTooSmall: 'The maximum number of participants cannot be lower than the minimum.',
+        experienceLevelRequired: 'Select the participants experience level.',
+        durationRequired: 'Enter the workshop duration.',
+        participantsShouldBringRequired: 'Enter what the participant should bring.',
+        roomRequirementsRequired: 'Enter the room requirements.',
+        grossPricePerParticipantRequired: 'Enter the gross price per participant.',
+        contractTypeRequired: 'Select the contract type.',
+        contractTypeOtherRequired: 'Enter the contract type.',
+        logoRequired: "Add the tutor's logo or photo.",
         phoneRequired: 'Enter a phone number.',
         phoneInvalid: 'Enter a valid phone number.',
         emailRequired: 'Enter an email address.',
@@ -499,6 +559,18 @@ export const en: TranslationsShape = {
         tutorName: 'Tutor',
         workshopTitle: 'Workshop title',
         submittedAt: 'Saved at',
+        participants: 'Number of participants',
+        participantsRange: '{{min}}–{{max}}',
+        experienceLevel: 'Experience level',
+        duration: 'Duration',
+        participantsShouldBring: 'What the participant should bring',
+        roomRequirements: 'Room requirements',
+        requiredEquipment: 'Equipment provided by the organizer',
+        grossPricePerParticipant: 'Gross price per participant',
+        grossPricePerParticipantValue: 'PLN {{price}}',
+        contractType: 'Contract type',
+        logo: 'Logo',
+        additionalInfo: 'Additional information',
         phone: 'Phone',
         email: 'Email',
         workshopDescription: 'Workshop description',

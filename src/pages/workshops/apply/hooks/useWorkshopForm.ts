@@ -3,22 +3,35 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import type { UnprefixedTranslationKeys } from '../../../../translations/useTypedTranslation';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import type { WorkshopFormViewProps } from '../components/workshopFormViewContracts';
+import type { WorkshopFormNumberFieldName, WorkshopFormViewProps } from '../components/workshopFormViewContracts';
 import { createWorkshopApplication } from '../../../../domain/workshopApplications/workshopsApplicationsStorage.ts';
 import {
   WORKSHOP_FORM_DESCRIPTION_MAX_LENGTH,
-  WORKSHOP_FORM_DRAFT_STORAGE_KEY
+  WORKSHOP_FORM_DRAFT_STORAGE_KEY,
+  WORKSHOP_FORM_LOGO_ACCEPTED_MIME_TYPES,
+  WORKSHOP_FORM_LOGO_MAX_BYTES,
+  WORKSHOP_FORM_LOGO_MAX_DIMENSION
 } from '../../../../domain/workshopApplications/workshopFormConstants.ts';
 import {
   collectWorkshopFormValidationErrors,
   workshopFormValidationSchema,
   type WorkshopFormValues
 } from '../../../../domain/workshopApplications/workshopFormSchema.ts';
+import {
+  prepareLogoForUpload,
+  type LogoRejectionReason
+} from '../../../../domain/workshopApplications/workshopFormLogoUtils.ts';
 import { createEmptyWorkshopFormDraft, parseStoredWorkshopFormDraft } from '../workshopFormStorage.ts';
 
 const readStoredWorkshopFormDraftOrCreateEmptyDraft = () =>
   parseStoredWorkshopFormDraft(window.localStorage.getItem(WORKSHOP_FORM_DRAFT_STORAGE_KEY)) ??
   createEmptyWorkshopFormDraft();
+
+const LOGO_REJECTION_MESSAGE_KEYS: Record<LogoRejectionReason, UnprefixedTranslationKeys> = {
+  unsupportedFormat: 'workshopsFormPage.logoUnsupportedFormatError',
+  tooLarge: 'workshopsFormPage.logoTooLargeError',
+  readFailed: 'workshopsFormPage.logoUploadError'
+};
 
 export const useWorkshopForm = (): WorkshopFormViewProps => {
   const t = useTypedTranslation();
@@ -26,6 +39,7 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
   const [isComplete, setIsComplete] = useState<boolean>(initialDraft.isComplete);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoadingLogo, setIsLoadingLogo] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const [submittedAt, setSubmittedAt] = useState<string | null>(null);
   const [validationErrors, setValidationErrors] = useState<Partial<Record<keyof WorkshopFormValues, string>>>({});
@@ -38,6 +52,11 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
 
   const { formState, getValues, register, reset, setValue, trigger, watch } = form;
   const formData = watch();
+
+  const markFormAsIncompleteAndClearSubmitError = () => {
+    setIsComplete(false);
+    setSubmitError('');
+  };
 
   useEffect(() => {
     if (isComplete) {
@@ -72,8 +91,62 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
       shouldDirty: true,
       shouldValidate: true
     });
-    setIsComplete(false);
-    setSubmitError('');
+    markFormAsIncompleteAndClearSubmitError();
+  };
+
+  const setNumberFieldValue = (fieldName: WorkshopFormNumberFieldName, value: number | null) => {
+    setValue(fieldName, value, { shouldDirty: true, shouldValidate: true });
+    markFormAsIncompleteAndClearSubmitError();
+  };
+
+  const setExperienceLevel: WorkshopFormViewProps['formActions']['setExperienceLevel'] = (experienceLevel) => {
+    setValue('experienceLevel', experienceLevel, { shouldDirty: true, shouldValidate: true });
+    markFormAsIncompleteAndClearSubmitError();
+  };
+
+  const setContractType: WorkshopFormViewProps['formActions']['setContractType'] = (contractType) => {
+    setValue('contractType', contractType, { shouldDirty: true, shouldValidate: true });
+
+    if (contractType !== 'other') {
+      setValue('contractTypeOther', '', { shouldDirty: true, shouldValidate: true });
+    }
+
+    markFormAsIncompleteAndClearSubmitError();
+  };
+
+  const setLogoValues = (logo: { fileName: string; dataUrl: string; mimeType: string } | null) => {
+    setValue('logoFileName', logo?.fileName ?? null, { shouldDirty: true, shouldValidate: true });
+    setValue('logoDataUrl', logo?.dataUrl ?? null, { shouldDirty: true, shouldValidate: true });
+    setValue('logoMimeType', logo?.mimeType ?? null, { shouldDirty: true, shouldValidate: true });
+    markFormAsIncompleteAndClearSubmitError();
+  };
+
+  const updateLogoFile = async (file: File | null) => {
+    if (!file) {
+      setLogoValues(null);
+      return;
+    }
+
+    setIsLoadingLogo(true);
+
+    const result = await prepareLogoForUpload(file, {
+      acceptedMimeTypes: WORKSHOP_FORM_LOGO_ACCEPTED_MIME_TYPES,
+      maxBytes: WORKSHOP_FORM_LOGO_MAX_BYTES,
+      maxDimension: WORKSHOP_FORM_LOGO_MAX_DIMENSION
+    });
+
+    setIsLoadingLogo(false);
+
+    if (result.status === 'rejected') {
+      if (result.cause) {
+        console.error(result.cause);
+      }
+
+      setSubmitError(t(LOGO_REJECTION_MESSAGE_KEYS[result.reason]));
+      return;
+    }
+
+    setLogoValues({ fileName: file.name, ...result.logo });
   };
 
   const submitWorkshopForm = async () => {
@@ -124,8 +197,12 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
 
   return {
     formActions: {
+      setContractType,
+      setExperienceLevel,
+      setNumberFieldValue,
       submitWorkshopForm,
-      updateDescription
+      updateDescription,
+      updateLogoFile
     },
     formBindings: {
       formData,
@@ -134,6 +211,7 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
     },
     formStatus: {
       isComplete,
+      isLoadingLogo,
       isSubmitting,
       submitError,
       submittedAtLabel

@@ -108,6 +108,30 @@ export const InfoValue = styled.div`
   color: ${TextColors.primary};
 `;
 
+export const RadioGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${RedesignSpacings.xs};
+`;
+
+export const RadioOption = styled.label`
+  display: flex;
+  align-items: center;
+  gap: ${RedesignSpacings.xs};
+  padding: 14px 16px;
+  border: 1px solid ${GrayScale[300]};
+  border-radius: ${Radius.lg};
+  background: white;
+  cursor: pointer;
+  font-family: ${FontFamilies.primary};
+`;
+
+export const DownloadActions = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: ${RedesignSpacings.xs};
+`;
+
 export const ErrorText = styled.div`
   color: ${TextColors.accent};
   font-size: ${FontSize.sm};
