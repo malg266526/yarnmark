@@ -583,6 +583,26 @@ export const pl = {
         noneSelected: 'Brak'
       }
     },
+    workshopsApplicationsPage: {
+      kicker: 'Panel administratora',
+      title: 'Zgłoszenia warsztatowe',
+      loading: 'Wczytywanie zgłoszeń...',
+      empty: 'Brak zgłoszeń.',
+      savedCount: 'Zapisanych zgłoszeń: {{count}}',
+      fields: {
+        status: 'Status',
+        tutorName: 'Prowadzący',
+        phone: 'Telefon',
+        email: 'E-mail',
+        description: 'Opis warsztatu'
+      },
+      statuses: {
+        accepted: 'zaakceptowane',
+        considered: 'rozważane',
+        new: 'nowe',
+        reserve: 'rezerwowy'
+      }
+    },
     foodBand: {
       whereToEat: 'Gdzie zjeść?',
       lookHere: 'Zobacz tutaj',
@@ -928,6 +948,7 @@ export const pl = {
       navigationLabel: 'Nawigacja panelu administracyjnego',
       links: {
         applications: 'Zgłoszenia',
+        workshopsApplications: 'Zgłoszenia warsztatowe',
         editor: 'Edytor'
       }
     }

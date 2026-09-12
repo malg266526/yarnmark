@@ -52,23 +52,23 @@ Formularz zgłoszeniowy dla prowadzących warsztaty, wzorowany na istniejącym `
 - **Czas na analizę biznesową:** 3–4h (jakie pola różnią się od formularza wystawcy, jaki workflow weryfikacji zgłoszeń warsztatowych)
 - **Czas na refaktor:** 8–12h (reużycie wzorców z `src/pages/vendor-form/`: `*Schema.ts`, `*Storage.ts`, hooki, komponenty widoku)
 
-## 7. Nowa strona `/admin/workshops/applications`
+## 7. Nowa strona `/admin/workshops/applications` — ✅ Zrobione
 
-Panel zarządzania zgłoszeniami warsztatowymi, analogiczny do istniejącego panelu wystawców (`VendorsApplicationsPage` i towarzyszące pliki).
+Panel zarządzania zgłoszeniami warsztatowymi, analogiczny do istniejącego panelu wystawców (`VendorsApplicationsPage` i towarzyszące pliki). Zaimplementowano uproszczoną wersję bez widoków specyficznych dla stoisk (kaskadowe przypisanie, grupowanie wg stoiska) — dla warsztatów jest tylko widok kart z polami z formularza (`tutorName`, `workshopTitle`, `description`, `phoneNumber`, `email`) oraz kontrolką statusu. Status flow zgodny z wystawcami: `new/considered/accepted/reserve` (już zdefiniowany w `WorkshopApplicationStatus` z punktu 6). Dodano `updateWorkshopApplicationStatus` do `workshopsApplicationsStorage.ts`, nową trasę w `App.tsx` i wpis w nawigacji `AdminLayout.tsx` (`ADMIN_LINKS`).
 
 - **Czas na analizę biznesową:** 2h (czy status flow ma być identyczny jak dla wystawców: `new/considered/accepted/reserve/rejected`, czy inny)
 - **Czas na refaktor:** 8h
 
-## 8. `/portal/dashboard` — panel partnera
+## 8. `/portal/dashboard` — panel partnera — ❌ Rezygnacja
 
-Panel statusu zgłoszenia i zarządzania własnymi danymi. Zależny od punktu 5 (auth) — bez identyfikacji użytkownika nie da się powiązać zgłoszenia z kontem.
+Panel statusu zgłoszenia i zarządzania własnymi danymi. Zależny od punktu 5 (auth) — bez identyfikacji użytkownika nie da się powiązać zgłoszenia z kontem. Zdecydowano nie realizować tego punktu (największa niewiadoma planu — wymagałby dodatkowo projektowania powiązania zgłoszenia z kontem bez backendu).
 
 - **Czas na analizę biznesową:** 4h (co partner ma widzieć: status zgłoszenia, edycję danych, powiadomienia)
 - **Czas na refaktor:** 16–24h (dodatkowo trzeba zaprojektować powiązanie zgłoszenia z kontem — obecnie dane w `localStorage`/mockach nie mają żadnego identyfikatora użytkownika)
 
-## 9. Aktualizacja nawigacji i stopki
+## 9. Aktualizacja nawigacji i stopki — ✅ Zweryfikowane
 
-Weryfikacja `Menu.tsx`/`Header.tsx` po zmianach ścieżek — upewnić się, że linki adminowe i partnerskie nadal nie pojawiają się w publicznym menu/stopce.
+Weryfikacja `Menu.tsx`/`Header.tsx` po zmianach ścieżek — upewnić się, że linki adminowe i partnerskie nadal nie pojawiają się w publicznym menu/stopce. Sprawdzono `src/pages/menu/Menu.tsx`, `src/pages/menu/Header.tsx` i stopkę w `src/App.tsx`: żaden link do `/admin/*`, `/vendor/apply`, `/vendor/statute` ani `/workshops/apply` nie występuje w publicznym menu ani stopce. Zmian w kodzie nie było potrzeba.
 
 - **Czas na analizę biznesową:** 0.5h
 - **Czas na refaktor:** 1h

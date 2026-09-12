@@ -585,6 +585,26 @@ export const en: TranslationsShape = {
         noneSelected: 'None selected'
       }
     },
+    workshopsApplicationsPage: {
+      kicker: 'Admin panel',
+      title: 'Workshop applications',
+      loading: 'Loading applications...',
+      empty: 'No applications yet.',
+      savedCount: '{{count}} applications saved',
+      fields: {
+        status: 'Status',
+        tutorName: 'Tutor',
+        phone: 'Phone',
+        email: 'Email',
+        description: 'Workshop description'
+      },
+      statuses: {
+        accepted: 'accepted',
+        considered: 'considered',
+        new: 'new',
+        reserve: 'reserve'
+      }
+    },
     foodBand: {
       whereToEat: 'Where to eat?',
       lookHere: 'See here',
@@ -929,6 +949,7 @@ export const en: TranslationsShape = {
       navigationLabel: 'Admin navigation',
       links: {
         applications: 'Applications',
+        workshopsApplications: 'Workshop applications',
         editor: 'Editor'
       }
     }

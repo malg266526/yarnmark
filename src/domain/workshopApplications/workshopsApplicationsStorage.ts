@@ -67,3 +67,16 @@ export const createWorkshopApplication = async (formData: WorkshopFormState) => 
     application
   };
 };
+
+export const updateWorkshopApplicationStatus = async (applicationId: string, status: WorkshopApplicationStatus) => {
+  const storedApplications = readStoredWorkshopApplications();
+  const updatedApplications = storedApplications.map((application) =>
+    application.id === applicationId ? { ...application, status } : application
+  );
+
+  writeStoredWorkshopApplications(updatedApplications);
+
+  return {
+    applications: updatedApplications
+  };
+};

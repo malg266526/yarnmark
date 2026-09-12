@@ -22,6 +22,10 @@ const ADMIN_LINKS = [
     to: '/admin/vendors/applications'
   },
   {
+    id: 'workshopsApplications',
+    to: '/admin/workshops/applications'
+  },
+  {
     id: 'editor',
     to: '/admin/editor'
   }

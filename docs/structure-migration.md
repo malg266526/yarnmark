@@ -16,37 +16,40 @@ Dokument opisuje docelowy podział ścieżek, architekturę folderów oraz zasad
 ## 2. Zestawienie Ścieżek (Page Directory List)
 
 ### A. Strefa Publiczna (End Customer / Odwiedzający)
+
 Dostępna dla każdego użytkownika. Odpowiada za prezentację targów, agendy i planu hali.
 
-| Stara Ścieżka | Nowa Ścieżka | W Nawigacji | Rola / Dostęp | Opis / Opis Komponentu |
-| :--- | :--- | :---: | :--- | :--- |
-| `/home` | `/` lub `/home` | Tak | Publiczny | Strona główna z sekcjami kotwicowanymi (`#workshops`, `#vendors`, `#hall`, `#patterns` itp.) |
-| `/hall` | `/hall` | Tak | Publiczny | Plan hali, mapa stoisk i rozmieszczenie wystawców |
-| `/statutes` | `/statutes` | Tak | Publiczny | Ogólny regulamin wydarzenia dla odwiedzających |
-| `/info-for-vendors` | `/info-for-vendors` | Tak | Publiczny | Strona informacyjna z ofertą i warunkami dla wystawców/prowadzących |
+| Stara Ścieżka       | Nowa Ścieżka        | W Nawigacji | Rola / Dostęp | Opis / Opis Komponentu                                                                       |
+| :------------------ | :------------------ | :---------: | :------------ | :------------------------------------------------------------------------------------------- |
+| `/home`             | `/` lub `/home`     |     Tak     | Publiczny     | Strona główna z sekcjami kotwicowanymi (`#workshops`, `#vendors`, `#hall`, `#patterns` itp.) |
+| `/hall`             | `/hall`             |     Tak     | Publiczny     | Plan hali, mapa stoisk i rozmieszczenie wystawców                                            |
+| `/statutes`         | `/statutes`         |     Tak     | Publiczny     | Ogólny regulamin wydarzenia dla odwiedzających                                               |
+| `/info-for-vendors` | `/info-for-vendors` |     Tak     | Publiczny     | Strona informacyjna z ofertą i warunkami dla wystawców/prowadzących                          |
 
 ---
 
 ### B. Strefa Partnera (Wystawcy & Prowadzący Warsztaty)
+
 Strefa dedykowana podmiotom zgłaszającym swój udział w wydarzeniu.
 
-| Stara Ścieżka | Nowa Ścieżka | W Nawigacji | Rola / Dostęp | Opis / Opis Komponentu |
-| :--- | :--- | :---: | :--- | :--- |
-| `/info-for-vendors-statue` | `/vendor/statute` | Nie | Publiczny / Partner | Regulamin uczestnictwa i wystawiania się na targach |
-| `/vendors-form` | `/vendor/apply` | Nie | Publiczny / Partner | Formularz zgłoszeniowy dla wystawców stoisk |
-| *(brak)* | `/workshops/apply` | Nie | Publiczny / Partner | **NOWOŚĆ:** Formularz zgłoszeniowy dla prowadzących warsztaty |
-| *(brak)* | `/portal/dashboard` | Nie | Partner (Auth) | Panel statusu zgłoszenia i zarządzania własnymi danymi |
+| Stara Ścieżka              | Nowa Ścieżka        | W Nawigacji | Rola / Dostęp       | Opis / Opis Komponentu                                        |
+| :------------------------- | :------------------ | :---------: | :------------------ | :------------------------------------------------------------ |
+| `/info-for-vendors-statue` | `/vendor/statute`   |     Nie     | Publiczny / Partner | Regulamin uczestnictwa i wystawiania się na targach           |
+| `/vendors-form`            | `/vendor/apply`     |     Nie     | Publiczny / Partner | Formularz zgłoszeniowy dla wystawców stoisk                   |
+| _(brak)_                   | `/workshops/apply`  |     Nie     | Publiczny / Partner | **NOWOŚĆ:** Formularz zgłoszeniowy dla prowadzących warsztaty |
+| _(brak)_                   | `/portal/dashboard` |     Nie     | Partner (Auth)      | Panel statusu zgłoszenia i zarządzania własnymi danymi        |
 
 ---
 
 ### C. Strefa Administracyjna (Admin Only)
+
 Strefa przeznaczona wyłącznie dla zespołu organizacyjnego targów. Wymaga zalogowania z rolą administratora.
 
-| Stara Ścieżka | Nowa Ścieżka | W Nawigacji | Rola / Dostęp | Opis / Opis Komponentu |
-| :--- | :--- | :---: | :--- | :--- |
-| `/editor` | `/admin/editor` | Nie | Admin | Edytor treści strony głównej, sekcji i aktualności |
-| `/vendors-applications` | `/admin/vendors/applications` | Nie | Admin | Panel zarządzania aplikacjami i weryfikacji wystawców |
-| *(brak)* | `/admin/workshops/applications` | Nie | Admin | **NOWOŚĆ:** Panel zarządzania aplikacjami zgłoszeń na warsztaty |
+| Stara Ścieżka           | Nowa Ścieżka                    | W Nawigacji | Rola / Dostęp | Opis / Opis Komponentu                                          |
+| :---------------------- | :------------------------------ | :---------: | :------------ | :-------------------------------------------------------------- |
+| `/editor`               | `/admin/editor`                 |     Nie     | Admin         | Edytor treści strony głównej, sekcji i aktualności              |
+| `/vendors-applications` | `/admin/vendors/applications`   |     Nie     | Admin         | Panel zarządzania aplikacjami i weryfikacji wystawców           |
+| _(brak)_                | `/admin/workshops/applications` |     Nie     | Admin         | **NOWOŚĆ:** Panel zarządzania aplikacjami zgłoszeń na warsztaty |
 
 ---
 
@@ -115,12 +118,15 @@ app/
 ## 5. Zasady Bezpieczeństwa i Zarządzanie Dostępem (RBAC)
 
 1. **Middleware Guard:**
-  - Zapytania kierowane na przedrostek `/admin/*` musza przechodzić przez weryfikację tokenu/sesji.
-  - Jeżeli użytkownik nie posiada roli `ADMIN`, następuje natychmiastowe przekierowanie na stronę główną lub stronę logowania.
+
+- Zapytania kierowane na przedrostek `/admin/*` musza przechodzić przez weryfikację tokenu/sesji.
+- Jeżeli użytkownik nie posiada roli `ADMIN`, następuje natychmiastowe przekierowanie na stronę główną lub stronę logowania.
 
 2. **Izolacja Komponentów:**
-  - Formularze aplikacyjne (`/vendor/apply` oraz `/workshops/apply`) wysyłają dane do chronionych końcówek API.
-  - Prowadzący i wystawcy nie mają bezpośredniego dostępu do interfejsu przeglądania list aplikujących (`/admin/*/applications`).
+
+- Formularze aplikacyjne (`/vendor/apply` oraz `/workshops/apply`) wysyłają dane do chronionych końcówek API.
+- Prowadzący i wystawcy nie mają bezpośredniego dostępu do interfejsu przeglądania list aplikujących (`/admin/*/applications`).
 
 3. **Menu i Linki:**
-  - Odnośniki do paneli administracyjnych nie występują w publicznym kodzie nawigacji ani stopki.
+
+- Odnośniki do paneli administracyjnych nie występują w publicznym kodzie nawigacji ani stopki.
