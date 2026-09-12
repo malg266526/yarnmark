@@ -1,9 +1,13 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Typography } from '../../components/Typography';
+import { Kicker } from '../../components/Kicker';
+import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { useAdminAuth } from './useAdminAuth';
+import { AdminLoginView } from './AdminLoginView';
 import {
   AdminBrand,
-  AdminKicker,
+  AdminLogoutButton,
   AdminMain,
   AdminNav,
   AdminNavLink,
@@ -14,40 +18,51 @@ import {
 
 const ADMIN_LINKS = [
   {
-    label: 'Applications',
-    to: '/admin/applications'
+    id: 'applications',
+    to: '/admin/vendors/applications'
   },
   {
-    label: 'Vendor form',
-    to: '/admin/vendor-form'
+    id: 'workshopsApplications',
+    to: '/admin/workshops/applications'
   },
   {
-    label: 'Editor',
+    id: 'editor',
     to: '/admin/editor'
   }
 ] as const;
 
 export const AdminLayout = () => {
+  const t = useTypedTranslation();
+  const { isAuthenticated, login, logout } = useAdminAuth();
+
+  if (!isAuthenticated) {
+    return <AdminLoginView onSubmit={login} />;
+  }
+
   return (
     <AdminRoot>
       <AdminShell>
         <AdminSidebar>
           <AdminBrand>
-            <AdminKicker>
-              <Typography size="xs">Admin</Typography>
-            </AdminKicker>
+            <Kicker>
+              <Typography size="xs">{t('adminLayout.kicker')}</Typography>
+            </Kicker>
             <Typography size="xl" weight="bold">
               Yarnmark
             </Typography>
           </AdminBrand>
 
-          <AdminNav aria-label="Admin navigation">
+          <AdminNav aria-label={t('adminLayout.navigationLabel')}>
             {ADMIN_LINKS.map((link) => (
               <AdminNavLink key={link.to} to={link.to}>
-                <Typography size="md">{link.label}</Typography>
+                <Typography size="md">{t(`adminLayout.links.${link.id}` as const)}</Typography>
               </AdminNavLink>
             ))}
           </AdminNav>
+
+          <AdminLogoutButton type="button" onClick={logout}>
+            <Typography size="md">{t('adminLogin.logout')}</Typography>
+          </AdminLogoutButton>
         </AdminSidebar>
 
         <AdminMain>

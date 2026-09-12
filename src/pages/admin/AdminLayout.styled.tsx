@@ -51,12 +51,6 @@ export const AdminBrand = styled.div`
   gap: ${RedesignSpacings.xxs};
 `;
 
-export const AdminKicker = styled.span`
-  color: ${TextColors.secondary};
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-`;
-
 export const AdminNav = styled.nav`
   display: flex;
   flex-direction: column;
@@ -86,6 +80,20 @@ export const AdminNavLink = styled(NavLink)`
     background: ${TextColors.secondary};
     border-color: ${TextColors.secondary};
     color: ${GrayScale[50]};
+  }
+`;
+
+export const AdminLogoutButton = styled.button`
+  all: unset;
+  cursor: pointer;
+  margin-top: auto;
+  padding: ${RedesignSpacings.xs} ${RedesignSpacings.sm};
+  border-radius: 10px;
+  border: 1px solid ${BorderColors.subtleGreen};
+  color: ${TextColors.secondary};
+
+  &:hover {
+    background: ${GrayScale[50]};
   }
 `;
 

@@ -1,8 +1,9 @@
-import React, { ReactNode } from 'react';
+import React, { ComponentProps, ReactNode } from 'react';
 import styled from 'styled-components';
-import { GrayScale, TextColors } from '../styles/theme';
+import { GrayScale } from '../styles/theme';
 import { RedesignSpacings } from '../styles/spacings';
 import { Typography } from './Typography';
+import { Kicker } from './Kicker';
 import { ScreenSize } from '../styles/screeen-size';
 
 const HeaderRoot = styled.div`
@@ -18,12 +19,6 @@ const HeaderRoot = styled.div`
   }
 `;
 
-const Kicker = styled.div`
-  color: ${TextColors.secondary};
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-`;
-
 const Description = styled(Typography)`
   max-width: 720px;
 `;
@@ -32,9 +27,10 @@ interface UtilityPageHeaderProps {
   title: ReactNode;
   description?: ReactNode;
   kicker?: ReactNode;
+  titleSize?: ComponentProps<typeof Typography>['size'];
 }
 
-export const UtilityPageHeader = ({ title, description, kicker }: UtilityPageHeaderProps) => (
+export const UtilityPageHeader = ({ title, description, kicker, titleSize = 'xxl' }: UtilityPageHeaderProps) => (
   <HeaderRoot>
     {kicker ? (
       <Kicker>
@@ -42,7 +38,7 @@ export const UtilityPageHeader = ({ title, description, kicker }: UtilityPageHea
       </Kicker>
     ) : null}
 
-    <Typography size="xxl" weight="bold" as="h1">
+    <Typography size={titleSize} weight="bold" as="h1">
       {title}
     </Typography>
 

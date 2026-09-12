@@ -451,6 +451,58 @@ export const pl = {
         notProvided: 'Nie podano'
       }
     },
+    workshopsFormPage: {
+      title: 'Formularz zgłoszeniowy prowadzących warsztaty',
+      kicker: 'Dla prowadzących warsztaty',
+      submit: 'Wyślij zgłoszenie',
+      submitting: 'Wysyłanie...',
+      submitError: 'Nie udało się zapisać zgłoszenia. Spróbuj ponownie.',
+      submissionDateTimeLabel: 'Data i godzina wysłania',
+      draftBanner: 'Szkic formularza zapisuje się lokalnie w tej przeglądarce do momentu wysłania zgłoszenia.',
+      steps: {
+        basics: {
+          title: 'Podstawowe informacje',
+          tutorNameLabel: 'Imię i nazwisko prowadzącego',
+          tutorNamePlaceholder: 'Np. Anna Kowalska',
+          workshopTitleLabel: 'Tytuł warsztatu',
+          workshopTitlePlaceholder: 'Np. Podstawy szydełkowania'
+        },
+        contact: {
+          title: 'Jak możemy się z Tobą skontaktować?',
+          phoneLabel: 'Numer telefonu',
+          phonePlaceholder: '+48 123 456 789',
+          emailLabel: 'Adres e-mail',
+          emailPlaceholder: 'twoj@adres.pl'
+        },
+        description: {
+          title: 'Krótki opis warsztatu',
+          label: 'Opis warsztatu',
+          placeholder: 'Napisz krótko, na czym polega warsztat.',
+          limitHint: '{{current}} / {{max}} znaków'
+        }
+      },
+      validation: {
+        tutorNameRequired: 'Podaj imię i nazwisko prowadzącego.',
+        workshopTitleRequired: 'Podaj tytuł warsztatu.',
+        descriptionRequired: 'Dodaj opis warsztatu.',
+        descriptionTooLong: 'Opis warsztatu jest za długi.',
+        phoneRequired: 'Podaj numer telefonu.',
+        phoneInvalid: 'Podaj poprawny numer telefonu.',
+        emailRequired: 'Podaj adres e-mail.',
+        emailInvalid: 'Podaj poprawny adres e-mail.'
+      },
+      summary: {
+        title: 'Zgłoszenie zostało zapisane',
+        description: 'Zgłoszenie zostało zapisane.',
+        tutorName: 'Prowadzący',
+        workshopTitle: 'Tytuł warsztatu',
+        submittedAt: 'Data zapisania',
+        phone: 'Telefon',
+        email: 'E-mail',
+        workshopDescription: 'Opis warsztatu',
+        notProvided: 'Nie podano'
+      }
+    },
     vendorsApplicationsPage: {
       kicker: 'Panel administratora',
       title: 'Panel administratora',
@@ -529,6 +581,26 @@ export const pl = {
         notAssigned: 'Nieprzypisane',
         notProvided: 'Nie podano',
         noneSelected: 'Brak'
+      }
+    },
+    workshopsApplicationsPage: {
+      kicker: 'Panel administratora',
+      title: 'Zgłoszenia warsztatowe',
+      loading: 'Wczytywanie zgłoszeń...',
+      empty: 'Brak zgłoszeń.',
+      savedCount: 'Zapisanych zgłoszeń: {{count}}',
+      fields: {
+        status: 'Status',
+        tutorName: 'Prowadzący',
+        phone: 'Telefon',
+        email: 'E-mail',
+        description: 'Opis warsztatu'
+      },
+      statuses: {
+        accepted: 'zaakceptowane',
+        considered: 'rozważane',
+        new: 'nowe',
+        reserve: 'rezerwowy'
       }
     },
     foodBand: {
@@ -861,6 +933,23 @@ export const pl = {
       },
       standList: {
         remove: 'Usuń'
+      }
+    },
+    adminLogin: {
+      kicker: 'Admin',
+      title: 'Panel administracyjny',
+      passwordLabel: 'Hasło',
+      submit: 'Zaloguj',
+      error: 'Nieprawidłowe hasło',
+      logout: 'Wyloguj'
+    },
+    adminLayout: {
+      kicker: 'Admin',
+      navigationLabel: 'Nawigacja panelu administracyjnego',
+      links: {
+        applications: 'Zgłoszenia',
+        workshopsApplications: 'Zgłoszenia warsztatowe',
+        editor: 'Edytor'
       }
     }
   }
