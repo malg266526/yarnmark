@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
+import { WORKSHOP_FORM_LOGO_ACCEPTED_MIME_TYPES } from '../../../../domain/workshopApplications/workshopFormConstants.ts';
 import {
   DownloadActions,
   ErrorText,
@@ -33,7 +34,7 @@ export const WorkshopFormLogoSection = ({ formActions, formBindings, formStatus 
           <TextInput
             id="logo_file"
             type="file"
-            accept="image/*"
+            accept={WORKSHOP_FORM_LOGO_ACCEPTED_MIME_TYPES.join(',')}
             disabled={isLoadingLogo}
             onChange={(event) => {
               void updateLogoFile(event.target.files?.[0] ?? null);

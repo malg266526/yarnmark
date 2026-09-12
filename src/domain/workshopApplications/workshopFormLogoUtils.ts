@@ -1,9 +1,5 @@
-export class LogoTooLargeError extends Error {
-  constructor() {
-    super('Selected logo file exceeds the maximum allowed size.');
-    this.name = 'LogoTooLargeError';
-  }
-}
+export const isSupportedLogoMimeType = (mimeType: string, acceptedMimeTypes: readonly string[]) =>
+  acceptedMimeTypes.includes(mimeType);
 
 const DOWNSCALE_OUTPUT_MIME_TYPE = 'image/webp';
 const DOWNSCALE_OUTPUT_QUALITY = 0.85;
@@ -103,21 +99,36 @@ const readFileAsDataUrl = (file: File) =>
     reader.readAsDataURL(file);
   });
 
+export interface PrepareLogoOptions {
+  acceptedMimeTypes: readonly string[];
+  maxBytes: number;
+  maxDimension: number;
+}
+
+export type LogoRejectionReason = 'unsupportedFormat' | 'tooLarge' | 'readFailed';
+
+export type PrepareLogoResult =
+  | { status: 'ready'; logo: PreparedLogo }
+  | { status: 'rejected'; reason: LogoRejectionReason; cause?: unknown };
+
 export const prepareLogoForUpload = async (
   file: File,
-  maxBytes: number,
-  maxDimension: number
-): Promise<PreparedLogo> => {
+  { acceptedMimeTypes, maxBytes, maxDimension }: PrepareLogoOptions
+): Promise<PrepareLogoResult> => {
+  if (!isSupportedLogoMimeType(file.type, acceptedMimeTypes)) {
+    return { status: 'rejected', reason: 'unsupportedFormat' };
+  }
+
   if (file.size > maxBytes) {
-    throw new LogoTooLargeError();
+    return { status: 'rejected', reason: 'tooLarge' };
   }
 
-  const originalDataUrl = await readFileAsDataUrl(file);
-  const downscaled = await downscaleDataUrl(originalDataUrl, maxDimension);
+  try {
+    const originalDataUrl = await readFileAsDataUrl(file);
+    const downscaled = await downscaleDataUrl(originalDataUrl, maxDimension);
 
-  if (downscaled) {
-    return downscaled;
+    return { status: 'ready', logo: downscaled ?? { dataUrl: originalDataUrl, mimeType: file.type } };
+  } catch (cause) {
+    return { status: 'rejected', reason: 'readFailed', cause };
   }
-
-  return { dataUrl: originalDataUrl, mimeType: file.type || 'image/png' };
 };

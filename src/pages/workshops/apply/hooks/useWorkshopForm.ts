@@ -8,6 +8,7 @@ import { createWorkshopApplication } from '../../../../domain/workshopApplicatio
 import {
   WORKSHOP_FORM_DESCRIPTION_MAX_LENGTH,
   WORKSHOP_FORM_DRAFT_STORAGE_KEY,
+  WORKSHOP_FORM_LOGO_ACCEPTED_MIME_TYPES,
   WORKSHOP_FORM_LOGO_MAX_BYTES,
   WORKSHOP_FORM_LOGO_MAX_DIMENSION
 } from '../../../../domain/workshopApplications/workshopFormConstants.ts';
@@ -17,14 +18,20 @@ import {
   type WorkshopFormValues
 } from '../../../../domain/workshopApplications/workshopFormSchema.ts';
 import {
-  LogoTooLargeError,
-  prepareLogoForUpload
+  prepareLogoForUpload,
+  type LogoRejectionReason
 } from '../../../../domain/workshopApplications/workshopFormLogoUtils.ts';
 import { createEmptyWorkshopFormDraft, parseStoredWorkshopFormDraft } from '../workshopFormStorage.ts';
 
 const readStoredWorkshopFormDraftOrCreateEmptyDraft = () =>
   parseStoredWorkshopFormDraft(window.localStorage.getItem(WORKSHOP_FORM_DRAFT_STORAGE_KEY)) ??
   createEmptyWorkshopFormDraft();
+
+const LOGO_REJECTION_MESSAGE_KEYS: Record<LogoRejectionReason, UnprefixedTranslationKeys> = {
+  unsupportedFormat: 'workshopsFormPage.logoUnsupportedFormatError',
+  tooLarge: 'workshopsFormPage.logoTooLargeError',
+  readFailed: 'workshopsFormPage.logoUploadError'
+};
 
 export const useWorkshopForm = (): WorkshopFormViewProps => {
   const t = useTypedTranslation();
@@ -107,40 +114,39 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
     markFormAsIncompleteAndClearSubmitError();
   };
 
+  const setLogoValues = (logo: { fileName: string; dataUrl: string; mimeType: string } | null) => {
+    setValue('logoFileName', logo?.fileName ?? null, { shouldDirty: true, shouldValidate: true });
+    setValue('logoDataUrl', logo?.dataUrl ?? null, { shouldDirty: true, shouldValidate: true });
+    setValue('logoMimeType', logo?.mimeType ?? null, { shouldDirty: true, shouldValidate: true });
+    markFormAsIncompleteAndClearSubmitError();
+  };
+
   const updateLogoFile = async (file: File | null) => {
     if (!file) {
-      setValue('logoFileName', null, { shouldDirty: true, shouldValidate: true });
-      setValue('logoDataUrl', null, { shouldDirty: true, shouldValidate: true });
-      setValue('logoMimeType', null, { shouldDirty: true, shouldValidate: true });
-      markFormAsIncompleteAndClearSubmitError();
+      setLogoValues(null);
       return;
     }
 
     setIsLoadingLogo(true);
 
-    try {
-      const preparedLogo = await prepareLogoForUpload(
-        file,
-        WORKSHOP_FORM_LOGO_MAX_BYTES,
-        WORKSHOP_FORM_LOGO_MAX_DIMENSION
-      );
+    const result = await prepareLogoForUpload(file, {
+      acceptedMimeTypes: WORKSHOP_FORM_LOGO_ACCEPTED_MIME_TYPES,
+      maxBytes: WORKSHOP_FORM_LOGO_MAX_BYTES,
+      maxDimension: WORKSHOP_FORM_LOGO_MAX_DIMENSION
+    });
 
-      setValue('logoFileName', file.name, { shouldDirty: true, shouldValidate: true });
-      setValue('logoDataUrl', preparedLogo.dataUrl, { shouldDirty: true, shouldValidate: true });
-      setValue('logoMimeType', preparedLogo.mimeType, { shouldDirty: true, shouldValidate: true });
-      markFormAsIncompleteAndClearSubmitError();
-    } catch (error) {
-      console.error(error);
-      setSubmitError(
-        t(
-          error instanceof LogoTooLargeError
-            ? 'workshopsFormPage.logoTooLargeError'
-            : 'workshopsFormPage.logoUploadError'
-        )
-      );
-    } finally {
-      setIsLoadingLogo(false);
+    setIsLoadingLogo(false);
+
+    if (result.status === 'rejected') {
+      if (result.cause) {
+        console.error(result.cause);
+      }
+
+      setSubmitError(t(LOGO_REJECTION_MESSAGE_KEYS[result.reason]));
+      return;
     }
+
+    setLogoValues({ fileName: file.name, ...result.logo });
   };
 
   const submitWorkshopForm = async () => {

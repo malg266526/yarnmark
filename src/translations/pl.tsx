@@ -461,6 +461,7 @@ export const pl = {
       draftBanner: 'Szkic formularza zapisuje się lokalnie w tej przeglądarce do momentu wysłania zgłoszenia.',
       logoUploadError: 'Nie udało się odczytać pliku z logo. Wybierz go ponownie.',
       logoTooLargeError: 'Plik z logo jest za duży (max 8 MB). Wybierz mniejszy.',
+      logoUnsupportedFormatError: 'Nieobsługiwany format pliku. Wybierz plik JPG, PNG, WebP, AVIF lub GIF.',
       logoLoading: 'Przetwarzanie pliku z logo…',
       steps: {
         basics: {

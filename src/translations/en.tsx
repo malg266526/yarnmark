@@ -463,6 +463,7 @@ export const en: TranslationsShape = {
       draftBanner: 'This draft is stored locally in this browser until you submit the application.',
       logoUploadError: 'The logo file could not be read. Please choose it again.',
       logoTooLargeError: 'Logo file is too large (max 8 MB). Please choose a smaller one.',
+      logoUnsupportedFormatError: 'Unsupported file format. Please choose a JPG, PNG, WebP, AVIF or GIF file.',
       logoLoading: 'Processing logo…',
       steps: {
         basics: {
