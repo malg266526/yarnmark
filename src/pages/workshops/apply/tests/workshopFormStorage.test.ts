@@ -8,6 +8,17 @@ const createValidWorkshopFormState = () => ({
   tutorName: 'Anna Kowalska',
   workshopTitle: 'Crochet basics',
   description: 'A short workshop description.',
+  minParticipants: 4,
+  maxParticipants: 10,
+  experienceLevel: 'beginner' as const,
+  duration: '3h',
+  participantsShouldBring: 'Own crochet hook.',
+  roomRequirements: 'Tables and power access.',
+  grossPricePerParticipant: 50,
+  contractType: 'invoice' as const,
+  logoFileName: 'logo.png',
+  logoDataUrl: 'data:image/png;base64,AAAA',
+  logoMimeType: 'image/png',
   phoneNumber: '+48 123 456 789',
   email: 'tutor@example.com'
 });
