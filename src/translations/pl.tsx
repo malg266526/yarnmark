@@ -502,6 +502,7 @@ export const pl = {
           participantsShouldBringLabel: 'Co powinien przynieść uczestnik?',
           participantsShouldBringPlaceholder: 'np. wełna, druty, nożyczki',
           roomRequirementsLabel: 'Wymagania co do sali',
+          roomRequirementsHint: 'Jeśli nie masz specjalnych wymagań co do sali, zostaw to pole puste.',
           requiredEquipmentLabel: 'Potrzebny sprzęt',
           requiredEquipmentPlaceholder: 'Np. flipchart, monitor, rzutnik...',
           requiredEquipmentHint: 'Jeśli nie potrzebujesz dodatkowego sprzętu, zostaw to pole puste.'
@@ -541,7 +542,6 @@ export const pl = {
         experienceLevelRequired: 'Wybierz poziom zaawansowania uczestników.',
         durationRequired: 'Podaj czas trwania warsztatu.',
         participantsShouldBringRequired: 'Podaj, co powinien przynieść uczestnik.',
-        roomRequirementsRequired: 'Podaj wymagania co do sali.',
         grossPricePerParticipantRequired: 'Podaj kwotę brutto za osobę.',
         contractTypeRequired: 'Wybierz typ umowy.',
         contractTypeOtherRequired: 'Podaj typ umowy.',

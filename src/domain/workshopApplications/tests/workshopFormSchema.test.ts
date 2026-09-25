@@ -36,7 +36,6 @@ test('collectWorkshopFormValidationErrors returns multiple missing-field errors 
     experienceLevel: 'workshopsFormPage.validation.experienceLevelRequired',
     duration: 'workshopsFormPage.validation.durationRequired',
     participantsShouldBring: 'workshopsFormPage.validation.participantsShouldBringRequired',
-    roomRequirements: 'workshopsFormPage.validation.roomRequirementsRequired',
     grossPricePerParticipant: 'workshopsFormPage.validation.grossPricePerParticipantRequired',
     contractType: 'workshopsFormPage.validation.contractTypeRequired',
     logoFileName: 'workshopsFormPage.validation.logoRequired',
@@ -80,4 +79,32 @@ test('collectWorkshopFormValidationErrors requires the contract type details whe
   );
 
   assert.equal(errors.contractTypeOther, 'workshopsFormPage.validation.contractTypeOtherRequired');
+});
+
+test('collectWorkshopFormValidationErrors accepts numeric fields submitted as numeric strings', () => {
+  const errors = collectWorkshopFormValidationErrors(
+    createValidWorkshopFormValues({
+      minParticipants: '4' as unknown as number,
+      maxParticipants: '10' as unknown as number,
+      grossPricePerParticipant: '50' as unknown as number
+    })
+  );
+
+  assert.deepEqual(errors, {});
+});
+
+test('collectWorkshopFormValidationErrors treats an empty numeric string as missing', () => {
+  const errors = collectWorkshopFormValidationErrors(
+    createValidWorkshopFormValues({ minParticipants: '' as unknown as number })
+  );
+
+  assert.equal(errors.minParticipants, 'workshopsFormPage.validation.minParticipantsRequired');
+});
+
+test('collectWorkshopFormValidationErrors accepts empty room requirements and required equipment', () => {
+  const errors = collectWorkshopFormValidationErrors(
+    createValidWorkshopFormValues({ roomRequirements: '', requiredEquipment: '' })
+  );
+
+  assert.deepEqual(errors, {});
 });
