@@ -114,8 +114,10 @@ export const pl = {
     },
     teamAndPartners: {
       title: 'Zespół & Partnerzy',
-      mediaPartners: 'PATRONI MEDIALNI {{year}}',
-      woolPatrons: 'PARTNERZY WŁÓCZKOWI {{year}}',
+      mediaPartners: 'PATRONI MEDIALNI',
+      mediaPartners_archive: 'PATRONI MEDIALNI {{year}}',
+      woolPatrons: 'PARTNERZY WŁÓCZKOWI',
+      woolPatrons_archive: 'PARTNERZY WŁÓCZKOWI {{year}}',
       organizers: {
         ewa: {
           name: 'Ewa',
@@ -260,7 +262,8 @@ export const pl = {
           'Podczas rejsu poczęstujemy Cię kieliszkiem Prosecco (lub napoju bezalkoholowego), dodając tym samym nutę luksusu do atmosfery.'
       }
     },
-    vendors: 'Wystawcy {{year}}',
+    vendors: 'Wystawcy',
+    vendors_archive: 'Wystawcy {{year}}',
     contactPage: {
       title: 'Kontakt'
     },
@@ -709,7 +712,8 @@ export const pl = {
       cancel: 'Anuluj'
     },
     workshops: {
-      title: 'Warsztaty {{year}}',
+      title: 'Warsztaty',
+      title_archive: 'Warsztaty {{year}}',
       scheduleTitle: 'Harmonogram warsztatów',
       mapTitle: 'Mapa sal warsztatowych',
       tutor: 'Prowadzący: ',

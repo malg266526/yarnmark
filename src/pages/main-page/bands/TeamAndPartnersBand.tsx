@@ -29,7 +29,7 @@ import myakWebp from '../../../assets/team_and_partners/wool/myak.webp';
 import myakAvif from '../../../assets/team_and_partners/wool/myak.avif';
 import rosariosWebp from '../../../assets/team_and_partners/wool/rosarios.webp';
 import rosariosAvif from '../../../assets/team_and_partners/wool/rosarios.avif';
-import { FairEdition } from '../../../fairEditionConfig';
+import { EDITION_TITLE_OPTIONS } from '../../../fairEditionConfig';
 
 const LayoutWithActiveOrganizer = styled.div`
   display: flex;
@@ -272,7 +272,7 @@ export const TeamAndPartnersBand = () => {
 
       <PartnersSection>
         <Typography size="lg" weight="bold" color={TextColors.secondary}>
-          {t('teamAndPartners.mediaPartners', { year: FairEdition.pastEditionYear })}
+          {t('teamAndPartners.mediaPartners', EDITION_TITLE_OPTIONS)}
         </Typography>
         <PartnersLogos>
           {PARTNERS.map((partner) => (
@@ -287,7 +287,7 @@ export const TeamAndPartnersBand = () => {
 
       <PartnersSection>
         <Typography size="lg" weight="bold" color={TextColors.secondary}>
-          {t('teamAndPartners.woolPatrons', { year: FairEdition.pastEditionYear })}
+          {t('teamAndPartners.woolPatrons', EDITION_TITLE_OPTIONS)}
         </Typography>
         <PartnersLogos>
           {WOOL_PATRONS.map((partner) => (

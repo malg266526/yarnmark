@@ -16,7 +16,7 @@ import styled from 'styled-components';
 import { RedesignSpacings } from '../../../styles/spacings';
 import { Accordion } from '../../../components/accordion/Accordion';
 import { BandsToggles } from '../../../toggles';
-import { FairEdition } from '../../../fairEditionConfig';
+import { EDITION_TITLE_OPTIONS } from '../../../fairEditionConfig';
 
 type WorkshopsBandType = {
   id: string;
@@ -51,7 +51,7 @@ export const WorkshopsDesktopBand = ({ id }: WorkshopsBandType) => {
 
   return (
     <Band.CenteredColumn id={id} size="lg" gap="xl" padding="xl" color={BackgroundColors.workshopsBand}>
-      <Band.Title>{t('workshops.title', { year: FairEdition.workshopsEditionYear })}</Band.Title>
+      <Band.Title>{t('workshops.title', EDITION_TITLE_OPTIONS)}</Band.Title>
 
       {BandsToggles.workshopsScheduleEnabled && (
         <AccordionsWrapper>

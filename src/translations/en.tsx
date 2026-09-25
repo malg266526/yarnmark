@@ -35,8 +35,10 @@ export const en: TranslationsShape = {
     },
     teamAndPartners: {
       title: 'Team & Partners',
-      mediaPartners: 'MEDIA PATRONS {{year}}',
-      woolPatrons: 'WOOL PARTNERS {{year}}',
+      mediaPartners: 'MEDIA PATRONS',
+      mediaPartners_archive: 'MEDIA PATRONS {{year}}',
+      woolPatrons: 'WOOL PARTNERS',
+      woolPatrons_archive: 'WOOL PARTNERS {{year}}',
       organizers: {
         ewa: {
           name: 'Ewa',
@@ -262,7 +264,8 @@ export const en: TranslationsShape = {
       buyTickets: 'Buy a ticket',
       tickets: 'Tickets'
     },
-    vendors: 'Vendors {{year}}',
+    vendors: 'Vendors',
+    vendors_archive: 'Vendors {{year}}',
     contactPage: {
       title: 'Contact'
     },
@@ -712,7 +715,8 @@ export const en: TranslationsShape = {
       cancel: 'Cancel'
     },
     workshops: {
-      title: 'Workshops {{year}}',
+      title: 'Workshops',
+      title_archive: 'Workshops {{year}}',
       scheduleTitle: 'Workshops schedule',
       mapTitle: 'Workshops rooms map',
       tutor: 'Instructors: ',

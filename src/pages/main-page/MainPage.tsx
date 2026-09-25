@@ -17,7 +17,7 @@ import { PatternsBand } from './bands/PatternsBand';
 import { WorkshopsDesktopBand } from './workshops/WorkshopsDesktopBand';
 import { FoodBand } from './FoodBand';
 import { BandsToggles } from '../../toggles';
-import { FairEdition } from '../../fairEditionConfig';
+import { EDITION_TITLE_OPTIONS } from '../../fairEditionConfig';
 import { TicketCard } from './bands/ticket/TicketCard';
 import { VendorsList } from './VendorsList';
 import { CruiseBand } from './bands/CruiseBand';
@@ -63,16 +63,24 @@ export const MainPage = () => {
 
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 
-          <Band.SecondaryTitle>{t('workshops.title', { year: FairEdition.workshopsEditionYear })}</Band.SecondaryTitle>
-          <Band.Empty id="workshops" padding="xs" color="white">
-            <WorkshopsMobileSchedule />
-          </Band.Empty>
+          {BandsToggles.workshopsEnabled && (
+            <>
+              <Band.SecondaryTitle>{t('workshops.title', EDITION_TITLE_OPTIONS)}</Band.SecondaryTitle>
+              <Band.Empty id="workshops" padding="xs" color="white">
+                <WorkshopsMobileSchedule />
+              </Band.Empty>
+            </>
+          )}
 
-          <Band.SecondaryTitle>{t('vendors', { year: FairEdition.pastEditionYear })}</Band.SecondaryTitle>
+          {BandsToggles.vendorsEnabled && (
+            <>
+              <Band.SecondaryTitle>{t('vendors', EDITION_TITLE_OPTIONS)}</Band.SecondaryTitle>
 
-          <Band.CenteredColumn id="vendors" size="lg" padding="none" color={BackgroundColors.vendors}>
-            <VendorsList />
-          </Band.CenteredColumn>
+              <Band.CenteredColumn id="vendors" size="lg" padding="none" color={BackgroundColors.vendors}>
+                <VendorsList />
+              </Band.CenteredColumn>
+            </>
+          )}
 
           {BandsToggles.goldenPretzelEnabled && <GoldenPretzelBand id="goldenPretzel" />}
 
@@ -106,17 +114,19 @@ export const MainPage = () => {
 
           <LocationBand id="location" />
 
-          <Band.CenteredColumn
-            id="vendors"
-            size="md"
-            gap="lg"
-            padding="xxxl"
-            color={BackgroundColors.vendors}
-            justify="center"
-          >
-            <Band.Title>{t('vendors', { year: FairEdition.pastEditionYear })}</Band.Title>
-            <VendorsList />
-          </Band.CenteredColumn>
+          {BandsToggles.vendorsEnabled && (
+            <Band.CenteredColumn
+              id="vendors"
+              size="md"
+              gap="lg"
+              padding="xxxl"
+              color={BackgroundColors.vendors}
+              justify="center"
+            >
+              <Band.Title>{t('vendors', EDITION_TITLE_OPTIONS)}</Band.Title>
+              <VendorsList />
+            </Band.CenteredColumn>
+          )}
 
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 

@@ -248,15 +248,19 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           </MenuItem>
         </TicketsSection>
 
-        <MenuItem href="/home#workshops" isOpen={isMenuExpanded} aria-label="workshops_menu_item" onClick={closeMenu}>
-          <Icon size="sm" zIndex={0} src={workshopIcons} />
-          {isMenuExpanded && <Typography size="sm">{t('menu.workshops')}</Typography>}
-        </MenuItem>
+        {BandsToggles.workshopsEnabled && (
+          <MenuItem href="/home#workshops" isOpen={isMenuExpanded} aria-label="workshops_menu_item" onClick={closeMenu}>
+            <Icon size="sm" zIndex={0} src={workshopIcons} />
+            {isMenuExpanded && <Typography size="sm">{t('menu.workshops')}</Typography>}
+          </MenuItem>
+        )}
 
-        <MenuItem href="/home#vendors" isOpen={isMenuExpanded} aria-label="vendors_menu_item" onClick={closeMenu}>
-          <Icon size="sm" zIndex={0} src={shopIcon} />
-          {isMenuExpanded && <Typography size="sm">{t('menu.vendors')}</Typography>}
-        </MenuItem>
+        {BandsToggles.vendorsEnabled && (
+          <MenuItem href="/home#vendors" isOpen={isMenuExpanded} aria-label="vendors_menu_item" onClick={closeMenu}>
+            <Icon size="sm" zIndex={0} src={shopIcon} />
+            {isMenuExpanded && <Typography size="sm">{t('menu.vendors')}</Typography>}
+          </MenuItem>
+        )}
 
         {BandsToggles.afterEnabled && (
           <MenuItem href="/home#after" isOpen={isMenuExpanded} aria-label="after_menu_item" onClick={closeMenu}>
