@@ -18,7 +18,6 @@ export const WORKSHOP_FORM_VALIDATION_KEYS = {
   minParticipantsRequired: 'workshopsFormPage.validation.minParticipantsRequired',
   phoneInvalid: 'workshopsFormPage.validation.phoneInvalid',
   phoneRequired: 'workshopsFormPage.validation.phoneRequired',
-  roomRequirementsRequired: 'workshopsFormPage.validation.roomRequirementsRequired',
   participantsShouldBringRequired: 'workshopsFormPage.validation.participantsShouldBringRequired',
   tutorNameRequired: 'workshopsFormPage.validation.tutorNameRequired',
   workshopTitleRequired: 'workshopsFormPage.validation.workshopTitleRequired'
@@ -31,7 +30,19 @@ const workshopFormNullableStringSchema = z
   .transform((value) => value ?? null);
 
 const workshopFormNullableNumberSchema = z.preprocess(
-  (value) => (typeof value === 'number' && Number.isNaN(value) ? null : value),
+  (value) => {
+    if (typeof value === 'string') {
+      if (value.trim() === '') {
+        return null;
+      }
+
+      const parsedValue = Number(value);
+
+      return Number.isNaN(parsedValue) ? null : parsedValue;
+    }
+
+    return typeof value === 'number' && Number.isNaN(value) ? null : value;
+  },
   z
     .number()
     .nullable()
@@ -86,7 +97,6 @@ export const workshopFormValidationSchema = workshopFormStateSchema
       .max(WORKSHOP_FORM_DESCRIPTION_MAX_LENGTH, WORKSHOP_FORM_VALIDATION_KEYS.descriptionTooLong),
     duration: z.string().trim().min(1, WORKSHOP_FORM_VALIDATION_KEYS.durationRequired),
     participantsShouldBring: z.string().trim().min(1, WORKSHOP_FORM_VALIDATION_KEYS.participantsShouldBringRequired),
-    roomRequirements: z.string().trim().min(1, WORKSHOP_FORM_VALIDATION_KEYS.roomRequirementsRequired),
     phoneNumber: z
       .string()
       .trim()

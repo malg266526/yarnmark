@@ -5,6 +5,7 @@ import type { UnprefixedTranslationKeys } from '../../../../translations/useType
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import type { WorkshopFormNumberFieldName, WorkshopFormViewProps } from '../components/workshopFormViewContracts';
 import { createWorkshopApplication } from '../../../../domain/workshopApplications/workshopsApplicationsStorage.ts';
+import { submitWorkshopApplicationToApi } from '../../../../domain/workshopApplications/workshopFormApi.ts';
 import {
   WORKSHOP_FORM_DESCRIPTION_MAX_LENGTH,
   WORKSHOP_FORM_DRAFT_STORAGE_KEY,
@@ -83,7 +84,13 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
       return;
     }
 
-    setValidationErrors(collectWorkshopFormValidationErrors(formData));
+    const nextValidationErrors = collectWorkshopFormValidationErrors(formData);
+
+    setValidationErrors((currentValidationErrors) =>
+      JSON.stringify(currentValidationErrors) === JSON.stringify(nextValidationErrors)
+        ? currentValidationErrors
+        : nextValidationErrors
+    );
   }, [formData, hasAttemptedSubmit]);
 
   const updateDescription = (value: string) => {
@@ -166,6 +173,7 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
     setIsSubmitting(true);
 
     try {
+      await submitWorkshopApplicationToApi(validatedFormData);
       const response = await createWorkshopApplication(validatedFormData);
 
       setSubmittedAt(response.application.submittedAt);

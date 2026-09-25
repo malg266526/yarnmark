@@ -51,10 +51,8 @@ export const WorkshopFormLogisticsSection = ({ formBindings }: WorkshopFormLogis
         <FieldLabel htmlFor="room_requirements">
           {t('workshopsFormPage.steps.logistics.roomRequirementsLabel')}
           <TextArea id="room_requirements" {...register('roomRequirements')} />
+          <FieldHint>{t('workshopsFormPage.steps.logistics.roomRequirementsHint')}</FieldHint>
         </FieldLabel>
-        {resolveFieldErrorMessage('roomRequirements') ? (
-          <ErrorText>{resolveFieldErrorMessage('roomRequirements')}</ErrorText>
-        ) : null}
 
         <FieldLabel htmlFor="required_equipment">
           {t('workshopsFormPage.steps.logistics.requiredEquipmentLabel')}

@@ -504,6 +504,7 @@ export const en: TranslationsShape = {
           participantsShouldBringLabel: 'What should the participant bring?',
           participantsShouldBringPlaceholder: 'e.g. yarn, needles, scissors',
           roomRequirementsLabel: 'Room requirements',
+          roomRequirementsHint: 'Leave this field empty if you have no special requirements for the room.',
           requiredEquipmentLabel: 'Required equipment',
           requiredEquipmentPlaceholder: 'For example: flipchart, monitor, projector...',
           requiredEquipmentHint: 'Leave this field empty if you do not need any additional equipment.'
@@ -543,7 +544,6 @@ export const en: TranslationsShape = {
         experienceLevelRequired: 'Select the participants experience level.',
         durationRequired: 'Enter the workshop duration.',
         participantsShouldBringRequired: 'Enter what the participant should bring.',
-        roomRequirementsRequired: 'Enter the room requirements.',
         grossPricePerParticipantRequired: 'Enter the gross price per participant.',
         contractTypeRequired: 'Select the contract type.',
         contractTypeOtherRequired: 'Enter the contract type.',
