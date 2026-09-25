@@ -7,6 +7,15 @@ import { RedesignSpacings } from '../../../../styles/spacings';
 import { Typography } from '../../../../components/Typography';
 import { ScreenSize } from '../../../../styles/screeen-size';
 import { useTablet } from '../../../../hooks/usePhone';
+import { TicketsToggles } from '../../../../toggles';
+import { Trans } from 'react-i18next';
+import { TextColors } from '../../../../styles/theme';
+
+const YARNMARK_INSTAGRAM_URL = 'https://www.instagram.com/yarnmark.krk/';
+
+const InstagramLink = styled.a`
+  color: ${TextColors.accent};
+`;
 
 const Content = styled.div`
   display: flex;
@@ -62,14 +71,33 @@ export const TicketCardBand = () => {
         </TicketCardWrapper>
 
         <TicketOrderDescription>
-          <TicketOrderTypography size="md">{t('tickets.whereToBuy')}</TicketOrderTypography>
+          {TicketsToggles.enabled ? (
+            <>
+              <TicketOrderTypography size="md">{t('tickets.whereToBuy')}</TicketOrderTypography>
 
-          <TicketOrderTypography size="md">{t('tickets.keepYourEmail')}</TicketOrderTypography>
-          <TicketOrderTypography size="md">{t('tickets.proofOfPurchase')}</TicketOrderTypography>
-          <TicketOrderTypography size="md">{t('tickets.onlineDeadline')}</TicketOrderTypography>
-          <TicketOrderTypography size="md">{t('tickets.gadgetGuaranteed')}</TicketOrderTypography>
+              <TicketOrderTypography size="md">{t('tickets.keepYourEmail')}</TicketOrderTypography>
+              <TicketOrderTypography size="md">{t('tickets.proofOfPurchase')}</TicketOrderTypography>
+              <TicketOrderTypography size="md">{t('tickets.onlineDeadline')}</TicketOrderTypography>
+              <TicketOrderTypography size="md">{t('tickets.gadgetGuaranteed')}</TicketOrderTypography>
 
-          <TicketOrderTypography size="md">{t('tickets.availability')}</TicketOrderTypography>
+              <TicketOrderTypography size="md">{t('tickets.availability')}</TicketOrderTypography>
+            </>
+          ) : (
+            <TicketOrderTypography size="md">
+              <Trans
+                i18nKey="tickets.currentlyUnavailable"
+                components={[
+                  <InstagramLink
+                    key="instagram_url"
+                    href={YARNMARK_INSTAGRAM_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="instagram"
+                  />
+                ]}
+              />
+            </TicketOrderTypography>
+          )}
         </TicketOrderDescription>
       </Content>
     </Band.NarrowColumn>

@@ -15,6 +15,8 @@ import { Picture } from '../../../components/Picture';
 import styled from 'styled-components';
 import { RedesignSpacings } from '../../../styles/spacings';
 import { Accordion } from '../../../components/accordion/Accordion';
+import { BandsToggles } from '../../../toggles';
+import { FairEdition } from '../../../fairEditionConfig';
 
 type WorkshopsBandType = {
   id: string;
@@ -49,29 +51,31 @@ export const WorkshopsDesktopBand = ({ id }: WorkshopsBandType) => {
 
   return (
     <Band.CenteredColumn id={id} size="lg" gap="xl" padding="xl" color={BackgroundColors.workshopsBand}>
-      <Band.Title>{t('workshops.title')}</Band.Title>
+      <Band.Title>{t('workshops.title', { year: FairEdition.workshopsEditionYear })}</Band.Title>
 
-      <AccordionsWrapper>
-        <Accordion title={t('workshops.scheduleTitle')}>
-          <Schedule />
-        </Accordion>
+      {BandsToggles.workshopsScheduleEnabled && (
+        <AccordionsWrapper>
+          <Accordion title={t('workshops.scheduleTitle')}>
+            <Schedule />
+          </Accordion>
 
-        <Accordion title={t('workshops.mapTitle')}>
-          <MapWrapper>
-            <Picture
-              picture={{
-                fallbackUrl: workshopsMapUrl,
-                sources: [
-                  { type: 'image/webp', url: workshopsMapUrlWepb },
-                  { type: 'image/avif', url: workshopsMapUrlAvif }
-                ]
-              }}
-              alt="mapa_warsztaty"
-              width={900}
-            />
-          </MapWrapper>
-        </Accordion>
-      </AccordionsWrapper>
+          <Accordion title={t('workshops.mapTitle')}>
+            <MapWrapper>
+              <Picture
+                picture={{
+                  fallbackUrl: workshopsMapUrl,
+                  sources: [
+                    { type: 'image/webp', url: workshopsMapUrlWepb },
+                    { type: 'image/avif', url: workshopsMapUrlAvif }
+                  ]
+                }}
+                alt="mapa_warsztaty"
+                width={900}
+              />
+            </MapWrapper>
+          </Accordion>
+        </AccordionsWrapper>
+      )}
 
       <MultiCarousel
         items={WorkshopsConfig.map((workshop, index) => (

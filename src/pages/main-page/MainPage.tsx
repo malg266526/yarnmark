@@ -57,11 +57,13 @@ export const MainPage = () => {
             <TicketCard />
           </Band.CenteredColumn>
 
-          {BandsToggles.workshopsEnabled && <WorkshopsScheduleMobileBand id="schedule" />}
+          {BandsToggles.workshopsEnabled && BandsToggles.workshopsScheduleEnabled && (
+            <WorkshopsScheduleMobileBand id="schedule" />
+          )}
 
           {BandsToggles.cruiseEnabled && <CruiseBand id="cruise" />}
 
-          <Band.SecondaryTitle>{t('tickets.workshopsTickets')}</Band.SecondaryTitle>
+          <Band.SecondaryTitle>{t('workshops.title', { year: FairEdition.workshopsEditionYear })}</Band.SecondaryTitle>
           <Band.Empty id="workshops" padding="xs" color="white">
             <WorkshopsMobileSchedule />
           </Band.Empty>

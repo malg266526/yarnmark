@@ -40,7 +40,6 @@ export const pl = {
       clickHere: 'Kliknij tu',
       price: 'Koszt',
       eventDateProvisional: 'Kwiecień {{year}}',
-      workshopsTickets: 'Bilety na warsztaty',
       yarnmarkTicket: 'Bilet na Yarnmark',
       yarnmarkTickets: 'Bilety na Yarnmark',
       cruise: 'Dziergostatek',
@@ -52,6 +51,8 @@ export const pl = {
       availability: 'W dniu wydarzenia bilety bedą dostępne w kasie na miejscu.',
       gadgetGuaranteed: 'Do pierwszych 1000 zakupionych biletów dołączamy Yarnmarkowy gadżet 2026!',
       availableSoon: 'Start 14.02 9:00',
+      currentlyUnavailable:
+        'Już szykujemy kolejną edycję! Bilety wkrótce, a o starcie sprzedaży damy znać na naszym <0>Instagramie</0>.',
       promoPrice: 'cena promocyjna do końca lutego'
     },
     location: {
@@ -113,8 +114,8 @@ export const pl = {
     },
     teamAndPartners: {
       title: 'Zespół & Partnerzy',
-      mediaPartners: 'PATRONI MEDIALNI',
-      woolPatrons: 'PARTNERZY WŁÓCZKOWI',
+      mediaPartners: 'PATRONI MEDIALNI {{year}}',
+      woolPatrons: 'PARTNERZY WŁÓCZKOWI {{year}}',
       organizers: {
         ewa: {
           name: 'Ewa',
@@ -708,7 +709,7 @@ export const pl = {
       cancel: 'Anuluj'
     },
     workshops: {
-      title: 'Warsztaty',
+      title: 'Warsztaty {{year}}',
       scheduleTitle: 'Harmonogram warsztatów',
       mapTitle: 'Mapa sal warsztatowych',
       tutor: 'Prowadzący: ',

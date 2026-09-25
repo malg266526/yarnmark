@@ -5,12 +5,13 @@ export const TicketsToggles = {
 };
 
 export const BandsToggles = {
-  foodEnabled: true,
+  foodEnabled: false,
   hallMapEnabled: true,
   ticketEnabled: true,
   cruiseEnabled: false,
   workshopsEnabled: true,
-  afterEnabled: true,
-  goldenPretzelEnabled: true,
+  workshopsScheduleEnabled: false,
+  afterEnabled: false,
+  goldenPretzelEnabled: false,
   teamAndPartnersEnabled: true
 };

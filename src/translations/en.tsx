@@ -35,8 +35,8 @@ export const en: TranslationsShape = {
     },
     teamAndPartners: {
       title: 'Team & Partners',
-      mediaPartners: 'MEDIA PATRONS',
-      woolPatrons: 'WOOL PARTNERS',
+      mediaPartners: 'MEDIA PATRONS {{year}}',
+      woolPatrons: 'WOOL PARTNERS {{year}}',
       organizers: {
         ewa: {
           name: 'Ewa',
@@ -89,7 +89,6 @@ export const en: TranslationsShape = {
       clickHere: 'Kliknij tu',
       price: 'Price',
       eventDateProvisional: 'April {{year}}',
-      workshopsTickets: 'Workshops tickets',
       yarnmarkTicket: 'Yarnmark ticket',
       yarnmarkTickets: 'Yarnmark tickets',
       cruise: 'Knitting-ship',
@@ -99,6 +98,8 @@ export const en: TranslationsShape = {
       keepYourEmail: 'Save the email with your ticket number, which you will receive after purchasing your ticket.',
       proofOfPurchase: 'You will show this proof of purchase when entering Yarnmark ;)',
       availableSoon: 'Available soon',
+      currentlyUnavailable:
+        "We're already preparing the next edition! Tickets coming soon, and we'll announce the start of sales on our <0>Instagram</0>.",
       onlineDeadline: 'Online tickets will be available for sale until April 25, 6:00 p.m.',
       availability: 'On the day of the event, tickets will be available at the on-site box office.',
       gadgetGuaranteed: 'A Yarnmark 2026 gadget is included with the first 1,000 tickets purchased!',
@@ -711,7 +712,7 @@ export const en: TranslationsShape = {
       cancel: 'Cancel'
     },
     workshops: {
-      title: 'Workshops',
+      title: 'Workshops {{year}}',
       scheduleTitle: 'Workshops schedule',
       mapTitle: 'Workshops rooms map',
       tutor: 'Instructors: ',

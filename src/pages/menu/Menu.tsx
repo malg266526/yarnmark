@@ -258,10 +258,12 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           {isMenuExpanded && <Typography size="sm">{t('menu.vendors')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="/home#after" isOpen={isMenuExpanded} aria-label="after_menu_item" onClick={closeMenu}>
-          <Icon size="sm" zIndex={0} src={partyIcon} />
-          {isMenuExpanded && <Typography size="sm">{t('menu.after')}</Typography>}
-        </MenuItem>
+        {BandsToggles.afterEnabled && (
+          <MenuItem href="/home#after" isOpen={isMenuExpanded} aria-label="after_menu_item" onClick={closeMenu}>
+            <Icon size="sm" zIndex={0} src={partyIcon} />
+            {isMenuExpanded && <Typography size="sm">{t('menu.after')}</Typography>}
+          </MenuItem>
+        )}
 
         <MenuItem href="/home#patterns" isOpen={isMenuExpanded} aria-label="patterns_menu_item" onClick={closeMenu}>
           <Icon size="sm" zIndex={0} src={shirtIcon} />
