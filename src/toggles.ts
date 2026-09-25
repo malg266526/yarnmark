@@ -1,5 +1,5 @@
 export const TicketsToggles = {
-  enabled: true,
+  enabled: false,
   workshopTickets: true,
   afterTickets: true
 };

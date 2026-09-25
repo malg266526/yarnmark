@@ -5,12 +5,13 @@ import { useTypedTranslation } from '../../../../translations/useTypedTranslatio
 import styled, { css } from 'styled-components';
 import { Card } from '../../../../components/Card';
 import { RedesignSpacings } from '../../../../styles/spacings';
-import { GrayScale, TextColors } from '../../../../styles/theme';
+import { TextColors } from '../../../../styles/theme';
 import { ScreenSize } from '../../../../styles/screeen-size';
 import { Radius } from '../../../../styles/cards';
 import { FontSize } from '../../../../styles/font-size';
 import { CtaButton } from '../../../../components/Button';
 import { TicketsToggles } from '../../../../toggles';
+import { FairEdition } from '../../../../fairEditionConfig';
 
 const TicketCardLayout = styled(Card)`
   width: 376px;
@@ -32,8 +33,8 @@ const TicketTitle = styled(Typography)`
   color: ${TextColors.secondary};
 `;
 
-const TicketPrice = styled(Typography)<{ disabled?: boolean }>`
-  color: ${({ disabled }) => (disabled ? GrayScale[800] : TextColors.accent)};
+const TicketPrice = styled(Typography)`
+  color: ${TextColors.accent};
 `;
 
 const PriceWrapper = styled.div`
@@ -134,20 +135,20 @@ export const TicketCard = () => {
         </BuyTicketLink>
 
         <Typography size="sm">
-          18/04/2026r {t('tickets.at')} 10:00 {t('tickets.hours')}
+          {t('tickets.eventDateProvisional', { year: FairEdition.upcomingEditionYear })}
         </Typography>
 
         <Typography size="sm">Hala 100-lecia KS Cracovia</Typography>
-        <PriceWrapper>
-          {/*<OldPrice size="sm">32 zł</OldPrice>*/}
+        {TicketsToggles.enabled && (
+          <PriceWrapper>
+            {/*<OldPrice size="sm">32 zł</OldPrice>*/}
 
-          {/* Nowa cena - wyróżniona Twoim kolorem accent */}
-          <TicketPrice size="lg" disabled={!TicketsToggles.enabled}>
-            32 zł
-          </TicketPrice>
+            {/* Nowa cena - wyróżniona Twoim kolorem accent */}
+            <TicketPrice size="lg">32 zł</TicketPrice>
 
-          {/*<PromoInfo size="xs">{t('tickets.promoPrice')}</PromoInfo>*/}
-        </PriceWrapper>
+            {/*<PromoInfo size="xs">{t('tickets.promoPrice')}</PromoInfo>*/}
+          </PriceWrapper>
+        )}
       </FlexColumnLayout>
     </TicketCardLayout>
   );

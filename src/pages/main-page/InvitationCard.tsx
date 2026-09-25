@@ -12,6 +12,7 @@ import { ScreenSize } from '../../styles/screeen-size';
 import { Radius } from '../../styles/cards';
 import { Band } from '../../components/bands/Band';
 import { yarnmarkLogoPictureConfig } from '../../assets/yarnmarkLogoPictureConfig';
+import { FairEdition } from '../../fairEditionConfig';
 
 const Content = styled(FlexColumnLayout)`
   padding: ${RedesignSpacings.xl} ${RedesignSpacings.xxs} 0 ${RedesignSpacings.xxs};
@@ -51,7 +52,7 @@ export const InvitationCard = () => {
 
           <FlexColumnLayout gap="xs" padding="none">
             <Typography size="sm" weight="bold">
-              {t('welcomeBand.when')}
+              {t('welcomeBand.when', { year: FairEdition.upcomingEditionYear })}
             </Typography>
             <Typography size="sm" weight="bold">
               {t('welcomeBand.where')}

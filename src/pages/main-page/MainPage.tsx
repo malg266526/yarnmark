@@ -17,6 +17,7 @@ import { PatternsBand } from './bands/PatternsBand';
 import { WorkshopsDesktopBand } from './workshops/WorkshopsDesktopBand';
 import { FoodBand } from './FoodBand';
 import { BandsToggles } from '../../toggles';
+import { FairEdition } from '../../fairEditionConfig';
 import { TicketCard } from './bands/ticket/TicketCard';
 import { VendorsList } from './VendorsList';
 import { CruiseBand } from './bands/CruiseBand';
@@ -65,7 +66,7 @@ export const MainPage = () => {
             <WorkshopsMobileSchedule />
           </Band.Empty>
 
-          <Band.SecondaryTitle>{t('vendors')}</Band.SecondaryTitle>
+          <Band.SecondaryTitle>{t('vendors', { year: FairEdition.pastEditionYear })}</Band.SecondaryTitle>
 
           <Band.CenteredColumn id="vendors" size="lg" padding="none" color={BackgroundColors.vendors}>
             <VendorsList />
@@ -111,7 +112,7 @@ export const MainPage = () => {
             color={BackgroundColors.vendors}
             justify="center"
           >
-            <Band.Title>{t('vendors')}</Band.Title>
+            <Band.Title>{t('vendors', { year: FairEdition.pastEditionYear })}</Band.Title>
             <VendorsList />
           </Band.CenteredColumn>
 

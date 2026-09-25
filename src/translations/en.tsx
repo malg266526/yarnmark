@@ -87,9 +87,8 @@ export const en: TranslationsShape = {
       cruiseTicketHere: 'You can find a ticket for the Knitting-ship <0>here</0>',
       buyTicket: 'Buy a ticket',
       clickHere: 'Kliknij tu',
-      at: 'at',
-      hours: '',
       price: 'Price',
+      eventDateProvisional: 'April {{year}}',
       workshopsTickets: 'Workshops tickets',
       yarnmarkTicket: 'Yarnmark ticket',
       yarnmarkTickets: 'Yarnmark tickets',
@@ -121,7 +120,7 @@ export const en: TranslationsShape = {
     welcomeBand: {
       invitation: 'We heartily invite you for III edition of yarn fair in capital of Malopolska!',
       // when: '26/04/2025r at 10:00 AM - 5:00 PM',
-      when: '18 April 2026',
+      when: 'April {{year}}',
       where: 'Hala 100-lecia KS Cracovia',
       haveFun: 'We wish you successful hunting and great fun!',
       seeYou: 'See ya all!'
@@ -132,7 +131,7 @@ export const en: TranslationsShape = {
       linksBelow: 'Below you will find few links that will help you plan your time in our beautiful city:',
       checkTheVendors: 'Check which vendors you will meet',
       // when: '26/04/2025r at 10:00 AM',
-      when: 'April 2026'
+      when: 'April {{year}}'
     },
     previousEdition: {
       thankYou: 'Thank you for your presence at Yarnmark!',
@@ -262,7 +261,7 @@ export const en: TranslationsShape = {
       buyTickets: 'Buy a ticket',
       tickets: 'Tickets'
     },
-    vendors: 'Vendors',
+    vendors: 'Vendors {{year}}',
     contactPage: {
       title: 'Contact'
     },

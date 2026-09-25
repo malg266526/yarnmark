@@ -38,9 +38,8 @@ export const pl = {
       cruiseTicketHere: 'Bilet na dziergostatek znajdziesz <0>tu</0>',
       buyTicket: 'Kup bilet',
       clickHere: 'Kliknij tu',
-      at: 'godz.',
       price: 'Koszt',
-      hours: '',
+      eventDateProvisional: 'Kwiecień {{year}}',
       workshopsTickets: 'Bilety na warsztaty',
       yarnmarkTicket: 'Bilet na Yarnmark',
       yarnmarkTickets: 'Bilety na Yarnmark',
@@ -71,7 +70,7 @@ export const pl = {
     welcomeBand: {
       invitation: 'Serdecznie zapraszamy na III edycję targów włóczki w stolicy Małopolski!',
       // when: '26/04/2025r w godz. 10:00 - 17:00',
-      when: '18 Kwietnia 2026',
+      when: 'Kwiecień {{year}}',
       where: 'Hala 100-lecia KS Cracovia',
       haveFun: 'Życzymy udanych łowów i świetnej zabawy!',
       seeYou: 'Do zobaczenia!'
@@ -82,7 +81,7 @@ export const pl = {
       linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
       checkTheVendors: 'Sprawdź z jakimi wystawcami się spotkasz.',
       //when: '26/04/2025r. o godz. 10:00'
-      when: 'Kwiecień 2026'
+      when: 'Kwiecień {{year}}'
     },
     previousEdition: {
       thankYou: 'Dziękujemy za Waszą obecność na Yarnmarku!',
@@ -260,7 +259,7 @@ export const pl = {
           'Podczas rejsu poczęstujemy Cię kieliszkiem Prosecco (lub napoju bezalkoholowego), dodając tym samym nutę luksusu do atmosfery.'
       }
     },
-    vendors: 'Wystawcy',
+    vendors: 'Wystawcy {{year}}',
     contactPage: {
       title: 'Kontakt'
     },
