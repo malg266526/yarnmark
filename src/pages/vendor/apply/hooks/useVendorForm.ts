@@ -5,6 +5,7 @@ import type { UnprefixedTranslationKeys } from '../../../../translations/useType
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import type { VendorFormViewProps } from '../components/vendorFormViewContracts';
 import { toggleStandSelection } from '../../../../domain/vendorApplications/vendorFormUtils.ts';
+import { submitVendorApplicationToApi } from '../../../../domain/vendorApplications/vendorFormApi.ts';
 import {
   createVendorApplication,
   listStandInterestCounts
@@ -133,7 +134,13 @@ export const useVendorForm = (): VendorFormViewProps => {
       return;
     }
 
-    setValidationErrors(collectVendorFormValidationErrors(formData));
+    const nextValidationErrors = collectVendorFormValidationErrors(formData);
+
+    setValidationErrors((currentValidationErrors) =>
+      JSON.stringify(currentValidationErrors) === JSON.stringify(nextValidationErrors)
+        ? currentValidationErrors
+        : nextValidationErrors
+    );
   }, [formData, hasAttemptedSubmit]);
 
   const submitVendorForm = async () => {
@@ -153,6 +160,7 @@ export const useVendorForm = (): VendorFormViewProps => {
     setIsSubmitting(true);
 
     try {
+      await submitVendorApplicationToApi(validatedFormData);
       const response = await createVendorApplication(validatedFormData);
 
       setSubmittedAt(response.application.submittedAt);

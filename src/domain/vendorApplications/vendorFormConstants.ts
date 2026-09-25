@@ -1,4 +1,5 @@
 export const VENDOR_FORM_DRAFT_STORAGE_KEY = 'vendors-form-draft';
+export const VENDOR_FORM_API_URL = 'https://yarnmark.com/vendor/apply';
 export const VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH = 2200;
 export const VENDOR_FORM_MAX_PREFERRED_STANDS = 3;
 export const VENDOR_FORM_HIGH_INTEREST_MIN_REQUESTS = 3;
