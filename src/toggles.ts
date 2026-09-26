@@ -1,16 +1,18 @@
 export const TicketsToggles = {
-  enabled: true,
+  enabled: false,
   workshopTickets: true,
   afterTickets: true
 };
 
 export const BandsToggles = {
-  foodEnabled: true,
+  foodEnabled: false,
   hallMapEnabled: true,
   ticketEnabled: true,
   cruiseEnabled: false,
   workshopsEnabled: true,
-  afterEnabled: true,
-  goldenPretzelEnabled: true,
+  workshopsScheduleEnabled: false,
+  vendorsEnabled: true,
+  afterEnabled: false,
+  goldenPretzelEnabled: false,
   teamAndPartnersEnabled: true
 };

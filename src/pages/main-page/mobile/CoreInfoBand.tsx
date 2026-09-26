@@ -12,7 +12,8 @@ import { Band } from '../../../components/bands/Band';
 import mapIcon from '../../../assets/figmaIcons/map_icon.svg';
 
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
-import { BandsToggles } from '../../../toggles';
+import { BandsToggles, TicketsToggles } from '../../../toggles';
+import { FairEdition } from '../../../fairEditionConfig';
 
 const InfoColumn = styled(FlexColumnLayout)`
   text-align: center;
@@ -35,7 +36,7 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
       <InfoColumn align="center" padding="none" gap="lg">
         <FlexColumnLayout gap="xs" padding="none">
           <Icon size="lg" zIndex={0} src={calendarIconUrl} />
-          <Typography size="sm">{t('navigationBand.when')}</Typography>
+          <Typography size="sm">{t('navigationBand.when', { year: FairEdition.upcomingEditionYear })}</Typography>
         </FlexColumnLayout>
 
         <FlexColumnLayout gap="xs" padding="none">
@@ -67,8 +68,7 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
                   target="_blank"
                   href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-bilety/357"
                   aria-label="tickets"
-                  // Todo: adjust color for disable and use toggle flag
-                  style={{ pointerEvents: 'none' }}
+                  style={TicketsToggles.enabled ? undefined : { pointerEvents: 'none', color: GrayScale[500] }}
                 />
               ]}
             />

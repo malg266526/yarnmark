@@ -36,7 +36,9 @@ export const en: TranslationsShape = {
     teamAndPartners: {
       title: 'Team & Partners',
       mediaPartners: 'MEDIA PATRONS',
+      mediaPartners_archive: 'MEDIA PATRONS {{year}}',
       woolPatrons: 'WOOL PARTNERS',
+      woolPatrons_archive: 'WOOL PARTNERS {{year}}',
       organizers: {
         ewa: {
           name: 'Ewa',
@@ -87,10 +89,8 @@ export const en: TranslationsShape = {
       cruiseTicketHere: 'You can find a ticket for the Knitting-ship <0>here</0>',
       buyTicket: 'Buy a ticket',
       clickHere: 'Kliknij tu',
-      at: 'at',
-      hours: '',
       price: 'Price',
-      workshopsTickets: 'Workshops tickets',
+      eventDateProvisional: 'April {{year}}',
       yarnmarkTicket: 'Yarnmark ticket',
       yarnmarkTickets: 'Yarnmark tickets',
       cruise: 'Knitting-ship',
@@ -100,6 +100,8 @@ export const en: TranslationsShape = {
       keepYourEmail: 'Save the email with your ticket number, which you will receive after purchasing your ticket.',
       proofOfPurchase: 'You will show this proof of purchase when entering Yarnmark ;)',
       availableSoon: 'Available soon',
+      currentlyUnavailable:
+        "We're already preparing the next edition! Tickets coming soon, and we'll announce the start of sales on our <0>Instagram</0>.",
       onlineDeadline: 'Online tickets will be available for sale until April 25, 6:00 p.m.',
       availability: 'On the day of the event, tickets will be available at the on-site box office.',
       gadgetGuaranteed: 'A Yarnmark 2026 gadget is included with the first 1,000 tickets purchased!',
@@ -121,7 +123,7 @@ export const en: TranslationsShape = {
     welcomeBand: {
       invitation: 'We heartily invite you for III edition of yarn fair in capital of Malopolska!',
       // when: '26/04/2025r at 10:00 AM - 5:00 PM',
-      when: '18 April 2026',
+      when: 'April {{year}}',
       where: 'Hala 100-lecia KS Cracovia',
       haveFun: 'We wish you successful hunting and great fun!',
       seeYou: 'See ya all!'
@@ -132,7 +134,7 @@ export const en: TranslationsShape = {
       linksBelow: 'Below you will find few links that will help you plan your time in our beautiful city:',
       checkTheVendors: 'Check which vendors you will meet',
       // when: '26/04/2025r at 10:00 AM',
-      when: 'April 2026'
+      when: 'April {{year}}'
     },
     previousEdition: {
       thankYou: 'Thank you for your presence at Yarnmark!',
@@ -263,6 +265,7 @@ export const en: TranslationsShape = {
       tickets: 'Tickets'
     },
     vendors: 'Vendors',
+    vendors_archive: 'Vendors {{year}}',
     contactPage: {
       title: 'Contact'
     },
@@ -713,6 +716,7 @@ export const en: TranslationsShape = {
     },
     workshops: {
       title: 'Workshops',
+      title_archive: 'Workshops {{year}}',
       scheduleTitle: 'Workshops schedule',
       mapTitle: 'Workshops rooms map',
       tutor: 'Instructors: ',

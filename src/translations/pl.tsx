@@ -38,10 +38,8 @@ export const pl = {
       cruiseTicketHere: 'Bilet na dziergostatek znajdziesz <0>tu</0>',
       buyTicket: 'Kup bilet',
       clickHere: 'Kliknij tu',
-      at: 'godz.',
       price: 'Koszt',
-      hours: '',
-      workshopsTickets: 'Bilety na warsztaty',
+      eventDateProvisional: 'Kwiecień {{year}}',
       yarnmarkTicket: 'Bilet na Yarnmark',
       yarnmarkTickets: 'Bilety na Yarnmark',
       cruise: 'Dziergostatek',
@@ -53,6 +51,8 @@ export const pl = {
       availability: 'W dniu wydarzenia bilety bedą dostępne w kasie na miejscu.',
       gadgetGuaranteed: 'Do pierwszych 1000 zakupionych biletów dołączamy Yarnmarkowy gadżet 2026!',
       availableSoon: 'Start 14.02 9:00',
+      currentlyUnavailable:
+        'Już szykujemy kolejną edycję! Bilety wkrótce, a o starcie sprzedaży damy znać na naszym <0>Instagramie</0>.',
       promoPrice: 'cena promocyjna do końca lutego'
     },
     location: {
@@ -71,7 +71,7 @@ export const pl = {
     welcomeBand: {
       invitation: 'Serdecznie zapraszamy na III edycję targów włóczki w stolicy Małopolski!',
       // when: '26/04/2025r w godz. 10:00 - 17:00',
-      when: '18 Kwietnia 2026',
+      when: 'Kwiecień {{year}}',
       where: 'Hala 100-lecia KS Cracovia',
       haveFun: 'Życzymy udanych łowów i świetnej zabawy!',
       seeYou: 'Do zobaczenia!'
@@ -82,7 +82,7 @@ export const pl = {
       linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
       checkTheVendors: 'Sprawdź z jakimi wystawcami się spotkasz.',
       //when: '26/04/2025r. o godz. 10:00'
-      when: 'Kwiecień 2026'
+      when: 'Kwiecień {{year}}'
     },
     previousEdition: {
       thankYou: 'Dziękujemy za Waszą obecność na Yarnmarku!',
@@ -115,7 +115,9 @@ export const pl = {
     teamAndPartners: {
       title: 'Zespół & Partnerzy',
       mediaPartners: 'PATRONI MEDIALNI',
+      mediaPartners_archive: 'PATRONI MEDIALNI {{year}}',
       woolPatrons: 'PARTNERZY WŁÓCZKOWI',
+      woolPatrons_archive: 'PARTNERZY WŁÓCZKOWI {{year}}',
       organizers: {
         ewa: {
           name: 'Ewa',
@@ -261,6 +263,7 @@ export const pl = {
       }
     },
     vendors: 'Wystawcy',
+    vendors_archive: 'Wystawcy {{year}}',
     contactPage: {
       title: 'Kontakt'
     },
@@ -710,6 +713,7 @@ export const pl = {
     },
     workshops: {
       title: 'Warsztaty',
+      title_archive: 'Warsztaty {{year}}',
       scheduleTitle: 'Harmonogram warsztatów',
       mapTitle: 'Mapa sal warsztatowych',
       tutor: 'Prowadzący: ',

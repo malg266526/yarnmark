@@ -12,6 +12,7 @@
     "test": "node --test --experimental-transform-types src/**/*.test.ts",
     "start": "node ./esbuild.serve.mjs",
     "bundle": "node ./esbuild.bundle.mjs",
+    "edition:check": "node --experimental-transform-types ./workflow-helpers/checkEdition.ts",
     "transpile-workflow-files": "esbuild --target=es2022 --allow-overwrite --out-extension:.js=.mjs --outdir=workflow-helpers ./workflow-helpers/**",
     "stats": "node ./workflow-helpers/getDirMetadata.mjs",
     "compare-stats": "node ./workflow-helpers/compareMetadata.mjs",
