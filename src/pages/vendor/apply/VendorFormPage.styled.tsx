@@ -218,7 +218,7 @@ export const RadioOption = styled.label`
 
 export const CheckboxRow = styled.label`
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
   gap: ${RedesignSpacings.xs};
   font-family: ${FontFamilies.primary};
   line-height: 1.4;

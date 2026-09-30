@@ -1025,7 +1025,9 @@ export const pl = {
       links: {
         applications: 'Zgłoszenia',
         workshopsApplications: 'Zgłoszenia warsztatowe',
-        editor: 'Edytor'
+        editor: 'Edytor',
+        vendorForm: 'Formularz dla wystawców',
+        workshopForm: 'Formularz dla warsztatowców'
       }
     }
   }

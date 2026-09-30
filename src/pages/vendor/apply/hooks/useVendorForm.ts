@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { useForm, type Resolver } from 'react-hook-form';
 import type { UnprefixedTranslationKeys } from '../../../../translations/useTypedTranslation';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import type { VendorFormViewProps } from '../components/vendorFormViewContracts';
@@ -44,7 +44,7 @@ export const useVendorForm = (): VendorFormViewProps => {
   const form = useForm<VendorFormValues>({
     defaultValues: initialDraft.formData,
     mode: 'onSubmit',
-    resolver: zodResolver(vendorFormValidationSchema)
+    resolver: zodResolver(vendorFormValidationSchema) as Resolver<VendorFormValues>
   });
 
   const { formState, getValues, register, reset, setValue, trigger, watch } = form;

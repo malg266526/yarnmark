@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { useForm, type Resolver } from 'react-hook-form';
 import type { UnprefixedTranslationKeys } from '../../../../translations/useTypedTranslation';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import type { WorkshopFormNumberFieldName, WorkshopFormViewProps } from '../components/workshopFormViewContracts';
@@ -48,7 +48,7 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
   const form = useForm<WorkshopFormValues>({
     defaultValues: initialDraft.formData,
     mode: 'onSubmit',
-    resolver: zodResolver(workshopFormValidationSchema)
+    resolver: zodResolver(workshopFormValidationSchema) as Resolver<WorkshopFormValues>
   });
 
   const { formState, getValues, register, reset, setValue, trigger, watch } = form;
