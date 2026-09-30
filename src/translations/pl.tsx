@@ -23,7 +23,6 @@ export const pl = {
       statuteForVendors: 'Regulamin sprzedaży stoisk',
       yarnmarkPatterns: 'Wzory yarnmarkowe',
       after: 'After',
-      lagrugru: 'LaGruGru',
       teamAndPartners: 'Zespół & Partnerzy'
     },
     goldenPretzelBand: {
@@ -105,12 +104,17 @@ export const pl = {
       },
       patterns: {
         naPoleTee: { title: 'Na Pole Tee' },
-        atropa: { title: 'Atropa' }
+        atropa: { title: 'Atropa' },
+        laGruGru: { title: 'La Gru Gru' }
       },
       authorship: {
         monikaPrefix: 'Autorstwa Moni',
-        annaPrefix: 'Autorstwa Ani'
-      }
+        annaPrefix: 'Autorstwa Ani',
+        sisHomemade: 'Autorstwa SisHomemade'
+      },
+      edition: 'Edycja {{year}}',
+      groupPhotoAlt: 'Yarnmarkowe dziewczyny we wzorach Na Pole Tee i Atropa',
+      laGruGruAlt: 'Szydełkowe gołąbki La Gru Gru'
     },
     teamAndPartners: {
       title: 'Zespół & Partnerzy',
@@ -150,7 +154,7 @@ export const pl = {
         dagmara: {
           name: 'Dagmara',
           instagram: 'wloczykijki_sklep',
-          title: 'Podskarbiyni Krakowskiego Skarbca',
+          title: 'Podskarbini Krakowskiego Skarbca',
           description: 'Trzyma pieczę nad złotem Yarnmarku, by każda moneta była wydana mądrze i zgodnie z planem.'
         },
         justyna: {
@@ -160,35 +164,6 @@ export const pl = {
           description:
             'Włodarzyni cechu kupieckiego, dbająca o dobrostan gołębi pocztowych i królewskie trakty. Szykuje pamiątkowe znaki, które u bram grodu czekają na każdego gościa.'
         }
-      }
-    },
-    lagrugruBand: {
-      title: 'LaGruGru!',
-      slide1: {
-        title: 'Zestaw szydełkowy na krakoskiego amigurumi gołąbka',
-        subtitle: 'Poznajcie La Gru Gru! 🐦',
-        description:
-          'W ramach współpracy <strong>SisHomemade i Yarnmarku</strong> powstał zestaw DIY na krakoskiego gołąbka, obejmujący wzór, potrzebne włóczki oraz elementy wykończeniowe. Projekt został przemyślany tak, aby gotowy gołąbek mógł służyć jako breloczek, gotowy do zamocowania przy torebce lub kluczach.',
-        extraParagraph:
-          'Konstrukcja pozwala na wykorzystanie gotowego modelu w formie breloczka. Dołączone akcesoria umożliwiają łatwy montaż przy torebce lub kluczach, nadając produktowi walor użytkowy.'
-      },
-      slide2: {
-        title: 'Festiwal kolorów!',
-        subtitle: 'Osiem odsłon La Gru Gru',
-        description:
-          'LaGruGru występuje w 8 wariantach kolorystycznych: <strong>Klasyk, Smok, Love, Złoty, Yarnmark, Beżowa Dziewiarka, Zachód Słońca, Matcha Latte</strong>. Do każdego zestawu dorzucamy też jeden z 5ciu dodatków: <strong>Czapka krakoska, Szaliczek, Obwarzanek, Wiosenny wianek, Królewska korona</strong>. Kolory, jak i dodatki wysyłane są losowo – będą dla Ciebie niespodzianką.'
-      },
-      slide4: {
-        title: 'Zdobądź swojego gołąbka!',
-        subtitle: 'Znajdź go w sklepie Włóczykijki.pl',
-        description:
-          'Znajdziecie go w sklepie internetowym <strong>Włóczykijki.pl</strong>. Gołąbek dostępny jest w dwóch rozmiarach: <strong>mały</strong> – ok. 9\u202fcm wysokości i <strong>duży</strong> – ok. 13\u202fcm wysokości.'
-      },
-      slide5: {
-        title: 'Warsztaty z SisHomemade',
-        subtitle: 'Naucz się robić własnego gołąbka!',
-        description:
-          'La Gru Gru <strong>jest przedmiotem warsztatów amigurumi z SisHomemade</strong>. W cenie biletu warsztatowego otrzymujesz zestaw i właśnie na tych warsztatach wykonujesz swojego gołąbka.'
       }
     },
     spotBand: {

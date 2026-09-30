@@ -62,7 +62,6 @@ Menu nawigacyjne na stronie głównej odwołuje się do sekcji zawartych w kompo
 - `#vendors` – Lista potwierdzonych wystawców
 - `#after` – Strefa After Party / Wydarzenia towarzyszące
 - `#patterns` – Darmowe i komercyjne wzory włóczkowe
-- `#lagrugru` – Sekcja specjalna / Partner strategiczny
 - `#team-and-partners` – Zespół organizacyjny i partnerzy
 - `#lastEdition` – Fotorelacja i podsumowanie poprzedniej edycji
 - `#food` – Strefa gastronomiczna (Food Trucki)

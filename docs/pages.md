@@ -29,7 +29,6 @@ The main navigation menu also includes links to specific sections on the `/home`
 - `#vendors`
 - `#after`
 - `#patterns`
-- `#lagrugru`
 - `#team-and-partners`
 - `#lastEdition`
 - `#food`
