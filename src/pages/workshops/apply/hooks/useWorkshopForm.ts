@@ -122,9 +122,10 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
   };
 
   const setLogoValues = (logo: { fileName: string; dataUrl: string; mimeType: string } | null) => {
-    setValue('logoFileName', logo?.fileName ?? null, { shouldDirty: true, shouldValidate: true });
-    setValue('logoDataUrl', logo?.dataUrl ?? null, { shouldDirty: true, shouldValidate: true });
-    setValue('logoMimeType', logo?.mimeType ?? null, { shouldDirty: true, shouldValidate: true });
+    setValue('logoFileName', logo?.fileName ?? null, { shouldDirty: true });
+    setValue('logoDataUrl', logo?.dataUrl ?? null, { shouldDirty: true });
+    setValue('logoMimeType', logo?.mimeType ?? null, { shouldDirty: true });
+    void trigger(['logoFileName', 'logoDataUrl', 'logoMimeType']);
     markFormAsIncompleteAndClearSubmitError();
   };
 

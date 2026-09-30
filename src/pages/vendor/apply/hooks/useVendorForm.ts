@@ -76,9 +76,10 @@ export const useVendorForm = (): VendorFormViewProps => {
 
   const updateLogoFile = async (file: File | null) => {
     if (!file) {
-      setValue('logoFileName', null, { shouldDirty: true, shouldValidate: true });
-      setValue('logoDataUrl', null, { shouldDirty: true, shouldValidate: true });
-      setValue('logoMimeType', null, { shouldDirty: true, shouldValidate: true });
+      setValue('logoFileName', null, { shouldDirty: true });
+      setValue('logoDataUrl', null, { shouldDirty: true });
+      setValue('logoMimeType', null, { shouldDirty: true });
+      void trigger(['logoFileName', 'logoDataUrl', 'logoMimeType']);
       markFormAsIncompleteAndClearSubmitError();
       return;
     }
@@ -88,9 +89,10 @@ export const useVendorForm = (): VendorFormViewProps => {
     try {
       const preparedLogo = await prepareLogoForUpload(file, VENDOR_FORM_LOGO_MAX_BYTES);
 
-      setValue('logoFileName', file.name, { shouldDirty: true, shouldValidate: true });
-      setValue('logoDataUrl', preparedLogo.dataUrl, { shouldDirty: true, shouldValidate: true });
-      setValue('logoMimeType', preparedLogo.mimeType, { shouldDirty: true, shouldValidate: true });
+      setValue('logoFileName', file.name, { shouldDirty: true });
+      setValue('logoDataUrl', preparedLogo.dataUrl, { shouldDirty: true });
+      setValue('logoMimeType', preparedLogo.mimeType, { shouldDirty: true });
+      void trigger(['logoFileName', 'logoDataUrl', 'logoMimeType']);
       markFormAsIncompleteAndClearSubmitError();
     } catch (error) {
       console.error(error);
