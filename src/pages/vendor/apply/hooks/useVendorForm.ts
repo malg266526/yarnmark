@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { useForm, type Resolver } from 'react-hook-form';
 import type { UnprefixedTranslationKeys } from '../../../../translations/useTypedTranslation';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import type { VendorFormViewProps } from '../components/vendorFormViewContracts';
@@ -44,7 +44,7 @@ export const useVendorForm = (): VendorFormViewProps => {
   const form = useForm<VendorFormValues>({
     defaultValues: initialDraft.formData,
     mode: 'onSubmit',
-    resolver: zodResolver(vendorFormValidationSchema)
+    resolver: zodResolver(vendorFormValidationSchema) as Resolver<VendorFormValues>
   });
 
   const { formState, getValues, register, reset, setValue, trigger, watch } = form;
@@ -76,9 +76,10 @@ export const useVendorForm = (): VendorFormViewProps => {
 
   const updateLogoFile = async (file: File | null) => {
     if (!file) {
-      setValue('logoFileName', null, { shouldDirty: true, shouldValidate: true });
-      setValue('logoDataUrl', null, { shouldDirty: true, shouldValidate: true });
-      setValue('logoMimeType', null, { shouldDirty: true, shouldValidate: true });
+      setValue('logoFileName', null, { shouldDirty: true });
+      setValue('logoDataUrl', null, { shouldDirty: true });
+      setValue('logoMimeType', null, { shouldDirty: true });
+      void trigger(['logoFileName', 'logoDataUrl', 'logoMimeType']);
       markFormAsIncompleteAndClearSubmitError();
       return;
     }
@@ -88,9 +89,10 @@ export const useVendorForm = (): VendorFormViewProps => {
     try {
       const preparedLogo = await prepareLogoForUpload(file, VENDOR_FORM_LOGO_MAX_BYTES);
 
-      setValue('logoFileName', file.name, { shouldDirty: true, shouldValidate: true });
-      setValue('logoDataUrl', preparedLogo.dataUrl, { shouldDirty: true, shouldValidate: true });
-      setValue('logoMimeType', preparedLogo.mimeType, { shouldDirty: true, shouldValidate: true });
+      setValue('logoFileName', file.name, { shouldDirty: true });
+      setValue('logoDataUrl', preparedLogo.dataUrl, { shouldDirty: true });
+      setValue('logoMimeType', preparedLogo.mimeType, { shouldDirty: true });
+      void trigger(['logoFileName', 'logoDataUrl', 'logoMimeType']);
       markFormAsIncompleteAndClearSubmitError();
     } catch (error) {
       console.error(error);

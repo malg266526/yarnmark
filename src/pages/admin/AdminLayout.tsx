@@ -28,6 +28,14 @@ const ADMIN_LINKS = [
   {
     id: 'editor',
     to: '/admin/editor'
+  },
+  {
+    id: 'vendorForm',
+    to: '/vendor/apply'
+  },
+  {
+    id: 'workshopForm',
+    to: '/workshops/apply'
   }
 ] as const;
 

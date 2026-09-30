@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { useForm, type Resolver } from 'react-hook-form';
 import type { UnprefixedTranslationKeys } from '../../../../translations/useTypedTranslation';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import type { WorkshopFormNumberFieldName, WorkshopFormViewProps } from '../components/workshopFormViewContracts';
@@ -48,7 +48,7 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
   const form = useForm<WorkshopFormValues>({
     defaultValues: initialDraft.formData,
     mode: 'onSubmit',
-    resolver: zodResolver(workshopFormValidationSchema)
+    resolver: zodResolver(workshopFormValidationSchema) as Resolver<WorkshopFormValues>
   });
 
   const { formState, getValues, register, reset, setValue, trigger, watch } = form;
@@ -122,9 +122,10 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
   };
 
   const setLogoValues = (logo: { fileName: string; dataUrl: string; mimeType: string } | null) => {
-    setValue('logoFileName', logo?.fileName ?? null, { shouldDirty: true, shouldValidate: true });
-    setValue('logoDataUrl', logo?.dataUrl ?? null, { shouldDirty: true, shouldValidate: true });
-    setValue('logoMimeType', logo?.mimeType ?? null, { shouldDirty: true, shouldValidate: true });
+    setValue('logoFileName', logo?.fileName ?? null, { shouldDirty: true });
+    setValue('logoDataUrl', logo?.dataUrl ?? null, { shouldDirty: true });
+    setValue('logoMimeType', logo?.mimeType ?? null, { shouldDirty: true });
+    void trigger(['logoFileName', 'logoDataUrl', 'logoMimeType']);
     markFormAsIncompleteAndClearSubmitError();
   };
 

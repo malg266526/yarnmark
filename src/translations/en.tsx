@@ -1000,7 +1000,9 @@ export const en: TranslationsShape = {
       links: {
         applications: 'Applications',
         workshopsApplications: 'Workshop applications',
-        editor: 'Editor'
+        editor: 'Editor',
+        vendorForm: 'Vendor form',
+        workshopForm: 'Workshop form'
       }
     }
   }
