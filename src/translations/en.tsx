@@ -70,7 +70,7 @@ export const en: TranslationsShape = {
         dagmara: {
           name: 'Dagmara',
           instagram: 'wloczykijki_sklep',
-          title: 'Podskarbiyni Krakowskiego Skarbca',
+          title: 'Podskarbini Krakowskiego Skarbca',
           description: 'Trzyma pieczę nad złotem Yarnmarku, by każda moneta była wydana mądrze i zgodnie z planem.'
         },
 

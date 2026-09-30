@@ -48,15 +48,31 @@ const LayoutWithActiveOrganizer = styled.div`
 
 const OrganizersGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: ${RedesignSpacings.lg};
   flex: 1;
   max-width: 650px;
 
+  & > * {
+    grid-column: span 2;
+  }
+
+  & > :nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
   @media (max-width: ${ScreenSize.phone}) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     width: 100%;
     gap: ${RedesignSpacings.md};
+
+    & > :nth-child(n) {
+      grid-column: span 2;
+    }
+
+    & > :nth-child(5) {
+      grid-column: 2 / span 2;
+    }
   }
 `;
 
@@ -204,7 +220,7 @@ const WOOL_PATRONS = [
   }
 ];
 
-const organizerSlugs = ['ewa', 'monia', 'karo', 'malgo', 'dagmara', 'justyna'] as readonly OrganizerSlug[];
+const organizerSlugs = ['ewa', 'karo', 'malgo', 'dagmara', 'justyna'] as readonly OrganizerSlug[];
 
 export const TeamAndPartnersBand = () => {
   const t = useTypedTranslation();
