@@ -7,6 +7,7 @@ import talkImageUrl from './assets/iconify/talk.svg';
 import { Icon } from './components/Icon';
 import { MinimalistLayout } from './components/MinimalistLayout';
 import { RowLayout } from './components/RowLayout';
+import { FlexColumnLayout } from './components/FlexColumnLayout';
 import { Footer, LeftBackgroundImage, Root, TransparentText, VanillaLink } from './App.styled';
 import { ForVendorsPage } from './pages/for-vendors/ForVendorsPage';
 import { MainPage } from './pages/main-page/MainPage';
@@ -25,6 +26,8 @@ import { WorkshopFormPage } from './pages/workshops/apply/WorkshopFormPage';
 import { VendorsApplicationsPage } from './pages/admin/vendors/applications/VendorsApplicationsPage';
 import { WorkshopsApplicationsPage } from './pages/admin/workshops/applications/WorkshopsApplicationsPage';
 import { AdminLayout } from './pages/admin/AdminLayout';
+
+const WORKSHOPS_CONTACT_EMAIL = 'yarnmark.warsztaty@gmail.com';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -105,6 +108,16 @@ export const App = () => {
               <RowLayout>
                 <Icon size={iconSize} src={emailIconUrl} />
                 <Typography size={textSize}>krakoski.yarnmark@gmail.com</Typography>
+              </RowLayout>
+            </VanillaLink>
+
+            <VanillaLink href={`mailto:${WORKSHOPS_CONTACT_EMAIL}`} target="_blank" rel="noreferrer">
+              <RowLayout>
+                <Icon size={iconSize} src={emailIconUrl} />
+                <FlexColumnLayout gap="none" padding="none" align="flex-end">
+                  <Typography size="sm">{t('contactPage.workshopsEmailLabel')}</Typography>
+                  <Typography size={textSize}>{WORKSHOPS_CONTACT_EMAIL}</Typography>
+                </FlexColumnLayout>
               </RowLayout>
             </VanillaLink>
 

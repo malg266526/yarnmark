@@ -89,7 +89,7 @@ export const en: TranslationsShape = {
       buyTicket: 'Buy a ticket',
       clickHere: 'Kliknij tu',
       price: 'Price',
-      eventDateProvisional: 'April {{year}}',
+      eventDateProvisional: '{{date, datetime(dateStyle: long)}}',
       yarnmarkTicket: 'Yarnmark ticket',
       yarnmarkTickets: 'Yarnmark tickets',
       cruise: 'Knitting-ship',
@@ -122,7 +122,7 @@ export const en: TranslationsShape = {
     welcomeBand: {
       invitation: 'We heartily invite you for III edition of yarn fair in capital of Malopolska!',
       // when: '26/04/2025r at 10:00 AM - 5:00 PM',
-      when: 'April {{year}}',
+      when: '{{date, datetime(dateStyle: long)}}',
       where: 'Hala 100-lecia KS Cracovia',
       haveFun: 'We wish you successful hunting and great fun!',
       seeYou: 'See ya all!'
@@ -133,7 +133,7 @@ export const en: TranslationsShape = {
       linksBelow: 'Below you will find few links that will help you plan your time in our beautiful city:',
       checkTheVendors: 'Check which vendors you will meet',
       // when: '26/04/2025r at 10:00 AM',
-      when: 'April {{year}}'
+      when: '{{date, datetime(dateStyle: long)}}'
     },
     previousEdition: {
       thankYou: 'Thank you for your presence at Yarnmark!',
@@ -241,7 +241,8 @@ export const en: TranslationsShape = {
     vendors: 'Vendors',
     vendors_archive: 'Vendors {{year}}',
     contactPage: {
-      title: 'Contact'
+      title: 'Contact',
+      workshopsEmailLabel: 'Workshops'
     },
     infoForVendorsPage: {
       title: 'Information for vendors 2026',
@@ -956,6 +957,16 @@ export const en: TranslationsShape = {
       generateJson: 'Generate JSON',
       clearAll: 'Clear All',
       clearAllConfirm: 'Remove all stands? This cannot be undone.',
+      hallPresets: {
+        hall2026: {
+          load: 'Load 2026 map',
+          confirm: 'Replace the current stands with the 2026 map? This cannot be undone.'
+        },
+        proposal2027: {
+          load: 'Load 2027 proposal',
+          confirm: 'Replace the current stands with the 2027 proposal? This cannot be undone.'
+        }
+      },
       standInfo: {
         title: 'Stand Info',
         noSelection: 'No stand selected',

@@ -12,6 +12,8 @@ import { isWithinBox } from './utils/isWithinBox';
 import { CtaButton } from '../Button';
 import { ConfirmModal } from '../ConfirmModal';
 import { saveHallToFile } from './utils/saveHallToFile';
+import { useHallPresetImport } from './useHallPresetImport';
+import { HALL_PRESET_IDS } from './utils/hallPresets';
 import { StandList } from './StandList';
 import { ColIndexes } from './ColIndexes';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
@@ -198,11 +200,19 @@ export const Editor = () => {
   const { start, end, handleMouseDown, handleMouseEnter, handleMouseUp, handleClick, setStart, setEnd } =
     useMouseHandlers();
 
-  const { stands, currentStand, clearStands } = useEditor();
+  const { stands, currentStand, clearStands, replaceStands } = useEditor();
   const standDrag = useStandDrag();
   const gridContainerRef = useRef<HTMLDivElement | null>(null);
   const rowIndexesRef = useRef<HTMLDivElement | null>(null);
   const [isClearConfirmOpen, setIsClearConfirmOpen] = useState(false);
+
+  const handleImportStands = (importedStands: StandProps[]) => {
+    replaceStands(importedStands);
+    setStart(undefined);
+    setEnd(undefined);
+  };
+
+  const hallPresetImport = useHallPresetImport(handleImportStands);
 
   const handleClearAll = () => {
     clearStands();
@@ -376,6 +386,11 @@ export const Editor = () => {
         <CtaButton type="submit" onClick={() => saveHallToFile(stands)}>
           {t('editorPage.generateJson')}
         </CtaButton>
+        {HALL_PRESET_IDS.map((presetId) => (
+          <CtaButton key={presetId} type="button" onClick={() => hallPresetImport.requestImport(presetId)}>
+            {t(`editorPage.hallPresets.${presetId}.load` as const)}
+          </CtaButton>
+        ))}
         <ClearAllButton type="button" onClick={() => setIsClearConfirmOpen(true)}>
           {t('editorPage.clearAll')}
         </ClearAllButton>
@@ -389,6 +404,23 @@ export const Editor = () => {
         variant="danger"
         onConfirm={handleClearAll}
         onCancel={() => setIsClearConfirmOpen(false)}
+      />
+
+      <ConfirmModal
+        isOpen={hallPresetImport.pendingPresetId !== null}
+        message={
+          hallPresetImport.pendingPresetId
+            ? t(`editorPage.hallPresets.${hallPresetImport.pendingPresetId}.confirm` as const)
+            : ''
+        }
+        confirmLabel={
+          hallPresetImport.pendingPresetId
+            ? t(`editorPage.hallPresets.${hallPresetImport.pendingPresetId}.load` as const)
+            : ''
+        }
+        variant="danger"
+        onConfirm={hallPresetImport.confirmImport}
+        onCancel={hallPresetImport.cancelImport}
       />
     </EditorContainer>
   );

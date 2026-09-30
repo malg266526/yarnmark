@@ -52,7 +52,7 @@ export const InvitationCard = () => {
 
           <FlexColumnLayout gap="xs" padding="none">
             <Typography size="sm" weight="bold">
-              {t('welcomeBand.when', { year: FairEdition.upcomingEditionYear })}
+              {t('welcomeBand.when', { date: FairEdition.upcomingEditionDate })}
             </Typography>
             <Typography size="sm" weight="bold">
               {t('welcomeBand.where')}

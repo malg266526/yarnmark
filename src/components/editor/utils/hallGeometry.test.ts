@@ -24,9 +24,9 @@ test('grid pixel size has exactly one gap between cells', () => {
 });
 
 test('clampStandOriginToHall keeps a stand fully inside the bottom-right corner', () => {
-  assert.deepEqual(clampStandOriginToHall({ row: 87, col: 51 }, 3.5, 3), {
-    row: 82,
-    col: 45
+  assert.deepEqual(clampStandOriginToHall({ row: GRID_ROWS - 1, col: GRID_COLS - 1 }, 3.5, 3), {
+    row: GRID_ROWS - 6,
+    col: GRID_COLS - 7
   });
 });
 

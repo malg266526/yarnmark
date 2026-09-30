@@ -12,6 +12,7 @@ interface EditorContextType {
   removeStand: (stand: StandProps) => void;
   updateStand: (stand: StandProps) => void;
   clearStands: () => void;
+  replaceStands: (stands: StandProps[]) => void;
 }
 
 const EditorContext = createContext<EditorContextType | undefined>(undefined);
@@ -65,9 +66,14 @@ export const EditorProvider = ({ children }: EditorProviderProps) => {
     setCurrentStand(DefaultStand);
   };
 
+  const replaceStands = (nextStands: StandProps[]) => {
+    setStands(nextStands);
+    setCurrentStand(DefaultStand);
+  };
+
   return (
     <EditorContext.Provider
-      value={{ stands, addStand, currentStand, setCurrentStand, removeStand, updateStand, clearStands }}
+      value={{ stands, addStand, currentStand, setCurrentStand, removeStand, updateStand, clearStands, replaceStands }}
     >
       {children}
     </EditorContext.Provider>
