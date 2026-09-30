@@ -1,84 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Band } from '../../../components/bands/Band';
-import { BackgroundColors, GrayScale } from '../../../styles/theme';
-import { RowLayout } from '../../../components/RowLayout';
-import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
-import { Typography } from '../../../components/Typography';
-import { Link, SecondaryLink } from '../../../components/Link';
+import { BackgroundColors } from '../../../styles/theme';
+import { usePhone, useTablet } from '../../../hooks/usePhone';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
-
-import grupoweAvifSrc from '../../../assets/napole/grupowe.avif';
-import grupoweWebpSrc from '../../../assets/napole/grupowe.webp';
-import grupoweJpgSrc from '../../../assets/napole/grupowe.jpeg';
-
-import napoleAvifSrc from '../../../assets/napole/napole.avif';
-import napoleWebpSrc from '../../../assets/napole/napole.webp';
-import napoleJpgSrc from '../../../assets/napole/napole.jpg';
-
-import napole2AvifSrc from '../../../assets/napole/napole2.avif';
-import napole2WebpSrc from '../../../assets/napole/napole2.webp';
-import napole2JpgSrc from '../../../assets/napole/napole2.jpeg';
-
-import magdaAvifSrc from '../../../assets/napole/magda-napole.avif';
-import magdaWebpSrc from '../../../assets/napole/magda-napole.webp';
-import magdaJpgSrc from '../../../assets/napole/magda-napole.jpg';
-
-import klaudiaAvifSrc from '../../../assets/napole/klaudia-napole.avif';
-import klaudiaWebpSrc from '../../../assets/napole/klaudia-napole.webp';
-import klaudiaJpgSrc from '../../../assets/napole/klaudia-napole.jpg';
-
-import karoJpgSrc from '../../../assets/napole/karo.jpeg';
-import karoAvifSrc from '../../../assets/napole/karo.avif';
-import karoWebpSrc from '../../../assets/napole/karo.webp';
-
-import styled from 'styled-components';
-import { Picture } from '../../../components/Picture';
-import { Carousel } from 'react-bootstrap';
-import { usePhone } from '../../../hooks/usePhone';
-
-const CarouselContainer = styled.div`
-  /* Let the content (vertical photos) define the height */
-  width: 90%;
-  max-width: 90%;
-  margin: 0 auto;
-`;
-
-const CarouselImage = styled.img`
-  width: 100%;
-  object-fit: contain;
-  display: block;
-  height: 300px;
-  aspect-ratio: 3/4;
-`;
-
-const PatternContentContainer = styled(RowLayout)<{ direction: 'row' | 'column' }>`
-  width: 100%;
-  flex-direction: ${({ direction }) => direction};
-  align-items: center;
-  text-align: center;
-`;
-
-const FramedPicture = styled(Picture)`
-  border: 4px solid ${GrayScale[200]};
-  border-radius: 4px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-
-  &:hover {
-    transform: scale(1.02);
-  }
-`;
+import { YARNMARK_PATTERNS } from './patterns/patternsConfig';
+import { groupPatternsByEdition } from './patterns/patternsUtils';
+import { EDITION_PHOTOS } from './patterns/patternsPictures';
+import { PatternEntry } from './patterns/PatternEntry';
+import {
+  EditionKicker,
+  EditionPanel,
+  PanelBody,
+  PanelEntries,
+  PanelPhoto,
+  PanelsRow
+} from './patterns/PatternsBand.styled';
 
 type PatternsBandType = {
   id: string;
 };
 
 export const PatternsBand = ({ id }: PatternsBandType) => {
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const t = useTypedTranslation();
   const isPhone = usePhone();
-
-  const contentDirection = isPhone ? 'column' : 'row';
+  const isTablet = useTablet();
+  const editions = groupPatternsByEdition(YARNMARK_PATTERNS);
 
   return (
     <Band.CenteredColumn
@@ -91,113 +37,25 @@ export const PatternsBand = ({ id }: PatternsBandType) => {
     >
       <Band.Title>{t('patternsBand.title')}</Band.Title>
 
-      <PatternContentContainer direction={contentDirection} justify={isPhone ? 'flex-start' : 'space-evenly'}>
-        <FlexColumnLayout padding="none" gap="md">
-          <FlexColumnLayout padding="none" gap="xxs">
-            <Typography size={isPhone ? 'md' : 'lg'} weight="bold">
-              {t('patternsBand.patterns.naPoleTee.title')}
-            </Typography>
-            <Link to="https://www.ravelry.com/patterns/library/na-pole-tee" target="_blank" rel="noreferrer">
-              {t('patternsBand.viewOnRavelry')}
-            </Link>
-            <Typography size="md">
-              {t('patternsBand.authorship.monikaPrefix')}{' '}
-              <SecondaryLink to="https://www.instagram.com/made_me_knit/" target="_blank" rel="noreferrer">
-                @made_me_knit
-              </SecondaryLink>
-            </Typography>
-          </FlexColumnLayout>
-
-          <FlexColumnLayout padding="none" gap="xxs">
-            <Typography size={isPhone ? 'md' : 'lg'} weight="bold">
-              {t('patternsBand.patterns.atropa.title')}
-            </Typography>
-            <Link to="https://www.ravelry.com/patterns/library/atropa-2" target="_blank" rel="noreferrer">
-              {t('patternsBand.viewOnRavelry')}
-            </Link>
-            <Typography size="md">
-              {t('patternsBand.authorship.annaPrefix')}{' '}
-              <SecondaryLink to="https://www.instagram.com/moracraft.handmade/" target="_blank" rel="noreferrer">
-                @moracraft.handmade
-              </SecondaryLink>
-            </Typography>
-          </FlexColumnLayout>
-        </FlexColumnLayout>
-
-        {!isPhone && (
-          <FramedPicture
-            picture={{
-              fallbackUrl: grupoweJpgSrc,
-              sources: [
-                {
-                  type: 'image/webp',
-                  url: grupoweWebpSrc
-                },
-                {
-                  type: 'image/avif',
-                  url: grupoweAvifSrc
-                }
-              ]
-            }}
-            alt="yarnmark_girls"
-            width={1000}
-          />
-        )}
-
-        {isPhone && (
-          <CarouselContainer>
-            <Carousel
-              activeIndex={currentSlideIndex}
-              onSelect={(selectedIndex) => setCurrentSlideIndex(selectedIndex)}
-              controls
-              indicators
-              interval={3000}
-              pause={false}
-              fade={false}
-            >
-              <Carousel.Item>
-                <picture>
-                  <source srcSet={karoAvifSrc} type="image/avif" />
-                  <source srcSet={karoWebpSrc} type="image/webp" />
-                  <CarouselImage loading="lazy" src={karoJpgSrc} alt={t('patternsBand.slides.wineAlt')} />
-                </picture>
-              </Carousel.Item>
-
-              <Carousel.Item>
-                <picture>
-                  <source srcSet={napole2AvifSrc} type="image/avif" />
-                  <source srcSet={napole2WebpSrc} type="image/webp" />
-                  <CarouselImage loading="lazy" src={napole2JpgSrc} alt={t('patternsBand.slides.wineAlt')} />
-                </picture>
-              </Carousel.Item>
-
-              <Carousel.Item>
-                <picture>
-                  <source srcSet={napoleAvifSrc} type="image/avif" />
-                  <source srcSet={napoleWebpSrc} type="image/webp" />
-                  <CarouselImage loading="lazy" src={napoleJpgSrc} alt={t('patternsBand.slides.wineAlt')} />
-                </picture>
-              </Carousel.Item>
-
-              <Carousel.Item>
-                <picture>
-                  <source srcSet={magdaAvifSrc} type="image/avif" />
-                  <source srcSet={magdaWebpSrc} type="image/webp" />
-                  <CarouselImage loading="lazy" src={magdaJpgSrc} alt={t('patternsBand.slides.wineAlt')} />
-                </picture>
-              </Carousel.Item>
-
-              <Carousel.Item>
-                <picture>
-                  <source srcSet={klaudiaAvifSrc} type="image/avif" />
-                  <source srcSet={klaudiaWebpSrc} type="image/webp" />
-                  <CarouselImage loading="lazy" src={klaudiaJpgSrc} alt={t('patternsBand.slides.wineAlt')} />
-                </picture>
-              </Carousel.Item>
-            </Carousel>
-          </CarouselContainer>
-        )}
-      </PatternContentContainer>
+      <PanelsRow direction={isPhone ? 'column' : 'row'}>
+        {editions.map(({ year, patterns }) => (
+          <EditionPanel key={year} grow={EDITION_PHOTOS[year].ratio} isStacked={isPhone}>
+            <PanelPhoto
+              ratio={EDITION_PHOTOS[year].ratio}
+              picture={EDITION_PHOTOS[year].picture}
+              alt={t(EDITION_PHOTOS[year].altKey)}
+            />
+            <PanelBody>
+              <EditionKicker>{t('patternsBand.edition', { year })}</EditionKicker>
+              <PanelEntries isStacked={isTablet}>
+                {patterns.map((pattern) => (
+                  <PatternEntry key={pattern.id} pattern={pattern} isPhone={isPhone} />
+                ))}
+              </PanelEntries>
+            </PanelBody>
+          </EditionPanel>
+        ))}
+      </PanelsRow>
     </Band.CenteredColumn>
   );
 };
