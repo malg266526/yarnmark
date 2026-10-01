@@ -5,7 +5,6 @@ import type {
   VendorApplicationStatus
 } from './vendorFormSubmission.ts';
 import type { VendorFormState } from './vendorFormTypes.ts';
-import { VENDORS_APPLICATIONS_MOCK } from './vendorsApplicationsMock.ts';
 import { vendorFormStateSchema } from './vendorFormSchema.ts';
 import { getStandInterestCounts } from './vendorFormStandInterestUtils.ts';
 
@@ -68,28 +67,6 @@ export const parseStoredVendorApplications = (rawValue: string | null): VendorAp
   }
 };
 
-export const mergeStoredVendorApplicationsWithMocks = (
-  storedApplications: VendorApplication[],
-  mockApplications: VendorApplication[]
-) => {
-  const storedApplicationsById = new Map(storedApplications.map((application) => [application.id, application]));
-  const mergedApplications = mockApplications.map((mockApplication) => {
-    return storedApplicationsById.get(mockApplication.id) ?? mockApplication;
-  });
-  const mockApplicationIds = new Set(mockApplications.map((application) => application.id));
-  const storedOnlyApplications = storedApplications.filter((application) => !mockApplicationIds.has(application.id));
-
-  return [...mergedApplications, ...storedOnlyApplications];
-};
-
-const getStoredOrMockVendorApplications = () => {
-  const storedApplications = readStoredVendorApplications();
-
-  return storedApplications.length > 0
-    ? mergeStoredVendorApplicationsWithMocks(storedApplications, VENDORS_APPLICATIONS_MOCK)
-    : VENDORS_APPLICATIONS_MOCK;
-};
-
 const readStoredVendorApplications = (): VendorApplication[] =>
   parseStoredVendorApplications(window.localStorage.getItem(VENDOR_APPLICATIONS_STORAGE_KEY));
 
@@ -99,13 +76,13 @@ const writeStoredVendorApplications = (applications: VendorApplication[]) => {
 
 export const listVendorApplications = async () => {
   return {
-    applications: getStoredOrMockVendorApplications()
+    applications: readStoredVendorApplications()
   };
 };
 
 export const listStandInterestCounts = async () => {
   return {
-    standInterestCounts: getStandInterestCounts(getStoredOrMockVendorApplications())
+    standInterestCounts: getStandInterestCounts(readStoredVendorApplications())
   };
 };
 
@@ -137,6 +114,6 @@ export const updateVendorApplicationStatus = async (applicationId: string, statu
   writeStoredVendorApplications(updatedApplications);
 
   return {
-    applications: getStoredOrMockVendorApplications()
+    applications: readStoredVendorApplications()
   };
 };

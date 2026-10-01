@@ -1000,9 +1000,13 @@ export const en: TranslationsShape = {
     adminLogin: {
       kicker: 'Admin',
       title: 'Admin panel',
-      passwordLabel: 'Password',
-      submit: 'Log in',
-      error: 'Incorrect password',
+      states: {
+        initializing: 'Checking sign-in…',
+        signedOut: 'Sign in with your Google account to open the panel.',
+        verifying: 'Verifying account…',
+        pendingApproval: 'Your account is pending approval. Please contact the administrator.',
+        error: 'Could not sign in. Please try again later.'
+      },
       logout: 'Log out'
     },
     adminLayout: {

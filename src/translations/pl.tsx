@@ -1000,9 +1000,13 @@ export const pl = {
     adminLogin: {
       kicker: 'Admin',
       title: 'Panel administracyjny',
-      passwordLabel: 'Hasło',
-      submit: 'Zaloguj',
-      error: 'Nieprawidłowe hasło',
+      states: {
+        initializing: 'Sprawdzanie logowania…',
+        signedOut: 'Zaloguj się kontem Google, aby przejść do panelu.',
+        verifying: 'Weryfikacja konta…',
+        pendingApproval: 'Konto czeka na akceptację. Skontaktuj się z administratorem.',
+        error: 'Nie udało się zalogować. Spróbuj ponownie później.'
+      },
       logout: 'Wyloguj'
     },
     adminLayout: {

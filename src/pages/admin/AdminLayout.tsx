@@ -41,10 +41,10 @@ const ADMIN_LINKS = [
 
 export const AdminLayout = () => {
   const t = useTypedTranslation();
-  const { isAuthenticated, login, logout } = useAdminAuth();
+  const { authState, googleButtonRef, logout } = useAdminAuth(t.i18n.language);
 
-  if (!isAuthenticated) {
-    return <AdminLoginView onSubmit={login} />;
+  if (authState !== 'authenticated') {
+    return <AdminLoginView authState={authState} googleButtonRef={googleButtonRef} />;
   }
 
   return (

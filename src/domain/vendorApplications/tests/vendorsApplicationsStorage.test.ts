@@ -1,9 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {
-  mergeStoredVendorApplicationsWithMocks,
-  parseStoredVendorApplications
-} from '../vendorsApplicationsStorage.ts';
+import { parseStoredVendorApplications } from '../vendorsApplicationsStorage.ts';
 
 const createStoredVendorApplicationPayload = () => ({
   allocatedStandId: null,
@@ -79,43 +76,4 @@ test('parseStoredVendorApplications keeps valid records when one record is malfo
   assert.deepEqual(parseStoredVendorApplications(JSON.stringify([validApplication, malformedApplication])), [
     validApplication
   ]);
-});
-
-test('mergeStoredVendorApplicationsWithMocks keeps stored records and appends missing mocks', () => {
-  const storedApplication = {
-    ...createStoredVendorApplicationPayload(),
-    id: 'application-1',
-    storeName: 'Stored name'
-  };
-  const storedOnlyApplication = {
-    ...createStoredVendorApplicationPayload(),
-    id: 'application-3',
-    storeName: 'Stored only'
-  };
-  const mockApplications = [
-    {
-      ...createStoredVendorApplicationPayload(),
-      id: 'application-1',
-      storeName: 'Mock name'
-    },
-    {
-      ...createStoredVendorApplicationPayload(),
-      id: 'application-2',
-      storeName: 'Second mock'
-    }
-  ];
-
-  assert.deepEqual(
-    mergeStoredVendorApplicationsWithMocks([storedApplication, storedOnlyApplication], mockApplications).map(
-      (application) => ({
-        id: application.id,
-        storeName: application.storeName
-      })
-    ),
-    [
-      { id: 'application-1', storeName: 'Stored name' },
-      { id: 'application-2', storeName: 'Second mock' },
-      { id: 'application-3', storeName: 'Stored only' }
-    ]
-  );
 });
