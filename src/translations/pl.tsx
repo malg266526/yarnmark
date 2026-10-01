@@ -38,7 +38,7 @@ export const pl = {
       buyTicket: 'Kup bilet',
       clickHere: 'Kliknij tu',
       price: 'Koszt',
-      eventDateProvisional: 'Kwiecień {{year}}',
+      eventDateProvisional: '{{date, datetime}}',
       yarnmarkTicket: 'Bilet na Yarnmark',
       yarnmarkTickets: 'Bilety na Yarnmark',
       cruise: 'Dziergostatek',
@@ -70,7 +70,7 @@ export const pl = {
     welcomeBand: {
       invitation: 'Serdecznie zapraszamy na III edycję targów włóczki w stolicy Małopolski!',
       // when: '26/04/2025r w godz. 10:00 - 17:00',
-      when: 'Kwiecień {{year}}',
+      when: '{{date, datetime}}',
       where: 'Hala 100-lecia KS Cracovia',
       haveFun: 'Życzymy udanych łowów i świetnej zabawy!',
       seeYou: 'Do zobaczenia!'
@@ -81,7 +81,7 @@ export const pl = {
       linksBelow: 'Poniżej znajdziecie kilka linków, które pomogą Wam zaplanować swój czas w naszym pięknym mieście.',
       checkTheVendors: 'Sprawdź z jakimi wystawcami się spotkasz.',
       //when: '26/04/2025r. o godz. 10:00'
-      when: 'Kwiecień {{year}}'
+      when: '{{date, datetime}}'
     },
     previousEdition: {
       thankYou: 'Dziękujemy za Waszą obecność na Yarnmarku!',
@@ -240,7 +240,8 @@ export const pl = {
     vendors: 'Wystawcy',
     vendors_archive: 'Wystawcy {{year}}',
     contactPage: {
-      title: 'Kontakt'
+      title: 'Kontakt',
+      workshopsEmailLabel: 'Warsztaty'
     },
     infoForVendorsPage: {
       title: 'Informacje dla wystawców 2026',
@@ -956,6 +957,16 @@ export const pl = {
       generateJson: 'Generuj JSON',
       clearAll: 'Wyczyść wszystko',
       clearAllConfirm: 'Usunąć wszystkie stoiska? Tej operacji nie można cofnąć.',
+      hallPresets: {
+        hall2026: {
+          load: 'Wczytaj mapę 2026',
+          confirm: 'Zastąpić obecne stoiska mapą z 2026? Tej operacji nie można cofnąć.'
+        },
+        proposal2027: {
+          load: 'Wczytaj propozycję 2027',
+          confirm: 'Zastąpić obecne stoiska propozycją 2027? Tej operacji nie można cofnąć.'
+        }
+      },
       standInfo: {
         title: 'Informacje o stoisku',
         noSelection: 'Nie wybrano stoiska',

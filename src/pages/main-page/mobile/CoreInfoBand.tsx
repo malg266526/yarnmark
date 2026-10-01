@@ -36,7 +36,7 @@ export const CoreInfoBand = ({ id }: CoreInfoBandProps) => {
       <InfoColumn align="center" padding="none" gap="lg">
         <FlexColumnLayout gap="xs" padding="none">
           <Icon size="lg" zIndex={0} src={calendarIconUrl} />
-          <Typography size="sm">{t('navigationBand.when', { year: FairEdition.upcomingEditionYear })}</Typography>
+          <Typography size="sm">{t('navigationBand.when', { date: FairEdition.upcomingEditionDate })}</Typography>
         </FlexColumnLayout>
 
         <FlexColumnLayout gap="xs" padding="none">

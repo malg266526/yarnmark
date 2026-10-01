@@ -1,13 +1,17 @@
 import { StandProps } from './StandProps';
 import { getSizeForOrientation } from './utils/getSizeForOrientation';
+import { getSuggestedStandColor } from './utils/standColorUtils';
 import { DefaultStand, DefaultTypeColorMap, useEditor } from './EditorContext';
 
 export const useStandForm = (onSubmit: (stand: StandProps) => void) => {
-  const { currentStand, setCurrentStand } = useEditor();
+  const { currentStand, setCurrentStand, stands } = useEditor();
+  const isNewStand = !stands.some((stand) => stand.id === currentStand.id);
 
   const handleTypeChange = (type: StandProps['type']) => {
     const size = getSizeForOrientation(type, currentStand.isHorizontal);
-    const defaultColor = DefaultTypeColorMap[type];
+    const defaultColor = isNewStand
+      ? getSuggestedStandColor({ index: currentStand.index, type }, stands)
+      : DefaultTypeColorMap[type];
 
     setCurrentStand({ ...currentStand, type, width: size.width, height: size.height, color: defaultColor });
   };
@@ -18,7 +22,13 @@ export const useStandForm = (onSubmit: (stand: StandProps) => void) => {
   };
 
   const updateField = <K extends keyof StandProps>(field: K, value: StandProps[K]) => {
-    setCurrentStand({ ...currentStand, [field]: value });
+    const nextStand = { ...currentStand, [field]: value };
+
+    if (field === 'index' && isNewStand) {
+      nextStand.color = getSuggestedStandColor(nextStand, stands);
+    }
+
+    setCurrentStand(nextStand);
   };
 
   const reset = () => setCurrentStand(DefaultStand);

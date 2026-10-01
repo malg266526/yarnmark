@@ -3,10 +3,12 @@ import { getEditionTitleOptions, type FairEditionMode } from './edition/editionT
 export const FairEdition: {
   mode: FairEditionMode;
   upcomingEditionYear: number;
+  upcomingEditionDate: Date;
   pastEditionYear: number;
 } = {
   mode: 'dormant',
   upcomingEditionYear: 2027,
+  upcomingEditionDate: new Date(2027, 3, 17),
   pastEditionYear: 2026
 };
 

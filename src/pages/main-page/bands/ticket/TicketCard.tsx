@@ -135,7 +135,7 @@ export const TicketCard = () => {
         </BuyTicketLink>
 
         <Typography size="sm">
-          {t('tickets.eventDateProvisional', { year: FairEdition.upcomingEditionYear })}
+          {t('tickets.eventDateProvisional', { date: FairEdition.upcomingEditionDate })}
         </Typography>
 
         <Typography size="sm">Hala 100-lecia KS Cracovia</Typography>
