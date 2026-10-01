@@ -4,7 +4,6 @@ import { useForm, type Resolver } from 'react-hook-form';
 import type { UnprefixedTranslationKeys } from '../../../../translations/useTypedTranslation';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import type { WorkshopFormNumberFieldName, WorkshopFormViewProps } from '../components/workshopFormViewContracts';
-import { createWorkshopApplication } from '../../../../domain/workshopApplications/workshopsApplicationsStorage.ts';
 import { submitWorkshopApplicationToApi } from '../../../../domain/workshopApplications/workshopFormApi.ts';
 import {
   WORKSHOP_FORM_DESCRIPTION_MAX_LENGTH,
@@ -174,10 +173,7 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
     setIsSubmitting(true);
 
     try {
-      await submitWorkshopApplicationToApi(validatedFormData);
-      const response = await createWorkshopApplication(validatedFormData);
-
-      setSubmittedAt(response.application.submittedAt);
+      setSubmittedAt(await submitWorkshopApplicationToApi(validatedFormData));
       setIsComplete(true);
       reset(validatedFormData);
     } catch (error) {

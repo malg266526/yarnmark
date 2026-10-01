@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { ApiRequestError } from '../../apiClient.ts';
 import { INITIAL_WORKSHOP_FORM_STATE } from '../workshopFormTypes.ts';
 import { WORKSHOP_FORM_API_URL } from '../workshopFormConstants.ts';
 import { submitWorkshopApplicationToApi } from '../workshopFormApi.ts';
@@ -30,7 +31,7 @@ test('submitWorkshopApplicationToApi posts the form data as JSON to the workshop
   assert.deepEqual(JSON.parse(calls[0][1]?.body as string), formData);
 });
 
-test('submitWorkshopApplicationToApi does not throw when the request fails', async () => {
+test('submitWorkshopApplicationToApi rejects when the request fails', async () => {
   const formData = { ...INITIAL_WORKSHOP_FORM_STATE, tutorName: 'Test tutor' };
   const originalFetch = globalThis.fetch;
 
@@ -39,7 +40,20 @@ test('submitWorkshopApplicationToApi does not throw when the request fails', asy
   }) as typeof fetch;
 
   try {
-    await assert.doesNotReject(submitWorkshopApplicationToApi(formData));
+    await assert.rejects(submitWorkshopApplicationToApi(formData));
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('submitWorkshopApplicationToApi rejects when the backend responds with an error status', async () => {
+  const formData = { ...INITIAL_WORKSHOP_FORM_STATE, tutorName: 'Test tutor' };
+  const originalFetch = globalThis.fetch;
+
+  globalThis.fetch = (async () => new Response(JSON.stringify({ errors: {} }), { status: 400 })) as typeof fetch;
+
+  try {
+    await assert.rejects(submitWorkshopApplicationToApi(formData), ApiRequestError);
   } finally {
     globalThis.fetch = originalFetch;
   }

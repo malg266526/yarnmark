@@ -41,7 +41,7 @@ const ADMIN_LINKS = [
 
 export const AdminLayout = () => {
   const t = useTypedTranslation();
-  const { authState, googleButtonRef, logout } = useAdminAuth(t.i18n.language);
+  const { authState, session, googleButtonRef, logout } = useAdminAuth(t.i18n.language);
 
   if (authState !== 'authenticated') {
     return <AdminLoginView authState={authState} googleButtonRef={googleButtonRef} />;
@@ -74,7 +74,7 @@ export const AdminLayout = () => {
         </AdminSidebar>
 
         <AdminMain>
-          <Outlet />
+          <Outlet context={session} />
         </AdminMain>
       </AdminShell>
     </AdminRoot>

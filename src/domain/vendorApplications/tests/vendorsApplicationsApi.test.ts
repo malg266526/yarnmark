@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { parseStoredVendorApplications } from '../vendorsApplicationsStorage.ts';
+import { parseVendorApplications } from '../vendorsApplicationsApi.ts';
 
-const createStoredVendorApplicationPayload = () => ({
+const createVendorApplicationPayload = () => ({
   allocatedStandId: null,
   allocationIteration: null,
   allocationState: 'none' as const,
@@ -26,21 +26,27 @@ const createStoredVendorApplicationPayload = () => ({
   acceptedStatute: true
 });
 
-test('parseStoredVendorApplications returns an empty list for invalid payloads', () => {
-  assert.deepEqual(parseStoredVendorApplications(null), []);
-  assert.deepEqual(parseStoredVendorApplications('not-json'), []);
-  assert.deepEqual(parseStoredVendorApplications(JSON.stringify({ foo: 'bar' })), []);
+test('parseVendorApplications returns an empty list for invalid payloads', () => {
+  assert.deepEqual(parseVendorApplications(null), []);
+  assert.deepEqual(parseVendorApplications('not-a-list'), []);
+  assert.deepEqual(parseVendorApplications({ foo: 'bar' }), []);
 });
 
-test('parseStoredVendorApplications restores a valid payload', () => {
-  const applications = [createStoredVendorApplicationPayload()];
+test('parseVendorApplications restores a valid payload', () => {
+  const applications = [createVendorApplicationPayload()];
 
-  assert.deepEqual(parseStoredVendorApplications(JSON.stringify(applications)), applications);
+  assert.deepEqual(parseVendorApplications(applications), applications);
 });
 
-test('parseStoredVendorApplications normalizes legacy values and defaults', () => {
+test('parseVendorApplications accepts a payload wrapped in an applications object', () => {
+  const applications = [createVendorApplicationPayload()];
+
+  assert.deepEqual(parseVendorApplications({ applications }), applications);
+});
+
+test('parseVendorApplications normalizes legacy values and defaults', () => {
   const legacyApplication = {
-    ...createStoredVendorApplicationPayload(),
+    ...createVendorApplicationPayload(),
     allocationState: undefined,
     allocatedStandId: undefined,
     allocationIteration: undefined,
@@ -56,7 +62,7 @@ test('parseStoredVendorApplications normalizes legacy values and defaults', () =
   delete legacyFieldsWithoutOptionalValues.allocationIteration;
   delete legacyFieldsWithoutOptionalValues.sponsorshipInterest;
 
-  assert.deepEqual(parseStoredVendorApplications(JSON.stringify([legacyFieldsWithoutOptionalValues])), [
+  assert.deepEqual(parseVendorApplications([legacyFieldsWithoutOptionalValues]), [
     {
       ...legacyFieldsWithoutOptionalValues,
       allocatedStandId: null,
@@ -69,11 +75,9 @@ test('parseStoredVendorApplications normalizes legacy values and defaults', () =
   ]);
 });
 
-test('parseStoredVendorApplications keeps valid records when one record is malformed', () => {
-  const validApplication = createStoredVendorApplicationPayload();
+test('parseVendorApplications keeps valid records when one record is malformed', () => {
+  const validApplication = createVendorApplicationPayload();
   const malformedApplication = { id: 'broken-application' };
 
-  assert.deepEqual(parseStoredVendorApplications(JSON.stringify([validApplication, malformedApplication])), [
-    validApplication
-  ]);
+  assert.deepEqual(parseVendorApplications([validApplication, malformedApplication]), [validApplication]);
 });

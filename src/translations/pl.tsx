@@ -1004,7 +1004,7 @@ export const pl = {
         initializing: 'Sprawdzanie logowania…',
         signedOut: 'Zaloguj się kontem Google, aby przejść do panelu.',
         verifying: 'Weryfikacja konta…',
-        pendingApproval: 'Konto czeka na akceptację. Skontaktuj się z administratorem.',
+        pendingApproval: 'Konto czeka na akceptację. Daj znać Małgo, żeby klikneła.',
         error: 'Nie udało się zalogować. Spróbuj ponownie później.'
       },
       logout: 'Wyloguj'
