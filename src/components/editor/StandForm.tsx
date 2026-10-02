@@ -81,13 +81,10 @@ interface StandFormProps {
 
 export const StandForm = ({ start, end }: StandFormProps) => {
   const t = useTypedTranslation();
-  const { addStand, currentStand, updateStand, stands } = useEditor();
+  const { addStand } = useEditor();
 
-  const { stand, handleTypeChange, handleOrientationChange, updateField, submit, isValid } = useStandForm(() =>
-    addStand({ ...stand, start, end })
-  );
-
-  const isEditMode = !!stands.find((stand) => stand.id === currentStand.id);
+  const { stand, isEditMode, handleTypeChange, handleOrientationChange, updateField, submit, reset, isValid } =
+    useStandForm((standToAdd) => addStand({ ...standToAdd, start, end }));
 
   console.log('isEditMode', isEditMode);
 
@@ -196,15 +193,20 @@ export const StandForm = ({ start, end }: StandFormProps) => {
           </Select>
         </FieldRow>
         <ButtonRow>
-          {isEditMode && (
-            <Button type="button" onClick={() => updateStand(currentStand)}>
-              {t('editorPage.standForm.update')}
-            </Button>
+          {isEditMode ? (
+            <>
+              <Button type="button" onClick={reset}>
+                {t('editorPage.standForm.cancel')}
+              </Button>
+              <CtaButton type="submit" disabled={!isValid}>
+                {t('editorPage.standForm.saveChanges')}
+              </CtaButton>
+            </>
+          ) : (
+            <CtaButton type="submit" disabled={!isValid}>
+              {t('editorPage.standForm.addStand')}
+            </CtaButton>
           )}
-
-          <CtaButton type="submit" disabled={!isValid}>
-            {t('editorPage.standForm.addStand')}
-          </CtaButton>
         </ButtonRow>
       </Form>
     </Container>

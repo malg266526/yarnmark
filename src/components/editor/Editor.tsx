@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { RowIndexes } from './RowIndexes';
 import { StandInfo } from './StandInfo';
 import { StandForm } from './StandForm';
-import { useEditor } from './EditorContext';
+import { DefaultStand, useEditor } from './EditorContext';
 import { useMouseHandlers } from './utils/useMouseHandlers';
 import { useStandDrag } from './utils/useStandDrag';
 import { RedesignSpacings } from '../../styles/spacings';
@@ -13,6 +13,8 @@ import { CtaButton } from '../Button';
 import { ConfirmModal } from '../ConfirmModal';
 import { saveHallToFile } from './utils/saveHallToFile';
 import { useHallPresetImport } from './useHallPresetImport';
+import { getStandOutlineRect } from './utils/standGeometryUtils';
+import { isExistingStand } from './utils/standSelectionUtils';
 import { HALL_PRESET_IDS } from './utils/hallPresets';
 import { StandList } from './StandList';
 import { ColIndexes } from './ColIndexes';
@@ -103,6 +105,22 @@ const GridContainer = styled.div`
   flex-direction: column;
   gap: ${GAP_PX}px;
   background: #ccc;
+  position: relative;
+`;
+
+const SelectionOutline = styled.div<{ left: number; top: number; width: number; height: number }>`
+  position: absolute;
+  left: ${({ left }) => left}px;
+  top: ${({ top }) => top}px;
+  width: ${({ width }) => width}px;
+  height: ${({ height }) => height}px;
+  box-sizing: border-box;
+  border: 4px solid #dc2626;
+  box-shadow:
+    inset 0 0 0 2px #fff,
+    0 0 0 2px #fff;
+  pointer-events: none;
+  z-index: 3;
 `;
 
 const GridRow = styled.div`
@@ -200,7 +218,7 @@ export const Editor = () => {
   const { start, end, handleMouseDown, handleMouseEnter, handleMouseUp, handleClick, setStart, setEnd } =
     useMouseHandlers();
 
-  const { stands, currentStand, clearStands, replaceStands } = useEditor();
+  const { stands, currentStand, setCurrentStand, clearStands, replaceStands } = useEditor();
   const standDrag = useStandDrag();
   const gridContainerRef = useRef<HTMLDivElement | null>(null);
   const rowIndexesRef = useRef<HTMLDivElement | null>(null);
@@ -238,12 +256,23 @@ export const Editor = () => {
 
   const isSelected = (row: number, col: number) => isWithinBox(row, col, start, end);
 
+  const selectedStand = effectiveStands.find((stand) => stand.id === currentStand.id) ?? null;
+  const selectionOutline = selectedStand ? getStandOutlineRect(selectedStand) : null;
+
   const handleCellMouseDown = (row: number, col: number) => {
     const stand = getStandAtCell(row, col);
 
-    if (isSelectedStand(stand)) {
+    if (stand) {
+      if (!isSelectedStand(stand)) {
+        setCurrentStand(stand);
+      }
+
       standDrag.beginDrag(stand, row, col);
       return;
+    }
+
+    if (isExistingStand(stands, currentStand)) {
+      setCurrentStand(DefaultStand);
     }
 
     handleMouseDown(row, col);
@@ -268,7 +297,7 @@ export const Editor = () => {
   };
 
   const handleCellClick = (row: number, col: number) => {
-    if (standDrag.consumeClickAfterDrag()) {
+    if (standDrag.consumeClickAfterDrag() || getStandAtCell(row, col)) {
       return;
     }
 
@@ -372,6 +401,7 @@ export const Editor = () => {
                       })}
                     </GridRow>
                   ))}
+                  {selectionOutline ? <SelectionOutline data-selection-outline {...selectionOutline} /> : null}
                 </GridContainer>
               </GridBody>
             </GridChrome>
