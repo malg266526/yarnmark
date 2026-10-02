@@ -13,6 +13,7 @@ import { CtaButton } from '../Button';
 import { ConfirmModal } from '../ConfirmModal';
 import { saveHallToFile } from './utils/saveHallToFile';
 import { useHallPresetImport } from './useHallPresetImport';
+import { useStandRemoval } from './useStandRemoval';
 import { getStandOutlineRect } from './utils/standGeometryUtils';
 import { isExistingStand } from './utils/standSelectionUtils';
 import { HALL_PRESET_IDS } from './utils/hallPresets';
@@ -231,6 +232,7 @@ export const Editor = () => {
   };
 
   const hallPresetImport = useHallPresetImport(handleImportStands);
+  const standRemoval = useStandRemoval();
 
   const handleClearAll = () => {
     clearStands();
@@ -411,7 +413,7 @@ export const Editor = () => {
       </GridSection>
       <StandDetailsContainer>
         <StandInfo start={start} end={end} />
-        <StandForm start={start} end={end} />
+        <StandForm start={start} end={end} onRemoveStand={standRemoval.requestRemove} />
 
         <CtaButton type="submit" onClick={() => saveHallToFile(stands)}>
           {t('editorPage.generateJson')}
@@ -424,7 +426,7 @@ export const Editor = () => {
         <ClearAllButton type="button" onClick={() => setIsClearConfirmOpen(true)}>
           {t('editorPage.clearAll')}
         </ClearAllButton>
-        <StandList />
+        <StandList onRemoveStand={standRemoval.requestRemove} />
       </StandDetailsContainer>
 
       <ConfirmModal
@@ -434,6 +436,15 @@ export const Editor = () => {
         variant="danger"
         onConfirm={handleClearAll}
         onCancel={() => setIsClearConfirmOpen(false)}
+      />
+
+      <ConfirmModal
+        isOpen={standRemoval.pendingStand !== null}
+        message={t('editorPage.removeStandConfirm', { index: standRemoval.pendingStand?.index ?? '' })}
+        confirmLabel={t('editorPage.removeStand')}
+        variant="danger"
+        onConfirm={standRemoval.confirmRemove}
+        onCancel={standRemoval.cancelRemove}
       />
 
       <ConfirmModal

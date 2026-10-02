@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useEditor } from './EditorContext';
+import type { StandProps } from './StandProps';
 import React from 'react';
 import { RedesignSpacings } from '../../styles/spacings';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
@@ -56,9 +57,13 @@ const RemoveButton = styled.button`
   }
 `;
 
-export const StandList = () => {
+interface StandListProps {
+  onRemoveStand: (stand: StandProps) => void;
+}
+
+export const StandList = ({ onRemoveStand }: StandListProps) => {
   const t = useTypedTranslation();
-  const { stands, removeStand, setCurrentStand, currentStand } = useEditor();
+  const { stands, setCurrentStand, currentStand } = useEditor();
 
   return (
     <ListContainer>
@@ -72,7 +77,7 @@ export const StandList = () => {
             <RemoveButton
               onClick={(e) => {
                 e.stopPropagation();
-                removeStand(stand);
+                onRemoveStand(stand);
               }}
             >
               {t('editorPage.standList.remove')}

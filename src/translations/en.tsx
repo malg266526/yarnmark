@@ -1156,6 +1156,8 @@ export const en: TranslationsShape = {
       gridFooter: '{{width}}m width, {{height}}m height',
       generateJson: 'Generate JSON',
       clearAll: 'Clear All',
+      removeStand: 'Remove stand',
+      removeStandConfirm: 'Remove stand {{index}}? This cannot be undone.',
       clearAllConfirm: 'Remove all stands? This cannot be undone.',
       hallPresets: {
         hall2026: {

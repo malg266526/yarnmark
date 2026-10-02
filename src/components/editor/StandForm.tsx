@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Coordinate, StandColorsMap } from './StandProps';
+import { Coordinate, StandColorsMap, StandProps } from './StandProps';
 import { Button, CtaButton } from '../Button';
 import { useEditor } from './EditorContext';
 import { useStandForm } from './useStandForm';
@@ -55,6 +55,26 @@ const ButtonRow = styled.div`
   gap: ${RedesignSpacings.md};
 `;
 
+const RemoveStandButton = styled.button`
+  all: unset;
+  cursor: pointer;
+  background-color: #ef4444;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+
+  &:hover {
+    background-color: #dc2626;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #b91c1c;
+    outline-offset: 2px;
+  }
+`;
+
 const Select = styled.select`
   flex: 1;
   padding: 6px 10px;
@@ -77,9 +97,10 @@ const StandTypes: Array<'premium' | 'mini' | 'standard' | 'other'> = ['premium',
 interface StandFormProps {
   start: Coordinate | undefined;
   end: Coordinate | undefined;
+  onRemoveStand: (stand: StandProps) => void;
 }
 
-export const StandForm = ({ start, end }: StandFormProps) => {
+export const StandForm = ({ start, end, onRemoveStand }: StandFormProps) => {
   const t = useTypedTranslation();
   const { addStand } = useEditor();
 
@@ -198,6 +219,9 @@ export const StandForm = ({ start, end }: StandFormProps) => {
               <Button type="button" onClick={reset}>
                 {t('editorPage.standForm.cancel')}
               </Button>
+              <RemoveStandButton type="button" onClick={() => onRemoveStand(stand)}>
+                {t('editorPage.removeStand')}
+              </RemoveStandButton>
               <CtaButton type="submit" disabled={!isValid}>
                 {t('editorPage.standForm.saveChanges')}
               </CtaButton>
