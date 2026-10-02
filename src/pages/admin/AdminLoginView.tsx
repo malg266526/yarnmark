@@ -1,53 +1,31 @@
-import React, { useState } from 'react';
+import React, { type MutableRefObject } from 'react';
 import { Typography } from '../../components/Typography';
 import { UtilityPageHeader } from '../../components/UtilityPageHeader';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import {
-  AdminLoginCard,
-  AdminLoginError,
-  AdminLoginField,
-  AdminLoginInput,
-  AdminLoginRoot,
-  AdminLoginSubmit
-} from './AdminLogin.styled';
+import { AdminLoginCard, AdminLoginError, AdminLoginRoot } from './AdminLogin.styled';
+import type { AdminAuthState } from './adminAuthUtils';
 
 interface AdminLoginViewProps {
-  onSubmit: (password: string) => boolean;
+  authState: Exclude<AdminAuthState, 'authenticated'>;
+  googleButtonRef: MutableRefObject<HTMLDivElement | null>;
 }
 
-export const AdminLoginView = ({ onSubmit }: AdminLoginViewProps) => {
+export const AdminLoginView = ({ authState, googleButtonRef }: AdminLoginViewProps) => {
   const t = useTypedTranslation();
-  const [password, setPassword] = useState('');
-  const [hasError, setHasError] = useState(false);
-
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-
-    const isPasswordCorrect = onSubmit(password);
-
-    setHasError(!isPasswordCorrect);
-  };
+  const isWaiting = authState === 'initializing' || authState === 'verifying';
 
   return (
     <AdminLoginRoot>
-      <AdminLoginCard onSubmit={handleSubmit}>
+      <AdminLoginCard>
         <UtilityPageHeader kicker={t('adminLogin.kicker')} title={t('adminLogin.title')} titleSize="xl" />
 
-        <AdminLoginField>
-          <Typography size="sm">{t('adminLogin.passwordLabel')}</Typography>
-          <AdminLoginInput
-            autoFocus
-            type="password"
-            value={password}
-            onChange={(event) => {
-              setPassword(event.target.value);
-              setHasError(false);
-            }}
-          />
-          {hasError ? <AdminLoginError>{t('adminLogin.error')}</AdminLoginError> : null}
-        </AdminLoginField>
+        {authState === 'pendingApproval' || authState === 'error' ? (
+          <AdminLoginError>{t(`adminLogin.states.${authState}` as const)}</AdminLoginError>
+        ) : (
+          <Typography size="sm">{t(`adminLogin.states.${authState}` as const)}</Typography>
+        )}
 
-        <AdminLoginSubmit type="submit">{t('adminLogin.submit')}</AdminLoginSubmit>
+        {isWaiting ? null : <div ref={googleButtonRef} />}
       </AdminLoginCard>
     </AdminLoginRoot>
   );

@@ -1,18 +1,13 @@
-import { ADMIN_AUTH_STORAGE_KEY } from './adminAuthConstants';
+import { ADMIN_SESSION_STORAGE_KEY } from './adminAuthConstants';
+import { parseStoredAdminSession, type AdminSession } from './adminAuthUtils';
 
-export const readStoredAdminAuth = (): boolean => {
-  try {
-    return window.localStorage.getItem(ADMIN_AUTH_STORAGE_KEY) === JSON.stringify(true);
-  } catch (error) {
-    console.error('adminAuthStorage: ', error);
-    return false;
-  }
+export const readStoredAdminSession = (): AdminSession | null =>
+  parseStoredAdminSession(window.localStorage.getItem(ADMIN_SESSION_STORAGE_KEY), Date.now());
+
+export const writeStoredAdminSession = (session: AdminSession) => {
+  window.localStorage.setItem(ADMIN_SESSION_STORAGE_KEY, JSON.stringify(session));
 };
 
-export const writeStoredAdminAuth = (isAuthenticated: boolean) => {
-  try {
-    window.localStorage.setItem(ADMIN_AUTH_STORAGE_KEY, JSON.stringify(isAuthenticated));
-  } catch (error) {
-    console.error('adminAuthStorage: ', error);
-  }
+export const clearStoredAdminSession = () => {
+  window.localStorage.removeItem(ADMIN_SESSION_STORAGE_KEY);
 };

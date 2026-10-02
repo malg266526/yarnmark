@@ -25,6 +25,7 @@ import { VendorFormPage } from './pages/vendor/apply/VendorFormPage';
 import { WorkshopFormPage } from './pages/workshops/apply/WorkshopFormPage';
 import { VendorsApplicationsPage } from './pages/admin/vendors/applications/VendorsApplicationsPage';
 import { WorkshopsApplicationsPage } from './pages/admin/workshops/applications/WorkshopsApplicationsPage';
+import { AdminUsersPage } from './pages/admin/users/AdminUsersPage';
 import { AdminLayout } from './pages/admin/AdminLayout';
 
 const WORKSHOPS_CONTACT_EMAIL = 'yarnmark.warsztaty@gmail.com';
@@ -95,6 +96,7 @@ export const App = () => {
             <Route path="vendor-form" element={<Navigate to="/vendor/apply" replace />} />
             <Route path="vendors/applications" element={<VendorsApplicationsPage />} />
             <Route path="workshops/applications" element={<WorkshopsApplicationsPage />} />
+            <Route path="users" element={<AdminUsersPage />} />
           </Route>
         </Routes>
 
@@ -112,13 +114,13 @@ export const App = () => {
             </VanillaLink>
 
             <VanillaLink href={`mailto:${WORKSHOPS_CONTACT_EMAIL}`} target="_blank" rel="noreferrer">
-              <RowLayout>
-                <Icon size={iconSize} src={emailIconUrl} />
-                <FlexColumnLayout gap="none" padding="none" align="flex-end">
-                  <Typography size="sm">{t('contactPage.workshopsEmailLabel')}</Typography>
+              <FlexColumnLayout gap="none" padding="none" align="flex-end">
+                <Typography size="sm">{t('contactPage.workshopsEmailLabel')}</Typography>
+                <RowLayout>
+                  <Icon size={iconSize} src={emailIconUrl} />
                   <Typography size={textSize}>{WORKSHOPS_CONTACT_EMAIL}</Typography>
-                </FlexColumnLayout>
-              </RowLayout>
+                </RowLayout>
+              </FlexColumnLayout>
             </VanillaLink>
 
             <VanillaLink href="https://www.instagram.com/yarnmark.krk/" target="_blank" rel="noreferrer">

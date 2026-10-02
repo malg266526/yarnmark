@@ -7,10 +7,6 @@ import type { VendorFormViewProps } from '../components/vendorFormViewContracts'
 import { toggleStandSelection } from '../../../../domain/vendorApplications/vendorFormUtils.ts';
 import { submitVendorApplicationToApi } from '../../../../domain/vendorApplications/vendorFormApi.ts';
 import {
-  createVendorApplication,
-  listStandInterestCounts
-} from '../../../../domain/vendorApplications/vendorsApplicationsStorage.ts';
-import {
   VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH,
   VENDOR_FORM_DRAFT_STORAGE_KEY,
   VENDOR_FORM_LOGO_MAX_BYTES,
@@ -25,6 +21,8 @@ import { LogoTooLargeError, prepareLogoForUpload } from '../../../../domain/vend
 import { createEmptyVendorFormDraft, parseStoredVendorFormDraft } from '../vendorFormStorage.ts';
 import { isHighInterestStand } from '../../../../domain/vendorApplications/vendorFormStandInterestUtils.ts';
 
+const EMPTY_STAND_INTEREST_COUNTS = new Map<string, number>();
+
 const readStoredVendorFormDraftOrCreateEmptyDraft = () =>
   parseStoredVendorFormDraft(window.localStorage.getItem(VENDOR_FORM_DRAFT_STORAGE_KEY)) ??
   createEmptyVendorFormDraft();
@@ -38,8 +36,8 @@ export const useVendorForm = (): VendorFormViewProps => {
   const [submitError, setSubmitError] = useState('');
   const [submittedAt, setSubmittedAt] = useState<string | null>(null);
   const [isLoadingLogo, setIsLoadingLogo] = useState(false);
-  const [standInterestCounts, setStandInterestCounts] = useState<Map<string, number>>(() => new Map());
   const [validationErrors, setValidationErrors] = useState<Partial<Record<keyof VendorFormValues, string>>>({});
+  const standInterestCounts = EMPTY_STAND_INTEREST_COUNTS;
 
   const form = useForm<VendorFormValues>({
     defaultValues: initialDraft.formData,
@@ -54,12 +52,6 @@ export const useVendorForm = (): VendorFormViewProps => {
     setIsComplete(false);
     setSubmitError('');
   };
-
-  useEffect(() => {
-    void listStandInterestCounts().then((response) => {
-      setStandInterestCounts(response.standInterestCounts);
-    });
-  }, []);
 
   const highInterestStandIds = useMemo(
     () =>
@@ -162,19 +154,7 @@ export const useVendorForm = (): VendorFormViewProps => {
     setIsSubmitting(true);
 
     try {
-      await submitVendorApplicationToApi(validatedFormData);
-      const response = await createVendorApplication(validatedFormData);
-
-      setSubmittedAt(response.application.submittedAt);
-      setStandInterestCounts((current) => {
-        const next = new Map(current);
-
-        for (const standId of new Set(response.application.preferredStands)) {
-          next.set(standId, (next.get(standId) ?? 0) + 1);
-        }
-
-        return next;
-      });
+      setSubmittedAt(await submitVendorApplicationToApi(validatedFormData));
       setIsComplete(true);
       reset(validatedFormData);
     } catch (error) {

@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { ApiRequestError } from '../../apiClient.ts';
 import { INITIAL_VENDOR_FORM_STATE } from '../vendorFormTypes.ts';
 import { VENDOR_FORM_API_URL } from '../vendorFormConstants.ts';
 import { submitVendorApplicationToApi } from '../vendorFormApi.ts';
@@ -30,7 +31,7 @@ test('submitVendorApplicationToApi posts the form data as JSON to the vendor app
   assert.deepEqual(JSON.parse(calls[0][1]?.body as string), formData);
 });
 
-test('submitVendorApplicationToApi does not throw when the request fails', async () => {
+test('submitVendorApplicationToApi rejects when the request fails', async () => {
   const formData = { ...INITIAL_VENDOR_FORM_STATE, storeName: 'Test shop' };
   const originalFetch = globalThis.fetch;
 
@@ -39,8 +40,40 @@ test('submitVendorApplicationToApi does not throw when the request fails', async
   }) as typeof fetch;
 
   try {
-    await assert.doesNotReject(submitVendorApplicationToApi(formData));
+    await assert.rejects(submitVendorApplicationToApi(formData));
   } finally {
     globalThis.fetch = originalFetch;
   }
+});
+
+test('submitVendorApplicationToApi rejects when the backend responds with an error status', async () => {
+  const formData = { ...INITIAL_VENDOR_FORM_STATE, storeName: 'Test shop' };
+  const originalFetch = globalThis.fetch;
+
+  globalThis.fetch = (async () => new Response(JSON.stringify({ errors: {} }), { status: 400 })) as typeof fetch;
+
+  try {
+    await assert.rejects(submitVendorApplicationToApi(formData), ApiRequestError);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('submitVendorApplicationToApi does not send credentials with the public submission', async () => {
+  const formData = { ...INITIAL_VENDOR_FORM_STATE, storeName: 'Test shop' };
+  const calls: Array<RequestInit | undefined> = [];
+  const originalFetch = globalThis.fetch;
+
+  globalThis.fetch = (async (_url: string, init?: RequestInit) => {
+    calls.push(init);
+    return new Response(null, { status: 200 });
+  }) as typeof fetch;
+
+  try {
+    await submitVendorApplicationToApi(formData);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+
+  assert.equal(calls[0]?.credentials, 'same-origin');
 });
