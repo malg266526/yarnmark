@@ -18,9 +18,13 @@ export interface StandDragPreview {
 }
 
 export const useStandDrag = () => {
-  const { updateStand } = useEditor();
+  const { updateStand, currentStand, setCurrentStand } = useEditor();
   const updateStandRef = useRef(updateStand);
   updateStandRef.current = updateStand;
+  const currentStandRef = useRef(currentStand);
+  currentStandRef.current = currentStand;
+  const setCurrentStandRef = useRef(setCurrentStand);
+  setCurrentStandRef.current = setCurrentStand;
 
   const [preview, setPreview] = useState<StandDragPreview | null>(null);
   const dragRef = useRef<DragState | null>(null);
@@ -70,7 +74,13 @@ export const useStandDrag = () => {
     }
 
     if (drag.moved) {
-      updateStandRef.current({ ...drag.stand, start: drag.box.start, end: drag.box.end });
+      const movedStand = { ...drag.stand, start: drag.box.start, end: drag.box.end };
+
+      updateStandRef.current(movedStand);
+
+      if (currentStandRef.current.id === movedStand.id) {
+        setCurrentStandRef.current(movedStand);
+      }
     }
 
     movedRef.current = drag.moved;

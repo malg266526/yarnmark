@@ -1184,7 +1184,8 @@ export const pl = {
         heightLabel: 'Wysokość:',
         colorLabel: 'Kolor:',
         selectColor: 'Wybierz kolor',
-        update: 'Aktualizuj',
+        saveChanges: 'Zapisz zmiany',
+        cancel: 'Anuluj',
         addStand: 'Dodaj stoisko',
         types: {
           premium: 'premium',

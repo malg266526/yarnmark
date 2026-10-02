@@ -1184,7 +1184,8 @@ export const en: TranslationsShape = {
         heightLabel: 'Height:',
         colorLabel: 'Color:',
         selectColor: 'Select color',
-        update: 'Update',
+        saveChanges: 'Save changes',
+        cancel: 'Cancel',
         addStand: 'Add Stand',
         types: {
           premium: 'premium',
