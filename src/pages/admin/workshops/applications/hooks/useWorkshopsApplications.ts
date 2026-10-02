@@ -36,7 +36,7 @@ export const useWorkshopsApplications = () => {
     return () => {
       isActive = false;
     };
-  }, [token]);
+  }, [token, handleAdminApiError]);
 
   const setApplicationStatus = async (applicationId: string, status: WorkshopApplicationStatus) => {
     try {

@@ -109,7 +109,7 @@
 
 ## Verification
 
-- After changes, run `npm test`, `npm run lint`, and `npm run typecheck`.
+- Every change must pass `npm run typecheck`, `npm run lint`, and `npm test` with zero errors before it is considered done. This is mandatory for every change, not only large ones — a failure in any of the three (including pre-existing failures surfaced by your change) blocks completion.
 - Run Prettier before verification, not as an optional cleanup step afterward.
 - Do not stop at a passing `test` run if `lint` or `typecheck` still report errors or warnings in touched code.
 - Treat ESLint warnings in touched files as work to fix, not as acceptable leftovers.

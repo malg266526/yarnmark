@@ -52,7 +52,7 @@ export const useAdminUsers = () => {
     return () => {
       isActive = false;
     };
-  }, [token, canApproveAdmins]);
+  }, [token, canApproveAdmins, handleAdminApiError]);
 
   const togglePermission = (userId: string, permission: AdminUserPermission) => {
     setPermissionSelections((currentSelections) => togglePermissionSelection(currentSelections, userId, permission));

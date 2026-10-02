@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import { ApiRequestError } from '../../domain/apiClient.ts';
 import { resolveAdminPermissions, type AdminSession } from './adminAuthUtils';
@@ -12,11 +13,14 @@ export interface AdminOutletContext {
 export const useAdminSession = () => {
   const { session, expireSession } = useOutletContext<AdminOutletContext>();
 
-  const handleAdminApiError = (error: unknown) => {
-    if (error instanceof ApiRequestError && error.status === UNAUTHORIZED_STATUS) {
-      expireSession();
-    }
-  };
+  const handleAdminApiError = useCallback(
+    (error: unknown) => {
+      if (error instanceof ApiRequestError && error.status === UNAUTHORIZED_STATUS) {
+        expireSession();
+      }
+    },
+    [expireSession]
+  );
 
   return { token: session?.token ?? '', permissions: resolveAdminPermissions(session), handleAdminApiError };
 };

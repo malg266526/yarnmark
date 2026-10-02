@@ -36,7 +36,7 @@ export const useVendorsApplications = () => {
     return () => {
       isActive = false;
     };
-  }, [token]);
+  }, [token, handleAdminApiError]);
 
   const setApplicationStatus = async (applicationId: string, status: VendorApplicationStatus) => {
     try {
