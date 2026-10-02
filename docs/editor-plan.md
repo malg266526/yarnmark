@@ -241,9 +241,9 @@ Etapy 3 i 4 wymagają backendu albo świadomej decyzji o pozostaniu przy JSON w 
 
 **Usuwanie**
 
-- [ ] 1.6 Klawisz `Delete`/`Backspace` usuwa zaznaczone stoisko.
-- [ ] 1.7 Przycisk `Usuń` w panelu stoiska, obok `Zapisz zmiany`.
-- [ ] 1.8 Potwierdzenie przed usunięciem (istniejący `ConfirmModal`).
+- [x] 1.6 Klawisz `Delete`/`Backspace` usuwa zaznaczone stoisko. — ✅ zrobione
+- [x] 1.7 Przycisk `Usuń` w panelu stoiska, obok `Zapisz zmiany`. — ✅ zrobione
+- [x] 1.8 Potwierdzenie przed usunięciem (istniejący `ConfirmModal`). — ✅ zrobione, także dla przycisku na liście
 
 **Lista stoisk**
 
@@ -273,6 +273,10 @@ Weryfikacja w przeglądarce (headless Chrome przez CDP, dev server na 8090): zmi
 Poza zakresem 1.1–1.2, ale konieczne: `useStandDrag` po przeciągnięciu aktualizuje też `currentStand`. Bez tego formularz trzymał stare współrzędne i kolejne `Zapisz zmiany` cofało przesunięcie — zaznaczanie klikiem czyni tę ścieżkę łatwą do trafienia.
 
 Weryfikacja w przeglądarce: kliknięcie stoiska wypełnia formularz i przełącza przycisk na `Zapisz zmiany`, kliknięcie drugiego stoiska przełącza zaznaczenie, kliknięcie pustej kratki czyści formularz i wraca do `Dodaj stoisko` (lista stoisk bez zmian), obwódka ma wymiary co do piksela zgodne z `getStandOutlineRect` (68, 170, 101 × 118 px), a przeciągnięcie stoiska o 8 kolumn i następujące po nim `Zapisz zmiany` zachowuje nową pozycję. Zero błędów w konsoli.
+
+**Krok 3 — usuwanie stoiska (1.6, 1.7, 1.8).** Nowy `useStandRemoval.ts` jest jedyną ścieżką usuwania: trzyma stoisko oczekujące na potwierdzenie, obsługuje skrót klawiszowy i po usunięciu zaznaczonego stoiska resetuje formularz do trybu dodawania. Wszystkie trzy wyzwalacze — `Delete`/`Backspace`, przycisk `Usuń stoisko` w formularzu i przycisk `Usuń` przy wierszu listy — przechodzą przez ten sam `ConfirmModal`. Wcześniej przycisk na liście kasował stoisko natychmiast, bez pytania (p. 2.C); teraz jest spójny z resztą. Skrót klawiszowy jest wyciszany, gdy fokus stoi w polu formularza, więc kasowanie znaków w `Nazwa wystawcy` nie usuwa stoiska — warunek siedzi w czystym `utils/editorKeyboardUtils.ts`.
+
+Weryfikacja w przeglądarce: zaznaczenie stoiska i `Delete` otwiera okno „Remove stand S1? This cannot be undone." bez usuwania czegokolwiek, potwierdzenie usuwa stoisko i czyści formularz do `Dodaj stoisko`, `Anuluj` zostawia stoisko nietknięte, `Backspace` w polu `Wystawca` nie rusza listy, a przyciski w formularzu i na liście usuwają przez to samo okno. Zero błędów w konsoli.
 
 ---
 
