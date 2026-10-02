@@ -3,7 +3,10 @@ import { Outlet } from 'react-router-dom';
 import { Typography } from '../../components/Typography';
 import { Kicker } from '../../components/Kicker';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { APPROVE_ADMINS_PERMISSION } from '../../domain/adminUsers/adminUsersConstants.ts';
 import { useAdminAuth } from './useAdminAuth';
+import { hasAdminPermission, resolveAdminPermissions } from './adminAuthUtils';
+import type { AdminOutletContext } from './useAdminSession';
 import { AdminLoginView } from './AdminLoginView';
 import {
   AdminBrand,
@@ -16,7 +19,15 @@ import {
   AdminSidebar
 } from './AdminLayout.styled';
 
-const ADMIN_LINKS = [
+type AdminLinkId = 'applications' | 'workshopsApplications' | 'users' | 'editor' | 'vendorForm' | 'workshopForm';
+
+interface AdminLink {
+  id: AdminLinkId;
+  to: string;
+  requiredPermission?: string;
+}
+
+const ADMIN_LINKS: AdminLink[] = [
   {
     id: 'applications',
     to: '/admin/vendors/applications'
@@ -24,6 +35,11 @@ const ADMIN_LINKS = [
   {
     id: 'workshopsApplications',
     to: '/admin/workshops/applications'
+  },
+  {
+    id: 'users',
+    to: '/admin/users',
+    requiredPermission: APPROVE_ADMINS_PERMISSION
   },
   {
     id: 'editor',
@@ -37,11 +53,12 @@ const ADMIN_LINKS = [
     id: 'workshopForm',
     to: '/workshops/apply'
   }
-] as const;
+];
 
 export const AdminLayout = () => {
   const t = useTypedTranslation();
   const { authState, session, googleButtonRef, logout } = useAdminAuth(t.i18n.language);
+  const permissions = resolveAdminPermissions(session);
 
   if (authState !== 'authenticated') {
     return <AdminLoginView authState={authState} googleButtonRef={googleButtonRef} />;
@@ -61,7 +78,7 @@ export const AdminLayout = () => {
           </AdminBrand>
 
           <AdminNav aria-label={t('adminLayout.navigationLabel')}>
-            {ADMIN_LINKS.map((link) => (
+            {ADMIN_LINKS.filter((link) => hasAdminPermission(permissions, link.requiredPermission)).map((link) => (
               <AdminNavLink key={link.to} to={link.to}>
                 <Typography size="md">{t(`adminLayout.links.${link.id}` as const)}</Typography>
               </AdminNavLink>
@@ -74,7 +91,7 @@ export const AdminLayout = () => {
         </AdminSidebar>
 
         <AdminMain>
-          <Outlet context={session} />
+          <Outlet context={{ session, expireSession: logout } satisfies AdminOutletContext} />
         </AdminMain>
       </AdminShell>
     </AdminRoot>

@@ -997,6 +997,37 @@ export const pl = {
         remove: 'Usuń'
       }
     },
+    adminUsersPage: {
+      kicker: 'Panel administratora',
+      title: 'Użytkownicy panelu',
+      loading: 'Wczytywanie użytkowników...',
+      empty: 'Brak użytkowników.',
+      noAccess: 'Nie masz uprawnień do zarządzania użytkownikami.',
+      usersCount: 'Użytkowników: {{count}}',
+      fields: {
+        status: 'Status',
+        googleId: 'Google ID',
+        currentPermissions: 'Obecne uprawnienia',
+        grantedPermissions: 'Uprawnienia do nadania'
+      },
+      statuses: {
+        pending: 'oczekuje',
+        approved: 'zaakceptowany',
+        revoked: 'odebrany dostęp'
+      },
+      permissions: {
+        'approve-admins': 'Zarządzanie użytkownikami',
+        'manage-submissions': 'Zarządzanie zgłoszeniami',
+        'view-submissions': 'Podgląd zgłoszeń'
+      },
+      actions: {
+        approve: 'Zaakceptuj',
+        revoke: 'Odbierz dostęp'
+      },
+      values: {
+        noPermissions: 'Brak'
+      }
+    },
     adminLogin: {
       kicker: 'Admin',
       title: 'Panel administracyjny',
@@ -1015,6 +1046,7 @@ export const pl = {
       links: {
         applications: 'Zgłoszenia',
         workshopsApplications: 'Zgłoszenia warsztatowe',
+        users: 'Użytkownicy',
         editor: 'Edytor',
         vendorForm: 'Formularz dla wystawców',
         workshopForm: 'Formularz dla warsztatowców'

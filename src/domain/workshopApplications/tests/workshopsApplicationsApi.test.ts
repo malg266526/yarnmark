@@ -73,6 +73,7 @@ test('listWorkshopApplications fetches applications from the backend with the ad
   assert.equal(requests.length, 1);
   assert.equal(requests[0].url, WORKSHOP_FORM_API_URL);
   assert.equal(requests[0].init?.method, 'GET');
+  assert.equal(requests[0].init?.credentials, 'include');
   assert.deepEqual(requests[0].init?.headers, { Authorization: `Bearer ${ADMIN_TOKEN}` });
 });
 

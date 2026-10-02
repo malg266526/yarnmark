@@ -10,7 +10,7 @@ import type {
 } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
 
 export const useVendorsApplications = () => {
-  const { token } = useAdminSession();
+  const { token, handleAdminApiError } = useAdminSession();
   const [applications, setApplications] = useState<VendorApplication[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -25,6 +25,7 @@ export const useVendorsApplications = () => {
       })
       .catch((error: unknown) => {
         console.error('Vendor applications could not be loaded', error);
+        handleAdminApiError(error);
       })
       .finally(() => {
         if (isActive) {
@@ -47,6 +48,7 @@ export const useVendorsApplications = () => {
       );
     } catch (error) {
       console.error('Vendor application status could not be updated', error);
+      handleAdminApiError(error);
     }
   };
 

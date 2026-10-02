@@ -997,6 +997,37 @@ export const en: TranslationsShape = {
         remove: 'Remove'
       }
     },
+    adminUsersPage: {
+      kicker: 'Admin panel',
+      title: 'Panel users',
+      loading: 'Loading users...',
+      empty: 'No users yet.',
+      noAccess: 'You do not have permission to manage users.',
+      usersCount: '{{count}} users',
+      fields: {
+        status: 'Status',
+        googleId: 'Google ID',
+        currentPermissions: 'Current permissions',
+        grantedPermissions: 'Permissions to grant'
+      },
+      statuses: {
+        pending: 'pending',
+        approved: 'approved',
+        revoked: 'revoked'
+      },
+      permissions: {
+        'approve-admins': 'Manage users',
+        'manage-submissions': 'Manage applications',
+        'view-submissions': 'View applications'
+      },
+      actions: {
+        approve: 'Approve',
+        revoke: 'Revoke access'
+      },
+      values: {
+        noPermissions: 'None'
+      }
+    },
     adminLogin: {
       kicker: 'Admin',
       title: 'Admin panel',
@@ -1015,6 +1046,7 @@ export const en: TranslationsShape = {
       links: {
         applications: 'Applications',
         workshopsApplications: 'Workshop applications',
+        users: 'Users',
         editor: 'Editor',
         vendorForm: 'Vendor form',
         workshopForm: 'Workshop form'

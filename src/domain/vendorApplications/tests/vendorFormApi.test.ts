@@ -58,3 +58,22 @@ test('submitVendorApplicationToApi rejects when the backend responds with an err
     globalThis.fetch = originalFetch;
   }
 });
+
+test('submitVendorApplicationToApi does not send credentials with the public submission', async () => {
+  const formData = { ...INITIAL_VENDOR_FORM_STATE, storeName: 'Test shop' };
+  const calls: Array<RequestInit | undefined> = [];
+  const originalFetch = globalThis.fetch;
+
+  globalThis.fetch = (async (_url: string, init?: RequestInit) => {
+    calls.push(init);
+    return new Response(null, { status: 200 });
+  }) as typeof fetch;
+
+  try {
+    await submitVendorApplicationToApi(formData);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+
+  assert.equal(calls[0]?.credentials, 'same-origin');
+});

@@ -37,6 +37,7 @@ export const requestApi = async (url: string, { method = 'GET', body, token }: A
   const response = await fetch(url, {
     method,
     headers,
+    credentials: token ? 'include' : 'same-origin',
     body: body === undefined ? undefined : JSON.stringify(body)
   });
   const responseBody = await readJsonBody(response);

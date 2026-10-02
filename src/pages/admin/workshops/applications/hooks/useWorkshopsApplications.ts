@@ -10,7 +10,7 @@ import type {
 } from '../../../../../domain/workshopApplications/workshopFormSubmission.ts';
 
 export const useWorkshopsApplications = () => {
-  const { token } = useAdminSession();
+  const { token, handleAdminApiError } = useAdminSession();
   const [applications, setApplications] = useState<WorkshopApplication[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -25,6 +25,7 @@ export const useWorkshopsApplications = () => {
       })
       .catch((error: unknown) => {
         console.error('Workshop applications could not be loaded', error);
+        handleAdminApiError(error);
       })
       .finally(() => {
         if (isActive) {
@@ -47,6 +48,7 @@ export const useWorkshopsApplications = () => {
       );
     } catch (error) {
       console.error('Workshop application status could not be updated', error);
+      handleAdminApiError(error);
     }
   };
 

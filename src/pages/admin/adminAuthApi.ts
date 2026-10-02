@@ -14,6 +14,7 @@ export const loginAdminWithGoogle = async (idToken: string): Promise<AdminLoginR
     const response = await fetch(ADMIN_LOGIN_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
       body: JSON.stringify({ idToken })
     });
     const body = await readJsonBody(response);
