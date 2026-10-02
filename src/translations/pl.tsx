@@ -956,6 +956,8 @@ export const pl = {
       gridFooter: '{{width}}m szerokości, {{height}}m wysokości',
       generateJson: 'Generuj JSON',
       clearAll: 'Wyczyść wszystko',
+      removeStand: 'Usuń stoisko',
+      removeStandConfirm: 'Usunąć stoisko {{index}}? Tej operacji nie można cofnąć.',
       clearAllConfirm: 'Usunąć wszystkie stoiska? Tej operacji nie można cofnąć.',
       hallPresets: {
         hall2026: {
@@ -984,7 +986,8 @@ export const pl = {
         heightLabel: 'Wysokość:',
         colorLabel: 'Kolor:',
         selectColor: 'Wybierz kolor',
-        update: 'Aktualizuj',
+        saveChanges: 'Zapisz zmiany',
+        cancel: 'Anuluj',
         addStand: 'Dodaj stoisko',
         types: {
           premium: 'premium',

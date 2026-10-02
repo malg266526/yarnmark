@@ -1,11 +1,16 @@
 import { StandProps } from './StandProps';
 import { getSizeForOrientation } from './utils/getSizeForOrientation';
 import { getSuggestedStandColor } from './utils/standColorUtils';
+import { resizeStand, resizeStandToDeclaredSize } from './utils/standGeometryUtils';
+import { isExistingStand } from './utils/standSelectionUtils';
 import { DefaultStand, DefaultTypeColorMap, useEditor } from './EditorContext';
 
-export const useStandForm = (onSubmit: (stand: StandProps) => void) => {
-  const { currentStand, setCurrentStand, stands } = useEditor();
-  const isNewStand = !stands.some((stand) => stand.id === currentStand.id);
+const SIZE_FIELDS: ReadonlyArray<keyof StandProps> = ['width', 'height'];
+
+export const useStandForm = (onAddStand: (stand: StandProps) => void) => {
+  const { currentStand, setCurrentStand, stands, updateStand } = useEditor();
+  const isEditMode = isExistingStand(stands, currentStand);
+  const isNewStand = !isEditMode;
 
   const handleTypeChange = (type: StandProps['type']) => {
     const size = getSizeForOrientation(type, currentStand.isHorizontal);
@@ -13,12 +18,13 @@ export const useStandForm = (onSubmit: (stand: StandProps) => void) => {
       ? getSuggestedStandColor({ index: currentStand.index, type }, stands)
       : DefaultTypeColorMap[type];
 
-    setCurrentStand({ ...currentStand, type, width: size.width, height: size.height, color: defaultColor });
+    setCurrentStand(resizeStand({ ...currentStand, type, color: defaultColor }, size.width, size.height));
   };
 
   const handleOrientationChange = (isHorizontal: boolean) => {
     const size = getSizeForOrientation(currentStand.type, isHorizontal);
-    setCurrentStand({ ...currentStand, isHorizontal, width: size.width, height: size.height });
+
+    setCurrentStand(resizeStand({ ...currentStand, isHorizontal }, size.width, size.height));
   };
 
   const updateField = <K extends keyof StandProps>(field: K, value: StandProps[K]) => {
@@ -28,29 +34,38 @@ export const useStandForm = (onSubmit: (stand: StandProps) => void) => {
       nextStand.color = getSuggestedStandColor(nextStand, stands);
     }
 
-    setCurrentStand(nextStand);
+    setCurrentStand(SIZE_FIELDS.includes(field) ? resizeStandToDeclaredSize(nextStand) : nextStand);
   };
 
   const reset = () => setCurrentStand(DefaultStand);
 
+  const isValid = !!currentStand.index && !!currentStand.type;
+
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!currentStand.index || !currentStand.type) return;
 
-    console.log('Submitting stand:', currentStand);
+    if (!isValid) {
+      return;
+    }
 
-    onSubmit(currentStand);
+    if (isEditMode) {
+      updateStand(currentStand);
+      return;
+    }
+
+    onAddStand(currentStand);
     reset();
   };
 
   return {
     stand: currentStand,
     setStand: setCurrentStand,
+    isEditMode,
     handleTypeChange,
     handleOrientationChange,
     updateField,
     submit,
     reset,
-    isValid: !!currentStand.index && !!currentStand.type
+    isValid
   };
 };
