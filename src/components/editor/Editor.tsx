@@ -222,6 +222,7 @@ export const Editor = () => {
   const { stands, currentStand, setCurrentStand, clearStands, replaceStands } = useEditor();
   const standDrag = useStandDrag();
   const gridContainerRef = useRef<HTMLDivElement | null>(null);
+  const selectionOutlineRef = useRef<HTMLDivElement | null>(null);
   const rowIndexesRef = useRef<HTMLDivElement | null>(null);
   const [isClearConfirmOpen, setIsClearConfirmOpen] = useState(false);
 
@@ -305,6 +306,10 @@ export const Editor = () => {
 
     handleClick(row, col, currentStand.width ?? 1, currentStand.height ?? 1);
   };
+
+  useEffect(() => {
+    selectionOutlineRef.current?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  }, [currentStand.id]);
 
   useEffect(() => {
     const gridElement = gridContainerRef.current;
@@ -403,7 +408,9 @@ export const Editor = () => {
                       })}
                     </GridRow>
                   ))}
-                  {selectionOutline ? <SelectionOutline data-selection-outline {...selectionOutline} /> : null}
+                  {selectionOutline ? (
+                    <SelectionOutline ref={selectionOutlineRef} data-selection-outline {...selectionOutline} />
+                  ) : null}
                 </GridContainer>
               </GridBody>
             </GridChrome>

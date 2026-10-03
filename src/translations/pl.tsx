@@ -1197,7 +1197,14 @@ export const pl = {
         }
       },
       standList: {
-        remove: 'Usuń'
+        remove: 'Usuń',
+        searchLabel: 'Szukaj stoiska',
+        searchPlaceholder: 'Szukaj po numerze lub wystawcy',
+        groupHeading: '{{type}} ({{count}})',
+        area: '{{value}} m²',
+        noVendor: 'bez wystawcy',
+        noResults: 'Brak stoisk pasujących do wyszukiwania.',
+        noStands: 'Brak stoisk na planie.'
       }
     },
     adminUsersPage: {

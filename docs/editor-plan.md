@@ -212,7 +212,7 @@ Każdy etap wymaga osobnej akceptacji i sam w sobie daje wartość.
 
 | #   | Etap                                                            | Efekt                                                                               | Szac.      | Status             |
 | :-- | :-------------------------------------------------------------- | :---------------------------------------------------------------------------------- | :--------- | :----------------- |
-| 1   | Naprawa edycji i usuwania w edytorze                            | zaznaczanie na siatce, działająca zmiana rozmiaru, brak duplikatów, lista z filtrem | 1–2 dni    | ⏳ w toku          |
+| 1   | Naprawa edycji i usuwania w edytorze                            | zaznaczanie na siatce, działająca zmiana rozmiaru, brak duplikatów, lista z filtrem | 1–2 dni    | ✅ zrobione        |
 | 2   | Panel podsumowania + detekcja kolizji                           | liczby i błędy układu na żywo                                                       | 0,5–1 dnia | ⬜ niezaczęte      |
 | 3   | Model `HallLayout` + jedno źródło prawdy                        | edytor, strona wystawców i formularz czytają to samo                                | 2–3 dni    | ⬜ odłożone (p. 1) |
 | 4   | Konfigurowalne wymiary hali + cennik w danych                   | zmiana wymiarów i cen bez builda                                                    | 1 dzień    | ⬜ niezaczęte      |
@@ -247,16 +247,16 @@ Etapy 3 i 4 wymagają backendu albo świadomej decyzji o pozostaniu przy JSON w 
 
 **Lista stoisk**
 
-- [ ] 1.9 Szukajka po numerze i wystawcy.
-- [ ] 1.10 Wiersz pokazuje numer, typ, powierzchnię w m² i wystawcę.
-- [ ] 1.11 Grupowanie po typie, w obrębie typu sortowanie naturalne (`S2` przed `S10`).
-- [ ] 1.12 Klik na wiersz zaznacza stoisko także na siatce.
+- [x] 1.9 Szukajka po numerze i wystawcy. — ✅ zrobione
+- [x] 1.10 Wiersz pokazuje numer, powierzchnię w m² i wystawcę; typ znalazł się w nagłówku grupy, a nie w wierszu — przy grupowaniu powtarzanie go w każdym wierszu byłoby szumem. — ✅ zrobione z odstępstwem
+- [x] 1.11 Grupowanie po typie, w obrębie typu sortowanie naturalne (`S2` przed `S10`). — ✅ zrobione
+- [x] 1.12 Klik na wiersz zaznacza stoisko także na siatce i przewija widok do tego stoiska. — ✅ zrobione
 
 **Higiena**
 
 - [x] 1.13 Nowa logika geometrii jako czyste utils (`utils/standGeometryUtils.ts`) wraz z testami. — ✅ zrobione (10 testów)
-- [ ] 1.14 Nowe teksty w `src/translations/pl.tsx` i `en.tsx` — zero hardkodu w JSX.
-- [ ] 1.15 `npm run format`, następnie `npm run typecheck`, `npm run lint`, `npm test` — wszystkie bez błędów.
+- [x] 1.14 Nowe teksty w `src/translations/pl.tsx` i `en.tsx` — zero hardkodu w JSX. — ✅ zrobione (`saveChanges`, `cancel`, `removeStand`, `removeStandConfirm`, cała sekcja `standList`)
+- [x] 1.15 `npm run format`, następnie `npm run typecheck`, `npm run lint`, `npm test` — wszystkie bez błędów. — ✅ po każdym kroku; obecnie 158 testów, 0 błędów
 
 **Poza zakresem Etapu 1:** undo, zoom i panoramowanie, detekcja kolizji (Etap 2), wydajność siatki (Etap 6), zmiany w `Hall.tsx`, `SelectableHall.tsx` i plikach JSON.
 
@@ -277,6 +277,10 @@ Weryfikacja w przeglądarce: kliknięcie stoiska wypełnia formularz i przełąc
 **Krok 3 — usuwanie stoiska (1.6, 1.7, 1.8).** Nowy `useStandRemoval.ts` jest jedyną ścieżką usuwania: trzyma stoisko oczekujące na potwierdzenie, obsługuje skrót klawiszowy i po usunięciu zaznaczonego stoiska resetuje formularz do trybu dodawania. Wszystkie trzy wyzwalacze — `Delete`/`Backspace`, przycisk `Usuń stoisko` w formularzu i przycisk `Usuń` przy wierszu listy — przechodzą przez ten sam `ConfirmModal`. Wcześniej przycisk na liście kasował stoisko natychmiast, bez pytania (p. 2.C); teraz jest spójny z resztą. Skrót klawiszowy jest wyciszany, gdy fokus stoi w polu formularza, więc kasowanie znaków w `Nazwa wystawcy` nie usuwa stoiska — warunek siedzi w czystym `utils/editorKeyboardUtils.ts`.
 
 Weryfikacja w przeglądarce: zaznaczenie stoiska i `Delete` otwiera okno „Remove stand S1? This cannot be undone." bez usuwania czegokolwiek, potwierdzenie usuwa stoisko i czyści formularz do `Dodaj stoisko`, `Anuluj` zostawia stoisko nietknięte, `Backspace` w polu `Wystawca` nie rusza listy, a przyciski w formularzu i na liście usuwają przez to samo okno. Zero błędów w konsoli.
+
+**Krok 4 — użyteczna lista stoisk (1.9, 1.10, 1.11, 1.12).** Cała logika listy siedzi w czystym `utils/standListUtils.ts`: wyszukiwanie po numerze i wystawcy, sortowanie naturalne, grupowanie po typie w stałej kolejności (premium → standard → mini → inne) i liczenie powierzchni z prostokąta na siatce, z odwrotem do zadeklarowanych wymiarów, gdy stoisko nie ma współrzędnych. Wiersz pokazuje numer, powierzchnię i wystawcę (albo „bez wystawcy"), typ jest w nagłówku grupy razem z licznikiem. Lista dostała własny obszar przewijania (420 px), żeby 52 stoiska nie rozpychały strony. Kliknięcie wiersza nie tylko zaznacza stoisko, ale też przewija widok do niego — przy hali o 92 rzędach samo zaznaczenie było niewidoczne dla większości stoisk.
+
+Weryfikacja w przeglądarce na prawdziwym presecie 2026 (52 stoiska): nagłówki grup pokazują `premium (5)`, `standard (36)`, `mini (7)`, `other (4)`, co zgadza się z danymi z §4.2; kolejność w DOM to `P1…P5, C1, S1, S2, S3 … S9, S10 … S35, M1 … M7, a0, a1, A2, A3`, czyli sortowanie naturalne, nie alfabetyczne; szukanie `S1` zawęża do 11 stoisk, `bawe` znajduje stoisko po nazwie wystawcy, `zzz` pokazuje komunikat o braku wyników, a pusty edytor komunikat o braku stoisk. Kliknięcie wiersza `M4` przewinęło stronę do stoiska na wysokości ok. 27 m i zaznaczyło je czerwoną obwódką. Zero błędów w konsoli.
 
 ---
 

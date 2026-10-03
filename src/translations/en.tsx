@@ -1197,7 +1197,14 @@ export const en: TranslationsShape = {
         }
       },
       standList: {
-        remove: 'Remove'
+        remove: 'Remove',
+        searchLabel: 'Search stands',
+        searchPlaceholder: 'Search by index or vendor',
+        groupHeading: '{{type}} ({{count}})',
+        area: '{{value}} m²',
+        noVendor: 'no vendor',
+        noResults: 'No stands match the search.',
+        noStands: 'No stands on the plan.'
       }
     },
     adminUsersPage: {
