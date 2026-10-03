@@ -36,14 +36,6 @@ export const ForVendorsPage = () => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
 
-  const links: Record<string, string> = {
-    pl: 'https://docs.google.com/forms/d/e/1FAIpQLSdTs7hXzvlXz157H-rxGuz8Pn428g_TPmDdKVGHdHhY95EtJg/viewform?usp=dialog',
-    en: 'https://docs.google.com/forms/d/e/1FAIpQLSel1l_OJKZFrPVGaotywJABBE4xIdvRyFoyYDEvTKvSU6vb0Q/viewform?usp=sharing&ouid=102752904430891841779',
-    de: 'https://docs.google.com/forms/d/e/1FAIpQLSel1l_OJKZFrPVGaotywJABBE4xIdvRyFoyYDEvTKvSU6vb0Q/viewform?usp=sharing&ouid=102752904430891841779'
-  };
-
-  const formLink = links[t.i18n.language] || links.en;
-
   return (
     <PageContent variant="wide" padding="none">
       <Header />
@@ -79,14 +71,6 @@ export const ForVendorsPage = () => {
             <Trans
               i18nKey="infoForVendorsPage.registration.newForm"
               components={[<MdLink key="application_form_page" to="/vendor/apply" aria-label="applicationFormPage" />]}
-            />
-          </Typography>
-          <Typography size="md">
-            <Trans
-              i18nKey="infoForVendorsPage.registration.directFormLink"
-              components={[
-                <MdLink key="application_form_url" target="_blank" to={formLink} aria-label="applicationForm" />
-              ]}
             />
           </Typography>
           <Typography size="md">

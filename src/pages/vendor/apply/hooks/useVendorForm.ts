@@ -5,7 +5,10 @@ import type { UnprefixedTranslationKeys } from '../../../../translations/useType
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import type { VendorFormViewProps } from '../components/vendorFormViewContracts';
 import { toggleStandSelection } from '../../../../domain/vendorApplications/vendorFormUtils.ts';
-import { submitVendorApplicationToApi } from '../../../../domain/vendorApplications/vendorFormApi.ts';
+import {
+  fetchStandsDemandFromApi,
+  submitVendorApplicationToApi
+} from '../../../../domain/vendorApplications/vendorFormApi.ts';
 import {
   VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH,
   VENDOR_FORM_DRAFT_STORAGE_KEY,
@@ -18,8 +21,9 @@ import {
   type VendorFormValues
 } from '../../../../domain/vendorApplications/vendorFormSchema.ts';
 import { LogoTooLargeError, prepareLogoForUpload } from '../../../../domain/vendorApplications/vendorFormLogoUtils.ts';
+import type { StandDemand } from '../../../../domain/vendorApplications/vendorFormTypes.ts';
 import { createEmptyVendorFormDraft, parseStoredVendorFormDraft } from '../vendorFormStorage.ts';
-import { isHighInterestStand } from '../../../../domain/vendorApplications/vendorFormStandInterestUtils.ts';
+import { getHighDemandStandIds } from '../../../../domain/vendorApplications/vendorFormStandInterestUtils.ts';
 
 const EMPTY_STAND_INTEREST_COUNTS = new Map<string, number>();
 
@@ -37,6 +41,7 @@ export const useVendorForm = (): VendorFormViewProps => {
   const [submittedAt, setSubmittedAt] = useState<string | null>(null);
   const [isLoadingLogo, setIsLoadingLogo] = useState(false);
   const [validationErrors, setValidationErrors] = useState<Partial<Record<keyof VendorFormValues, string>>>({});
+  const [standDemand, setStandDemand] = useState<StandDemand>({});
   const standInterestCounts = EMPTY_STAND_INTEREST_COUNTS;
 
   const form = useForm<VendorFormValues>({
@@ -53,13 +58,13 @@ export const useVendorForm = (): VendorFormViewProps => {
     setSubmitError('');
   };
 
-  const highInterestStandIds = useMemo(
-    () =>
-      [...standInterestCounts.entries()]
-        .filter(([, interestCount]) => isHighInterestStand(interestCount))
-        .map(([standId]) => standId),
-    [standInterestCounts]
-  );
+  useEffect(() => {
+    fetchStandsDemandFromApi()
+      .then(setStandDemand)
+      .catch(() => setStandDemand({}));
+  }, []);
+
+  const highInterestStandIds = useMemo(() => getHighDemandStandIds(standDemand), [standDemand]);
 
   const highInterestSelectedStandIds = useMemo(
     () => formData.preferredStands.filter((standId) => highInterestStandIds.includes(standId)),

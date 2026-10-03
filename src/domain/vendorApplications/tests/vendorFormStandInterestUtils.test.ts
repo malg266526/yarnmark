@@ -3,6 +3,7 @@ import test from 'node:test';
 import type { VendorApplication } from '../vendorFormSubmission.ts';
 import { VENDOR_FORM_HIGH_INTEREST_MIN_REQUESTS } from '../vendorFormConstants.ts';
 import {
+  getHighDemandStandIds,
   getHighInterestStandIds,
   getStandInterestCounts,
   isHighInterestStand
@@ -59,4 +60,8 @@ test('getHighInterestStandIds returns only stands with at least three requests',
   ];
 
   assert.deepEqual(getHighInterestStandIds(applications), ['P2']);
+});
+
+test('getHighDemandStandIds returns only stands with high demand level', () => {
+  assert.deepEqual(getHighDemandStandIds({ P2: 'high', S2: 'medium', S5: 'medium', S6: 'high' }), ['P2', 'S6']);
 });

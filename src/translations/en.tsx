@@ -287,7 +287,6 @@ export const en: TranslationsShape = {
         title: 'Reservations',
         wantToJoin: 'Do you want to become a vendor at Krakoski Yarnmark 2026?',
         newForm: 'Please visit the application form page: <0>Form</0>.',
-        directFormLink: 'If you want to open the external form directly, click <0>here</0>.',
         extraInfoByMail:
           'Would you like to receive additional information via email? Write to <strong>krakoski.yarnmark@gmail.com</strong > ',
         beAVendor:
