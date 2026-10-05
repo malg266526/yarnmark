@@ -52,6 +52,14 @@ const focusFirstInvalidField = (validationErrors: Partial<Record<keyof VendorFor
   focusTarget?.focus({ preventScroll: true });
 };
 
+const collectSchemaErrors = (values: VendorFormValues) => {
+  const result = vendorFormValidationSchema.safeParse(values);
+
+  return result.success
+    ? {}
+    : Object.fromEntries(result.error.issues.map((issue) => [String(issue.path[0]), issue.message]));
+};
+
 const readStoredVendorFormDraftOrCreateEmptyDraft = () =>
   parseStoredVendorFormDraft(window.localStorage.getItem(VENDOR_FORM_DRAFT_STORAGE_KEY)) ??
   createEmptyVendorFormDraft();
@@ -184,7 +192,9 @@ export const useVendorForm = (): VendorFormViewProps => {
     const isValid = Object.keys(nextValidationErrors).length === 0 && (await trigger());
 
     if (!isValid) {
-      focusFirstInvalidField(nextValidationErrors);
+      focusFirstInvalidField(
+        Object.keys(nextValidationErrors).length > 0 ? nextValidationErrors : collectSchemaErrors(getValues())
+      );
       return;
     }
 

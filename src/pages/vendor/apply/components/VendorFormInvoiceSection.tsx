@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import {
@@ -24,6 +24,13 @@ export const VendorFormInvoiceSection = ({ formActions, formBindings, formStatus
   const { formData, register, resolveFieldErrorMessage } = formBindings;
   const { isLoadingLogo } = formStatus;
   const { updateLogoFile } = formActions;
+  const logoInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (!formData.logoFileName && logoInputRef.current) {
+      logoInputRef.current.value = '';
+    }
+  }, [formData.logoFileName]);
 
   return (
     <FormSection>
@@ -42,7 +49,7 @@ export const VendorFormInvoiceSection = ({ formActions, formBindings, formStatus
         <FieldLabel htmlFor="logo_file">
           {t('vendorsFormPage.steps.invoice.logoLabel')}
           <TextInput
-            key={formData.logoFileName ?? 'empty-logo'}
+            ref={logoInputRef}
             id="logo_file"
             type="file"
             data-vendor-form-field="logoFileName"
