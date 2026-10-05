@@ -302,8 +302,7 @@ export const en: TranslationsShape = {
     },
     formField: {
       requirement: {
-        required: 'Required',
-        optional: 'Optional'
+        required: 'Required'
       }
     },
     vendorsFormPage: {

@@ -10,7 +10,8 @@ interface FormFieldHeadingProps {
 
 export const FormFieldHeading = ({ title, requirement }: FormFieldHeadingProps) => (
   <FieldHeading>
-    <Typography size="xl">{title}</Typography>
-    <FieldRequirement requirement={requirement} />
+    <Typography size="xl">
+      {title} <FieldRequirement requirement={requirement} />
+    </Typography>
   </FieldHeading>
 );

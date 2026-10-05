@@ -301,8 +301,7 @@ export const pl = {
     },
     formField: {
       requirement: {
-        required: 'Wymagane',
-        optional: 'Opcjonalne'
+        required: 'Wymagane'
       }
     },
     vendorsFormPage: {

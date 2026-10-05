@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { FontSize } from '../../styles/font-size';
 import { RedesignSpacings } from '../../styles/spacings';
-import { BackgroundColors, FontFamilies, GrayScale, TextColors } from '../../styles/theme';
+import { FontFamilies, TextColors } from '../../styles/theme';
 
 export type FieldRequirementType = 'required' | 'optional';
 
@@ -27,16 +27,11 @@ export const FieldLabelText = styled.span`
   gap: ${RedesignSpacings.xs};
 `;
 
-export const FieldRequirementBadge = styled.span<{ $requirement: FieldRequirementType }>`
+export const FieldRequirementMark = styled.span`
   display: inline-flex;
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: ${({ $requirement }) => ($requirement === 'required' ? BackgroundColors.green.light : GrayScale[100])};
-  color: ${TextColors.secondary};
+  color: ${TextColors.accent};
   font-family: ${FontFamilies.primary};
-  font-size: ${FontSize.xs};
   font-weight: 600;
-  line-height: 1.2;
 `;
 
 export const FieldHint = styled.div`

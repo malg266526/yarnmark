@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { FieldRequirementBadge, type FieldRequirementType } from './FormField.styled';
+import { FieldRequirementMark, type FieldRequirementType } from './FormField.styled';
 
 interface FieldRequirementProps {
   requirement: FieldRequirementType;
@@ -9,9 +9,9 @@ interface FieldRequirementProps {
 export const FieldRequirement = ({ requirement }: FieldRequirementProps) => {
   const t = useTypedTranslation();
 
-  return (
-    <FieldRequirementBadge $requirement={requirement}>
-      {t(`formField.requirement.${requirement}` as const)}
-    </FieldRequirementBadge>
-  );
+  if (requirement === 'optional') {
+    return null;
+  }
+
+  return <FieldRequirementMark aria-label={t('formField.requirement.required')}>*</FieldRequirementMark>;
 };
