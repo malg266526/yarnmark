@@ -17,7 +17,6 @@ export const VendorFormSummary = ({ formBindings, formStatus }: VendorFormSummar
   return (
     <Fieldset>
       <Typography size="xl">{t('vendorsFormPage.summary.title')}</Typography>
-      <Typography size="md">{t('vendorsFormPage.summary.description')}</Typography>
 
       <SummaryList>
         <dt>{t('vendorsFormPage.summary.storeName')}</dt>

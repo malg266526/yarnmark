@@ -36,6 +36,7 @@ export const useVendorForm = (): VendorFormViewProps => {
   const [initialDraft] = useState(readStoredVendorFormDraftOrCreateEmptyDraft);
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
   const [isComplete, setIsComplete] = useState<boolean>(initialDraft.isComplete);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const [submittedAt, setSubmittedAt] = useState<string | null>(null);
@@ -161,6 +162,7 @@ export const useVendorForm = (): VendorFormViewProps => {
     try {
       setSubmittedAt(await submitVendorApplicationToApi(validatedFormData));
       setIsComplete(true);
+      setIsSuccessModalOpen(true);
       reset(validatedFormData);
     } catch (error) {
       console.error(error);
@@ -224,6 +226,7 @@ export const useVendorForm = (): VendorFormViewProps => {
       standInterestCounts
     },
     formActions: {
+      closeSuccessModal: () => setIsSuccessModalOpen(false),
       setAcceptedStatuteValue,
       setBooleanFieldValue,
       setMainCategory,
@@ -238,8 +241,8 @@ export const useVendorForm = (): VendorFormViewProps => {
       resolveFieldErrorMessage
     },
     formStatus: {
-      isComplete,
       isLoadingLogo,
+      isSuccessModalOpen,
       isSubmitting,
       submitError,
       submittedAtLabel

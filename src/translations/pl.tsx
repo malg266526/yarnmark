@@ -410,8 +410,8 @@ export const pl = {
         statuteRequired: 'Musisz zaakceptować regulamin, aby przejść dalej.'
       },
       summary: {
-        title: 'Zgłoszenie zostało zapisane',
-        description: 'Zgłoszenie zostało zapisane i jest widoczne na liście zgłoszeń wystawców.',
+        title: 'Zgłoszenie zostało wysłane, dziękujemy!',
+        confirm: 'OK',
         storeName: 'Nazwa sklepu',
         submittedAt: 'Data zapisania',
         attendedBefore: 'Poprzednie edycje',

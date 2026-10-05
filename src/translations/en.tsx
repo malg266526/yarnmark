@@ -411,8 +411,8 @@ export const en: TranslationsShape = {
         statuteRequired: 'You must accept the terms to continue.'
       },
       summary: {
-        title: 'Application saved',
-        description: 'The application was saved and is now visible on the vendor applications page.',
+        title: 'Your application has been submitted. Thank you!',
+        confirm: 'OK',
         storeName: 'Store name',
         submittedAt: 'Saved at',
         attendedBefore: 'Previous editions',

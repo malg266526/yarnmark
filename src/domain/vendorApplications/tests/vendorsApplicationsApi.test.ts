@@ -81,3 +81,34 @@ test('parseVendorApplications keeps valid records when one record is malformed',
 
   assert.deepEqual(parseVendorApplications([validApplication, malformedApplication]), [validApplication]);
 });
+
+test('parseVendorApplications maps the backend submissions payload', () => {
+  const backendSubmission = {
+    id: 'cbabae3e-ad5e-4c27-8259-ecf7000b0f1a',
+    storeName: 'ij',
+    email: 'vendor@example.com',
+    phoneNumber: '665810411',
+    businessDescription: 'desc',
+    mainCategory: 'ceramics',
+    mainCategoryOther: '',
+    preferredStands: ['S2', 'P2'],
+    attendedBefore: true,
+    interestedIfUnavailable: false,
+    sponsorshipInterest: false,
+    acceptedStatute: true,
+    invoiceDetails: 'invoice',
+    logoPath: 'vendors/logo.webp',
+    logoOriginalFilename: 'profilowe.JPG',
+    status: 'pending',
+    statusUpdatedAt: null,
+    createdAt: '2026-10-03 19:17:03'
+  };
+
+  const [application] = parseVendorApplications({ submissions: [backendSubmission] });
+
+  assert.equal(application.id, backendSubmission.id);
+  assert.equal(application.status, 'new');
+  assert.equal(application.submittedAt, '2026-10-03 19:17:03');
+  assert.equal(application.logoFileName, 'profilowe.JPG');
+  assert.equal(application.allocationState, 'none');
+});
