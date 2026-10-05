@@ -1,7 +1,12 @@
 import React from 'react';
 import { CtaButton } from '../../../../components/Button';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import { SuccessModalActions, SuccessModalLayout, SuccessModalOverlayStyles } from '../VendorFormPage.styled';
+import {
+  SUCCESS_MODAL_OVERLAY_CLASS_NAME,
+  SuccessModalActions,
+  SuccessModalLayout,
+  SuccessModalOverlayStyles
+} from '../VendorFormPage.styled';
 import type { VendorFormBindings, VendorFormStatusState } from './vendorFormViewContracts';
 import { VendorFormSummary } from './VendorFormSummary';
 
@@ -26,7 +31,7 @@ export const VendorFormSuccessModal = ({
       <SuccessModalLayout
         isOpen={isOpen}
         contentLabel={t('vendorsFormPage.summary.title')}
-        overlayClassName="vendor-form-success-modal-overlay"
+        overlayClassName={SUCCESS_MODAL_OVERLAY_CLASS_NAME}
         shouldCloseOnOverlayClick={true}
         onRequestClose={onConfirm}
         ariaHideApp={false}
