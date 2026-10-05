@@ -1,4 +1,5 @@
 import React from 'react';
+import { ApplicationDeleteAction } from '../../../../../components/ApplicationDeleteAction';
 import {
   ApplicationActionButton,
   ApplicationActionRow,
@@ -19,6 +20,8 @@ import { VendorsApplicationsCardsViewProps } from './vendorsApplicationsViewCont
 
 export const VendorsApplicationsCardsView = ({
   applications,
+  deleteApplication,
+  deletingApplicationId,
   locale,
   resolveCategoryLabel,
   setApplicationStatus,
@@ -156,6 +159,20 @@ export const VendorsApplicationsCardsView = ({
             <ApplicationFieldLabel>{translate('vendorsApplicationsPage.fields.acceptedStatute')}</ApplicationFieldLabel>
             <ApplicationFieldValue>{application.acceptedStatute ? values.yes : values.no}</ApplicationFieldValue>
           </ApplicationField>
+          <ApplicationActionRow>
+            <ApplicationDeleteAction
+              buttonLabel={translate('vendorsApplicationsPage.delete.button')}
+              cancelLabel={translate('confirmModal.cancel')}
+              confirmLabel={translate('vendorsApplicationsPage.delete.confirm')}
+              confirmationMessage={translate('vendorsApplicationsPage.delete.message', {
+                name: application.storeName
+              })}
+              confirmationTitle={translate('vendorsApplicationsPage.delete.title')}
+              deleting={deletingApplicationId === application.id}
+              deletingLabel={translate('vendorsApplicationsPage.delete.deleting')}
+              onDelete={() => deleteApplication(application.id)}
+            />
+          </ApplicationActionRow>
         </ApplicationCard>
       ))}
     </ApplicationsGrid>

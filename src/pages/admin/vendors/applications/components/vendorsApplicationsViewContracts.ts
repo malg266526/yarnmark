@@ -7,6 +7,8 @@ export type ApplicationsViewMode = 'cards' | 'cascade' | 'stands';
 
 export interface VendorsApplicationsCardsViewProps {
   applications: VendorApplication[];
+  deleteApplication: (applicationId: string) => Promise<void>;
+  deletingApplicationId: string | null;
   locale: string;
   resolveCategoryLabel: (categoryKey: NonNullable<VendorApplication['mainCategory']>) => string;
   setApplicationStatus: (applicationId: string, status: VendorApplicationStatus) => Promise<void>;
@@ -18,7 +20,7 @@ export interface VendorsApplicationsCardsViewProps {
     notProvided: string;
     yes: string;
   };
-  translate: (translationKey: string) => string;
+  translate: (translationKey: string, options?: Record<string, unknown>) => string;
 }
 
 export interface VendorsApplicationsCascadeViewProps {

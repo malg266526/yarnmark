@@ -10,7 +10,7 @@ export class ApiRequestError extends Error {
 }
 
 interface ApiRequestOptions {
-  method?: 'GET' | 'POST' | 'PATCH';
+  method?: 'DELETE' | 'GET' | 'POST' | 'PATCH';
   body?: unknown;
   token?: string;
 }

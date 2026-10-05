@@ -18,12 +18,16 @@ import { VendorsApplicationsStandGroupsView } from './VendorsApplicationsStandGr
 
 interface VendorsApplicationsViewProps {
   applications: VendorApplication[];
+  deleteApplication: (applicationId: string) => Promise<void>;
+  deletingApplicationId: string | null;
   loading: boolean;
   setApplicationStatus: (applicationId: string, status: VendorApplicationStatus) => Promise<void>;
 }
 
 export const VendorsApplicationsView = ({
   applications,
+  deleteApplication,
+  deletingApplicationId,
   loading,
   setApplicationStatus
 }: VendorsApplicationsViewProps) => {
@@ -101,10 +105,12 @@ export const VendorsApplicationsView = ({
       {viewMode === 'cards' ? (
         <VendorsApplicationsCardsView
           applications={applications}
+          deleteApplication={deleteApplication}
+          deletingApplicationId={deletingApplicationId}
           locale={t.i18n.language}
           resolveCategoryLabel={(categoryKey) => t(`vendorsFormPage.steps.mainCategory.${categoryKey}` as const)}
           setApplicationStatus={setApplicationStatus}
-          translate={(translationKey) => t(translationKey as never)}
+          translate={(translationKey, options) => t(translationKey as never, options as never)}
           values={viewValues}
         />
       ) : null}

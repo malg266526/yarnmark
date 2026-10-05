@@ -1,4 +1,5 @@
 import React from 'react';
+import { ApplicationDeleteAction } from '../../../../../components/ApplicationDeleteAction';
 import {
   ApplicationActionButton,
   ApplicationActionRow,
@@ -17,6 +18,8 @@ import { WorkshopsApplicationsCardsViewProps } from './workshopsApplicationsView
 
 export const WorkshopsApplicationsCardsView = ({
   applications,
+  deleteApplication,
+  deletingApplicationId,
   locale,
   setApplicationStatus,
   translate
@@ -140,6 +143,20 @@ export const WorkshopsApplicationsCardsView = ({
             </ApplicationFieldLabel>
             <ApplicationFieldValue>{application.additionalInfo || notProvided}</ApplicationFieldValue>
           </ApplicationField>
+          <ApplicationActionRow>
+            <ApplicationDeleteAction
+              buttonLabel={translate('workshopsApplicationsPage.delete.button')}
+              cancelLabel={translate('confirmModal.cancel')}
+              confirmLabel={translate('workshopsApplicationsPage.delete.confirm')}
+              confirmationMessage={translate('workshopsApplicationsPage.delete.message', {
+                name: application.workshopTitle
+              })}
+              confirmationTitle={translate('workshopsApplicationsPage.delete.title')}
+              deleting={deletingApplicationId === application.id}
+              deletingLabel={translate('workshopsApplicationsPage.delete.deleting')}
+              onDelete={() => deleteApplication(application.id)}
+            />
+          </ApplicationActionRow>
         </ApplicationCard>
       ))}
     </ApplicationsGrid>

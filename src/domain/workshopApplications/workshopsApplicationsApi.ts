@@ -41,6 +41,13 @@ export const parseWorkshopApplications = (responseBody: unknown): WorkshopApplic
 export const listWorkshopApplications = async (token: string): Promise<WorkshopApplication[]> =>
   parseWorkshopApplications(await requestApi(WORKSHOP_FORM_API_URL, { token }));
 
+export const deleteWorkshopApplication = async (token: string, applicationId: string): Promise<void> => {
+  await requestApi(`${WORKSHOP_FORM_API_URL}/${encodeURIComponent(applicationId)}`, {
+    method: 'DELETE',
+    token
+  });
+};
+
 export const updateWorkshopApplicationStatus = async (
   token: string,
   applicationId: string,

@@ -1,6 +1,32 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { parseVendorApplications } from '../vendorsApplicationsApi.ts';
+import { deleteVendorApplication, parseVendorApplications } from '../vendorsApplicationsApi.ts';
+import { VENDOR_FORM_API_URL } from '../vendorFormConstants.ts';
+import { ApiRequestError } from '../../apiClient.ts';
+
+interface RecordedRequest {
+  url: string;
+  init: RequestInit | undefined;
+}
+
+const ADMIN_TOKEN = 'admin-token';
+const originalFetch = globalThis.fetch;
+
+const stubFetch = (status: number, responseBody: unknown) => {
+  const requests: RecordedRequest[] = [];
+
+  globalThis.fetch = (async (url: string, init?: RequestInit) => {
+    requests.push({ url, init });
+
+    return new Response(JSON.stringify(responseBody), { status });
+  }) as typeof fetch;
+
+  return requests;
+};
+
+test.afterEach(() => {
+  globalThis.fetch = originalFetch;
+});
 
 const createVendorApplicationPayload = () => ({
   allocatedStandId: null,
@@ -111,4 +137,21 @@ test('parseVendorApplications maps the backend submissions payload', () => {
   assert.equal(application.submittedAt, '2026-10-03 19:17:03');
   assert.equal(application.logoFileName, 'profilowe.JPG');
   assert.equal(application.allocationState, 'none');
+});
+
+test('deleteVendorApplication deletes the selected application with the admin token', async () => {
+  const requests = stubFetch(200, {});
+
+  await deleteVendorApplication(ADMIN_TOKEN, 'application/1');
+
+  assert.equal(requests[0].url, `${VENDOR_FORM_API_URL}/application%2F1`);
+  assert.equal(requests[0].init?.method, 'DELETE');
+  assert.equal(requests[0].init?.credentials, 'include');
+  assert.deepEqual(requests[0].init?.headers, { Authorization: `Bearer ${ADMIN_TOKEN}` });
+});
+
+test('deleteVendorApplication throws when the backend rejects the deletion', async () => {
+  stubFetch(404, null);
+
+  await assert.rejects(deleteVendorApplication(ADMIN_TOKEN, 'unknown-id'), ApiRequestError);
 });

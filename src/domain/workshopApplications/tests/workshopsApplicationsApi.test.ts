@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
+  deleteWorkshopApplication,
   listWorkshopApplications,
   parseWorkshopApplications,
   updateWorkshopApplicationStatus
@@ -101,6 +102,23 @@ test('updateWorkshopApplicationStatus throws when the backend rejects the update
   stubFetch(404, null);
 
   await assert.rejects(updateWorkshopApplicationStatus(ADMIN_TOKEN, 'unknown-id', 'accepted'), ApiRequestError);
+});
+
+test('deleteWorkshopApplication deletes the selected application with the admin token', async () => {
+  const requests = stubFetch(200, {});
+
+  await deleteWorkshopApplication(ADMIN_TOKEN, 'application/1');
+
+  assert.equal(requests[0].url, `${WORKSHOP_FORM_API_URL}/application%2F1`);
+  assert.equal(requests[0].init?.method, 'DELETE');
+  assert.equal(requests[0].init?.credentials, 'include');
+  assert.deepEqual(requests[0].init?.headers, { Authorization: `Bearer ${ADMIN_TOKEN}` });
+});
+
+test('deleteWorkshopApplication throws when the backend rejects the deletion', async () => {
+  stubFetch(404, null);
+
+  await assert.rejects(deleteWorkshopApplication(ADMIN_TOKEN, 'unknown-id'), ApiRequestError);
 });
 
 test('parseWorkshopApplications drops malformed records but keeps valid ones', () => {

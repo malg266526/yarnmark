@@ -578,6 +578,13 @@ export const pl = {
       showByStand: 'Pokaż wg stoisk',
       showCards: 'Pokaż karty',
       showCascadeStandAllocation: 'Kaskadowe przypisanie stoisk',
+      delete: {
+        button: 'Usuń zgłoszenie',
+        deleting: 'Usuwanie...',
+        title: 'Usunąć zgłoszenie wystawcy?',
+        message: 'Czy na pewno chcesz usunąć zgłoszenie „{{name}}”? Tej operacji nie można cofnąć.',
+        confirm: 'Usuń'
+      },
       acceptedQueue: {
         title: 'Krok 1. Zaakceptowani wystawcy według czasu wysłania formularza'
       },
@@ -655,6 +662,13 @@ export const pl = {
       loading: 'Wczytywanie zgłoszeń...',
       empty: 'Brak zgłoszeń.',
       savedCount: 'Zapisanych zgłoszeń: {{count}}',
+      delete: {
+        button: 'Usuń zgłoszenie',
+        deleting: 'Usuwanie...',
+        title: 'Usunąć zgłoszenie warsztatowe?',
+        message: 'Czy na pewno chcesz usunąć zgłoszenie „{{name}}”? Tej operacji nie można cofnąć.',
+        confirm: 'Usuń'
+      },
       fields: {
         status: 'Status',
         tutorName: 'Prowadzący',

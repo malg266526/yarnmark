@@ -68,6 +68,13 @@ export const parseVendorApplications = (responseBody: unknown): VendorApplicatio
 export const listVendorApplications = async (token: string): Promise<VendorApplication[]> =>
   parseVendorApplications(await requestApi(VENDOR_FORM_API_URL, { token }));
 
+export const deleteVendorApplication = async (token: string, applicationId: string): Promise<void> => {
+  await requestApi(`${VENDOR_FORM_API_URL}/${encodeURIComponent(applicationId)}`, {
+    method: 'DELETE',
+    token
+  });
+};
+
 export const updateVendorApplicationStatus = async (
   token: string,
   applicationId: string,
