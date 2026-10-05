@@ -384,7 +384,10 @@ export const en: TranslationsShape = {
           logoLabel: 'Logo',
           logoHint:
             'You can upload a logo image. After the application is saved, it can be downloaded from the applications panel.',
-          logoSavedHint: 'The logo will be saved together with the application.'
+          logoSavedHint: 'The logo will be saved together with the application.',
+          logoChange: 'Change logo',
+          logoRemove: 'Remove logo',
+          logoPreviewAlt: 'Logo preview'
         },
         businessDescription: {
           title: 'Short business description for promo materials',

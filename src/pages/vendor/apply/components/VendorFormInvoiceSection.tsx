@@ -4,6 +4,7 @@ import { useTypedTranslation } from '../../../../translations/useTypedTranslatio
 import { FormField } from '../../../../components/form/FormField';
 import { FieldHint } from '../../../../components/form/FormField.styled';
 import { DownloadActions, Fieldset, FormSection, TextArea, TextInput } from '../VendorFormPage.styled';
+import { VendorFormLogoPreview } from './VendorFormLogoPreview';
 import type { VendorFormActions, VendorFormBindings, VendorFormStatusState } from './vendorFormViewContracts';
 
 const INVOICE_DETAILS_ERROR_ID = 'vendor-invoice-details-error';
@@ -82,6 +83,15 @@ export const VendorFormInvoiceSection = ({ formActions, formBindings, formStatus
             </DownloadActions>
           ) : null}
         </FormField>
+        {formData.logoDataUrl ? (
+          <VendorFormLogoPreview
+            logoDataUrl={formData.logoDataUrl}
+            logoFileName={formData.logoFileName}
+            isDisabled={isLoadingLogo}
+            onChange={() => logoInputRef.current?.click()}
+            onRemove={() => void updateLogoFile(null)}
+          />
+        ) : null}
       </Fieldset>
     </FormSection>
   );
