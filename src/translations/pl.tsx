@@ -308,8 +308,11 @@ export const pl = {
       logoUploadError: 'Nie udało się odczytać pliku z logo. Wybierz go ponownie.',
       logoTooLargeError: 'Plik z logo jest za duży (max 8 MB). Wybierz mniejszy.',
       logoLoading: 'Przetwarzanie pliku z logo…',
-      submissionDateTimeLabel: 'Data i godzina wysłania',
       draftBanner: 'Szkic formularza zapisuje się lokalnie w tej przeglądarce do momentu wysłania zgłoszenia.',
+      fieldRequirement: {
+        required: 'Wymagane',
+        optional: 'Opcjonalne'
+      },
       steps: {
         storeName: {
           title: 'Jak nazywa się Twoja marka lub sklep?',

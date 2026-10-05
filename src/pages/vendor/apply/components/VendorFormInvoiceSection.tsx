@@ -6,12 +6,14 @@ import {
   ErrorText,
   FieldHint,
   FieldLabel,
+  FieldLabelText,
   Fieldset,
   FormSection,
   TextArea,
   TextInput
 } from '../VendorFormPage.styled';
 import type { VendorFormActions, VendorFormBindings, VendorFormStatusState } from './vendorFormViewContracts';
+import { VendorFormFieldRequirement } from './VendorFormFieldRequirement';
 
 const INVOICE_DETAILS_ERROR_ID = 'vendor-invoice-details-error';
 const LOGO_ERROR_ID = 'vendor-logo-error';
@@ -42,7 +44,10 @@ export const VendorFormInvoiceSection = ({ formActions, formBindings, formStatus
       <Fieldset>
         <Typography size="xl">{t('vendorsFormPage.steps.invoice.title')}</Typography>
         <FieldLabel htmlFor="invoice_details">
-          {t('vendorsFormPage.steps.invoice.detailsLabel')}
+          <FieldLabelText>
+            {t('vendorsFormPage.steps.invoice.detailsLabel')}
+            <VendorFormFieldRequirement requirement="required" />
+          </FieldLabelText>
           <TextArea
             id="invoice_details"
             data-vendor-form-field="invoiceDetails"
@@ -55,7 +60,10 @@ export const VendorFormInvoiceSection = ({ formActions, formBindings, formStatus
         {invoiceDetailsError ? <ErrorText id={INVOICE_DETAILS_ERROR_ID}>{invoiceDetailsError}</ErrorText> : null}
 
         <FieldLabel htmlFor="logo_file">
-          {t('vendorsFormPage.steps.invoice.logoLabel')}
+          <FieldLabelText>
+            {t('vendorsFormPage.steps.invoice.logoLabel')}
+            <VendorFormFieldRequirement requirement="required" />
+          </FieldLabelText>
           <TextInput
             ref={logoInputRef}
             id="logo_file"

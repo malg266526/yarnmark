@@ -1,9 +1,18 @@
 import React from 'react';
 import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import { ErrorText, FieldHint, FieldLabel, Fieldset, FormSection, TextArea } from '../VendorFormPage.styled';
+import {
+  ErrorText,
+  FieldHint,
+  FieldLabel,
+  FieldLabelText,
+  Fieldset,
+  FormSection,
+  TextArea
+} from '../VendorFormPage.styled';
 import { VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH } from '../../../../domain/vendorApplications/vendorFormConstants.ts';
 import type { VendorFormActions, VendorFormBindings } from './vendorFormViewContracts';
+import { VendorFormFieldRequirement } from './VendorFormFieldRequirement';
 
 const BUSINESS_DESCRIPTION_ERROR_ID = 'vendor-business-description-error';
 
@@ -27,7 +36,10 @@ export const VendorFormBusinessDescriptionSection = ({
       <Fieldset>
         <Typography size="xl">{t('vendorsFormPage.steps.businessDescription.title')}</Typography>
         <FieldLabel htmlFor="business_description">
-          {t('vendorsFormPage.steps.businessDescription.label')}
+          <FieldLabelText>
+            {t('vendorsFormPage.steps.businessDescription.label')}
+            <VendorFormFieldRequirement requirement="required" />
+          </FieldLabelText>
           <TextArea
             id="business_description"
             name={businessDescriptionField.name}

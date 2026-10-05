@@ -171,6 +171,32 @@ export const FieldLabel = styled.label`
   font-family: ${FontFamilies.primary};
 `;
 
+export const FieldHeading = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: ${RedesignSpacings.xs};
+`;
+
+export const FieldLabelText = styled.span`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: ${RedesignSpacings.xs};
+`;
+
+export const FieldRequirementBadge = styled.span<{ $requirement: 'required' | 'optional' }>`
+  display: inline-flex;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: ${({ $requirement }) => ($requirement === 'required' ? BackgroundColors.green.light : GrayScale[100])};
+  color: ${TextColors.secondary};
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.xs};
+  font-weight: 600;
+  line-height: 1.2;
+`;
+
 export const TextInput = styled.input`
   width: 100%;
   padding: 12px 14px;
@@ -212,23 +238,6 @@ export const FieldHint = styled.div`
 
 export const DisclaimerText = styled(FieldHint)`
   font-size: ${FontSize.sm};
-`;
-
-export const InfoRow = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${RedesignSpacings.xxs};
-  font-family: ${FontFamilies.primary};
-`;
-
-export const InfoLabel = styled.div`
-  font-size: ${FontSize.sm};
-  color: ${TextColors.secondary};
-`;
-
-export const InfoValue = styled.div`
-  font-size: ${FontSize.md};
-  color: ${TextColors.primary};
 `;
 
 export const RadioGroup = styled.div`

@@ -3,7 +3,9 @@ import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import {
   ErrorText,
+  FieldHeading,
   FieldLabel,
+  FieldLabelText,
   Fieldset,
   FormSection,
   RadioGroup,
@@ -11,6 +13,7 @@ import {
   TextInput
 } from '../VendorFormPage.styled';
 import type { VendorFormActions, VendorFormBindings } from './vendorFormViewContracts';
+import { VendorFormFieldRequirement } from './VendorFormFieldRequirement';
 
 const STORE_NAME_ERROR_ID = 'vendor-store-name-error';
 const ATTENDED_BEFORE_ERROR_ID = 'vendor-attended-before-error';
@@ -37,7 +40,10 @@ export const VendorFormBasicsSection = ({ formActions, formBindings }: VendorFor
         <Fieldset>
           <Typography size="xl">{t('vendorsFormPage.steps.storeName.title')}</Typography>
           <FieldLabel htmlFor="store_name">
-            {t('vendorsFormPage.steps.storeName.label')}
+            <FieldLabelText>
+              {t('vendorsFormPage.steps.storeName.label')}
+              <VendorFormFieldRequirement requirement="required" />
+            </FieldLabelText>
             <TextInput
               id="store_name"
               type="text"
@@ -54,7 +60,10 @@ export const VendorFormBasicsSection = ({ formActions, formBindings }: VendorFor
 
       <FormSection>
         <Fieldset>
-          <Typography size="xl">{t('vendorsFormPage.steps.attendedBefore.title')}</Typography>
+          <FieldHeading>
+            <Typography size="xl">{t('vendorsFormPage.steps.attendedBefore.title')}</Typography>
+            <VendorFormFieldRequirement requirement="required" />
+          </FieldHeading>
           <RadioGroup
             role="radiogroup"
             data-vendor-form-field="attendedBefore"
@@ -86,7 +95,10 @@ export const VendorFormBasicsSection = ({ formActions, formBindings }: VendorFor
 
       <FormSection>
         <Fieldset>
-          <Typography size="xl">{t('vendorsFormPage.steps.mainCategory.title')}</Typography>
+          <FieldHeading>
+            <Typography size="xl">{t('vendorsFormPage.steps.mainCategory.title')}</Typography>
+            <VendorFormFieldRequirement requirement="required" />
+          </FieldHeading>
           <RadioGroup
             role="radiogroup"
             data-vendor-form-field="mainCategory"
@@ -143,7 +155,10 @@ export const VendorFormBasicsSection = ({ formActions, formBindings }: VendorFor
           {formData.mainCategory === 'other' ? (
             <>
               <FieldLabel htmlFor="main_category_other">
-                {t('vendorsFormPage.steps.mainCategory.otherLabel')}
+                <FieldLabelText>
+                  {t('vendorsFormPage.steps.mainCategory.otherLabel')}
+                  <VendorFormFieldRequirement requirement="required" />
+                </FieldLabelText>
                 <TextInput
                   id="main_category_other"
                   type="text"

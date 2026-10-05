@@ -5,6 +5,7 @@ import { useTypedTranslation } from '../../../../translations/useTypedTranslatio
 import {
   DisclaimerText,
   ErrorText,
+  FieldHeading,
   FieldHint,
   Fieldset,
   FormSection,
@@ -24,6 +25,7 @@ import {
 } from '../VendorFormPage.styled';
 import { VENDOR_FORM_MAX_PREFERRED_STANDS } from '../../../../domain/vendorApplications/vendorFormConstants.ts';
 import { SelectableHall } from './SelectableHall';
+import { VendorFormFieldRequirement } from './VendorFormFieldRequirement';
 import type { VendorFormActions, VendorFormBindings, VendorFormDerivedState } from './vendorFormViewContracts';
 
 const PREFERRED_STANDS_ERROR_ID = 'vendor-preferred-stands-error';
@@ -55,7 +57,10 @@ export const VendorFormStandPreferencesSection = ({
           aria-invalid={Boolean(preferredStandsError)}
           aria-describedby={preferredStandsError ? PREFERRED_STANDS_ERROR_ID : undefined}
         >
-          <Typography size="xl">{t('vendorsFormPage.steps.preferredStands.title')}</Typography>
+          <FieldHeading>
+            <Typography size="xl">{t('vendorsFormPage.steps.preferredStands.title')}</Typography>
+            <VendorFormFieldRequirement requirement="required" />
+          </FieldHeading>
           <FieldHint>
             {t('vendorsFormPage.steps.preferredStands.hint', {
               max: VENDOR_FORM_MAX_PREFERRED_STANDS
@@ -138,7 +143,10 @@ export const VendorFormStandPreferencesSection = ({
 
       <FormSection>
         <Fieldset>
-          <Typography size="xl">{t('vendorsFormPage.steps.interestedIfUnavailable.title')}</Typography>
+          <FieldHeading>
+            <Typography size="xl">{t('vendorsFormPage.steps.interestedIfUnavailable.title')}</Typography>
+            <VendorFormFieldRequirement requirement="required" />
+          </FieldHeading>
           <RadioGroup
             role="radiogroup"
             data-vendor-form-field="interestedIfUnavailable"
@@ -172,7 +180,10 @@ export const VendorFormStandPreferencesSection = ({
 
       <FormSection>
         <Fieldset>
-          <Typography size="xl">{t('vendorsFormPage.steps.sponsorshipInterest.title')}</Typography>
+          <FieldHeading>
+            <Typography size="xl">{t('vendorsFormPage.steps.sponsorshipInterest.title')}</Typography>
+            <VendorFormFieldRequirement requirement="optional" />
+          </FieldHeading>
           <DisclaimerText>{t('vendorsFormPage.steps.sponsorshipInterest.hint')}</DisclaimerText>
           <RadioGroup>
             <RadioOption>

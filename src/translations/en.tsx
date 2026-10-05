@@ -309,8 +309,11 @@ export const en: TranslationsShape = {
       logoUploadError: 'The logo file could not be read. Please choose it again.',
       logoTooLargeError: 'Logo file is too large (max 8 MB). Please choose a smaller one.',
       logoLoading: 'Processing logo…',
-      submissionDateTimeLabel: 'Submission date and time',
       draftBanner: 'This draft is stored locally in this browser until you submit the application.',
+      fieldRequirement: {
+        required: 'Required',
+        optional: 'Optional'
+      },
       steps: {
         storeName: {
           title: 'What is the name of your brand or store?',

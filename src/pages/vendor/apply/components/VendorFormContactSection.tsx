@@ -1,8 +1,9 @@
 import React from 'react';
 import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import { ErrorText, FieldLabel, Fieldset, FormSection, TextInput } from '../VendorFormPage.styled';
+import { ErrorText, FieldLabel, FieldLabelText, Fieldset, FormSection, TextInput } from '../VendorFormPage.styled';
 import type { VendorFormBindings } from './vendorFormViewContracts';
+import { VendorFormFieldRequirement } from './VendorFormFieldRequirement';
 
 const PHONE_NUMBER_ERROR_ID = 'vendor-phone-number-error';
 const EMAIL_ERROR_ID = 'vendor-email-error';
@@ -22,7 +23,10 @@ export const VendorFormContactSection = ({ formBindings }: VendorFormContactSect
       <Fieldset>
         <Typography size="xl">{t('vendorsFormPage.steps.contact.title')}</Typography>
         <FieldLabel htmlFor="phone_number">
-          {t('vendorsFormPage.steps.contact.phoneLabel')}
+          <FieldLabelText>
+            {t('vendorsFormPage.steps.contact.phoneLabel')}
+            <VendorFormFieldRequirement requirement="required" />
+          </FieldLabelText>
           <TextInput
             id="phone_number"
             type="tel"
@@ -36,7 +40,10 @@ export const VendorFormContactSection = ({ formBindings }: VendorFormContactSect
         {phoneNumberError ? <ErrorText id={PHONE_NUMBER_ERROR_ID}>{phoneNumberError}</ErrorText> : null}
 
         <FieldLabel htmlFor="email_address">
-          {t('vendorsFormPage.steps.contact.emailLabel')}
+          <FieldLabelText>
+            {t('vendorsFormPage.steps.contact.emailLabel')}
+            <VendorFormFieldRequirement requirement="required" />
+          </FieldLabelText>
           <TextInput
             id="email_address"
             type="email"
