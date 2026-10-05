@@ -22,6 +22,7 @@ export const VendorFormStatuteSection = ({ formActions, formBindings }: VendorFo
           <input
             id="accept_statute"
             type="checkbox"
+            data-vendor-form-field="acceptedStatute"
             checked={formData.acceptedStatute}
             onChange={(event) => setAcceptedStatuteValue(event.target.checked)}
           />

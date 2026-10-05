@@ -33,6 +33,7 @@ export const VendorFormInvoiceSection = ({ formActions, formBindings, formStatus
           {t('vendorsFormPage.steps.invoice.detailsLabel')}
           <TextArea
             id="invoice_details"
+            data-vendor-form-field="invoiceDetails"
             placeholder={t('vendorsFormPage.steps.invoice.detailsPlaceholder')}
             {...register('invoiceDetails')}
           />
@@ -43,6 +44,7 @@ export const VendorFormInvoiceSection = ({ formActions, formBindings, formStatus
           <TextInput
             id="logo_file"
             type="file"
+            data-vendor-form-field="logoFileName"
             accept="image/*"
             disabled={isLoadingLogo}
             onChange={(event) => {

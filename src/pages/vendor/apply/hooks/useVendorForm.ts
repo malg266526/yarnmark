@@ -26,6 +26,27 @@ import { createEmptyVendorFormDraft, parseStoredVendorFormDraft } from '../vendo
 import { getHighDemandStandIds } from '../../../../domain/vendorApplications/vendorFormStandInterestUtils.ts';
 
 const EMPTY_STAND_INTEREST_COUNTS = new Map<string, number>();
+const VENDOR_FORM_FIELD_SELECTOR = '[data-vendor-form-field]';
+const FOCUSABLE_FIELD_SELECTOR = 'input, textarea, button, select, [tabindex]';
+
+const focusFirstInvalidField = (validationErrors: Partial<Record<keyof VendorFormValues, string>>) => {
+  const invalidFieldNames = new Set(Object.keys(validationErrors));
+  const firstInvalidField = Array.from(document.querySelectorAll<HTMLElement>(VENDOR_FORM_FIELD_SELECTOR)).find(
+    (field) => invalidFieldNames.has(field.dataset.vendorFormField ?? '')
+  );
+
+  if (!firstInvalidField) {
+    return;
+  }
+
+  firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  const focusTarget = firstInvalidField.matches(FOCUSABLE_FIELD_SELECTOR)
+    ? firstInvalidField
+    : firstInvalidField.querySelector<HTMLElement>(FOCUSABLE_FIELD_SELECTOR);
+
+  focusTarget?.focus({ preventScroll: true });
+};
 
 const readStoredVendorFormDraftOrCreateEmptyDraft = () =>
   parseStoredVendorFormDraft(window.localStorage.getItem(VENDOR_FORM_DRAFT_STORAGE_KEY)) ??
@@ -152,6 +173,7 @@ export const useVendorForm = (): VendorFormViewProps => {
     const isValid = Object.keys(nextValidationErrors).length === 0 && (await trigger());
 
     if (!isValid) {
+      focusFirstInvalidField(nextValidationErrors);
       return;
     }
 

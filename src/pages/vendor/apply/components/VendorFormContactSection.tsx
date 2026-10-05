@@ -21,6 +21,7 @@ export const VendorFormContactSection = ({ formBindings }: VendorFormContactSect
           <TextInput
             id="phone_number"
             type="tel"
+            data-vendor-form-field="phoneNumber"
             placeholder={t('vendorsFormPage.steps.contact.phonePlaceholder')}
             {...register('phoneNumber')}
           />
@@ -31,6 +32,7 @@ export const VendorFormContactSection = ({ formBindings }: VendorFormContactSect
           <TextInput
             id="email_address"
             type="email"
+            data-vendor-form-field="email"
             placeholder={t('vendorsFormPage.steps.contact.emailPlaceholder')}
             {...register('email')}
           />
