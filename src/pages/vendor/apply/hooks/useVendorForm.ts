@@ -182,6 +182,10 @@ export const useVendorForm = (): VendorFormViewProps => {
   }, [formData, hasAttemptedSubmit]);
 
   const submitVendorForm = async () => {
+    if (isLoadingLogo) {
+      return;
+    }
+
     setHasAttemptedSubmit(true);
     setSubmitError('');
     const nextValidationErrors = collectVendorFormValidationErrors(getValues());

@@ -6,12 +6,12 @@ import { SubmissionDateTimePreview } from './SubmissionDateTimePreview';
 import type { VendorFormStatusState } from './vendorFormViewContracts';
 
 interface VendorFormSubmissionSectionProps {
-  formStatus: Pick<VendorFormStatusState, 'isSubmitting' | 'submitError'>;
+  formStatus: Pick<VendorFormStatusState, 'isLoadingLogo' | 'isSubmitting' | 'submitError'>;
 }
 
 export const VendorFormSubmissionSection = ({ formStatus }: VendorFormSubmissionSectionProps) => {
   const t = useTypedTranslation();
-  const { isSubmitting, submitError } = formStatus;
+  const { isLoadingLogo, isSubmitting, submitError } = formStatus;
 
   return (
     <>
@@ -23,7 +23,7 @@ export const VendorFormSubmissionSection = ({ formStatus }: VendorFormSubmission
 
       <ActionsRow>
         <ActionsSpacer />
-        <CtaButton type="submit" disabled={isSubmitting}>
+        <CtaButton type="submit" disabled={isLoadingLogo || isSubmitting}>
           {isSubmitting ? t('vendorsFormPage.submitting') : t('vendorsFormPage.submit')}
         </CtaButton>
       </ActionsRow>

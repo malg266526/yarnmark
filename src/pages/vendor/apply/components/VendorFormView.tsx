@@ -55,6 +55,7 @@ export const VendorFormView = ({ derivedState, formActions, formBindings, formSt
 
       <VendorFormSubmissionSection
         formStatus={{
+          isLoadingLogo: formStatus.isLoadingLogo,
           isSubmitting: formStatus.isSubmitting,
           submitError: formStatus.submitError
         }}
