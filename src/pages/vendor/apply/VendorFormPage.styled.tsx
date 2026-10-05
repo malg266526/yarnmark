@@ -1,5 +1,5 @@
-import styled, { createGlobalStyle } from 'styled-components';
-import Modal from 'react-modal';
+import styled from 'styled-components';
+import { FieldHint } from '../../../components/form/FormField.styled';
 import { DropShadow, Radius } from '../../../styles/cards';
 import { FontSize } from '../../../styles/font-size';
 import { ScreenSize } from '../../../styles/screeen-size';
@@ -26,38 +26,6 @@ export const FormLayout = styled.form`
   display: flex;
   flex-direction: column;
   gap: ${RedesignSpacings.md};
-`;
-
-export const SuccessModalLayout = styled(Modal)`
-  display: flex;
-  flex-direction: column;
-  width: 720px;
-  max-width: 90vw;
-  max-height: 90vh;
-  margin: auto;
-  padding: ${RedesignSpacings.md};
-  gap: ${RedesignSpacings.md};
-  background: ${Colors.white};
-  border: none;
-  border-radius: ${Radius.xl};
-  box-shadow: ${DropShadow.md};
-  outline: none;
-  overflow: auto;
-`;
-
-export const SuccessModalOverlayStyles = createGlobalStyle`
-  .vendor-form-success-modal-overlay {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-`;
-
-export const SuccessModalActions = styled.div`
-  display: flex;
-  justify-content: flex-end;
 `;
 
 export const FormSection = styled.section<{ $isFirst?: boolean }>`
@@ -163,14 +131,6 @@ export const Fieldset = styled.fieldset`
   gap: ${RedesignSpacings.sm};
 `;
 
-export const FieldLabel = styled.label`
-  display: flex;
-  flex-direction: column;
-  gap: ${RedesignSpacings.xxs};
-  font-size: ${FontSize.sm};
-  font-family: ${FontFamilies.primary};
-`;
-
 export const TextInput = styled.input`
   width: 100%;
   padding: 12px 14px;
@@ -203,32 +163,8 @@ export const TextArea = styled.textarea`
   }
 `;
 
-export const FieldHint = styled.div`
-  color: ${TextColors.secondary};
-  font-size: ${FontSize.xs};
-  line-height: 1.5;
-  font-family: ${FontFamilies.primary};
-`;
-
 export const DisclaimerText = styled(FieldHint)`
   font-size: ${FontSize.sm};
-`;
-
-export const InfoRow = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${RedesignSpacings.xxs};
-  font-family: ${FontFamilies.primary};
-`;
-
-export const InfoLabel = styled.div`
-  font-size: ${FontSize.sm};
-  color: ${TextColors.secondary};
-`;
-
-export const InfoValue = styled.div`
-  font-size: ${FontSize.md};
-  color: ${TextColors.primary};
 `;
 
 export const RadioGroup = styled.div`
@@ -255,12 +191,6 @@ export const CheckboxRow = styled.label`
   gap: ${RedesignSpacings.xs};
   font-family: ${FontFamilies.primary};
   line-height: 1.4;
-`;
-
-export const ErrorText = styled.div`
-  color: ${TextColors.accent};
-  font-size: ${FontSize.sm};
-  font-family: ${FontFamilies.primary};
 `;
 
 export const ActionsRow = styled.div`

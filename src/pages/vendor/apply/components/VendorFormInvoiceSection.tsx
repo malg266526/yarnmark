@@ -1,17 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import {
-  DownloadActions,
-  ErrorText,
-  FieldHint,
-  FieldLabel,
-  Fieldset,
-  FormSection,
-  TextArea,
-  TextInput
-} from '../VendorFormPage.styled';
+import { LogoPreview } from '../../../../components/form/LogoPreview';
+import { FormField } from '../../../../components/form/FormField';
+import { FieldHint } from '../../../../components/form/FormField.styled';
+import { DownloadActions, Fieldset, FormSection, TextArea, TextInput } from '../VendorFormPage.styled';
 import type { VendorFormActions, VendorFormBindings, VendorFormStatusState } from './vendorFormViewContracts';
+
+const INVOICE_DETAILS_ERROR_ID = 'vendor-invoice-details-error';
+const LOGO_ERROR_ID = 'vendor-logo-error';
 
 interface VendorFormInvoiceSectionProps {
   formActions: Pick<VendorFormActions, 'updateLogoFile'>;
@@ -25,6 +22,8 @@ export const VendorFormInvoiceSection = ({ formActions, formBindings, formStatus
   const { isLoadingLogo } = formStatus;
   const { updateLogoFile } = formActions;
   const logoInputRef = useRef<HTMLInputElement>(null);
+  const invoiceDetailsError = resolveFieldErrorMessage('invoiceDetails');
+  const logoError = resolveFieldErrorMessage('logoFileName');
 
   useEffect(() => {
     if (!formData.logoFileName && logoInputRef.current) {
@@ -36,23 +35,37 @@ export const VendorFormInvoiceSection = ({ formActions, formBindings, formStatus
     <FormSection>
       <Fieldset>
         <Typography size="xl">{t('vendorsFormPage.steps.invoice.title')}</Typography>
-        <FieldLabel htmlFor="invoice_details">
-          {t('vendorsFormPage.steps.invoice.detailsLabel')}
+        <FormField
+          htmlFor="invoice_details"
+          label={t('vendorsFormPage.steps.invoice.detailsLabel')}
+          requirement="required"
+          error={invoiceDetailsError}
+          errorId={INVOICE_DETAILS_ERROR_ID}
+        >
           <TextArea
             id="invoice_details"
             data-vendor-form-field="invoiceDetails"
+            aria-invalid={Boolean(invoiceDetailsError)}
+            aria-describedby={invoiceDetailsError ? INVOICE_DETAILS_ERROR_ID : undefined}
             placeholder={t('vendorsFormPage.steps.invoice.detailsPlaceholder')}
             {...register('invoiceDetails')}
           />
-        </FieldLabel>
+        </FormField>
 
-        <FieldLabel htmlFor="logo_file">
-          {t('vendorsFormPage.steps.invoice.logoLabel')}
+        <FormField
+          htmlFor="logo_file"
+          label={t('vendorsFormPage.steps.invoice.logoLabel')}
+          requirement="required"
+          error={logoError}
+          errorId={LOGO_ERROR_ID}
+        >
           <TextInput
             ref={logoInputRef}
             id="logo_file"
             type="file"
             data-vendor-form-field="logoFileName"
+            aria-invalid={Boolean(logoError)}
+            aria-describedby={logoError ? LOGO_ERROR_ID : undefined}
             accept="image/*"
             disabled={isLoadingLogo}
             onChange={(event) => {
@@ -69,9 +82,15 @@ export const VendorFormInvoiceSection = ({ formActions, formBindings, formStatus
               <FieldHint>{t('vendorsFormPage.steps.invoice.logoSavedHint')}</FieldHint>
             </DownloadActions>
           ) : null}
-        </FieldLabel>
-        {resolveFieldErrorMessage('invoiceDetails', 'logoFileName') ? (
-          <ErrorText>{resolveFieldErrorMessage('invoiceDetails', 'logoFileName')}</ErrorText>
+        </FormField>
+        {formData.logoDataUrl ? (
+          <LogoPreview
+            logoDataUrl={formData.logoDataUrl}
+            logoFileName={formData.logoFileName}
+            isDisabled={isLoadingLogo}
+            onChange={() => logoInputRef.current?.click()}
+            onRemove={() => void updateLogoFile(null)}
+          />
         ) : null}
       </Fieldset>
     </FormSection>

@@ -9,7 +9,7 @@ import { WorkshopFormLogoSection } from './WorkshopFormLogoSection';
 import { WorkshopFormParticipantsSection } from './WorkshopFormParticipantsSection';
 import { WorkshopFormPricingSection } from './WorkshopFormPricingSection';
 import { WorkshopFormSubmissionSection } from './WorkshopFormSubmissionSection';
-import { WorkshopFormSummary } from './WorkshopFormSummary';
+import { WorkshopFormSuccessModal } from './WorkshopFormSuccessModal';
 import type { WorkshopFormViewProps } from './workshopFormViewContracts';
 
 export const WorkshopFormView = ({ formActions, formBindings, formStatus }: WorkshopFormViewProps) => (
@@ -57,17 +57,19 @@ export const WorkshopFormView = ({ formActions, formBindings, formStatus }: Work
 
       <WorkshopFormSubmissionSection
         formStatus={{
+          draftStatus: formStatus.draftStatus,
+          isLoadingLogo: formStatus.isLoadingLogo,
           isSubmitting: formStatus.isSubmitting,
           submitError: formStatus.submitError
         }}
       />
     </FormLayout>
 
-    {formStatus.isComplete ? (
-      <WorkshopFormSummary
-        formBindings={{ formData: formBindings.formData }}
-        formStatus={{ submittedAtLabel: formStatus.submittedAtLabel }}
-      />
-    ) : null}
+    <WorkshopFormSuccessModal
+      isOpen={formStatus.isSuccessModalOpen}
+      formBindings={{ formData: formStatus.submittedFormData ?? formBindings.formData }}
+      formStatus={{ submittedAtLabel: formStatus.submittedAtLabel }}
+      onConfirm={formActions.closeSuccessModal}
+    />
   </FormCard>
 );

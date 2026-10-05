@@ -1,16 +1,16 @@
 import React from 'react';
 import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import {
-  ErrorText,
-  FieldLabel,
-  Fieldset,
-  FormSection,
-  RadioGroup,
-  RadioOption,
-  TextInput
-} from '../VendorFormPage.styled';
+import { FormField } from '../../../../components/form/FormField';
+import { FormFieldError } from '../../../../components/form/FormFieldError';
+import { FormFieldHeading } from '../../../../components/form/FormFieldHeading';
+import { Fieldset, FormSection, RadioGroup, RadioOption, TextInput } from '../VendorFormPage.styled';
 import type { VendorFormActions, VendorFormBindings } from './vendorFormViewContracts';
+
+const STORE_NAME_ERROR_ID = 'vendor-store-name-error';
+const ATTENDED_BEFORE_ERROR_ID = 'vendor-attended-before-error';
+const MAIN_CATEGORY_ERROR_ID = 'vendor-main-category-error';
+const MAIN_CATEGORY_OTHER_ERROR_ID = 'vendor-main-category-other-error';
 
 interface VendorFormBasicsSectionProps {
   formActions: Pick<VendorFormActions, 'setBooleanFieldValue' | 'setMainCategory'>;
@@ -21,32 +21,45 @@ export const VendorFormBasicsSection = ({ formActions, formBindings }: VendorFor
   const t = useTypedTranslation();
   const { formData, register, resolveFieldErrorMessage } = formBindings;
   const { setBooleanFieldValue, setMainCategory } = formActions;
+  const storeNameError = resolveFieldErrorMessage('storeName');
+  const attendedBeforeError = resolveFieldErrorMessage('attendedBefore');
+  const mainCategoryError = resolveFieldErrorMessage('mainCategory');
+  const mainCategoryOtherError = resolveFieldErrorMessage('mainCategoryOther');
 
   return (
     <>
       <FormSection $isFirst>
         <Fieldset>
           <Typography size="xl">{t('vendorsFormPage.steps.storeName.title')}</Typography>
-          <FieldLabel htmlFor="store_name">
-            {t('vendorsFormPage.steps.storeName.label')}
+          <FormField
+            htmlFor="store_name"
+            label={t('vendorsFormPage.steps.storeName.label')}
+            requirement="required"
+            error={storeNameError}
+            errorId={STORE_NAME_ERROR_ID}
+          >
             <TextInput
               id="store_name"
               type="text"
               data-vendor-form-field="storeName"
+              aria-invalid={Boolean(storeNameError)}
+              aria-describedby={storeNameError ? STORE_NAME_ERROR_ID : undefined}
               placeholder={t('vendorsFormPage.steps.storeName.placeholder')}
               {...register('storeName')}
             />
-          </FieldLabel>
-          {resolveFieldErrorMessage('storeName') ? (
-            <ErrorText>{resolveFieldErrorMessage('storeName')}</ErrorText>
-          ) : null}
+          </FormField>
         </Fieldset>
       </FormSection>
 
       <FormSection>
         <Fieldset>
-          <Typography size="xl">{t('vendorsFormPage.steps.attendedBefore.title')}</Typography>
-          <RadioGroup data-vendor-form-field="attendedBefore">
+          <FormFieldHeading title={t('vendorsFormPage.steps.attendedBefore.title')} requirement="required" />
+          <RadioGroup
+            role="radiogroup"
+            data-vendor-form-field="attendedBefore"
+            aria-invalid={Boolean(attendedBeforeError)}
+            aria-describedby={attendedBeforeError ? ATTENDED_BEFORE_ERROR_ID : undefined}
+          >
             <RadioOption>
               <input
                 type="radio"
@@ -66,16 +79,19 @@ export const VendorFormBasicsSection = ({ formActions, formBindings }: VendorFor
               <span>{t('vendorsFormPage.steps.attendedBefore.no')}</span>
             </RadioOption>
           </RadioGroup>
-          {resolveFieldErrorMessage('attendedBefore') ? (
-            <ErrorText>{resolveFieldErrorMessage('attendedBefore')}</ErrorText>
-          ) : null}
+          <FormFieldError id={ATTENDED_BEFORE_ERROR_ID} message={attendedBeforeError} />
         </Fieldset>
       </FormSection>
 
       <FormSection>
         <Fieldset>
-          <Typography size="xl">{t('vendorsFormPage.steps.mainCategory.title')}</Typography>
-          <RadioGroup data-vendor-form-field="mainCategory">
+          <FormFieldHeading title={t('vendorsFormPage.steps.mainCategory.title')} requirement="required" />
+          <RadioGroup
+            role="radiogroup"
+            data-vendor-form-field="mainCategory"
+            aria-invalid={Boolean(mainCategoryError)}
+            aria-describedby={mainCategoryError ? MAIN_CATEGORY_ERROR_ID : undefined}
+          >
             <RadioOption>
               <input
                 type="radio"
@@ -122,20 +138,25 @@ export const VendorFormBasicsSection = ({ formActions, formBindings }: VendorFor
               <span>{t('vendorsFormPage.steps.mainCategory.other')}</span>
             </RadioOption>
           </RadioGroup>
+          <FormFieldError id={MAIN_CATEGORY_ERROR_ID} message={mainCategoryError} />
           {formData.mainCategory === 'other' ? (
-            <FieldLabel htmlFor="main_category_other">
-              {t('vendorsFormPage.steps.mainCategory.otherLabel')}
+            <FormField
+              htmlFor="main_category_other"
+              label={t('vendorsFormPage.steps.mainCategory.otherLabel')}
+              requirement="required"
+              error={mainCategoryOtherError}
+              errorId={MAIN_CATEGORY_OTHER_ERROR_ID}
+            >
               <TextInput
                 id="main_category_other"
                 type="text"
                 data-vendor-form-field="mainCategoryOther"
+                aria-invalid={Boolean(mainCategoryOtherError)}
+                aria-describedby={mainCategoryOtherError ? MAIN_CATEGORY_OTHER_ERROR_ID : undefined}
                 placeholder={t('vendorsFormPage.steps.mainCategory.otherPlaceholder')}
                 {...register('mainCategoryOther')}
               />
-            </FieldLabel>
-          ) : null}
-          {resolveFieldErrorMessage('mainCategory', 'mainCategoryOther') ? (
-            <ErrorText>{resolveFieldErrorMessage('mainCategory', 'mainCategoryOther')}</ErrorText>
+            </FormField>
           ) : null}
         </Fieldset>
       </FormSection>

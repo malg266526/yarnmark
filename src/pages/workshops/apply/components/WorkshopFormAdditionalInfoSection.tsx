@@ -1,7 +1,8 @@
 import React from 'react';
-import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import { FieldLabel, Fieldset, FormSection, TextArea } from '../WorkshopFormPage.styled';
+import { FormField } from '../../../../components/form/FormField';
+import { FormFieldHeading } from '../../../../components/form/FormFieldHeading';
+import { Fieldset, FormSection, TextArea } from '../WorkshopFormPage.styled';
 import type { WorkshopFormBindings } from './workshopFormViewContracts';
 
 interface WorkshopFormAdditionalInfoSectionProps {
@@ -15,14 +16,14 @@ export const WorkshopFormAdditionalInfoSection = ({ formBindings }: WorkshopForm
   return (
     <FormSection>
       <Fieldset>
-        <Typography size="xl">{t('workshopsFormPage.steps.additionalInfo.title')}</Typography>
-        <FieldLabel htmlFor="additional_info">
+        <FormFieldHeading title={t('workshopsFormPage.steps.additionalInfo.title')} requirement="optional" />
+        <FormField htmlFor="additional_info">
           <TextArea
             id="additional_info"
             placeholder={t('workshopsFormPage.steps.additionalInfo.placeholder')}
             {...register('additionalInfo')}
           />
-        </FieldLabel>
+        </FormField>
       </Fieldset>
     </FormSection>
   );

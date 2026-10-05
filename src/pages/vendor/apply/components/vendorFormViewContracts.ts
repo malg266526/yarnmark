@@ -1,5 +1,6 @@
 import type { UseFormRegister } from 'react-hook-form';
 import type { VendorFormValues } from '../../../../domain/vendorApplications/vendorFormSchema.ts';
+import type { FormDraftStatus } from '../../../../components/form/formDraftStatusUtils.ts';
 import type { VendorFormMainCategory, VendorFormState } from '../../../../domain/vendorApplications/vendorFormTypes.ts';
 
 export type VendorFormBooleanFieldName = 'attendedBefore' | 'interestedIfUnavailable' | 'sponsorshipInterest';
@@ -15,10 +16,10 @@ export interface VendorFormBindings {
 export interface VendorFormDerivedState {
   highInterestSelectedStandIds: string[];
   highInterestStandIds: string[];
-  standInterestCounts: Map<string, number>;
 }
 
 export interface VendorFormStatusState {
+  draftStatus: FormDraftStatus;
   isLoadingLogo: boolean;
   isSuccessModalOpen: boolean;
   isSubmitting: boolean;

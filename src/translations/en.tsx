@@ -300,6 +300,16 @@ export const en: TranslationsShape = {
           'In case of reservation and missing the payment - reservation is cancelled and will be available again for vendors'
       }
     },
+    formField: {
+      requirement: {
+        required: 'Required'
+      },
+      logo: {
+        change: 'Change logo',
+        remove: 'Remove logo',
+        previewAlt: 'Logo preview'
+      }
+    },
     vendorsFormPage: {
       title: 'Vendor application form',
       kicker: 'For vendors',
@@ -309,8 +319,11 @@ export const en: TranslationsShape = {
       logoUploadError: 'The logo file could not be read. Please choose it again.',
       logoTooLargeError: 'Logo file is too large (max 8 MB). Please choose a smaller one.',
       logoLoading: 'Processing logo…',
-      submissionDateTimeLabel: 'Submission date and time',
       draftBanner: 'This draft is stored locally in this browser until you submit the application.',
+      draftStatus: {
+        saved: 'Draft saved',
+        restored: 'Saved draft restored'
+      },
       steps: {
         storeName: {
           title: 'What is the name of your brand or store?',
@@ -337,7 +350,6 @@ export const en: TranslationsShape = {
           hint: 'You can pick up to {{max}} stands. Green — available, orange — selected by you.',
           orderHint: 'Order matters — the first stand you click becomes your top pick.',
           counter: '{{current}} of {{max}} selected',
-          standInterestCount: '{{standId}}: {{count}} interested',
           detailsHint:
             'Detailed information about stand types, dimensions, and equipment is available on the <0>Info for vendors</0> page.',
           highInterestLabel: 'High Interest',
@@ -436,8 +448,11 @@ export const en: TranslationsShape = {
       submit: 'Submit application',
       submitting: 'Submitting...',
       submitError: 'The application could not be saved. Please try again.',
-      submissionDateTimeLabel: 'Submission date and time',
       draftBanner: 'This draft is stored locally in this browser until you submit the application.',
+      draftStatus: {
+        saved: 'Draft saved',
+        restored: 'Saved draft restored'
+      },
       logoUploadError: 'The logo file could not be read. Please choose it again.',
       logoTooLargeError: 'Logo file is too large (max 8 MB). Please choose a smaller one.',
       logoUnsupportedFormatError: 'Unsupported file format. Please choose a JPG, PNG, WebP, AVIF or GIF file.',
@@ -532,6 +547,7 @@ export const en: TranslationsShape = {
       },
       summary: {
         title: 'Application saved',
+        confirm: 'OK',
         description: 'The application has been saved.',
         tutorName: 'Tutor',
         workshopTitle: 'Workshop title',

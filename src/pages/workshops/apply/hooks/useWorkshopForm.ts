@@ -21,11 +21,24 @@ import {
   prepareLogoForUpload,
   type LogoRejectionReason
 } from '../../../../domain/workshopApplications/workshopFormLogoUtils.ts';
+import {
+  INITIAL_WORKSHOP_FORM_STATE,
+  type WorkshopFormState
+} from '../../../../domain/workshopApplications/workshopFormTypes.ts';
+import { focusFirstInvalidField } from '../../../../components/form/formFocus.ts';
+import { isFormDraftRestorable, resolveFormDraftStatus } from '../../../../components/form/formDraftStatusUtils.ts';
 import { createEmptyWorkshopFormDraft, parseStoredWorkshopFormDraft } from '../workshopFormStorage.ts';
 
-const readStoredWorkshopFormDraftOrCreateEmptyDraft = () =>
-  parseStoredWorkshopFormDraft(window.localStorage.getItem(WORKSHOP_FORM_DRAFT_STORAGE_KEY)) ??
-  createEmptyWorkshopFormDraft();
+const WORKSHOP_FORM_FIELD_ATTRIBUTE = 'data-workshop-form-field';
+
+const readInitialWorkshopFormDraft = () => {
+  const storedDraft = parseStoredWorkshopFormDraft(window.localStorage.getItem(WORKSHOP_FORM_DRAFT_STORAGE_KEY));
+
+  return {
+    draft: storedDraft ?? createEmptyWorkshopFormDraft(),
+    wasRestored: isFormDraftRestorable(storedDraft, INITIAL_WORKSHOP_FORM_STATE)
+  };
+};
 
 const LOGO_REJECTION_MESSAGE_KEYS: Record<LogoRejectionReason, UnprefixedTranslationKeys> = {
   unsupportedFormat: 'workshopsFormPage.logoUnsupportedFormatError',
@@ -35,13 +48,15 @@ const LOGO_REJECTION_MESSAGE_KEYS: Record<LogoRejectionReason, UnprefixedTransla
 
 export const useWorkshopForm = (): WorkshopFormViewProps => {
   const t = useTypedTranslation();
-  const [initialDraft] = useState(readStoredWorkshopFormDraftOrCreateEmptyDraft);
+  const [{ draft: initialDraft, wasRestored: wasDraftRestored }] = useState(readInitialWorkshopFormDraft);
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
   const [isComplete, setIsComplete] = useState<boolean>(initialDraft.isComplete);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoadingLogo, setIsLoadingLogo] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const [submittedAt, setSubmittedAt] = useState<string | null>(null);
+  const [submittedFormData, setSubmittedFormData] = useState<WorkshopFormState | null>(null);
   const [validationErrors, setValidationErrors] = useState<Partial<Record<keyof WorkshopFormValues, string>>>({});
 
   const form = useForm<WorkshopFormValues>({
@@ -52,6 +67,17 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
 
   const { formState, getValues, register, reset, setValue, trigger, watch } = form;
   const formData = watch();
+  const draftStatus = resolveFormDraftStatus({
+    isComplete,
+    isDirty: formState.isDirty,
+    wasRestored: wasDraftRestored
+  });
+
+  useEffect(() => {
+    if (formState.isDirty) {
+      setIsComplete(false);
+    }
+  }, [formState.isDirty]);
 
   const markFormAsIncompleteAndClearSubmitError = () => {
     setIsComplete(false);
@@ -157,6 +183,10 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
   };
 
   const submitWorkshopForm = async () => {
+    if (isLoadingLogo) {
+      return;
+    }
+
     setHasAttemptedSubmit(true);
     setSubmitError('');
     const nextValidationErrors = collectWorkshopFormValidationErrors(getValues());
@@ -165,6 +195,7 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
     const isValid = Object.keys(nextValidationErrors).length === 0 && (await trigger());
 
     if (!isValid) {
+      focusFirstInvalidField(WORKSHOP_FORM_FIELD_ATTRIBUTE, Object.keys(nextValidationErrors));
       return;
     }
 
@@ -174,8 +205,12 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
 
     try {
       setSubmittedAt(await submitWorkshopApplicationToApi(validatedFormData));
+      setSubmittedFormData(validatedFormData);
       setIsComplete(true);
-      reset(validatedFormData);
+      setIsSuccessModalOpen(true);
+      setHasAttemptedSubmit(false);
+      setValidationErrors({});
+      reset(INITIAL_WORKSHOP_FORM_STATE);
     } catch (error) {
       console.error(error);
       setSubmitError(t('workshopsFormPage.submitError'));
@@ -200,8 +235,14 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
     return '';
   };
 
+  const closeSuccessModal = () => {
+    setIsSuccessModalOpen(false);
+    window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  };
+
   return {
     formActions: {
+      closeSuccessModal,
       setContractType,
       setExperienceLevel,
       setNumberFieldValue,
@@ -215,10 +256,12 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
       resolveFieldErrorMessage
     },
     formStatus: {
-      isComplete,
+      draftStatus,
       isLoadingLogo,
+      isSuccessModalOpen,
       isSubmitting,
       submitError,
+      submittedFormData,
       submittedAtLabel
     }
   };

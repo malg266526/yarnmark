@@ -1,8 +1,11 @@
 import React from 'react';
-import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import { CheckboxRow, DisclaimerText, ErrorText, Fieldset, FormSection, InlineLink } from '../VendorFormPage.styled';
+import { FormFieldError } from '../../../../components/form/FormFieldError';
+import { FormFieldHeading } from '../../../../components/form/FormFieldHeading';
+import { CheckboxRow, DisclaimerText, Fieldset, FormSection, InlineLink } from '../VendorFormPage.styled';
 import type { VendorFormActions, VendorFormBindings } from './vendorFormViewContracts';
+
+const ACCEPTED_STATUTE_ERROR_ID = 'vendor-accepted-statute-error';
 
 interface VendorFormStatuteSectionProps {
   formActions: Pick<VendorFormActions, 'setAcceptedStatuteValue'>;
@@ -13,16 +16,19 @@ export const VendorFormStatuteSection = ({ formActions, formBindings }: VendorFo
   const t = useTypedTranslation();
   const { formData, resolveFieldErrorMessage } = formBindings;
   const { setAcceptedStatuteValue } = formActions;
+  const acceptedStatuteError = resolveFieldErrorMessage('acceptedStatute');
 
   return (
     <FormSection>
       <Fieldset>
-        <Typography size="xl">{t('vendorsFormPage.steps.statute.title')}</Typography>
+        <FormFieldHeading title={t('vendorsFormPage.steps.statute.title')} requirement="required" />
         <CheckboxRow htmlFor="accept_statute">
           <input
             id="accept_statute"
             type="checkbox"
             data-vendor-form-field="acceptedStatute"
+            aria-invalid={Boolean(acceptedStatuteError)}
+            aria-describedby={acceptedStatuteError ? ACCEPTED_STATUTE_ERROR_ID : undefined}
             checked={formData.acceptedStatute}
             onChange={(event) => setAcceptedStatuteValue(event.target.checked)}
           />
@@ -32,9 +38,7 @@ export const VendorFormStatuteSection = ({ formActions, formBindings }: VendorFo
           </span>
         </CheckboxRow>
         <DisclaimerText>{t('vendorsFormPage.steps.statute.complianceHint')}</DisclaimerText>
-        {resolveFieldErrorMessage('acceptedStatute') ? (
-          <ErrorText>{resolveFieldErrorMessage('acceptedStatute')}</ErrorText>
-        ) : null}
+        <FormFieldError id={ACCEPTED_STATUTE_ERROR_ID} message={acceptedStatuteError} />
       </Fieldset>
     </FormSection>
   );

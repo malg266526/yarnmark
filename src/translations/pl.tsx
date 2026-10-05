@@ -299,6 +299,16 @@ export const pl = {
           'W przypadku rezerwacji i nie opłacenia kosztów – rezerwacja zostaje anulowane i zostanie ponownie dostępne dla wystawców.'
       }
     },
+    formField: {
+      requirement: {
+        required: 'Wymagane'
+      },
+      logo: {
+        change: 'Zmień logo',
+        remove: 'Usuń logo',
+        previewAlt: 'Podgląd logo'
+      }
+    },
     vendorsFormPage: {
       title: 'Formularz zgłoszeniowy wystawców',
       kicker: 'Dla wystawców',
@@ -308,8 +318,11 @@ export const pl = {
       logoUploadError: 'Nie udało się odczytać pliku z logo. Wybierz go ponownie.',
       logoTooLargeError: 'Plik z logo jest za duży (max 8 MB). Wybierz mniejszy.',
       logoLoading: 'Przetwarzanie pliku z logo…',
-      submissionDateTimeLabel: 'Data i godzina wysłania',
       draftBanner: 'Szkic formularza zapisuje się lokalnie w tej przeglądarce do momentu wysłania zgłoszenia.',
+      draftStatus: {
+        saved: 'Szkic zapisany',
+        restored: 'Przywrócono zapisany szkic'
+      },
       steps: {
         storeName: {
           title: 'Jak nazywa się Twoja marka lub sklep?',
@@ -336,7 +349,6 @@ export const pl = {
           hint: 'Możesz wybrać maksymalnie {{max}} stoiska. Zielone — wolne, pomarańczowe — wybrane przez Ciebie.',
           orderHint: 'Kolejność klikania ma znaczenie — pierwsze kliknięte stoisko traktujemy jako pierwszy wybór.',
           counter: 'Wybrano {{current}} z {{max}}',
-          standInterestCount: '{{standId}}: {{count}} chętnych',
           detailsHint:
             'Szczegółowe informacje o rodzajach, wymiarach i wyposażeniu stoisk znajdziesz na stronie <0>Informacje dla wystawców</0>.',
           highInterestLabel: 'High Interest',
@@ -435,8 +447,11 @@ export const pl = {
       submit: 'Wyślij zgłoszenie',
       submitting: 'Wysyłanie...',
       submitError: 'Nie udało się zapisać zgłoszenia. Spróbuj ponownie.',
-      submissionDateTimeLabel: 'Data i godzina wysłania',
       draftBanner: 'Szkic formularza zapisuje się lokalnie w tej przeglądarce do momentu wysłania zgłoszenia.',
+      draftStatus: {
+        saved: 'Szkic zapisany',
+        restored: 'Przywrócono zapisany szkic'
+      },
       logoUploadError: 'Nie udało się odczytać pliku z logo. Wybierz go ponownie.',
       logoTooLargeError: 'Plik z logo jest za duży (max 8 MB). Wybierz mniejszy.',
       logoUnsupportedFormatError: 'Nieobsługiwany format pliku. Wybierz plik JPG, PNG, WebP, AVIF lub GIF.',
@@ -531,6 +546,7 @@ export const pl = {
       },
       summary: {
         title: 'Zgłoszenie zostało zapisane',
+        confirm: 'OK',
         description: 'Zgłoszenie zostało zapisane.',
         tutorName: 'Prowadzący',
         workshopTitle: 'Tytuł warsztatu',

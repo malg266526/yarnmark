@@ -1,3 +1,4 @@
+import type { FormDraftStatus } from '../../../../components/form/formDraftStatusUtils.ts';
 import type { UseFormRegister } from 'react-hook-form';
 import type { WorkshopFormValues } from '../../../../domain/workshopApplications/workshopFormSchema.ts';
 import type {
@@ -17,14 +18,17 @@ export interface WorkshopFormBindings {
 }
 
 export interface WorkshopFormStatusState {
-  isComplete: boolean;
+  draftStatus: FormDraftStatus;
   isLoadingLogo: boolean;
+  isSuccessModalOpen: boolean;
   isSubmitting: boolean;
   submitError: string;
+  submittedFormData: WorkshopFormState | null;
   submittedAtLabel: string | null;
 }
 
 export interface WorkshopFormActions {
+  closeSuccessModal: () => void;
   setContractType: (contractType: WorkshopFormContractType) => void;
   setExperienceLevel: (experienceLevel: WorkshopFormExperienceLevel) => void;
   setNumberFieldValue: (fieldName: WorkshopFormNumberFieldName, value: number | null) => void;

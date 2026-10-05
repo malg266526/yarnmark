@@ -3,7 +3,7 @@ import { DropShadow, Radius } from '../../../styles/cards';
 import { FontSize } from '../../../styles/font-size';
 import { ScreenSize } from '../../../styles/screeen-size';
 import { RedesignSpacings } from '../../../styles/spacings';
-import { BackgroundColors, Colors, FontFamilies, GrayScale, TextColors } from '../../../styles/theme';
+import { BackgroundColors, Colors, FontFamilies, GrayScale } from '../../../styles/theme';
 
 export const FormCard = styled.div`
   width: 100%;
@@ -44,14 +44,6 @@ export const Fieldset = styled.fieldset`
   gap: ${RedesignSpacings.sm};
 `;
 
-export const FieldLabel = styled.label`
-  display: flex;
-  flex-direction: column;
-  gap: ${RedesignSpacings.xxs};
-  font-size: ${FontSize.sm};
-  font-family: ${FontFamilies.primary};
-`;
-
 export const TextInput = styled.input`
   width: 100%;
   padding: 12px 14px;
@@ -84,30 +76,6 @@ export const TextArea = styled.textarea`
   }
 `;
 
-export const FieldHint = styled.div`
-  color: ${TextColors.secondary};
-  font-size: ${FontSize.xs};
-  line-height: 1.5;
-  font-family: ${FontFamilies.primary};
-`;
-
-export const InfoRow = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${RedesignSpacings.xxs};
-  font-family: ${FontFamilies.primary};
-`;
-
-export const InfoLabel = styled.div`
-  font-size: ${FontSize.sm};
-  color: ${TextColors.secondary};
-`;
-
-export const InfoValue = styled.div`
-  font-size: ${FontSize.md};
-  color: ${TextColors.primary};
-`;
-
 export const RadioGroup = styled.div`
   display: flex;
   flex-direction: column;
@@ -130,12 +98,6 @@ export const DownloadActions = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: ${RedesignSpacings.xs};
-`;
-
-export const ErrorText = styled.div`
-  color: ${TextColors.accent};
-  font-size: ${FontSize.sm};
-  font-family: ${FontFamilies.primary};
 `;
 
 export const ActionsRow = styled.div`

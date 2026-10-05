@@ -26,31 +26,12 @@ import {
   type StandDemand,
   type VendorFormState
 } from '../../../../domain/vendorApplications/vendorFormTypes.ts';
+import { focusFirstInvalidField } from '../../../../components/form/formFocus.ts';
+import { isFormDraftRestorable, resolveFormDraftStatus } from '../../../../components/form/formDraftStatusUtils.ts';
 import { createEmptyVendorFormDraft, parseStoredVendorFormDraft } from '../vendorFormStorage.ts';
 import { getHighDemandStandIds } from '../../../../domain/vendorApplications/vendorFormStandInterestUtils.ts';
 
-const EMPTY_STAND_INTEREST_COUNTS = new Map<string, number>();
-const VENDOR_FORM_FIELD_SELECTOR = '[data-vendor-form-field]';
-const FOCUSABLE_FIELD_SELECTOR = 'input, textarea, button, select, [tabindex]';
-
-const focusFirstInvalidField = (validationErrors: Partial<Record<keyof VendorFormValues, string>>) => {
-  const invalidFieldNames = new Set(Object.keys(validationErrors));
-  const firstInvalidField = Array.from(document.querySelectorAll<HTMLElement>(VENDOR_FORM_FIELD_SELECTOR)).find(
-    (field) => invalidFieldNames.has(field.dataset.vendorFormField ?? '')
-  );
-
-  if (!firstInvalidField) {
-    return;
-  }
-
-  firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-  const focusTarget = firstInvalidField.matches(FOCUSABLE_FIELD_SELECTOR)
-    ? firstInvalidField
-    : firstInvalidField.querySelector<HTMLElement>(FOCUSABLE_FIELD_SELECTOR);
-
-  focusTarget?.focus({ preventScroll: true });
-};
+const VENDOR_FORM_FIELD_ATTRIBUTE = 'data-vendor-form-field';
 
 const collectSchemaErrors = (values: VendorFormValues) => {
   const result = vendorFormValidationSchema.safeParse(values);
@@ -60,13 +41,18 @@ const collectSchemaErrors = (values: VendorFormValues) => {
     : Object.fromEntries(result.error.issues.map((issue) => [String(issue.path[0]), issue.message]));
 };
 
-const readStoredVendorFormDraftOrCreateEmptyDraft = () =>
-  parseStoredVendorFormDraft(window.localStorage.getItem(VENDOR_FORM_DRAFT_STORAGE_KEY)) ??
-  createEmptyVendorFormDraft();
+const readInitialVendorFormDraft = () => {
+  const storedDraft = parseStoredVendorFormDraft(window.localStorage.getItem(VENDOR_FORM_DRAFT_STORAGE_KEY));
+
+  return {
+    draft: storedDraft ?? createEmptyVendorFormDraft(),
+    wasRestored: isFormDraftRestorable(storedDraft, INITIAL_VENDOR_FORM_STATE)
+  };
+};
 
 export const useVendorForm = (): VendorFormViewProps => {
   const t = useTypedTranslation();
-  const [initialDraft] = useState(readStoredVendorFormDraftOrCreateEmptyDraft);
+  const [{ draft: initialDraft, wasRestored: wasDraftRestored }] = useState(readInitialVendorFormDraft);
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
   const [isComplete, setIsComplete] = useState<boolean>(initialDraft.isComplete);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
@@ -77,7 +63,6 @@ export const useVendorForm = (): VendorFormViewProps => {
   const [isLoadingLogo, setIsLoadingLogo] = useState(false);
   const [validationErrors, setValidationErrors] = useState<Partial<Record<keyof VendorFormValues, string>>>({});
   const [standDemand, setStandDemand] = useState<StandDemand>({});
-  const standInterestCounts = EMPTY_STAND_INTEREST_COUNTS;
 
   const form = useForm<VendorFormValues>({
     defaultValues: initialDraft.formData,
@@ -87,6 +72,11 @@ export const useVendorForm = (): VendorFormViewProps => {
 
   const { formState, getValues, register, reset, setValue, trigger, watch } = form;
   const formData = watch();
+  const draftStatus = resolveFormDraftStatus({
+    isComplete,
+    isDirty: formState.isDirty,
+    wasRestored: wasDraftRestored
+  });
 
   useEffect(() => {
     if (formState.isDirty) {
@@ -184,6 +174,10 @@ export const useVendorForm = (): VendorFormViewProps => {
   }, [formData, hasAttemptedSubmit]);
 
   const submitVendorForm = async () => {
+    if (isLoadingLogo) {
+      return;
+    }
+
     setHasAttemptedSubmit(true);
     setSubmitError('');
     const nextValidationErrors = collectVendorFormValidationErrors(getValues());
@@ -193,7 +187,10 @@ export const useVendorForm = (): VendorFormViewProps => {
 
     if (!isValid) {
       focusFirstInvalidField(
-        Object.keys(nextValidationErrors).length > 0 ? nextValidationErrors : collectSchemaErrors(getValues())
+        VENDOR_FORM_FIELD_ATTRIBUTE,
+        Object.keys(
+          Object.keys(nextValidationErrors).length > 0 ? nextValidationErrors : collectSchemaErrors(getValues())
+        )
       );
       return;
     }
@@ -265,14 +262,18 @@ export const useVendorForm = (): VendorFormViewProps => {
     return '';
   };
 
+  const closeSuccessModal = () => {
+    setIsSuccessModalOpen(false);
+    window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  };
+
   return {
     derivedState: {
       highInterestSelectedStandIds,
-      highInterestStandIds,
-      standInterestCounts
+      highInterestStandIds
     },
     formActions: {
-      closeSuccessModal: () => setIsSuccessModalOpen(false),
+      closeSuccessModal,
       setAcceptedStatuteValue,
       setBooleanFieldValue,
       setMainCategory,
@@ -287,6 +288,7 @@ export const useVendorForm = (): VendorFormViewProps => {
       resolveFieldErrorMessage
     },
     formStatus: {
+      draftStatus,
       isLoadingLogo,
       isSuccessModalOpen,
       isSubmitting,
