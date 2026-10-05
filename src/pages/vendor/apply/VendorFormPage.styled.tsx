@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+import Modal from 'react-modal';
 import { DropShadow, Radius } from '../../../styles/cards';
 import { FontSize } from '../../../styles/font-size';
 import { ScreenSize } from '../../../styles/screeen-size';
@@ -25,6 +26,38 @@ export const FormLayout = styled.form`
   display: flex;
   flex-direction: column;
   gap: ${RedesignSpacings.md};
+`;
+
+export const SuccessModalLayout = styled(Modal)`
+  display: flex;
+  flex-direction: column;
+  width: 720px;
+  max-width: 90vw;
+  max-height: 90vh;
+  margin: auto;
+  padding: ${RedesignSpacings.md};
+  gap: ${RedesignSpacings.md};
+  background: ${Colors.white};
+  border: none;
+  border-radius: ${Radius.xl};
+  box-shadow: ${DropShadow.md};
+  outline: none;
+  overflow: auto;
+`;
+
+export const SuccessModalOverlayStyles = createGlobalStyle`
+  .vendor-form-success-modal-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+`;
+
+export const SuccessModalActions = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `;
 
 export const FormSection = styled.section<{ $isFirst?: boolean }>`

@@ -1,5 +1,6 @@
 import type { VendorApplication } from './vendorFormSubmission.ts';
-import { VENDOR_FORM_HIGH_INTEREST_MIN_REQUESTS } from './vendorFormConstants.ts';
+import type { StandDemand } from './vendorFormTypes.ts';
+import { STAND_DEMAND_HIGH_LEVEL, VENDOR_FORM_HIGH_INTEREST_MIN_REQUESTS } from './vendorFormConstants.ts';
 
 export const getStandInterestCounts = (applications: VendorApplication[]) => {
   const counts = new Map<string, number>();
@@ -20,4 +21,9 @@ export const isHighInterestStand = (interestCount: number) => interestCount >= V
 export const getHighInterestStandIds = (applications: VendorApplication[]) =>
   [...getStandInterestCounts(applications).entries()]
     .filter(([, interestCount]) => isHighInterestStand(interestCount))
+    .map(([standId]) => standId);
+
+export const getHighDemandStandIds = (standDemand: StandDemand) =>
+  Object.entries(standDemand)
+    .filter(([, level]) => level === STAND_DEMAND_HIGH_LEVEL)
     .map(([standId]) => standId);

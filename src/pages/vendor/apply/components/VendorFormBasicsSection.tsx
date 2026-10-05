@@ -32,6 +32,7 @@ export const VendorFormBasicsSection = ({ formActions, formBindings }: VendorFor
             <TextInput
               id="store_name"
               type="text"
+              data-vendor-form-field="storeName"
               placeholder={t('vendorsFormPage.steps.storeName.placeholder')}
               {...register('storeName')}
             />
@@ -45,7 +46,7 @@ export const VendorFormBasicsSection = ({ formActions, formBindings }: VendorFor
       <FormSection>
         <Fieldset>
           <Typography size="xl">{t('vendorsFormPage.steps.attendedBefore.title')}</Typography>
-          <RadioGroup>
+          <RadioGroup data-vendor-form-field="attendedBefore">
             <RadioOption>
               <input
                 type="radio"
@@ -74,7 +75,7 @@ export const VendorFormBasicsSection = ({ formActions, formBindings }: VendorFor
       <FormSection>
         <Fieldset>
           <Typography size="xl">{t('vendorsFormPage.steps.mainCategory.title')}</Typography>
-          <RadioGroup>
+          <RadioGroup data-vendor-form-field="mainCategory">
             <RadioOption>
               <input
                 type="radio"
@@ -127,6 +128,7 @@ export const VendorFormBasicsSection = ({ formActions, formBindings }: VendorFor
               <TextInput
                 id="main_category_other"
                 type="text"
+                data-vendor-form-field="mainCategoryOther"
                 placeholder={t('vendorsFormPage.steps.mainCategory.otherPlaceholder')}
                 {...register('mainCategoryOther')}
               />

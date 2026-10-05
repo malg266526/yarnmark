@@ -5,7 +5,10 @@ import type { UnprefixedTranslationKeys } from '../../../../translations/useType
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import type { VendorFormViewProps } from '../components/vendorFormViewContracts';
 import { toggleStandSelection } from '../../../../domain/vendorApplications/vendorFormUtils.ts';
-import { submitVendorApplicationToApi } from '../../../../domain/vendorApplications/vendorFormApi.ts';
+import {
+  fetchStandsDemandFromApi,
+  submitVendorApplicationToApi
+} from '../../../../domain/vendorApplications/vendorFormApi.ts';
 import {
   VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH,
   VENDOR_FORM_DRAFT_STORAGE_KEY,
@@ -18,10 +21,44 @@ import {
   type VendorFormValues
 } from '../../../../domain/vendorApplications/vendorFormSchema.ts';
 import { LogoTooLargeError, prepareLogoForUpload } from '../../../../domain/vendorApplications/vendorFormLogoUtils.ts';
+import {
+  INITIAL_VENDOR_FORM_STATE,
+  type StandDemand,
+  type VendorFormState
+} from '../../../../domain/vendorApplications/vendorFormTypes.ts';
 import { createEmptyVendorFormDraft, parseStoredVendorFormDraft } from '../vendorFormStorage.ts';
-import { isHighInterestStand } from '../../../../domain/vendorApplications/vendorFormStandInterestUtils.ts';
+import { getHighDemandStandIds } from '../../../../domain/vendorApplications/vendorFormStandInterestUtils.ts';
 
 const EMPTY_STAND_INTEREST_COUNTS = new Map<string, number>();
+const VENDOR_FORM_FIELD_SELECTOR = '[data-vendor-form-field]';
+const FOCUSABLE_FIELD_SELECTOR = 'input, textarea, button, select, [tabindex]';
+
+const focusFirstInvalidField = (validationErrors: Partial<Record<keyof VendorFormValues, string>>) => {
+  const invalidFieldNames = new Set(Object.keys(validationErrors));
+  const firstInvalidField = Array.from(document.querySelectorAll<HTMLElement>(VENDOR_FORM_FIELD_SELECTOR)).find(
+    (field) => invalidFieldNames.has(field.dataset.vendorFormField ?? '')
+  );
+
+  if (!firstInvalidField) {
+    return;
+  }
+
+  firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  const focusTarget = firstInvalidField.matches(FOCUSABLE_FIELD_SELECTOR)
+    ? firstInvalidField
+    : firstInvalidField.querySelector<HTMLElement>(FOCUSABLE_FIELD_SELECTOR);
+
+  focusTarget?.focus({ preventScroll: true });
+};
+
+const collectSchemaErrors = (values: VendorFormValues) => {
+  const result = vendorFormValidationSchema.safeParse(values);
+
+  return result.success
+    ? {}
+    : Object.fromEntries(result.error.issues.map((issue) => [String(issue.path[0]), issue.message]));
+};
 
 const readStoredVendorFormDraftOrCreateEmptyDraft = () =>
   parseStoredVendorFormDraft(window.localStorage.getItem(VENDOR_FORM_DRAFT_STORAGE_KEY)) ??
@@ -32,11 +69,14 @@ export const useVendorForm = (): VendorFormViewProps => {
   const [initialDraft] = useState(readStoredVendorFormDraftOrCreateEmptyDraft);
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
   const [isComplete, setIsComplete] = useState<boolean>(initialDraft.isComplete);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const [submittedAt, setSubmittedAt] = useState<string | null>(null);
+  const [submittedFormData, setSubmittedFormData] = useState<VendorFormState | null>(null);
   const [isLoadingLogo, setIsLoadingLogo] = useState(false);
   const [validationErrors, setValidationErrors] = useState<Partial<Record<keyof VendorFormValues, string>>>({});
+  const [standDemand, setStandDemand] = useState<StandDemand>({});
   const standInterestCounts = EMPTY_STAND_INTEREST_COUNTS;
 
   const form = useForm<VendorFormValues>({
@@ -48,18 +88,24 @@ export const useVendorForm = (): VendorFormViewProps => {
   const { formState, getValues, register, reset, setValue, trigger, watch } = form;
   const formData = watch();
 
+  useEffect(() => {
+    if (formState.isDirty) {
+      setIsComplete(false);
+    }
+  }, [formState.isDirty]);
+
   const markFormAsIncompleteAndClearSubmitError = () => {
     setIsComplete(false);
     setSubmitError('');
   };
 
-  const highInterestStandIds = useMemo(
-    () =>
-      [...standInterestCounts.entries()]
-        .filter(([, interestCount]) => isHighInterestStand(interestCount))
-        .map(([standId]) => standId),
-    [standInterestCounts]
-  );
+  useEffect(() => {
+    fetchStandsDemandFromApi()
+      .then(setStandDemand)
+      .catch(() => setStandDemand({}));
+  }, []);
+
+  const highInterestStandIds = useMemo(() => getHighDemandStandIds(standDemand), [standDemand]);
 
   const highInterestSelectedStandIds = useMemo(
     () => formData.preferredStands.filter((standId) => highInterestStandIds.includes(standId)),
@@ -146,6 +192,9 @@ export const useVendorForm = (): VendorFormViewProps => {
     const isValid = Object.keys(nextValidationErrors).length === 0 && (await trigger());
 
     if (!isValid) {
+      focusFirstInvalidField(
+        Object.keys(nextValidationErrors).length > 0 ? nextValidationErrors : collectSchemaErrors(getValues())
+      );
       return;
     }
 
@@ -155,8 +204,12 @@ export const useVendorForm = (): VendorFormViewProps => {
 
     try {
       setSubmittedAt(await submitVendorApplicationToApi(validatedFormData));
+      setSubmittedFormData(validatedFormData);
       setIsComplete(true);
-      reset(validatedFormData);
+      setIsSuccessModalOpen(true);
+      setHasAttemptedSubmit(false);
+      setValidationErrors({});
+      reset(INITIAL_VENDOR_FORM_STATE);
     } catch (error) {
       console.error(error);
       setSubmitError(t('vendorsFormPage.submitError'));
@@ -219,6 +272,7 @@ export const useVendorForm = (): VendorFormViewProps => {
       standInterestCounts
     },
     formActions: {
+      closeSuccessModal: () => setIsSuccessModalOpen(false),
       setAcceptedStatuteValue,
       setBooleanFieldValue,
       setMainCategory,
@@ -233,10 +287,11 @@ export const useVendorForm = (): VendorFormViewProps => {
       resolveFieldErrorMessage
     },
     formStatus: {
-      isComplete,
       isLoadingLogo,
+      isSuccessModalOpen,
       isSubmitting,
       submitError,
+      submittedFormData,
       submittedAtLabel
     }
   };

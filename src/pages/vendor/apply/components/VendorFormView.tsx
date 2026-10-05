@@ -7,7 +7,7 @@ import { VendorFormInvoiceSection } from './VendorFormInvoiceSection';
 import { VendorFormStandPreferencesSection } from './VendorFormStandPreferencesSection';
 import { VendorFormStatuteSection } from './VendorFormStatuteSection';
 import { VendorFormSubmissionSection } from './VendorFormSubmissionSection';
-import { VendorFormSummary } from './VendorFormSummary';
+import { VendorFormSuccessModal } from './VendorFormSuccessModal';
 import type { VendorFormViewProps } from './vendorFormViewContracts';
 
 export const VendorFormView = ({ derivedState, formActions, formBindings, formStatus }: VendorFormViewProps) => (
@@ -61,11 +61,11 @@ export const VendorFormView = ({ derivedState, formActions, formBindings, formSt
       />
     </FormLayout>
 
-    {formStatus.isComplete ? (
-      <VendorFormSummary
-        formBindings={{ formData: formBindings.formData }}
-        formStatus={{ submittedAtLabel: formStatus.submittedAtLabel }}
-      />
-    ) : null}
+    <VendorFormSuccessModal
+      isOpen={formStatus.isSuccessModalOpen}
+      formBindings={{ formData: formStatus.submittedFormData ?? formBindings.formData }}
+      formStatus={{ submittedAtLabel: formStatus.submittedAtLabel }}
+      onConfirm={formActions.closeSuccessModal}
+    />
   </FormCard>
 );

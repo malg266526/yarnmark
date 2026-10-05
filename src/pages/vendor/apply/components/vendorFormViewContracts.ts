@@ -19,14 +19,16 @@ export interface VendorFormDerivedState {
 }
 
 export interface VendorFormStatusState {
-  isComplete: boolean;
   isLoadingLogo: boolean;
+  isSuccessModalOpen: boolean;
   isSubmitting: boolean;
   submitError: string;
+  submittedFormData: VendorFormState | null;
   submittedAtLabel: string | null;
 }
 
 export interface VendorFormActions {
+  closeSuccessModal: () => void;
   setAcceptedStatuteValue: (value: boolean) => void;
   setBooleanFieldValue: (fieldName: VendorFormBooleanFieldName, value: boolean) => void;
   setMainCategory: (category: VendorFormMainCategory) => void;

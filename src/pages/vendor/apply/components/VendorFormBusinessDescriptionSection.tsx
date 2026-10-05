@@ -28,6 +28,7 @@ export const VendorFormBusinessDescriptionSection = ({
           <TextArea
             id="business_description"
             name={businessDescriptionField.name}
+            data-vendor-form-field="businessDescription"
             placeholder={t('vendorsFormPage.steps.businessDescription.placeholder')}
             ref={businessDescriptionField.ref}
             onBlur={businessDescriptionField.onBlur}

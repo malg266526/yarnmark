@@ -45,7 +45,7 @@ export const VendorFormStandPreferencesSection = ({
   return (
     <>
       <FormSection>
-        <Fieldset>
+        <Fieldset data-vendor-form-field="preferredStands">
           <Typography size="xl">{t('vendorsFormPage.steps.preferredStands.title')}</Typography>
           <FieldHint>
             {t('vendorsFormPage.steps.preferredStands.hint', {
@@ -144,7 +144,7 @@ export const VendorFormStandPreferencesSection = ({
       <FormSection>
         <Fieldset>
           <Typography size="xl">{t('vendorsFormPage.steps.interestedIfUnavailable.title')}</Typography>
-          <RadioGroup>
+          <RadioGroup data-vendor-form-field="interestedIfUnavailable">
             <RadioOption>
               <input
                 type="radio"

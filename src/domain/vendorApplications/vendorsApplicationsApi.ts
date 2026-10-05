@@ -44,15 +44,36 @@ const vendorApplicationRecordSchema = vendorFormStateSchema.extend({
   submittedAt: z.string()
 });
 
+const BACKEND_PENDING_STATUS = 'pending';
+
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === 'object' && value !== null && !Array.isArray(value);
+
+const unwrapSubmissions = (responseBody: unknown): unknown =>
+  isRecord(responseBody) && 'submissions' in responseBody ? responseBody.submissions : responseBody;
+
+const normalizeBackendRecord = (record: unknown): unknown => {
+  if (!isRecord(record)) {
+    return record;
+  }
+
+  return {
+    ...record,
+    logoFileName: record.logoFileName ?? record.logoOriginalFilename,
+    status: record.status === BACKEND_PENDING_STATUS ? DEFAULT_VENDOR_APPLICATION_STATUS : record.status,
+    submittedAt: record.submittedAt ?? record.createdAt
+  };
+};
+
 export const parseVendorApplications = (responseBody: unknown): VendorApplication[] => {
-  const applicationRecords = applicationRecordsSchema.safeParse(responseBody);
+  const applicationRecords = applicationRecordsSchema.safeParse(unwrapSubmissions(responseBody));
 
   if (!applicationRecords.success) {
     return [];
   }
 
   return applicationRecords.data.flatMap((applicationRecord) => {
-    const parsedApplication = vendorApplicationRecordSchema.safeParse(applicationRecord);
+    const parsedApplication = vendorApplicationRecordSchema.safeParse(normalizeBackendRecord(applicationRecord));
 
     return parsedApplication.success ? [parsedApplication.data] : [];
   });

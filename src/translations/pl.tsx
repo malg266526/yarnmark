@@ -286,7 +286,6 @@ export const pl = {
         title: 'Zapisy',
         wantToJoin: 'Chcesz zostać wystawcą na Krakoski Yarnmark 2026?',
         newForm: 'Zapraszamy do strony z formularzem zgłoszeniowym: <0>Formularz</0>.',
-        directFormLink: 'Jeśli chcesz przejść od razu do zewnętrznego formularza, kliknij <0>tutaj</0>.',
         extraInfoByMail: 'Masz dodatkowe pytania? Napisz na <strong>krakoski.yarnmark@gmail.com</strong>',
         beAVendor:
           'Jeśli chcesz dołączyć do wspaniałego grona naszych wystawców, napisz do nas! Email kontaktowy: <strong>krakoski.yarnmark@gmail.com</strong>',
@@ -411,8 +410,8 @@ export const pl = {
         statuteRequired: 'Musisz zaakceptować regulamin, aby przejść dalej.'
       },
       summary: {
-        title: 'Zgłoszenie zostało zapisane',
-        description: 'Zgłoszenie zostało zapisane i jest widoczne na liście zgłoszeń wystawców.',
+        title: 'Zgłoszenie zostało wysłane, dziękujemy!',
+        confirm: 'OK',
         storeName: 'Nazwa sklepu',
         submittedAt: 'Data zapisania',
         attendedBefore: 'Poprzednie edycje',

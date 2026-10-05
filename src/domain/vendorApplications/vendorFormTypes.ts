@@ -35,3 +35,5 @@ export const INITIAL_VENDOR_FORM_STATE: VendorFormState = {
   businessDescription: '',
   acceptedStatute: false
 };
+
+export type StandDemand = Record<string, string>;

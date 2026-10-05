@@ -109,15 +109,7 @@ export const VendorStatutePage = () => {
                 <li>
                   <Trans
                     i18nKey="vendorsStatue.explanation4"
-                    components={[
-                      <Link
-                        key="application_form_url"
-                        target="_blank"
-                        href="https://docs.google.com/forms/d/1v33Xps7qGVO9jwpa-iAj5vjQM70gjz2HFksviCHichs/edit"
-                        aria-label="applicationForm"
-                        style={{ pointerEvents: 'none' }}
-                      />
-                    ]}
+                    components={[<Link key="application_form_url" href="/vendor/apply" aria-label="applicationForm" />]}
                   />
                 </li>
               </ol>
