@@ -21,7 +21,11 @@ import {
   type VendorFormValues
 } from '../../../../domain/vendorApplications/vendorFormSchema.ts';
 import { LogoTooLargeError, prepareLogoForUpload } from '../../../../domain/vendorApplications/vendorFormLogoUtils.ts';
-import type { StandDemand } from '../../../../domain/vendorApplications/vendorFormTypes.ts';
+import {
+  INITIAL_VENDOR_FORM_STATE,
+  type StandDemand,
+  type VendorFormState
+} from '../../../../domain/vendorApplications/vendorFormTypes.ts';
 import { createEmptyVendorFormDraft, parseStoredVendorFormDraft } from '../vendorFormStorage.ts';
 import { getHighDemandStandIds } from '../../../../domain/vendorApplications/vendorFormStandInterestUtils.ts';
 
@@ -61,6 +65,7 @@ export const useVendorForm = (): VendorFormViewProps => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const [submittedAt, setSubmittedAt] = useState<string | null>(null);
+  const [submittedFormData, setSubmittedFormData] = useState<VendorFormState | null>(null);
   const [isLoadingLogo, setIsLoadingLogo] = useState(false);
   const [validationErrors, setValidationErrors] = useState<Partial<Record<keyof VendorFormValues, string>>>({});
   const [standDemand, setStandDemand] = useState<StandDemand>({});
@@ -74,6 +79,12 @@ export const useVendorForm = (): VendorFormViewProps => {
 
   const { formState, getValues, register, reset, setValue, trigger, watch } = form;
   const formData = watch();
+
+  useEffect(() => {
+    if (formState.isDirty) {
+      setIsComplete(false);
+    }
+  }, [formState.isDirty]);
 
   const markFormAsIncompleteAndClearSubmitError = () => {
     setIsComplete(false);
@@ -183,9 +194,12 @@ export const useVendorForm = (): VendorFormViewProps => {
 
     try {
       setSubmittedAt(await submitVendorApplicationToApi(validatedFormData));
+      setSubmittedFormData(validatedFormData);
       setIsComplete(true);
       setIsSuccessModalOpen(true);
-      reset(validatedFormData);
+      setHasAttemptedSubmit(false);
+      setValidationErrors({});
+      reset(INITIAL_VENDOR_FORM_STATE);
     } catch (error) {
       console.error(error);
       setSubmitError(t('vendorsFormPage.submitError'));
@@ -267,6 +281,7 @@ export const useVendorForm = (): VendorFormViewProps => {
       isSuccessModalOpen,
       isSubmitting,
       submitError,
+      submittedFormData,
       submittedAtLabel
     }
   };

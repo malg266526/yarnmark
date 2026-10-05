@@ -23,6 +23,7 @@ export interface VendorFormStatusState {
   isSuccessModalOpen: boolean;
   isSubmitting: boolean;
   submitError: string;
+  submittedFormData: VendorFormState | null;
   submittedAtLabel: string | null;
 }
 

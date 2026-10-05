@@ -42,6 +42,7 @@ export const VendorFormInvoiceSection = ({ formActions, formBindings, formStatus
         <FieldLabel htmlFor="logo_file">
           {t('vendorsFormPage.steps.invoice.logoLabel')}
           <TextInput
+            key={formData.logoFileName ?? 'empty-logo'}
             id="logo_file"
             type="file"
             data-vendor-form-field="logoFileName"

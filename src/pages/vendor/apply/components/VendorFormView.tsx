@@ -63,7 +63,7 @@ export const VendorFormView = ({ derivedState, formActions, formBindings, formSt
 
     <VendorFormSuccessModal
       isOpen={formStatus.isSuccessModalOpen}
-      formBindings={{ formData: formBindings.formData }}
+      formBindings={{ formData: formStatus.submittedFormData ?? formBindings.formData }}
       formStatus={{ submittedAtLabel: formStatus.submittedAtLabel }}
       onConfirm={formActions.closeSuccessModal}
     />
