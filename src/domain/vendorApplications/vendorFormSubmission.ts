@@ -9,6 +9,7 @@ export interface VendorApplication extends VendorFormState {
   allocationIteration: number | null;
   allocationState: VendorApplicationAllocationState;
   id: string;
+  logoUrl: string | null;
   status: VendorApplicationStatus;
   submittedAt: string;
 }

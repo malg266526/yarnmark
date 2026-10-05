@@ -8,6 +8,7 @@ import {
   applicationRecordsSchema,
   normalizeBackendApplicationRecord,
   requestApi,
+  resolveApiAssetUrl,
   unwrapSubmissions
 } from '../apiClient.ts';
 import { vendorFormStateSchema } from './vendorFormSchema.ts';
@@ -45,6 +46,11 @@ const vendorApplicationRecordSchema = vendorFormStateSchema.extend({
     .transform((allocationIteration) => allocationIteration ?? null),
   allocationState: vendorApplicationAllocationStateSchema,
   id: z.string(),
+  logoUrl: z
+    .string()
+    .nullable()
+    .optional()
+    .transform((logoUrl) => resolveApiAssetUrl(logoUrl)),
   status: vendorApplicationStatusSchema,
   submittedAt: z.string()
 });

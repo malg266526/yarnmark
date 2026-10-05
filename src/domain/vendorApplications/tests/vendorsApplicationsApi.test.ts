@@ -48,6 +48,7 @@ const createVendorApplicationPayload = () => ({
   logoFileName: 'logo.png',
   logoDataUrl: 'data:image/png;base64,AAAA',
   logoMimeType: 'image/png',
+  logoUrl: null,
   businessDescription: 'Short business description',
   acceptedStatute: true
 });
@@ -123,7 +124,7 @@ test('parseVendorApplications maps the backend submissions payload', () => {
     sponsorshipInterest: false,
     acceptedStatute: true,
     invoiceDetails: 'invoice',
-    logoPath: 'vendors/logo.webp',
+    logoUrl: '/vendors/logo.webp',
     logoOriginalFilename: 'profilowe.JPG',
     status: 'pending',
     statusUpdatedAt: null,
@@ -136,6 +137,7 @@ test('parseVendorApplications maps the backend submissions payload', () => {
   assert.equal(application.status, 'new');
   assert.equal(application.submittedAt, '2026-10-03 19:17:03');
   assert.equal(application.logoFileName, 'profilowe.JPG');
+  assert.equal(application.logoUrl, 'https://yarnmark-api.com/vendors/logo.webp');
   assert.equal(application.allocationState, 'none');
 });
 

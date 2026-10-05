@@ -42,6 +42,11 @@ const dataUrlToImage = (dataUrl: string) =>
 
     image.onload = () => resolve(image);
     image.onerror = () => reject(new Error('Unable to load image from stored data.'));
+
+    if (!dataUrl.startsWith('data:')) {
+      image.crossOrigin = 'anonymous';
+    }
+
     image.src = dataUrl;
   });
 

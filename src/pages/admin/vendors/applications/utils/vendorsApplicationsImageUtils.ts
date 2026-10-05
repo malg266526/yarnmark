@@ -5,12 +5,14 @@ export const downloadVendorApplicationLogo = async (
   application: VendorApplication,
   preferredMimeType: 'image/png' | 'image/webp' | 'image/avif'
 ) => {
-  if (!application.logoDataUrl) {
+  const logoSource = application.logoDataUrl ?? application.logoUrl;
+
+  if (!logoSource) {
     throw new Error('No stored logo data available.');
   }
 
   await downloadStoredLogo({
-    dataUrl: application.logoDataUrl,
+    dataUrl: logoSource,
     storedMimeType: application.logoMimeType,
     preferredMimeType,
     logoFileName: application.logoFileName,

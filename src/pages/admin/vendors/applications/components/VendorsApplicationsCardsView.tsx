@@ -1,5 +1,6 @@
 import React from 'react';
 import { ApplicationDeleteAction } from '../../../../../components/ApplicationDeleteAction';
+import { LogoPreviewImage } from '../../../../../components/form/FormField.styled';
 import {
   ApplicationActionButton,
   ApplicationActionRow,
@@ -120,7 +121,10 @@ export const VendorsApplicationsCardsView = ({
           <ApplicationField>
             <ApplicationFieldLabel>{translate('vendorsApplicationsPage.fields.logoFilename')}</ApplicationFieldLabel>
             <ApplicationFieldValue>{application.logoFileName ?? values.notProvided}</ApplicationFieldValue>
-            {application.logoDataUrl ? (
+            {application.logoUrl ? (
+              <LogoPreviewImage src={application.logoUrl} alt={application.logoFileName ?? application.storeName} />
+            ) : null}
+            {application.logoDataUrl || application.logoUrl ? (
               <ApplicationActionRow>
                 <ApplicationActionButton
                   type="button"

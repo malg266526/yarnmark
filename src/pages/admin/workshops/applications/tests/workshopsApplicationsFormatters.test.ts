@@ -24,6 +24,7 @@ const createApplication = (id: string, submittedAt: string): WorkshopApplication
   logoFileName: 'logo.png',
   logoDataUrl: 'data:image/png;base64,AAAA',
   logoMimeType: 'image/png',
+  logoUrl: null,
   phoneNumber: '+48 123 456 789',
   email: 'tutor@example.com'
 });

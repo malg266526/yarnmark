@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+const YARNMARK_API_ORIGIN = 'https://yarnmark-api.com';
+
 export class ApiRequestError extends Error {
   constructor(
     readonly status: number,
@@ -55,6 +57,12 @@ export const resolveSubmittedAt = (responseBody: unknown): string => {
   const parsedBody = submittedApplicationSchema.safeParse(responseBody);
 
   return parsedBody.success ? parsedBody.data.submittedAt : new Date().toISOString();
+};
+
+export const resolveApiAssetUrl = (path: string | null | undefined): string | null => {
+  const normalizedPath = path?.trim().replace(/^\/+/, '');
+
+  return normalizedPath ? `${YARNMARK_API_ORIGIN}/${normalizedPath}` : null;
 };
 
 export const applicationRecordsSchema = z.union([

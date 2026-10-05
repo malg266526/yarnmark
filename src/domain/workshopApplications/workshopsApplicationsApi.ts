@@ -4,6 +4,7 @@ import {
   applicationRecordsSchema,
   normalizeBackendApplicationRecord,
   requestApi,
+  resolveApiAssetUrl,
   unwrapSubmissions
 } from '../apiClient.ts';
 import { workshopFormStateSchema } from './workshopFormSchema.ts';
@@ -18,6 +19,11 @@ const workshopApplicationStatusSchema = z
 
 const workshopApplicationRecordSchema = workshopFormStateSchema.extend({
   id: z.string(),
+  logoUrl: z
+    .string()
+    .nullable()
+    .optional()
+    .transform((logoUrl) => resolveApiAssetUrl(logoUrl)),
   status: workshopApplicationStatusSchema,
   submittedAt: z.string()
 });

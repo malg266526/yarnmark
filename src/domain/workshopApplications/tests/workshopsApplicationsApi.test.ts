@@ -44,6 +44,7 @@ const createWorkshopFormState = (overrides: Partial<WorkshopFormState> = {}): Wo
 const createWorkshopApplication = (overrides: Partial<WorkshopFormState> = {}) => ({
   ...createWorkshopFormState(overrides),
   id: 'application-1',
+  logoUrl: null,
   status: 'considered' as const,
   submittedAt: '2026-05-11T10:30:00.000Z'
 });
@@ -141,7 +142,7 @@ test('parseWorkshopApplications defaults a missing status to "new"', () => {
   };
 
   assert.deepEqual(parseWorkshopApplications([applicationWithoutStatus]), [
-    { ...applicationWithoutStatus, status: 'new' }
+    { ...applicationWithoutStatus, logoUrl: null, status: 'new' }
   ]);
 });
 
@@ -164,7 +165,7 @@ test('parseWorkshopApplications maps the backend submissions payload', () => {
     requiredEquipment: '',
     participantsShouldBring: 'Own crochet hook.',
     additionalInfo: '',
-    logoPath: 'workshops/logo.webp',
+    logoUrl: '/workshops/logo.webp',
     logoOriginalFilename: 'profilowe.JPG',
     status: 'pending',
     statusUpdatedAt: null,
@@ -178,4 +179,5 @@ test('parseWorkshopApplications maps the backend submissions payload', () => {
   assert.equal(application.submittedAt, '2026-10-05 14:35:49');
   assert.equal(application.logoFileName, 'profilowe.JPG');
   assert.equal(application.logoDataUrl, null);
+  assert.equal(application.logoUrl, 'https://yarnmark-api.com/workshops/logo.webp');
 });

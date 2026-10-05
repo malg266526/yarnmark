@@ -4,6 +4,7 @@ export type WorkshopApplicationStatus = 'accepted' | 'considered' | 'new' | 'res
 
 export interface WorkshopApplication extends WorkshopFormState {
   id: string;
+  logoUrl: string | null;
   status: WorkshopApplicationStatus;
   submittedAt: string;
 }

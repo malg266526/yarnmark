@@ -29,6 +29,7 @@ const createApplication = (id: string, preferredStands: string[]): VendorApplica
   logoFileName: 'logo.png',
   logoDataUrl: 'data:image/png;base64,AAAA',
   logoMimeType: 'image/png',
+  logoUrl: null,
   businessDescription: 'Short business description',
   acceptedStatute: true
 });
