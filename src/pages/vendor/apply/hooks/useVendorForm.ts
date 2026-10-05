@@ -265,6 +265,11 @@ export const useVendorForm = (): VendorFormViewProps => {
     return '';
   };
 
+  const closeSuccessModal = () => {
+    setIsSuccessModalOpen(false);
+    window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  };
+
   return {
     derivedState: {
       highInterestSelectedStandIds,
@@ -272,7 +277,7 @@ export const useVendorForm = (): VendorFormViewProps => {
       standInterestCounts
     },
     formActions: {
-      closeSuccessModal: () => setIsSuccessModalOpen(false),
+      closeSuccessModal,
       setAcceptedStatuteValue,
       setBooleanFieldValue,
       setMainCategory,
