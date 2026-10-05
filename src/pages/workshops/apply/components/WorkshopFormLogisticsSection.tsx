@@ -5,6 +5,9 @@ import { FormField } from '../../../../components/form/FormField';
 import { Fieldset, FormSection, TextArea, TextInput } from '../WorkshopFormPage.styled';
 import type { WorkshopFormBindings } from './workshopFormViewContracts';
 
+const DURATION_ERROR_ID = 'workshop-duration-error';
+const PARTICIPANTS_SHOULD_BRING_ERROR_ID = 'workshop-participants-should-bring-error';
+
 interface WorkshopFormLogisticsSectionProps {
   formBindings: WorkshopFormBindings;
 }
@@ -12,6 +15,8 @@ interface WorkshopFormLogisticsSectionProps {
 export const WorkshopFormLogisticsSection = ({ formBindings }: WorkshopFormLogisticsSectionProps) => {
   const t = useTypedTranslation();
   const { register, resolveFieldErrorMessage } = formBindings;
+  const durationError = resolveFieldErrorMessage('duration');
+  const participantsShouldBringError = resolveFieldErrorMessage('participantsShouldBring');
 
   return (
     <FormSection>
@@ -22,10 +27,14 @@ export const WorkshopFormLogisticsSection = ({ formBindings }: WorkshopFormLogis
           htmlFor="duration"
           label={t('workshopsFormPage.steps.logistics.durationLabel')}
           requirement="required"
-          error={resolveFieldErrorMessage('duration')}
+          error={durationError}
+          errorId={DURATION_ERROR_ID}
         >
           <TextInput
             id="duration"
+            data-workshop-form-field="duration"
+            aria-invalid={Boolean(durationError)}
+            aria-describedby={durationError ? DURATION_ERROR_ID : undefined}
             type="text"
             placeholder={t('workshopsFormPage.steps.logistics.durationPlaceholder')}
             {...register('duration')}
@@ -36,10 +45,14 @@ export const WorkshopFormLogisticsSection = ({ formBindings }: WorkshopFormLogis
           htmlFor="participants_should_bring"
           label={t('workshopsFormPage.steps.logistics.participantsShouldBringLabel')}
           requirement="required"
-          error={resolveFieldErrorMessage('participantsShouldBring')}
+          error={participantsShouldBringError}
+          errorId={PARTICIPANTS_SHOULD_BRING_ERROR_ID}
         >
           <TextArea
             id="participants_should_bring"
+            data-workshop-form-field="participantsShouldBring"
+            aria-invalid={Boolean(participantsShouldBringError)}
+            aria-describedby={participantsShouldBringError ? PARTICIPANTS_SHOULD_BRING_ERROR_ID : undefined}
             placeholder={t('workshopsFormPage.steps.logistics.participantsShouldBringPlaceholder')}
             {...register('participantsShouldBring')}
           />

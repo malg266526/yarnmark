@@ -303,6 +303,11 @@ export const en: TranslationsShape = {
     formField: {
       requirement: {
         required: 'Required'
+      },
+      logo: {
+        change: 'Change logo',
+        remove: 'Remove logo',
+        previewAlt: 'Logo preview'
       }
     },
     vendorsFormPage: {
@@ -384,10 +389,7 @@ export const en: TranslationsShape = {
           logoLabel: 'Logo',
           logoHint:
             'You can upload a logo image. After the application is saved, it can be downloaded from the applications panel.',
-          logoSavedHint: 'The logo will be saved together with the application.',
-          logoChange: 'Change logo',
-          logoRemove: 'Remove logo',
-          logoPreviewAlt: 'Logo preview'
+          logoSavedHint: 'The logo will be saved together with the application.'
         },
         businessDescription: {
           title: 'Short business description for promo materials',
@@ -446,8 +448,11 @@ export const en: TranslationsShape = {
       submit: 'Submit application',
       submitting: 'Submitting...',
       submitError: 'The application could not be saved. Please try again.',
-      submissionDateTimeLabel: 'Submission date and time',
       draftBanner: 'This draft is stored locally in this browser until you submit the application.',
+      draftStatus: {
+        saved: 'Draft saved',
+        restored: 'Saved draft restored'
+      },
       logoUploadError: 'The logo file could not be read. Please choose it again.',
       logoTooLargeError: 'Logo file is too large (max 8 MB). Please choose a smaller one.',
       logoUnsupportedFormatError: 'Unsupported file format. Please choose a JPG, PNG, WebP, AVIF or GIF file.',
@@ -542,6 +547,7 @@ export const en: TranslationsShape = {
       },
       summary: {
         title: 'Application saved',
+        confirm: 'OK',
         description: 'The application has been saved.',
         tutorName: 'Tutor',
         workshopTitle: 'Workshop title',

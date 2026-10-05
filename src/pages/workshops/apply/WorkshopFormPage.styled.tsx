@@ -3,7 +3,7 @@ import { DropShadow, Radius } from '../../../styles/cards';
 import { FontSize } from '../../../styles/font-size';
 import { ScreenSize } from '../../../styles/screeen-size';
 import { RedesignSpacings } from '../../../styles/spacings';
-import { BackgroundColors, Colors, FontFamilies, GrayScale, TextColors } from '../../../styles/theme';
+import { BackgroundColors, Colors, FontFamilies, GrayScale } from '../../../styles/theme';
 
 export const FormCard = styled.div`
   width: 100%;
@@ -74,23 +74,6 @@ export const TextArea = styled.textarea`
     outline: 2px solid ${BackgroundColors.green.medium};
     border-color: ${BackgroundColors.green.strong};
   }
-`;
-
-export const InfoRow = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${RedesignSpacings.xxs};
-  font-family: ${FontFamilies.primary};
-`;
-
-export const InfoLabel = styled.div`
-  font-size: ${FontSize.sm};
-  color: ${TextColors.secondary};
-`;
-
-export const InfoValue = styled.div`
-  font-size: ${FontSize.md};
-  color: ${TextColors.primary};
 `;
 
 export const RadioGroup = styled.div`

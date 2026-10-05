@@ -302,6 +302,11 @@ export const pl = {
     formField: {
       requirement: {
         required: 'Wymagane'
+      },
+      logo: {
+        change: 'Zmień logo',
+        remove: 'Usuń logo',
+        previewAlt: 'Podgląd logo'
       }
     },
     vendorsFormPage: {
@@ -383,10 +388,7 @@ export const pl = {
           logoLabel: 'Logo',
           logoHint:
             'Możesz dodać plik graficzny logo. Po zapisaniu zgłoszenia będzie można go pobrać z panelu zgłoszeń.',
-          logoSavedHint: 'Logo zostało zapisane razem ze zgłoszeniem.',
-          logoChange: 'Zmień logo',
-          logoRemove: 'Usuń logo',
-          logoPreviewAlt: 'Podgląd logo'
+          logoSavedHint: 'Logo zostało zapisane razem ze zgłoszeniem.'
         },
         businessDescription: {
           title: 'Krótki opis działalności do materiałów promocyjnych',
@@ -445,8 +447,11 @@ export const pl = {
       submit: 'Wyślij zgłoszenie',
       submitting: 'Wysyłanie...',
       submitError: 'Nie udało się zapisać zgłoszenia. Spróbuj ponownie.',
-      submissionDateTimeLabel: 'Data i godzina wysłania',
       draftBanner: 'Szkic formularza zapisuje się lokalnie w tej przeglądarce do momentu wysłania zgłoszenia.',
+      draftStatus: {
+        saved: 'Szkic zapisany',
+        restored: 'Przywrócono zapisany szkic'
+      },
       logoUploadError: 'Nie udało się odczytać pliku z logo. Wybierz go ponownie.',
       logoTooLargeError: 'Plik z logo jest za duży (max 8 MB). Wybierz mniejszy.',
       logoUnsupportedFormatError: 'Nieobsługiwany format pliku. Wybierz plik JPG, PNG, WebP, AVIF lub GIF.',
@@ -541,6 +546,7 @@ export const pl = {
       },
       summary: {
         title: 'Zgłoszenie zostało zapisane',
+        confirm: 'OK',
         description: 'Zgłoszenie zostało zapisane.',
         tutorName: 'Prowadzący',
         workshopTitle: 'Tytuł warsztatu',

@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
+import { LogoPreview } from '../../../../components/form/LogoPreview';
 import { FormField } from '../../../../components/form/FormField';
 import { FieldHint } from '../../../../components/form/FormField.styled';
 import { DownloadActions, Fieldset, FormSection, TextArea, TextInput } from '../VendorFormPage.styled';
-import { VendorFormLogoPreview } from './VendorFormLogoPreview';
 import type { VendorFormActions, VendorFormBindings, VendorFormStatusState } from './vendorFormViewContracts';
 
 const INVOICE_DETAILS_ERROR_ID = 'vendor-invoice-details-error';
@@ -84,7 +84,7 @@ export const VendorFormInvoiceSection = ({ formActions, formBindings, formStatus
           ) : null}
         </FormField>
         {formData.logoDataUrl ? (
-          <VendorFormLogoPreview
+          <LogoPreview
             logoDataUrl={formData.logoDataUrl}
             logoFileName={formData.logoFileName}
             isDisabled={isLoadingLogo}

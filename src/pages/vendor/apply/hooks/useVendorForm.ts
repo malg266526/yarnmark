@@ -26,31 +26,12 @@ import {
   type StandDemand,
   type VendorFormState
 } from '../../../../domain/vendorApplications/vendorFormTypes.ts';
-import { resolveVendorFormDraftStatus } from '../vendorFormDraftStatus.ts';
+import { focusFirstInvalidField } from '../../../../components/form/formFocus.ts';
+import { isFormDraftRestorable, resolveFormDraftStatus } from '../../../../components/form/formDraftStatusUtils.ts';
 import { createEmptyVendorFormDraft, parseStoredVendorFormDraft } from '../vendorFormStorage.ts';
 import { getHighDemandStandIds } from '../../../../domain/vendorApplications/vendorFormStandInterestUtils.ts';
 
-const VENDOR_FORM_FIELD_SELECTOR = '[data-vendor-form-field]';
-const FOCUSABLE_FIELD_SELECTOR = 'input, textarea, button, select, [tabindex]';
-
-const focusFirstInvalidField = (validationErrors: Partial<Record<keyof VendorFormValues, string>>) => {
-  const invalidFieldNames = new Set(Object.keys(validationErrors));
-  const firstInvalidField = Array.from(document.querySelectorAll<HTMLElement>(VENDOR_FORM_FIELD_SELECTOR)).find(
-    (field) => invalidFieldNames.has(field.dataset.vendorFormField ?? '')
-  );
-
-  if (!firstInvalidField) {
-    return;
-  }
-
-  firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-  const focusTarget = firstInvalidField.matches(FOCUSABLE_FIELD_SELECTOR)
-    ? firstInvalidField
-    : firstInvalidField.querySelector<HTMLElement>(FOCUSABLE_FIELD_SELECTOR);
-
-  focusTarget?.focus({ preventScroll: true });
-};
+const VENDOR_FORM_FIELD_ATTRIBUTE = 'data-vendor-form-field';
 
 const collectSchemaErrors = (values: VendorFormValues) => {
   const result = vendorFormValidationSchema.safeParse(values);
@@ -65,7 +46,7 @@ const readInitialVendorFormDraft = () => {
 
   return {
     draft: storedDraft ?? createEmptyVendorFormDraft(),
-    wasRestored: storedDraft !== null && !storedDraft.isComplete
+    wasRestored: isFormDraftRestorable(storedDraft, INITIAL_VENDOR_FORM_STATE)
   };
 };
 
@@ -91,7 +72,7 @@ export const useVendorForm = (): VendorFormViewProps => {
 
   const { formState, getValues, register, reset, setValue, trigger, watch } = form;
   const formData = watch();
-  const draftStatus = resolveVendorFormDraftStatus({
+  const draftStatus = resolveFormDraftStatus({
     isComplete,
     isDirty: formState.isDirty,
     wasRestored: wasDraftRestored
@@ -206,7 +187,10 @@ export const useVendorForm = (): VendorFormViewProps => {
 
     if (!isValid) {
       focusFirstInvalidField(
-        Object.keys(nextValidationErrors).length > 0 ? nextValidationErrors : collectSchemaErrors(getValues())
+        VENDOR_FORM_FIELD_ATTRIBUTE,
+        Object.keys(
+          Object.keys(nextValidationErrors).length > 0 ? nextValidationErrors : collectSchemaErrors(getValues())
+        )
       );
       return;
     }
