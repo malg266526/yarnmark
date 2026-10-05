@@ -44,14 +44,6 @@ export const Fieldset = styled.fieldset`
   gap: ${RedesignSpacings.sm};
 `;
 
-export const FieldLabel = styled.label`
-  display: flex;
-  flex-direction: column;
-  gap: ${RedesignSpacings.xxs};
-  font-size: ${FontSize.sm};
-  font-family: ${FontFamilies.primary};
-`;
-
 export const TextInput = styled.input`
   width: 100%;
   padding: 12px 14px;
@@ -82,13 +74,6 @@ export const TextArea = styled.textarea`
     outline: 2px solid ${BackgroundColors.green.medium};
     border-color: ${BackgroundColors.green.strong};
   }
-`;
-
-export const FieldHint = styled.div`
-  color: ${TextColors.secondary};
-  font-size: ${FontSize.xs};
-  line-height: 1.5;
-  font-family: ${FontFamilies.primary};
 `;
 
 export const InfoRow = styled.div`
@@ -130,12 +115,6 @@ export const DownloadActions = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: ${RedesignSpacings.xs};
-`;
-
-export const ErrorText = styled.div`
-  color: ${TextColors.accent};
-  font-size: ${FontSize.sm};
-  font-family: ${FontFamilies.primary};
 `;
 
 export const ActionsRow = styled.div`

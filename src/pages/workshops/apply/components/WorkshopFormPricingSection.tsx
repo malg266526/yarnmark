@@ -1,15 +1,10 @@
 import React from 'react';
 import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import {
-  ErrorText,
-  FieldLabel,
-  Fieldset,
-  FormSection,
-  RadioGroup,
-  RadioOption,
-  TextInput
-} from '../WorkshopFormPage.styled';
+import { FormField } from '../../../../components/form/FormField';
+import { FormFieldError } from '../../../../components/form/FormFieldError';
+import { FormFieldHeading } from '../../../../components/form/FormFieldHeading';
+import { Fieldset, FormSection, RadioGroup, RadioOption, TextInput } from '../WorkshopFormPage.styled';
 import type { WorkshopFormActions, WorkshopFormBindings } from './workshopFormViewContracts';
 
 interface WorkshopFormPricingSectionProps {
@@ -30,8 +25,12 @@ export const WorkshopFormPricingSection = ({ formActions, formBindings }: Worksh
       <FormSection>
         <Fieldset>
           <Typography size="xl">{t('workshopsFormPage.steps.pricing.title')}</Typography>
-          <FieldLabel htmlFor="gross_price_per_participant">
-            {t('workshopsFormPage.steps.pricing.grossPricePerParticipantLabel')}
+          <FormField
+            htmlFor="gross_price_per_participant"
+            label={t('workshopsFormPage.steps.pricing.grossPricePerParticipantLabel')}
+            requirement="required"
+            error={resolveFieldErrorMessage('grossPricePerParticipant')}
+          >
             <TextInput
               id="gross_price_per_participant"
               type="number"
@@ -48,16 +47,13 @@ export const WorkshopFormPricingSection = ({ formActions, formBindings }: Worksh
                 )
               }
             />
-          </FieldLabel>
-          {resolveFieldErrorMessage('grossPricePerParticipant') ? (
-            <ErrorText>{resolveFieldErrorMessage('grossPricePerParticipant')}</ErrorText>
-          ) : null}
+          </FormField>
         </Fieldset>
       </FormSection>
 
       <FormSection>
         <Fieldset>
-          <Typography size="xl">{t('workshopsFormPage.steps.contractType.title')}</Typography>
+          <FormFieldHeading title={t('workshopsFormPage.steps.contractType.title')} requirement="required" />
           <RadioGroup>
             {CONTRACT_TYPES.map((contractType) => (
               <RadioOption key={contractType}>
@@ -72,19 +68,20 @@ export const WorkshopFormPricingSection = ({ formActions, formBindings }: Worksh
             ))}
           </RadioGroup>
           {formData.contractType === 'other' ? (
-            <FieldLabel htmlFor="contract_type_other">
-              {t('workshopsFormPage.steps.contractType.otherLabel')}
+            <FormField
+              htmlFor="contract_type_other"
+              label={t('workshopsFormPage.steps.contractType.otherLabel')}
+              requirement="required"
+            >
               <TextInput
                 id="contract_type_other"
                 type="text"
                 placeholder={t('workshopsFormPage.steps.contractType.otherPlaceholder')}
                 {...register('contractTypeOther')}
               />
-            </FieldLabel>
+            </FormField>
           ) : null}
-          {resolveFieldErrorMessage('contractType', 'contractTypeOther') ? (
-            <ErrorText>{resolveFieldErrorMessage('contractType', 'contractTypeOther')}</ErrorText>
-          ) : null}
+          <FormFieldError message={resolveFieldErrorMessage('contractType', 'contractTypeOther')} />
         </Fieldset>
       </FormSection>
     </>

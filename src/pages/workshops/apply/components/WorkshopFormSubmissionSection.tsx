@@ -1,7 +1,8 @@
 import React from 'react';
 import { CtaButton } from '../../../../components/Button';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import { ActionsRow, ActionsSpacer, ErrorText, FieldHint } from '../WorkshopFormPage.styled';
+import { ErrorText, FieldHint } from '../../../../components/form/FormField.styled';
+import { ActionsRow, ActionsSpacer } from '../WorkshopFormPage.styled';
 import { SubmissionDateTimePreview } from './SubmissionDateTimePreview';
 import type { WorkshopFormStatusState } from './workshopFormViewContracts';
 

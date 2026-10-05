@@ -1,18 +1,10 @@
 import React from 'react';
 import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import {
-  ErrorText,
-  FieldHint,
-  FieldLabel,
-  FieldLabelText,
-  Fieldset,
-  FormSection,
-  TextArea
-} from '../VendorFormPage.styled';
+import { FormField } from '../../../../components/form/FormField';
+import { Fieldset, FormSection, TextArea } from '../VendorFormPage.styled';
 import { VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH } from '../../../../domain/vendorApplications/vendorFormConstants.ts';
 import type { VendorFormActions, VendorFormBindings } from './vendorFormViewContracts';
-import { VendorFormFieldRequirement } from './VendorFormFieldRequirement';
 
 const BUSINESS_DESCRIPTION_ERROR_ID = 'vendor-business-description-error';
 
@@ -35,11 +27,17 @@ export const VendorFormBusinessDescriptionSection = ({
     <FormSection>
       <Fieldset>
         <Typography size="xl">{t('vendorsFormPage.steps.businessDescription.title')}</Typography>
-        <FieldLabel htmlFor="business_description">
-          <FieldLabelText>
-            {t('vendorsFormPage.steps.businessDescription.label')}
-            <VendorFormFieldRequirement requirement="required" />
-          </FieldLabelText>
+        <FormField
+          htmlFor="business_description"
+          label={t('vendorsFormPage.steps.businessDescription.label')}
+          requirement="required"
+          error={businessDescriptionError}
+          errorId={BUSINESS_DESCRIPTION_ERROR_ID}
+          hint={t('vendorsFormPage.steps.businessDescription.limitHint', {
+            current: formData.businessDescription.length,
+            max: VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH
+          })}
+        >
           <TextArea
             id="business_description"
             name={businessDescriptionField.name}
@@ -51,16 +49,7 @@ export const VendorFormBusinessDescriptionSection = ({
             onBlur={businessDescriptionField.onBlur}
             onChange={(event) => updateBusinessDescription(event.target.value)}
           />
-          <FieldHint>
-            {t('vendorsFormPage.steps.businessDescription.limitHint', {
-              current: formData.businessDescription.length,
-              max: VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH
-            })}
-          </FieldHint>
-        </FieldLabel>
-        {businessDescriptionError ? (
-          <ErrorText id={BUSINESS_DESCRIPTION_ERROR_ID}>{businessDescriptionError}</ErrorText>
-        ) : null}
+        </FormField>
       </Fieldset>
     </FormSection>
   );

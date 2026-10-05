@@ -1,17 +1,9 @@
 import React from 'react';
-import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import {
-  CheckboxRow,
-  DisclaimerText,
-  ErrorText,
-  FieldHeading,
-  Fieldset,
-  FormSection,
-  InlineLink
-} from '../VendorFormPage.styled';
+import { FormFieldError } from '../../../../components/form/FormFieldError';
+import { FormFieldHeading } from '../../../../components/form/FormFieldHeading';
+import { CheckboxRow, DisclaimerText, Fieldset, FormSection, InlineLink } from '../VendorFormPage.styled';
 import type { VendorFormActions, VendorFormBindings } from './vendorFormViewContracts';
-import { VendorFormFieldRequirement } from './VendorFormFieldRequirement';
 
 const ACCEPTED_STATUTE_ERROR_ID = 'vendor-accepted-statute-error';
 
@@ -29,10 +21,7 @@ export const VendorFormStatuteSection = ({ formActions, formBindings }: VendorFo
   return (
     <FormSection>
       <Fieldset>
-        <FieldHeading>
-          <Typography size="xl">{t('vendorsFormPage.steps.statute.title')}</Typography>
-          <VendorFormFieldRequirement requirement="required" />
-        </FieldHeading>
+        <FormFieldHeading title={t('vendorsFormPage.steps.statute.title')} requirement="required" />
         <CheckboxRow htmlFor="accept_statute">
           <input
             id="accept_statute"
@@ -49,7 +38,7 @@ export const VendorFormStatuteSection = ({ formActions, formBindings }: VendorFo
           </span>
         </CheckboxRow>
         <DisclaimerText>{t('vendorsFormPage.steps.statute.complianceHint')}</DisclaimerText>
-        {acceptedStatuteError ? <ErrorText id={ACCEPTED_STATUTE_ERROR_ID}>{acceptedStatuteError}</ErrorText> : null}
+        <FormFieldError id={ACCEPTED_STATUTE_ERROR_ID} message={acceptedStatuteError} />
       </Fieldset>
     </FormSection>
   );

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Trans } from 'react-i18next';
 import { Typography } from '../../../../components/Typography';
+import { FieldHint } from '../../../../components/form/FormField.styled';
+import { FormFieldError } from '../../../../components/form/FormFieldError';
+import { FormFieldHeading } from '../../../../components/form/FormFieldHeading';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import {
   DisclaimerText,
-  ErrorText,
-  FieldHeading,
-  FieldHint,
   Fieldset,
   FormSection,
   HallLayout,
@@ -25,7 +25,6 @@ import {
 } from '../VendorFormPage.styled';
 import { VENDOR_FORM_MAX_PREFERRED_STANDS } from '../../../../domain/vendorApplications/vendorFormConstants.ts';
 import { SelectableHall } from './SelectableHall';
-import { VendorFormFieldRequirement } from './VendorFormFieldRequirement';
 import type { VendorFormActions, VendorFormBindings, VendorFormDerivedState } from './vendorFormViewContracts';
 
 const PREFERRED_STANDS_ERROR_ID = 'vendor-preferred-stands-error';
@@ -57,10 +56,7 @@ export const VendorFormStandPreferencesSection = ({
           aria-invalid={Boolean(preferredStandsError)}
           aria-describedby={preferredStandsError ? PREFERRED_STANDS_ERROR_ID : undefined}
         >
-          <FieldHeading>
-            <Typography size="xl">{t('vendorsFormPage.steps.preferredStands.title')}</Typography>
-            <VendorFormFieldRequirement requirement="required" />
-          </FieldHeading>
+          <FormFieldHeading title={t('vendorsFormPage.steps.preferredStands.title')} requirement="required" />
           <FieldHint>
             {t('vendorsFormPage.steps.preferredStands.hint', {
               max: VENDOR_FORM_MAX_PREFERRED_STANDS
@@ -137,16 +133,13 @@ export const VendorFormStandPreferencesSection = ({
               components={[<InlineLink key="vendors_info_link" href="/info-for-vendors" />]}
             />
           </DisclaimerText>
-          {preferredStandsError ? <ErrorText id={PREFERRED_STANDS_ERROR_ID}>{preferredStandsError}</ErrorText> : null}
+          <FormFieldError id={PREFERRED_STANDS_ERROR_ID} message={preferredStandsError} />
         </Fieldset>
       </FormSection>
 
       <FormSection>
         <Fieldset>
-          <FieldHeading>
-            <Typography size="xl">{t('vendorsFormPage.steps.interestedIfUnavailable.title')}</Typography>
-            <VendorFormFieldRequirement requirement="required" />
-          </FieldHeading>
+          <FormFieldHeading title={t('vendorsFormPage.steps.interestedIfUnavailable.title')} requirement="required" />
           <RadioGroup
             role="radiogroup"
             data-vendor-form-field="interestedIfUnavailable"
@@ -172,18 +165,13 @@ export const VendorFormStandPreferencesSection = ({
               <span>{t('vendorsFormPage.steps.interestedIfUnavailable.no')}</span>
             </RadioOption>
           </RadioGroup>
-          {interestedIfUnavailableError ? (
-            <ErrorText id={INTERESTED_IF_UNAVAILABLE_ERROR_ID}>{interestedIfUnavailableError}</ErrorText>
-          ) : null}
+          <FormFieldError id={INTERESTED_IF_UNAVAILABLE_ERROR_ID} message={interestedIfUnavailableError} />
         </Fieldset>
       </FormSection>
 
       <FormSection>
         <Fieldset>
-          <FieldHeading>
-            <Typography size="xl">{t('vendorsFormPage.steps.sponsorshipInterest.title')}</Typography>
-            <VendorFormFieldRequirement requirement="optional" />
-          </FieldHeading>
+          <FormFieldHeading title={t('vendorsFormPage.steps.sponsorshipInterest.title')} requirement="optional" />
           <DisclaimerText>{t('vendorsFormPage.steps.sponsorshipInterest.hint')}</DisclaimerText>
           <RadioGroup>
             <RadioOption>

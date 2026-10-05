@@ -1,19 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import {
-  DownloadActions,
-  ErrorText,
-  FieldHint,
-  FieldLabel,
-  FieldLabelText,
-  Fieldset,
-  FormSection,
-  TextArea,
-  TextInput
-} from '../VendorFormPage.styled';
+import { FormField } from '../../../../components/form/FormField';
+import { FieldHint } from '../../../../components/form/FormField.styled';
+import { DownloadActions, Fieldset, FormSection, TextArea, TextInput } from '../VendorFormPage.styled';
 import type { VendorFormActions, VendorFormBindings, VendorFormStatusState } from './vendorFormViewContracts';
-import { VendorFormFieldRequirement } from './VendorFormFieldRequirement';
 
 const INVOICE_DETAILS_ERROR_ID = 'vendor-invoice-details-error';
 const LOGO_ERROR_ID = 'vendor-logo-error';
@@ -43,11 +34,13 @@ export const VendorFormInvoiceSection = ({ formActions, formBindings, formStatus
     <FormSection>
       <Fieldset>
         <Typography size="xl">{t('vendorsFormPage.steps.invoice.title')}</Typography>
-        <FieldLabel htmlFor="invoice_details">
-          <FieldLabelText>
-            {t('vendorsFormPage.steps.invoice.detailsLabel')}
-            <VendorFormFieldRequirement requirement="required" />
-          </FieldLabelText>
+        <FormField
+          htmlFor="invoice_details"
+          label={t('vendorsFormPage.steps.invoice.detailsLabel')}
+          requirement="required"
+          error={invoiceDetailsError}
+          errorId={INVOICE_DETAILS_ERROR_ID}
+        >
           <TextArea
             id="invoice_details"
             data-vendor-form-field="invoiceDetails"
@@ -56,14 +49,15 @@ export const VendorFormInvoiceSection = ({ formActions, formBindings, formStatus
             placeholder={t('vendorsFormPage.steps.invoice.detailsPlaceholder')}
             {...register('invoiceDetails')}
           />
-        </FieldLabel>
-        {invoiceDetailsError ? <ErrorText id={INVOICE_DETAILS_ERROR_ID}>{invoiceDetailsError}</ErrorText> : null}
+        </FormField>
 
-        <FieldLabel htmlFor="logo_file">
-          <FieldLabelText>
-            {t('vendorsFormPage.steps.invoice.logoLabel')}
-            <VendorFormFieldRequirement requirement="required" />
-          </FieldLabelText>
+        <FormField
+          htmlFor="logo_file"
+          label={t('vendorsFormPage.steps.invoice.logoLabel')}
+          requirement="required"
+          error={logoError}
+          errorId={LOGO_ERROR_ID}
+        >
           <TextInput
             ref={logoInputRef}
             id="logo_file"
@@ -87,8 +81,7 @@ export const VendorFormInvoiceSection = ({ formActions, formBindings, formStatus
               <FieldHint>{t('vendorsFormPage.steps.invoice.logoSavedHint')}</FieldHint>
             </DownloadActions>
           ) : null}
-        </FieldLabel>
-        {logoError ? <ErrorText id={LOGO_ERROR_ID}>{logoError}</ErrorText> : null}
+        </FormField>
       </Fieldset>
     </FormSection>
   );

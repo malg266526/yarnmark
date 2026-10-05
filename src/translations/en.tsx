@@ -300,6 +300,12 @@ export const en: TranslationsShape = {
           'In case of reservation and missing the payment - reservation is cancelled and will be available again for vendors'
       }
     },
+    formField: {
+      requirement: {
+        required: 'Required',
+        optional: 'Optional'
+      }
+    },
     vendorsFormPage: {
       title: 'Vendor application form',
       kicker: 'For vendors',
@@ -310,10 +316,6 @@ export const en: TranslationsShape = {
       logoTooLargeError: 'Logo file is too large (max 8 MB). Please choose a smaller one.',
       logoLoading: 'Processing logo…',
       draftBanner: 'This draft is stored locally in this browser until you submit the application.',
-      fieldRequirement: {
-        required: 'Required',
-        optional: 'Optional'
-      },
       steps: {
         storeName: {
           title: 'What is the name of your brand or store?',

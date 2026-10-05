@@ -1,15 +1,10 @@
 import React from 'react';
 import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import {
-  ErrorText,
-  FieldLabel,
-  Fieldset,
-  FormSection,
-  RadioGroup,
-  RadioOption,
-  TextInput
-} from '../WorkshopFormPage.styled';
+import { FormField } from '../../../../components/form/FormField';
+import { FormFieldError } from '../../../../components/form/FormFieldError';
+import { FormFieldHeading } from '../../../../components/form/FormFieldHeading';
+import { Fieldset, FormSection, RadioGroup, RadioOption, TextInput } from '../WorkshopFormPage.styled';
 import type { WorkshopFormActions, WorkshopFormBindings } from './workshopFormViewContracts';
 
 interface WorkshopFormParticipantsSectionProps {
@@ -34,8 +29,11 @@ export const WorkshopFormParticipantsSection = ({
       <FormSection>
         <Fieldset>
           <Typography size="xl">{t('workshopsFormPage.steps.participants.title')}</Typography>
-          <FieldLabel htmlFor="min_participants">
-            {t('workshopsFormPage.steps.participants.minLabel')}
+          <FormField
+            htmlFor="min_participants"
+            label={t('workshopsFormPage.steps.participants.minLabel')}
+            requirement="required"
+          >
             <TextInput
               id="min_participants"
               type="number"
@@ -48,10 +46,13 @@ export const WorkshopFormParticipantsSection = ({
                 setNumberFieldValue('minParticipants', event.target.value === '' ? null : Number(event.target.value))
               }
             />
-          </FieldLabel>
+          </FormField>
 
-          <FieldLabel htmlFor="max_participants">
-            {t('workshopsFormPage.steps.participants.maxLabel')}
+          <FormField
+            htmlFor="max_participants"
+            label={t('workshopsFormPage.steps.participants.maxLabel')}
+            requirement="required"
+          >
             <TextInput
               id="max_participants"
               type="number"
@@ -64,16 +65,14 @@ export const WorkshopFormParticipantsSection = ({
                 setNumberFieldValue('maxParticipants', event.target.value === '' ? null : Number(event.target.value))
               }
             />
-          </FieldLabel>
-          {resolveFieldErrorMessage('minParticipants', 'maxParticipants') ? (
-            <ErrorText>{resolveFieldErrorMessage('minParticipants', 'maxParticipants')}</ErrorText>
-          ) : null}
+          </FormField>
+          <FormFieldError message={resolveFieldErrorMessage('minParticipants', 'maxParticipants')} />
         </Fieldset>
       </FormSection>
 
       <FormSection>
         <Fieldset>
-          <Typography size="xl">{t('workshopsFormPage.steps.experienceLevel.title')}</Typography>
+          <FormFieldHeading title={t('workshopsFormPage.steps.experienceLevel.title')} requirement="required" />
           <RadioGroup>
             {EXPERIENCE_LEVELS.map((experienceLevel) => (
               <RadioOption key={experienceLevel}>
@@ -87,9 +86,7 @@ export const WorkshopFormParticipantsSection = ({
               </RadioOption>
             ))}
           </RadioGroup>
-          {resolveFieldErrorMessage('experienceLevel') ? (
-            <ErrorText>{resolveFieldErrorMessage('experienceLevel')}</ErrorText>
-          ) : null}
+          <FormFieldError message={resolveFieldErrorMessage('experienceLevel')} />
         </Fieldset>
       </FormSection>
     </>

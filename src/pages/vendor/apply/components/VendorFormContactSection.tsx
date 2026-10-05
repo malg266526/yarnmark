@@ -1,9 +1,9 @@
 import React from 'react';
 import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import { ErrorText, FieldLabel, FieldLabelText, Fieldset, FormSection, TextInput } from '../VendorFormPage.styled';
+import { FormField } from '../../../../components/form/FormField';
+import { Fieldset, FormSection, TextInput } from '../VendorFormPage.styled';
 import type { VendorFormBindings } from './vendorFormViewContracts';
-import { VendorFormFieldRequirement } from './VendorFormFieldRequirement';
 
 const PHONE_NUMBER_ERROR_ID = 'vendor-phone-number-error';
 const EMAIL_ERROR_ID = 'vendor-email-error';
@@ -22,11 +22,13 @@ export const VendorFormContactSection = ({ formBindings }: VendorFormContactSect
     <FormSection>
       <Fieldset>
         <Typography size="xl">{t('vendorsFormPage.steps.contact.title')}</Typography>
-        <FieldLabel htmlFor="phone_number">
-          <FieldLabelText>
-            {t('vendorsFormPage.steps.contact.phoneLabel')}
-            <VendorFormFieldRequirement requirement="required" />
-          </FieldLabelText>
+        <FormField
+          htmlFor="phone_number"
+          label={t('vendorsFormPage.steps.contact.phoneLabel')}
+          requirement="required"
+          error={phoneNumberError}
+          errorId={PHONE_NUMBER_ERROR_ID}
+        >
           <TextInput
             id="phone_number"
             type="tel"
@@ -36,14 +38,15 @@ export const VendorFormContactSection = ({ formBindings }: VendorFormContactSect
             placeholder={t('vendorsFormPage.steps.contact.phonePlaceholder')}
             {...register('phoneNumber')}
           />
-        </FieldLabel>
-        {phoneNumberError ? <ErrorText id={PHONE_NUMBER_ERROR_ID}>{phoneNumberError}</ErrorText> : null}
+        </FormField>
 
-        <FieldLabel htmlFor="email_address">
-          <FieldLabelText>
-            {t('vendorsFormPage.steps.contact.emailLabel')}
-            <VendorFormFieldRequirement requirement="required" />
-          </FieldLabelText>
+        <FormField
+          htmlFor="email_address"
+          label={t('vendorsFormPage.steps.contact.emailLabel')}
+          requirement="required"
+          error={emailError}
+          errorId={EMAIL_ERROR_ID}
+        >
           <TextInput
             id="email_address"
             type="email"
@@ -53,8 +56,7 @@ export const VendorFormContactSection = ({ formBindings }: VendorFormContactSect
             placeholder={t('vendorsFormPage.steps.contact.emailPlaceholder')}
             {...register('email')}
           />
-        </FieldLabel>
-        {emailError ? <ErrorText id={EMAIL_ERROR_ID}>{emailError}</ErrorText> : null}
+        </FormField>
       </Fieldset>
     </FormSection>
   );

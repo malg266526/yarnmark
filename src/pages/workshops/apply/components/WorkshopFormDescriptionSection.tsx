@@ -1,7 +1,8 @@
 import React from 'react';
 import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import { ErrorText, FieldHint, FieldLabel, Fieldset, FormSection, TextArea } from '../WorkshopFormPage.styled';
+import { FormField } from '../../../../components/form/FormField';
+import { Fieldset, FormSection, TextArea } from '../WorkshopFormPage.styled';
 import { WORKSHOP_FORM_DESCRIPTION_MAX_LENGTH } from '../../../../domain/workshopApplications/workshopFormConstants.ts';
 import type { WorkshopFormActions, WorkshopFormBindings } from './workshopFormViewContracts';
 
@@ -20,8 +21,16 @@ export const WorkshopFormDescriptionSection = ({ formActions, formBindings }: Wo
     <FormSection>
       <Fieldset>
         <Typography size="xl">{t('workshopsFormPage.steps.description.title')}</Typography>
-        <FieldLabel htmlFor="workshop_description">
-          {t('workshopsFormPage.steps.description.label')}
+        <FormField
+          htmlFor="workshop_description"
+          label={t('workshopsFormPage.steps.description.label')}
+          requirement="required"
+          error={resolveFieldErrorMessage('description')}
+          hint={t('workshopsFormPage.steps.description.limitHint', {
+            current: formData.description.length,
+            max: WORKSHOP_FORM_DESCRIPTION_MAX_LENGTH
+          })}
+        >
           <TextArea
             id="workshop_description"
             name={descriptionField.name}
@@ -29,16 +38,7 @@ export const WorkshopFormDescriptionSection = ({ formActions, formBindings }: Wo
             onBlur={descriptionField.onBlur}
             onChange={(event) => updateDescription(event.target.value)}
           />
-          <FieldHint>
-            {t('workshopsFormPage.steps.description.limitHint', {
-              current: formData.description.length,
-              max: WORKSHOP_FORM_DESCRIPTION_MAX_LENGTH
-            })}
-          </FieldHint>
-        </FieldLabel>
-        {resolveFieldErrorMessage('description') ? (
-          <ErrorText>{resolveFieldErrorMessage('description')}</ErrorText>
-        ) : null}
+        </FormField>
       </Fieldset>
     </FormSection>
   );

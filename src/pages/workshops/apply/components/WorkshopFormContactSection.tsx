@@ -1,7 +1,8 @@
 import React from 'react';
 import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import { ErrorText, FieldLabel, Fieldset, FormSection, TextInput } from '../WorkshopFormPage.styled';
+import { FormField } from '../../../../components/form/FormField';
+import { Fieldset, FormSection, TextInput } from '../WorkshopFormPage.styled';
 import type { WorkshopFormBindings } from './workshopFormViewContracts';
 
 interface WorkshopFormContactSectionProps {
@@ -16,28 +17,33 @@ export const WorkshopFormContactSection = ({ formBindings }: WorkshopFormContact
     <FormSection>
       <Fieldset>
         <Typography size="xl">{t('workshopsFormPage.steps.contact.title')}</Typography>
-        <FieldLabel htmlFor="phone_number">
-          {t('workshopsFormPage.steps.contact.phoneLabel')}
+        <FormField
+          htmlFor="phone_number"
+          label={t('workshopsFormPage.steps.contact.phoneLabel')}
+          requirement="required"
+          error={resolveFieldErrorMessage('phoneNumber')}
+        >
           <TextInput
             id="phone_number"
             type="tel"
             placeholder={t('workshopsFormPage.steps.contact.phonePlaceholder')}
             {...register('phoneNumber')}
           />
-        </FieldLabel>
+        </FormField>
 
-        <FieldLabel htmlFor="email_address">
-          {t('workshopsFormPage.steps.contact.emailLabel')}
+        <FormField
+          htmlFor="email_address"
+          label={t('workshopsFormPage.steps.contact.emailLabel')}
+          requirement="required"
+          error={resolveFieldErrorMessage('email')}
+        >
           <TextInput
             id="email_address"
             type="email"
             placeholder={t('workshopsFormPage.steps.contact.emailPlaceholder')}
             {...register('email')}
           />
-        </FieldLabel>
-        {resolveFieldErrorMessage('phoneNumber', 'email') ? (
-          <ErrorText>{resolveFieldErrorMessage('phoneNumber', 'email')}</ErrorText>
-        ) : null}
+        </FormField>
       </Fieldset>
     </FormSection>
   );

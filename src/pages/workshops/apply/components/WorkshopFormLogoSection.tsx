@@ -2,15 +2,9 @@ import React from 'react';
 import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import { WORKSHOP_FORM_LOGO_ACCEPTED_MIME_TYPES } from '../../../../domain/workshopApplications/workshopFormConstants.ts';
-import {
-  DownloadActions,
-  ErrorText,
-  FieldHint,
-  FieldLabel,
-  Fieldset,
-  FormSection,
-  TextInput
-} from '../WorkshopFormPage.styled';
+import { FormField } from '../../../../components/form/FormField';
+import { FieldHint } from '../../../../components/form/FormField.styled';
+import { DownloadActions, Fieldset, FormSection, TextInput } from '../WorkshopFormPage.styled';
 import type { WorkshopFormActions, WorkshopFormBindings, WorkshopFormStatusState } from './workshopFormViewContracts';
 
 interface WorkshopFormLogoSectionProps {
@@ -29,8 +23,12 @@ export const WorkshopFormLogoSection = ({ formActions, formBindings, formStatus 
     <FormSection>
       <Fieldset>
         <Typography size="xl">{t('workshopsFormPage.steps.logo.title')}</Typography>
-        <FieldLabel htmlFor="logo_file">
-          {t('workshopsFormPage.steps.logo.label')}
+        <FormField
+          htmlFor="logo_file"
+          label={t('workshopsFormPage.steps.logo.label')}
+          requirement="required"
+          error={resolveFieldErrorMessage('logoFileName')}
+        >
           <TextInput
             id="logo_file"
             type="file"
@@ -50,10 +48,7 @@ export const WorkshopFormLogoSection = ({ formActions, formBindings, formStatus 
               <FieldHint>{t('workshopsFormPage.steps.logo.savedHint')}</FieldHint>
             </DownloadActions>
           ) : null}
-        </FieldLabel>
-        {resolveFieldErrorMessage('logoFileName') ? (
-          <ErrorText>{resolveFieldErrorMessage('logoFileName')}</ErrorText>
-        ) : null}
+        </FormField>
       </Fieldset>
     </FormSection>
   );

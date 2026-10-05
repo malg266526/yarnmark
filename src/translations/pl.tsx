@@ -299,6 +299,12 @@ export const pl = {
           'W przypadku rezerwacji i nie opłacenia kosztów – rezerwacja zostaje anulowane i zostanie ponownie dostępne dla wystawców.'
       }
     },
+    formField: {
+      requirement: {
+        required: 'Wymagane',
+        optional: 'Opcjonalne'
+      }
+    },
     vendorsFormPage: {
       title: 'Formularz zgłoszeniowy wystawców',
       kicker: 'Dla wystawców',
@@ -309,10 +315,6 @@ export const pl = {
       logoTooLargeError: 'Plik z logo jest za duży (max 8 MB). Wybierz mniejszy.',
       logoLoading: 'Przetwarzanie pliku z logo…',
       draftBanner: 'Szkic formularza zapisuje się lokalnie w tej przeglądarce do momentu wysłania zgłoszenia.',
-      fieldRequirement: {
-        required: 'Wymagane',
-        optional: 'Opcjonalne'
-      },
       steps: {
         storeName: {
           title: 'Jak nazywa się Twoja marka lub sklep?',

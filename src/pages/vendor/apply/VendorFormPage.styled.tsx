@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import Modal from 'react-modal';
+import { FieldHint } from '../../../components/form/FormField.styled';
 import { DropShadow, Radius } from '../../../styles/cards';
 import { FontSize } from '../../../styles/font-size';
 import { ScreenSize } from '../../../styles/screeen-size';
@@ -163,40 +164,6 @@ export const Fieldset = styled.fieldset`
   gap: ${RedesignSpacings.sm};
 `;
 
-export const FieldLabel = styled.label`
-  display: flex;
-  flex-direction: column;
-  gap: ${RedesignSpacings.xxs};
-  font-size: ${FontSize.sm};
-  font-family: ${FontFamilies.primary};
-`;
-
-export const FieldHeading = styled.div`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: ${RedesignSpacings.xs};
-`;
-
-export const FieldLabelText = styled.span`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: ${RedesignSpacings.xs};
-`;
-
-export const FieldRequirementBadge = styled.span<{ $requirement: 'required' | 'optional' }>`
-  display: inline-flex;
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: ${({ $requirement }) => ($requirement === 'required' ? BackgroundColors.green.light : GrayScale[100])};
-  color: ${TextColors.secondary};
-  font-family: ${FontFamilies.primary};
-  font-size: ${FontSize.xs};
-  font-weight: 600;
-  line-height: 1.2;
-`;
-
 export const TextInput = styled.input`
   width: 100%;
   padding: 12px 14px;
@@ -229,13 +196,6 @@ export const TextArea = styled.textarea`
   }
 `;
 
-export const FieldHint = styled.div`
-  color: ${TextColors.secondary};
-  font-size: ${FontSize.xs};
-  line-height: 1.5;
-  font-family: ${FontFamilies.primary};
-`;
-
 export const DisclaimerText = styled(FieldHint)`
   font-size: ${FontSize.sm};
 `;
@@ -264,12 +224,6 @@ export const CheckboxRow = styled.label`
   gap: ${RedesignSpacings.xs};
   font-family: ${FontFamilies.primary};
   line-height: 1.4;
-`;
-
-export const ErrorText = styled.div`
-  color: ${TextColors.accent};
-  font-size: ${FontSize.sm};
-  font-family: ${FontFamilies.primary};
 `;
 
 export const ActionsRow = styled.div`

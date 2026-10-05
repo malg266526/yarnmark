@@ -1,19 +1,11 @@
 import React from 'react';
 import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import {
-  ErrorText,
-  FieldHeading,
-  FieldLabel,
-  FieldLabelText,
-  Fieldset,
-  FormSection,
-  RadioGroup,
-  RadioOption,
-  TextInput
-} from '../VendorFormPage.styled';
+import { FormField } from '../../../../components/form/FormField';
+import { FormFieldError } from '../../../../components/form/FormFieldError';
+import { FormFieldHeading } from '../../../../components/form/FormFieldHeading';
+import { Fieldset, FormSection, RadioGroup, RadioOption, TextInput } from '../VendorFormPage.styled';
 import type { VendorFormActions, VendorFormBindings } from './vendorFormViewContracts';
-import { VendorFormFieldRequirement } from './VendorFormFieldRequirement';
 
 const STORE_NAME_ERROR_ID = 'vendor-store-name-error';
 const ATTENDED_BEFORE_ERROR_ID = 'vendor-attended-before-error';
@@ -39,11 +31,13 @@ export const VendorFormBasicsSection = ({ formActions, formBindings }: VendorFor
       <FormSection $isFirst>
         <Fieldset>
           <Typography size="xl">{t('vendorsFormPage.steps.storeName.title')}</Typography>
-          <FieldLabel htmlFor="store_name">
-            <FieldLabelText>
-              {t('vendorsFormPage.steps.storeName.label')}
-              <VendorFormFieldRequirement requirement="required" />
-            </FieldLabelText>
+          <FormField
+            htmlFor="store_name"
+            label={t('vendorsFormPage.steps.storeName.label')}
+            requirement="required"
+            error={storeNameError}
+            errorId={STORE_NAME_ERROR_ID}
+          >
             <TextInput
               id="store_name"
               type="text"
@@ -53,17 +47,13 @@ export const VendorFormBasicsSection = ({ formActions, formBindings }: VendorFor
               placeholder={t('vendorsFormPage.steps.storeName.placeholder')}
               {...register('storeName')}
             />
-          </FieldLabel>
-          {storeNameError ? <ErrorText id={STORE_NAME_ERROR_ID}>{storeNameError}</ErrorText> : null}
+          </FormField>
         </Fieldset>
       </FormSection>
 
       <FormSection>
         <Fieldset>
-          <FieldHeading>
-            <Typography size="xl">{t('vendorsFormPage.steps.attendedBefore.title')}</Typography>
-            <VendorFormFieldRequirement requirement="required" />
-          </FieldHeading>
+          <FormFieldHeading title={t('vendorsFormPage.steps.attendedBefore.title')} requirement="required" />
           <RadioGroup
             role="radiogroup"
             data-vendor-form-field="attendedBefore"
@@ -89,16 +79,13 @@ export const VendorFormBasicsSection = ({ formActions, formBindings }: VendorFor
               <span>{t('vendorsFormPage.steps.attendedBefore.no')}</span>
             </RadioOption>
           </RadioGroup>
-          {attendedBeforeError ? <ErrorText id={ATTENDED_BEFORE_ERROR_ID}>{attendedBeforeError}</ErrorText> : null}
+          <FormFieldError id={ATTENDED_BEFORE_ERROR_ID} message={attendedBeforeError} />
         </Fieldset>
       </FormSection>
 
       <FormSection>
         <Fieldset>
-          <FieldHeading>
-            <Typography size="xl">{t('vendorsFormPage.steps.mainCategory.title')}</Typography>
-            <VendorFormFieldRequirement requirement="required" />
-          </FieldHeading>
+          <FormFieldHeading title={t('vendorsFormPage.steps.mainCategory.title')} requirement="required" />
           <RadioGroup
             role="radiogroup"
             data-vendor-form-field="mainCategory"
@@ -151,28 +138,25 @@ export const VendorFormBasicsSection = ({ formActions, formBindings }: VendorFor
               <span>{t('vendorsFormPage.steps.mainCategory.other')}</span>
             </RadioOption>
           </RadioGroup>
-          {mainCategoryError ? <ErrorText id={MAIN_CATEGORY_ERROR_ID}>{mainCategoryError}</ErrorText> : null}
+          <FormFieldError id={MAIN_CATEGORY_ERROR_ID} message={mainCategoryError} />
           {formData.mainCategory === 'other' ? (
-            <>
-              <FieldLabel htmlFor="main_category_other">
-                <FieldLabelText>
-                  {t('vendorsFormPage.steps.mainCategory.otherLabel')}
-                  <VendorFormFieldRequirement requirement="required" />
-                </FieldLabelText>
-                <TextInput
-                  id="main_category_other"
-                  type="text"
-                  data-vendor-form-field="mainCategoryOther"
-                  aria-invalid={Boolean(mainCategoryOtherError)}
-                  aria-describedby={mainCategoryOtherError ? MAIN_CATEGORY_OTHER_ERROR_ID : undefined}
-                  placeholder={t('vendorsFormPage.steps.mainCategory.otherPlaceholder')}
-                  {...register('mainCategoryOther')}
-                />
-              </FieldLabel>
-              {mainCategoryOtherError ? (
-                <ErrorText id={MAIN_CATEGORY_OTHER_ERROR_ID}>{mainCategoryOtherError}</ErrorText>
-              ) : null}
-            </>
+            <FormField
+              htmlFor="main_category_other"
+              label={t('vendorsFormPage.steps.mainCategory.otherLabel')}
+              requirement="required"
+              error={mainCategoryOtherError}
+              errorId={MAIN_CATEGORY_OTHER_ERROR_ID}
+            >
+              <TextInput
+                id="main_category_other"
+                type="text"
+                data-vendor-form-field="mainCategoryOther"
+                aria-invalid={Boolean(mainCategoryOtherError)}
+                aria-describedby={mainCategoryOtherError ? MAIN_CATEGORY_OTHER_ERROR_ID : undefined}
+                placeholder={t('vendorsFormPage.steps.mainCategory.otherPlaceholder')}
+                {...register('mainCategoryOther')}
+              />
+            </FormField>
           ) : null}
         </Fieldset>
       </FormSection>

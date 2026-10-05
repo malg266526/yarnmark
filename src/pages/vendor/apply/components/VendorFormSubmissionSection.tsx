@@ -1,7 +1,8 @@
 import React from 'react';
 import { CtaButton } from '../../../../components/Button';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import { ActionsRow, ActionsSpacer, ErrorText, FieldHint } from '../VendorFormPage.styled';
+import { ErrorText, FieldHint } from '../../../../components/form/FormField.styled';
+import { ActionsRow, ActionsSpacer } from '../VendorFormPage.styled';
 import type { VendorFormStatusState } from './vendorFormViewContracts';
 
 interface VendorFormSubmissionSectionProps {
