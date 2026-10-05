@@ -661,7 +661,20 @@ export const en: TranslationsShape = {
         tutorName: 'Tutor',
         phone: 'Phone',
         email: 'Email',
-        description: 'Workshop description'
+        description: 'Workshop description',
+        participants: 'Number of participants',
+        participantsRange: '{{min}}–{{max}}',
+        experienceLevel: 'Experience level',
+        duration: 'Duration',
+        participantsShouldBring: 'What participants should bring',
+        roomRequirements: 'Room requirements',
+        requiredEquipment: 'Equipment provided by the organizer',
+        grossPricePerParticipant: 'Gross price per participant',
+        grossPricePerParticipantValue: 'PLN {{price}}',
+        contractType: 'Contract type',
+        logoFilename: 'Logo',
+        additionalInfo: 'Additional information',
+        notProvided: 'Not provided'
       },
       statuses: {
         accepted: 'accepted',

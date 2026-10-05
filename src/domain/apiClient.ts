@@ -61,3 +61,24 @@ export const applicationRecordsSchema = z.union([
   z.array(z.unknown()),
   z.object({ applications: z.array(z.unknown()) }).transform(({ applications }) => applications)
 ]);
+
+const BACKEND_PENDING_STATUS = 'pending';
+
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === 'object' && value !== null && !Array.isArray(value);
+
+export const unwrapSubmissions = (responseBody: unknown): unknown =>
+  isRecord(responseBody) && 'submissions' in responseBody ? responseBody.submissions : responseBody;
+
+export const normalizeBackendApplicationRecord = (record: unknown, defaultStatus: string): unknown => {
+  if (!isRecord(record)) {
+    return record;
+  }
+
+  return {
+    ...record,
+    logoFileName: record.logoFileName ?? record.logoOriginalFilename,
+    status: record.status === BACKEND_PENDING_STATUS ? defaultStatus : record.status,
+    submittedAt: record.submittedAt ?? record.createdAt
+  };
+};

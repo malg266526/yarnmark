@@ -22,6 +22,7 @@ export const WorkshopsApplicationsCardsView = ({
   translate
 }: WorkshopsApplicationsCardsViewProps) => {
   const sortedApplications = sortApplicationsBySubmittedAt(applications);
+  const notProvided = translate('workshopsApplicationsPage.fields.notProvided');
 
   return (
     <ApplicationsGrid>
@@ -65,8 +66,79 @@ export const WorkshopsApplicationsCardsView = ({
             <ApplicationFieldValue>{application.email}</ApplicationFieldValue>
           </ApplicationField>
           <ApplicationField>
+            <ApplicationFieldLabel>{translate('workshopsApplicationsPage.fields.participants')}</ApplicationFieldLabel>
+            <ApplicationFieldValue>
+              {translate('workshopsApplicationsPage.fields.participantsRange', {
+                min: application.minParticipants,
+                max: application.maxParticipants
+              })}
+            </ApplicationFieldValue>
+          </ApplicationField>
+          <ApplicationField>
+            <ApplicationFieldLabel>
+              {translate('workshopsApplicationsPage.fields.experienceLevel')}
+            </ApplicationFieldLabel>
+            <ApplicationFieldValue>
+              {application.experienceLevel
+                ? translate(`workshopsFormPage.steps.experienceLevel.${application.experienceLevel}`)
+                : notProvided}
+            </ApplicationFieldValue>
+          </ApplicationField>
+          <ApplicationField>
             <ApplicationFieldLabel>{translate('workshopsApplicationsPage.fields.description')}</ApplicationFieldLabel>
             <ApplicationFieldValue>{application.description}</ApplicationFieldValue>
+          </ApplicationField>
+          <ApplicationField>
+            <ApplicationFieldLabel>{translate('workshopsApplicationsPage.fields.duration')}</ApplicationFieldLabel>
+            <ApplicationFieldValue>{application.duration || notProvided}</ApplicationFieldValue>
+          </ApplicationField>
+          <ApplicationField>
+            <ApplicationFieldLabel>
+              {translate('workshopsApplicationsPage.fields.participantsShouldBring')}
+            </ApplicationFieldLabel>
+            <ApplicationFieldValue>{application.participantsShouldBring || notProvided}</ApplicationFieldValue>
+          </ApplicationField>
+          <ApplicationField>
+            <ApplicationFieldLabel>
+              {translate('workshopsApplicationsPage.fields.roomRequirements')}
+            </ApplicationFieldLabel>
+            <ApplicationFieldValue>{application.roomRequirements || notProvided}</ApplicationFieldValue>
+          </ApplicationField>
+          <ApplicationField>
+            <ApplicationFieldLabel>
+              {translate('workshopsApplicationsPage.fields.requiredEquipment')}
+            </ApplicationFieldLabel>
+            <ApplicationFieldValue>{application.requiredEquipment || notProvided}</ApplicationFieldValue>
+          </ApplicationField>
+          <ApplicationField>
+            <ApplicationFieldLabel>
+              {translate('workshopsApplicationsPage.fields.grossPricePerParticipant')}
+            </ApplicationFieldLabel>
+            <ApplicationFieldValue>
+              {translate('workshopsApplicationsPage.fields.grossPricePerParticipantValue', {
+                price: application.grossPricePerParticipant
+              })}
+            </ApplicationFieldValue>
+          </ApplicationField>
+          <ApplicationField>
+            <ApplicationFieldLabel>{translate('workshopsApplicationsPage.fields.contractType')}</ApplicationFieldLabel>
+            <ApplicationFieldValue>
+              {application.contractType === 'other'
+                ? application.contractTypeOther || notProvided
+                : application.contractType
+                  ? translate(`workshopsFormPage.steps.contractType.${application.contractType}`)
+                  : notProvided}
+            </ApplicationFieldValue>
+          </ApplicationField>
+          <ApplicationField>
+            <ApplicationFieldLabel>{translate('workshopsApplicationsPage.fields.logoFilename')}</ApplicationFieldLabel>
+            <ApplicationFieldValue>{application.logoFileName ?? notProvided}</ApplicationFieldValue>
+          </ApplicationField>
+          <ApplicationField>
+            <ApplicationFieldLabel>
+              {translate('workshopsApplicationsPage.fields.additionalInfo')}
+            </ApplicationFieldLabel>
+            <ApplicationFieldValue>{application.additionalInfo || notProvided}</ApplicationFieldValue>
           </ApplicationField>
         </ApplicationCard>
       ))}

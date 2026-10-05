@@ -660,7 +660,20 @@ export const pl = {
         tutorName: 'Prowadzący',
         phone: 'Telefon',
         email: 'E-mail',
-        description: 'Opis warsztatu'
+        description: 'Opis warsztatu',
+        participants: 'Liczba uczestników',
+        participantsRange: '{{min}}–{{max}}',
+        experienceLevel: 'Poziom zaawansowania',
+        duration: 'Czas trwania',
+        participantsShouldBring: 'Co ma przynieść uczestnik',
+        roomRequirements: 'Wymagania co do sali',
+        requiredEquipment: 'Sprzęt zapewniany przez organizatora',
+        grossPricePerParticipant: 'Kwota brutto za osobę',
+        grossPricePerParticipantValue: '{{price}} zł',
+        contractType: 'Typ umowy',
+        logoFilename: 'Logo',
+        additionalInfo: 'Informacje dodatkowe',
+        notProvided: 'Nie podano'
       },
       statuses: {
         accepted: 'zaakceptowane',

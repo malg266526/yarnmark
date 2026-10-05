@@ -7,5 +7,5 @@ export interface WorkshopsApplicationsCardsViewProps {
   applications: WorkshopApplication[];
   locale: string;
   setApplicationStatus: (applicationId: string, status: WorkshopApplicationStatus) => Promise<void>;
-  translate: (translationKey: string) => string;
+  translate: (translationKey: string, options?: Record<string, unknown>) => string;
 }

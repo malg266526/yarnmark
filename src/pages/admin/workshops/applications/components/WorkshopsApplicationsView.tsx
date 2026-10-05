@@ -35,7 +35,7 @@ export const WorkshopsApplicationsView = ({
         applications={applications}
         locale={t.i18n.language}
         setApplicationStatus={setApplicationStatus}
-        translate={(translationKey) => t(translationKey as never)}
+        translate={(translationKey, options) => t(translationKey as never, options as never)}
       />
     </ApplicationsSection>
   );

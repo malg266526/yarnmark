@@ -1,6 +1,11 @@
 import { z } from 'zod';
 import type { WorkshopApplication, WorkshopApplicationStatus } from './workshopFormSubmission.ts';
-import { applicationRecordsSchema, requestApi } from '../apiClient.ts';
+import {
+  applicationRecordsSchema,
+  normalizeBackendApplicationRecord,
+  requestApi,
+  unwrapSubmissions
+} from '../apiClient.ts';
 import { workshopFormStateSchema } from './workshopFormSchema.ts';
 import { WORKSHOP_FORM_API_URL } from './workshopFormConstants.ts';
 
@@ -18,14 +23,16 @@ const workshopApplicationRecordSchema = workshopFormStateSchema.extend({
 });
 
 export const parseWorkshopApplications = (responseBody: unknown): WorkshopApplication[] => {
-  const applicationRecords = applicationRecordsSchema.safeParse(responseBody);
+  const applicationRecords = applicationRecordsSchema.safeParse(unwrapSubmissions(responseBody));
 
   if (!applicationRecords.success) {
     return [];
   }
 
   return applicationRecords.data.flatMap((applicationRecord) => {
-    const parsedApplication = workshopApplicationRecordSchema.safeParse(applicationRecord);
+    const parsedApplication = workshopApplicationRecordSchema.safeParse(
+      normalizeBackendApplicationRecord(applicationRecord, DEFAULT_WORKSHOP_APPLICATION_STATUS)
+    );
 
     return parsedApplication.success ? [parsedApplication.data] : [];
   });

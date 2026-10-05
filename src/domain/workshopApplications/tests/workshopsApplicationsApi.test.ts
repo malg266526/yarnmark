@@ -126,3 +126,38 @@ test('parseWorkshopApplications defaults a missing status to "new"', () => {
     { ...applicationWithoutStatus, status: 'new' }
   ]);
 });
+
+test('parseWorkshopApplications maps the backend submissions payload', () => {
+  const backendSubmission = {
+    id: '9c00ee02-db21-4cc6-91f1-2e378b9162d2',
+    tutorName: 'Anna Kowalska',
+    email: 'tutor@example.com',
+    phoneNumber: '+48123456789',
+    workshopTitle: 'Crochet basics',
+    description: 'A short workshop description.',
+    experienceLevel: 'advanced',
+    contractType: 'commission',
+    contractTypeOther: '',
+    grossPricePerParticipant: 54,
+    minParticipants: 4,
+    maxParticipants: 7,
+    duration: '5h',
+    roomRequirements: '',
+    requiredEquipment: '',
+    participantsShouldBring: 'Own crochet hook.',
+    additionalInfo: '',
+    logoPath: 'workshops/logo.webp',
+    logoOriginalFilename: 'profilowe.JPG',
+    status: 'pending',
+    statusUpdatedAt: null,
+    createdAt: '2026-10-05 14:35:49'
+  };
+
+  const [application] = parseWorkshopApplications({ submissions: [backendSubmission] });
+
+  assert.equal(application.id, backendSubmission.id);
+  assert.equal(application.status, 'new');
+  assert.equal(application.submittedAt, '2026-10-05 14:35:49');
+  assert.equal(application.logoFileName, 'profilowe.JPG');
+  assert.equal(application.logoDataUrl, null);
+});
