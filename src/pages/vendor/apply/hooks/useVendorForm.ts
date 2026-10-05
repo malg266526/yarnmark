@@ -26,6 +26,7 @@ import {
   type StandDemand,
   type VendorFormState
 } from '../../../../domain/vendorApplications/vendorFormTypes.ts';
+import { resolveVendorFormDraftStatus } from '../vendorFormDraftStatus.ts';
 import { createEmptyVendorFormDraft, parseStoredVendorFormDraft } from '../vendorFormStorage.ts';
 import { getHighDemandStandIds } from '../../../../domain/vendorApplications/vendorFormStandInterestUtils.ts';
 
@@ -59,13 +60,18 @@ const collectSchemaErrors = (values: VendorFormValues) => {
     : Object.fromEntries(result.error.issues.map((issue) => [String(issue.path[0]), issue.message]));
 };
 
-const readStoredVendorFormDraftOrCreateEmptyDraft = () =>
-  parseStoredVendorFormDraft(window.localStorage.getItem(VENDOR_FORM_DRAFT_STORAGE_KEY)) ??
-  createEmptyVendorFormDraft();
+const readInitialVendorFormDraft = () => {
+  const storedDraft = parseStoredVendorFormDraft(window.localStorage.getItem(VENDOR_FORM_DRAFT_STORAGE_KEY));
+
+  return {
+    draft: storedDraft ?? createEmptyVendorFormDraft(),
+    wasRestored: storedDraft !== null && !storedDraft.isComplete
+  };
+};
 
 export const useVendorForm = (): VendorFormViewProps => {
   const t = useTypedTranslation();
-  const [initialDraft] = useState(readStoredVendorFormDraftOrCreateEmptyDraft);
+  const [{ draft: initialDraft, wasRestored: wasDraftRestored }] = useState(readInitialVendorFormDraft);
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
   const [isComplete, setIsComplete] = useState<boolean>(initialDraft.isComplete);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
@@ -85,6 +91,11 @@ export const useVendorForm = (): VendorFormViewProps => {
 
   const { formState, getValues, register, reset, setValue, trigger, watch } = form;
   const formData = watch();
+  const draftStatus = resolveVendorFormDraftStatus({
+    isComplete,
+    isDirty: formState.isDirty,
+    wasRestored: wasDraftRestored
+  });
 
   useEffect(() => {
     if (formState.isDirty) {
@@ -293,6 +304,7 @@ export const useVendorForm = (): VendorFormViewProps => {
       resolveFieldErrorMessage
     },
     formStatus: {
+      draftStatus,
       isLoadingLogo,
       isSuccessModalOpen,
       isSubmitting,

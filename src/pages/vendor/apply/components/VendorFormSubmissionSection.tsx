@@ -6,16 +6,19 @@ import { ActionsRow, ActionsSpacer } from '../VendorFormPage.styled';
 import type { VendorFormStatusState } from './vendorFormViewContracts';
 
 interface VendorFormSubmissionSectionProps {
-  formStatus: Pick<VendorFormStatusState, 'isLoadingLogo' | 'isSubmitting' | 'submitError'>;
+  formStatus: Pick<VendorFormStatusState, 'draftStatus' | 'isLoadingLogo' | 'isSubmitting' | 'submitError'>;
 }
 
 export const VendorFormSubmissionSection = ({ formStatus }: VendorFormSubmissionSectionProps) => {
   const t = useTypedTranslation();
-  const { isLoadingLogo, isSubmitting, submitError } = formStatus;
+  const { draftStatus, isLoadingLogo, isSubmitting, submitError } = formStatus;
 
   return (
     <>
       <FieldHint>{t('vendorsFormPage.draftBanner')}</FieldHint>
+      {draftStatus !== 'none' ? (
+        <FieldHint role="status">{t(`vendorsFormPage.draftStatus.${draftStatus}` as const)}</FieldHint>
+      ) : null}
 
       {submitError ? <ErrorText>{submitError}</ErrorText> : null}
 

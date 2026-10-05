@@ -315,6 +315,10 @@ export const en: TranslationsShape = {
       logoTooLargeError: 'Logo file is too large (max 8 MB). Please choose a smaller one.',
       logoLoading: 'Processing logo…',
       draftBanner: 'This draft is stored locally in this browser until you submit the application.',
+      draftStatus: {
+        saved: 'Draft saved',
+        restored: 'Saved draft restored'
+      },
       steps: {
         storeName: {
           title: 'What is the name of your brand or store?',

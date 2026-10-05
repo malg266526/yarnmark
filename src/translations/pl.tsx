@@ -314,6 +314,10 @@ export const pl = {
       logoTooLargeError: 'Plik z logo jest za duży (max 8 MB). Wybierz mniejszy.',
       logoLoading: 'Przetwarzanie pliku z logo…',
       draftBanner: 'Szkic formularza zapisuje się lokalnie w tej przeglądarce do momentu wysłania zgłoszenia.',
+      draftStatus: {
+        saved: 'Szkic zapisany',
+        restored: 'Przywrócono zapisany szkic'
+      },
       steps: {
         storeName: {
           title: 'Jak nazywa się Twoja marka lub sklep?',
