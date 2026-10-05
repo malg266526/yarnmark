@@ -5,7 +5,7 @@ import type { WorkshopApplication } from '../../../../../domain/workshopApplicat
 
 const createApplication = (id: string, submittedAt: string): WorkshopApplication => ({
   id,
-  status: 'new',
+  status: 'pending',
   submittedAt,
   tutorName: 'Anna Kowalska',
   workshopTitle: 'Crochet basics',

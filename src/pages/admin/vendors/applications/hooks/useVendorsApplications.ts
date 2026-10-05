@@ -41,8 +41,11 @@ export const useVendorsApplications = () => {
   }, [token, handleAdminApiError]);
 
   const setApplicationStatus = async (applicationId: string, status: VendorApplicationStatus) => {
+    const application = applications.find(({ id }) => id === applicationId);
+    const assignedStands = application?.allocatedStandId ? [application.allocatedStandId] : [];
+
     try {
-      await updateVendorApplicationStatus(token, applicationId, status);
+      await updateVendorApplicationStatus(token, applicationId, assignedStands, status);
       setApplications((currentApplications) =>
         currentApplications.map((application) =>
           application.id === applicationId ? { ...application, status } : application

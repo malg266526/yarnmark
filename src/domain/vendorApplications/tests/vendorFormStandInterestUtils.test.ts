@@ -14,7 +14,7 @@ const createApplication = (id: string, preferredStands: string[]): VendorApplica
   allocationIteration: null,
   allocationState: 'none',
   id,
-  status: 'new',
+  status: 'pending',
   submittedAt: '2026-05-11T10:30:00.000Z',
   storeName: `Store ${id}`,
   attendedBefore: true,

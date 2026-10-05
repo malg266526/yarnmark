@@ -41,7 +41,7 @@ test('getAcceptedApplicationsSortedBySubmittedAt keeps only accepted application
     {
       ...getBaseApplication(),
       id: 'application-1',
-      status: 'considered',
+      status: 'rejected',
       storeName: 'First Store',
       submittedAt: '2026-05-11T08:00:00.000Z'
     },
@@ -89,7 +89,7 @@ test('getCascadeChoiceReservations falls back through first, second and third-ch
     {
       ...getBaseApplication(),
       id: 'application-4',
-      status: 'considered',
+      status: 'pending',
       storeName: 'Ignored Store',
       preferredStands: ['S9', 'S10', 'S11'],
       submittedAt: '2026-05-11T07:00:00.000Z'

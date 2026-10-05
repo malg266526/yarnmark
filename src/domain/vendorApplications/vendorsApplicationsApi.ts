@@ -14,16 +14,13 @@ import {
 import { vendorFormStateSchema } from './vendorFormSchema.ts';
 import { VENDOR_FORM_API_URL } from './vendorFormConstants.ts';
 
-const DEFAULT_VENDOR_APPLICATION_STATUS: VendorApplicationStatus = 'new';
+const DEFAULT_VENDOR_APPLICATION_STATUS: VendorApplicationStatus = 'pending';
 const DEFAULT_VENDOR_APPLICATION_ALLOCATION_STATE: VendorApplicationAllocationState = 'none';
 
 const vendorApplicationStatusSchema = z
-  .enum(['new', 'considered', 'accepted', 'reserve', 'rejected'])
+  .enum(['pending', 'rejected', 'reserve-list', 'accepted', 'stand-assigned'])
   .optional()
-  .transform(
-    (status): VendorApplicationStatus =>
-      status === 'rejected' ? 'reserve' : (status ?? DEFAULT_VENDOR_APPLICATION_STATUS)
-  );
+  .transform((status): VendorApplicationStatus => status ?? DEFAULT_VENDOR_APPLICATION_STATUS);
 
 const vendorApplicationAllocationStateSchema = z
   .enum(['none', 'suggested', 'confirmed', 'manual-negotiation'])
@@ -64,7 +61,7 @@ export const parseVendorApplications = (responseBody: unknown): VendorApplicatio
 
   return applicationRecords.data.flatMap((applicationRecord) => {
     const parsedApplication = vendorApplicationRecordSchema.safeParse(
-      normalizeBackendApplicationRecord(applicationRecord, DEFAULT_VENDOR_APPLICATION_STATUS)
+      normalizeBackendApplicationRecord(applicationRecord)
     );
 
     return parsedApplication.success ? [parsedApplication.data] : [];
@@ -84,11 +81,12 @@ export const deleteVendorApplication = async (token: string, applicationId: stri
 export const updateVendorApplicationStatus = async (
   token: string,
   applicationId: string,
+  assignedStands: string[],
   status: VendorApplicationStatus
 ): Promise<void> => {
-  await requestApi(`${VENDOR_FORM_API_URL}/${encodeURIComponent(applicationId)}/status`, {
+  await requestApi(`${VENDOR_FORM_API_URL}/${encodeURIComponent(applicationId)}`, {
     method: 'PATCH',
-    body: { status },
+    body: { assignedStands, status },
     token
   });
 };

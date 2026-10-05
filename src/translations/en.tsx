@@ -627,10 +627,11 @@ export const en: TranslationsShape = {
         acceptedStatute: 'Terms accepted'
       },
       statuses: {
+        pending: 'pending',
+        rejected: 'rejected',
+        'reserve-list': 'reserve list',
         accepted: 'accepted',
-        considered: 'considered',
-        new: 'new',
-        reserve: 'reserve'
+        'stand-assigned': 'stand assigned'
       },
       allocationStates: {
         confirmed: 'confirmed',
@@ -691,10 +692,9 @@ export const en: TranslationsShape = {
         notProvided: 'Not provided'
       },
       statuses: {
-        accepted: 'accepted',
-        considered: 'considered',
-        new: 'new',
-        reserve: 'reserve'
+        pending: 'pending',
+        rejected: 'rejected',
+        accepted: 'accepted'
       }
     },
     foodBand: {

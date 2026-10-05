@@ -9,7 +9,7 @@ test('groupApplicationsByStand groups applications by selected stand and keeps d
     {
       ...getBaseApplication(),
       id: 'application-1',
-      status: 'considered',
+      status: 'rejected',
       storeName: 'First Store',
       preferredStands: ['P2', 'P3', 'S1'],
       submittedAt: '2026-05-11T10:30:00.000Z'
@@ -17,7 +17,7 @@ test('groupApplicationsByStand groups applications by selected stand and keeps d
     {
       ...getBaseApplication(),
       id: 'application-2',
-      status: 'new',
+      status: 'pending',
       storeName: 'Second Store',
       preferredStands: ['P2', 'M4', 'S6'],
       submittedAt: '2026-05-11T09:30:00.000Z'

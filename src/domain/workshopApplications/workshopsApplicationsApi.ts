@@ -10,10 +10,10 @@ import {
 import { workshopFormStateSchema } from './workshopFormSchema.ts';
 import { WORKSHOP_FORM_API_URL } from './workshopFormConstants.ts';
 
-const DEFAULT_WORKSHOP_APPLICATION_STATUS: WorkshopApplicationStatus = 'new';
+const DEFAULT_WORKSHOP_APPLICATION_STATUS: WorkshopApplicationStatus = 'pending';
 
 const workshopApplicationStatusSchema = z
-  .enum(['new', 'considered', 'accepted', 'reserve'])
+  .enum(['pending', 'rejected', 'accepted'])
   .optional()
   .transform((status): WorkshopApplicationStatus => status ?? DEFAULT_WORKSHOP_APPLICATION_STATUS);
 
@@ -37,7 +37,7 @@ export const parseWorkshopApplications = (responseBody: unknown): WorkshopApplic
 
   return applicationRecords.data.flatMap((applicationRecord) => {
     const parsedApplication = workshopApplicationRecordSchema.safeParse(
-      normalizeBackendApplicationRecord(applicationRecord, DEFAULT_WORKSHOP_APPLICATION_STATUS)
+      normalizeBackendApplicationRecord(applicationRecord)
     );
 
     return parsedApplication.success ? [parsedApplication.data] : [];
@@ -59,7 +59,7 @@ export const updateWorkshopApplicationStatus = async (
   applicationId: string,
   status: WorkshopApplicationStatus
 ): Promise<void> => {
-  await requestApi(`${WORKSHOP_FORM_API_URL}/${encodeURIComponent(applicationId)}/status`, {
+  await requestApi(`${WORKSHOP_FORM_API_URL}/${encodeURIComponent(applicationId)}`, {
     method: 'PATCH',
     body: { status },
     token

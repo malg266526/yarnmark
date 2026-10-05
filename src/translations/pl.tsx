@@ -626,10 +626,11 @@ export const pl = {
         acceptedStatute: 'Regulamin zaakceptowany'
       },
       statuses: {
+        pending: 'oczekujące',
+        rejected: 'odrzucone',
+        'reserve-list': 'lista rezerwowa',
         accepted: 'zaakceptowane',
-        considered: 'rozważane',
-        new: 'nowe',
-        reserve: 'rezerwowy'
+        'stand-assigned': 'stoisko przydzielone'
       },
       allocationStates: {
         confirmed: 'klepnięte',
@@ -690,10 +691,9 @@ export const pl = {
         notProvided: 'Nie podano'
       },
       statuses: {
-        accepted: 'zaakceptowane',
-        considered: 'rozważane',
-        new: 'nowe',
-        reserve: 'rezerwowy'
+        pending: 'oczekujące',
+        rejected: 'odrzucone',
+        accepted: 'zaakceptowane'
       }
     },
     foodBand: {

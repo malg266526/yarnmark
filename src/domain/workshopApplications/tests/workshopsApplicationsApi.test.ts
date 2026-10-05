@@ -45,7 +45,7 @@ const createWorkshopApplication = (overrides: Partial<WorkshopFormState> = {}) =
   ...createWorkshopFormState(overrides),
   id: 'application-1',
   logoUrl: null,
-  status: 'considered' as const,
+  status: 'rejected' as const,
   submittedAt: '2026-05-11T10:30:00.000Z'
 });
 
@@ -85,12 +85,12 @@ test('listWorkshopApplications throws when the backend rejects the request', asy
   await assert.rejects(listWorkshopApplications(ADMIN_TOKEN), ApiRequestError);
 });
 
-test('updateWorkshopApplicationStatus sends the new status to the application status endpoint', async () => {
+test('updateWorkshopApplicationStatus sends the new status to the application endpoint', async () => {
   const requests = stubFetch(200, {});
 
   await updateWorkshopApplicationStatus(ADMIN_TOKEN, 'application-1', 'accepted');
 
-  assert.equal(requests[0].url, `${WORKSHOP_FORM_API_URL}/application-1/status`);
+  assert.equal(requests[0].url, `${WORKSHOP_FORM_API_URL}/application-1`);
   assert.equal(requests[0].init?.method, 'PATCH');
   assert.equal(requests[0].init?.body, JSON.stringify({ status: 'accepted' }));
   assert.deepEqual(requests[0].init?.headers, {
@@ -134,7 +134,7 @@ test('parseWorkshopApplications returns an empty list for a payload that is not 
   assert.deepEqual(parseWorkshopApplications({ foo: 'bar' }), []);
 });
 
-test('parseWorkshopApplications defaults a missing status to "new"', () => {
+test('parseWorkshopApplications defaults a missing status to "pending"', () => {
   const applicationWithoutStatus = {
     ...createWorkshopFormState(),
     id: 'application-1',
@@ -142,7 +142,7 @@ test('parseWorkshopApplications defaults a missing status to "new"', () => {
   };
 
   assert.deepEqual(parseWorkshopApplications([applicationWithoutStatus]), [
-    { ...applicationWithoutStatus, logoUrl: null, status: 'new' }
+    { ...applicationWithoutStatus, logoUrl: null, status: 'pending' }
   ]);
 });
 
@@ -175,7 +175,7 @@ test('parseWorkshopApplications maps the backend submissions payload', () => {
   const [application] = parseWorkshopApplications({ submissions: [backendSubmission] });
 
   assert.equal(application.id, backendSubmission.id);
-  assert.equal(application.status, 'new');
+  assert.equal(application.status, 'pending');
   assert.equal(application.submittedAt, '2026-10-05 14:35:49');
   assert.equal(application.logoFileName, 'profilowe.JPG');
   assert.equal(application.logoDataUrl, null);

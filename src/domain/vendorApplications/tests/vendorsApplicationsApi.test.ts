@@ -1,6 +1,10 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { deleteVendorApplication, parseVendorApplications } from '../vendorsApplicationsApi.ts';
+import {
+  deleteVendorApplication,
+  parseVendorApplications,
+  updateVendorApplicationStatus
+} from '../vendorsApplicationsApi.ts';
 import { VENDOR_FORM_API_URL } from '../vendorFormConstants.ts';
 import { ApiRequestError } from '../../apiClient.ts';
 
@@ -33,7 +37,7 @@ const createVendorApplicationPayload = () => ({
   allocationIteration: null,
   allocationState: 'none' as const,
   id: 'application-1',
-  status: 'new' as const,
+  status: 'pending' as const,
   submittedAt: '2026-05-11T10:30:00.000Z',
   storeName: 'Shop name',
   attendedBefore: true,
@@ -71,7 +75,7 @@ test('parseVendorApplications accepts a payload wrapped in an applications objec
   assert.deepEqual(parseVendorApplications({ applications }), applications);
 });
 
-test('parseVendorApplications normalizes legacy values and defaults', () => {
+test('parseVendorApplications normalizes optional legacy fields and preserves current statuses', () => {
   const legacyApplication = {
     ...createVendorApplicationPayload(),
     allocationState: undefined,
@@ -97,7 +101,7 @@ test('parseVendorApplications normalizes legacy values and defaults', () => {
       allocationState: 'none',
       preferredStands: ['P2', 'P3'],
       sponsorshipInterest: null,
-      status: 'reserve'
+      status: 'rejected'
     }
   ]);
 });
@@ -134,7 +138,7 @@ test('parseVendorApplications maps the backend submissions payload', () => {
   const [application] = parseVendorApplications({ submissions: [backendSubmission] });
 
   assert.equal(application.id, backendSubmission.id);
-  assert.equal(application.status, 'new');
+  assert.equal(application.status, 'pending');
   assert.equal(application.submittedAt, '2026-10-03 19:17:03');
   assert.equal(application.logoFileName, 'profilowe.JPG');
   assert.equal(application.logoUrl, 'https://yarnmark-api.com/vendors/logo.webp');
@@ -156,4 +160,24 @@ test('deleteVendorApplication throws when the backend rejects the deletion', asy
   stubFetch(404, null);
 
   await assert.rejects(deleteVendorApplication(ADMIN_TOKEN, 'unknown-id'), ApiRequestError);
+});
+
+test('updateVendorApplicationStatus sends assigned stands and status to the application endpoint', async () => {
+  const requests = stubFetch(200, {});
+
+  await updateVendorApplicationStatus(ADMIN_TOKEN, 'application/1', ['S1', 'M2'], 'stand-assigned');
+
+  assert.equal(requests[0].url, `${VENDOR_FORM_API_URL}/application%2F1`);
+  assert.equal(requests[0].init?.method, 'PATCH');
+  assert.equal(requests[0].init?.body, JSON.stringify({ assignedStands: ['S1', 'M2'], status: 'stand-assigned' }));
+  assert.deepEqual(requests[0].init?.headers, {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${ADMIN_TOKEN}`
+  });
+});
+
+test('updateVendorApplicationStatus throws when the backend rejects the update', async () => {
+  stubFetch(404, null);
+
+  await assert.rejects(updateVendorApplicationStatus(ADMIN_TOKEN, 'unknown-id', [], 'accepted'), ApiRequestError);
 });

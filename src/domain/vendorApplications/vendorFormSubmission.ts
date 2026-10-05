@@ -1,6 +1,6 @@
 import type { VendorFormState } from './vendorFormTypes.ts';
 
-export type VendorApplicationStatus = 'accepted' | 'considered' | 'new' | 'reserve';
+export type VendorApplicationStatus = 'accepted' | 'pending' | 'rejected' | 'reserve-list' | 'stand-assigned';
 
 export type VendorApplicationAllocationState = 'confirmed' | 'manual-negotiation' | 'none' | 'suggested';
 
