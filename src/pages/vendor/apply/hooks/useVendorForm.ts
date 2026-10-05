@@ -29,7 +29,6 @@ import {
 import { createEmptyVendorFormDraft, parseStoredVendorFormDraft } from '../vendorFormStorage.ts';
 import { getHighDemandStandIds } from '../../../../domain/vendorApplications/vendorFormStandInterestUtils.ts';
 
-const EMPTY_STAND_INTEREST_COUNTS = new Map<string, number>();
 const VENDOR_FORM_FIELD_SELECTOR = '[data-vendor-form-field]';
 const FOCUSABLE_FIELD_SELECTOR = 'input, textarea, button, select, [tabindex]';
 
@@ -77,7 +76,6 @@ export const useVendorForm = (): VendorFormViewProps => {
   const [isLoadingLogo, setIsLoadingLogo] = useState(false);
   const [validationErrors, setValidationErrors] = useState<Partial<Record<keyof VendorFormValues, string>>>({});
   const [standDemand, setStandDemand] = useState<StandDemand>({});
-  const standInterestCounts = EMPTY_STAND_INTEREST_COUNTS;
 
   const form = useForm<VendorFormValues>({
     defaultValues: initialDraft.formData,
@@ -273,8 +271,7 @@ export const useVendorForm = (): VendorFormViewProps => {
   return {
     derivedState: {
       highInterestSelectedStandIds,
-      highInterestStandIds,
-      standInterestCounts
+      highInterestStandIds
     },
     formActions: {
       closeSuccessModal,

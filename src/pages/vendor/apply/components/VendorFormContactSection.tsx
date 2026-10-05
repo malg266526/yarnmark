@@ -4,6 +4,9 @@ import { useTypedTranslation } from '../../../../translations/useTypedTranslatio
 import { ErrorText, FieldLabel, Fieldset, FormSection, TextInput } from '../VendorFormPage.styled';
 import type { VendorFormBindings } from './vendorFormViewContracts';
 
+const PHONE_NUMBER_ERROR_ID = 'vendor-phone-number-error';
+const EMAIL_ERROR_ID = 'vendor-email-error';
+
 interface VendorFormContactSectionProps {
   formBindings: VendorFormBindings;
 }
@@ -11,6 +14,8 @@ interface VendorFormContactSectionProps {
 export const VendorFormContactSection = ({ formBindings }: VendorFormContactSectionProps) => {
   const t = useTypedTranslation();
   const { register, resolveFieldErrorMessage } = formBindings;
+  const phoneNumberError = resolveFieldErrorMessage('phoneNumber');
+  const emailError = resolveFieldErrorMessage('email');
 
   return (
     <FormSection>
@@ -22,10 +27,13 @@ export const VendorFormContactSection = ({ formBindings }: VendorFormContactSect
             id="phone_number"
             type="tel"
             data-vendor-form-field="phoneNumber"
+            aria-invalid={Boolean(phoneNumberError)}
+            aria-describedby={phoneNumberError ? PHONE_NUMBER_ERROR_ID : undefined}
             placeholder={t('vendorsFormPage.steps.contact.phonePlaceholder')}
             {...register('phoneNumber')}
           />
         </FieldLabel>
+        {phoneNumberError ? <ErrorText id={PHONE_NUMBER_ERROR_ID}>{phoneNumberError}</ErrorText> : null}
 
         <FieldLabel htmlFor="email_address">
           {t('vendorsFormPage.steps.contact.emailLabel')}
@@ -33,13 +41,13 @@ export const VendorFormContactSection = ({ formBindings }: VendorFormContactSect
             id="email_address"
             type="email"
             data-vendor-form-field="email"
+            aria-invalid={Boolean(emailError)}
+            aria-describedby={emailError ? EMAIL_ERROR_ID : undefined}
             placeholder={t('vendorsFormPage.steps.contact.emailPlaceholder')}
             {...register('email')}
           />
         </FieldLabel>
-        {resolveFieldErrorMessage('phoneNumber', 'email') ? (
-          <ErrorText>{resolveFieldErrorMessage('phoneNumber', 'email')}</ErrorText>
-        ) : null}
+        {emailError ? <ErrorText id={EMAIL_ERROR_ID}>{emailError}</ErrorText> : null}
       </Fieldset>
     </FormSection>
   );

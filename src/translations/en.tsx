@@ -337,7 +337,6 @@ export const en: TranslationsShape = {
           hint: 'You can pick up to {{max}} stands. Green — available, orange — selected by you.',
           orderHint: 'Order matters — the first stand you click becomes your top pick.',
           counter: '{{current}} of {{max}} selected',
-          standInterestCount: '{{standId}}: {{count}} interested',
           detailsHint:
             'Detailed information about stand types, dimensions, and equipment is available on the <0>Info for vendors</0> page.',
           highInterestLabel: 'High Interest',

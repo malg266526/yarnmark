@@ -5,6 +5,8 @@ import { ErrorText, FieldHint, FieldLabel, Fieldset, FormSection, TextArea } fro
 import { VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH } from '../../../../domain/vendorApplications/vendorFormConstants.ts';
 import type { VendorFormActions, VendorFormBindings } from './vendorFormViewContracts';
 
+const BUSINESS_DESCRIPTION_ERROR_ID = 'vendor-business-description-error';
+
 interface VendorFormBusinessDescriptionSectionProps {
   formActions: Pick<VendorFormActions, 'updateBusinessDescription'>;
   formBindings: VendorFormBindings;
@@ -18,6 +20,7 @@ export const VendorFormBusinessDescriptionSection = ({
   const { formData, register, resolveFieldErrorMessage } = formBindings;
   const { updateBusinessDescription } = formActions;
   const businessDescriptionField = register('businessDescription');
+  const businessDescriptionError = resolveFieldErrorMessage('businessDescription');
 
   return (
     <FormSection>
@@ -29,6 +32,8 @@ export const VendorFormBusinessDescriptionSection = ({
             id="business_description"
             name={businessDescriptionField.name}
             data-vendor-form-field="businessDescription"
+            aria-invalid={Boolean(businessDescriptionError)}
+            aria-describedby={businessDescriptionError ? BUSINESS_DESCRIPTION_ERROR_ID : undefined}
             placeholder={t('vendorsFormPage.steps.businessDescription.placeholder')}
             ref={businessDescriptionField.ref}
             onBlur={businessDescriptionField.onBlur}
@@ -41,8 +46,8 @@ export const VendorFormBusinessDescriptionSection = ({
             })}
           </FieldHint>
         </FieldLabel>
-        {resolveFieldErrorMessage('businessDescription') ? (
-          <ErrorText>{resolveFieldErrorMessage('businessDescription')}</ErrorText>
+        {businessDescriptionError ? (
+          <ErrorText id={BUSINESS_DESCRIPTION_ERROR_ID}>{businessDescriptionError}</ErrorText>
         ) : null}
       </Fieldset>
     </FormSection>

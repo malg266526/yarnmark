@@ -15,7 +15,6 @@ export interface VendorFormBindings {
 export interface VendorFormDerivedState {
   highInterestSelectedStandIds: string[];
   highInterestStandIds: string[];
-  standInterestCounts: Map<string, number>;
 }
 
 export interface VendorFormStatusState {

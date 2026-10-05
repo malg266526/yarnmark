@@ -26,6 +26,9 @@ import { VENDOR_FORM_MAX_PREFERRED_STANDS } from '../../../../domain/vendorAppli
 import { SelectableHall } from './SelectableHall';
 import type { VendorFormActions, VendorFormBindings, VendorFormDerivedState } from './vendorFormViewContracts';
 
+const PREFERRED_STANDS_ERROR_ID = 'vendor-preferred-stands-error';
+const INTERESTED_IF_UNAVAILABLE_ERROR_ID = 'vendor-interested-if-unavailable-error';
+
 interface VendorFormStandPreferencesSectionProps {
   derivedState: VendorFormDerivedState;
   formActions: Pick<VendorFormActions, 'setBooleanFieldValue' | 'togglePreferredStand'>;
@@ -39,13 +42,19 @@ export const VendorFormStandPreferencesSection = ({
 }: VendorFormStandPreferencesSectionProps) => {
   const t = useTypedTranslation();
   const { formData, resolveFieldErrorMessage } = formBindings;
-  const { highInterestSelectedStandIds, highInterestStandIds, standInterestCounts } = derivedState;
+  const { highInterestSelectedStandIds, highInterestStandIds } = derivedState;
   const { setBooleanFieldValue, togglePreferredStand } = formActions;
+  const preferredStandsError = resolveFieldErrorMessage('preferredStands');
+  const interestedIfUnavailableError = resolveFieldErrorMessage('interestedIfUnavailable');
 
   return (
     <>
       <FormSection>
-        <Fieldset data-vendor-form-field="preferredStands">
+        <Fieldset
+          data-vendor-form-field="preferredStands"
+          aria-invalid={Boolean(preferredStandsError)}
+          aria-describedby={preferredStandsError ? PREFERRED_STANDS_ERROR_ID : undefined}
+        >
           <Typography size="xl">{t('vendorsFormPage.steps.preferredStands.title')}</Typography>
           <FieldHint>
             {t('vendorsFormPage.steps.preferredStands.hint', {
@@ -123,28 +132,19 @@ export const VendorFormStandPreferencesSection = ({
               components={[<InlineLink key="vendors_info_link" href="/info-for-vendors" />]}
             />
           </DisclaimerText>
-          {formData.preferredStands.length > 0 ? (
-            <FieldHint>
-              {formData.preferredStands
-                .map((standId) =>
-                  t('vendorsFormPage.steps.preferredStands.standInterestCount', {
-                    count: standInterestCounts.get(standId) ?? 0,
-                    standId
-                  })
-                )
-                .join(' • ')}
-            </FieldHint>
-          ) : null}
-          {resolveFieldErrorMessage('preferredStands') ? (
-            <ErrorText>{resolveFieldErrorMessage('preferredStands')}</ErrorText>
-          ) : null}
+          {preferredStandsError ? <ErrorText id={PREFERRED_STANDS_ERROR_ID}>{preferredStandsError}</ErrorText> : null}
         </Fieldset>
       </FormSection>
 
       <FormSection>
         <Fieldset>
           <Typography size="xl">{t('vendorsFormPage.steps.interestedIfUnavailable.title')}</Typography>
-          <RadioGroup data-vendor-form-field="interestedIfUnavailable">
+          <RadioGroup
+            role="radiogroup"
+            data-vendor-form-field="interestedIfUnavailable"
+            aria-invalid={Boolean(interestedIfUnavailableError)}
+            aria-describedby={interestedIfUnavailableError ? INTERESTED_IF_UNAVAILABLE_ERROR_ID : undefined}
+          >
             <RadioOption>
               <input
                 type="radio"
@@ -164,8 +164,8 @@ export const VendorFormStandPreferencesSection = ({
               <span>{t('vendorsFormPage.steps.interestedIfUnavailable.no')}</span>
             </RadioOption>
           </RadioGroup>
-          {resolveFieldErrorMessage('interestedIfUnavailable') ? (
-            <ErrorText>{resolveFieldErrorMessage('interestedIfUnavailable')}</ErrorText>
+          {interestedIfUnavailableError ? (
+            <ErrorText id={INTERESTED_IF_UNAVAILABLE_ERROR_ID}>{interestedIfUnavailableError}</ErrorText>
           ) : null}
         </Fieldset>
       </FormSection>

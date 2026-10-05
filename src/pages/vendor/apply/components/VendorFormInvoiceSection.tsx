@@ -13,6 +13,9 @@ import {
 } from '../VendorFormPage.styled';
 import type { VendorFormActions, VendorFormBindings, VendorFormStatusState } from './vendorFormViewContracts';
 
+const INVOICE_DETAILS_ERROR_ID = 'vendor-invoice-details-error';
+const LOGO_ERROR_ID = 'vendor-logo-error';
+
 interface VendorFormInvoiceSectionProps {
   formActions: Pick<VendorFormActions, 'updateLogoFile'>;
   formBindings: VendorFormBindings;
@@ -25,6 +28,8 @@ export const VendorFormInvoiceSection = ({ formActions, formBindings, formStatus
   const { isLoadingLogo } = formStatus;
   const { updateLogoFile } = formActions;
   const logoInputRef = useRef<HTMLInputElement>(null);
+  const invoiceDetailsError = resolveFieldErrorMessage('invoiceDetails');
+  const logoError = resolveFieldErrorMessage('logoFileName');
 
   useEffect(() => {
     if (!formData.logoFileName && logoInputRef.current) {
@@ -41,10 +46,13 @@ export const VendorFormInvoiceSection = ({ formActions, formBindings, formStatus
           <TextArea
             id="invoice_details"
             data-vendor-form-field="invoiceDetails"
+            aria-invalid={Boolean(invoiceDetailsError)}
+            aria-describedby={invoiceDetailsError ? INVOICE_DETAILS_ERROR_ID : undefined}
             placeholder={t('vendorsFormPage.steps.invoice.detailsPlaceholder')}
             {...register('invoiceDetails')}
           />
         </FieldLabel>
+        {invoiceDetailsError ? <ErrorText id={INVOICE_DETAILS_ERROR_ID}>{invoiceDetailsError}</ErrorText> : null}
 
         <FieldLabel htmlFor="logo_file">
           {t('vendorsFormPage.steps.invoice.logoLabel')}
@@ -53,6 +61,8 @@ export const VendorFormInvoiceSection = ({ formActions, formBindings, formStatus
             id="logo_file"
             type="file"
             data-vendor-form-field="logoFileName"
+            aria-invalid={Boolean(logoError)}
+            aria-describedby={logoError ? LOGO_ERROR_ID : undefined}
             accept="image/*"
             disabled={isLoadingLogo}
             onChange={(event) => {
@@ -70,9 +80,7 @@ export const VendorFormInvoiceSection = ({ formActions, formBindings, formStatus
             </DownloadActions>
           ) : null}
         </FieldLabel>
-        {resolveFieldErrorMessage('invoiceDetails', 'logoFileName') ? (
-          <ErrorText>{resolveFieldErrorMessage('invoiceDetails', 'logoFileName')}</ErrorText>
-        ) : null}
+        {logoError ? <ErrorText id={LOGO_ERROR_ID}>{logoError}</ErrorText> : null}
       </Fieldset>
     </FormSection>
   );
