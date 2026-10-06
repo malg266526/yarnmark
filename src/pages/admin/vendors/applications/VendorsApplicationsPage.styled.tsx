@@ -701,6 +701,57 @@ export const ApplicationsMapStandCount = styled.span`
   font-weight: 700;
 `;
 
+export const ApplicationsMapStandAssignedContent = styled.span`
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) max-content;
+  gap: 2px;
+  width: 100%;
+  height: 100%;
+  padding: 2px 0;
+`;
+
+export const ApplicationsMapStandLogos = styled.span<{ $columns: number }>`
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(${({ $columns }) => $columns}, minmax(0, 1fr));
+  grid-auto-rows: minmax(0, 1fr);
+  gap: 2px;
+  min-height: 0;
+  padding: 0 2px;
+`;
+
+export const ApplicationsMapStandLogoFrame = styled.span`
+  container-type: size;
+  display: grid;
+  place-items: center;
+`;
+
+export const ApplicationsMapStandLogo = styled.img`
+  box-sizing: border-box;
+  display: block;
+  width: min(100cqw, 100cqh);
+  height: min(100cqw, 100cqh);
+  padding: 2px;
+  border: 1px solid ${BorderColors.subtleGreen};
+  border-radius: 50%;
+  object-fit: contain;
+  background: ${Colors.white};
+`;
+
+export const ApplicationsMapStandVendorName = styled.span`
+  display: block;
+  align-self: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+`;
+
+export const ApplicationsMapStandMeta = styled.span`
+  text-align: center;
+`;
+
 export const ApplicationsMapCoverage = styled.div<{ $maxWidth: number }>`
   display: flex;
   flex-direction: column;

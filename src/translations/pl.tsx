@@ -704,6 +704,7 @@ export const pl = {
           freeStandsLabel: 'Bez chętnych'
         },
         standDemand: 'Stoisko {{standId}} — chętnych: {{count}}',
+        standAssignments: 'Stoisko {{standId}} — przypisani: {{names}}; chętnych: {{count}}',
         selectHint: 'Kliknij stoisko na mapie, aby zobaczyć listę chętnych. Wybór ustawia też filtr listy.',
         noRequests: 'Stoisko {{standId}} nie ma jeszcze żadnych chętnych.',
         loadError: 'Nie udało się wczytać planu hali.'

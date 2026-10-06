@@ -21,6 +21,9 @@ import {
   ApplicationsMapPanel,
   ApplicationsMapScroller,
   ApplicationsMapStand,
+  ApplicationsMapStandAssignedContent,
+  ApplicationsMapStandLogos,
+  ApplicationsMapStandMeta,
   ApplicationsMapStandCount
 } from '../VendorsApplicationsPage.styled';
 import {
@@ -31,6 +34,8 @@ import {
 } from '../utils/standDemandUtils';
 import { VENDOR_APPLICATIONS_FILTER_ALL } from '../vendorsApplicationsConstants';
 import { VendorsApplicationsMapViewProps } from './vendorsApplicationsViewContracts';
+import { buildVendorMapAssignments } from '../utils/vendorMapAssignmentsUtils';
+import { VendorApplicationMapLogo } from './VendorApplicationMapLogo';
 
 const DEMAND_LEVEL_COLORS: Record<StandDemandLevel, string> = {
   none: GrayScale[100],
@@ -49,6 +54,7 @@ export const VendorsApplicationsMapView = ({
 }: VendorsApplicationsMapViewProps) => {
   const parsedStands = useMemo(() => parseHallStands(), []);
   const requestCounts = useMemo(() => getStandInterestCounts(applications), [applications]);
+  const assignments = useMemo(() => buildVendorMapAssignments(applications), [applications]);
   if (!parsedStands.success) {
     return <ApplicationsMapHint>{translate('vendorsApplicationsPage.map.loadError')}</ApplicationsMapHint>;
   }
@@ -106,6 +112,15 @@ export const VendorsApplicationsMapView = ({
             renderStand={(stand, box) => {
               const requestCount = requestCounts.get(stand.index) ?? 0;
               const interactive = isVendorStand(stand);
+              const assignedVendors = assignments.get(stand.index) ?? [];
+              const standLabel =
+                assignedVendors.length > 0
+                  ? translate('vendorsApplicationsPage.map.standAssignments', {
+                      standId: stand.index,
+                      count: requestCount,
+                      names: assignedVendors.map(({ storeName }) => storeName).join(', ')
+                    })
+                  : translate('vendorsApplicationsPage.map.standDemand', { count: requestCount, standId: stand.index });
               const highlightedPriority = highlightedStands?.get(stand.index);
               const highlightColor = highlightedPriority
                 ? STAND_PRIORITY_COLORS[Math.min(highlightedPriority, STAND_PRIORITY_COLORS.length) - 1]
@@ -124,10 +139,8 @@ export const VendorsApplicationsMapView = ({
                   $width={box.width}
                   aria-pressed={interactive ? stand.index === selectedStandId : undefined}
                   disabled={!interactive}
-                  title={translate('vendorsApplicationsPage.map.standDemand', {
-                    count: requestCount,
-                    standId: stand.index
-                  })}
+                  title={standLabel}
+                  aria-label={interactive ? standLabel : undefined}
                   onClick={
                     interactive
                       ? () =>
@@ -137,8 +150,26 @@ export const VendorsApplicationsMapView = ({
                 >
                   {interactive ? (
                     <>
-                      {stand.index}
-                      <ApplicationsMapStandCount>{requestCount}</ApplicationsMapStandCount>
+                      {assignedVendors.length > 0 ? (
+                        <ApplicationsMapStandAssignedContent>
+                          <ApplicationsMapStandLogos
+                            $columns={Math.min(
+                              assignedVendors.length,
+                              Math.ceil(Math.sqrt((assignedVendors.length * box.width) / box.height))
+                            )}
+                          >
+                            {assignedVendors.map((vendor) => (
+                              <VendorApplicationMapLogo key={vendor.applicationId} vendor={vendor} />
+                            ))}
+                          </ApplicationsMapStandLogos>
+                          <ApplicationsMapStandMeta>{stand.index}</ApplicationsMapStandMeta>
+                        </ApplicationsMapStandAssignedContent>
+                      ) : (
+                        <>
+                          {stand.index}
+                          <ApplicationsMapStandCount>{requestCount}</ApplicationsMapStandCount>
+                        </>
+                      )}
                       {highlightedPriority && highlightColor ? (
                         <ApplicationsMapStandPriority $color={highlightColor}>
                           {highlightedPriority}

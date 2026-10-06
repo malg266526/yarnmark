@@ -705,6 +705,7 @@ export const en: TranslationsShape = {
           freeStandsLabel: 'Without requests'
         },
         standDemand: 'Stand {{standId}} — requests: {{count}}',
+        standAssignments: 'Stand {{standId}} — assigned: {{names}}; requests: {{count}}',
         selectHint: 'Pick a stand on the map to see who requested it. The choice also sets the list filter.',
         noRequests: 'Stand {{standId}} has no requests yet.',
         loadError: 'The hall layout could not be loaded.'
