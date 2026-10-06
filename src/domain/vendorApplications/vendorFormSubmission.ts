@@ -7,6 +7,7 @@ export type VendorApplicationAllocationState = 'confirmed' | 'manual-negotiation
 export interface VendorApplication extends VendorFormState {
   allocationIteration: number | null;
   allocationState: VendorApplicationAllocationState;
+  /** Many-to-many: each application can have multiple stands, and stand IDs can be shared by applications. */
   assignedStands: string[];
   id: string;
   logoUrl: string | null;

@@ -30,7 +30,7 @@ export interface VendorApplicationFlagsViewProps {
 
 export interface VendorApplicationStandAssignment {
   allApplications: VendorApplication[];
-  assignStand: (applicationId: string, standId: string | null) => Promise<void>;
+  assignStands: (applicationId: string, standIds: string[]) => Promise<void>;
   savingStandApplicationId: string | null;
   vendorStandIds: string[];
 }

@@ -16,8 +16,8 @@ test('buildStandAssignmentOptions lists the vendor preferences first, in their o
   const options = buildStandAssignmentOptions(application, [application], vendorStandIds);
 
   assert.deepEqual(options.preferredStands, [
-    { preferenceOrder: 1, standId: 'S10', takenBy: null },
-    { preferenceOrder: 2, standId: 'S1', takenBy: null }
+    { preferenceOrder: 1, standId: 'S10', assignedVendors: [] },
+    { preferenceOrder: 2, standId: 'S1', assignedVendors: [] }
   ]);
   assert.deepEqual(
     options.otherStands.map(({ standId }) => standId),
@@ -25,13 +25,20 @@ test('buildStandAssignmentOptions lists the vendor preferences first, in their o
   );
 });
 
-test('buildStandAssignmentOptions marks stands already assigned to another application', () => {
+test('buildStandAssignmentOptions retains every co-exhibitor by identity on shared stands', () => {
   const application = buildApplication({ id: 'wooly', preferredStands: ['S1'], assignedStands: ['S2'] });
-  const rival = buildApplication({ id: 'candle-lab', storeName: 'Candle Lab', assignedStands: ['S1'] });
-  const options = buildStandAssignmentOptions(application, [application, rival], vendorStandIds);
+  const first = buildApplication({ id: 'first', storeName: 'Shop', assignedStands: ['S1', 'S1', 'S2'] });
+  const second = buildApplication({ id: 'second', storeName: 'Shop', assignedStands: ['S1', 'P1'] });
+  const options = buildStandAssignmentOptions(application, [application, first, second], vendorStandIds);
 
-  assert.equal(options.preferredStands[0].takenBy, 'Candle Lab');
-  assert.equal(options.otherStands.find(({ standId }) => standId === 'S2')?.takenBy, null);
+  assert.deepEqual(options.preferredStands[0].assignedVendors, [
+    { id: 'first', storeName: 'Shop' },
+    { id: 'second', storeName: 'Shop' }
+  ]);
+  assert.deepEqual(options.otherStands.find(({ standId }) => standId === 'S2')?.assignedVendors, [
+    { id: 'first', storeName: 'Shop' }
+  ]);
+  assert.deepEqual(options.otherStands.find(({ standId }) => standId === 'S10')?.assignedVendors, []);
 });
 
 test('buildStandAssignmentOptions keeps a currently assigned stand that is missing from the hall plan', () => {

@@ -590,8 +590,13 @@ export const en: TranslationsShape = {
         preferredGroup: 'Vendor preferences',
         otherGroup: 'Other stands',
         preferredStand: '{{order}}. {{standId}}',
-        takenStand: '{{stand}} — taken by {{name}}',
-        save: 'Save stand'
+        sharedStand: '{{stand}} — assigned: {{names}}',
+        sharingHint: 'A vendor can have multiple stands, and each stand can be shared by multiple vendors.',
+        add: 'Add a stand',
+        choose: 'Choose a stand…',
+        remove: 'Remove stand {{standId}} from the assignment',
+        selectedStand: '{{standId}} ×',
+        save: 'Save assignments'
       },
       statusUndo: {
         message: 'Status of “{{name}}” changed to “{{status}}”.',
@@ -644,7 +649,7 @@ export const en: TranslationsShape = {
         status: 'Status',
         mainCategory: 'Main category',
         preferredStands: 'Preferred stands',
-        allocatedStand: 'Allocated stand',
+        allocatedStand: 'Assigned stands',
         allocationState: 'Allocation state',
         allocationIteration: 'Allocation iteration',
         attendedBefore: 'Previous editions',

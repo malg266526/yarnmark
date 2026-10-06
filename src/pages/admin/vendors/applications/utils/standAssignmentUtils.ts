@@ -3,7 +3,7 @@ import type { VendorApplication } from '../../../../../domain/vendorApplications
 export interface StandAssignmentOption {
   preferenceOrder: number | null;
   standId: string;
-  takenBy: string | null;
+  assignedVendors: Pick<VendorApplication, 'id' | 'storeName'>[];
 }
 
 export interface StandAssignmentOptions {
@@ -11,24 +11,33 @@ export interface StandAssignmentOptions {
   preferredStands: StandAssignmentOption[];
 }
 
-const collectStandOwners = (applications: VendorApplication[], ownerApplicationId: string) =>
-  new Map(
-    applications
-      .filter(({ id }) => id !== ownerApplicationId)
-      .flatMap(({ assignedStands, storeName }) => assignedStands.map((standId) => [standId, storeName] as const))
-  );
+const collectAssignedVendors = (applications: VendorApplication[], currentApplicationId: string) => {
+  const assignments = new Map<string, StandAssignmentOption['assignedVendors']>();
+
+  for (const { id, assignedStands, storeName } of applications) {
+    if (id === currentApplicationId) continue;
+
+    for (const standId of new Set(assignedStands)) {
+      const vendors = assignments.get(standId) ?? [];
+      vendors.push({ id, storeName });
+      assignments.set(standId, vendors);
+    }
+  }
+
+  return assignments;
+};
 
 export const buildStandAssignmentOptions = (
   application: VendorApplication,
   applications: VendorApplication[],
   vendorStandIds: string[]
 ): StandAssignmentOptions => {
-  const standOwners = collectStandOwners(applications, application.id);
+  const assignedVendors = collectAssignedVendors(applications, application.id);
   const preferredStandIds = [...new Set(application.preferredStands)];
   const toOption = (standId: string): StandAssignmentOption => ({
     preferenceOrder: preferredStandIds.includes(standId) ? preferredStandIds.indexOf(standId) + 1 : null,
     standId,
-    takenBy: standOwners.get(standId) ?? null
+    assignedVendors: assignedVendors.get(standId) ?? []
   });
 
   const knownStandIds = [

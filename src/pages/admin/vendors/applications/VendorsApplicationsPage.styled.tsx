@@ -457,12 +457,23 @@ export const ApplicationsFilterResetButton = styled(ApplicationActionButton)`
 
 export const ApplicationsStandAssignmentButton = styled(ApplicationsFilterResetButton)`
   flex: 0 0 auto;
+
+  &:focus-visible {
+    outline: 2px solid ${BackgroundColors.green.strong};
+    outline-offset: 2px;
+  }
 `;
 
 export const ApplicationsStandAssignmentRow = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: ${RedesignSpacings.xs};
   align-items: center;
+
+  select {
+    flex: 1 1 180px;
+    min-width: 0;
+  }
 `;
 
 export const CascadeSimulationNotice = styled(AcceptedApplicationsQueue)`

@@ -589,8 +589,13 @@ export const pl = {
         preferredGroup: 'Preferencje wystawcy',
         otherGroup: 'Pozostałe stoiska',
         preferredStand: '{{order}}. {{standId}}',
-        takenStand: '{{stand}} — zajęte: {{name}}',
-        save: 'Zapisz stoisko'
+        sharedStand: '{{stand}} — przypisani: {{names}}',
+        sharingHint: 'Wystawca może mieć kilka stoisk, a jedno stoisko może być współdzielone przez kilku wystawców.',
+        add: 'Dodaj stoisko',
+        choose: 'Wybierz stoisko…',
+        remove: 'Usuń stoisko {{standId}} z przydziału',
+        selectedStand: '{{standId}} ×',
+        save: 'Zapisz przydziały'
       },
       statusUndo: {
         message: 'Status „{{name}}” zmieniony na „{{status}}”.',
@@ -643,7 +648,7 @@ export const pl = {
         status: 'Status',
         mainCategory: 'Główna kategoria',
         preferredStands: 'Preferowane stoiska',
-        allocatedStand: 'Przydzielone stoisko',
+        allocatedStand: 'Przydzielone stoiska',
         allocationState: 'Stan alokacji',
         allocationIteration: 'Iteracja alokacji',
         attendedBefore: 'Poprzednie edycje',

@@ -9,7 +9,7 @@ export const VendorsApplicationsPage = () => {
   const t = useTypedTranslation();
   const {
     applications,
-    assignStand,
+    assignStands,
     deleteApplication,
     deletingApplicationId,
     dismissStatusChange,
@@ -33,7 +33,7 @@ export const VendorsApplicationsPage = () => {
           loading={loading}
           savingStatusApplicationId={savingStatusApplicationId}
           setApplicationStatus={setApplicationStatus}
-          standAssignment={{ assignStand, savingStandApplicationId }}
+          standAssignment={{ assignStands, savingStandApplicationId }}
           undoStatusChange={undoStatusChange}
         />
       </VendorsApplicationsPageStyled>

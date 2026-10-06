@@ -10,6 +10,7 @@ import type {
   VendorApplicationStatus
 } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
 import { VENDOR_APPLICATION_STATUS_UNDO_TIMEOUT_MS } from '../vendorsApplicationsConstants';
+import { normalizeStandIds } from '../../../../../domain/vendorApplications/vendorFormStandIds.ts';
 
 export interface VendorApplicationStatusChange {
   applicationId: string;
@@ -116,14 +117,14 @@ export const useVendorsApplications = () => {
     }
   };
 
-  const assignStand = async (applicationId: string, standId: string | null) => {
+  const assignStands = async (applicationId: string, standIds: string[]) => {
     const application = applications.find(({ id }) => id === applicationId);
 
     if (!application) {
       return;
     }
 
-    const assignedStands = standId ? [standId] : [];
+    const assignedStands = normalizeStandIds(standIds);
 
     setSavingStandApplicationId(applicationId);
 
@@ -162,7 +163,7 @@ export const useVendorsApplications = () => {
 
   return {
     applications,
-    assignStand,
+    assignStands,
     deleteApplication,
     deletingApplicationId,
     dismissStatusChange,

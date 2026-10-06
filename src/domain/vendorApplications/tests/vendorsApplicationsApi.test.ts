@@ -112,6 +112,20 @@ test('parseVendorApplications keeps the stands assigned by the backend', () => {
   assert.deepEqual(parseVendorApplications([application])[0].assignedStands, ['S12', 'M2']);
 });
 
+test('parseVendorApplications preserves many-to-many assignments and deduplicates only within each application', () => {
+  const applications = [
+    { ...createVendorApplicationPayload(), id: 'first', assignedStands: ['S1', 'M2', 'P3', 'S1'] },
+    { ...createVendorApplicationPayload(), id: 'second', assignedStands: ['S1', 'P3'] }
+  ];
+  assert.deepEqual(
+    parseVendorApplications(applications).map(({ id, assignedStands }) => ({ id, assignedStands })),
+    [
+      { id: 'first', assignedStands: ['S1', 'M2', 'P3'] },
+      { id: 'second', assignedStands: ['S1', 'P3'] }
+    ]
+  );
+});
+
 test('parseVendorApplications maps a legacy single allocated stand and hall ids to stand indexes', () => {
   const withoutAssignedStands: Partial<ReturnType<typeof createVendorApplicationPayload>> =
     createVendorApplicationPayload();
@@ -199,4 +213,20 @@ test('updateVendorApplicationStatus throws when the backend rejects the update',
   stubFetch(404, null);
 
   await assert.rejects(updateVendorApplicationStatus(ADMIN_TOKEN, 'unknown-id', [], 'accepted'), ApiRequestError);
+});
+
+test('updating one application can share stands and clear its assignments independently', async () => {
+  const requests = stubFetch(200, {});
+  await updateVendorApplicationStatus(ADMIN_TOKEN, 'first', ['S1', 'M2', 'P3'], 'accepted');
+  await updateVendorApplicationStatus(ADMIN_TOKEN, 'second', ['S1', 'P3'], 'accepted');
+  await updateVendorApplicationStatus(ADMIN_TOKEN, 'first', [], 'accepted');
+  assert.deepEqual(
+    requests.map(({ init }) => JSON.parse(init?.body as string)),
+    [
+      { assignedStands: ['S1', 'M2', 'P3'], status: 'accepted' },
+      { assignedStands: ['S1', 'P3'], status: 'accepted' },
+      { assignedStands: [], status: 'accepted' }
+    ]
+  );
+  assert.ok(requests[2].url.endsWith('/first'));
 });

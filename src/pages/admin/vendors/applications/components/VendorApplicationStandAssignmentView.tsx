@@ -1,14 +1,16 @@
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 import {
   ApplicationField,
   ApplicationFieldLabel,
+  ApplicationActionRow,
   ApplicationsFieldHint,
   ApplicationsFilterSelect,
   ApplicationsStandAssignmentButton,
   ApplicationsStandAssignmentRow
 } from '../VendorsApplicationsPage.styled';
-import { buildStandAssignmentOptions, type StandAssignmentOption } from '../utils/standAssignmentUtils';
+import type { StandAssignmentOption } from '../utils/standAssignmentUtils';
 import { VendorApplicationStandAssignmentViewProps } from './vendorsApplicationsViewContracts';
+import { useStandAssignmentForm } from '../hooks/useStandAssignmentForm';
 
 const NO_STAND_VALUE = '';
 
@@ -17,25 +19,24 @@ export const VendorApplicationStandAssignmentView = ({
   standAssignment,
   translate
 }: VendorApplicationStandAssignmentViewProps) => {
-  const { allApplications, assignStand, savingStandApplicationId, vendorStandIds } = standAssignment;
-  const assignedStandId = application.assignedStands[0] ?? NO_STAND_VALUE;
-  const [selectedStandId, setSelectedStandId] = useState(assignedStandId);
-  const options = useMemo(
-    () => buildStandAssignmentOptions(application, allApplications, vendorStandIds),
-    [application, allApplications, vendorStandIds]
+  const { addStand, hasChanges, isSaving, options, removeStand, save, selectedStandIds } = useStandAssignmentForm(
+    application,
+    standAssignment
   );
-  const isSaving = savingStandApplicationId === application.id;
   const fieldId = `vendor-application-stand-${application.id}`;
 
-  const renderOption = ({ preferenceOrder, standId, takenBy }: StandAssignmentOption) => {
+  const renderOption = ({ preferenceOrder, standId, assignedVendors }: StandAssignmentOption) => {
     const standLabel = preferenceOrder
       ? translate('vendorsApplicationsPage.standAssignment.preferredStand', { order: preferenceOrder, standId })
       : standId;
 
     return (
-      <option key={standId} value={standId} disabled={takenBy !== null}>
-        {takenBy
-          ? translate('vendorsApplicationsPage.standAssignment.takenStand', { name: takenBy, stand: standLabel })
+      <option key={standId} value={standId} disabled={selectedStandIds.includes(standId)}>
+        {assignedVendors.length > 0
+          ? translate('vendorsApplicationsPage.standAssignment.sharedStand', {
+              names: assignedVendors.map(({ storeName }) => storeName).join(', '),
+              stand: standLabel
+            })
           : standLabel}
       </option>
     );
@@ -43,17 +44,36 @@ export const VendorApplicationStandAssignmentView = ({
 
   return (
     <ApplicationField>
+      <ApplicationFieldLabel>{translate('vendorsApplicationsPage.fields.allocatedStand')}</ApplicationFieldLabel>
+      {selectedStandIds.length > 0 ? (
+        <ApplicationActionRow>
+          {selectedStandIds.map((standId) => (
+            <ApplicationsStandAssignmentButton
+              key={standId}
+              type="button"
+              disabled={isSaving}
+              aria-label={translate('vendorsApplicationsPage.standAssignment.remove', { standId })}
+              onClick={() => removeStand(standId)}
+            >
+              {translate('vendorsApplicationsPage.standAssignment.selectedStand', { standId })}
+            </ApplicationsStandAssignmentButton>
+          ))}
+        </ApplicationActionRow>
+      ) : (
+        <ApplicationsFieldHint>{translate('vendorsApplicationsPage.standAssignment.none')}</ApplicationsFieldHint>
+      )}
+      <ApplicationsFieldHint>{translate('vendorsApplicationsPage.standAssignment.sharingHint')}</ApplicationsFieldHint>
       <ApplicationFieldLabel as="label" htmlFor={fieldId}>
-        {translate('vendorsApplicationsPage.fields.allocatedStand')}
+        {translate('vendorsApplicationsPage.standAssignment.add')}
       </ApplicationFieldLabel>
       <ApplicationsStandAssignmentRow>
         <ApplicationsFilterSelect
           id={fieldId}
           disabled={isSaving}
-          value={selectedStandId}
-          onChange={(event) => setSelectedStandId(event.target.value)}
+          value={NO_STAND_VALUE}
+          onChange={(event) => addStand(event.target.value)}
         >
-          <option value={NO_STAND_VALUE}>{translate('vendorsApplicationsPage.standAssignment.none')}</option>
+          <option value={NO_STAND_VALUE}>{translate('vendorsApplicationsPage.standAssignment.choose')}</option>
           {options.preferredStands.length > 0 ? (
             <optgroup label={translate('vendorsApplicationsPage.standAssignment.preferredGroup')}>
               {options.preferredStands.map(renderOption)}
@@ -65,9 +85,9 @@ export const VendorApplicationStandAssignmentView = ({
         </ApplicationsFilterSelect>
         <ApplicationsStandAssignmentButton
           type="button"
-          disabled={isSaving || selectedStandId === assignedStandId}
+          disabled={isSaving || !hasChanges}
           onClick={() => {
-            void assignStand(application.id, selectedStandId || null);
+            void save();
           }}
         >
           {translate('vendorsApplicationsPage.standAssignment.save')}
