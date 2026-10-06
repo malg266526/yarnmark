@@ -656,6 +656,26 @@ export const en: TranslationsShape = {
         notAssigned: 'Not assigned',
         notProvided: 'Not provided',
         noneSelected: 'None selected'
+      },
+      toolbar: {
+        statusLabel: 'Filter by status',
+        allStatuses: 'All',
+        searchLabel: 'Search',
+        searchPlaceholder: 'Store name, e-mail or phone',
+        categoryLabel: 'Category',
+        allCategories: 'All categories',
+        standLabel: 'Preferred stand',
+        allStands: 'All stands',
+        sortLabel: 'Sorting',
+        sortOrders: {
+          oldest: 'Oldest applications',
+          newest: 'Newest applications',
+          name: 'Store name A–Z',
+          demand: 'Competition for 1st choice'
+        },
+        reset: 'Clear filters',
+        visibleCount: 'Visible applications: {{visible}} of {{total}}',
+        noMatches: 'No application matches the selected filters.'
       }
     },
     workshopsApplicationsPage: {

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Button } from '../../../../components/Button';
 import { Radius, DropShadow } from '../../../../styles/cards';
 import { FontSize } from '../../../../styles/font-size';
@@ -52,6 +52,83 @@ export const ApplicationsToolbar = styled.div`
   flex-wrap: wrap;
   gap: ${RedesignSpacings.xs};
 `;
+
+export const ApplicationsFilters = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${RedesignSpacings.xs};
+  padding: ${RedesignSpacings.sm};
+  border-radius: ${Radius.xl};
+  background: ${Colors.white};
+  box-shadow: ${DropShadow.card};
+  border: 1px solid ${BorderColors.subtleGreen};
+`;
+
+export const ApplicationsStatusFilterRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: ${RedesignSpacings.xxs};
+`;
+
+export const ApplicationsStatusFilterCount = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  padding: 2px 6px;
+  border-radius: ${Radius.xxl};
+  background: ${BackgroundColors.green.medium};
+  color: ${TextColors.primary};
+  font-size: inherit;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+`;
+
+export const ApplicationsFilterRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: ${RedesignSpacings.xs};
+  align-items: flex-end;
+`;
+
+export const ApplicationsFilterField = styled.div`
+  display: flex;
+  flex: 1 1 180px;
+  min-width: 180px;
+  flex-direction: column;
+  gap: ${RedesignSpacings.xxs};
+`;
+
+export const ApplicationsFilterLabel = styled.label`
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.sm};
+  color: ${TextColors.secondary};
+`;
+
+const filterControlStyles = css`
+  width: 100%;
+  padding: ${RedesignSpacings.xxs} ${RedesignSpacings.xs};
+  border: 1px solid ${BackgroundColors.green.medium};
+  border-radius: ${Radius.lg};
+  background: ${Colors.white};
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.sm};
+  color: ${TextColors.primary};
+
+  &:focus {
+    outline: 2px solid ${BackgroundColors.green.medium};
+    border-color: ${BackgroundColors.green.strong};
+  }
+`;
+
+export const ApplicationsFilterInput = styled.input`
+  ${filterControlStyles}
+`;
+
+export const ApplicationsFilterSelect = styled.select`
+  ${filterControlStyles}
+`;
+
 export const ApplicationsMeta = styled.div`
   font-family: ${FontFamilies.primary};
   font-size: ${FontSize.sm};
@@ -148,6 +225,16 @@ export const ApplicationActionButton = styled(Button)`
     border-color: ${BackgroundColors.green.strong};
     background: ${BackgroundColors.green.light};
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+`;
+
+export const ApplicationsStatusFilterButton = styled(ApplicationActionButton)`
+  gap: ${RedesignSpacings.xxs};
+  line-height: 1;
 `;
 
 export const ApplicationsEmpty = styled.div`

@@ -2,8 +2,10 @@ import type {
   VendorApplication,
   VendorApplicationStatus
 } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
-
-export type ApplicationsViewMode = 'cards' | 'cascade' | 'stands';
+import type {
+  VendorApplicationsFilters,
+  VendorApplicationStatusCounts
+} from '../utils/vendorApplicationsFilterUtils.ts';
 
 export interface VendorsApplicationsCardsViewProps {
   applications: VendorApplication[];
@@ -39,4 +41,32 @@ export interface VendorsApplicationsStandGroupsViewProps {
   applications: VendorApplication[];
   locale: string;
   resolvePriorityLabel: (priority: 'highest' | 'medium' | 'lowest') => string;
+}
+
+export interface VendorsApplicationsFilterOption {
+  label: string;
+  value: string;
+}
+
+export interface VendorsApplicationsFilterSelectProps {
+  id: string;
+  label: string;
+  onChange: (value: string) => void;
+  options: VendorsApplicationsFilterOption[];
+  value: string;
+}
+
+export interface VendorsApplicationsToolbarViewProps {
+  filters: VendorApplicationsFilters;
+  hasActiveFilters: boolean;
+  resetFilters: () => void;
+  resolveCategoryLabel: (categoryKey: NonNullable<VendorApplication['mainCategory']>) => string;
+  setFilter: <FilterKey extends keyof VendorApplicationsFilters>(
+    filterKey: FilterKey,
+    filterValue: VendorApplicationsFilters[FilterKey]
+  ) => void;
+  standFilterOptions: string[];
+  statusCounts: VendorApplicationStatusCounts;
+  totalCount: number;
+  translate: (translationKey: string, options?: Record<string, unknown>) => string;
 }

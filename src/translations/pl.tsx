@@ -655,6 +655,26 @@ export const pl = {
         notAssigned: 'Nieprzypisane',
         notProvided: 'Nie podano',
         noneSelected: 'Brak'
+      },
+      toolbar: {
+        statusLabel: 'Filtruj po statusie',
+        allStatuses: 'Wszystkie',
+        searchLabel: 'Szukaj',
+        searchPlaceholder: 'Nazwa, e-mail lub telefon',
+        categoryLabel: 'Kategoria',
+        allCategories: 'Wszystkie kategorie',
+        standLabel: 'Preferowane stoisko',
+        allStands: 'Wszystkie stoiska',
+        sortLabel: 'Sortowanie',
+        sortOrders: {
+          oldest: 'Najstarsze zgłoszenia',
+          newest: 'Najnowsze zgłoszenia',
+          name: 'Nazwa sklepu A–Z',
+          demand: 'Konkurencja o 1. wybór'
+        },
+        reset: 'Wyczyść filtry',
+        visibleCount: 'Widoczne zgłoszenia: {{visible}} z {{total}}',
+        noMatches: 'Żadne zgłoszenie nie pasuje do wybranych filtrów.'
       }
     },
     workshopsApplicationsPage: {

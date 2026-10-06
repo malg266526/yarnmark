@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   ApplicationActionButton,
   ApplicationsEmpty,
@@ -11,10 +11,11 @@ import type {
   VendorApplicationStatus
 } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
 import { useTypedTranslation } from '../../../../../translations/useTypedTranslation';
-import { ApplicationsViewMode } from './vendorsApplicationsViewContracts';
+import { useVendorsApplicationsToolbar } from '../hooks/useVendorsApplicationsToolbar';
 import { VendorsApplicationsCardsView } from './VendorsApplicationsCardsView';
 import { VendorsApplicationsCascadeView } from './VendorsApplicationsCascadeView';
 import { VendorsApplicationsStandGroupsView } from './VendorsApplicationsStandGroupsView';
+import { VendorsApplicationsToolbarView } from './VendorsApplicationsToolbarView';
 
 interface VendorsApplicationsViewProps {
   applications: VendorApplication[];
@@ -32,7 +33,21 @@ export const VendorsApplicationsView = ({
   setApplicationStatus
 }: VendorsApplicationsViewProps) => {
   const t = useTypedTranslation();
-  const [viewMode, setViewMode] = useState<ApplicationsViewMode>('cards');
+  const {
+    filters,
+    hasActiveFilters,
+    resetFilters,
+    setFilter,
+    setViewMode,
+    standFilterOptions,
+    statusCounts,
+    viewMode,
+    visibleApplications
+  } = useVendorsApplicationsToolbar(applications, t.i18n.language);
+  const translate = (translationKey: string, options?: Record<string, unknown>) =>
+    t(translationKey as never, options as never);
+  const resolveCategoryLabel = (categoryKey: NonNullable<VendorApplication['mainCategory']>) =>
+    t(`vendorsFormPage.steps.mainCategory.${categoryKey}` as const);
   const viewValues = {
     no: t('vendorsApplicationsPage.values.no'),
     noAnswer: t('vendorsApplicationsPage.values.noAnswer'),
@@ -50,9 +65,18 @@ export const VendorsApplicationsView = ({
     return <ApplicationsEmpty>{t('vendorsApplicationsPage.empty')}</ApplicationsEmpty>;
   }
 
+  const isFiltered = viewMode === 'cards' && visibleApplications.length !== applications.length;
+
   return (
     <ApplicationsSection>
-      <ApplicationsMeta>{t('vendorsApplicationsPage.savedCount', { count: applications.length })}</ApplicationsMeta>
+      <ApplicationsMeta>
+        {isFiltered
+          ? t('vendorsApplicationsPage.toolbar.visibleCount', {
+              total: applications.length,
+              visible: visibleApplications.length
+            })
+          : t('vendorsApplicationsPage.savedCount', { count: applications.length })}
+      </ApplicationsMeta>
       <ApplicationsToolbar>
         <ApplicationActionButton aria-pressed={viewMode === 'cards'} type="button" onClick={() => setViewMode('cards')}>
           {t('vendorsApplicationsPage.showCards')}
@@ -103,16 +127,33 @@ export const VendorsApplicationsView = ({
       ) : null}
 
       {viewMode === 'cards' ? (
-        <VendorsApplicationsCardsView
-          applications={applications}
-          deleteApplication={deleteApplication}
-          deletingApplicationId={deletingApplicationId}
-          locale={t.i18n.language}
-          resolveCategoryLabel={(categoryKey) => t(`vendorsFormPage.steps.mainCategory.${categoryKey}` as const)}
-          setApplicationStatus={setApplicationStatus}
-          translate={(translationKey, options) => t(translationKey as never, options as never)}
-          values={viewValues}
-        />
+        <>
+          <VendorsApplicationsToolbarView
+            filters={filters}
+            hasActiveFilters={hasActiveFilters}
+            resetFilters={resetFilters}
+            resolveCategoryLabel={resolveCategoryLabel}
+            setFilter={setFilter}
+            standFilterOptions={standFilterOptions}
+            statusCounts={statusCounts}
+            totalCount={applications.length}
+            translate={translate}
+          />
+          {visibleApplications.length === 0 ? (
+            <ApplicationsEmpty>{t('vendorsApplicationsPage.toolbar.noMatches')}</ApplicationsEmpty>
+          ) : (
+            <VendorsApplicationsCardsView
+              applications={visibleApplications}
+              deleteApplication={deleteApplication}
+              deletingApplicationId={deletingApplicationId}
+              locale={t.i18n.language}
+              resolveCategoryLabel={resolveCategoryLabel}
+              setApplicationStatus={setApplicationStatus}
+              translate={translate}
+              values={viewValues}
+            />
+          )}
+        </>
       ) : null}
     </ApplicationsSection>
   );
