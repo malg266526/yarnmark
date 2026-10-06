@@ -149,6 +149,7 @@ export interface VendorsApplicationsFilterSelectProps {
 }
 
 export interface VendorsApplicationsToolbarViewProps {
+  exportUrl: string | undefined;
   filters: VendorApplicationsFilters;
   hasActiveFilters: boolean;
   resetFilters: () => void;

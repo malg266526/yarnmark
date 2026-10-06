@@ -5,6 +5,7 @@ import {
   ApplicationsFilterLabel,
   ApplicationsFilterResetButton,
   ApplicationsFilterRow,
+  ApplicationsExportLink,
   ApplicationsFilters,
   ApplicationsStatusFilterButton,
   ApplicationsStatusFilterCount,
@@ -22,6 +23,7 @@ import {
 } from '../utils/vendorApplicationsFilterParams';
 import { VendorsApplicationsFilterSelect } from './VendorsApplicationsFilterSelect';
 import { VendorsApplicationsToolbarViewProps } from './vendorsApplicationsViewContracts';
+import { VENDOR_APPLICATIONS_EXPORT_FILE_NAME } from '../hooks/useVendorApplicationsExport';
 
 const FILTER_FIELD_IDS = {
   category: 'vendor-applications-category',
@@ -31,6 +33,7 @@ const FILTER_FIELD_IDS = {
 } as const;
 
 export const VendorsApplicationsToolbarView = ({
+  exportUrl,
   filters,
   hasActiveFilters,
   resetFilters,
@@ -122,6 +125,14 @@ export const VendorsApplicationsToolbarView = ({
         <ApplicationsFilterResetButton type="button" disabled={!hasActiveFilters} onClick={resetFilters}>
           {translate('vendorsApplicationsPage.toolbar.reset')}
         </ApplicationsFilterResetButton>
+        <ApplicationsExportLink
+          href={exportUrl}
+          download={VENDOR_APPLICATIONS_EXPORT_FILE_NAME}
+          aria-disabled={!exportUrl}
+          tabIndex={exportUrl ? 0 : -1}
+        >
+          {translate('vendorsApplicationsPage.toolbar.exportCsv')}
+        </ApplicationsExportLink>
       </ApplicationsFilterRow>
     </ApplicationsFilters>
   );

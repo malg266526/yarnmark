@@ -753,6 +753,8 @@ export const pl = {
           demand: 'Konkurencja o 1. wybór'
         },
         reset: 'Wyczyść filtry',
+        exportCsv: 'Eksportuj listę CSV',
+        assignedStands: 'Zapisane przydziały stoisk',
         visibleCount: 'Widoczne zgłoszenia: {{visible}} z {{total}}',
         noMatches: 'Żadne zgłoszenie nie pasuje do wybranych filtrów.'
       }

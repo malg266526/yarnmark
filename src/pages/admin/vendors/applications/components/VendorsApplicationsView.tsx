@@ -19,6 +19,7 @@ import { isVendorStand, parseHallStands } from '../../../../../components/hall/h
 import type { VendorApplicationStatusChange } from '../hooks/useVendorsApplications';
 import type { VendorApplicationStandAssignment } from './vendorsApplicationsViewContracts';
 import { useVendorsApplicationsToolbar } from '../hooks/useVendorsApplicationsToolbar';
+import { useVendorApplicationsExport } from '../hooks/useVendorApplicationsExport';
 import {
   VENDOR_APPLICATIONS_LIST_VIEW_MODES,
   VENDOR_APPLICATIONS_MAP_MULTIPLIER,
@@ -88,6 +89,22 @@ export const VendorsApplicationsView = ({
     t(translationKey as never, options as never);
   const resolveCategoryLabel = (categoryKey: NonNullable<VendorApplication['mainCategory']>) =>
     t(`vendorsFormPage.steps.mainCategory.${categoryKey}` as const);
+  const exportUrl = useVendorApplicationsExport(
+    visibleApplications,
+    {
+      applicationId: t('vendorsApplicationsPage.cascadeAlgorithm.exportColumns.applicationId'),
+      submittedAt: t('vendorsApplicationsPage.rows.columns.submittedAt'),
+      storeName: t('vendorsApplicationsPage.rows.columns.storeName'),
+      email: t('vendorsApplicationsPage.fields.email'),
+      phoneNumber: t('vendorsApplicationsPage.fields.phone'),
+      category: t('vendorsApplicationsPage.rows.columns.category'),
+      status: t('vendorsApplicationsPage.fields.status'),
+      preferredStands: t('vendorsApplicationsPage.fields.preferredStands'),
+      assignedStands: t('vendorsApplicationsPage.toolbar.assignedStands')
+    },
+    resolveCategoryLabel,
+    (status) => t(`vendorsApplicationsPage.statuses.${status}` as const)
+  );
   const viewValues = {
     no: t('vendorsApplicationsPage.values.no'),
     noAnswer: t('vendorsApplicationsPage.values.noAnswer'),
@@ -216,6 +233,7 @@ export const VendorsApplicationsView = ({
       {isListView ? (
         <>
           <VendorsApplicationsToolbarView
+            exportUrl={exportUrl}
             filters={filters}
             hasActiveFilters={hasActiveFilters}
             resetFilters={resetFilters}

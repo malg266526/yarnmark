@@ -754,6 +754,8 @@ export const en: TranslationsShape = {
           demand: 'Competition for 1st choice'
         },
         reset: 'Clear filters',
+        exportCsv: 'Export list as CSV',
+        assignedStands: 'Saved stand assignments',
         visibleCount: 'Visible applications: {{visible}} of {{total}}',
         noMatches: 'No application matches the selected filters.'
       }

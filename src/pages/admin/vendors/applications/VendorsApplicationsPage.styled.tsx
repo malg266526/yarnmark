@@ -488,6 +488,10 @@ export const CascadeExportLink = styled(ApplicationsFilterResetButton).attrs({ a
   }
 `;
 
+export const ApplicationsExportLink = styled(CascadeExportLink)`
+  align-self: flex-end;
+`;
+
 const DRAWER_WIDTH = '560px';
 
 export const DRAWER_OVERLAY_STYLE = {

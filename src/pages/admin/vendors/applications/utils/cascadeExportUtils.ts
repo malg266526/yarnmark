@@ -1,4 +1,5 @@
 import type { CascadeChoiceReservation } from './standAllocationUtils.ts';
+import { buildCsv } from './csvUtils.ts';
 
 export interface CascadeExportLabels {
   applicationId: string;
@@ -10,11 +11,6 @@ export interface CascadeExportLabels {
   suggested: string;
   manualNegotiation: string;
 }
-
-const escapeCsvCell = (value: string) => {
-  const safeValue = /^[\s]*[=+\-@\t\r]/.test(value) ? `'${value}` : value;
-  return `"${safeValue.replaceAll('"', '""')}"`;
-};
 
 export const buildCascadeProposalCsv = (reservations: CascadeChoiceReservation[], labels: CascadeExportLabels) => {
   const rows = [
@@ -29,5 +25,5 @@ export const buildCascadeProposalCsv = (reservations: CascadeChoiceReservation[]
     ])
   ];
 
-  return `\uFEFF${rows.map((row) => row.map(escapeCsvCell).join(';')).join('\r\n')}`;
+  return buildCsv(rows);
 };
