@@ -8,8 +8,7 @@ import {
 } from '../WorkshopsApplicationsPage.styled';
 import type {
   WorkshopApplication,
-  WorkshopApplicationStatus,
-  WorkshopSchedule
+  WorkshopApplicationStatus
 } from '../../../../../domain/workshopApplications/workshopFormSubmission.ts';
 import { useTypedTranslation } from '../../../../../translations/useTypedTranslation';
 import { useWorkshopsApplicationsToolbar } from '../hooks/useWorkshopsApplicationsToolbar';
@@ -17,15 +16,12 @@ import { WorkshopApplicationDetailsDrawer } from './WorkshopApplicationDetailsDr
 import { WorkshopsApplicationsCardsView } from './WorkshopsApplicationsCardsView';
 import { WorkshopsApplicationsRowsView } from './WorkshopsApplicationsRowsView';
 import { WorkshopsApplicationsToolbarView } from './WorkshopsApplicationsToolbarView';
-import { WorkshopsScheduleView } from './WorkshopsScheduleView';
 
 interface WorkshopsApplicationsViewProps {
   applications: WorkshopApplication[];
   deleteApplication: (applicationId: string) => Promise<void>;
   deletingApplicationId: string | null;
   loading: boolean;
-  savingScheduleApplicationId: string | null;
-  setApplicationSchedule: (applicationId: string, schedule: WorkshopSchedule | null) => Promise<void>;
   setApplicationStatus: (applicationId: string, status: WorkshopApplicationStatus) => Promise<void>;
 }
 
@@ -34,8 +30,6 @@ export const WorkshopsApplicationsView = ({
   deleteApplication,
   deletingApplicationId,
   loading,
-  savingScheduleApplicationId,
-  setApplicationSchedule,
   setApplicationStatus
 }: WorkshopsApplicationsViewProps) => {
   const t = useTypedTranslation();
@@ -78,13 +72,6 @@ export const WorkshopsApplicationsView = ({
         <ApplicationActionButton type="button" aria-pressed={viewMode === 'rows'} onClick={() => setViewMode('rows')}>
           {t('workshopsApplicationsPage.showRows')}
         </ApplicationActionButton>
-        <ApplicationActionButton
-          type="button"
-          aria-pressed={viewMode === 'schedule'}
-          onClick={() => setViewMode('schedule')}
-        >
-          {t('workshopsApplicationsPage.showSchedule')}
-        </ApplicationActionButton>
         <ApplicationActionButton type="button" aria-pressed={viewMode === 'cards'} onClick={() => setViewMode('cards')}>
           {t('workshopsApplicationsPage.showCards')}
         </ApplicationActionButton>
@@ -109,13 +96,6 @@ export const WorkshopsApplicationsView = ({
           translate={translate}
           warningsByApplicationId={warningsByApplicationId}
         />
-      ) : viewMode === 'schedule' ? (
-        <WorkshopsScheduleView
-          applications={visibleApplications}
-          openApplication={openApplication}
-          translate={translate}
-          warningsByApplicationId={warningsByApplicationId}
-        />
       ) : (
         <WorkshopsApplicationsCardsView
           applications={visibleApplications}
@@ -133,8 +113,6 @@ export const WorkshopsApplicationsView = ({
         deleteApplication={deleteApplication}
         deletingApplicationId={deletingApplicationId}
         locale={t.i18n.language}
-        savingSchedule={savingScheduleApplicationId === openApplicationRecord?.id}
-        setApplicationSchedule={setApplicationSchedule}
         setApplicationStatus={setApplicationStatus}
         translate={translate}
         warnings={openApplicationRecord ? (warningsByApplicationId.get(openApplicationRecord.id) ?? []) : []}

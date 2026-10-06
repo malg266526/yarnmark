@@ -23,14 +23,14 @@ test('workshop application params round-trip non-default state and omit defaults
     sortOrder: 'tutor' as const,
     status: 'accepted' as const
   };
-  const params = buildWorkshopApplicationsSearchParams(filters, 'schedule', 'application-2');
+  const params = buildWorkshopApplicationsSearchParams(filters, 'cards', 'application-2');
 
   assert.equal(
     params.toString(),
-    'view=schedule&q=++haft+&status=accepted&level=advanced&sort=tutor&application=application-2'
+    'view=cards&q=++haft+&status=accepted&level=advanced&sort=tutor&application=application-2'
   );
   assert.deepEqual(parseWorkshopApplicationsFilters(params), filters);
-  assert.equal(parseWorkshopApplicationsViewMode(params), 'schedule');
+  assert.equal(parseWorkshopApplicationsViewMode(params), 'cards');
   assert.equal(parseWorkshopApplicationsOpenId(params), 'application-2');
   assert.equal(
     buildWorkshopApplicationsSearchParams(DEFAULT_WORKSHOP_APPLICATIONS_FILTERS, 'rows', null).toString(),

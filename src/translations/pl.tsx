@@ -764,7 +764,6 @@ export const pl = {
       empty: 'Brak zgłoszeń.',
       savedCount: 'Zapisanych zgłoszeń: {{count}}',
       showRows: 'Pokaż listę',
-      showSchedule: 'Pokaż harmonogram',
       showCards: 'Pokaż karty',
       toolbar: {
         statusLabel: 'Filtruj po statusie',
@@ -802,39 +801,11 @@ export const pl = {
         label: 'Szczegóły zgłoszenia: {{name}}',
         close: 'Zamknij'
       },
-      schedule: {
-        formTitle: 'Termin i sala',
-        day: 'Dzień',
-        startTime: 'Godzina rozpoczęcia',
-        durationMinutes: 'Czas trwania (minuty)',
-        room: 'Sala',
-        roomCapacity: 'Pojemność sali',
-        save: 'Zapisz termin',
-        saving: 'Zapisywanie…',
-        remove: 'Usuń z harmonogramu',
-        empty: 'Brak warsztatów w harmonogramie.',
-        days: {
-          saturday: 'Sobota',
-          sunday: 'Niedziela'
-        }
-      },
       warnings: {
         none: 'Brak uwag',
         missingContract: {
           label: 'Brak umowy',
           detail: 'Brak typu umowy potrzebnego do rozliczenia.'
-        },
-        roomCapacity: {
-          label: 'Za mała sala',
-          detail: 'Maksymalna liczba uczestników przekracza pojemność sali.'
-        },
-        roomCollision: {
-          label: 'Kolizja sali',
-          detail: 'W tej sali zaplanowano w tym samym czasie inny warsztat.'
-        },
-        tutorCollision: {
-          label: 'Kolizja prowadzącego',
-          detail: 'Prowadzący ma w tym samym czasie inny warsztat.'
         }
       },
       delete: {
@@ -1261,7 +1232,7 @@ export const pl = {
       kicker: 'Admin',
       navigationLabel: 'Nawigacja panelu administracyjnego',
       links: {
-        applications: 'Zgłoszenia',
+        applications: 'Zgłoszenia wystawców',
         workshopsApplications: 'Zgłoszenia warsztatowe',
         users: 'Użytkownicy',
         editor: 'Edytor',

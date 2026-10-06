@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { WorkshopApplication, WorkshopApplicationStatus, WorkshopSchedule } from './workshopFormSubmission.ts';
+import type { WorkshopApplication, WorkshopApplicationStatus } from './workshopFormSubmission.ts';
 import {
   applicationRecordsSchema,
   normalizeBackendApplicationRecord,
@@ -17,18 +17,6 @@ const workshopApplicationStatusSchema = z
   .optional()
   .transform((status): WorkshopApplicationStatus => status ?? DEFAULT_WORKSHOP_APPLICATION_STATUS);
 
-const workshopScheduleSchema = z
-  .object({
-    day: z.enum(['saturday', 'sunday']),
-    durationMinutes: z.number().int().positive(),
-    room: z.string().trim().min(1),
-    roomCapacity: z.number().int().positive(),
-    startTime: z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/)
-  })
-  .nullable()
-  .optional()
-  .transform((schedule): WorkshopSchedule | null => schedule ?? null);
-
 const workshopApplicationRecordSchema = workshopFormStateSchema.extend({
   id: z.string(),
   logoUrl: z
@@ -36,7 +24,6 @@ const workshopApplicationRecordSchema = workshopFormStateSchema.extend({
     .nullable()
     .optional()
     .transform((logoUrl) => resolveApiAssetUrl(logoUrl)),
-  schedule: workshopScheduleSchema,
   status: workshopApplicationStatusSchema,
   submittedAt: z.string()
 });
@@ -75,18 +62,6 @@ export const updateWorkshopApplicationStatus = async (
   await requestApi(`${WORKSHOP_FORM_API_URL}/${encodeURIComponent(applicationId)}`, {
     method: 'PATCH',
     body: { status },
-    token
-  });
-};
-
-export const updateWorkshopApplicationSchedule = async (
-  token: string,
-  applicationId: string,
-  schedule: WorkshopSchedule | null
-): Promise<void> => {
-  await requestApi(`${WORKSHOP_FORM_API_URL}/${encodeURIComponent(applicationId)}`, {
-    method: 'PATCH',
-    body: { schedule },
     token
   });
 };

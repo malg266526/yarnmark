@@ -765,7 +765,6 @@ export const en: TranslationsShape = {
       empty: 'No applications yet.',
       savedCount: '{{count}} applications saved',
       showRows: 'Show list',
-      showSchedule: 'Show schedule',
       showCards: 'Show cards',
       toolbar: {
         statusLabel: 'Filter by status',
@@ -803,39 +802,11 @@ export const en: TranslationsShape = {
         label: 'Application details: {{name}}',
         close: 'Close'
       },
-      schedule: {
-        formTitle: 'Time and room',
-        day: 'Day',
-        startTime: 'Start time',
-        durationMinutes: 'Duration (minutes)',
-        room: 'Room',
-        roomCapacity: 'Room capacity',
-        save: 'Save schedule',
-        saving: 'Saving…',
-        remove: 'Remove from schedule',
-        empty: 'No workshops have been scheduled.',
-        days: {
-          saturday: 'Saturday',
-          sunday: 'Sunday'
-        }
-      },
       warnings: {
         none: 'No warnings',
         missingContract: {
           label: 'Missing contract',
           detail: 'The contract type required for settlement is missing.'
-        },
-        roomCapacity: {
-          label: 'Room too small',
-          detail: 'The maximum participant count exceeds the room capacity.'
-        },
-        roomCollision: {
-          label: 'Room collision',
-          detail: 'Another workshop is scheduled in this room at the same time.'
-        },
-        tutorCollision: {
-          label: 'Tutor collision',
-          detail: 'The tutor has another workshop scheduled at the same time.'
         }
       },
       delete: {
@@ -1261,7 +1232,7 @@ export const en: TranslationsShape = {
       kicker: 'Admin',
       navigationLabel: 'Admin navigation',
       links: {
-        applications: 'Applications',
+        applications: 'Vendor applications',
         workshopsApplications: 'Workshop applications',
         users: 'Users',
         editor: 'Editor',

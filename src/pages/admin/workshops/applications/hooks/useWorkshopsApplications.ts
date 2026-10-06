@@ -3,13 +3,11 @@ import { useAdminSession } from '../../../useAdminSession';
 import {
   deleteWorkshopApplication,
   listWorkshopApplications,
-  updateWorkshopApplicationSchedule,
   updateWorkshopApplicationStatus
 } from '../../../../../domain/workshopApplications/workshopsApplicationsApi.ts';
 import type {
   WorkshopApplication,
-  WorkshopApplicationStatus,
-  WorkshopSchedule
+  WorkshopApplicationStatus
 } from '../../../../../domain/workshopApplications/workshopFormSubmission.ts';
 
 export const useWorkshopsApplications = () => {
@@ -17,7 +15,6 @@ export const useWorkshopsApplications = () => {
   const [applications, setApplications] = useState<WorkshopApplication[]>([]);
   const [deletingApplicationId, setDeletingApplicationId] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [savingScheduleApplicationId, setSavingScheduleApplicationId] = useState<string | null>(null);
 
   useEffect(() => {
     let isActive = true;
@@ -73,31 +70,11 @@ export const useWorkshopsApplications = () => {
     }
   };
 
-  const setApplicationSchedule = async (applicationId: string, schedule: WorkshopSchedule | null) => {
-    setSavingScheduleApplicationId(applicationId);
-
-    try {
-      await updateWorkshopApplicationSchedule(token, applicationId, schedule);
-      setApplications((currentApplications) =>
-        currentApplications.map((application) =>
-          application.id === applicationId ? { ...application, schedule } : application
-        )
-      );
-    } catch (error) {
-      console.error('Workshop application schedule could not be updated', error);
-      handleAdminApiError(error);
-    } finally {
-      setSavingScheduleApplicationId(null);
-    }
-  };
-
   return {
     applications,
     deleteApplication,
     deletingApplicationId,
     loading,
-    savingScheduleApplicationId,
-    setApplicationSchedule,
     setApplicationStatus
   };
 };

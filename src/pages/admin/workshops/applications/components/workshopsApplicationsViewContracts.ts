@@ -1,7 +1,6 @@
 import type {
   WorkshopApplication,
-  WorkshopApplicationStatus,
-  WorkshopSchedule
+  WorkshopApplicationStatus
 } from '../../../../../domain/workshopApplications/workshopFormSubmission.ts';
 import type { WorkshopApplicationWarning } from '../utils/workshopScheduleUtils.ts';
 
@@ -29,6 +28,4 @@ export interface WorkshopApplicationDetailsDrawerProps
   application: WorkshopApplication | null;
   closeApplication: () => void;
   locale: string;
-  savingSchedule: boolean;
-  setApplicationSchedule: (applicationId: string, schedule: WorkshopSchedule | null) => Promise<void>;
 }

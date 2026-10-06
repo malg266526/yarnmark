@@ -4,7 +4,6 @@ import {
   deleteWorkshopApplication,
   listWorkshopApplications,
   parseWorkshopApplications,
-  updateWorkshopApplicationSchedule,
   updateWorkshopApplicationStatus
 } from '../workshopsApplicationsApi.ts';
 import { WORKSHOP_FORM_API_URL } from '../workshopFormConstants.ts';
@@ -46,7 +45,6 @@ const createWorkshopApplication = (overrides: Partial<WorkshopFormState> = {}) =
   ...createWorkshopFormState(overrides),
   id: 'application-1',
   logoUrl: null,
-  schedule: null,
   status: 'rejected' as const,
   submittedAt: '2026-05-11T10:30:00.000Z'
 });
@@ -107,23 +105,6 @@ test('updateWorkshopApplicationStatus throws when the backend rejects the update
   await assert.rejects(updateWorkshopApplicationStatus(ADMIN_TOKEN, 'unknown-id', 'accepted'), ApiRequestError);
 });
 
-test('updateWorkshopApplicationSchedule sends structured schedule data to the application endpoint', async () => {
-  const requests = stubFetch(200, {});
-  const schedule = {
-    day: 'saturday' as const,
-    durationMinutes: 180,
-    room: 'Sala A',
-    roomCapacity: 12,
-    startTime: '09:30'
-  };
-
-  await updateWorkshopApplicationSchedule(ADMIN_TOKEN, 'application-1', schedule);
-
-  assert.equal(requests[0].url, `${WORKSHOP_FORM_API_URL}/application-1`);
-  assert.equal(requests[0].init?.method, 'PATCH');
-  assert.equal(requests[0].init?.body, JSON.stringify({ schedule }));
-});
-
 test('deleteWorkshopApplication deletes the selected application with the admin token', async () => {
   const requests = stubFetch(200, {});
 
@@ -161,23 +142,8 @@ test('parseWorkshopApplications defaults a missing status to "pending"', () => {
   };
 
   assert.deepEqual(parseWorkshopApplications([applicationWithoutStatus]), [
-    { ...applicationWithoutStatus, logoUrl: null, schedule: null, status: 'pending' }
+    { ...applicationWithoutStatus, logoUrl: null, status: 'pending' }
   ]);
-});
-
-test('parseWorkshopApplications keeps a valid administrative schedule', () => {
-  const application = {
-    ...createWorkshopApplication(),
-    schedule: {
-      day: 'sunday',
-      durationMinutes: 90,
-      room: 'Sala B',
-      roomCapacity: 16,
-      startTime: '11:30'
-    }
-  };
-
-  assert.deepEqual(parseWorkshopApplications([application]), [application]);
 });
 
 test('parseWorkshopApplications maps the backend submissions payload', () => {

@@ -22,7 +22,6 @@ export const createWorkshopApplicationFixture = (
   phoneNumber: '+48123456789',
   requiredEquipment: '',
   roomRequirements: '',
-  schedule: null,
   status: 'pending',
   submittedAt: '2026-05-11T10:30:00.000Z',
   tutorName: 'Anna Kowalska',
