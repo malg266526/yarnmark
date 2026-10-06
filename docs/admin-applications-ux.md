@@ -269,9 +269,18 @@ Dokładnie to, co jest już w modelu danych, tylko nieużyte.
 
 ### P1 — wymaga kontraktu z backendem
 
-10. **Ręczny przydział i „klepnięcie”**: `PATCH` przyjmujący `allocatedStandId` + `allocationState`
-    (`suggested` → `confirmed`) niezależnie od `status`. Bez tego §4 `stands_algorithm.md` jest martwy.
-    Dziś front wysyła `assignedStands` odtworzone z własnego stanu, czyli nic nie zmienia.
+10. **Ręczny przydział i „klepnięcie”** — ✅ Ręczny przydział zrobiony; „klepnięcie” czeka na backend.
+    Kontrakt potwierdzony: `PATCH /api/vendors/:id` z `{ assignedStands: string[], status }`.
+    W szczegółach zgłoszenia pole „Przydzielone stoisko”: lista z preferencjami wystawcy na górze
+    (w kolejności wyboru), potem pozostałe stoiska z `hall.json`; stoiska przydzielone innemu
+    wystawcy są zablokowane z dopiskiem „zajęte: …”, przycisk „Zapisz stoisko” aktywny tylko po
+    zmianie. Zapis nie zmienia statusu.
+    Przy okazji naprawiony cichy błąd: front trzymał przydział jako `allocatedStandId`, którego
+    backend nie zwraca, więc każda zmiana statusu wysyłała `assignedStands: []` i skasowałaby
+    przydzielone stoisko. Model trzyma teraz `assignedStands: string[]` jak backend (stare
+    `allocatedStandId` jest mapowane przy parsowaniu), a zmiana statusu odsyła je bez zmian.
+    Backend nie ma `allocationState`, więc „klepnięcie” z §4 `stands_algorithm.md` zostaje na później.
+
 11. **Notatki i historia zmian** (kto, kiedy, z jakiego na jaki status) — widoczne w drawerze.
 12. **Ranking zamiast czystego FCFS**: pole `priorityScore` (lub składniki: liczba poprzednich edycji,
     sponsoring, kuracja) i jawna reguła `tier → score → submittedAt`. Reguła powinna być widoczna
@@ -300,13 +309,29 @@ Dokładnie to, co jest już w modelu danych, tylko nieużyte.
 
 ### P3 — warsztaty
 
-20. Ten sam pasek roboczy i gęsta lista; w wierszu: tytuł, prowadzący, poziom, min–max uczestników,
-    cena, czas trwania. Opisy i wymagania w drawerze.
-21. **Model harmonogramu**: dzień, godzina, sala, pojemność — i widok siatki z wykrywaniem kolizji
-    (ta sama sala, ten sam prowadzący). Bez zmiany modelu (`duration: string`) planowanie w panelu
-    jest niemożliwe, więc to decyzja produktowa, nie UI.
-22. Sanity-checki: `maxParticipants` > pojemność sali, prowadzący z dwoma warsztatami w tym samym
-    slocie, brak typu umowy przy rozliczeniu.
+20. ✅ **Pasek roboczy, gęsta lista i drawer.** Domyślny widok tabeli pokazuje tytuł, prowadzącego,
+    poziom, zakres uczestników, cenę, zgłoszony czas trwania, datę, status i sanity-checki. Szukajka
+    działa po tytule, prowadzącym, e-mailu i telefonie; filtry statusu i poziomu oraz sortowanie są
+    zapisane w query params razem z trybem widoku i otwartym zgłoszeniem. Pełne opisy, wymagania,
+    statusy i usuwanie są w drawerze; dawne karty zostały jako opcjonalny widok.
+21. ✅ **Model harmonogramu i siatka.** `WorkshopApplication` ma opcjonalny obiekt administracyjny
+    `schedule` (`day`, `startTime`, `durationMinutes`, `room`, `roomCapacity`), dzięki czemu tekstowe
+    `duration` podane przez prowadzącego pozostaje nietknięte, a organizator ustawia liczbę minut
+    potrzebną do obliczeń. Drawer zapisuje lub usuwa termin przez `PATCH`, a widok harmonogramu
+    grupuje warsztaty według dnia, godziny i sali. Kolizje sali oraz prowadzącego są wykrywane na
+    podstawie przecinających się przedziałów, nie tylko identycznej godziny rozpoczęcia.
+22. ✅ **Sanity-checki.** Lista, karty, drawer i harmonogram korzystają z jednego zestawu ostrzeżeń:
+    maksymalna liczba uczestników przekracza pojemność sali, kolizja sali, kolizja prowadzącego oraz
+    brak typu umowy. Czyste funkcje filtrów, parametrów URL, siatki i ostrzeżeń mają testy jednostkowe;
+    kontrakt `PATCH { schedule }` i parser odpowiedzi API również są pokryte testem.
+
+    Weryfikacja UI: prawdziwy komponent został zbundlowany z globalnymi stylami, fontami i i18n.
+    Przy szerokości 1600 px input, oba selecty i reset mają wspólne krawędzie (`top=215`, `bottom=253`)
+    i wysokość 38 px. Drawer ma szerokość 560 px i wysokość całego viewportu; wszystkie jego kontrolki
+    harmonogramu mają 38 px. Klik wiersza otwiera właściwe zgłoszenie, a przełączenie widoku pokazuje
+    dwie siatki dni; testowe nachodzące na siebie warsztaty mają bursztynową ramkę, a bezkolizyjny
+    warsztat zieloną. Nie zweryfikowano przyjęcia pola `schedule` przez produkcyjny backend — zewnętrzne
+    API musi obsługiwać opisany kontrakt `PATCH`, aby zapis był trwały.
 
 ## 5. Do potwierdzenia z backendem
 
@@ -323,7 +348,7 @@ Dokładnie to, co jest już w modelu danych, tylko nieużyte.
 2. P0.4–P0.6 (mapa, widok dzielony, pokrycie hali) — ✅ zrobione.
 3. P0.7–P0.9 (status, eksport, oznaczenie symulacji) — P0.7 zrobione, zostają P0.8 i P0.9.
 4. P1.10–P1.11 po ustaleniu kontraktu API — dopiero to zamienia panel w narzędzie decyzyjne.
-5. P2 i P3 jako osobne tematy, każdy z własnym przebiegiem przez `docs/`.
+5. P2 jako osobny temat; P3 (panel i frontendowy kontrakt harmonogramu) — ✅ zrobione.
 
 ## Źródła
 

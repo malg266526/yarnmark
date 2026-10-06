@@ -1,21 +1,14 @@
 import React from 'react';
-import { ApplicationDeleteAction } from '../../../../../components/ApplicationDeleteAction';
-import { LogoPreviewImage } from '../../../../../components/form/FormField.styled';
 import {
-  ApplicationActionButton,
-  ApplicationActionRow,
   ApplicationCard,
-  ApplicationField,
-  ApplicationFieldLabel,
-  ApplicationFieldValue,
   ApplicationHeader,
   ApplicationsGrid,
   ApplicationsMeta,
   ApplicationTitle
 } from '../WorkshopsApplicationsPage.styled';
-import { formatDateTime, sortApplicationsBySubmittedAt } from '../utils/workshopsApplicationsFormatters';
-import { WORKSHOP_APPLICATION_STATUS_ORDER } from '../workshopsApplicationsConstants';
-import { WorkshopsApplicationsCardsViewProps } from './workshopsApplicationsViewContracts';
+import { formatDateTime } from '../utils/workshopsApplicationsFormatters';
+import { WorkshopApplicationDetailsView } from './WorkshopApplicationDetailsView';
+import type { WorkshopsApplicationsCardsViewProps } from './workshopsApplicationsViewContracts';
 
 export const WorkshopsApplicationsCardsView = ({
   applications,
@@ -23,144 +16,26 @@ export const WorkshopsApplicationsCardsView = ({
   deletingApplicationId,
   locale,
   setApplicationStatus,
-  translate
+  translate,
+  warningsByApplicationId
 }: WorkshopsApplicationsCardsViewProps) => {
-  const sortedApplications = sortApplicationsBySubmittedAt(applications);
-  const notProvided = translate('workshopsApplicationsPage.fields.notProvided');
-
   return (
     <ApplicationsGrid>
-      {sortedApplications.map((application) => (
+      {applications.map((application) => (
         <ApplicationCard key={application.id}>
           <ApplicationHeader>
             <ApplicationTitle>{application.workshopTitle}</ApplicationTitle>
             <ApplicationsMeta>{formatDateTime(application.submittedAt, locale)}</ApplicationsMeta>
           </ApplicationHeader>
 
-          <ApplicationField>
-            <ApplicationFieldLabel>{translate('workshopsApplicationsPage.fields.status')}</ApplicationFieldLabel>
-            <ApplicationFieldValue>
-              {translate(`workshopsApplicationsPage.statuses.${application.status}`)}
-            </ApplicationFieldValue>
-            <ApplicationActionRow>
-              {WORKSHOP_APPLICATION_STATUS_ORDER.map((status) => (
-                <ApplicationActionButton
-                  key={status}
-                  type="button"
-                  aria-pressed={application.status === status}
-                  onClick={() => {
-                    void setApplicationStatus(application.id, status);
-                  }}
-                >
-                  {translate(`workshopsApplicationsPage.statuses.${status}`)}
-                </ApplicationActionButton>
-              ))}
-            </ApplicationActionRow>
-          </ApplicationField>
-          <ApplicationField>
-            <ApplicationFieldLabel>{translate('workshopsApplicationsPage.fields.tutorName')}</ApplicationFieldLabel>
-            <ApplicationFieldValue>{application.tutorName}</ApplicationFieldValue>
-          </ApplicationField>
-          <ApplicationField>
-            <ApplicationFieldLabel>{translate('workshopsApplicationsPage.fields.phone')}</ApplicationFieldLabel>
-            <ApplicationFieldValue>{application.phoneNumber}</ApplicationFieldValue>
-          </ApplicationField>
-          <ApplicationField>
-            <ApplicationFieldLabel>{translate('workshopsApplicationsPage.fields.email')}</ApplicationFieldLabel>
-            <ApplicationFieldValue>{application.email}</ApplicationFieldValue>
-          </ApplicationField>
-          <ApplicationField>
-            <ApplicationFieldLabel>{translate('workshopsApplicationsPage.fields.participants')}</ApplicationFieldLabel>
-            <ApplicationFieldValue>
-              {translate('workshopsApplicationsPage.fields.participantsRange', {
-                min: application.minParticipants,
-                max: application.maxParticipants
-              })}
-            </ApplicationFieldValue>
-          </ApplicationField>
-          <ApplicationField>
-            <ApplicationFieldLabel>
-              {translate('workshopsApplicationsPage.fields.experienceLevel')}
-            </ApplicationFieldLabel>
-            <ApplicationFieldValue>
-              {application.experienceLevel
-                ? translate(`workshopsFormPage.steps.experienceLevel.${application.experienceLevel}`)
-                : notProvided}
-            </ApplicationFieldValue>
-          </ApplicationField>
-          <ApplicationField>
-            <ApplicationFieldLabel>{translate('workshopsApplicationsPage.fields.description')}</ApplicationFieldLabel>
-            <ApplicationFieldValue>{application.description}</ApplicationFieldValue>
-          </ApplicationField>
-          <ApplicationField>
-            <ApplicationFieldLabel>{translate('workshopsApplicationsPage.fields.duration')}</ApplicationFieldLabel>
-            <ApplicationFieldValue>{application.duration || notProvided}</ApplicationFieldValue>
-          </ApplicationField>
-          <ApplicationField>
-            <ApplicationFieldLabel>
-              {translate('workshopsApplicationsPage.fields.participantsShouldBring')}
-            </ApplicationFieldLabel>
-            <ApplicationFieldValue>{application.participantsShouldBring || notProvided}</ApplicationFieldValue>
-          </ApplicationField>
-          <ApplicationField>
-            <ApplicationFieldLabel>
-              {translate('workshopsApplicationsPage.fields.roomRequirements')}
-            </ApplicationFieldLabel>
-            <ApplicationFieldValue>{application.roomRequirements || notProvided}</ApplicationFieldValue>
-          </ApplicationField>
-          <ApplicationField>
-            <ApplicationFieldLabel>
-              {translate('workshopsApplicationsPage.fields.requiredEquipment')}
-            </ApplicationFieldLabel>
-            <ApplicationFieldValue>{application.requiredEquipment || notProvided}</ApplicationFieldValue>
-          </ApplicationField>
-          <ApplicationField>
-            <ApplicationFieldLabel>
-              {translate('workshopsApplicationsPage.fields.grossPricePerParticipant')}
-            </ApplicationFieldLabel>
-            <ApplicationFieldValue>
-              {translate('workshopsApplicationsPage.fields.grossPricePerParticipantValue', {
-                price: application.grossPricePerParticipant
-              })}
-            </ApplicationFieldValue>
-          </ApplicationField>
-          <ApplicationField>
-            <ApplicationFieldLabel>{translate('workshopsApplicationsPage.fields.contractType')}</ApplicationFieldLabel>
-            <ApplicationFieldValue>
-              {application.contractType === 'other'
-                ? application.contractTypeOther || notProvided
-                : application.contractType
-                  ? translate(`workshopsFormPage.steps.contractType.${application.contractType}`)
-                  : notProvided}
-            </ApplicationFieldValue>
-          </ApplicationField>
-          <ApplicationField>
-            <ApplicationFieldLabel>{translate('workshopsApplicationsPage.fields.logoFilename')}</ApplicationFieldLabel>
-            <ApplicationFieldValue>{application.logoFileName ?? notProvided}</ApplicationFieldValue>
-            {application.logoUrl ? (
-              <LogoPreviewImage src={application.logoUrl} alt={application.logoFileName ?? application.workshopTitle} />
-            ) : null}
-          </ApplicationField>
-          <ApplicationField>
-            <ApplicationFieldLabel>
-              {translate('workshopsApplicationsPage.fields.additionalInfo')}
-            </ApplicationFieldLabel>
-            <ApplicationFieldValue>{application.additionalInfo || notProvided}</ApplicationFieldValue>
-          </ApplicationField>
-          <ApplicationActionRow>
-            <ApplicationDeleteAction
-              buttonLabel={translate('workshopsApplicationsPage.delete.button')}
-              cancelLabel={translate('confirmModal.cancel')}
-              confirmLabel={translate('workshopsApplicationsPage.delete.confirm')}
-              confirmationMessage={translate('workshopsApplicationsPage.delete.message', {
-                name: application.workshopTitle
-              })}
-              confirmationTitle={translate('workshopsApplicationsPage.delete.title')}
-              deleting={deletingApplicationId === application.id}
-              deletingLabel={translate('workshopsApplicationsPage.delete.deleting')}
-              onDelete={() => deleteApplication(application.id)}
-            />
-          </ApplicationActionRow>
+          <WorkshopApplicationDetailsView
+            application={application}
+            deleteApplication={deleteApplication}
+            deletingApplicationId={deletingApplicationId}
+            setApplicationStatus={setApplicationStatus}
+            translate={translate}
+            warnings={warningsByApplicationId.get(application.id) ?? []}
+          />
         </ApplicationCard>
       ))}
     </ApplicationsGrid>

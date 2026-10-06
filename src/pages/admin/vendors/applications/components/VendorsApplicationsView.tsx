@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   ApplicationActionButton,
   ApplicationsEmpty,
@@ -15,7 +15,9 @@ import type {
 } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
 import { useTypedTranslation } from '../../../../../translations/useTypedTranslation';
 import { usePhone } from '../../../../../hooks/usePhone';
+import { isVendorStand, parseHallStands } from '../../../../../components/hall/hallStands';
 import type { VendorApplicationStatusChange } from '../hooks/useVendorsApplications';
+import type { VendorApplicationStandAssignment } from './vendorsApplicationsViewContracts';
 import { useVendorsApplicationsToolbar } from '../hooks/useVendorsApplicationsToolbar';
 import {
   VENDOR_APPLICATIONS_LIST_VIEW_MODES,
@@ -43,6 +45,7 @@ interface VendorsApplicationsViewProps {
   loading: boolean;
   savingStatusApplicationId: string | null;
   setApplicationStatus: (applicationId: string, status: VendorApplicationStatus) => Promise<void>;
+  standAssignment: Omit<VendorApplicationStandAssignment, 'allApplications' | 'vendorStandIds'>;
   undoStatusChange: () => Promise<void>;
 }
 
@@ -55,10 +58,17 @@ export const VendorsApplicationsView = ({
   loading,
   savingStatusApplicationId,
   setApplicationStatus,
+  standAssignment: standAssignmentActions,
   undoStatusChange
 }: VendorsApplicationsViewProps) => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
+  const vendorStandIds = useMemo(() => {
+    const parsedStands = parseHallStands();
+
+    return parsedStands.success ? parsedStands.data.filter(isVendorStand).map(({ index }) => index) : [];
+  }, []);
+  const standAssignment = { ...standAssignmentActions, allApplications: applications, vendorStandIds };
   const {
     closeApplication,
     filters,
@@ -241,6 +251,7 @@ export const VendorsApplicationsView = ({
               resolveCategoryLabel={resolveCategoryLabel}
               savingStatusApplicationId={savingStatusApplicationId}
               setApplicationStatus={setApplicationStatus}
+              standAssignment={standAssignment}
               translate={translate}
               values={viewValues}
             />
@@ -258,6 +269,7 @@ export const VendorsApplicationsView = ({
         resolveCategoryLabel={resolveCategoryLabel}
         savingStatusApplicationId={savingStatusApplicationId}
         setApplicationStatus={setApplicationStatus}
+        standAssignment={standAssignment}
         translate={translate}
         values={viewValues}
       />

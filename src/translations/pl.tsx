@@ -584,6 +584,14 @@ export const pl = {
       statusField: {
         saving: 'Zapisywanie…'
       },
+      standAssignment: {
+        none: '— bez przydziału —',
+        preferredGroup: 'Preferencje wystawcy',
+        otherGroup: 'Pozostałe stoiska',
+        preferredStand: '{{order}}. {{standId}}',
+        takenStand: '{{stand}} — zajęte: {{name}}',
+        save: 'Zapisz stoisko'
+      },
       statusUndo: {
         message: 'Status „{{name}}” zmieniony na „{{status}}”.',
         action: 'Cofnij',
@@ -743,6 +751,80 @@ export const pl = {
       loading: 'Wczytywanie zgłoszeń...',
       empty: 'Brak zgłoszeń.',
       savedCount: 'Zapisanych zgłoszeń: {{count}}',
+      showRows: 'Pokaż listę',
+      showSchedule: 'Pokaż harmonogram',
+      showCards: 'Pokaż karty',
+      toolbar: {
+        statusLabel: 'Filtruj po statusie',
+        allStatuses: 'Wszystkie',
+        searchLabel: 'Szukaj',
+        searchPlaceholder: 'Tytuł, prowadzący, e-mail lub telefon',
+        levelLabel: 'Poziom',
+        allLevels: 'Wszystkie poziomy',
+        sortLabel: 'Sortowanie',
+        sortOrders: {
+          oldest: 'Najstarsze zgłoszenia',
+          newest: 'Najnowsze zgłoszenia',
+          title: 'Tytuł A–Z',
+          tutor: 'Prowadzący A–Z'
+        },
+        reset: 'Wyczyść filtry',
+        visibleCount: 'Widoczne zgłoszenia: {{visible}} z {{total}}',
+        noMatches: 'Żadne zgłoszenie nie pasuje do wybranych filtrów.'
+      },
+      rows: {
+        columns: {
+          title: 'Warsztat',
+          tutor: 'Prowadzący',
+          level: 'Poziom',
+          participants: 'Uczestnicy',
+          price: 'Cena',
+          duration: 'Czas',
+          submittedAt: 'Zgłoszono',
+          status: 'Status',
+          warnings: 'Uwagi'
+        },
+        openDetails: 'Pokaż szczegóły zgłoszenia „{{name}}”'
+      },
+      drawer: {
+        label: 'Szczegóły zgłoszenia: {{name}}',
+        close: 'Zamknij'
+      },
+      schedule: {
+        formTitle: 'Termin i sala',
+        day: 'Dzień',
+        startTime: 'Godzina rozpoczęcia',
+        durationMinutes: 'Czas trwania (minuty)',
+        room: 'Sala',
+        roomCapacity: 'Pojemność sali',
+        save: 'Zapisz termin',
+        saving: 'Zapisywanie…',
+        remove: 'Usuń z harmonogramu',
+        empty: 'Brak warsztatów w harmonogramie.',
+        days: {
+          saturday: 'Sobota',
+          sunday: 'Niedziela'
+        }
+      },
+      warnings: {
+        none: 'Brak uwag',
+        missingContract: {
+          label: 'Brak umowy',
+          detail: 'Brak typu umowy potrzebnego do rozliczenia.'
+        },
+        roomCapacity: {
+          label: 'Za mała sala',
+          detail: 'Maksymalna liczba uczestników przekracza pojemność sali.'
+        },
+        roomCollision: {
+          label: 'Kolizja sali',
+          detail: 'W tej sali zaplanowano w tym samym czasie inny warsztat.'
+        },
+        tutorCollision: {
+          label: 'Kolizja prowadzącego',
+          detail: 'Prowadzący ma w tym samym czasie inny warsztat.'
+        }
+      },
       delete: {
         button: 'Usuń zgłoszenie',
         deleting: 'Usuwanie...',
@@ -768,6 +850,7 @@ export const pl = {
         contractType: 'Typ umowy',
         logoFilename: 'Logo',
         additionalInfo: 'Informacje dodatkowe',
+        warnings: 'Sanity-checki',
         notProvided: 'Nie podano'
       },
       statuses: {

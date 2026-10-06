@@ -33,9 +33,9 @@ test.afterEach(() => {
 });
 
 const createVendorApplicationPayload = () => ({
-  allocatedStandId: null,
   allocationIteration: null,
   allocationState: 'none' as const,
+  assignedStands: [] as string[],
   id: 'application-1',
   status: 'pending' as const,
   submittedAt: '2026-05-11T10:30:00.000Z',
@@ -79,7 +79,7 @@ test('parseVendorApplications normalizes optional legacy fields and preserves cu
   const legacyApplication = {
     ...createVendorApplicationPayload(),
     allocationState: undefined,
-    allocatedStandId: undefined,
+    assignedStands: undefined,
     allocationIteration: undefined,
     preferredStands: ['mgl60s92-lscpjj7', 'mgl65qbi-2kfiih9'],
     sponsorshipInterest: undefined,
@@ -89,14 +89,14 @@ test('parseVendorApplications normalizes optional legacy fields and preserves cu
   const legacyFieldsWithoutOptionalValues = { ...legacyApplication };
 
   delete legacyFieldsWithoutOptionalValues.allocationState;
-  delete legacyFieldsWithoutOptionalValues.allocatedStandId;
+  delete legacyFieldsWithoutOptionalValues.assignedStands;
   delete legacyFieldsWithoutOptionalValues.allocationIteration;
   delete legacyFieldsWithoutOptionalValues.sponsorshipInterest;
 
   assert.deepEqual(parseVendorApplications([legacyFieldsWithoutOptionalValues]), [
     {
       ...legacyFieldsWithoutOptionalValues,
-      allocatedStandId: null,
+      assignedStands: [],
       allocationIteration: null,
       allocationState: 'none',
       preferredStands: ['P2', 'P3'],
@@ -104,6 +104,25 @@ test('parseVendorApplications normalizes optional legacy fields and preserves cu
       status: 'rejected'
     }
   ]);
+});
+
+test('parseVendorApplications keeps the stands assigned by the backend', () => {
+  const application = { ...createVendorApplicationPayload(), assignedStands: ['S12', 'M2'] };
+
+  assert.deepEqual(parseVendorApplications([application])[0].assignedStands, ['S12', 'M2']);
+});
+
+test('parseVendorApplications maps a legacy single allocated stand and hall ids to stand indexes', () => {
+  const withoutAssignedStands: Partial<ReturnType<typeof createVendorApplicationPayload>> =
+    createVendorApplicationPayload();
+
+  delete withoutAssignedStands.assignedStands;
+
+  assert.deepEqual(
+    parseVendorApplications([{ ...withoutAssignedStands, allocatedStandId: 'mgl60s92-lscpjj7' }])[0].assignedStands,
+    ['P2']
+  );
+  assert.equal('allocatedStandId' in parseVendorApplications([withoutAssignedStands])[0], false);
 });
 
 test('parseVendorApplications keeps valid records when one record is malformed', () => {

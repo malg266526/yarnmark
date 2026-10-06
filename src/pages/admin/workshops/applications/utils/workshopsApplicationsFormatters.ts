@@ -6,6 +6,12 @@ export const formatDateTime = (value: string, locale: string) =>
     timeStyle: 'medium'
   }).format(new Date(value));
 
+export const formatCompactDateTime = (value: string, locale: string) =>
+  new Intl.DateTimeFormat(locale, {
+    dateStyle: 'short',
+    timeStyle: 'short'
+  }).format(new Date(value));
+
 export const sortApplicationsBySubmittedAt = (applications: WorkshopApplication[]) =>
   [...applications].sort((leftApplication, rightApplication) =>
     leftApplication.submittedAt.localeCompare(rightApplication.submittedAt)

@@ -22,6 +22,7 @@ export const VendorApplicationDetailsDrawer = ({
   resolveCategoryLabel,
   savingStatusApplicationId,
   setApplicationStatus,
+  standAssignment,
   translate,
   values
 }: VendorApplicationDetailsDrawerProps) => (
@@ -53,6 +54,7 @@ export const VendorApplicationDetailsDrawer = ({
             isSavingStatus={savingStatusApplicationId === application.id}
             resolveCategoryLabel={resolveCategoryLabel}
             setApplicationStatus={setApplicationStatus}
+            standAssignment={standAssignment}
             translate={translate}
             values={values}
           />

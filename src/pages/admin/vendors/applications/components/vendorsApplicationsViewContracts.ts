@@ -27,6 +27,19 @@ export interface VendorApplicationFlagsViewProps {
   translate: TranslateViewText;
 }
 
+export interface VendorApplicationStandAssignment {
+  allApplications: VendorApplication[];
+  assignStand: (applicationId: string, standId: string | null) => Promise<void>;
+  savingStandApplicationId: string | null;
+  vendorStandIds: string[];
+}
+
+export interface VendorApplicationStandAssignmentViewProps {
+  application: VendorApplication;
+  standAssignment: VendorApplicationStandAssignment;
+  translate: TranslateViewText;
+}
+
 export interface VendorApplicationDetailsViewProps {
   application: VendorApplication;
   flags: VendorApplicationFlag[];
@@ -35,6 +48,7 @@ export interface VendorApplicationDetailsViewProps {
   deletingApplicationId: string | null;
   resolveCategoryLabel: ResolveCategoryLabel;
   setApplicationStatus: (applicationId: string, status: VendorApplicationStatus) => Promise<void>;
+  standAssignment: VendorApplicationStandAssignment;
   translate: TranslateViewText;
   values: VendorApplicationDisplayValues;
 }

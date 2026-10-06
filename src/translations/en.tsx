@@ -585,6 +585,14 @@ export const en: TranslationsShape = {
       statusField: {
         saving: 'Saving…'
       },
+      standAssignment: {
+        none: '— no stand —',
+        preferredGroup: 'Vendor preferences',
+        otherGroup: 'Other stands',
+        preferredStand: '{{order}}. {{standId}}',
+        takenStand: '{{stand}} — taken by {{name}}',
+        save: 'Save stand'
+      },
       statusUndo: {
         message: 'Status of “{{name}}” changed to “{{status}}”.',
         action: 'Undo',
@@ -744,6 +752,80 @@ export const en: TranslationsShape = {
       loading: 'Loading applications...',
       empty: 'No applications yet.',
       savedCount: '{{count}} applications saved',
+      showRows: 'Show list',
+      showSchedule: 'Show schedule',
+      showCards: 'Show cards',
+      toolbar: {
+        statusLabel: 'Filter by status',
+        allStatuses: 'All',
+        searchLabel: 'Search',
+        searchPlaceholder: 'Title, tutor, e-mail or phone',
+        levelLabel: 'Level',
+        allLevels: 'All levels',
+        sortLabel: 'Sorting',
+        sortOrders: {
+          oldest: 'Oldest applications',
+          newest: 'Newest applications',
+          title: 'Title A–Z',
+          tutor: 'Tutor A–Z'
+        },
+        reset: 'Clear filters',
+        visibleCount: 'Visible applications: {{visible}} of {{total}}',
+        noMatches: 'No application matches the selected filters.'
+      },
+      rows: {
+        columns: {
+          title: 'Workshop',
+          tutor: 'Tutor',
+          level: 'Level',
+          participants: 'Participants',
+          price: 'Price',
+          duration: 'Duration',
+          submittedAt: 'Submitted',
+          status: 'Status',
+          warnings: 'Warnings'
+        },
+        openDetails: 'Show details of the “{{name}}” application'
+      },
+      drawer: {
+        label: 'Application details: {{name}}',
+        close: 'Close'
+      },
+      schedule: {
+        formTitle: 'Time and room',
+        day: 'Day',
+        startTime: 'Start time',
+        durationMinutes: 'Duration (minutes)',
+        room: 'Room',
+        roomCapacity: 'Room capacity',
+        save: 'Save schedule',
+        saving: 'Saving…',
+        remove: 'Remove from schedule',
+        empty: 'No workshops have been scheduled.',
+        days: {
+          saturday: 'Saturday',
+          sunday: 'Sunday'
+        }
+      },
+      warnings: {
+        none: 'No warnings',
+        missingContract: {
+          label: 'Missing contract',
+          detail: 'The contract type required for settlement is missing.'
+        },
+        roomCapacity: {
+          label: 'Room too small',
+          detail: 'The maximum participant count exceeds the room capacity.'
+        },
+        roomCollision: {
+          label: 'Room collision',
+          detail: 'Another workshop is scheduled in this room at the same time.'
+        },
+        tutorCollision: {
+          label: 'Tutor collision',
+          detail: 'The tutor has another workshop scheduled at the same time.'
+        }
+      },
       delete: {
         button: 'Delete application',
         deleting: 'Deleting...',
@@ -769,6 +851,7 @@ export const en: TranslationsShape = {
         contractType: 'Contract type',
         logoFilename: 'Logo',
         additionalInfo: 'Additional information',
+        warnings: 'Sanity checks',
         notProvided: 'Not provided'
       },
       statuses: {

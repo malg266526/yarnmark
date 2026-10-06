@@ -13,6 +13,7 @@ import { downloadVendorApplicationLogo } from '../utils/vendorsApplicationsImage
 import { formatBoolean, formatMainCategory } from '../utils/vendorsApplicationsFormatters';
 import { VENDOR_APPLICATION_STATUS_ORDER } from '../vendorsApplicationsConstants';
 import { VendorApplicationFlagsView } from './VendorApplicationFlagsView';
+import { VendorApplicationStandAssignmentView } from './VendorApplicationStandAssignmentView';
 import { VendorApplicationDetailsViewProps } from './vendorsApplicationsViewContracts';
 
 const LOGO_DOWNLOAD_FORMATS = [
@@ -29,6 +30,7 @@ export const VendorApplicationDetailsView = ({
   isSavingStatus,
   resolveCategoryLabel,
   setApplicationStatus,
+  standAssignment,
   translate,
   values
 }: VendorApplicationDetailsViewProps) => (
@@ -77,10 +79,12 @@ export const VendorApplicationDetailsView = ({
           : values.noneSelected}
       </ApplicationFieldValue>
     </ApplicationField>
-    <ApplicationField>
-      <ApplicationFieldLabel>{translate('vendorsApplicationsPage.fields.allocatedStand')}</ApplicationFieldLabel>
-      <ApplicationFieldValue>{application.allocatedStandId ?? values.notAssigned}</ApplicationFieldValue>
-    </ApplicationField>
+    <VendorApplicationStandAssignmentView
+      key={`${application.id}-${application.assignedStands.join(',')}`}
+      application={application}
+      standAssignment={standAssignment}
+      translate={translate}
+    />
     <ApplicationField>
       <ApplicationFieldLabel>{translate('vendorsApplicationsPage.fields.allocationState')}</ApplicationFieldLabel>
       <ApplicationFieldValue>

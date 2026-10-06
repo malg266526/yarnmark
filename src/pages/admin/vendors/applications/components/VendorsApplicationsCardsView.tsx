@@ -19,6 +19,7 @@ export const VendorsApplicationsCardsView = ({
   resolveCategoryLabel,
   savingStatusApplicationId,
   setApplicationStatus,
+  standAssignment,
   values,
   translate
 }: VendorsApplicationsCardsViewProps) => (
@@ -37,6 +38,7 @@ export const VendorsApplicationsCardsView = ({
           isSavingStatus={savingStatusApplicationId === application.id}
           resolveCategoryLabel={resolveCategoryLabel}
           setApplicationStatus={setApplicationStatus}
+          standAssignment={standAssignment}
           translate={translate}
           values={values}
         />

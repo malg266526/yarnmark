@@ -164,12 +164,15 @@ const filterControlStyles = css`
   }
 `;
 
-export const ApplicationsFilterInput = styled.input`
-  ${filterControlStyles}
-
+const filterInputStyles = css`
   &::placeholder {
     color: ${GrayScale[600]};
   }
+`;
+
+export const ApplicationsFilterInput = styled.input`
+  ${filterControlStyles}
+  ${filterInputStyles}
 `;
 
 const filterSelectStyles = css`
@@ -442,10 +445,24 @@ export const ApplicationsStatusFilterButton = styled(ApplicationActionButton)`
   line-height: 1;
 `;
 
-export const ApplicationsFilterResetButton = styled(ApplicationActionButton)`
+const controlButtonStyles = css`
   height: ${FILTER_CONTROL_HEIGHT};
   padding: 0 ${FILTER_CONTROL_INLINE_PADDING};
   line-height: 1;
+`;
+
+export const ApplicationsFilterResetButton = styled(ApplicationActionButton)`
+  ${controlButtonStyles}
+`;
+
+export const ApplicationsStandAssignmentButton = styled(ApplicationsFilterResetButton)`
+  flex: 0 0 auto;
+`;
+
+export const ApplicationsStandAssignmentRow = styled.div`
+  display: flex;
+  gap: ${RedesignSpacings.xs};
+  align-items: center;
 `;
 
 const DRAWER_WIDTH = '560px';

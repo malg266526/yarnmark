@@ -5,9 +5,9 @@ export type VendorApplicationStatus = 'accepted' | 'pending' | 'rejected' | 'res
 export type VendorApplicationAllocationState = 'confirmed' | 'manual-negotiation' | 'none' | 'suggested';
 
 export interface VendorApplication extends VendorFormState {
-  allocatedStandId: string | null;
   allocationIteration: number | null;
   allocationState: VendorApplicationAllocationState;
+  assignedStands: string[];
   id: string;
   logoUrl: string | null;
   status: VendorApplicationStatus;
