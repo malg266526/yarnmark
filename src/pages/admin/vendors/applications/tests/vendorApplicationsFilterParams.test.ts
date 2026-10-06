@@ -4,15 +4,23 @@ import {
   buildVendorApplicationsSearchParams,
   parseVendorApplicationsCategoryFilter,
   parseVendorApplicationsFilters,
+  parseVendorApplicationsOpenId,
   parseVendorApplicationsSortOrder,
   parseVendorApplicationsViewMode
 } from '../utils/vendorApplicationsFilterParams.ts';
 import { DEFAULT_VENDOR_APPLICATIONS_FILTERS } from '../utils/vendorApplicationsFilterUtils.ts';
 
-test('parseVendorApplicationsViewMode falls back to cards for a missing or unknown view', () => {
-  assert.equal(parseVendorApplicationsViewMode(new URLSearchParams()), 'cards');
-  assert.equal(parseVendorApplicationsViewMode(new URLSearchParams('view=nope')), 'cards');
+test('parseVendorApplicationsViewMode falls back to the dense list for a missing or unknown view', () => {
+  assert.equal(parseVendorApplicationsViewMode(new URLSearchParams()), 'rows');
+  assert.equal(parseVendorApplicationsViewMode(new URLSearchParams('view=nope')), 'rows');
   assert.equal(parseVendorApplicationsViewMode(new URLSearchParams('view=stands')), 'stands');
+  assert.equal(parseVendorApplicationsViewMode(new URLSearchParams('view=cards')), 'cards');
+});
+
+test('parseVendorApplicationsOpenId reads the application opened in the drawer', () => {
+  assert.equal(parseVendorApplicationsOpenId(new URLSearchParams()), null);
+  assert.equal(parseVendorApplicationsOpenId(new URLSearchParams('application=%20')), null);
+  assert.equal(parseVendorApplicationsOpenId(new URLSearchParams('application=abc-1')), 'abc-1');
 });
 
 test('single-value parsers narrow untrusted input from selects', () => {
@@ -47,9 +55,13 @@ test('parseVendorApplicationsFilters ignores unknown values', () => {
 });
 
 test('buildVendorApplicationsSearchParams keeps default state out of the url', () => {
-  assert.equal(buildVendorApplicationsSearchParams(DEFAULT_VENDOR_APPLICATIONS_FILTERS, 'cards').toString(), '');
+  assert.equal(buildVendorApplicationsSearchParams(DEFAULT_VENDOR_APPLICATIONS_FILTERS, 'rows', null).toString(), '');
   assert.equal(
-    buildVendorApplicationsSearchParams({ ...DEFAULT_VENDOR_APPLICATIONS_FILTERS, search: '  ' }, 'cards').toString(),
+    buildVendorApplicationsSearchParams(
+      { ...DEFAULT_VENDOR_APPLICATIONS_FILTERS, search: '  ' },
+      'rows',
+      null
+    ).toString(),
     ''
   );
 });
@@ -58,9 +70,10 @@ test('buildVendorApplicationsSearchParams serializes the active state', () => {
   assert.equal(
     buildVendorApplicationsSearchParams(
       { category: 'candles', search: 'lab', sortOrder: 'name', standId: 'P1', status: 'pending' },
-      'stands'
+      'stands',
+      'abc-1'
     ).toString(),
-    'view=stands&q=lab&status=pending&category=candles&stand=P1&sort=name'
+    'view=stands&q=lab&status=pending&category=candles&stand=P1&sort=name&application=abc-1'
   );
 });
 
@@ -73,5 +86,5 @@ test('parsing a built query restores the same filters', () => {
     status: 'reserve-list'
   } as const;
 
-  assert.deepEqual(parseVendorApplicationsFilters(buildVendorApplicationsSearchParams(filters, 'cards')), filters);
+  assert.deepEqual(parseVendorApplicationsFilters(buildVendorApplicationsSearchParams(filters, 'rows', null)), filters);
 });

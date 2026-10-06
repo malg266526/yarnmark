@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import Modal from 'react-modal';
 import { Button } from '../../../../components/Button';
 import { Radius, DropShadow } from '../../../../styles/cards';
 import { FontSize } from '../../../../styles/font-size';
@@ -82,7 +83,7 @@ export const ApplicationsStatusFilterRow = styled.div`
   gap: ${RedesignSpacings.xxs};
 `;
 
-export const ApplicationsStatusFilterCount = styled.span`
+const countBadgeStyles = css`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -95,6 +96,10 @@ export const ApplicationsStatusFilterCount = styled.span`
   font-size: ${FontSize.sm};
   line-height: 1;
   font-variant-numeric: tabular-nums;
+`;
+
+export const ApplicationsStatusFilterCount = styled.span`
+  ${countBadgeStyles}
 `;
 
 export const ApplicationsFilterRow = styled.div`
@@ -182,6 +187,128 @@ export const ApplicationsGrid = styled.div`
   @media (max-width: ${ScreenSize.tablet}) {
     grid-template-columns: minmax(0, 1fr);
   }
+`;
+
+export const ApplicationsTableScroller = styled.div`
+  width: 100%;
+  overflow-x: auto;
+  border-radius: ${Radius.xl};
+  background: ${Colors.white};
+  box-shadow: ${DropShadow.card};
+  border: 1px solid ${BorderColors.subtleGreen};
+`;
+
+export const ApplicationsTable = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.sm};
+  color: ${TextColors.primary};
+`;
+
+export const ApplicationsTableHeaderCell = styled.th`
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: ${RedesignSpacings.xs};
+  background: ${Colors.white};
+  border-bottom: 2px solid ${BackgroundColors.green.medium};
+  text-align: left;
+  font-size: ${FontSize.xs};
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: ${TextColors.secondary};
+  white-space: nowrap;
+`;
+
+export const ApplicationsTableRow = styled.tr<{ $isOpen: boolean }>`
+  cursor: pointer;
+  border-bottom: 1px solid ${BorderColors.subtleGreen};
+  background: ${({ $isOpen }) => ($isOpen ? BackgroundColors.green.light : 'transparent')};
+
+  &:last-of-type {
+    border-bottom: 0;
+  }
+
+  &:hover {
+    background: ${BackgroundColors.green.light};
+  }
+`;
+
+export const ApplicationsTableCell = styled.td`
+  padding: ${RedesignSpacings.xs};
+  vertical-align: middle;
+`;
+
+export const ApplicationsTableDateCell = styled(ApplicationsTableCell)`
+  color: ${TextColors.secondary};
+  white-space: nowrap;
+`;
+
+export const ApplicationsRowNameButton = styled(Button)`
+  box-sizing: border-box;
+  display: inline-block;
+  max-width: 320px;
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.sm};
+  color: ${TextColors.secondary};
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  &:focus-visible {
+    outline: 2px solid ${BackgroundColors.green.strong};
+    outline-offset: 2px;
+    border-radius: ${Radius.md};
+  }
+`;
+
+export const ApplicationsPreferenceList = styled.div`
+  display: flex;
+  gap: ${RedesignSpacings.xxs};
+`;
+
+export const ApplicationsPreferenceTag = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: ${FILTER_COUNT_SIZE};
+  padding: 0 ${FILTER_COUNT_INLINE_PADDING};
+  border: 1px solid ${BackgroundColors.green.medium};
+  border-radius: ${Radius.xxl};
+  line-height: 1;
+  white-space: nowrap;
+`;
+
+export const ApplicationsPreferenceOrder = styled.span`
+  color: ${GrayScale[600]};
+  font-variant-numeric: tabular-nums;
+
+  &::after {
+    content: '.';
+  }
+`;
+
+export const ApplicationsPreferenceCompetitors = styled.span`
+  display: inline-flex;
+  align-items: center;
+  align-self: stretch;
+  padding-left: 6px;
+  border-left: 1px solid ${BackgroundColors.green.medium};
+  color: ${TextColors.secondary};
+  font-variant-numeric: tabular-nums;
+`;
+
+export const ApplicationsStatusTag = styled.span`
+  display: inline-flex;
+  align-items: center;
+  height: ${FILTER_COUNT_SIZE};
+  padding: 0 ${FILTER_COUNT_INLINE_PADDING};
+  border-radius: ${Radius.xxl};
+  background: ${BackgroundColors.green.light};
+  border: 1px solid ${BackgroundColors.green.medium};
+  line-height: 1;
+  white-space: nowrap;
 `;
 
 export const ApplicationsStack = styled.div`
@@ -276,6 +403,53 @@ export const ApplicationsFilterResetButton = styled(ApplicationActionButton)`
   height: ${FILTER_CONTROL_HEIGHT};
   padding: 0 ${FILTER_CONTROL_INLINE_PADDING};
   line-height: 1;
+`;
+
+const DRAWER_WIDTH = '560px';
+
+export const DRAWER_OVERLAY_STYLE = {
+  overlay: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    zIndex: 10,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)'
+  }
+} as const;
+
+export const ApplicationDrawer = styled(Modal)`
+  display: flex;
+  flex-direction: column;
+  width: ${DRAWER_WIDTH};
+  max-width: 100vw;
+  height: 100vh;
+  background: ${Colors.white};
+  box-shadow: ${DropShadow.md};
+  border: none;
+  outline: none;
+`;
+
+export const ApplicationDrawerHeader = styled.header`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: ${RedesignSpacings.sm};
+  padding: ${RedesignSpacings.sm};
+  border-bottom: 2px solid ${BackgroundColors.green.medium};
+`;
+
+export const ApplicationDrawerCloseButton = styled(ApplicationActionButton)`
+  height: ${FILTER_CONTROL_HEIGHT};
+  padding: 0 ${FILTER_CONTROL_INLINE_PADDING};
+  line-height: 1;
+  flex: 0 0 auto;
+`;
+
+export const ApplicationDrawerBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${RedesignSpacings.sm};
+  padding: ${RedesignSpacings.sm};
+  overflow-y: auto;
 `;
 
 export const ApplicationsEmpty = styled.div`

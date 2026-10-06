@@ -5,6 +5,7 @@ import type { ApplicationsViewMode } from '../vendorsApplicationsConstants.ts';
 import {
   buildVendorApplicationsSearchParams,
   parseVendorApplicationsFilters,
+  parseVendorApplicationsOpenId,
   parseVendorApplicationsViewMode
 } from '../utils/vendorApplicationsFilterParams.ts';
 import {
@@ -19,25 +20,40 @@ import {
 export const useVendorsApplicationsToolbar = (applications: VendorApplication[], locale: string) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const viewMode = parseVendorApplicationsViewMode(searchParams);
+  const openApplicationId = parseVendorApplicationsOpenId(searchParams);
   const filters = useMemo(() => parseVendorApplicationsFilters(searchParams), [searchParams]);
 
-  const applyParams = (nextFilters: VendorApplicationsFilters, nextViewMode: ApplicationsViewMode) => {
-    setSearchParams(buildVendorApplicationsSearchParams(nextFilters, nextViewMode), { replace: true });
+  const applyParams = (
+    nextFilters: VendorApplicationsFilters,
+    nextViewMode: ApplicationsViewMode,
+    nextOpenApplicationId: string | null
+  ) => {
+    setSearchParams(buildVendorApplicationsSearchParams(nextFilters, nextViewMode, nextOpenApplicationId), {
+      replace: true
+    });
   };
 
   const setFilter = <FilterKey extends keyof VendorApplicationsFilters>(
     filterKey: FilterKey,
     filterValue: VendorApplicationsFilters[FilterKey]
   ) => {
-    applyParams({ ...filters, [filterKey]: filterValue }, viewMode);
+    applyParams({ ...filters, [filterKey]: filterValue }, viewMode, openApplicationId);
   };
 
   const setViewMode = (nextViewMode: ApplicationsViewMode) => {
-    applyParams(filters, nextViewMode);
+    applyParams(filters, nextViewMode, openApplicationId);
   };
 
   const resetFilters = () => {
-    applyParams(DEFAULT_VENDOR_APPLICATIONS_FILTERS, viewMode);
+    applyParams(DEFAULT_VENDOR_APPLICATIONS_FILTERS, viewMode, openApplicationId);
+  };
+
+  const openApplication = (applicationId: string) => {
+    applyParams(filters, viewMode, applicationId);
+  };
+
+  const closeApplication = () => {
+    applyParams(filters, viewMode, null);
   };
 
   const statusCounts = useMemo(() => countApplicationsByStatus(applications), [applications]);
@@ -50,9 +66,14 @@ export const useVendorsApplicationsToolbar = (applications: VendorApplication[],
     [applications, filters, locale]
   );
 
+  const openApplicationRecord = applications.find(({ id }) => id === openApplicationId) ?? null;
+
   return {
+    closeApplication,
     filters,
     hasActiveFilters: hasActiveVendorApplicationsFilters(filters),
+    openApplication,
+    openApplicationRecord,
     resetFilters,
     setFilter,
     setViewMode,

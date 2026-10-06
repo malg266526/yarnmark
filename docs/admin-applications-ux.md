@@ -131,9 +131,30 @@ Dokładnie to, co jest już w modelu danych, tylko nieużyte.
    Questrial nie ma cyfr tabelarycznych, więc „1” bywa przesunięta o pół piksela w poziomie. Działania paska
    w samym panelu nie zweryfikowano — `/admin` wymaga logowania Google i danych z API.
 
-2. **Gęsty wiersz zamiast karty**: tabela/lista z kolumnami nazwa, data, kategoria, 3 preferencje
-   (z liczbą konkurentów), status, flagi. Szczegóły w panelu bocznym (drawer) po kliknięciu —
-   karty zostają jako opcjonalny tryb.
+2. **Gęsty wiersz zamiast karty** — ✅ Zrobione: tabela z kolumnami nazwa, data, kategoria,
+   preferencje (każda z numerem wyboru i liczbą konkurentów), status. Szczegóły w panelu bocznym
+   (drawer) po kliknięciu wiersza — karty zostają jako opcjonalny tryb. Kolumna z flagami ryzyka
+   dochodzi razem z P0.3, bo to te same dane.
+
+   Zakres wdrożenia: lista jest teraz domyślnym trybem (`view=rows`), karty są pod `view=cards`;
+   `utils/vendorApplicationRowsUtils.ts` liczy preferencje z konkurencją (po pełnym zbiorze, nie po
+   przefiltrowanym), `utils/standGroupingUtils.ts` dostał wspólne `countStandRequests`,
+   `components/VendorsApplicationsRowsView.tsx` to sama tabela, a `VendorApplicationDetailsView.tsx`
+   wyciąga treść karty tak, by karta i drawer renderowały dokładnie to samo.
+   Otwarte zgłoszenie siedzi w URL (`?application=<id>`), więc panel da się podlinkować i przeżywa
+   odświeżenie. Drawer korzysta z `react-modal` (Esc, klik w tło, zarządzanie fokusem).
+   Przy okazji poprawka z P0.1: widok kart sortował się po dacie wewnątrz komponentu i kasował wybór
+   z pola „Sortowanie” — teraz lista i karty renderują kolejność ustaloną w `selectVendorApplications`.
+   Testy: `tests/vendorApplicationRowsUtils.test.ts`, `tests/standGroupingUtils.test.ts`,
+   `tests/vendorsApplicationsFormatters.test.ts` (kompaktowa data), zaktualizowane
+   `tests/vendorApplicationsFilterParams.test.ts`.
+   Sprawdzone na prawdziwych komponentach w headless Chrome (bundle esbuildem, globalne style, fonty,
+   `StyleSheetManager` i i18n jak w aplikacji): kliknięcie wiersza otwiera drawer z właściwym
+   zgłoszeniem i podświetla wiersz; drawer ma 560×100vh przy prawej krawędzi (zmierzone
+   `top=0 left=720 w=560 h=613` przy oknie 1280×613); wiersze mają 44,5–45,5 px wysokości, nagłówek
+   tabeli jest `position: sticky; top: 0`. Nie weryfikowano działania w samym panelu — `/admin`
+   wymaga logowania Google i danych z API.
+
 3. **Flagi ryzyka** liczone na froncie: duplikat e-maila/nazwy, brak akceptacji regulaminu,
    mniej niż 3 preferencje, wszystkie preferencje w jednym typie stoiska, brak logo, brak opisu.
 4. **Mapa hali w panelu** (wyciągnięty wspólny `HallMap` z `Hall.tsx`/`SelectableHall.tsx`,
@@ -203,7 +224,7 @@ Dokładnie to, co jest już w modelu danych, tylko nieużyte.
 ## 6. Sugerowana kolejność
 
 1. P0.1–P0.3 (pasek roboczy, gęsta lista, flagi) — same w sobie rozwiązują problem „50 kart”.
-   P0.1 zrobione, zostają P0.2 i P0.3.
+   P0.1 i P0.2 zrobione, zostaje P0.3.
 2. P0.4–P0.6 (mapa, widok dzielony, pokrycie hali) — wspólny `HallMap` przy okazji usuwa duplikację.
 3. P0.7–P0.9 (status, eksport, oznaczenie symulacji) — drobne, wysokie zyski.
 4. P1.10–P1.11 po ustaleniu kontraktu API — dopiero to zamienia panel w narzędzie decyzyjne.

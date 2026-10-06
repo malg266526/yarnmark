@@ -7,22 +7,49 @@ import type {
   VendorApplicationStatusCounts
 } from '../utils/vendorApplicationsFilterUtils.ts';
 
-export interface VendorsApplicationsCardsViewProps {
-  applications: VendorApplication[];
+export interface VendorApplicationDisplayValues {
+  no: string;
+  noAnswer: string;
+  noneSelected: string;
+  notAssigned: string;
+  notProvided: string;
+  yes: string;
+}
+
+export type ResolveCategoryLabel = (categoryKey: NonNullable<VendorApplication['mainCategory']>) => string;
+
+export type TranslateViewText = (translationKey: string, options?: Record<string, unknown>) => string;
+
+export interface VendorApplicationDetailsViewProps {
+  application: VendorApplication;
   deleteApplication: (applicationId: string) => Promise<void>;
   deletingApplicationId: string | null;
-  locale: string;
-  resolveCategoryLabel: (categoryKey: NonNullable<VendorApplication['mainCategory']>) => string;
+  resolveCategoryLabel: ResolveCategoryLabel;
   setApplicationStatus: (applicationId: string, status: VendorApplicationStatus) => Promise<void>;
-  values: {
-    no: string;
-    noAnswer: string;
-    noneSelected: string;
-    notAssigned: string;
-    notProvided: string;
-    yes: string;
-  };
-  translate: (translationKey: string, options?: Record<string, unknown>) => string;
+  translate: TranslateViewText;
+  values: VendorApplicationDisplayValues;
+}
+
+export interface VendorApplicationDetailsDrawerProps extends Omit<VendorApplicationDetailsViewProps, 'application'> {
+  application: VendorApplication | null;
+  closeApplication: () => void;
+  locale: string;
+}
+
+export interface VendorsApplicationsRowsViewProps {
+  allApplications: VendorApplication[];
+  applications: VendorApplication[];
+  locale: string;
+  openApplication: (applicationId: string) => void;
+  openApplicationId: string | null;
+  resolveCategoryLabel: ResolveCategoryLabel;
+  translate: TranslateViewText;
+  values: VendorApplicationDisplayValues;
+}
+
+export interface VendorsApplicationsCardsViewProps extends Omit<VendorApplicationDetailsViewProps, 'application'> {
+  applications: VendorApplication[];
+  locale: string;
 }
 
 export interface VendorsApplicationsCascadeViewProps {
@@ -60,7 +87,7 @@ export interface VendorsApplicationsToolbarViewProps {
   filters: VendorApplicationsFilters;
   hasActiveFilters: boolean;
   resetFilters: () => void;
-  resolveCategoryLabel: (categoryKey: NonNullable<VendorApplication['mainCategory']>) => string;
+  resolveCategoryLabel: ResolveCategoryLabel;
   setFilter: <FilterKey extends keyof VendorApplicationsFilters>(
     filterKey: FilterKey,
     filterValue: VendorApplicationsFilters[FilterKey]
@@ -68,5 +95,5 @@ export interface VendorsApplicationsToolbarViewProps {
   standFilterOptions: string[];
   statusCounts: VendorApplicationStatusCounts;
   totalCount: number;
-  translate: (translationKey: string, options?: Record<string, unknown>) => string;
+  translate: TranslateViewText;
 }

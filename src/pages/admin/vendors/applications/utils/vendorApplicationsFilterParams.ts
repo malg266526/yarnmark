@@ -16,6 +16,7 @@ import {
 
 export const VENDOR_APPLICATIONS_PARAM_KEYS = {
   category: 'category',
+  openApplicationId: 'application',
   search: 'q',
   sortOrder: 'sort',
   standId: 'stand',
@@ -56,9 +57,13 @@ export const parseVendorApplicationsFilters = (searchParams: URLSearchParams): V
   status: parseVendorApplicationsStatusFilter(readParam(searchParams, VENDOR_APPLICATIONS_PARAM_KEYS.status))
 });
 
+export const parseVendorApplicationsOpenId = (searchParams: URLSearchParams): string | null =>
+  readParam(searchParams, VENDOR_APPLICATIONS_PARAM_KEYS.openApplicationId) || null;
+
 export const buildVendorApplicationsSearchParams = (
   filters: VendorApplicationsFilters,
-  viewMode: ApplicationsViewMode
+  viewMode: ApplicationsViewMode,
+  openApplicationId: string | null
 ): URLSearchParams => {
   const { category, search, sortOrder, standId, status } = filters;
   const defaults = DEFAULT_VENDOR_APPLICATIONS_FILTERS;
@@ -69,7 +74,8 @@ export const buildVendorApplicationsSearchParams = (
     [paramKeys.status, status === defaults.status ? null : status],
     [paramKeys.category, category === defaults.category ? null : category],
     [paramKeys.standId, standId === defaults.standId ? null : standId],
-    [paramKeys.sortOrder, sortOrder === defaults.sortOrder ? null : sortOrder]
+    [paramKeys.sortOrder, sortOrder === defaults.sortOrder ? null : sortOrder],
+    [paramKeys.openApplicationId, openApplicationId]
   ];
   const searchParams = new URLSearchParams();
 

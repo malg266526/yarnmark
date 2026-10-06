@@ -17,11 +17,13 @@ export const VENDOR_APPLICATION_MAIN_CATEGORY_ORDER: NonNullable<VendorFormMainC
   'other'
 ];
 
-export const VENDOR_APPLICATIONS_VIEW_MODES = ['cards', 'cascade', 'stands'] as const;
+export const VENDOR_APPLICATIONS_VIEW_MODES = ['rows', 'cards', 'cascade', 'stands'] as const;
 
 export type ApplicationsViewMode = (typeof VENDOR_APPLICATIONS_VIEW_MODES)[number];
 
-export const DEFAULT_VENDOR_APPLICATIONS_VIEW_MODE: ApplicationsViewMode = 'cards';
+export const DEFAULT_VENDOR_APPLICATIONS_VIEW_MODE: ApplicationsViewMode = 'rows';
+
+export const VENDOR_APPLICATIONS_LIST_VIEW_MODES: ApplicationsViewMode[] = ['rows', 'cards'];
 
 export const VENDOR_APPLICATIONS_SORT_ORDERS = ['oldest', 'newest', 'name', 'demand'] as const;
 

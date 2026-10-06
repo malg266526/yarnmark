@@ -12,7 +12,10 @@ import type {
 } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
 import { useTypedTranslation } from '../../../../../translations/useTypedTranslation';
 import { useVendorsApplicationsToolbar } from '../hooks/useVendorsApplicationsToolbar';
+import { VENDOR_APPLICATIONS_LIST_VIEW_MODES } from '../vendorsApplicationsConstants';
+import { VendorApplicationDetailsDrawer } from './VendorApplicationDetailsDrawer';
 import { VendorsApplicationsCardsView } from './VendorsApplicationsCardsView';
+import { VendorsApplicationsRowsView } from './VendorsApplicationsRowsView';
 import { VendorsApplicationsCascadeView } from './VendorsApplicationsCascadeView';
 import { VendorsApplicationsStandGroupsView } from './VendorsApplicationsStandGroupsView';
 import { VendorsApplicationsToolbarView } from './VendorsApplicationsToolbarView';
@@ -34,8 +37,11 @@ export const VendorsApplicationsView = ({
 }: VendorsApplicationsViewProps) => {
   const t = useTypedTranslation();
   const {
+    closeApplication,
     filters,
     hasActiveFilters,
+    openApplication,
+    openApplicationRecord,
     resetFilters,
     setFilter,
     setViewMode,
@@ -65,7 +71,8 @@ export const VendorsApplicationsView = ({
     return <ApplicationsEmpty>{t('vendorsApplicationsPage.empty')}</ApplicationsEmpty>;
   }
 
-  const isFiltered = viewMode === 'cards' && visibleApplications.length !== applications.length;
+  const isListView = VENDOR_APPLICATIONS_LIST_VIEW_MODES.includes(viewMode);
+  const isFiltered = isListView && visibleApplications.length !== applications.length;
 
   return (
     <ApplicationsSection>
@@ -78,6 +85,9 @@ export const VendorsApplicationsView = ({
           : t('vendorsApplicationsPage.savedCount', { count: applications.length })}
       </ApplicationsMeta>
       <ApplicationsToolbar>
+        <ApplicationActionButton aria-pressed={viewMode === 'rows'} type="button" onClick={() => setViewMode('rows')}>
+          {t('vendorsApplicationsPage.showRows')}
+        </ApplicationActionButton>
         <ApplicationActionButton aria-pressed={viewMode === 'cards'} type="button" onClick={() => setViewMode('cards')}>
           {t('vendorsApplicationsPage.showCards')}
         </ApplicationActionButton>
@@ -126,7 +136,7 @@ export const VendorsApplicationsView = ({
         />
       ) : null}
 
-      {viewMode === 'cards' ? (
+      {isListView ? (
         <>
           <VendorsApplicationsToolbarView
             filters={filters}
@@ -141,6 +151,17 @@ export const VendorsApplicationsView = ({
           />
           {visibleApplications.length === 0 ? (
             <ApplicationsEmpty>{t('vendorsApplicationsPage.toolbar.noMatches')}</ApplicationsEmpty>
+          ) : viewMode === 'rows' ? (
+            <VendorsApplicationsRowsView
+              allApplications={applications}
+              applications={visibleApplications}
+              locale={t.i18n.language}
+              openApplication={openApplication}
+              openApplicationId={openApplicationRecord?.id ?? null}
+              resolveCategoryLabel={resolveCategoryLabel}
+              translate={translate}
+              values={viewValues}
+            />
           ) : (
             <VendorsApplicationsCardsView
               applications={visibleApplications}
@@ -155,6 +176,18 @@ export const VendorsApplicationsView = ({
           )}
         </>
       ) : null}
+
+      <VendorApplicationDetailsDrawer
+        application={openApplicationRecord}
+        closeApplication={closeApplication}
+        deleteApplication={deleteApplication}
+        deletingApplicationId={deletingApplicationId}
+        locale={t.i18n.language}
+        resolveCategoryLabel={resolveCategoryLabel}
+        setApplicationStatus={setApplicationStatus}
+        translate={translate}
+        values={viewValues}
+      />
     </ApplicationsSection>
   );
 };

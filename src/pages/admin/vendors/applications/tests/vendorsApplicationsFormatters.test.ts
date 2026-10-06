@@ -1,6 +1,11 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { formatBoolean, formatDateTime, formatMainCategory } from '../utils/vendorsApplicationsFormatters.ts';
+import {
+  formatBoolean,
+  formatCompactDateTime,
+  formatDateTime,
+  formatMainCategory
+} from '../utils/vendorsApplicationsFormatters.ts';
 import { getBaseApplication } from './vendorApplicationFixture.ts';
 
 const BOOLEAN_LABELS = {
@@ -64,4 +69,8 @@ test('formatMainCategory falls back to not-provided label', () => {
 
 test('formatDateTime formats ISO timestamp for locale', () => {
   assert.equal(formatDateTime('2026-05-11T10:30:00.000Z', 'en-US'), 'May 11, 2026 at 12:30:00 PM');
+});
+
+test('formatCompactDateTime drops the year and seconds for the dense list', () => {
+  assert.equal(formatCompactDateTime('2026-05-11T10:30:00.000Z', 'pl'), '11.05, 12:30');
 });

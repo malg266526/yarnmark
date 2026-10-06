@@ -35,3 +35,11 @@ export const formatDateTime = (value: string, locale: string) =>
     dateStyle: 'long',
     timeStyle: 'medium'
   }).format(new Date(value));
+
+export const formatCompactDateTime = (value: string, locale: string) =>
+  new Intl.DateTimeFormat(locale, {
+    day: '2-digit',
+    month: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit'
+  }).format(new Date(value));

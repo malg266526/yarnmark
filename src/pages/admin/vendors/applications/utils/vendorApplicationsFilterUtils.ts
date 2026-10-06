@@ -5,6 +5,7 @@ import type {
 import type { VendorFormMainCategory } from '../../../../../domain/vendorApplications/vendorFormTypes.ts';
 import { VENDOR_APPLICATIONS_FILTER_ALL, type VendorApplicationsSortOrder } from '../vendorsApplicationsConstants.ts';
 import { compareApplicationsBySubmittedAt } from './standAllocationUtils.ts';
+import { countStandRequests } from './standGroupingUtils.ts';
 
 type VendorApplicationsFilterAll = typeof VENDOR_APPLICATIONS_FILTER_ALL;
 
@@ -56,16 +57,8 @@ export const countApplicationsByStatus = (applications: VendorApplication[]): Ve
 
 export type FirstChoiceCompetitorCounts = ReadonlyMap<string, number>;
 
-const countRequestsByStandId = (applications: VendorApplication[]): ReadonlyMap<string, number> =>
-  applications
-    .flatMap(({ preferredStands }) => [...new Set(preferredStands)])
-    .reduce(
-      (requestCounts, standId) => requestCounts.set(standId, (requestCounts.get(standId) ?? 0) + 1),
-      new Map<string, number>()
-    );
-
 export const countFirstChoiceCompetitors = (applications: VendorApplication[]): FirstChoiceCompetitorCounts => {
-  const requestCounts = countRequestsByStandId(applications);
+  const requestCounts = countStandRequests(applications);
 
   return new Map(
     applications.map(({ id, preferredStands }) => {

@@ -578,6 +578,7 @@ export const en: TranslationsShape = {
       savedCount: '{{count}} applications saved',
       showByStand: 'Show by stand',
       showCards: 'Show cards',
+      showRows: 'Show list',
       showCascadeStandAllocation: 'Cascading stand allocation',
       delete: {
         button: 'Delete application',
@@ -656,6 +657,21 @@ export const en: TranslationsShape = {
         notAssigned: 'Not assigned',
         notProvided: 'Not provided',
         noneSelected: 'None selected'
+      },
+      rows: {
+        columns: {
+          storeName: 'Store',
+          submittedAt: 'Submitted',
+          category: 'Category',
+          preferences: 'Preferences · contenders',
+          status: 'Status'
+        },
+        competitors: 'Stand {{standId}} — applications besides this one: {{count}}',
+        openDetails: 'Show details of the application “{{name}}”'
+      },
+      drawer: {
+        label: 'Application details: {{name}}',
+        close: 'Close'
       },
       toolbar: {
         statusLabel: 'Filter by status',

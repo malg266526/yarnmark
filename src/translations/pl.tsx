@@ -577,6 +577,7 @@ export const pl = {
       savedCount: 'Zapisanych zgłoszeń: {{count}}',
       showByStand: 'Pokaż wg stoisk',
       showCards: 'Pokaż karty',
+      showRows: 'Pokaż listę',
       showCascadeStandAllocation: 'Kaskadowe przypisanie stoisk',
       delete: {
         button: 'Usuń zgłoszenie',
@@ -655,6 +656,21 @@ export const pl = {
         notAssigned: 'Nieprzypisane',
         notProvided: 'Nie podano',
         noneSelected: 'Brak'
+      },
+      rows: {
+        columns: {
+          storeName: 'Sklep',
+          submittedAt: 'Zgłoszono',
+          category: 'Kategoria',
+          preferences: 'Preferencje · chętni',
+          status: 'Status'
+        },
+        competitors: 'Stoisko {{standId}} — chętnych oprócz tego zgłoszenia: {{count}}',
+        openDetails: 'Pokaż szczegóły zgłoszenia „{{name}}”'
+      },
+      drawer: {
+        label: 'Szczegóły zgłoszenia: {{name}}',
+        close: 'Zamknij'
       },
       toolbar: {
         statusLabel: 'Filtruj po statusie',
