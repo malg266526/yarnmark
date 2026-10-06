@@ -17,7 +17,7 @@ export const VENDOR_APPLICATION_MAIN_CATEGORY_ORDER: NonNullable<VendorFormMainC
   'other'
 ];
 
-export const VENDOR_APPLICATIONS_VIEW_MODES = ['rows', 'cards', 'cascade', 'stands'] as const;
+export const VENDOR_APPLICATIONS_VIEW_MODES = ['rows', 'cards', 'map', 'cascade', 'stands'] as const;
 
 export type ApplicationsViewMode = (typeof VENDOR_APPLICATIONS_VIEW_MODES)[number];
 

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import type { VendorApplication } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
-import { countStandRequests, groupApplicationsByStand } from '../utils/standGroupingUtils.ts';
+import { groupApplicationsByStand } from '../utils/standGroupingUtils.ts';
 import { getBaseApplication } from './vendorApplicationFixture.ts';
 
 test('groupApplicationsByStand groups applications by selected stand and keeps declared priority', () => {
@@ -50,17 +50,4 @@ test('groupApplicationsByStand groups applications by selected stand and keeps d
       { applicationId: 'application-1', priority: 'medium' }
     ]
   );
-});
-
-test('countStandRequests counts each application once per stand', () => {
-  const applications = [
-    { ...getBaseApplication(), id: 'first', preferredStands: ['S1', 'S1', 'S2'] },
-    { ...getBaseApplication(), id: 'second', preferredStands: ['S2'] }
-  ];
-
-  const requestCounts = countStandRequests(applications);
-
-  assert.equal(requestCounts.get('S1'), 1);
-  assert.equal(requestCounts.get('S2'), 2);
-  assert.equal(requestCounts.get('S3'), undefined);
 });

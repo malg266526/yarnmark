@@ -1,5 +1,5 @@
 import type { VendorApplication } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
-import { countStandRequests } from './standGroupingUtils.ts';
+import { getStandInterestCounts } from '../../../../../domain/vendorApplications/vendorFormStandInterestUtils.ts';
 
 export interface VendorApplicationStandPreference {
   competitorCount: number;
@@ -15,7 +15,7 @@ export const buildVendorApplicationRows = (
   visibleApplications: VendorApplication[],
   allApplications: VendorApplication[]
 ): VendorApplicationRow[] => {
-  const requestCounts = countStandRequests(allApplications);
+  const requestCounts = getStandInterestCounts(allApplications);
 
   return visibleApplications.map((application) => ({
     application,

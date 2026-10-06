@@ -491,6 +491,111 @@ export const ApplicationsEmpty = styled.div`
   font-family: ${FontFamilies.primary};
 `;
 
+export const ApplicationsMapLayout = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: ${RedesignSpacings.md};
+`;
+
+export const ApplicationsMapPanel = styled.section`
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: ${RedesignSpacings.sm};
+  padding: ${RedesignSpacings.sm};
+  border-radius: ${Radius.xl};
+  background: ${Colors.white};
+  box-shadow: ${DropShadow.card};
+  border: 1px solid ${BorderColors.subtleGreen};
+`;
+
+export const ApplicationsMapScroller = styled.div`
+  max-width: 100%;
+  overflow: auto;
+`;
+
+export const ApplicationsMapSide = styled.div`
+  display: flex;
+  flex: 1 1 320px;
+  min-width: 320px;
+  flex-direction: column;
+  gap: ${RedesignSpacings.sm};
+`;
+
+export const ApplicationsMapLegend = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: ${RedesignSpacings.xs};
+`;
+
+export const ApplicationsMapLegendItem = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: ${RedesignSpacings.xxs};
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.sm};
+  color: ${TextColors.secondary};
+`;
+
+export const ApplicationsMapLegendSwatch = styled.span<{ $color: string }>`
+  width: 18px;
+  height: 18px;
+  border-radius: ${Radius.md};
+  border: 1px solid ${BorderColors.subtleGreen};
+  background: ${({ $color }) => $color};
+`;
+
+export const ApplicationsMapStand = styled.button<{
+  $color: string;
+  $height: number;
+  $interactive: boolean;
+  $left: number;
+  $top: number;
+  $width: number;
+}>`
+  all: unset;
+  box-sizing: border-box;
+  position: absolute;
+  left: ${({ $left }) => $left}px;
+  top: ${({ $top }) => $top}px;
+  width: ${({ $width }) => $width}px;
+  height: ${({ $height }) => $height}px;
+  background-color: ${({ $color }) => $color};
+  border: 2px solid ${Colors.white};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  cursor: ${({ $interactive }) => ($interactive ? 'pointer' : 'default')};
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.xs};
+  line-height: 1;
+  color: ${TextColors.primary};
+
+  &[aria-pressed='true'] {
+    border-color: ${TextColors.primary};
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${TextColors.primary};
+    outline-offset: 1px;
+  }
+`;
+
+export const ApplicationsMapStandCount = styled.span`
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+`;
+
+export const ApplicationsMapHint = styled.p`
+  margin: 0;
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.sm};
+  color: ${TextColors.secondary};
+`;
+
 export const StandGroups = styled.div`
   display: flex;
   flex-direction: column;

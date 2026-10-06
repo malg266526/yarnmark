@@ -77,6 +77,16 @@ export interface VendorsApplicationsCascadeViewProps {
   notAssignedLabel: string;
 }
 
+export interface VendorsApplicationsMapViewProps {
+  applications: VendorApplication[];
+  isPhone: boolean;
+  locale: string;
+  resolvePriorityLabel: (priority: 'highest' | 'medium' | 'lowest') => string;
+  selectStand: (standId: string) => void;
+  selectedStandId: string;
+  translate: TranslateViewText;
+}
+
 export interface VendorsApplicationsStandGroupsViewProps {
   applications: VendorApplication[];
   locale: string;

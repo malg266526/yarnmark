@@ -578,6 +578,7 @@ export const pl = {
       showByStand: 'Pokaż wg stoisk',
       showCards: 'Pokaż karty',
       showRows: 'Pokaż listę',
+      showMap: 'Pokaż mapę',
       showCascadeStandAllocation: 'Kaskadowe przypisanie stoisk',
       delete: {
         button: 'Usuń zgłoszenie',
@@ -656,6 +657,18 @@ export const pl = {
         notAssigned: 'Nieprzypisane',
         notProvided: 'Nie podano',
         noneSelected: 'Brak'
+      },
+      map: {
+        demandLevels: {
+          none: 'Bez chętnych',
+          low: '1 chętny',
+          medium: '2 chętnych',
+          high: '3 i więcej chętnych'
+        },
+        standDemand: 'Stoisko {{standId}} — chętnych: {{count}}',
+        selectHint: 'Kliknij stoisko na mapie, aby zobaczyć listę chętnych. Wybór ustawia też filtr listy.',
+        noRequests: 'Stoisko {{standId}} nie ma jeszcze żadnych chętnych.',
+        loadError: 'Nie udało się wczytać planu hali.'
       },
       flags: {
         title: 'Flagi ryzyka',

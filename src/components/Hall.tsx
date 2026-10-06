@@ -1,54 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import zod from 'zod';
-import { HallColors } from '../styles/theme';
-import hallJson from '../assets/hall.json';
+import type zod from 'zod';
 import { StandColorsMap } from './editor/StandProps';
+import { HallMap } from './hall/HallMap';
+import { hallStandsSchema, parseHallStands } from './hall/hallStands';
 import { Typography } from './Typography';
 import { usePhone } from '../hooks/usePhone';
-import { GRID_COLS, GRID_ROWS } from './editor/utils/hallGeometry';
-
-const standTypeSchema = zod.union([
-  zod.literal('premium'),
-  zod.literal('mini'),
-  zod.literal('standard'),
-  zod.literal('other')
-]);
-
-const standColorSchema = zod.union([
-  zod.literal('premium'),
-  zod.literal('normal1'),
-  zod.literal('normal2'),
-  zod.literal('normal3'),
-  zod.literal('small1'),
-
-  zod.literal('small2'),
-  zod.literal('taken'),
-  zod.literal('taken2'),
-  zod.literal('tech')
-]);
-
-const hallSchema = zod.array(
-  zod.object({
-    id: zod.string(),
-    index: zod.string(),
-    vendor: zod.string().optional(),
-    description: zod.string().optional(),
-    type: standTypeSchema,
-    color: standColorSchema,
-    width: zod.number(),
-    height: zod.number(),
-    isHorizontal: zod.boolean(),
-    start: zod.object({
-      row: zod.number(),
-      col: zod.number()
-    }),
-    end: zod.object({
-      row: zod.number(),
-      col: zod.number()
-    })
-  })
-);
 
 const StandElement = styled.div<{
   left: number;
@@ -71,15 +28,6 @@ const StandElement = styled.div<{
   justify-content: center;
 `;
 
-const Container = styled.div<{ width: number; height: number }>`
-  display: flex;
-  background-color: ${HallColors.empty};
-  position: relative;
-
-  width: ${({ width }) => width}px;
-  height: ${({ height }) => height}px;
-`;
-
 const VendorSlot = styled.div`
   text-align: center;
   font-size: 14px;
@@ -93,31 +41,21 @@ type HallType = {
 type HallConfigurationState =
   | { status: 'pending' }
   | { status: 'error'; error: Error }
-  | { status: 'success'; schema: zod.infer<typeof hallSchema> };
+  | { status: 'success'; schema: zod.infer<typeof hallStandsSchema> };
 
 export const Hall = ({ multiplier }: HallType) => {
-  // FIXME: this should be removed once the editor saves that in a normalized way
-  const SIZE_MULTIPLIER_FOR_NORMALIZATION = 2;
-
   const [hallConfigurationState, setHallConfigurationState] = useState<HallConfigurationState>({ status: 'pending' });
 
   const isPhone = usePhone();
 
-  const [containerSize, setContainerSize] = useState<{
-    width: number;
-    height: number;
-  }>({ height: 200, width: 200 });
-
   useEffect(() => {
-    const validHallConfiguration = hallSchema.safeParse(hallJson);
+    const validHallConfiguration = parseHallStands();
 
     if (validHallConfiguration.success) {
       setHallConfigurationState({
         status: 'success',
         schema: validHallConfiguration.data
       });
-
-      setContainerSize({ width: GRID_COLS, height: GRID_ROWS });
 
       return;
     }
@@ -134,29 +72,30 @@ export const Hall = ({ multiplier }: HallType) => {
       {hallConfigurationState.status === 'error' && <div>Failed to parse data</div>}
       {hallConfigurationState.status === 'pending' && <div>Loading data...</div>}
       {hallConfigurationState.status === 'success' && (
-        <Container id="hall" height={containerSize.height * multiplier} width={containerSize.width * multiplier}>
-          {hallConfigurationState.schema.map((standConfiguration) => {
-            return (
-              <StandElement
-                id={standConfiguration.id}
-                key={standConfiguration.id}
-                color={StandColorsMap[standConfiguration.color]}
-                left={standConfiguration.start.col * multiplier}
-                top={standConfiguration.start.row * multiplier}
-                height={standConfiguration.height * multiplier * SIZE_MULTIPLIER_FOR_NORMALIZATION}
-                width={standConfiguration.width * multiplier * SIZE_MULTIPLIER_FOR_NORMALIZATION}
-              >
-                {standConfiguration.type !== 'other' && <div>{standConfiguration.index}</div>}
-                {standConfiguration.vendor && <VendorSlot>{standConfiguration.vendor}</VendorSlot>}
-                {standConfiguration.description && (
-                  <div>
-                    <Typography size={isPhone ? 'xxs' : 'xs'}>{standConfiguration.description}</Typography>
-                  </div>
-                )}
-              </StandElement>
-            );
-          })}
-        </Container>
+        <HallMap
+          id="hall"
+          multiplier={multiplier}
+          stands={hallConfigurationState.schema}
+          renderStand={(standConfiguration, box) => (
+            <StandElement
+              id={standConfiguration.id}
+              key={standConfiguration.id}
+              color={StandColorsMap[standConfiguration.color]}
+              left={box.left}
+              top={box.top}
+              height={box.height}
+              width={box.width}
+            >
+              {standConfiguration.type !== 'other' && <div>{standConfiguration.index}</div>}
+              {standConfiguration.vendor && <VendorSlot>{standConfiguration.vendor}</VendorSlot>}
+              {standConfiguration.description && (
+                <div>
+                  <Typography size={isPhone ? 'xxs' : 'xs'}>{standConfiguration.description}</Typography>
+                </div>
+              )}
+            </StandElement>
+          )}
+        />
       )}
     </>
   );

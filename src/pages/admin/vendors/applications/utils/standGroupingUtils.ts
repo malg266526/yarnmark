@@ -32,18 +32,6 @@ const STAND_PRIORITY_ORDER: Record<StandPriority, number> = {
   lowest: 2
 };
 
-export const countStandRequests = (applications: VendorApplication[]): ReadonlyMap<string, number> => {
-  const requestCounts = new Map<string, number>();
-
-  for (const { preferredStands } of applications) {
-    for (const standId of new Set(preferredStands)) {
-      requestCounts.set(standId, (requestCounts.get(standId) ?? 0) + 1);
-    }
-  }
-
-  return requestCounts;
-};
-
 export const groupApplicationsByStand = (applications: VendorApplication[]): StandGroup[] => {
   const standGroupsMap = new Map<string, StandRequest[]>();
 

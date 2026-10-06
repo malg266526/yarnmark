@@ -11,10 +11,12 @@ import type {
   VendorApplicationStatus
 } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
 import { useTypedTranslation } from '../../../../../translations/useTypedTranslation';
+import { usePhone } from '../../../../../hooks/usePhone';
 import { useVendorsApplicationsToolbar } from '../hooks/useVendorsApplicationsToolbar';
 import { VENDOR_APPLICATIONS_LIST_VIEW_MODES } from '../vendorsApplicationsConstants';
 import { VendorApplicationDetailsDrawer } from './VendorApplicationDetailsDrawer';
 import { VendorsApplicationsCardsView } from './VendorsApplicationsCardsView';
+import { VendorsApplicationsMapView } from './VendorsApplicationsMapView';
 import { VendorsApplicationsRowsView } from './VendorsApplicationsRowsView';
 import { VendorsApplicationsCascadeView } from './VendorsApplicationsCascadeView';
 import { VendorsApplicationsStandGroupsView } from './VendorsApplicationsStandGroupsView';
@@ -36,6 +38,7 @@ export const VendorsApplicationsView = ({
   setApplicationStatus
 }: VendorsApplicationsViewProps) => {
   const t = useTypedTranslation();
+  const isPhone = usePhone();
   const {
     closeApplication,
     filters,
@@ -92,6 +95,9 @@ export const VendorsApplicationsView = ({
         <ApplicationActionButton aria-pressed={viewMode === 'cards'} type="button" onClick={() => setViewMode('cards')}>
           {t('vendorsApplicationsPage.showCards')}
         </ApplicationActionButton>
+        <ApplicationActionButton aria-pressed={viewMode === 'map'} type="button" onClick={() => setViewMode('map')}>
+          {t('vendorsApplicationsPage.showMap')}
+        </ApplicationActionButton>
         <ApplicationActionButton
           aria-pressed={viewMode === 'cascade'}
           type="button"
@@ -107,6 +113,18 @@ export const VendorsApplicationsView = ({
           {t('vendorsApplicationsPage.showByStand')}
         </ApplicationActionButton>
       </ApplicationsToolbar>
+
+      {viewMode === 'map' ? (
+        <VendorsApplicationsMapView
+          applications={applications}
+          isPhone={isPhone}
+          locale={t.i18n.language}
+          resolvePriorityLabel={(priority) => t(`vendorsApplicationsPage.priorities.${priority}` as const)}
+          selectStand={(standId) => setFilter('standId', standId)}
+          selectedStandId={filters.standId}
+          translate={translate}
+        />
+      ) : null}
 
       {viewMode === 'cascade' ? (
         <VendorsApplicationsCascadeView

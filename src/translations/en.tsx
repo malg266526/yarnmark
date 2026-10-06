@@ -579,6 +579,7 @@ export const en: TranslationsShape = {
       showByStand: 'Show by stand',
       showCards: 'Show cards',
       showRows: 'Show list',
+      showMap: 'Show map',
       showCascadeStandAllocation: 'Cascading stand allocation',
       delete: {
         button: 'Delete application',
@@ -657,6 +658,18 @@ export const en: TranslationsShape = {
         notAssigned: 'Not assigned',
         notProvided: 'Not provided',
         noneSelected: 'None selected'
+      },
+      map: {
+        demandLevels: {
+          none: 'No requests',
+          low: '1 request',
+          medium: '2 requests',
+          high: '3 or more requests'
+        },
+        standDemand: 'Stand {{standId}} — requests: {{count}}',
+        selectHint: 'Pick a stand on the map to see who requested it. The choice also sets the list filter.',
+        noRequests: 'Stand {{standId}} has no requests yet.',
+        loadError: 'The hall layout could not be loaded.'
       },
       flags: {
         title: 'Risk flags',

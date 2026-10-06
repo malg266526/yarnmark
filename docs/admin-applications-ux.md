@@ -186,9 +186,30 @@ Dokładnie to, co jest już w modelu danych, tylko nieużyte.
    bo żaden przodek w panelu nie deklarował `FontFamilies.primary`; teraz font deklarują i chipy,
    i sam drawer. Nie weryfikowano działania w samym panelu — `/admin` wymaga logowania Google.
 
-4. **Mapa hali w panelu** (wyciągnięty wspólny `HallMap` z `Hall.tsx`/`SelectableHall.tsx`,
-   zamiast trzeciej kopii schematu): heatmapa popytu z `getStandInterestCounts` (martwy kod →
-   wreszcie użyty), klik w stoisko → lista chętnych z priorytetami (gotowe `groupApplicationsByStand`).
+4. **Mapa hali w panelu** — ✅ Zrobione: tryb „Pokaż mapę” z heatmapą popytu i listą chętnych po
+   kliknięciu stoiska.
+
+   Zakres wdrożenia: `components/hall/hallStands.ts` (jeden schemat zod planu hali zamiast dwóch kopii)
+   i `components/hall/HallMap.tsx` (kontener, geometria i stała normalizacji rozmiaru w jednym
+   miejscu); `Hall.tsx` i `SelectableHall.tsx` korzystają teraz z nich, a każdy widok trzyma własny
+   wygląd kafelka. Heatmapa używa `getStandInterestCounts` i `isHighInterestStand` z domeny — do tej
+   pory martwy kod — więc panel i publiczny formularz mają jeden próg „dużego zainteresowania”.
+   Progi w `utils/standDemandUtils.ts` (brak / 1 / 2 / 3+), kolory z rampy `HallColors`, liczba
+   chętnych wypisana w każdym stoisku. Klik w stoisko ustawia istniejący filtr `stand`, więc wybór
+   siedzi w URL, przełącza listę na chętnych o to stoisko i da się go podlinkować; ponowny klik
+   czyści wybór. Panel obok mapy pokazuje chętnych z datą i priorytetem (`groupApplicationsByStand`).
+   Testy: `tests/standDemandUtils.test.ts`.
+   Weryfikacja: refaktor publicznych map sprawdzony porównaniem pikseli zrzutów przed i po —
+   `ImageChops.difference` zwraca pusty bbox, czyli render `Hall` i `SelectableHall` jest
+   **identyczny co do piksela**. Mapa panelu sprawdzona na prawdziwym komponencie: kliknięcie P1
+   zaznacza stoisko i pokazuje czterech chętnych z poprawnymi priorytetami (trzy „najwyższy”, jeden
+   „najniższy”), a drugi klik czyści wybór i wraca podpowiedź.
+
+   Uwaga na przyszłość: stary `Hall` mógł się ściskać w układzie flex (`flex: 0 1 auto`), przez co
+   plan hali bywał węższy niż jego własna szerokość. Zostawiłem to zachowanie bez zmian, żeby nie
+   ruszać publicznej strony przy tym zadaniu — w panelu mapa ma `flex: 0 0 auto` zgodnie z regułą
+   z AGENTS.md. Warto to naprawić osobno na `/for-vendors`.
+
 5. **Widok dzielony lista ⇄ mapa**: podświetlenie zaznaczonego zgłoszenia na mapie (3 preferencje
    w kolorach priorytetu) i odwrotnie — zaznaczenie stoiska filtruje listę do chętnych.
 6. **Pokrycie hali**: pasek „48 stoisk: 31 z chętnymi, 17 bez ani jednego chętnego”, lista stoisk
@@ -253,7 +274,7 @@ Dokładnie to, co jest już w modelu danych, tylko nieużyte.
 ## 6. Sugerowana kolejność
 
 1. P0.1–P0.3 (pasek roboczy, gęsta lista, flagi) — ✅ zrobione, problem „50 kart” rozwiązany.
-2. P0.4–P0.6 (mapa, widok dzielony, pokrycie hali) — wspólny `HallMap` przy okazji usuwa duplikację.
+2. P0.4–P0.6 (mapa, widok dzielony, pokrycie hali) — P0.4 zrobione razem ze wspólnym `HallMap`.
 3. P0.7–P0.9 (status, eksport, oznaczenie symulacji) — drobne, wysokie zyski.
 4. P1.10–P1.11 po ustaleniu kontraktu API — dopiero to zamienia panel w narzędzie decyzyjne.
 5. P2 i P3 jako osobne tematy, każdy z własnym przebiegiem przez `docs/`.

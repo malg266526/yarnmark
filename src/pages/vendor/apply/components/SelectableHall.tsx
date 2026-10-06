@@ -1,67 +1,17 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import zod from 'zod';
-import hallJson from '../../../../assets/hall.json';
+import { HallMap } from '../../../../components/hall/HallMap';
+import { isVendorStand, parseHallStands, type HallStand } from '../../../../components/hall/hallStands';
 import { StandColorsMap } from '../../../../components/editor/StandProps';
 import { Typography } from '../../../../components/Typography';
 import { usePhone } from '../../../../hooks/usePhone';
-import { BackgroundColors, HallColors, WarningColors } from '../../../../styles/theme';
-import { GRID_COLS, GRID_ROWS } from '../../../../components/editor/utils/hallGeometry';
+import { BackgroundColors, WarningColors } from '../../../../styles/theme';
 
 const SELECTED_COLOR = '#FF8C00';
-
-const standTypeSchema = zod.union([
-  zod.literal('premium'),
-  zod.literal('mini'),
-  zod.literal('standard'),
-  zod.literal('other')
-]);
-
-const standColorSchema = zod.union([
-  zod.literal('premium'),
-  zod.literal('normal1'),
-  zod.literal('normal2'),
-  zod.literal('normal3'),
-  zod.literal('small1'),
-  zod.literal('small2'),
-  zod.literal('taken'),
-  zod.literal('taken2'),
-  zod.literal('tech')
-]);
-
-const hallSchema = zod.array(
-  zod.object({
-    id: zod.string(),
-    index: zod.string(),
-    vendor: zod.string().optional(),
-    description: zod.string().optional(),
-    type: standTypeSchema,
-    color: standColorSchema,
-    width: zod.number(),
-    height: zod.number(),
-    isHorizontal: zod.boolean(),
-    start: zod.object({ row: zod.number(), col: zod.number() }),
-    end: zod.object({ row: zod.number(), col: zod.number() })
-  })
-);
-
-type Stand = zod.infer<typeof hallSchema>[number];
-
-const isStandSelectable = (stand: Stand): boolean =>
-  stand.type !== 'other' && stand.color !== 'taken' && stand.color !== 'taken2';
-
-const SIZE_MULTIPLIER_FOR_NORMALIZATION = 2;
 
 const Scroller = styled.div`
   width: 100%;
   overflow: auto;
-`;
-
-const Container = styled.div<{ width: number; height: number }>`
-  position: relative;
-  background-color: ${HallColors.empty};
-  width: ${({ width }) => width}px;
-  height: ${({ height }) => height}px;
 `;
 
 const StandElement = styled.button<{
@@ -113,7 +63,7 @@ const StandElement = styled.button<{
   }
 `;
 
-type LoadState = { status: 'pending' } | { status: 'error'; error: Error } | { status: 'success'; stands: Stand[] };
+type LoadState = { status: 'pending' } | { status: 'error'; error: Error } | { status: 'success'; stands: HallStand[] };
 
 interface SelectableHallProps {
   highInterestStandIds?: string[];
@@ -133,7 +83,7 @@ export const SelectableHall = ({
   const [loadState, setLoadState] = useState<LoadState>({ status: 'pending' });
 
   useEffect(() => {
-    const parsed = hallSchema.safeParse(hallJson);
+    const parsed = parseHallStands();
 
     if (parsed.success) {
       setLoadState({ status: 'success', stands: parsed.data });
@@ -141,14 +91,6 @@ export const SelectableHall = ({
       setLoadState({ status: 'error', error: parsed.error });
     }
   }, []);
-
-  const containerSize = useMemo(() => {
-    if (loadState.status !== 'success') {
-      return { width: 0, height: 0 };
-    }
-
-    return { width: GRID_COLS, height: GRID_ROWS };
-  }, [loadState.status]);
 
   if (loadState.status === 'pending') {
     return <Typography size="sm">Loading…</Typography>;
@@ -158,8 +100,8 @@ export const SelectableHall = ({
     return <Typography size="sm">Failed to load hall layout.</Typography>;
   }
 
-  const resolveColor = (stand: Stand): string => {
-    if (!isStandSelectable(stand)) {
+  const resolveColor = (stand: HallStand): string => {
+    if (!isVendorStand(stand)) {
       return StandColorsMap[stand.color];
     }
 
@@ -172,24 +114,22 @@ export const SelectableHall = ({
 
   return (
     <Scroller>
-      <Container width={containerSize.width * resolvedMultiplier} height={containerSize.height * resolvedMultiplier}>
-        {loadState.stands.map((stand) => {
-          const selectable = isStandSelectable(stand);
+      <HallMap
+        multiplier={resolvedMultiplier}
+        stands={loadState.stands}
+        renderStand={(stand, box) => {
+          const selectable = isVendorStand(stand);
           const standSelectionId = stand.index;
           const isHighInterest = highInterestStandIds.includes(standSelectionId);
-          const left = stand.start.col * resolvedMultiplier;
-          const top = stand.start.row * resolvedMultiplier;
-          const width = stand.width * resolvedMultiplier * SIZE_MULTIPLIER_FOR_NORMALIZATION;
-          const height = stand.height * resolvedMultiplier * SIZE_MULTIPLIER_FOR_NORMALIZATION;
 
           return (
             <StandElement
               key={stand.id}
               type="button"
-              $left={left}
-              $top={top}
-              $width={width}
-              $height={height}
+              $left={box.left}
+              $top={box.top}
+              $width={box.width}
+              $height={box.height}
               $color={resolveColor(stand)}
               $isHighInterest={isHighInterest}
               $selectable={selectable}
@@ -201,8 +141,8 @@ export const SelectableHall = ({
               {stand.type !== 'other' ? stand.index : stand.description}
             </StandElement>
           );
-        })}
-      </Container>
+        }}
+      />
     </Scroller>
   );
 };
