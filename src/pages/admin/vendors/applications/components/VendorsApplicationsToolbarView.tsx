@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  ApplicationActionButton,
   ApplicationsFilterField,
   ApplicationsFilterInput,
   ApplicationsFilterLabel,
+  ApplicationsFilterResetButton,
   ApplicationsFilterRow,
   ApplicationsFilters,
   ApplicationsStatusFilterButton,
@@ -119,9 +119,9 @@ export const VendorsApplicationsToolbarView = ({
           onChange={(value) => setFilter('sortOrder', parseVendorApplicationsSortOrder(value))}
         />
 
-        <ApplicationActionButton type="button" disabled={!hasActiveFilters} onClick={resetFilters}>
+        <ApplicationsFilterResetButton type="button" disabled={!hasActiveFilters} onClick={resetFilters}>
           {translate('vendorsApplicationsPage.toolbar.reset')}
-        </ApplicationActionButton>
+        </ApplicationsFilterResetButton>
       </ApplicationsFilterRow>
     </ApplicationsFilters>
   );

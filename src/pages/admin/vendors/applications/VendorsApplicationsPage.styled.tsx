@@ -4,7 +4,7 @@ import { Radius, DropShadow } from '../../../../styles/cards';
 import { FontSize } from '../../../../styles/font-size';
 import { ScreenSize } from '../../../../styles/screeen-size';
 import { RedesignSpacings } from '../../../../styles/spacings';
-import { BackgroundColors, BorderColors, Colors, FontFamilies, TextColors } from '../../../../styles/theme';
+import { BackgroundColors, BorderColors, Colors, FontFamilies, GrayScale, TextColors } from '../../../../styles/theme';
 
 export const VendorsApplicationsPageStyled = styled.div`
   width: 100%;
@@ -53,6 +53,18 @@ export const ApplicationsToolbar = styled.div`
   gap: ${RedesignSpacings.xs};
 `;
 
+const FILTER_CONTROL_HEIGHT = '38px';
+const FILTER_COUNT_SIZE = '24px';
+const FILTER_COUNT_INLINE_PADDING = '7px';
+const FILTER_COUNT_FONT_BASELINE_CORRECTION = '1.5px';
+const FILTER_CONTROL_INLINE_PADDING = '12px';
+const FILTER_SELECT_ARROW_WIDTH = '12px';
+const FILTER_SELECT_ARROW_GAP = '34px';
+
+const filterSelectArrow = encodeURIComponent(
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 8"><path d="M1 1.5 6 6.5 11 1.5" fill="none" stroke="${TextColors.secondary}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+);
+
 export const ApplicationsFilters = styled.div`
   display: flex;
   flex-direction: column;
@@ -74,12 +86,13 @@ export const ApplicationsStatusFilterCount = styled.span`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 22px;
-  padding: 2px 6px;
+  height: ${FILTER_COUNT_SIZE};
+  min-width: ${FILTER_COUNT_SIZE};
+  padding: ${FILTER_COUNT_FONT_BASELINE_CORRECTION} ${FILTER_COUNT_INLINE_PADDING} 0;
   border-radius: ${Radius.xxl};
   background: ${BackgroundColors.green.medium};
   color: ${TextColors.primary};
-  font-size: inherit;
+  font-size: ${FontSize.sm};
   line-height: 1;
   font-variant-numeric: tabular-nums;
 `;
@@ -93,40 +106,59 @@ export const ApplicationsFilterRow = styled.div`
 
 export const ApplicationsFilterField = styled.div`
   display: flex;
-  flex: 1 1 180px;
-  min-width: 180px;
+  flex: 1 1 200px;
+  min-width: 200px;
   flex-direction: column;
   gap: ${RedesignSpacings.xxs};
 `;
 
 export const ApplicationsFilterLabel = styled.label`
   font-family: ${FontFamilies.primary};
-  font-size: ${FontSize.sm};
+  font-size: ${FontSize.xs};
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: ${TextColors.secondary};
 `;
 
 const filterControlStyles = css`
   width: 100%;
-  padding: ${RedesignSpacings.xxs} ${RedesignSpacings.xs};
+  height: ${FILTER_CONTROL_HEIGHT};
+  padding: 0 ${FILTER_CONTROL_INLINE_PADDING};
   border: 1px solid ${BackgroundColors.green.medium};
   border-radius: ${Radius.lg};
   background: ${Colors.white};
   font-family: ${FontFamilies.primary};
   font-size: ${FontSize.sm};
+  line-height: 1;
   color: ${TextColors.primary};
 
-  &:focus {
-    outline: 2px solid ${BackgroundColors.green.medium};
-    border-color: ${BackgroundColors.green.strong};
+  &:focus-visible {
+    outline: 2px solid ${BackgroundColors.green.strong};
+    outline-offset: -1px;
   }
 `;
 
 export const ApplicationsFilterInput = styled.input`
   ${filterControlStyles}
+
+  &::placeholder {
+    color: ${GrayScale[600]};
+  }
+`;
+
+const filterSelectStyles = css`
+  appearance: none;
+  padding-right: ${FILTER_SELECT_ARROW_GAP};
+  background-image: url('data:image/svg+xml,${filterSelectArrow}');
+  background-repeat: no-repeat;
+  background-position: right ${FILTER_CONTROL_INLINE_PADDING} center;
+  background-size: ${FILTER_SELECT_ARROW_WIDTH} auto;
+  cursor: pointer;
 `;
 
 export const ApplicationsFilterSelect = styled.select`
   ${filterControlStyles}
+  ${filterSelectStyles}
 `;
 
 export const ApplicationsMeta = styled.div`
@@ -210,6 +242,7 @@ export const ApplicationActionRow = styled.div`
 `;
 
 export const ApplicationActionButton = styled(Button)`
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -233,7 +266,15 @@ export const ApplicationActionButton = styled(Button)`
 `;
 
 export const ApplicationsStatusFilterButton = styled(ApplicationActionButton)`
+  height: ${FILTER_CONTROL_HEIGHT};
+  padding: 0 ${FILTER_CONTROL_INLINE_PADDING};
   gap: ${RedesignSpacings.xxs};
+  line-height: 1;
+`;
+
+export const ApplicationsFilterResetButton = styled(ApplicationActionButton)`
+  height: ${FILTER_CONTROL_HEIGHT};
+  padding: 0 ${FILTER_CONTROL_INLINE_PADDING};
   line-height: 1;
 `;
 

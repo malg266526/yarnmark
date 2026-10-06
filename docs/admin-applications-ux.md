@@ -123,11 +123,13 @@ Dokładnie to, co jest już w modelu danych, tylko nieużyte.
    Filtry działają wyłącznie na widoku kart — kaskada i widok „wg stoisk” liczą się po pełnym
    zbiorze, żeby symulacja i obraz popytu nie zostały zafałszowane przez filtr.
    Testy jednostkowe: `tests/vendorApplicationsFilterUtils.test.ts`,
-   `tests/vendorApplicationsFilterParams.test.ts`. Sam pasek (chipy ze statusami, pola filtrów)
-   sprawdzony wizualnie w izolowanym harnessie HTML z tym samym CSS — liczniki mają rozmiar etykiety
-   i są wyśrodkowane w pigułce (zmierzone: badge 20 px w polu treści chipa 20 px, dolne krawędzie
-   pól i przycisku równe co do piksela). Działania w samym panelu nie zweryfikowano — `/admin`
-   wymaga logowania Google i danych z API.
+   `tests/vendorApplicationsFilterParams.test.ts`. Sam pasek sprawdzony na prawdziwym komponencie
+   (`VendorsApplicationsToolbarView` zbundlowany esbuildem, globalne style i fonty jak w aplikacji,
+   zrzut z headless Chrome). Zmierzone na pikselach zrzutu: chip, input, select i przycisk
+   resetu mają po 38 px wysokości oraz wspólne górne i dolne krawędzie; licznik to koło 24×24 px, a
+   cyfra w nim ma 14 i 13 device px zapasu (DPR 2), czyli 0,25 px różnicy wynikającej z zaokrąglenia.
+   Questrial nie ma cyfr tabelarycznych, więc „1” bywa przesunięta o pół piksela w poziomie. Działania paska
+   w samym panelu nie zweryfikowano — `/admin` wymaga logowania Google i danych z API.
 
 2. **Gęsty wiersz zamiast karty**: tabela/lista z kolumnami nazwa, data, kategoria, 3 preferencje
    (z liczbą konkurentów), status, flagi. Szczegóły w panelu bocznym (drawer) po kliknięciu —

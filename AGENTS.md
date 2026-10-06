@@ -101,6 +101,43 @@
 - Absolutely-positioned decorations (edge labels, badges) still count toward `scrollWidth`/`scrollHeight`. Reserve space with padding rather than clipping meaningful content.
 - Confirm layout changes visually in the running app. If you cannot, say so instead of asserting the result.
 
+## UI Quality Bar
+
+Sloppy UI is not acceptable, not even in internal/admin tooling. Every element you add or touch must be
+finished: aligned, centred, consistently sized, with real spacing. "Probably fine" is not a state you may
+ship or report as done.
+
+- **Verify on the real rendered component, never on a replica.** Reasoning about CSS, or rebuilding the
+  styles by hand in a scratch HTML file, does not count as verification — the global styles, the webfonts
+  (`Questrial`, `Love Ya Like A Sister`), `createGlobalStyle` in `App.tsx` and `all: unset` on shared
+  components all change the result. If the page is behind auth, bundle the real component into a throwaway
+  harness with the project's esbuild, serve it with the same font links and global rules, screenshot it in
+  a headless browser and zoom in on what you changed.
+- **Measure, do not eyeball.** Before claiming something is aligned or centred, read
+  `getBoundingClientRect()` for every element involved and compare the numbers: controls sitting in one row
+  must share height, top and bottom to the pixel; a label and its badge must share a baseline; the ink of a
+  glyph inside a pill must have equal space above and below. Quote those numbers when reporting the change.
+- **One row, one height token.** Inputs, selects and buttons standing next to each other take the same
+  height constant and the same inline padding constant from the styled file — never per-element padding
+  tuned by hand.
+- **`all: unset` resets `box-sizing` to `content-box`.** Whenever you set `height`/`width` on a component
+  built on `Button` (or anything else using `all: unset`), re-declare `box-sizing: border-box`, otherwise it
+  ends up 2px taller than the form controls next to it.
+- **Badges and counters** use the font size of the text they belong to, `line-height: 1`, flex centring, a
+  fixed height, `min-width` so one- and two-digit values do not resize the row, and `font-variant-numeric:
+tabular-nums`.
+- **Native `select` is never shipped raw.** Use `appearance: none` with an explicit chevron and reserve
+  space for it with `padding-right`, so the text never runs into the arrow.
+- **Fix the box model, not the symptom.** No magic pixel offsets, negative margins or `!important` to fake
+  centring; if centring is wrong, the height, padding or alignment property is wrong. The one exception is
+  an optical correction for a font's own glyph metrics (CSS centres the line box, not the ink): allowed only
+  after the box model is proven correct by measurement, with the value derived from measured pixels and
+  stored in a constant whose name says it is a font correction.
+- Every interactive element needs a visible `:focus-visible` state and a disabled state that reads as
+  disabled.
+- If you genuinely cannot verify a UI detail, say exactly which detail is unverified before calling the task
+  done — do not let the user discover it.
+
 ## Local Development
 
 - Dev server: `npm run start` (esbuild) serves on **port 8090**. Run only one instance. `EADDRINUSE` means one is already running — reuse it, or stop it first with `pkill -f esbuild.serve.mjs`.
