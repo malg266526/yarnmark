@@ -17,6 +17,7 @@ export const VendorsApplicationsCardsView = ({
   flagsByApplicationId,
   locale,
   resolveCategoryLabel,
+  savingStatusApplicationId,
   setApplicationStatus,
   values,
   translate
@@ -33,6 +34,7 @@ export const VendorsApplicationsCardsView = ({
           deleteApplication={deleteApplication}
           deletingApplicationId={deletingApplicationId}
           flags={flagsByApplicationId.get(application.id) ?? []}
+          isSavingStatus={savingStatusApplicationId === application.id}
           resolveCategoryLabel={resolveCategoryLabel}
           setApplicationStatus={setApplicationStatus}
           translate={translate}

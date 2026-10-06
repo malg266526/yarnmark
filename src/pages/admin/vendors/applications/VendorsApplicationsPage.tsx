@@ -7,8 +7,17 @@ import { AdminPageLayout } from '../../AdminPageLayout';
 
 export const VendorsApplicationsPage = () => {
   const t = useTypedTranslation();
-  const { applications, deleteApplication, deletingApplicationId, loading, setApplicationStatus } =
-    useVendorsApplications();
+  const {
+    applications,
+    deleteApplication,
+    deletingApplicationId,
+    dismissStatusChange,
+    lastStatusChange,
+    loading,
+    savingStatusApplicationId,
+    setApplicationStatus,
+    undoStatusChange
+  } = useVendorsApplications();
 
   return (
     <AdminPageLayout kicker={t('vendorsApplicationsPage.kicker')} title={t('vendorsApplicationsPage.title')}>
@@ -17,8 +26,12 @@ export const VendorsApplicationsPage = () => {
           applications={applications}
           deleteApplication={deleteApplication}
           deletingApplicationId={deletingApplicationId}
+          dismissStatusChange={dismissStatusChange}
+          lastStatusChange={lastStatusChange}
           loading={loading}
+          savingStatusApplicationId={savingStatusApplicationId}
           setApplicationStatus={setApplicationStatus}
+          undoStatusChange={undoStatusChange}
         />
       </VendorsApplicationsPageStyled>
     </AdminPageLayout>

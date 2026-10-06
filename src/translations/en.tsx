@@ -582,6 +582,14 @@ export const en: TranslationsShape = {
       showSplit: 'List and map',
       showMap: 'Show map',
       showCascadeStandAllocation: 'Cascading stand allocation',
+      statusField: {
+        saving: 'Saving…'
+      },
+      statusUndo: {
+        message: 'Status of “{{name}}” changed to “{{status}}”.',
+        action: 'Undo',
+        dismiss: 'Dismiss'
+      },
       delete: {
         button: 'Delete application',
         deleting: 'Deleting...',

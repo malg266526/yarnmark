@@ -581,6 +581,14 @@ export const pl = {
       showSplit: 'Lista i mapa',
       showMap: 'Pokaż mapę',
       showCascadeStandAllocation: 'Kaskadowe przypisanie stoisk',
+      statusField: {
+        saving: 'Zapisywanie…'
+      },
+      statusUndo: {
+        message: 'Status „{{name}}” zmieniony na „{{status}}”.',
+        action: 'Cofnij',
+        dismiss: 'Zamknij'
+      },
       delete: {
         button: 'Usuń zgłoszenie',
         deleting: 'Usuwanie...',

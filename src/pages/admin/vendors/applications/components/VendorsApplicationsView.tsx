@@ -15,6 +15,7 @@ import type {
 } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
 import { useTypedTranslation } from '../../../../../translations/useTypedTranslation';
 import { usePhone } from '../../../../../hooks/usePhone';
+import type { VendorApplicationStatusChange } from '../hooks/useVendorsApplications';
 import { useVendorsApplicationsToolbar } from '../hooks/useVendorsApplicationsToolbar';
 import {
   VENDOR_APPLICATIONS_LIST_VIEW_MODES,
@@ -28,6 +29,7 @@ import { VendorsApplicationsMapView } from './VendorsApplicationsMapView';
 import { VendorsApplicationsRowsView } from './VendorsApplicationsRowsView';
 import { VendorsApplicationsSplitView } from './VendorsApplicationsSplitView';
 import { VendorsApplicationsStandRequestsView } from './VendorsApplicationsStandRequestsView';
+import { VendorsApplicationsUndoToast } from './VendorsApplicationsUndoToast';
 import { VendorsApplicationsCascadeView } from './VendorsApplicationsCascadeView';
 import { VendorsApplicationsStandGroupsView } from './VendorsApplicationsStandGroupsView';
 import { VendorsApplicationsToolbarView } from './VendorsApplicationsToolbarView';
@@ -36,16 +38,24 @@ interface VendorsApplicationsViewProps {
   applications: VendorApplication[];
   deleteApplication: (applicationId: string) => Promise<void>;
   deletingApplicationId: string | null;
+  dismissStatusChange: () => void;
+  lastStatusChange: VendorApplicationStatusChange | null;
   loading: boolean;
+  savingStatusApplicationId: string | null;
   setApplicationStatus: (applicationId: string, status: VendorApplicationStatus) => Promise<void>;
+  undoStatusChange: () => Promise<void>;
 }
 
 export const VendorsApplicationsView = ({
   applications,
   deleteApplication,
   deletingApplicationId,
+  dismissStatusChange,
+  lastStatusChange,
   loading,
-  setApplicationStatus
+  savingStatusApplicationId,
+  setApplicationStatus,
+  undoStatusChange
 }: VendorsApplicationsViewProps) => {
   const t = useTypedTranslation();
   const isPhone = usePhone();
@@ -229,6 +239,7 @@ export const VendorsApplicationsView = ({
               flagsByApplicationId={flagsByApplicationId}
               locale={t.i18n.language}
               resolveCategoryLabel={resolveCategoryLabel}
+              savingStatusApplicationId={savingStatusApplicationId}
               setApplicationStatus={setApplicationStatus}
               translate={translate}
               values={viewValues}
@@ -245,10 +256,26 @@ export const VendorsApplicationsView = ({
         flags={openApplicationRecord ? (flagsByApplicationId.get(openApplicationRecord.id) ?? []) : []}
         locale={t.i18n.language}
         resolveCategoryLabel={resolveCategoryLabel}
+        savingStatusApplicationId={savingStatusApplicationId}
         setApplicationStatus={setApplicationStatus}
         translate={translate}
         values={viewValues}
       />
+
+      {lastStatusChange ? (
+        <VendorsApplicationsUndoToast
+          actionLabel={t('vendorsApplicationsPage.statusUndo.action')}
+          dismissLabel={t('vendorsApplicationsPage.statusUndo.dismiss')}
+          message={t('vendorsApplicationsPage.statusUndo.message', {
+            name: lastStatusChange.storeName,
+            status: t(`vendorsApplicationsPage.statuses.${lastStatusChange.status}` as const)
+          })}
+          onAction={() => {
+            void undoStatusChange();
+          }}
+          onDismiss={dismissStatusChange}
+        />
+      ) : null}
     </ApplicationsSection>
   );
 };

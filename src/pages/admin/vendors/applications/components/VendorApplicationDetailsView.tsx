@@ -6,7 +6,8 @@ import {
   ApplicationActionRow,
   ApplicationField,
   ApplicationFieldLabel,
-  ApplicationFieldValue
+  ApplicationFieldValue,
+  ApplicationsFieldHint
 } from '../VendorsApplicationsPage.styled';
 import { downloadVendorApplicationLogo } from '../utils/vendorsApplicationsImageUtils';
 import { formatBoolean, formatMainCategory } from '../utils/vendorsApplicationsFormatters';
@@ -25,6 +26,7 @@ export const VendorApplicationDetailsView = ({
   deleteApplication,
   deletingApplicationId,
   flags,
+  isSavingStatus,
   resolveCategoryLabel,
   setApplicationStatus,
   translate,
@@ -48,6 +50,7 @@ export const VendorApplicationDetailsView = ({
             key={status}
             type="button"
             aria-pressed={application.status === status}
+            disabled={isSavingStatus}
             onClick={() => {
               void setApplicationStatus(application.id, status);
             }}
@@ -56,6 +59,9 @@ export const VendorApplicationDetailsView = ({
           </ApplicationActionButton>
         ))}
       </ApplicationActionRow>
+      {isSavingStatus ? (
+        <ApplicationsFieldHint>{translate('vendorsApplicationsPage.statusField.saving')}</ApplicationsFieldHint>
+      ) : null}
     </ApplicationField>
     <ApplicationField>
       <ApplicationFieldLabel>{translate('vendorsApplicationsPage.fields.mainCategory')}</ApplicationFieldLabel>

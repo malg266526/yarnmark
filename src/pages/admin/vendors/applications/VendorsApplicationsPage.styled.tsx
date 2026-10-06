@@ -110,6 +110,12 @@ export const ApplicationsStatusFilterCount = styled.span`
   ${countBadgeStyles}
 `;
 
+export const ApplicationsFieldHint = styled.span`
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.xs};
+  color: ${TextColors.secondary};
+`;
+
 export const ApplicationsFilterRow = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -148,6 +154,13 @@ const filterControlStyles = css`
   &:focus-visible {
     outline: 2px solid ${BackgroundColors.green.strong};
     outline-offset: -1px;
+  }
+
+  &:disabled {
+    border-color: ${GrayScale[300]};
+    background-color: ${GrayScale[100]};
+    color: ${GrayScale[700]};
+    cursor: default;
   }
 `;
 
@@ -481,6 +494,39 @@ export const ApplicationDrawerBody = styled.div`
   gap: ${RedesignSpacings.sm};
   padding: ${RedesignSpacings.sm};
   overflow-y: auto;
+`;
+
+export const ApplicationsUndoToast = styled.div`
+  position: fixed;
+  left: 50%;
+  bottom: ${RedesignSpacings.sm};
+  z-index: 20;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: ${RedesignSpacings.sm};
+  max-width: calc(100vw - ${RedesignSpacings.sm} * 2);
+  padding: ${RedesignSpacings.xs} ${RedesignSpacings.sm};
+  border-radius: ${Radius.xl};
+  background: ${TextColors.primary};
+  box-shadow: ${DropShadow.md};
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.sm};
+  color: ${Colors.white};
+`;
+
+export const ApplicationsUndoToastMessage = styled.span`
+  min-width: 0;
+`;
+
+export const ApplicationsUndoToastButton = styled(ApplicationActionButton)`
+  flex: 0 0 auto;
+  height: ${FILTER_CONTROL_HEIGHT};
+  padding: 0 ${FILTER_CONTROL_INLINE_PADDING};
+  line-height: 1;
+  border-color: ${Colors.white};
+  background: transparent;
+  color: ${Colors.white};
 `;
 
 export const ApplicationsEmpty = styled.div`

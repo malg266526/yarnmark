@@ -20,6 +20,7 @@ export const VendorApplicationDetailsDrawer = ({
   flags,
   locale,
   resolveCategoryLabel,
+  savingStatusApplicationId,
   setApplicationStatus,
   translate,
   values
@@ -49,6 +50,7 @@ export const VendorApplicationDetailsDrawer = ({
             deleteApplication={deleteApplication}
             deletingApplicationId={deletingApplicationId}
             flags={flags}
+            isSavingStatus={savingStatusApplicationId === application.id}
             resolveCategoryLabel={resolveCategoryLabel}
             setApplicationStatus={setApplicationStatus}
             translate={translate}

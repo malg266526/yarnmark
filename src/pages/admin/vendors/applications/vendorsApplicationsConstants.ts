@@ -36,3 +36,5 @@ export const VENDOR_APPLICATIONS_SORT_ORDERS = ['oldest', 'newest', 'name', 'dem
 export type VendorApplicationsSortOrder = (typeof VENDOR_APPLICATIONS_SORT_ORDERS)[number];
 
 export const VENDOR_APPLICATIONS_FILTER_ALL = 'all';
+
+export const VENDOR_APPLICATION_STATUS_UNDO_TIMEOUT_MS = 8000;

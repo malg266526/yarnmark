@@ -30,6 +30,7 @@ export interface VendorApplicationFlagsViewProps {
 export interface VendorApplicationDetailsViewProps {
   application: VendorApplication;
   flags: VendorApplicationFlag[];
+  isSavingStatus: boolean;
   deleteApplication: (applicationId: string) => Promise<void>;
   deletingApplicationId: string | null;
   resolveCategoryLabel: ResolveCategoryLabel;
@@ -38,10 +39,20 @@ export interface VendorApplicationDetailsViewProps {
   values: VendorApplicationDisplayValues;
 }
 
-export interface VendorApplicationDetailsDrawerProps extends Omit<VendorApplicationDetailsViewProps, 'application'> {
+export interface VendorApplicationDetailsDrawerProps
+  extends Omit<VendorApplicationDetailsViewProps, 'application' | 'isSavingStatus'> {
   application: VendorApplication | null;
   closeApplication: () => void;
   locale: string;
+  savingStatusApplicationId: string | null;
+}
+
+export interface VendorsApplicationsUndoToastProps {
+  actionLabel: string;
+  dismissLabel: string;
+  message: string;
+  onAction: () => void;
+  onDismiss: () => void;
 }
 
 export interface VendorsApplicationsRowsViewProps {
@@ -60,10 +71,11 @@ export interface VendorsApplicationsRowsViewProps {
 export type VendorApplicationFlagsByApplicationId = ReadonlyMap<string, VendorApplicationFlag[]>;
 
 export interface VendorsApplicationsCardsViewProps
-  extends Omit<VendorApplicationDetailsViewProps, 'application' | 'flags'> {
+  extends Omit<VendorApplicationDetailsViewProps, 'application' | 'flags' | 'isSavingStatus'> {
   applications: VendorApplication[];
   flagsByApplicationId: VendorApplicationFlagsByApplicationId;
   locale: string;
+  savingStatusApplicationId: string | null;
 }
 
 export interface VendorsApplicationsCascadeViewProps {

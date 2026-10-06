@@ -248,8 +248,20 @@ Dokładnie to, co jest już w modelu danych, tylko nieużyte.
    i legenda są teraz ograniczone do szerokości mapy liczonej z `GRID_COLS × multiplier`, więc
    zawijają się zarówno przy mapie 520 px, jak i przy 364 px w widoku dzielonym.
 
-7. **Status jako jedna kontrolka** (segmented control lub select) ze stanem „zapisywanie”
-   i toastem z „Cofnij” zamiast pięciu przycisków na kartę.
+7. **Status: stan zapisu i cofanie** — ✅ Zrobione: przyciski statusu **zostają** (organizatorka
+   wolała je od selecta — nie zamieniać ich z powrotem na listę rozwijaną), ale na czas zapisu są
+   zablokowane i pokazują „Zapisywanie…”, a po udanej zmianie wyskakuje toast „Status „X” zmieniony
+   na „Y”” z przyciskami „Cofnij” i „Zamknij”.
+
+   Zakres wdrożenia: `hooks/useVendorsApplications.ts` trzyma teraz `savingStatusApplicationId`
+   i `lastStatusChange` (poprzedni status + nazwa sklepu), a `undoStatusChange` wysyła PATCH
+   z powrotem na poprzednią wartość. Zmiana na ten sam status nie wywołuje żądania ani toastu,
+   a toast chowa się sam po 8 s (`VENDOR_APPLICATION_STATUS_UNDO_TIMEOUT_MS`) i nie pojawia się
+   ponownie po cofnięciu, żeby nie dało się wpaść w pętlę.
+   Weryfikacja na prawdziwym komponencie: karta w stanie zwykłym i w trakcie zapisu obok siebie
+   (wciśnięty status widoczny, pozostałe przyciski wygaszone, pod nimi „Zapisywanie…”) oraz toast
+   z oboma przyciskami.
+
 8. **Eksport CSV** widocznego (przefiltrowanego) zestawu — organizator i tak pracuje w arkuszu
    i robi mailingi.
 9. **Symulację oznaczyć jako symulację**: w widoku kaskady wyraźna plakietka „podgląd, nic nie jest
@@ -309,7 +321,7 @@ Dokładnie to, co jest już w modelu danych, tylko nieużyte.
 
 1. P0.1–P0.3 (pasek roboczy, gęsta lista, flagi) — ✅ zrobione, problem „50 kart” rozwiązany.
 2. P0.4–P0.6 (mapa, widok dzielony, pokrycie hali) — ✅ zrobione.
-3. P0.7–P0.9 (status, eksport, oznaczenie symulacji) — drobne, wysokie zyski.
+3. P0.7–P0.9 (status, eksport, oznaczenie symulacji) — P0.7 zrobione, zostają P0.8 i P0.9.
 4. P1.10–P1.11 po ustaleniu kontraktu API — dopiero to zamienia panel w narzędzie decyzyjne.
 5. P2 i P3 jako osobne tematy, każdy z własnym przebiegiem przez `docs/`.
 
