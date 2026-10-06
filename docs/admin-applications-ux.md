@@ -133,8 +133,8 @@ Dokładnie to, co jest już w modelu danych, tylko nieużyte.
 
 2. **Gęsty wiersz zamiast karty** — ✅ Zrobione: tabela z kolumnami nazwa, data, kategoria,
    preferencje (każda z numerem wyboru i liczbą konkurentów), status. Szczegóły w panelu bocznym
-   (drawer) po kliknięciu wiersza — karty zostają jako opcjonalny tryb. Kolumna z flagami ryzyka
-   dochodzi razem z P0.3, bo to te same dane.
+   (drawer) po kliknięciu wiersza — karty zostają jako opcjonalny tryb. Kolumna z flagami ryzyka doszła
+   razem z P0.3.
 
    Zakres wdrożenia: lista jest teraz domyślnym trybem (`view=rows`), karty są pod `view=cards`;
    `utils/vendorApplicationRowsUtils.ts` liczy preferencje z konkurencją (po pełnym zbiorze, nie po
@@ -155,8 +155,37 @@ Dokładnie to, co jest już w modelu danych, tylko nieużyte.
    tabeli jest `position: sticky; top: 0`. Nie weryfikowano działania w samym panelu — `/admin`
    wymaga logowania Google i danych z API.
 
-3. **Flagi ryzyka** liczone na froncie: duplikat e-maila/nazwy, brak akceptacji regulaminu,
-   mniej niż 3 preferencje, wszystkie preferencje w jednym typie stoiska, brak logo, brak opisu.
+3. **Flagi ryzyka** — ✅ Zrobione: liczone na froncie, bez zmian w API: duplikat e-maila, duplikat
+   nazwy sklepu, mniej niż 3 różne preferencje, wszystkie preferencje w jednym typie stoiska.
+
+   Pierwotna lista z tego dokumentu zawierała też „brak akceptacji regulaminu”, „brak logo” i „brak
+   opisu”. Zostały usunięte, bo `vendorFormValidationSchema` wymusza wszystkie trzy przy wysyłce
+   (`statuteRequired`, `logoRequired`, `businessDescriptionRequired`), więc zgłoszenie z formularza
+   nigdy ich nie złamie — byłyby stałym szumem w kolumnie. Zostały wyłącznie sygnały, których
+   formularz sprawdzić nie może: duplikaty wymagają porównania wielu zgłoszeń, a preferencje
+   formularz przyjmuje już od jednego stoiska dowolnego typu (`preferredStandsRequired` sprawdza
+   tylko, czy lista nie jest pusta).
+
+   Zakres wdrożenia: `utils/vendorApplicationFlagsUtils.ts` liczy flagi po pełnym zbiorze (duplikaty
+   wymagają wszystkich zgłoszeń) przez tablicę predykatów `Record<VendorApplicationFlag, …>`, więc
+   kolejność flag jest stabilna, a dołożenie nowej to jeden wpis. Porównania duplikatów idą po
+   wartościach znormalizowanych (trim + lowercase), a puste pola nie są duplikatami samych siebie.
+   Typ stoiska rozpoznaje `domain/vendorApplications/vendorStandTypeUtils.ts` po prefiksie indeksu
+   z `hall.json` (S/C → standard, P → premium, M → mini; wejścia i pola techniczne bez typu);
+   flaga „jeden typ stoisk” wymaga co najmniej dwóch różnych stoisk o znanym typie, żeby pojedynczy
+   wybór nie dawał fałszywego alarmu. Flagi liczy raz hook i podaje je liście, kartom i drawerowi —
+   jedno źródło, bez podwójnego liczenia. `components/VendorApplicationFlagsView.tsx` renderuje
+   bursztynowe chipy (`WarningColors`) z pełnym opisem w `title`; w liście to kolumna „Flagi”,
+   w szczegółach sekcja „Flagi ryzyka” nad statusem.
+   Testy: `tests/vendorApplicationFlagsUtils.test.ts` (w tym normalizacja duplikatów, puste pola,
+   pojedynczy wybór, nieznany prefiks stoiska i brak flag dla pól wymuszanych przez formularz) oraz
+   `domain/vendorApplications/tests/vendorStandTypeUtils.test.ts`.
+   Sprawdzone na prawdziwych komponentach w headless Chrome: chipy mają 24 px wysokości, a tekst
+   w nich 14 i 12 device px zapasu (DPR 2) — pół piksela różnicy z zaokrąglenia. Przy okazji
+   wyłapany i poprawiony błąd: chipy w drawerze dziedziczyły font `Love Ya Like A Sister` z `body`,
+   bo żaden przodek w panelu nie deklarował `FontFamilies.primary`; teraz font deklarują i chipy,
+   i sam drawer. Nie weryfikowano działania w samym panelu — `/admin` wymaga logowania Google.
+
 4. **Mapa hali w panelu** (wyciągnięty wspólny `HallMap` z `Hall.tsx`/`SelectableHall.tsx`,
    zamiast trzeciej kopii schematu): heatmapa popytu z `getStandInterestCounts` (martwy kod →
    wreszcie użyty), klik w stoisko → lista chętnych z priorytetami (gotowe `groupApplicationsByStand`).
@@ -223,8 +252,7 @@ Dokładnie to, co jest już w modelu danych, tylko nieużyte.
 
 ## 6. Sugerowana kolejność
 
-1. P0.1–P0.3 (pasek roboczy, gęsta lista, flagi) — same w sobie rozwiązują problem „50 kart”.
-   P0.1 i P0.2 zrobione, zostaje P0.3.
+1. P0.1–P0.3 (pasek roboczy, gęsta lista, flagi) — ✅ zrobione, problem „50 kart” rozwiązany.
 2. P0.4–P0.6 (mapa, widok dzielony, pokrycie hali) — wspólny `HallMap` przy okazji usuwa duplikację.
 3. P0.7–P0.9 (status, eksport, oznaczenie symulacji) — drobne, wysokie zyski.
 4. P1.10–P1.11 po ustaleniu kontraktu API — dopiero to zamienia panel w narzędzie decyzyjne.

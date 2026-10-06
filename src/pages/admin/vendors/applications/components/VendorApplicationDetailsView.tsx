@@ -11,6 +11,7 @@ import {
 import { downloadVendorApplicationLogo } from '../utils/vendorsApplicationsImageUtils';
 import { formatBoolean, formatMainCategory } from '../utils/vendorsApplicationsFormatters';
 import { VENDOR_APPLICATION_STATUS_ORDER } from '../vendorsApplicationsConstants';
+import { VendorApplicationFlagsView } from './VendorApplicationFlagsView';
 import { VendorApplicationDetailsViewProps } from './vendorsApplicationsViewContracts';
 
 const LOGO_DOWNLOAD_FORMATS = [
@@ -23,12 +24,19 @@ export const VendorApplicationDetailsView = ({
   application,
   deleteApplication,
   deletingApplicationId,
+  flags,
   resolveCategoryLabel,
   setApplicationStatus,
   translate,
   values
 }: VendorApplicationDetailsViewProps) => (
   <>
+    {flags.length > 0 ? (
+      <ApplicationField>
+        <ApplicationFieldLabel>{translate('vendorsApplicationsPage.flags.title')}</ApplicationFieldLabel>
+        <VendorApplicationFlagsView emptyLabel={values.noneSelected} flags={flags} translate={translate} />
+      </ApplicationField>
+    ) : null}
     <ApplicationField>
       <ApplicationFieldLabel>{translate('vendorsApplicationsPage.fields.status')}</ApplicationFieldLabel>
       <ApplicationFieldValue>

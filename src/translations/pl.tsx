@@ -657,13 +657,31 @@ export const pl = {
         notProvided: 'Nie podano',
         noneSelected: 'Brak'
       },
+      flags: {
+        title: 'Flagi ryzyka',
+        none: '—',
+        labels: {
+          duplicateEmail: 'Duplikat e-maila',
+          duplicateStoreName: 'Duplikat nazwy',
+          incompletePreferences: 'Niepełne preferencje',
+          singleStandType: 'Jeden typ stoisk'
+        },
+        descriptions: {
+          duplicateEmail: 'Inne zgłoszenie podaje ten sam adres e-mail.',
+          duplicateStoreName: 'Inne zgłoszenie podaje tę samą nazwę sklepu.',
+          incompletePreferences: 'Wybrano mniej niż trzy różne stoiska, więc kaskada ma mniej miejsca na manewr.',
+          singleStandType:
+            'Wszystkie wybrane stoiska są tego samego typu — przy komplecie chętnych może zabraknąć alternatywy.'
+        }
+      },
       rows: {
         columns: {
           storeName: 'Sklep',
           submittedAt: 'Zgłoszono',
           category: 'Kategoria',
           preferences: 'Preferencje · chętni',
-          status: 'Status'
+          status: 'Status',
+          flags: 'Flagi'
         },
         competitors: 'Stoisko {{standId}} — chętnych oprócz tego zgłoszenia: {{count}}',
         openDetails: 'Pokaż szczegóły zgłoszenia „{{name}}”'

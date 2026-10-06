@@ -5,7 +5,15 @@ import { Radius, DropShadow } from '../../../../styles/cards';
 import { FontSize } from '../../../../styles/font-size';
 import { ScreenSize } from '../../../../styles/screeen-size';
 import { RedesignSpacings } from '../../../../styles/spacings';
-import { BackgroundColors, BorderColors, Colors, FontFamilies, GrayScale, TextColors } from '../../../../styles/theme';
+import {
+  BackgroundColors,
+  BorderColors,
+  Colors,
+  FontFamilies,
+  GrayScale,
+  TextColors,
+  WarningColors
+} from '../../../../styles/theme';
 
 export const VendorsApplicationsPageStyled = styled.div`
   width: 100%;
@@ -272,6 +280,7 @@ export const ApplicationsPreferenceTag = styled.span`
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  font-family: ${FontFamilies.primary};
   height: ${FILTER_COUNT_SIZE};
   padding: 0 ${FILTER_COUNT_INLINE_PADDING};
   border: 1px solid ${BackgroundColors.green.medium};
@@ -299,9 +308,30 @@ export const ApplicationsPreferenceCompetitors = styled.span`
   font-variant-numeric: tabular-nums;
 `;
 
+export const ApplicationFlagList = styled.div`
+  display: flex;
+  gap: ${RedesignSpacings.xxs};
+`;
+
+export const ApplicationFlagTag = styled.span`
+  display: inline-flex;
+  align-items: center;
+  font-family: ${FontFamilies.primary};
+  height: ${FILTER_COUNT_SIZE};
+  padding: 0 ${FILTER_COUNT_INLINE_PADDING};
+  border: 1px solid ${WarningColors.border};
+  border-radius: ${Radius.xxl};
+  background: ${WarningColors.background};
+  color: ${WarningColors.text};
+  font-size: ${FontSize.xs};
+  line-height: 1;
+  white-space: nowrap;
+`;
+
 export const ApplicationsStatusTag = styled.span`
   display: inline-flex;
   align-items: center;
+  font-family: ${FontFamilies.primary};
   height: ${FILTER_COUNT_SIZE};
   padding: 0 ${FILTER_COUNT_INLINE_PADDING};
   border-radius: ${Radius.xxl};
@@ -419,6 +449,7 @@ export const DRAWER_OVERLAY_STYLE = {
 export const ApplicationDrawer = styled(Modal)`
   display: flex;
   flex-direction: column;
+  font-family: ${FontFamilies.primary};
   width: ${DRAWER_WIDTH};
   max-width: 100vw;
   height: 100vh;

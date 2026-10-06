@@ -8,6 +8,7 @@ import {
   parseVendorApplicationsOpenId,
   parseVendorApplicationsViewMode
 } from '../utils/vendorApplicationsFilterParams.ts';
+import { buildVendorApplicationFlags } from '../utils/vendorApplicationFlagsUtils.ts';
 import {
   countApplicationsByStatus,
   DEFAULT_VENDOR_APPLICATIONS_FILTERS,
@@ -57,6 +58,7 @@ export const useVendorsApplicationsToolbar = (applications: VendorApplication[],
   };
 
   const statusCounts = useMemo(() => countApplicationsByStatus(applications), [applications]);
+  const flagsByApplicationId = useMemo(() => buildVendorApplicationFlags(applications), [applications]);
   const standFilterOptions = useMemo(
     () => resolveStandFilterOptions(applications, filters.standId),
     [applications, filters.standId]
@@ -71,6 +73,7 @@ export const useVendorsApplicationsToolbar = (applications: VendorApplication[],
   return {
     closeApplication,
     filters,
+    flagsByApplicationId,
     hasActiveFilters: hasActiveVendorApplicationsFilters(filters),
     openApplication,
     openApplicationRecord,

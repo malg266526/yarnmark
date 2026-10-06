@@ -17,6 +17,7 @@ export const VendorApplicationDetailsDrawer = ({
   closeApplication,
   deleteApplication,
   deletingApplicationId,
+  flags,
   locale,
   resolveCategoryLabel,
   setApplicationStatus,
@@ -47,6 +48,7 @@ export const VendorApplicationDetailsDrawer = ({
             application={application}
             deleteApplication={deleteApplication}
             deletingApplicationId={deletingApplicationId}
+            flags={flags}
             resolveCategoryLabel={resolveCategoryLabel}
             setApplicationStatus={setApplicationStatus}
             translate={translate}

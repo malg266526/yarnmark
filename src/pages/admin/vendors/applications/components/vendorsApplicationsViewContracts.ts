@@ -6,6 +6,7 @@ import type {
   VendorApplicationsFilters,
   VendorApplicationStatusCounts
 } from '../utils/vendorApplicationsFilterUtils.ts';
+import type { VendorApplicationFlag } from '../utils/vendorApplicationFlagsUtils.ts';
 
 export interface VendorApplicationDisplayValues {
   no: string;
@@ -20,8 +21,15 @@ export type ResolveCategoryLabel = (categoryKey: NonNullable<VendorApplication['
 
 export type TranslateViewText = (translationKey: string, options?: Record<string, unknown>) => string;
 
+export interface VendorApplicationFlagsViewProps {
+  emptyLabel: string;
+  flags: VendorApplicationFlag[];
+  translate: TranslateViewText;
+}
+
 export interface VendorApplicationDetailsViewProps {
   application: VendorApplication;
+  flags: VendorApplicationFlag[];
   deleteApplication: (applicationId: string) => Promise<void>;
   deletingApplicationId: string | null;
   resolveCategoryLabel: ResolveCategoryLabel;
@@ -39,6 +47,7 @@ export interface VendorApplicationDetailsDrawerProps extends Omit<VendorApplicat
 export interface VendorsApplicationsRowsViewProps {
   allApplications: VendorApplication[];
   applications: VendorApplication[];
+  flagsByApplicationId: VendorApplicationFlagsByApplicationId;
   locale: string;
   openApplication: (applicationId: string) => void;
   openApplicationId: string | null;
@@ -47,8 +56,12 @@ export interface VendorsApplicationsRowsViewProps {
   values: VendorApplicationDisplayValues;
 }
 
-export interface VendorsApplicationsCardsViewProps extends Omit<VendorApplicationDetailsViewProps, 'application'> {
+export type VendorApplicationFlagsByApplicationId = ReadonlyMap<string, VendorApplicationFlag[]>;
+
+export interface VendorsApplicationsCardsViewProps
+  extends Omit<VendorApplicationDetailsViewProps, 'application' | 'flags'> {
   applications: VendorApplication[];
+  flagsByApplicationId: VendorApplicationFlagsByApplicationId;
   locale: string;
 }
 

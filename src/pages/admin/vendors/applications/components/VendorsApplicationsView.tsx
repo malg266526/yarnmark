@@ -39,6 +39,7 @@ export const VendorsApplicationsView = ({
   const {
     closeApplication,
     filters,
+    flagsByApplicationId,
     hasActiveFilters,
     openApplication,
     openApplicationRecord,
@@ -155,6 +156,7 @@ export const VendorsApplicationsView = ({
             <VendorsApplicationsRowsView
               allApplications={applications}
               applications={visibleApplications}
+              flagsByApplicationId={flagsByApplicationId}
               locale={t.i18n.language}
               openApplication={openApplication}
               openApplicationId={openApplicationRecord?.id ?? null}
@@ -167,6 +169,7 @@ export const VendorsApplicationsView = ({
               applications={visibleApplications}
               deleteApplication={deleteApplication}
               deletingApplicationId={deletingApplicationId}
+              flagsByApplicationId={flagsByApplicationId}
               locale={t.i18n.language}
               resolveCategoryLabel={resolveCategoryLabel}
               setApplicationStatus={setApplicationStatus}
@@ -182,6 +185,7 @@ export const VendorsApplicationsView = ({
         closeApplication={closeApplication}
         deleteApplication={deleteApplication}
         deletingApplicationId={deletingApplicationId}
+        flags={openApplicationRecord ? (flagsByApplicationId.get(openApplicationRecord.id) ?? []) : []}
         locale={t.i18n.language}
         resolveCategoryLabel={resolveCategoryLabel}
         setApplicationStatus={setApplicationStatus}

@@ -14,14 +14,16 @@ import {
   ApplicationsTableScroller
 } from '../VendorsApplicationsPage.styled';
 import { buildVendorApplicationRows } from '../utils/vendorApplicationRowsUtils';
+import { VendorApplicationFlagsView } from './VendorApplicationFlagsView';
 import { formatCompactDateTime, formatMainCategory } from '../utils/vendorsApplicationsFormatters';
 import { VendorsApplicationsRowsViewProps } from './vendorsApplicationsViewContracts';
 
-const ROW_COLUMNS = ['storeName', 'submittedAt', 'category', 'preferences', 'status'] as const;
+const ROW_COLUMNS = ['storeName', 'submittedAt', 'category', 'preferences', 'status', 'flags'] as const;
 
 export const VendorsApplicationsRowsView = ({
   allApplications,
   applications,
+  flagsByApplicationId,
   locale,
   openApplication,
   openApplicationId,
@@ -89,6 +91,13 @@ export const VendorsApplicationsRowsView = ({
                 <ApplicationsStatusTag>
                   {translate(`vendorsApplicationsPage.statuses.${application.status}`)}
                 </ApplicationsStatusTag>
+              </ApplicationsTableCell>
+              <ApplicationsTableCell>
+                <VendorApplicationFlagsView
+                  emptyLabel={translate('vendorsApplicationsPage.flags.none')}
+                  flags={flagsByApplicationId.get(application.id) ?? []}
+                  translate={translate}
+                />
               </ApplicationsTableCell>
             </ApplicationsTableRow>
           ))}

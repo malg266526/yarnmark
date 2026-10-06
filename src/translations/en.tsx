@@ -658,13 +658,31 @@ export const en: TranslationsShape = {
         notProvided: 'Not provided',
         noneSelected: 'None selected'
       },
+      flags: {
+        title: 'Risk flags',
+        none: '—',
+        labels: {
+          duplicateEmail: 'Duplicate e-mail',
+          duplicateStoreName: 'Duplicate name',
+          incompletePreferences: 'Incomplete preferences',
+          singleStandType: 'One stand type'
+        },
+        descriptions: {
+          duplicateEmail: 'Another application uses the same e-mail address.',
+          duplicateStoreName: 'Another application uses the same store name.',
+          incompletePreferences: 'Fewer than three distinct stands were picked, which leaves the cascade less room.',
+          singleStandType:
+            'Every picked stand is of the same type — there may be no alternative left once they are taken.'
+        }
+      },
       rows: {
         columns: {
           storeName: 'Store',
           submittedAt: 'Submitted',
           category: 'Category',
           preferences: 'Preferences · contenders',
-          status: 'Status'
+          status: 'Status',
+          flags: 'Flags'
         },
         competitors: 'Stand {{standId}} — applications besides this one: {{count}}',
         openDetails: 'Show details of the application “{{name}}”'
