@@ -5,7 +5,7 @@ import type { WorkshopApplication } from '../../../../../domain/workshopApplicat
 
 const createApplication = (id: string, submittedAt: string): WorkshopApplication => ({
   id,
-  status: 'new',
+  status: 'pending',
   submittedAt,
   tutorName: 'Anna Kowalska',
   workshopTitle: 'Crochet basics',
@@ -24,6 +24,7 @@ const createApplication = (id: string, submittedAt: string): WorkshopApplication
   logoFileName: 'logo.png',
   logoDataUrl: 'data:image/png;base64,AAAA',
   logoMimeType: 'image/png',
+  logoUrl: null,
   phoneNumber: '+48 123 456 789',
   email: 'tutor@example.com'
 });

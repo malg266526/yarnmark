@@ -14,7 +14,7 @@ const createApplication = (id: string, preferredStands: string[]): VendorApplica
   allocationIteration: null,
   allocationState: 'none',
   id,
-  status: 'new',
+  status: 'pending',
   submittedAt: '2026-05-11T10:30:00.000Z',
   storeName: `Store ${id}`,
   attendedBefore: true,
@@ -29,6 +29,7 @@ const createApplication = (id: string, preferredStands: string[]): VendorApplica
   logoFileName: 'logo.png',
   logoDataUrl: 'data:image/png;base64,AAAA',
   logoMimeType: 'image/png',
+  logoUrl: null,
   businessDescription: 'Short business description',
   acceptedStatute: true
 });

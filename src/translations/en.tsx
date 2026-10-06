@@ -579,6 +579,13 @@ export const en: TranslationsShape = {
       showByStand: 'Show by stand',
       showCards: 'Show cards',
       showCascadeStandAllocation: 'Cascading stand allocation',
+      delete: {
+        button: 'Delete application',
+        deleting: 'Deleting...',
+        title: 'Delete vendor application?',
+        message: 'Are you sure you want to delete the “{{name}}” application? This action cannot be undone.',
+        confirm: 'Delete'
+      },
       acceptedQueue: {
         title: 'Step 1. Accepted vendors sorted by form submission time'
       },
@@ -620,10 +627,11 @@ export const en: TranslationsShape = {
         acceptedStatute: 'Terms accepted'
       },
       statuses: {
+        pending: 'pending',
+        rejected: 'rejected',
+        'reserve-list': 'reserve list',
         accepted: 'accepted',
-        considered: 'considered',
-        new: 'new',
-        reserve: 'reserve'
+        'stand-assigned': 'stand assigned'
       },
       allocationStates: {
         confirmed: 'confirmed',
@@ -656,18 +664,37 @@ export const en: TranslationsShape = {
       loading: 'Loading applications...',
       empty: 'No applications yet.',
       savedCount: '{{count}} applications saved',
+      delete: {
+        button: 'Delete application',
+        deleting: 'Deleting...',
+        title: 'Delete workshop application?',
+        message: 'Are you sure you want to delete the “{{name}}” application? This action cannot be undone.',
+        confirm: 'Delete'
+      },
       fields: {
         status: 'Status',
         tutorName: 'Tutor',
         phone: 'Phone',
         email: 'Email',
-        description: 'Workshop description'
+        description: 'Workshop description',
+        participants: 'Number of participants',
+        participantsRange: '{{min}}–{{max}}',
+        experienceLevel: 'Experience level',
+        duration: 'Duration',
+        participantsShouldBring: 'What participants should bring',
+        roomRequirements: 'Room requirements',
+        requiredEquipment: 'Equipment provided by the organizer',
+        grossPricePerParticipant: 'Gross price per participant',
+        grossPricePerParticipantValue: 'PLN {{price}}',
+        contractType: 'Contract type',
+        logoFilename: 'Logo',
+        additionalInfo: 'Additional information',
+        notProvided: 'Not provided'
       },
       statuses: {
-        accepted: 'accepted',
-        considered: 'considered',
-        new: 'new',
-        reserve: 'reserve'
+        pending: 'pending',
+        rejected: 'rejected',
+        accepted: 'accepted'
       }
     },
     foodBand: {

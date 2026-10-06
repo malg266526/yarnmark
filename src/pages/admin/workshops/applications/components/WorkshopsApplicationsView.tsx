@@ -9,12 +9,16 @@ import { WorkshopsApplicationsCardsView } from './WorkshopsApplicationsCardsView
 
 interface WorkshopsApplicationsViewProps {
   applications: WorkshopApplication[];
+  deleteApplication: (applicationId: string) => Promise<void>;
+  deletingApplicationId: string | null;
   loading: boolean;
   setApplicationStatus: (applicationId: string, status: WorkshopApplicationStatus) => Promise<void>;
 }
 
 export const WorkshopsApplicationsView = ({
   applications,
+  deleteApplication,
+  deletingApplicationId,
   loading,
   setApplicationStatus
 }: WorkshopsApplicationsViewProps) => {
@@ -33,9 +37,11 @@ export const WorkshopsApplicationsView = ({
       <ApplicationsMeta>{t('workshopsApplicationsPage.savedCount', { count: applications.length })}</ApplicationsMeta>
       <WorkshopsApplicationsCardsView
         applications={applications}
+        deleteApplication={deleteApplication}
+        deletingApplicationId={deletingApplicationId}
         locale={t.i18n.language}
         setApplicationStatus={setApplicationStatus}
-        translate={(translationKey) => t(translationKey as never)}
+        translate={(translationKey, options) => t(translationKey as never, options as never)}
       />
     </ApplicationsSection>
   );

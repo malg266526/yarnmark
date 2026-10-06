@@ -4,20 +4,23 @@ import type {
   VendorApplicationAllocationState,
   VendorApplicationStatus
 } from './vendorFormSubmission.ts';
-import { applicationRecordsSchema, requestApi } from '../apiClient.ts';
+import {
+  applicationRecordsSchema,
+  normalizeBackendApplicationRecord,
+  requestApi,
+  resolveApiAssetUrl,
+  unwrapSubmissions
+} from '../apiClient.ts';
 import { vendorFormStateSchema } from './vendorFormSchema.ts';
 import { VENDOR_FORM_API_URL } from './vendorFormConstants.ts';
 
-const DEFAULT_VENDOR_APPLICATION_STATUS: VendorApplicationStatus = 'new';
+const DEFAULT_VENDOR_APPLICATION_STATUS: VendorApplicationStatus = 'pending';
 const DEFAULT_VENDOR_APPLICATION_ALLOCATION_STATE: VendorApplicationAllocationState = 'none';
 
 const vendorApplicationStatusSchema = z
-  .enum(['new', 'considered', 'accepted', 'reserve', 'rejected'])
+  .enum(['pending', 'rejected', 'reserve-list', 'accepted', 'stand-assigned'])
   .optional()
-  .transform(
-    (status): VendorApplicationStatus =>
-      status === 'rejected' ? 'reserve' : (status ?? DEFAULT_VENDOR_APPLICATION_STATUS)
-  );
+  .transform((status): VendorApplicationStatus => status ?? DEFAULT_VENDOR_APPLICATION_STATUS);
 
 const vendorApplicationAllocationStateSchema = z
   .enum(['none', 'suggested', 'confirmed', 'manual-negotiation'])
@@ -40,30 +43,14 @@ const vendorApplicationRecordSchema = vendorFormStateSchema.extend({
     .transform((allocationIteration) => allocationIteration ?? null),
   allocationState: vendorApplicationAllocationStateSchema,
   id: z.string(),
+  logoUrl: z
+    .string()
+    .nullable()
+    .optional()
+    .transform((logoUrl) => resolveApiAssetUrl(logoUrl)),
   status: vendorApplicationStatusSchema,
   submittedAt: z.string()
 });
-
-const BACKEND_PENDING_STATUS = 'pending';
-
-const isRecord = (value: unknown): value is Record<string, unknown> =>
-  typeof value === 'object' && value !== null && !Array.isArray(value);
-
-const unwrapSubmissions = (responseBody: unknown): unknown =>
-  isRecord(responseBody) && 'submissions' in responseBody ? responseBody.submissions : responseBody;
-
-const normalizeBackendRecord = (record: unknown): unknown => {
-  if (!isRecord(record)) {
-    return record;
-  }
-
-  return {
-    ...record,
-    logoFileName: record.logoFileName ?? record.logoOriginalFilename,
-    status: record.status === BACKEND_PENDING_STATUS ? DEFAULT_VENDOR_APPLICATION_STATUS : record.status,
-    submittedAt: record.submittedAt ?? record.createdAt
-  };
-};
 
 export const parseVendorApplications = (responseBody: unknown): VendorApplication[] => {
   const applicationRecords = applicationRecordsSchema.safeParse(unwrapSubmissions(responseBody));
@@ -73,7 +60,9 @@ export const parseVendorApplications = (responseBody: unknown): VendorApplicatio
   }
 
   return applicationRecords.data.flatMap((applicationRecord) => {
-    const parsedApplication = vendorApplicationRecordSchema.safeParse(normalizeBackendRecord(applicationRecord));
+    const parsedApplication = vendorApplicationRecordSchema.safeParse(
+      normalizeBackendApplicationRecord(applicationRecord)
+    );
 
     return parsedApplication.success ? [parsedApplication.data] : [];
   });
@@ -82,14 +71,22 @@ export const parseVendorApplications = (responseBody: unknown): VendorApplicatio
 export const listVendorApplications = async (token: string): Promise<VendorApplication[]> =>
   parseVendorApplications(await requestApi(VENDOR_FORM_API_URL, { token }));
 
+export const deleteVendorApplication = async (token: string, applicationId: string): Promise<void> => {
+  await requestApi(`${VENDOR_FORM_API_URL}/${encodeURIComponent(applicationId)}`, {
+    method: 'DELETE',
+    token
+  });
+};
+
 export const updateVendorApplicationStatus = async (
   token: string,
   applicationId: string,
+  assignedStands: string[],
   status: VendorApplicationStatus
 ): Promise<void> => {
-  await requestApi(`${VENDOR_FORM_API_URL}/${encodeURIComponent(applicationId)}/status`, {
+  await requestApi(`${VENDOR_FORM_API_URL}/${encodeURIComponent(applicationId)}`, {
     method: 'PATCH',
-    body: { status },
+    body: { assignedStands, status },
     token
   });
 };

@@ -5,7 +5,9 @@ import type {
 
 export interface WorkshopsApplicationsCardsViewProps {
   applications: WorkshopApplication[];
+  deleteApplication: (applicationId: string) => Promise<void>;
+  deletingApplicationId: string | null;
   locale: string;
   setApplicationStatus: (applicationId: string, status: WorkshopApplicationStatus) => Promise<void>;
-  translate: (translationKey: string) => string;
+  translate: (translationKey: string, options?: Record<string, unknown>) => string;
 }

@@ -1,4 +1,6 @@
 import React from 'react';
+import { ApplicationDeleteAction } from '../../../../../components/ApplicationDeleteAction';
+import { LogoPreviewImage } from '../../../../../components/form/FormField.styled';
 import {
   ApplicationActionButton,
   ApplicationActionRow,
@@ -19,6 +21,8 @@ import { VendorsApplicationsCardsViewProps } from './vendorsApplicationsViewCont
 
 export const VendorsApplicationsCardsView = ({
   applications,
+  deleteApplication,
+  deletingApplicationId,
   locale,
   resolveCategoryLabel,
   setApplicationStatus,
@@ -117,7 +121,10 @@ export const VendorsApplicationsCardsView = ({
           <ApplicationField>
             <ApplicationFieldLabel>{translate('vendorsApplicationsPage.fields.logoFilename')}</ApplicationFieldLabel>
             <ApplicationFieldValue>{application.logoFileName ?? values.notProvided}</ApplicationFieldValue>
-            {application.logoDataUrl ? (
+            {application.logoUrl ? (
+              <LogoPreviewImage src={application.logoUrl} alt={application.logoFileName ?? application.storeName} />
+            ) : null}
+            {application.logoDataUrl || application.logoUrl ? (
               <ApplicationActionRow>
                 <ApplicationActionButton
                   type="button"
@@ -156,6 +163,20 @@ export const VendorsApplicationsCardsView = ({
             <ApplicationFieldLabel>{translate('vendorsApplicationsPage.fields.acceptedStatute')}</ApplicationFieldLabel>
             <ApplicationFieldValue>{application.acceptedStatute ? values.yes : values.no}</ApplicationFieldValue>
           </ApplicationField>
+          <ApplicationActionRow>
+            <ApplicationDeleteAction
+              buttonLabel={translate('vendorsApplicationsPage.delete.button')}
+              cancelLabel={translate('confirmModal.cancel')}
+              confirmLabel={translate('vendorsApplicationsPage.delete.confirm')}
+              confirmationMessage={translate('vendorsApplicationsPage.delete.message', {
+                name: application.storeName
+              })}
+              confirmationTitle={translate('vendorsApplicationsPage.delete.title')}
+              deleting={deletingApplicationId === application.id}
+              deletingLabel={translate('vendorsApplicationsPage.delete.deleting')}
+              onDelete={() => deleteApplication(application.id)}
+            />
+          </ApplicationActionRow>
         </ApplicationCard>
       ))}
     </ApplicationsGrid>

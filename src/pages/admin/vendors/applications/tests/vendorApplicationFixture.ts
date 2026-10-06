@@ -5,7 +5,7 @@ export const getBaseApplication = (): VendorApplication => ({
   allocationIteration: null,
   allocationState: 'none',
   id: 'application-1',
-  status: 'new',
+  status: 'pending',
   submittedAt: '2026-05-11T10:30:00.000Z',
   storeName: 'Shop name',
   attendedBefore: true,
@@ -20,6 +20,7 @@ export const getBaseApplication = (): VendorApplication => ({
   logoFileName: 'logo.png',
   logoDataUrl: 'data:image/png;base64,AAAA',
   logoMimeType: 'image/png',
+  logoUrl: null,
   businessDescription: 'Short business description',
   acceptedStatute: true
 });

@@ -578,6 +578,13 @@ export const pl = {
       showByStand: 'Pokaż wg stoisk',
       showCards: 'Pokaż karty',
       showCascadeStandAllocation: 'Kaskadowe przypisanie stoisk',
+      delete: {
+        button: 'Usuń zgłoszenie',
+        deleting: 'Usuwanie...',
+        title: 'Usunąć zgłoszenie wystawcy?',
+        message: 'Czy na pewno chcesz usunąć zgłoszenie „{{name}}”? Tej operacji nie można cofnąć.',
+        confirm: 'Usuń'
+      },
       acceptedQueue: {
         title: 'Krok 1. Zaakceptowani wystawcy według czasu wysłania formularza'
       },
@@ -619,10 +626,11 @@ export const pl = {
         acceptedStatute: 'Regulamin zaakceptowany'
       },
       statuses: {
+        pending: 'oczekujące',
+        rejected: 'odrzucone',
+        'reserve-list': 'lista rezerwowa',
         accepted: 'zaakceptowane',
-        considered: 'rozważane',
-        new: 'nowe',
-        reserve: 'rezerwowy'
+        'stand-assigned': 'stoisko przydzielone'
       },
       allocationStates: {
         confirmed: 'klepnięte',
@@ -655,18 +663,37 @@ export const pl = {
       loading: 'Wczytywanie zgłoszeń...',
       empty: 'Brak zgłoszeń.',
       savedCount: 'Zapisanych zgłoszeń: {{count}}',
+      delete: {
+        button: 'Usuń zgłoszenie',
+        deleting: 'Usuwanie...',
+        title: 'Usunąć zgłoszenie warsztatowe?',
+        message: 'Czy na pewno chcesz usunąć zgłoszenie „{{name}}”? Tej operacji nie można cofnąć.',
+        confirm: 'Usuń'
+      },
       fields: {
         status: 'Status',
         tutorName: 'Prowadzący',
         phone: 'Telefon',
         email: 'E-mail',
-        description: 'Opis warsztatu'
+        description: 'Opis warsztatu',
+        participants: 'Liczba uczestników',
+        participantsRange: '{{min}}–{{max}}',
+        experienceLevel: 'Poziom zaawansowania',
+        duration: 'Czas trwania',
+        participantsShouldBring: 'Co ma przynieść uczestnik',
+        roomRequirements: 'Wymagania co do sali',
+        requiredEquipment: 'Sprzęt zapewniany przez organizatora',
+        grossPricePerParticipant: 'Kwota brutto za osobę',
+        grossPricePerParticipantValue: '{{price}} zł',
+        contractType: 'Typ umowy',
+        logoFilename: 'Logo',
+        additionalInfo: 'Informacje dodatkowe',
+        notProvided: 'Nie podano'
       },
       statuses: {
-        accepted: 'zaakceptowane',
-        considered: 'rozważane',
-        new: 'nowe',
-        reserve: 'rezerwowy'
+        pending: 'oczekujące',
+        rejected: 'odrzucone',
+        accepted: 'zaakceptowane'
       }
     },
     foodBand: {

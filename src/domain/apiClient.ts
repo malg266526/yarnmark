@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+const YARNMARK_API_ORIGIN = 'https://yarnmark-api.com';
+
 export class ApiRequestError extends Error {
   constructor(
     readonly status: number,
@@ -10,7 +12,7 @@ export class ApiRequestError extends Error {
 }
 
 interface ApiRequestOptions {
-  method?: 'GET' | 'POST' | 'PATCH';
+  method?: 'DELETE' | 'GET' | 'POST' | 'PATCH';
   body?: unknown;
   token?: string;
 }
@@ -57,7 +59,31 @@ export const resolveSubmittedAt = (responseBody: unknown): string => {
   return parsedBody.success ? parsedBody.data.submittedAt : new Date().toISOString();
 };
 
+export const resolveApiAssetUrl = (path: string | null | undefined): string | null => {
+  const normalizedPath = path?.trim().replace(/^\/+/, '');
+
+  return normalizedPath ? `${YARNMARK_API_ORIGIN}/${normalizedPath}` : null;
+};
+
 export const applicationRecordsSchema = z.union([
   z.array(z.unknown()),
   z.object({ applications: z.array(z.unknown()) }).transform(({ applications }) => applications)
 ]);
+
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === 'object' && value !== null && !Array.isArray(value);
+
+export const unwrapSubmissions = (responseBody: unknown): unknown =>
+  isRecord(responseBody) && 'submissions' in responseBody ? responseBody.submissions : responseBody;
+
+export const normalizeBackendApplicationRecord = (record: unknown): unknown => {
+  if (!isRecord(record)) {
+    return record;
+  }
+
+  return {
+    ...record,
+    logoFileName: record.logoFileName ?? record.logoOriginalFilename,
+    submittedAt: record.submittedAt ?? record.createdAt
+  };
+};

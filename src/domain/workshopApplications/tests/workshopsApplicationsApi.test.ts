@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
+  deleteWorkshopApplication,
   listWorkshopApplications,
   parseWorkshopApplications,
   updateWorkshopApplicationStatus
@@ -43,7 +44,8 @@ const createWorkshopFormState = (overrides: Partial<WorkshopFormState> = {}): Wo
 const createWorkshopApplication = (overrides: Partial<WorkshopFormState> = {}) => ({
   ...createWorkshopFormState(overrides),
   id: 'application-1',
-  status: 'considered' as const,
+  logoUrl: null,
+  status: 'rejected' as const,
   submittedAt: '2026-05-11T10:30:00.000Z'
 });
 
@@ -83,12 +85,12 @@ test('listWorkshopApplications throws when the backend rejects the request', asy
   await assert.rejects(listWorkshopApplications(ADMIN_TOKEN), ApiRequestError);
 });
 
-test('updateWorkshopApplicationStatus sends the new status to the application status endpoint', async () => {
+test('updateWorkshopApplicationStatus sends the new status to the application endpoint', async () => {
   const requests = stubFetch(200, {});
 
   await updateWorkshopApplicationStatus(ADMIN_TOKEN, 'application-1', 'accepted');
 
-  assert.equal(requests[0].url, `${WORKSHOP_FORM_API_URL}/application-1/status`);
+  assert.equal(requests[0].url, `${WORKSHOP_FORM_API_URL}/application-1`);
   assert.equal(requests[0].init?.method, 'PATCH');
   assert.equal(requests[0].init?.body, JSON.stringify({ status: 'accepted' }));
   assert.deepEqual(requests[0].init?.headers, {
@@ -103,6 +105,23 @@ test('updateWorkshopApplicationStatus throws when the backend rejects the update
   await assert.rejects(updateWorkshopApplicationStatus(ADMIN_TOKEN, 'unknown-id', 'accepted'), ApiRequestError);
 });
 
+test('deleteWorkshopApplication deletes the selected application with the admin token', async () => {
+  const requests = stubFetch(200, {});
+
+  await deleteWorkshopApplication(ADMIN_TOKEN, 'application/1');
+
+  assert.equal(requests[0].url, `${WORKSHOP_FORM_API_URL}/application%2F1`);
+  assert.equal(requests[0].init?.method, 'DELETE');
+  assert.equal(requests[0].init?.credentials, 'include');
+  assert.deepEqual(requests[0].init?.headers, { Authorization: `Bearer ${ADMIN_TOKEN}` });
+});
+
+test('deleteWorkshopApplication throws when the backend rejects the deletion', async () => {
+  stubFetch(404, null);
+
+  await assert.rejects(deleteWorkshopApplication(ADMIN_TOKEN, 'unknown-id'), ApiRequestError);
+});
+
 test('parseWorkshopApplications drops malformed records but keeps valid ones', () => {
   const validApplication = createWorkshopApplication();
   const malformedApplication = { id: 'broken-application' };
@@ -115,7 +134,7 @@ test('parseWorkshopApplications returns an empty list for a payload that is not 
   assert.deepEqual(parseWorkshopApplications({ foo: 'bar' }), []);
 });
 
-test('parseWorkshopApplications defaults a missing status to "new"', () => {
+test('parseWorkshopApplications defaults a missing status to "pending"', () => {
   const applicationWithoutStatus = {
     ...createWorkshopFormState(),
     id: 'application-1',
@@ -123,6 +142,42 @@ test('parseWorkshopApplications defaults a missing status to "new"', () => {
   };
 
   assert.deepEqual(parseWorkshopApplications([applicationWithoutStatus]), [
-    { ...applicationWithoutStatus, status: 'new' }
+    { ...applicationWithoutStatus, logoUrl: null, status: 'pending' }
   ]);
+});
+
+test('parseWorkshopApplications maps the backend submissions payload', () => {
+  const backendSubmission = {
+    id: '9c00ee02-db21-4cc6-91f1-2e378b9162d2',
+    tutorName: 'Anna Kowalska',
+    email: 'tutor@example.com',
+    phoneNumber: '+48123456789',
+    workshopTitle: 'Crochet basics',
+    description: 'A short workshop description.',
+    experienceLevel: 'advanced',
+    contractType: 'commission',
+    contractTypeOther: '',
+    grossPricePerParticipant: 54,
+    minParticipants: 4,
+    maxParticipants: 7,
+    duration: '5h',
+    roomRequirements: '',
+    requiredEquipment: '',
+    participantsShouldBring: 'Own crochet hook.',
+    additionalInfo: '',
+    logoUrl: '/workshops/logo.webp',
+    logoOriginalFilename: 'profilowe.JPG',
+    status: 'pending',
+    statusUpdatedAt: null,
+    createdAt: '2026-10-05 14:35:49'
+  };
+
+  const [application] = parseWorkshopApplications({ submissions: [backendSubmission] });
+
+  assert.equal(application.id, backendSubmission.id);
+  assert.equal(application.status, 'pending');
+  assert.equal(application.submittedAt, '2026-10-05 14:35:49');
+  assert.equal(application.logoFileName, 'profilowe.JPG');
+  assert.equal(application.logoDataUrl, null);
+  assert.equal(application.logoUrl, 'https://yarnmark-api.com/workshops/logo.webp');
 });

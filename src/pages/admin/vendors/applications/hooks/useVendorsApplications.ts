@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAdminSession } from '../../../useAdminSession';
 import {
+  deleteVendorApplication,
   listVendorApplications,
   updateVendorApplicationStatus
 } from '../../../../../domain/vendorApplications/vendorsApplicationsApi.ts';
@@ -12,6 +13,7 @@ import type {
 export const useVendorsApplications = () => {
   const { token, handleAdminApiError } = useAdminSession();
   const [applications, setApplications] = useState<VendorApplication[]>([]);
+  const [deletingApplicationId, setDeletingApplicationId] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -39,8 +41,11 @@ export const useVendorsApplications = () => {
   }, [token, handleAdminApiError]);
 
   const setApplicationStatus = async (applicationId: string, status: VendorApplicationStatus) => {
+    const application = applications.find(({ id }) => id === applicationId);
+    const assignedStands = application?.allocatedStandId ? [application.allocatedStandId] : [];
+
     try {
-      await updateVendorApplicationStatus(token, applicationId, status);
+      await updateVendorApplicationStatus(token, applicationId, assignedStands, status);
       setApplications((currentApplications) =>
         currentApplications.map((application) =>
           application.id === applicationId ? { ...application, status } : application
@@ -52,5 +57,21 @@ export const useVendorsApplications = () => {
     }
   };
 
-  return { applications, loading, setApplicationStatus };
+  const deleteApplication = async (applicationId: string) => {
+    setDeletingApplicationId(applicationId);
+
+    try {
+      await deleteVendorApplication(token, applicationId);
+      setApplications((currentApplications) =>
+        currentApplications.filter((application) => application.id !== applicationId)
+      );
+    } catch (error) {
+      console.error('Vendor application could not be deleted', error);
+      handleAdminApiError(error);
+    } finally {
+      setDeletingApplicationId(null);
+    }
+  };
+
+  return { applications, deleteApplication, deletingApplicationId, loading, setApplicationStatus };
 };
