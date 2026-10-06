@@ -501,6 +501,7 @@ export const ApplicationsMapLayout = styled.div`
 export const ApplicationsMapPanel = styled.section`
   display: flex;
   flex: 0 0 auto;
+  max-width: 100%;
   flex-direction: column;
   gap: ${RedesignSpacings.sm};
   padding: ${RedesignSpacings.sm};
@@ -515,6 +516,11 @@ export const ApplicationsMapScroller = styled.div`
   overflow: auto;
 `;
 
+export const ApplicationsMapPanelSlot = styled.div`
+  display: flex;
+  flex: 0 0 auto;
+`;
+
 export const ApplicationsMapSide = styled.div`
   display: flex;
   flex: 1 1 320px;
@@ -523,10 +529,11 @@ export const ApplicationsMapSide = styled.div`
   gap: ${RedesignSpacings.sm};
 `;
 
-export const ApplicationsMapLegend = styled.div`
+export const ApplicationsMapLegend = styled.div<{ $maxWidth: number }>`
   display: flex;
   flex-wrap: wrap;
   gap: ${RedesignSpacings.xs};
+  max-width: ${({ $maxWidth }) => $maxWidth}px;
 `;
 
 export const ApplicationsMapLegendItem = styled.span`
@@ -546,9 +553,12 @@ export const ApplicationsMapLegendSwatch = styled.span<{ $color: string }>`
   background: ${({ $color }) => $color};
 `;
 
+export const STAND_PRIORITY_COLORS = [TextColors.accent, WarningColors.border, GrayScale[700]] as const;
+
 export const ApplicationsMapStand = styled.button<{
   $color: string;
   $height: number;
+  $highlightColor?: string;
   $interactive: boolean;
   $left: number;
   $top: number;
@@ -562,7 +572,8 @@ export const ApplicationsMapStand = styled.button<{
   width: ${({ $width }) => $width}px;
   height: ${({ $height }) => $height}px;
   background-color: ${({ $color }) => $color};
-  border: 2px solid ${Colors.white};
+  border: 2px solid ${({ $highlightColor }) => $highlightColor ?? Colors.white};
+  overflow: visible;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -587,6 +598,82 @@ export const ApplicationsMapStand = styled.button<{
 export const ApplicationsMapStandCount = styled.span`
   font-variant-numeric: tabular-nums;
   font-weight: 700;
+`;
+
+export const ApplicationsMapCoverage = styled.div<{ $maxWidth: number }>`
+  display: flex;
+  flex-direction: column;
+  gap: ${RedesignSpacings.xxs};
+  max-width: ${({ $maxWidth }) => $maxWidth}px;
+`;
+
+export const ApplicationsMapCoverageSummary = styled.p`
+  margin: 0;
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.sm};
+  color: ${TextColors.primary};
+`;
+
+export const ApplicationsMapCoverageList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: ${RedesignSpacings.xxs};
+  align-items: center;
+`;
+
+export const ApplicationsMapCoverageLabel = styled.span`
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.xs};
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: ${TextColors.secondary};
+`;
+
+export const ApplicationsMapCoverageStand = styled(ApplicationActionButton)`
+  height: ${FILTER_COUNT_SIZE};
+  padding: 0 ${FILTER_COUNT_INLINE_PADDING};
+  font-size: ${FontSize.xs};
+  line-height: 1;
+`;
+
+export const ApplicationsMapStandPriority = styled.span<{ $color: string }>`
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: ${Radius.xxl};
+  background: ${({ $color }) => $color};
+  color: ${Colors.white};
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+`;
+
+export const ApplicationsSplitLayout = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: ${RedesignSpacings.sm};
+`;
+
+export const ApplicationsSplitList = styled.div`
+  display: flex;
+  flex: 1 1 520px;
+  min-width: 0;
+  flex-direction: column;
+  gap: ${RedesignSpacings.sm};
+`;
+
+export const ApplicationsSplitMap = styled.div`
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: ${RedesignSpacings.sm};
 `;
 
 export const ApplicationsMapHint = styled.p`

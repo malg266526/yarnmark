@@ -48,6 +48,7 @@ export interface VendorsApplicationsRowsViewProps {
   allApplications: VendorApplication[];
   applications: VendorApplication[];
   flagsByApplicationId: VendorApplicationFlagsByApplicationId;
+  highlightApplication?: (applicationId: string | null) => void;
   locale: string;
   openApplication: (applicationId: string) => void;
   openApplicationId: string | null;
@@ -77,12 +78,21 @@ export interface VendorsApplicationsCascadeViewProps {
   notAssignedLabel: string;
 }
 
+export type StandPriorityHighlights = ReadonlyMap<string, number>;
+
 export interface VendorsApplicationsMapViewProps {
   applications: VendorApplication[];
-  isPhone: boolean;
+  highlightedStands?: StandPriorityHighlights;
+  multiplier: number;
+  selectStand: (standId: string) => void;
+  selectedStandId: string;
+  translate: TranslateViewText;
+}
+
+export interface VendorsApplicationsStandRequestsViewProps {
+  applications: VendorApplication[];
   locale: string;
   resolvePriorityLabel: (priority: 'highest' | 'medium' | 'lowest') => string;
-  selectStand: (standId: string) => void;
   selectedStandId: string;
   translate: TranslateViewText;
 }
@@ -119,4 +129,11 @@ export interface VendorsApplicationsToolbarViewProps {
   statusCounts: VendorApplicationStatusCounts;
   totalCount: number;
   translate: TranslateViewText;
+}
+
+export interface VendorsApplicationsSplitViewProps
+  extends Omit<VendorsApplicationsRowsViewProps, 'highlightApplication'> {
+  mapMultiplier: number;
+  selectStand: (standId: string) => void;
+  selectedStandId: string;
 }

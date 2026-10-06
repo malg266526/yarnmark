@@ -579,6 +579,7 @@ export const en: TranslationsShape = {
       showByStand: 'Show by stand',
       showCards: 'Show cards',
       showRows: 'Show list',
+      showSplit: 'List and map',
       showMap: 'Show map',
       showCascadeStandAllocation: 'Cascading stand allocation',
       delete: {
@@ -665,6 +666,10 @@ export const en: TranslationsShape = {
           low: '1 request',
           medium: '2 requests',
           high: '3 or more requests'
+        },
+        coverage: {
+          summary: 'Stands in the hall: {{total}} · requested: {{requested}} · without requests: {{free}}',
+          freeStandsLabel: 'Without requests'
         },
         standDemand: 'Stand {{standId}} — requests: {{count}}',
         selectHint: 'Pick a stand on the map to see who requested it. The choice also sets the list filter.',

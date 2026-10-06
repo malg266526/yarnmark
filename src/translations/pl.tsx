@@ -578,6 +578,7 @@ export const pl = {
       showByStand: 'Pokaż wg stoisk',
       showCards: 'Pokaż karty',
       showRows: 'Pokaż listę',
+      showSplit: 'Lista i mapa',
       showMap: 'Pokaż mapę',
       showCascadeStandAllocation: 'Kaskadowe przypisanie stoisk',
       delete: {
@@ -664,6 +665,10 @@ export const pl = {
           low: '1 chętny',
           medium: '2 chętnych',
           high: '3 i więcej chętnych'
+        },
+        coverage: {
+          summary: 'Stoisk w hali: {{total}} · z chętnymi: {{requested}} · bez chętnych: {{free}}',
+          freeStandsLabel: 'Bez chętnych'
         },
         standDemand: 'Stoisko {{standId}} — chętnych: {{count}}',
         selectHint: 'Kliknij stoisko na mapie, aby zobaczyć listę chętnych. Wybór ustawia też filtr listy.',

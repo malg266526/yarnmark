@@ -24,6 +24,7 @@ export const VendorsApplicationsRowsView = ({
   allApplications,
   applications,
   flagsByApplicationId,
+  highlightApplication,
   locale,
   openApplication,
   openApplicationId,
@@ -51,6 +52,10 @@ export const VendorsApplicationsRowsView = ({
               key={application.id}
               $isOpen={openApplicationId === application.id}
               onClick={() => openApplication(application.id)}
+              onMouseEnter={() => highlightApplication?.(application.id)}
+              onMouseLeave={() => highlightApplication?.(null)}
+              onFocus={() => highlightApplication?.(application.id)}
+              onBlur={() => highlightApplication?.(null)}
             >
               <ApplicationsTableCell>
                 <ApplicationsRowNameButton

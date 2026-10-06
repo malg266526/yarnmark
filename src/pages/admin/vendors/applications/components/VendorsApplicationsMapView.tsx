@@ -2,29 +2,33 @@ import React, { useMemo } from 'react';
 import { StandColorsMap } from '../../../../../components/editor/StandProps';
 import { HallMap } from '../../../../../components/hall/HallMap';
 import { isVendorStand, parseHallStands, type HallStand } from '../../../../../components/hall/hallStands';
+import { GRID_COLS } from '../../../../../components/editor/utils/hallGeometry';
 import { getStandInterestCounts } from '../../../../../domain/vendorApplications/vendorFormStandInterestUtils';
 import { GrayScale, HallColors } from '../../../../../styles/theme';
 import {
+  ApplicationsMapCoverage,
+  ApplicationsMapCoverageLabel,
+  ApplicationsMapCoverageList,
+  ApplicationsMapCoverageStand,
+  ApplicationsMapCoverageSummary,
   ApplicationsMapHint,
+  ApplicationsMapStandPriority,
+  STAND_PRIORITY_COLORS,
   ApplicationsMapLayout,
   ApplicationsMapLegend,
   ApplicationsMapLegendItem,
   ApplicationsMapLegendSwatch,
   ApplicationsMapPanel,
   ApplicationsMapScroller,
-  ApplicationsMapSide,
   ApplicationsMapStand,
-  ApplicationsMapStandCount,
-  StandGroupCard,
-  StandGroupTitle,
-  StandRequestItem,
-  StandRequestList,
-  StandRequestMeta,
-  StandRequestVendor
+  ApplicationsMapStandCount
 } from '../VendorsApplicationsPage.styled';
-import { formatCompactDateTime } from '../utils/vendorsApplicationsFormatters';
-import { groupApplicationsByStand } from '../utils/standGroupingUtils';
-import { resolveStandDemandLevel, STAND_DEMAND_LEVELS, type StandDemandLevel } from '../utils/standDemandUtils';
+import {
+  buildHallCoverage,
+  resolveStandDemandLevel,
+  STAND_DEMAND_LEVELS,
+  type StandDemandLevel
+} from '../utils/standDemandUtils';
 import { VENDOR_APPLICATIONS_FILTER_ALL } from '../vendorsApplicationsConstants';
 import { VendorsApplicationsMapViewProps } from './vendorsApplicationsViewContracts';
 
@@ -35,28 +39,25 @@ const DEMAND_LEVEL_COLORS: Record<StandDemandLevel, string> = {
   high: HallColors[300]
 };
 
-const MAP_MULTIPLIER = 10;
-const MAP_PHONE_MULTIPLIER = 7;
-
 export const VendorsApplicationsMapView = ({
   applications,
-  isPhone,
-  locale,
-  resolvePriorityLabel,
+  highlightedStands,
+  multiplier,
   selectedStandId,
   selectStand,
   translate
 }: VendorsApplicationsMapViewProps) => {
   const parsedStands = useMemo(() => parseHallStands(), []);
   const requestCounts = useMemo(() => getStandInterestCounts(applications), [applications]);
-  const selectedStandGroup = useMemo(
-    () => groupApplicationsByStand(applications).find(({ standId }) => standId === selectedStandId),
-    [applications, selectedStandId]
-  );
-
   if (!parsedStands.success) {
     return <ApplicationsMapHint>{translate('vendorsApplicationsPage.map.loadError')}</ApplicationsMapHint>;
   }
+
+  const mapWidth = GRID_COLS * multiplier;
+  const coverage = buildHallCoverage(
+    parsedStands.data.filter(isVendorStand).map(({ index }) => index),
+    requestCounts
+  );
 
   const resolveStandColor = (stand: HallStand, requestCount: number) =>
     isVendorStand(stand) ? DEMAND_LEVEL_COLORS[resolveStandDemandLevel(requestCount)] : StandColorsMap[stand.color];
@@ -64,7 +65,7 @@ export const VendorsApplicationsMapView = ({
   return (
     <ApplicationsMapLayout>
       <ApplicationsMapPanel>
-        <ApplicationsMapLegend>
+        <ApplicationsMapLegend $maxWidth={mapWidth}>
           {STAND_DEMAND_LEVELS.map((level) => (
             <ApplicationsMapLegendItem key={level}>
               <ApplicationsMapLegendSwatch $color={DEMAND_LEVEL_COLORS[level]} />
@@ -72,13 +73,43 @@ export const VendorsApplicationsMapView = ({
             </ApplicationsMapLegendItem>
           ))}
         </ApplicationsMapLegend>
+        <ApplicationsMapCoverage $maxWidth={mapWidth}>
+          <ApplicationsMapCoverageSummary>
+            {translate('vendorsApplicationsPage.map.coverage.summary', {
+              free: coverage.freeStandIds.length,
+              requested: coverage.requestedStandCount,
+              total: coverage.totalStandCount
+            })}
+          </ApplicationsMapCoverageSummary>
+          {coverage.freeStandIds.length > 0 ? (
+            <ApplicationsMapCoverageList>
+              <ApplicationsMapCoverageLabel>
+                {translate('vendorsApplicationsPage.map.coverage.freeStandsLabel')}
+              </ApplicationsMapCoverageLabel>
+              {coverage.freeStandIds.map((standId) => (
+                <ApplicationsMapCoverageStand
+                  key={standId}
+                  type="button"
+                  aria-pressed={standId === selectedStandId}
+                  onClick={() => selectStand(standId === selectedStandId ? VENDOR_APPLICATIONS_FILTER_ALL : standId)}
+                >
+                  {standId}
+                </ApplicationsMapCoverageStand>
+              ))}
+            </ApplicationsMapCoverageList>
+          ) : null}
+        </ApplicationsMapCoverage>
         <ApplicationsMapScroller>
           <HallMap
-            multiplier={isPhone ? MAP_PHONE_MULTIPLIER : MAP_MULTIPLIER}
+            multiplier={multiplier}
             stands={parsedStands.data}
             renderStand={(stand, box) => {
               const requestCount = requestCounts.get(stand.index) ?? 0;
               const interactive = isVendorStand(stand);
+              const highlightedPriority = highlightedStands?.get(stand.index);
+              const highlightColor = highlightedPriority
+                ? STAND_PRIORITY_COLORS[Math.min(highlightedPriority, STAND_PRIORITY_COLORS.length) - 1]
+                : undefined;
 
               return (
                 <ApplicationsMapStand
@@ -86,6 +117,7 @@ export const VendorsApplicationsMapView = ({
                   type="button"
                   $color={resolveStandColor(stand, requestCount)}
                   $height={box.height}
+                  $highlightColor={highlightColor}
                   $interactive={interactive}
                   $left={box.left}
                   $top={box.top}
@@ -107,6 +139,11 @@ export const VendorsApplicationsMapView = ({
                     <>
                       {stand.index}
                       <ApplicationsMapStandCount>{requestCount}</ApplicationsMapStandCount>
+                      {highlightedPriority && highlightColor ? (
+                        <ApplicationsMapStandPriority $color={highlightColor}>
+                          {highlightedPriority}
+                        </ApplicationsMapStandPriority>
+                      ) : null}
                     </>
                   ) : null}
                 </ApplicationsMapStand>
@@ -115,29 +152,6 @@ export const VendorsApplicationsMapView = ({
           />
         </ApplicationsMapScroller>
       </ApplicationsMapPanel>
-
-      <ApplicationsMapSide>
-        {selectedStandGroup ? (
-          <StandGroupCard>
-            <StandGroupTitle>{selectedStandGroup.standId}</StandGroupTitle>
-            <StandRequestList>
-              {selectedStandGroup.requests.map((request) => (
-                <StandRequestItem key={`${selectedStandGroup.standId}-${request.applicationId}`}>
-                  <StandRequestVendor>{request.storeName}</StandRequestVendor>
-                  <StandRequestMeta>{formatCompactDateTime(request.submittedAt, locale)}</StandRequestMeta>
-                  <StandRequestMeta>{resolvePriorityLabel(request.priority)}</StandRequestMeta>
-                </StandRequestItem>
-              ))}
-            </StandRequestList>
-          </StandGroupCard>
-        ) : (
-          <ApplicationsMapHint>
-            {selectedStandId === VENDOR_APPLICATIONS_FILTER_ALL
-              ? translate('vendorsApplicationsPage.map.selectHint')
-              : translate('vendorsApplicationsPage.map.noRequests', { standId: selectedStandId })}
-          </ApplicationsMapHint>
-        )}
-      </ApplicationsMapSide>
     </ApplicationsMapLayout>
   );
 };

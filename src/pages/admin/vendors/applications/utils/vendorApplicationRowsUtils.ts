@@ -25,3 +25,11 @@ export const buildVendorApplicationRows = (
     }))
   }));
 };
+
+export const buildStandPriorityHighlights = (application: VendorApplication | null): ReadonlyMap<string, number> =>
+  new Map(
+    (application ? [...new Set(application.preferredStands)] : []).map((standId, standIndex) => [
+      standId,
+      standIndex + 1
+    ])
+  );

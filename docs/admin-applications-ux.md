@@ -210,10 +210,44 @@ Dokładnie to, co jest już w modelu danych, tylko nieużyte.
    ruszać publicznej strony przy tym zadaniu — w panelu mapa ma `flex: 0 0 auto` zgodnie z regułą
    z AGENTS.md. Warto to naprawić osobno na `/for-vendors`.
 
-5. **Widok dzielony lista ⇄ mapa**: podświetlenie zaznaczonego zgłoszenia na mapie (3 preferencje
-   w kolorach priorytetu) i odwrotnie — zaznaczenie stoiska filtruje listę do chętnych.
-6. **Pokrycie hali**: pasek „48 stoisk: 31 z chętnymi, 17 bez ani jednego chętnego”, lista stoisk
-   bez popytu. To najtańsze narzędzie decyzyjne, jakie można dodać.
+5. **Widok dzielony lista ⇄ mapa** — ✅ Zrobione: tryb „Lista i mapa” z gęstą listą po lewej
+   i planem hali po prawej.
+
+   Najechanie na wiersz (albo wejście na niego tabulatorem) podświetla na mapie trzy preferencje
+   tego zgłoszenia: obramowanie w kolorze priorytetu (1. czerwony `TextColors.accent`, 2. bursztynowy `WarningColors.border`, 3. szary `GrayScale[700]`) plus plakietka z numerem
+   wyboru w rogu stoiska, żeby kolejność była czytelna także bez rozróżniania kolorów.
+   Kierunek odwrotny działa od P0.4: klik w stoisko ustawia filtr `stand`, więc lista obok od razu
+   pokazuje chętnych o to stoisko.
+
+   Zakres wdrożenia: `components/VendorsApplicationsSplitView.tsx` składa gotowe widoki listy i mapy
+   i trzyma tylko stan podświetlenia (hover/focus, poza URL — to stan ulotny);
+   `utils/vendorApplicationRowsUtils.ts` dostał `buildStandPriorityHighlights`. Przy okazji panel
+   chętnych wyjechał z mapy do `components/VendorsApplicationsStandRequestsView.tsx`: w trybie
+   dzielonym był zbędny (to lista obok pełni tę rolę) i rozpychał układ tak, że mapa lądowała pod
+   listą zamiast obok niej. Teraz tryb „Pokaż mapę” składa mapę i panel chętnych, a tryb dzielony
+   mapę i listę.
+   Testy: `buildStandPriorityHighlights` w `tests/vendorApplicationRowsUtils.test.ts`.
+   Weryfikacja na prawdziwych komponentach: realny hover na pierwszym wierszu podświetla S1 (1),
+   S10 (2) i P1 (3) właściwymi kolorami i numerami; po rozdzieleniu panelu chętnych lista i mapa
+   stoją obok siebie, a tryb „Pokaż mapę” dalej pokazuje mapę z panelem chętnych (klik w S10 listuje
+   trzech chętnych z priorytetami najwyższy/średni/średni).
+
+6. **Pokrycie hali** — ✅ Zrobione: nad mapą pasek „Stoisk w hali: 48 · z chętnymi: X · bez
+   chętnych: Y” i lista stoisk bez popytu jako klikalne chipy — klik zaznacza stoisko na mapie
+   i ustawia filtr, więc od razu widać, gdzie leży puste miejsce. Pasek jest w widoku mapy, czyli
+   pokazuje się i w trybie „Pokaż mapę”, i w dzielonym.
+
+   Zakres wdrożenia: `buildHallCoverage` w `utils/standDemandUtils.ts` (czysta funkcja: lista stoisk
+   wystawienniczych + licznik zapotrzebowania → ile zajętych, ile pustych, które puste). Lista stoisk
+   bierze się z `hall.json` przez `isVendorStand`, więc wejścia i pola techniczne nie zaniżają
+   pokrycia. Testy: trzy przypadki w `tests/standDemandUtils.test.ts` (podział na zajęte i puste,
+   zapotrzebowanie na stoisko spoza planu, pełne pokrycie).
+   Weryfikacja na prawdziwym komponencie: dla 8 zgłoszeń pasek pokazuje 48 / 17 / 31, a klik w chip
+   „S19” zaznacza stoisko i panel obok mówi „Stoisko S19 nie ma jeszcze żadnych chętnych”.
+   Pierwsza wersja rozpychała panel na całą szerokość ekranu (31 chipów w jednej linii) — chipy
+   i legenda są teraz ograniczone do szerokości mapy liczonej z `GRID_COLS × multiplier`, więc
+   zawijają się zarówno przy mapie 520 px, jak i przy 364 px w widoku dzielonym.
+
 7. **Status jako jedna kontrolka** (segmented control lub select) ze stanem „zapisywanie”
    i toastem z „Cofnij” zamiast pięciu przycisków na kartę.
 8. **Eksport CSV** widocznego (przefiltrowanego) zestawu — organizator i tak pracuje w arkuszu
@@ -274,7 +308,7 @@ Dokładnie to, co jest już w modelu danych, tylko nieużyte.
 ## 6. Sugerowana kolejność
 
 1. P0.1–P0.3 (pasek roboczy, gęsta lista, flagi) — ✅ zrobione, problem „50 kart” rozwiązany.
-2. P0.4–P0.6 (mapa, widok dzielony, pokrycie hali) — P0.4 zrobione razem ze wspólnym `HallMap`.
+2. P0.4–P0.6 (mapa, widok dzielony, pokrycie hali) — ✅ zrobione.
 3. P0.7–P0.9 (status, eksport, oznaczenie symulacji) — drobne, wysokie zyski.
 4. P1.10–P1.11 po ustaleniu kontraktu API — dopiero to zamienia panel w narzędzie decyzyjne.
 5. P2 i P3 jako osobne tematy, każdy z własnym przebiegiem przez `docs/`.

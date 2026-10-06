@@ -2,6 +2,9 @@ import React from 'react';
 import {
   ApplicationActionButton,
   ApplicationsEmpty,
+  ApplicationsMapLayout,
+  ApplicationsMapPanelSlot,
+  ApplicationsMapSide,
   ApplicationsMeta,
   ApplicationsSection,
   ApplicationsToolbar
@@ -13,11 +16,18 @@ import type {
 import { useTypedTranslation } from '../../../../../translations/useTypedTranslation';
 import { usePhone } from '../../../../../hooks/usePhone';
 import { useVendorsApplicationsToolbar } from '../hooks/useVendorsApplicationsToolbar';
-import { VENDOR_APPLICATIONS_LIST_VIEW_MODES } from '../vendorsApplicationsConstants';
+import {
+  VENDOR_APPLICATIONS_LIST_VIEW_MODES,
+  VENDOR_APPLICATIONS_MAP_MULTIPLIER,
+  VENDOR_APPLICATIONS_MAP_PHONE_MULTIPLIER,
+  VENDOR_APPLICATIONS_SPLIT_MAP_MULTIPLIER
+} from '../vendorsApplicationsConstants';
 import { VendorApplicationDetailsDrawer } from './VendorApplicationDetailsDrawer';
 import { VendorsApplicationsCardsView } from './VendorsApplicationsCardsView';
 import { VendorsApplicationsMapView } from './VendorsApplicationsMapView';
 import { VendorsApplicationsRowsView } from './VendorsApplicationsRowsView';
+import { VendorsApplicationsSplitView } from './VendorsApplicationsSplitView';
+import { VendorsApplicationsStandRequestsView } from './VendorsApplicationsStandRequestsView';
 import { VendorsApplicationsCascadeView } from './VendorsApplicationsCascadeView';
 import { VendorsApplicationsStandGroupsView } from './VendorsApplicationsStandGroupsView';
 import { VendorsApplicationsToolbarView } from './VendorsApplicationsToolbarView';
@@ -92,6 +102,9 @@ export const VendorsApplicationsView = ({
         <ApplicationActionButton aria-pressed={viewMode === 'rows'} type="button" onClick={() => setViewMode('rows')}>
           {t('vendorsApplicationsPage.showRows')}
         </ApplicationActionButton>
+        <ApplicationActionButton aria-pressed={viewMode === 'split'} type="button" onClick={() => setViewMode('split')}>
+          {t('vendorsApplicationsPage.showSplit')}
+        </ApplicationActionButton>
         <ApplicationActionButton aria-pressed={viewMode === 'cards'} type="button" onClick={() => setViewMode('cards')}>
           {t('vendorsApplicationsPage.showCards')}
         </ApplicationActionButton>
@@ -115,15 +128,26 @@ export const VendorsApplicationsView = ({
       </ApplicationsToolbar>
 
       {viewMode === 'map' ? (
-        <VendorsApplicationsMapView
-          applications={applications}
-          isPhone={isPhone}
-          locale={t.i18n.language}
-          resolvePriorityLabel={(priority) => t(`vendorsApplicationsPage.priorities.${priority}` as const)}
-          selectStand={(standId) => setFilter('standId', standId)}
-          selectedStandId={filters.standId}
-          translate={translate}
-        />
+        <ApplicationsMapLayout>
+          <ApplicationsMapPanelSlot>
+            <VendorsApplicationsMapView
+              applications={applications}
+              multiplier={isPhone ? VENDOR_APPLICATIONS_MAP_PHONE_MULTIPLIER : VENDOR_APPLICATIONS_MAP_MULTIPLIER}
+              selectStand={(standId) => setFilter('standId', standId)}
+              selectedStandId={filters.standId}
+              translate={translate}
+            />
+          </ApplicationsMapPanelSlot>
+          <ApplicationsMapSide>
+            <VendorsApplicationsStandRequestsView
+              applications={applications}
+              locale={t.i18n.language}
+              resolvePriorityLabel={(priority) => t(`vendorsApplicationsPage.priorities.${priority}` as const)}
+              selectedStandId={filters.standId}
+              translate={translate}
+            />
+          </ApplicationsMapSide>
+        </ApplicationsMapLayout>
       ) : null}
 
       {viewMode === 'cascade' ? (
@@ -179,6 +203,21 @@ export const VendorsApplicationsView = ({
               openApplication={openApplication}
               openApplicationId={openApplicationRecord?.id ?? null}
               resolveCategoryLabel={resolveCategoryLabel}
+              translate={translate}
+              values={viewValues}
+            />
+          ) : viewMode === 'split' ? (
+            <VendorsApplicationsSplitView
+              allApplications={applications}
+              applications={visibleApplications}
+              flagsByApplicationId={flagsByApplicationId}
+              locale={t.i18n.language}
+              mapMultiplier={VENDOR_APPLICATIONS_SPLIT_MAP_MULTIPLIER}
+              openApplication={openApplication}
+              openApplicationId={openApplicationRecord?.id ?? null}
+              resolveCategoryLabel={resolveCategoryLabel}
+              selectStand={(standId) => setFilter('standId', standId)}
+              selectedStandId={filters.standId}
               translate={translate}
               values={viewValues}
             />

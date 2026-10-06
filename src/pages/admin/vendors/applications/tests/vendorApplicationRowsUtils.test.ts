@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import type { VendorApplication } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
-import { buildVendorApplicationRows } from '../utils/vendorApplicationRowsUtils.ts';
+import { buildStandPriorityHighlights, buildVendorApplicationRows } from '../utils/vendorApplicationRowsUtils.ts';
 import { getBaseApplication } from './vendorApplicationFixture.ts';
 
 const buildApplication = (overrides: Partial<VendorApplication>): VendorApplication => ({
@@ -48,4 +48,34 @@ test('buildVendorApplicationRows returns no preferences for an application that 
   const withoutPreferences = buildApplication({ id: 'empty', preferredStands: [] });
 
   assert.deepEqual(buildVendorApplicationRows([withoutPreferences], applications)[0].preferences, []);
+});
+
+test('buildStandPriorityHighlights numbers the picked stands from the highest priority', () => {
+  const highlights = buildStandPriorityHighlights(
+    buildApplication({ id: 'highlighted', preferredStands: ['S1', 'S10', 'P1'] })
+  );
+
+  assert.deepEqual(
+    [...highlights],
+    [
+      ['S1', 1],
+      ['S10', 2],
+      ['P1', 3]
+    ]
+  );
+});
+
+test('buildStandPriorityHighlights skips repeated stands and handles no highlighted application', () => {
+  const highlights = buildStandPriorityHighlights(
+    buildApplication({ id: 'duplicated', preferredStands: ['S1', 'S1', 'P1'] })
+  );
+
+  assert.deepEqual(
+    [...highlights],
+    [
+      ['S1', 1],
+      ['P1', 2]
+    ]
+  );
+  assert.equal(buildStandPriorityHighlights(null).size, 0);
 });
