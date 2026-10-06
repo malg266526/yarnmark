@@ -465,6 +465,29 @@ export const ApplicationsStandAssignmentRow = styled.div`
   align-items: center;
 `;
 
+export const CascadeSimulationNotice = styled(AcceptedApplicationsQueue)`
+  border-color: ${WarningColors.border};
+  background: ${WarningColors.background};
+`;
+
+export const CascadeSimulationTitle = styled(AcceptedApplicationsQueueTitle)`
+  color: ${WarningColors.text};
+`;
+
+export const CascadeExportLink = styled(ApplicationsFilterResetButton).attrs({ as: 'a' })`
+  align-self: flex-start;
+
+  &:focus-visible {
+    outline: 2px solid ${BackgroundColors.green.strong};
+    outline-offset: 2px;
+  }
+
+  &[aria-disabled='true'] {
+    opacity: 0.5;
+    cursor: default;
+  }
+`;
+
 const DRAWER_WIDTH = '560px';
 
 export const DRAWER_OVERLAY_STYLE = {

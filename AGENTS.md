@@ -96,6 +96,7 @@
 ## CSS & Layout
 
 - Never leave comments about styles. Do not annotate styled-components or CSS rules explaining what a declaration does or why — the code speaks for itself. This applies to `*.styled.tsx` and inline styles as well.
+- Keep styled-components templates valid for both TypeScript and IDE CSS parsers. Do not place raw CSS declarations directly after an interpolated `css` block when that produces parser errors such as `Term expected`; extract the following declarations into a named `css` block and compose both blocks as separate interpolations. After finding one such error, search every styled-components file changed by the task for the same interpolation-followed-by-raw-CSS pattern instead of fixing only the reported line. Treat IDE syntax errors in touched styles as real verification failures even when TypeScript, ESLint, and Prettier pass.
 - Reach for the simplest primitive first: flex `direction`/`wrap`/`gap`, `fit-content`, `min-width: 0` only where shrinking is intended. Avoid negative margins, magic offsets, and `!important`.
 - Fixed-size content keeps its intrinsic size and lets neighbours wrap; do not force it to shrink.
 - Absolutely-positioned decorations (edge labels, badges) still count toward `scrollWidth`/`scrollHeight`. Reserve space with padding rather than clipping meaningful content.

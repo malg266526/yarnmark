@@ -8,13 +8,21 @@ import {
   ApplicationsStack,
   ApplicationsMeta,
   ApplicationsMetaRow,
-  ApplicationTitle
+  ApplicationTitle,
+  CascadeSimulationNotice,
+  CascadeSimulationTitle,
+  CascadeExportLink
 } from '../VendorsApplicationsPage.styled';
 import { formatDateTime } from '../utils/vendorsApplicationsFormatters';
-import { getCascadeChoiceReservations, getCascadeManualNegotiationReservations } from '../utils/standAllocationUtils';
+import { useCascadeProposal, CASCADE_PROPOSAL_FILE_NAME } from '../hooks/useCascadeProposal';
 import { VendorsApplicationsCascadeViewProps } from './vendorsApplicationsViewContracts';
 
 export const VendorsApplicationsCascadeView = ({
+  simulationLabel,
+  simulationDescription,
+  exportLabel,
+  emptyLabel,
+  exportLabels,
   algorithmSteps,
   algorithmTitle,
   allocatedStandLabel,
@@ -25,12 +33,28 @@ export const VendorsApplicationsCascadeView = ({
   noneSelectedLabel,
   notAssignedLabel
 }: VendorsApplicationsCascadeViewProps) => {
-  const reservedApplications = getCascadeChoiceReservations(applications);
-  const manualNegotiationApplications = getCascadeManualNegotiationReservations(applications);
+  const {
+    reservations: reservedApplications,
+    manualNegotiationReservations: manualNegotiationApplications,
+    exportUrl
+  } = useCascadeProposal(applications, exportLabels);
 
   return (
     <>
+      <CascadeSimulationNotice>
+        <CascadeSimulationTitle>{simulationLabel}</CascadeSimulationTitle>
+        <ApplicationsMeta>{simulationDescription}</ApplicationsMeta>
+        <CascadeExportLink
+          href={exportUrl}
+          download={CASCADE_PROPOSAL_FILE_NAME}
+          aria-disabled={!exportUrl}
+          tabIndex={exportUrl ? 0 : -1}
+        >
+          {exportLabel}
+        </CascadeExportLink>
+      </CascadeSimulationNotice>
       <AcceptedApplicationsQueue>
+        {reservedApplications.length === 0 ? <ApplicationsMeta>{emptyLabel}</ApplicationsMeta> : null}
         <AcceptedApplicationsQueueTitle>{algorithmTitle}</AcceptedApplicationsQueueTitle>
         <AcceptedApplicationsQueueDescription start={0}>
           {algorithmSteps.map((step) => (

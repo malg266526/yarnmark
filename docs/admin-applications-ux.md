@@ -264,8 +264,24 @@ Dokładnie to, co jest już w modelu danych, tylko nieużyte.
 
 8. **Eksport CSV** widocznego (przefiltrowanego) zestawu — organizator i tak pracuje w arkuszu
    i robi mailingi.
-9. **Symulację oznaczyć jako symulację**: w widoku kaskady wyraźna plakietka „podgląd, nic nie jest
-   zapisane” + przycisk „Eksportuj propozycję”, dopóki nie ma zapisu po stronie API.
+9. **Symulację oznaczyć jako symulację** — ✅ Zrobione: widok kaskady ma wyróżniony komunikat
+   „Symulacja — podgląd, nic nie jest zapisane” oraz „Eksportuj propozycję (CSV)”. Wyniki nazywane
+   są proponowanymi stoiskami. Opis algorytmu wyjaśnia, że zapis jest ręczny w szczegółach zgłoszenia,
+   a osobne „klepnięcie” nie jest jeszcze dostępne.
+
+   Kaskada rezerwuje wszystkie zapisane `assignedStands` niezależnie od statusu zgłoszenia,
+   a propozycje liczy tylko dla zaakceptowanych zgłoszeń bez przydziału. Nie zmienia zapisanych danych.
+   CSV obejmuje dokładnie te propozycje i zgłoszenia do negocjacji: ID, sklep, e-mail, preferencje,
+   proponowane stoisko i wynik symulacji. Plik ma BOM UTF-8, separator średnikowy, cytowane pola
+   i zabezpieczenie wartości mogących zostać odczytanych jako formuły arkusza. Eksport jest nieaktywny,
+   gdy nie ma zgłoszeń do symulacji. P0.8 (eksport przefiltrowanej listy) pozostaje osobnym zadaniem.
+
+   Testy: `standAllocationUtils.test.ts` (ochrona zapisanych stoisk, także wielu i przy różnych
+   statusach) i `cascadeExportUtils.test.ts` (kodowanie, escaping, wynik bez stoiska). Prawdziwy
+   panel sprawdzony w harnessie z fontami, globalnymi stylami i Bootstrapem: istniejące S1/M1
+   są pomijane, propozycja trafia do S2, kolejny wystawca do negocjacji. Klik eksportu pobiera CSV
+   z tymi wynikami. Przycisk ma 38 px wysokości (`top=291,8`, `bottom=329,8`) i `border-box`;
+   przy szerokości 390 px zachowuje 38 px i nie powoduje przewijania poziomego.
 
 ### P1 — wymaga kontraktu z backendem
 
@@ -346,7 +362,7 @@ Dokładnie to, co jest już w modelu danych, tylko nieużyte.
 
 1. P0.1–P0.3 (pasek roboczy, gęsta lista, flagi) — ✅ zrobione, problem „50 kart” rozwiązany.
 2. P0.4–P0.6 (mapa, widok dzielony, pokrycie hali) — ✅ zrobione.
-3. P0.7–P0.9 (status, eksport, oznaczenie symulacji) — P0.7 zrobione, zostają P0.8 i P0.9.
+3. P0.7–P0.9 (status, eksport, oznaczenie symulacji) — P0.7 i P0.9 zrobione, zostaje P0.8.
 4. P1.10–P1.11 po ustaleniu kontraktu API — dopiero to zamienia panel w narzędzie decyzyjne.
 5. P2 jako osobny temat; P3 (panel i frontendowy kontrakt harmonogramu) — ✅ zrobione.
 

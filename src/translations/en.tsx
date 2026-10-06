@@ -610,19 +610,31 @@ export const en: TranslationsShape = {
       },
       cascadeAlgorithm: {
         title: 'How the algorithm works',
+        simulation: 'Simulation — preview only, nothing is saved',
+        simulationDescription:
+          'Proposals cover accepted applications without an assignment. Saved assignments are preserved and their stands excluded from the simulation regardless of application status. Exporting does not save changes in the panel.',
+        export: 'Export proposal (CSV)',
+        empty: 'No accepted applications without an assigned stand.',
+        proposedStand: 'Proposed stand',
+        exportColumns: {
+          applicationId: 'Application ID',
+          storeName: 'Store',
+          result: 'Simulation result',
+          suggested: 'Proposal — not saved'
+        },
         steps: {
           acceptVendors:
             'The organizer first accepts selected vendors by setting their status to "accepted" in the "Show cards" section.',
           sortAccepted:
-            'The system takes only accepted applications and sorts them by the earliest submitted form first.',
+            'The system takes accepted applications without an assigned stand and sorts them by the earliest submission first. All saved assignments exclude occupied stands from the simulation.',
           checkPreferences:
             'Next, for each vendor in order, it checks the preferred stands from highest priority to lowest priority and assigns the first stand that is still available at that moment.',
           sendToManualNegotiation:
             'If all selected stands are already taken, the application moves to the manual negotiation section.',
           confirmedAssignments:
-            'After the assignments are generated, the organizer approves the chosen suggestions. Only then does the stand receive the official "confirmed" status and become finally occupied.',
+            'Proposals are not saved automatically. The organizer can assign a stand manually in the application details. Separate proposal confirmation is not yet available.',
           nextIterations:
-            'If some assignments are not approved or some vendors still have no available stand from their priority list, the algorithm can be run again for the remaining free stands in the next iteration.'
+            'After a manual assignment is saved, the simulation recalculates proposals for the remaining accepted applications and available stands.'
         }
       },
       manualNegotiation: {

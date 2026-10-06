@@ -172,6 +172,20 @@ export const VendorsApplicationsView = ({
 
       {viewMode === 'cascade' ? (
         <VendorsApplicationsCascadeView
+          simulationLabel={t('vendorsApplicationsPage.cascadeAlgorithm.simulation')}
+          simulationDescription={t('vendorsApplicationsPage.cascadeAlgorithm.simulationDescription')}
+          exportLabel={t('vendorsApplicationsPage.cascadeAlgorithm.export')}
+          emptyLabel={t('vendorsApplicationsPage.cascadeAlgorithm.empty')}
+          exportLabels={{
+            applicationId: t('vendorsApplicationsPage.cascadeAlgorithm.exportColumns.applicationId'),
+            storeName: t('vendorsApplicationsPage.cascadeAlgorithm.exportColumns.storeName'),
+            email: t('vendorsApplicationsPage.fields.email'),
+            preferredStands: t('vendorsApplicationsPage.fields.preferredStands'),
+            proposedStand: t('vendorsApplicationsPage.cascadeAlgorithm.proposedStand'),
+            result: t('vendorsApplicationsPage.cascadeAlgorithm.exportColumns.result'),
+            suggested: t('vendorsApplicationsPage.cascadeAlgorithm.exportColumns.suggested'),
+            manualNegotiation: t('vendorsApplicationsPage.manualNegotiation.title')
+          }}
           algorithmSteps={[
             t('vendorsApplicationsPage.cascadeAlgorithm.steps.acceptVendors'),
             t('vendorsApplicationsPage.cascadeAlgorithm.steps.sortAccepted'),
@@ -181,7 +195,7 @@ export const VendorsApplicationsView = ({
             t('vendorsApplicationsPage.cascadeAlgorithm.steps.nextIterations')
           ]}
           algorithmTitle={t('vendorsApplicationsPage.cascadeAlgorithm.title')}
-          allocatedStandLabel={t('vendorsApplicationsPage.fields.allocatedStand')}
+          allocatedStandLabel={t('vendorsApplicationsPage.cascadeAlgorithm.proposedStand')}
           applications={applications}
           locale={t.i18n.language}
           manualNegotiationTitle={t('vendorsApplicationsPage.manualNegotiation.title')}

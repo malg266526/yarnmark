@@ -7,6 +7,7 @@ import type {
   VendorApplicationStatusCounts
 } from '../utils/vendorApplicationsFilterUtils.ts';
 import type { VendorApplicationFlag } from '../utils/vendorApplicationFlagsUtils.ts';
+import type { CascadeExportLabels } from '../utils/cascadeExportUtils';
 
 export interface VendorApplicationDisplayValues {
   no: string;
@@ -93,6 +94,11 @@ export interface VendorsApplicationsCardsViewProps
 }
 
 export interface VendorsApplicationsCascadeViewProps {
+  simulationLabel: string;
+  simulationDescription: string;
+  exportLabel: string;
+  emptyLabel: string;
+  exportLabels: CascadeExportLabels;
   algorithmSteps: string[];
   algorithmTitle: string;
   applications: VendorApplication[];
