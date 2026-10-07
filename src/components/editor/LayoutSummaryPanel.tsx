@@ -1,72 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
-import { RedesignSpacings } from '../../styles/spacings';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { useLayoutSummary } from './useLayoutSummary';
+import { BodyCell, HeaderCell, Panel, PanelNote, SummaryTable, Title, TotalRow } from './LayoutPanels.styled';
 import {
   SELLABLE_STAND_TYPES,
   formatDecimal,
   formatSignedDifference,
   type StandTypeTotals
 } from './utils/layoutSummaryUtils';
-
-const Panel = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: ${RedesignSpacings.xs};
-  width: 100%;
-  box-sizing: border-box;
-  padding: ${RedesignSpacings.sm};
-  background: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-`;
-
-const Title = styled.h2`
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 700;
-`;
-
-const SUMMARY_LINE_HEIGHT_PX = 20;
-
-const SummaryTable = styled.table`
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.875rem;
-  line-height: ${SUMMARY_LINE_HEIGHT_PX}px;
-  font-variant-numeric: tabular-nums;
-`;
-
-const HeaderCell = styled.th<{ numeric?: boolean }>`
-  padding: 4px 8px;
-  border-bottom: 1px solid #d1d5db;
-  color: #6b7280;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-align: ${({ numeric }) => (numeric ? 'right' : 'left')};
-  white-space: nowrap;
-`;
-
-const BodyCell = styled.td<{ numeric?: boolean; muted?: boolean }>`
-  padding: 4px 8px;
-  text-align: ${({ numeric }) => (numeric ? 'right' : 'left')};
-  color: ${({ muted }) => (muted ? '#6b7280' : '#111827')};
-  white-space: nowrap;
-`;
-
-const TotalRow = styled.tr`
-  font-weight: 700;
-
-  & > td {
-    border-top: 1px solid #d1d5db;
-  }
-`;
-
-const HallUsage = styled.p`
-  margin: 0;
-  font-size: 0.875rem;
-`;
 
 interface LayoutSummaryCellsProps {
   label: string;
@@ -128,14 +69,14 @@ export const LayoutSummaryPanel = () => {
           </TotalRow>
         </tbody>
       </SummaryTable>
-      <HallUsage>
+      <PanelNote>
         {t('editorPage.layoutSummary.hallUsage', {
           percent: formatDecimal(current.hallUsagePercent, locale),
           hallArea: formatDecimal(current.hallAreaM2, locale),
           baselinePercent: formatDecimal(baseline.hallUsagePercent, locale),
           baselineHallArea: formatDecimal(baseline.hallAreaM2, locale)
         })}
-      </HallUsage>
+      </PanelNote>
     </Panel>
   );
 };

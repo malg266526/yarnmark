@@ -270,6 +270,10 @@ Weryfikacja w przeglądarce na kopii roboczej z propozycją 2027 zapisaną ze st
 
 Weryfikacja w przeglądarce na propozycji 2027: 20 wymiarów (np. P5→M1 4 m, M1→S22 3,5 m, S1→M1 3,5 m, m11→M4 5,5 m, P4→S15 2 m); końce linii P5→M1 leżą na krawędziach P5 (602,5 px) i M1 (739,5 px), a linii S1→M1 na krawędziach S1 i M1 co do piksela; etykiety mają 20 px wysokości; odznaczenie przełącznika usuwa wszystkie linie. Zero błędów i ostrzeżeń w konsoli. Kreski na końcach linii są w nazwanych blokach `css` (także ich pozycja `left/right/top/bottom: 0`), bo WebStorm zgłaszał błędy CSS przy interpolacjach i surowych deklaracjach w `&::before`/`&::after`; inspekcja `src/components/editor`, `src/translations` i `docs`: 0 błędów.
 
+**Krok P0.5 — podsumowanie finansowe.** Ceny 2026 (premium 1900 zł, standard 1200 zł, mini 650 zł) są w `STAND_PRICES_2026`; przychód 2026 wg nich: 5 · 1900 + 36 · 1200 + 7 · 650 = 57 250 zł (przy 100 % obsadzenia, §4.3). Ceny 2027 wpisuje się w panelu „Podsumowanie finansowe” — domyślnie równe cenom 2026, cena C pusta, zapis w `localStorage` (`standPrices2027`). Czysty `utils/layoutFinanceUtils.ts` liczy przychód per typ, różnicę względem 2026 i listę typów bez ceny (ich stoiska nie wchodzą do sumy, panel to zaznacza); 6 testów. Style tabel obu paneli wydzielone do `LayoutPanels.styled.tsx`. Częściowo zamyka otwarte pytanie o ceny (§9) — ceny 2027 i cena C nadal do ustalenia.
+
+Weryfikacja w przeglądarce na propozycji 2027: domyślnie 58 650 zł (+1400 zł) i komunikat „Brak ceny dla: C”; po wpisaniu 1000 zł dla C przychód 61 650 zł (+4400 zł), komunikat znika, cena zostaje po przeładowaniu strony. Wiersze z polem ceny mają 32 px, pole 24 px z odstępem 4 px nad i pod, kolumny obu paneli kończą się w tych samych miejscach. Zero błędów i ostrzeżeń w konsoli.
+
 Etapy 3 i 4 wymagają backendu albo świadomej decyzji o pozostaniu przy JSON w repozytorium. Etapy 1, 2, 5, 6 i 9 są wykonalne w całości na froncie.
 
 ---
@@ -334,7 +338,7 @@ Weryfikacja w przeglądarce na prawdziwym presecie 2026 (52 stoiska): nagłówki
 
 ## 9. Otwarte pytania
 
-- [ ] **Ceny stoisk** — Premium / Standard / Mini za 2026 oraz ewentualne zmiany na 2027. Blokuje Etap 5.
+- [ ] **Ceny stoisk** — 2026 znane (premium 1900 zł, standard 1200 zł, mini 650 zł, podane 2026-10-07); ceny na 2027 i cena stoiska C nadal do ustalenia. Blokuje Etap 5.
 - [x] **Powierzchnia hali** — rozstrzygnięte 2026-10-07: w 2026 hala miała 26 × 44 m (≈ 1142–1144 m², stąd tekst na stronie), w 2027 ma 26 × 46 m = 1196 m². Edytor pracuje na wymiarach 2027 (`HALL_HEIGHT_M`), wymiar 2026 jest w `HALL_2026_HEIGHT_M`.
 - [ ] **Backend dla układu hali** — czy powstanie, czy zostajemy przy JSON w repozytorium? Blokuje Etapy 3 i 4.
 - [ ] **Ograniczenia hali** — minimalna szerokość alejki, wyjścia ewakuacyjne, słupy, rampa. Potrzebne do walidacji układu i liczenia optymalnego rozstawienia.

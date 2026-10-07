@@ -1210,6 +1210,20 @@ export const pl = {
         hallUsage:
           'Wykorzystanie hali: {{percent}}% z {{hallArea}} m² (2026: {{baselinePercent}}% z {{baselineHallArea}} m²)'
       },
+      finance: {
+        title: 'Podsumowanie finansowe',
+        columns: {
+          type: 'Typ',
+          price: 'Cena 2027 (zł)',
+          count: 'Stoiska',
+          revenue: 'Przychód',
+          revenueDifference: 'vs 2026'
+        },
+        priceLabel: 'Cena stoiska {{type}} w 2027',
+        total: 'Razem',
+        baseline: 'Przychód 2026: {{revenue}} (ceny 2026: premium {{premium}}, standard {{standard}}, mini {{mini}}).',
+        missingPrice: 'Brak ceny dla: {{types}}. Te stoiska nie są wliczone w przychód 2027.'
+      },
       sectionGaps: {
         toggle: 'Pokaż odległości między sekcjami',
         distance: '{{value}} m'

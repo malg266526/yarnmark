@@ -1209,6 +1209,20 @@ export const en: TranslationsShape = {
         total: 'Total sellable',
         hallUsage: 'Hall usage: {{percent}}% of {{hallArea}} m² (2026: {{baselinePercent}}% of {{baselineHallArea}} m²)'
       },
+      finance: {
+        title: 'Financial summary',
+        columns: {
+          type: 'Type',
+          price: '2027 price (PLN)',
+          count: 'Stands',
+          revenue: 'Revenue',
+          revenueDifference: 'vs 2026'
+        },
+        priceLabel: '2027 price of a {{type}} stand',
+        total: 'Total',
+        baseline: '2026 revenue: {{revenue}} (2026 prices: premium {{premium}}, standard {{standard}}, mini {{mini}}).',
+        missingPrice: 'No price for: {{types}}. These stands are not included in the 2027 revenue.'
+      },
       sectionGaps: {
         toggle: 'Show distances between sections',
         distance: '{{value}} m'
