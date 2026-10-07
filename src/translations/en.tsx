@@ -1209,6 +1209,10 @@ export const en: TranslationsShape = {
         total: 'Total sellable',
         hallUsage: 'Hall usage: {{percent}}% of {{hallArea}} m² (2026: {{baselinePercent}}% of {{baselineHallArea}} m²)'
       },
+      sectionGaps: {
+        toggle: 'Show distances between sections',
+        distance: '{{value}} m'
+      },
       collisions: {
         none: 'No overlapping stands',
         count: 'Overlapping stands: {{count}}',

@@ -18,6 +18,8 @@ import { getBoxOutlineRect, getStandOutlineRect } from './utils/standGeometryUti
 import { findStandCollisions } from './utils/standCollisionUtils';
 import { StandCollisionsSummary } from './StandCollisionsSummary';
 import { LayoutSummaryPanel } from './LayoutSummaryPanel';
+import { SectionGapsOverlay } from './SectionGapsOverlay';
+import { findSectionGaps } from './utils/sectionGapUtils';
 import { isExistingStand } from './utils/standSelectionUtils';
 import { HALL_PRESET_IDS } from './utils/hallPresets';
 import { StandList } from './StandList';
@@ -63,6 +65,14 @@ const GridSection = styled.div`
 
 const HallSizeInfo = styled.div`
   font-weight: 700;
+`;
+
+const SectionGapsToggle = styled.label`
+  display: inline-flex;
+  align-items: center;
+  gap: ${RedesignSpacings.xs};
+  font-size: 0.875rem;
+  cursor: pointer;
 `;
 
 const GridScroller = styled.div`
@@ -241,6 +251,7 @@ export const Editor = () => {
   const selectionOutlineRef = useRef<HTMLDivElement | null>(null);
   const rowIndexesRef = useRef<HTMLDivElement | null>(null);
   const [isClearConfirmOpen, setIsClearConfirmOpen] = useState(false);
+  const [areSectionGapsVisible, setAreSectionGapsVisible] = useState(true);
 
   const handleImportStands = (importedStands: StandProps[]) => {
     replaceStands(importedStands);
@@ -278,6 +289,7 @@ export const Editor = () => {
   const selectedStand = effectiveStands.find((stand) => stand.id === currentStand.id) ?? null;
   const selectionOutline = selectedStand ? getStandOutlineRect(selectedStand) : null;
   const collisions = findStandCollisions(effectiveStands);
+  const sectionGaps = areSectionGapsVisible ? findSectionGaps(effectiveStands) : [];
 
   const handleCellMouseDown = (row: number, col: number) => {
     const stand = getStandAtCell(row, col);
@@ -357,6 +369,14 @@ export const Editor = () => {
           {t('editorPage.hallSize', { width: HALL_WIDTH_M, height: HALL_HEIGHT_M, cols: GRID_COLS, rows: GRID_ROWS })}
         </HallSizeInfo>
         <StandCollisionsSummary collisions={collisions} onSelectStand={setCurrentStand} />
+        <SectionGapsToggle>
+          <input
+            type="checkbox"
+            checked={areSectionGapsVisible}
+            onChange={(event) => setAreSectionGapsVisible(event.target.checked)}
+          />
+          {t('editorPage.sectionGaps.toggle')}
+        </SectionGapsToggle>
         <GridScroller>
           <>
             <GridChrome>
@@ -433,6 +453,7 @@ export const Editor = () => {
                       {...getBoxOutlineRect(overlap)}
                     />
                   ))}
+                  <SectionGapsOverlay gaps={sectionGaps} />
                   {selectionOutline ? (
                     <SelectionOutline ref={selectionOutlineRef} data-selection-outline {...selectionOutline} />
                   ) : null}

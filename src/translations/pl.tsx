@@ -1210,6 +1210,10 @@ export const pl = {
         hallUsage:
           'Wykorzystanie hali: {{percent}}% z {{hallArea}} m² (2026: {{baselinePercent}}% z {{baselineHallArea}} m²)'
       },
+      sectionGaps: {
+        toggle: 'Pokaż odległości między sekcjami',
+        distance: '{{value}} m'
+      },
       collisions: {
         none: 'Brak nachodzących stoisk',
         count: 'Nachodzące stoiska: {{count}}',

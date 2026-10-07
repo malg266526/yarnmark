@@ -266,6 +266,10 @@ Poza edytorem typ `c` nie jest jeszcze obsługiwany: publiczna mapa (`components
 
 Weryfikacja w przeglądarce na kopii roboczej z propozycją 2027 zapisaną ze starymi typami: podsumowanie pokazuje „standard 35 (−1) / C 3 (+3, 27 m²) / mini 11 (+4)”, razem 54 stoiska (+6), 543 m², 45,4 % wobec 44,1 % w 2026; lista ma grupę „C (3)”, a kliknięte `C1` ma zaznaczony typ C. Zero błędów w konsoli.
 
+**Krok P0.4 — odległości między sekcjami stoisk.** Czysty `utils/sectionGapUtils.ts` (`findSectionGaps`) łączy stykające się stoiska w sekcje (pasy), a dla każdej pary sąsiednich sekcji szuka najkrótszego przejścia między stoiskami stojącymi naprzeciw siebie, z pustym korytarzem na całej szerokości wspólnego odcinka; przy remisie wybiera pierwszą parę od góry/lewej (np. pas P5–P4 ↔ pas M1–M3 mierzony między P5 a M1). Przejścia szersze niż `MAX_SECTION_GAP_M` = 8 m są pomijane — to otwarta przestrzeń hali, nie alejka (bez tego pojawiały się wymiary typu a0→S14 40 m przez całą halę). `getSectionGapLineRect` przelicza przejście na piksele siatki (6 testów). Na siatce każde przejście ma linię wymiarową z kreskami na końcach i etykietę z odległością; przełącznik „Pokaż odległości między sekcjami” nad siatką (domyślnie włączony). Wymiary liczą się na podglądzie przeciągania.
+
+Weryfikacja w przeglądarce na propozycji 2027: 20 wymiarów (np. P5→M1 4 m, M1→S22 3,5 m, S1→M1 3,5 m, m11→M4 5,5 m, P4→S15 2 m); końce linii P5→M1 leżą na krawędziach P5 (602,5 px) i M1 (739,5 px), a linii S1→M1 na krawędziach S1 i M1 co do piksela; etykiety mają 20 px wysokości; odznaczenie przełącznika usuwa wszystkie linie. Zero błędów i ostrzeżeń w konsoli. Kreski na końcach linii są w nazwanych blokach `css` (także ich pozycja `left/right/top/bottom: 0`), bo WebStorm zgłaszał błędy CSS przy interpolacjach i surowych deklaracjach w `&::before`/`&::after`; inspekcja `src/components/editor`, `src/translations` i `docs`: 0 błędów.
+
 Etapy 3 i 4 wymagają backendu albo świadomej decyzji o pozostaniu przy JSON w repozytorium. Etapy 1, 2, 5, 6 i 9 są wykonalne w całości na froncie.
 
 ---
