@@ -1,8 +1,9 @@
-import React, { createContext, useContext, ReactNode, useState } from 'react';
+import React, { createContext, useContext, ReactNode, useMemo, useState } from 'react';
 import { StandColorsMap, StandProps, StandType } from './StandProps';
 import { StandSizes } from './utils/getSizeForOrientation';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { generateId } from './utils/generateId';
+import { normalizeStandType } from './utils/standTypeUtils';
 
 interface EditorContextType {
   stands: StandProps[];
@@ -21,6 +22,7 @@ export const DefaultTypeColorMap: Record<StandType, keyof typeof StandColorsMap>
   premium: 'premium',
   standard: 'normal1',
   mini: 'small1',
+  c: 'normal3',
   other: 'taken'
 };
 
@@ -39,7 +41,8 @@ interface EditorProviderProps {
 }
 
 export const EditorProvider = ({ children }: EditorProviderProps) => {
-  const [stands, setStands] = useLocalStorage<StandProps[]>('stands', []);
+  const [storedStands, setStands] = useLocalStorage<StandProps[]>('stands', []);
+  const stands = useMemo(() => storedStands.map(normalizeStandType), [storedStands]);
   const [currentStand, setCurrentStand] = useState<StandProps>(DefaultStand);
 
   const addStand = (stand: StandProps) => {

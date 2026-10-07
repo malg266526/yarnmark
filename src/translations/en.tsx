@@ -252,15 +252,15 @@ export const en: TranslationsShape = {
       organisationInfo: 'Below a bit of organisational information for you.',
       hallInfo: {
         title: 'Hall',
-        area: 'We have an area of <strong>1142 m2</strong> at our disposal.',
+        area: 'We have a hall of <strong>{{width}} × {{height}} m</strong>, an area of <strong>{{area}} m²</strong>, at our disposal.',
         openHours: 'Hall entrance in order to prepare the stand will be available at 5.00 AM. Porter will be there.',
         ramp: 'From parking lot straight to the hall leads a ramp, without need to use stairs or elevators.',
         participants:
           'Entrance for fair participants will be on the side of Foch street, where they will enter the main hall efective descent from which whole exhibition hall will be visible.',
         stands: 'There will be three types of spots in the hall:',
-        standPremium: '<strong>Premium 3x5.5m</strong>',
-        standardStand: '<strong>Standard 3x3,5m</strong>',
-        miniStand: '<strong>Mini 3x2m</strong>',
+        standPremium: '<strong>Premium 3 × 5.5 m</strong>',
+        standardStand: '<strong>Standard 3 × 3.5 m</strong>',
+        miniStand: '<strong>Mini 3 × 2 m</strong>',
         tables:
           'Premium spot includes 2 chairs and 2 tables 160x80cm. Standard spot includes 2 chairs and 2 tables 140x70cm, while a Mini spot includes 2 chairs  and 1 table 140x70cm',
         extensionCords: "Stands don't include extension cords, please bring your own",
@@ -1156,6 +1156,8 @@ export const en: TranslationsShape = {
       gridFooter: '{{width}}m width, {{height}}m height',
       generateJson: 'Generate JSON',
       clearAll: 'Clear All',
+      removeStand: 'Remove stand',
+      removeStandConfirm: 'Remove stand {{index}}? This cannot be undone.',
       clearAllConfirm: 'Remove all stands? This cannot be undone.',
       hallPresets: {
         hall2026: {
@@ -1184,17 +1186,62 @@ export const en: TranslationsShape = {
         heightLabel: 'Height:',
         colorLabel: 'Color:',
         selectColor: 'Select color',
-        update: 'Update',
+        saveChanges: 'Save changes',
+        cancel: 'Cancel',
         addStand: 'Add Stand',
         types: {
           premium: 'premium',
           mini: 'mini',
           standard: 'standard',
+          c: 'C',
           other: 'other'
         }
       },
+      layoutSummary: {
+        title: 'Layout summary',
+        columns: {
+          type: 'Type',
+          count: 'Stands',
+          countDifference: 'vs 2026',
+          area: 'm²',
+          areaDifference: 'm² vs 2026'
+        },
+        total: 'Total sellable',
+        hallUsage: 'Hall usage: {{percent}}% of {{hallArea}} m² (2026: {{baselinePercent}}% of {{baselineHallArea}} m²)'
+      },
+      finance: {
+        title: 'Financial summary',
+        columns: {
+          type: 'Type',
+          price: '2027 price (PLN)',
+          count: 'Stands',
+          revenue: 'Revenue',
+          revenueDifference: 'vs 2026'
+        },
+        priceLabel: '2027 price of a {{type}} stand',
+        total: 'Total',
+        baseline: '2026 revenue: {{revenue}} (2026 prices: premium {{premium}}, standard {{standard}}, mini {{mini}}).',
+        missingPrice: 'No price for: {{types}}. These stands are not included in the 2027 revenue.'
+      },
+      sectionGaps: {
+        toggle: 'Show distances between sections',
+        distance: '{{value}} m'
+      },
+      collisions: {
+        none: 'No overlapping stands',
+        count: 'Overlapping stands: {{count}}',
+        pair: '{{first}} × {{second}}',
+        showPair: 'Show stand {{first}} overlapping {{second}}'
+      },
       standList: {
-        remove: 'Remove'
+        remove: 'Remove',
+        searchLabel: 'Search stands',
+        searchPlaceholder: 'Search by index or vendor',
+        groupHeading: '{{type}} ({{count}})',
+        area: '{{value}} m²',
+        noVendor: 'no vendor',
+        noResults: 'No stands match the search.',
+        noStands: 'No stands on the plan.'
       }
     },
     adminUsersPage: {

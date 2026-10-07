@@ -251,15 +251,15 @@ export const pl = {
       organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was.',
       hallInfo: {
         title: 'Hala',
-        area: 'Mamy do dyspozycji powierzchnię <strong>1142m2</strong>.',
+        area: 'Mamy do dyspozycji halę o wymiarach <strong>{{width}} × {{height}} m</strong>, czyli powierzchnię <strong>{{area}} m²</strong>.',
         openHours: 'Wejście na halę w celu rozłożenia stoiska będzie możliwe od godz. 5:00.',
         ramp: 'Z parkingu prosto na halę prowadzi rampa, bez potrzeby korzystania ze schodów czy wind.',
         participants:
           'Wejście dla odwiedzających targi będzie znajdować się od ulicy Focha, gdzie do hali głównej udadzą się efektownym zejściem, z którego będzie widać całą halę wystawienniczą.',
         stands: 'Na hali będą trzy rodzaje stoisk:',
-        standPremium: '<strong>Premium 3x5.5m</strong>',
-        standardStand: '<strong>Standard 3x3,5m</strong>',
-        miniStand: '<strong>Mini 3x2m</strong>',
+        standPremium: '<strong>Premium 3 × 5,5 m</strong>',
+        standardStand: '<strong>Standard 3 × 3,5 m</strong>',
+        miniStand: '<strong>Mini 3 × 2 m</strong>',
         tables:
           'Stoisko premium posiada 2 krzesła oraz 2 stoły 160x80cm. Stoisko standard posiada 2 krzesła oraz 2 stoły 140x70cm, a stoisko Mini 2 krzesła oraz 1 stół 140x70cm',
         extensionCords: 'W skład stoiska NIE wchodzą przedłużacze, prosimy o posiadanie własnych.',
@@ -1156,6 +1156,8 @@ export const pl = {
       gridFooter: '{{width}}m szerokości, {{height}}m wysokości',
       generateJson: 'Generuj JSON',
       clearAll: 'Wyczyść wszystko',
+      removeStand: 'Usuń stoisko',
+      removeStandConfirm: 'Usunąć stoisko {{index}}? Tej operacji nie można cofnąć.',
       clearAllConfirm: 'Usunąć wszystkie stoiska? Tej operacji nie można cofnąć.',
       hallPresets: {
         hall2026: {
@@ -1184,17 +1186,63 @@ export const pl = {
         heightLabel: 'Wysokość:',
         colorLabel: 'Kolor:',
         selectColor: 'Wybierz kolor',
-        update: 'Aktualizuj',
+        saveChanges: 'Zapisz zmiany',
+        cancel: 'Anuluj',
         addStand: 'Dodaj stoisko',
         types: {
           premium: 'premium',
           mini: 'mini',
           standard: 'standard',
+          c: 'C',
           other: 'inne'
         }
       },
+      layoutSummary: {
+        title: 'Podsumowanie układu',
+        columns: {
+          type: 'Typ',
+          count: 'Stoiska',
+          countDifference: 'vs 2026',
+          area: 'm²',
+          areaDifference: 'm² vs 2026'
+        },
+        total: 'Razem do sprzedania',
+        hallUsage:
+          'Wykorzystanie hali: {{percent}}% z {{hallArea}} m² (2026: {{baselinePercent}}% z {{baselineHallArea}} m²)'
+      },
+      finance: {
+        title: 'Podsumowanie finansowe',
+        columns: {
+          type: 'Typ',
+          price: 'Cena 2027 (zł)',
+          count: 'Stoiska',
+          revenue: 'Przychód',
+          revenueDifference: 'vs 2026'
+        },
+        priceLabel: 'Cena stoiska {{type}} w 2027',
+        total: 'Razem',
+        baseline: 'Przychód 2026: {{revenue}} (ceny 2026: premium {{premium}}, standard {{standard}}, mini {{mini}}).',
+        missingPrice: 'Brak ceny dla: {{types}}. Te stoiska nie są wliczone w przychód 2027.'
+      },
+      sectionGaps: {
+        toggle: 'Pokaż odległości między sekcjami',
+        distance: '{{value}} m'
+      },
+      collisions: {
+        none: 'Brak nachodzących stoisk',
+        count: 'Nachodzące stoiska: {{count}}',
+        pair: '{{first}} × {{second}}',
+        showPair: 'Pokaż stoisko {{first}} nachodzące na {{second}}'
+      },
       standList: {
-        remove: 'Usuń'
+        remove: 'Usuń',
+        searchLabel: 'Szukaj stoiska',
+        searchPlaceholder: 'Szukaj po numerze lub wystawcy',
+        groupHeading: '{{type}} ({{count}})',
+        area: '{{value}} m²',
+        noVendor: 'bez wystawcy',
+        noResults: 'Brak stoisk pasujących do wyszukiwania.',
+        noStands: 'Brak stoisk na planie.'
       }
     },
     adminUsersPage: {

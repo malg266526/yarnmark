@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { RowIndexes } from './RowIndexes';
 import { StandInfo } from './StandInfo';
 import { StandForm } from './StandForm';
-import { useEditor } from './EditorContext';
+import { DefaultStand, useEditor } from './EditorContext';
 import { useMouseHandlers } from './utils/useMouseHandlers';
 import { useStandDrag } from './utils/useStandDrag';
 import { RedesignSpacings } from '../../styles/spacings';
@@ -13,6 +13,15 @@ import { CtaButton } from '../Button';
 import { ConfirmModal } from '../ConfirmModal';
 import { saveHallToFile } from './utils/saveHallToFile';
 import { useHallPresetImport } from './useHallPresetImport';
+import { useStandRemoval } from './useStandRemoval';
+import { getBoxOutlineRect, getStandOutlineRect } from './utils/standGeometryUtils';
+import { findStandCollisions } from './utils/standCollisionUtils';
+import { StandCollisionsSummary } from './StandCollisionsSummary';
+import { LayoutSummaryPanel } from './LayoutSummaryPanel';
+import { LayoutFinancePanel } from './LayoutFinancePanel';
+import { SectionGapsOverlay } from './SectionGapsOverlay';
+import { findSectionGaps } from './utils/sectionGapUtils';
+import { isExistingStand } from './utils/standSelectionUtils';
 import { HALL_PRESET_IDS } from './utils/hallPresets';
 import { StandList } from './StandList';
 import { ColIndexes } from './ColIndexes';
@@ -59,6 +68,14 @@ const HallSizeInfo = styled.div`
   font-weight: 700;
 `;
 
+const SectionGapsToggle = styled.label`
+  display: inline-flex;
+  align-items: center;
+  gap: ${RedesignSpacings.xs};
+  font-size: 0.875rem;
+  cursor: pointer;
+`;
+
 const GridScroller = styled.div`
   max-width: 100%;
   overflow-x: auto;
@@ -103,6 +120,35 @@ const GridContainer = styled.div`
   flex-direction: column;
   gap: ${GAP_PX}px;
   background: #ccc;
+  position: relative;
+`;
+
+const SelectionOutline = styled.div<{ left: number; top: number; width: number; height: number }>`
+  position: absolute;
+  left: ${({ left }) => left}px;
+  top: ${({ top }) => top}px;
+  width: ${({ width }) => width}px;
+  height: ${({ height }) => height}px;
+  box-sizing: border-box;
+  border: 4px solid #dc2626;
+  box-shadow:
+    inset 0 0 0 2px #fff,
+    0 0 0 2px #fff;
+  pointer-events: none;
+  z-index: 3;
+`;
+
+const CollisionOverlay = styled.div<{ left: number; top: number; width: number; height: number }>`
+  position: absolute;
+  left: ${({ left }) => left}px;
+  top: ${({ top }) => top}px;
+  width: ${({ width }) => width}px;
+  height: ${({ height }) => height}px;
+  box-sizing: border-box;
+  border: 2px solid #dc2626;
+  background: repeating-linear-gradient(45deg, rgba(220, 38, 38, 0.6) 0 4px, rgba(255, 255, 255, 0.4) 4px 8px);
+  pointer-events: none;
+  z-index: 2;
 `;
 
 const GridRow = styled.div`
@@ -200,11 +246,13 @@ export const Editor = () => {
   const { start, end, handleMouseDown, handleMouseEnter, handleMouseUp, handleClick, setStart, setEnd } =
     useMouseHandlers();
 
-  const { stands, currentStand, clearStands, replaceStands } = useEditor();
+  const { stands, currentStand, setCurrentStand, clearStands, replaceStands } = useEditor();
   const standDrag = useStandDrag();
   const gridContainerRef = useRef<HTMLDivElement | null>(null);
+  const selectionOutlineRef = useRef<HTMLDivElement | null>(null);
   const rowIndexesRef = useRef<HTMLDivElement | null>(null);
   const [isClearConfirmOpen, setIsClearConfirmOpen] = useState(false);
+  const [areSectionGapsVisible, setAreSectionGapsVisible] = useState(true);
 
   const handleImportStands = (importedStands: StandProps[]) => {
     replaceStands(importedStands);
@@ -213,6 +261,7 @@ export const Editor = () => {
   };
 
   const hallPresetImport = useHallPresetImport(handleImportStands);
+  const standRemoval = useStandRemoval();
 
   const handleClearAll = () => {
     clearStands();
@@ -238,12 +287,25 @@ export const Editor = () => {
 
   const isSelected = (row: number, col: number) => isWithinBox(row, col, start, end);
 
+  const selectedStand = effectiveStands.find((stand) => stand.id === currentStand.id) ?? null;
+  const selectionOutline = selectedStand ? getStandOutlineRect(selectedStand) : null;
+  const collisions = findStandCollisions(effectiveStands);
+  const sectionGaps = areSectionGapsVisible ? findSectionGaps(effectiveStands) : [];
+
   const handleCellMouseDown = (row: number, col: number) => {
     const stand = getStandAtCell(row, col);
 
-    if (isSelectedStand(stand)) {
+    if (stand) {
+      if (!isSelectedStand(stand)) {
+        setCurrentStand(stand);
+      }
+
       standDrag.beginDrag(stand, row, col);
       return;
+    }
+
+    if (isExistingStand(stands, currentStand)) {
+      setCurrentStand(DefaultStand);
     }
 
     handleMouseDown(row, col);
@@ -268,12 +330,16 @@ export const Editor = () => {
   };
 
   const handleCellClick = (row: number, col: number) => {
-    if (standDrag.consumeClickAfterDrag()) {
+    if (standDrag.consumeClickAfterDrag() || getStandAtCell(row, col)) {
       return;
     }
 
     handleClick(row, col, currentStand.width ?? 1, currentStand.height ?? 1);
   };
+
+  useEffect(() => {
+    selectionOutlineRef.current?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  }, [currentStand.id]);
 
   useEffect(() => {
     const gridElement = gridContainerRef.current;
@@ -303,6 +369,15 @@ export const Editor = () => {
         <HallSizeInfo>
           {t('editorPage.hallSize', { width: HALL_WIDTH_M, height: HALL_HEIGHT_M, cols: GRID_COLS, rows: GRID_ROWS })}
         </HallSizeInfo>
+        <StandCollisionsSummary collisions={collisions} onSelectStand={setCurrentStand} />
+        <SectionGapsToggle>
+          <input
+            type="checkbox"
+            checked={areSectionGapsVisible}
+            onChange={(event) => setAreSectionGapsVisible(event.target.checked)}
+          />
+          {t('editorPage.sectionGaps.toggle')}
+        </SectionGapsToggle>
         <GridScroller>
           <>
             <GridChrome>
@@ -372,6 +447,17 @@ export const Editor = () => {
                       })}
                     </GridRow>
                   ))}
+                  {collisions.map(({ first, second, overlap }) => (
+                    <CollisionOverlay
+                      key={`${first.id}-${second.id}`}
+                      data-collision-overlay
+                      {...getBoxOutlineRect(overlap)}
+                    />
+                  ))}
+                  <SectionGapsOverlay gaps={sectionGaps} />
+                  {selectionOutline ? (
+                    <SelectionOutline ref={selectionOutlineRef} data-selection-outline {...selectionOutline} />
+                  ) : null}
                 </GridContainer>
               </GridBody>
             </GridChrome>
@@ -381,7 +467,9 @@ export const Editor = () => {
       </GridSection>
       <StandDetailsContainer>
         <StandInfo start={start} end={end} />
-        <StandForm start={start} end={end} />
+        <StandForm start={start} end={end} onRemoveStand={standRemoval.requestRemove} />
+        <LayoutSummaryPanel />
+        <LayoutFinancePanel />
 
         <CtaButton type="submit" onClick={() => saveHallToFile(stands)}>
           {t('editorPage.generateJson')}
@@ -394,7 +482,7 @@ export const Editor = () => {
         <ClearAllButton type="button" onClick={() => setIsClearConfirmOpen(true)}>
           {t('editorPage.clearAll')}
         </ClearAllButton>
-        <StandList />
+        <StandList onRemoveStand={standRemoval.requestRemove} />
       </StandDetailsContainer>
 
       <ConfirmModal
@@ -404,6 +492,15 @@ export const Editor = () => {
         variant="danger"
         onConfirm={handleClearAll}
         onCancel={() => setIsClearConfirmOpen(false)}
+      />
+
+      <ConfirmModal
+        isOpen={standRemoval.pendingStand !== null}
+        message={t('editorPage.removeStandConfirm', { index: standRemoval.pendingStand?.index ?? '' })}
+        confirmLabel={t('editorPage.removeStand')}
+        variant="danger"
+        onConfirm={standRemoval.confirmRemove}
+        onCancel={standRemoval.cancelRemove}
       />
 
       <ConfirmModal

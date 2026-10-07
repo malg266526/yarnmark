@@ -152,3 +152,12 @@ tabular-nums`.
 - Do not stop at a passing `test` run if `lint` or `typecheck` still report errors or warnings in touched code.
 - Treat ESLint warnings in touched files as work to fix, not as acceptable leftovers.
 - Before declaring done, review your own `git diff` and confirm every changed file is intentional and in scope. Remove stray debug and unrelated edits.
+
+## Change Summaries
+
+- End every summary of a code change with these three numbered lines:
+  1. **What was added** — the new functionality, in one sentence.
+  2. **How to test it in the browser** — concrete clickable steps (route, element, expected result), never "check that it works".
+  3. **Whether a unit test exists** — yes, with the test file name, or no, with the reason.
+- This applies to small fixes and to each step of a larger plan, not only to finished features.
+- For changes with no UI (utils, config, tooling), say so explicitly in line 2 and give the check to run instead.

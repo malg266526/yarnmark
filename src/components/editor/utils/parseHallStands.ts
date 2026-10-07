@@ -11,7 +11,7 @@ const hallStandSchema = z.object({
   index: z.string(),
   vendor: z.string().nullish(),
   description: z.string().nullish(),
-  type: z.enum(['premium', 'mini', 'standard', 'other']),
+  type: z.enum(['premium', 'mini', 'standard', 'c', 'other']),
   width: z.number().nullish(),
   height: z.number().nullish(),
   color: z.enum(standColorKeys).nullish(),

@@ -20,6 +20,7 @@ test('isCustomStandIndex recognises C stands regardless of case and whitespace',
 test('getSuggestedStandColor gives C stands their own color', () => {
   assert.equal(getSuggestedStandColor({ index: 'c3', type: 'standard' }, []), 'normal3');
   assert.equal(getSuggestedStandColor({ index: 'C4', type: 'mini' }, []), 'normal3');
+  assert.equal(getSuggestedStandColor({ index: 'X1', type: 'c' }, []), 'normal3');
 });
 
 test('getSuggestedStandColor starts with the first shade when no stand of the type exists', () => {

@@ -65,6 +65,21 @@ test('parseHallStands accepts generated JSON with nulls and adds missing ids', (
   assert.equal(stands?.[0].start, undefined);
 });
 
+test('parseHallStands accepts C stands', () => {
+  const stands = parseHallStands(
+    [{ index: 'C1', type: 'c', start: { row: 0, col: 0 }, end: { row: 5, col: 5 } }],
+    createFixedId
+  );
+
+  assert.equal(stands?.[0].type, 'c');
+});
+
+test('parseHallStands keeps the saved type of stands numbered with C', () => {
+  const stands = parseHallStands([{ index: 'C1', type: 'standard' }], createFixedId);
+
+  assert.equal(stands?.[0].type, 'standard');
+});
+
 test('parseHallStands returns null when the data is not a list of stands', () => {
   assert.equal(parseHallStands({ index: 'S1' }), null);
   assert.equal(parseHallStands([{ index: 'S1', type: 'unknown' }]), null);
