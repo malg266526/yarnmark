@@ -14,7 +14,9 @@ import { ConfirmModal } from '../ConfirmModal';
 import { saveHallToFile } from './utils/saveHallToFile';
 import { useHallPresetImport } from './useHallPresetImport';
 import { useStandRemoval } from './useStandRemoval';
-import { getStandOutlineRect } from './utils/standGeometryUtils';
+import { getBoxOutlineRect, getStandOutlineRect } from './utils/standGeometryUtils';
+import { findStandCollisions } from './utils/standCollisionUtils';
+import { StandCollisionsSummary } from './StandCollisionsSummary';
 import { isExistingStand } from './utils/standSelectionUtils';
 import { HALL_PRESET_IDS } from './utils/hallPresets';
 import { StandList } from './StandList';
@@ -122,6 +124,19 @@ const SelectionOutline = styled.div<{ left: number; top: number; width: number; 
     0 0 0 2px #fff;
   pointer-events: none;
   z-index: 3;
+`;
+
+const CollisionOverlay = styled.div<{ left: number; top: number; width: number; height: number }>`
+  position: absolute;
+  left: ${({ left }) => left}px;
+  top: ${({ top }) => top}px;
+  width: ${({ width }) => width}px;
+  height: ${({ height }) => height}px;
+  box-sizing: border-box;
+  border: 2px solid #dc2626;
+  background: repeating-linear-gradient(45deg, rgba(220, 38, 38, 0.6) 0 4px, rgba(255, 255, 255, 0.4) 4px 8px);
+  pointer-events: none;
+  z-index: 2;
 `;
 
 const GridRow = styled.div`
@@ -261,6 +276,7 @@ export const Editor = () => {
 
   const selectedStand = effectiveStands.find((stand) => stand.id === currentStand.id) ?? null;
   const selectionOutline = selectedStand ? getStandOutlineRect(selectedStand) : null;
+  const collisions = findStandCollisions(effectiveStands);
 
   const handleCellMouseDown = (row: number, col: number) => {
     const stand = getStandAtCell(row, col);
@@ -339,6 +355,7 @@ export const Editor = () => {
         <HallSizeInfo>
           {t('editorPage.hallSize', { width: HALL_WIDTH_M, height: HALL_HEIGHT_M, cols: GRID_COLS, rows: GRID_ROWS })}
         </HallSizeInfo>
+        <StandCollisionsSummary collisions={collisions} onSelectStand={setCurrentStand} />
         <GridScroller>
           <>
             <GridChrome>
@@ -407,6 +424,13 @@ export const Editor = () => {
                         );
                       })}
                     </GridRow>
+                  ))}
+                  {collisions.map(({ first, second, overlap }) => (
+                    <CollisionOverlay
+                      key={`${first.id}-${second.id}`}
+                      data-collision-overlay
+                      {...getBoxOutlineRect(overlap)}
+                    />
                   ))}
                   {selectionOutline ? (
                     <SelectionOutline ref={selectionOutlineRef} data-selection-outline {...selectionOutline} />

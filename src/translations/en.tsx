@@ -1196,6 +1196,12 @@ export const en: TranslationsShape = {
           other: 'other'
         }
       },
+      collisions: {
+        none: 'No overlapping stands',
+        count: 'Overlapping stands: {{count}}',
+        pair: '{{first}} × {{second}}',
+        showPair: 'Show stand {{first}} overlapping {{second}}'
+      },
       standList: {
         remove: 'Remove',
         searchLabel: 'Search stands',

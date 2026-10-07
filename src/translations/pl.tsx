@@ -1196,6 +1196,12 @@ export const pl = {
           other: 'inne'
         }
       },
+      collisions: {
+        none: 'Brak nachodzących stoisk',
+        count: 'Nachodzące stoiska: {{count}}',
+        pair: '{{first}} × {{second}}',
+        showPair: 'Pokaż stoisko {{first}} nachodzące na {{second}}'
+      },
       standList: {
         remove: 'Usuń',
         searchLabel: 'Szukaj stoiska',

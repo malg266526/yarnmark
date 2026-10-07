@@ -35,13 +35,9 @@ export const resizeStand = (stand: StandProps, widthM: number, heightM: number):
   return { ...stand, width: widthM, height: heightM, start: box.start, end: box.end };
 };
 
-export const getStandOutlineRect = (stand: StandProps): StandOutlineRect | null => {
-  if (!stand.start || !stand.end) {
-    return null;
-  }
-
-  const origin = getStandOrigin(stand.start, stand.end);
-  const size = getStandBoxSize(stand.start, stand.end);
+export const getBoxOutlineRect = ({ start, end }: StandBox): StandOutlineRect => {
+  const origin = getStandOrigin(start, end);
+  const size = getStandBoxSize(start, end);
 
   return {
     left: origin.col * ROW_PITCH_PX,
@@ -49,6 +45,14 @@ export const getStandOutlineRect = (stand: StandProps): StandOutlineRect | null 
     width: size.cols * ROW_PITCH_PX - GAP_PX,
     height: size.rows * ROW_PITCH_PX - GAP_PX
   };
+};
+
+export const getStandOutlineRect = (stand: StandProps): StandOutlineRect | null => {
+  if (!stand.start || !stand.end) {
+    return null;
+  }
+
+  return getBoxOutlineRect({ start: stand.start, end: stand.end });
 };
 
 export const resizeStandToDeclaredSize = (stand: StandProps): StandProps =>

@@ -2,7 +2,7 @@
 
 Dokument zbiera diagnozę obecnego edytora hali (`/admin/editor`), ocenę powiązanych obszarów (strona dla wystawców, formularz zgłoszeniowy, panel administratora) oraz uszeregowany plan wdrożenia.
 
-**Status dokumentu:** plan przyjęty, Etap 1 w przygotowaniu.
+**Status dokumentu:** Etap 1 zrobiony. Od 2026-10-07 obowiązują priorytety z §7.1 (nowy układ stoisk na wieczór).
 
 Analiza powstała z lektury kodu i danych w repozytorium. Wnioski oznaczone jako **niezweryfikowane** nie zostały potwierdzone pomiarem w działającej aplikacji. Czasy są zgrubne (roboczogodziny/dni), zakładają jednego dewelopera i nie uwzględniają ustalania kontraktu z backendem.
 
@@ -10,11 +10,12 @@ Analiza powstała z lektury kodu i danych w repozytorium. Wnioski oznaczone jako
 
 ## 1. Decyzje podjęte
 
-| Decyzja                                                | Wybór                                  | Konsekwencja                                                                                                                                                        |
-| :----------------------------------------------------- | :------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Źródło prawdy dla układu                               | **Na razie `localStorage` + eksport**  | Rozjazd danych między edytorem a stroną wystawców pozostaje; publikacja zmian nadal wymaga ręcznego skopiowania JSON-a, commita i builda. Do rewizji przy Etapie 3. |
-| Pierwszy etap wdrożenia                                | **Etap 1 — naprawa edycji i usuwania** | Brak zależności od backendu, najszybciej odczuwalna zmiana.                                                                                                         |
-| Zachowanie przy powiększeniu stoiska poza krawędź hali | **Przycięcie pozycji do hali**         | Spójne z istniejącym `clampStandOriginToHall`.                                                                                                                      |
+| Decyzja                                                | Wybór                                    | Konsekwencja                                                                                                                                                        |
+| :----------------------------------------------------- | :--------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Źródło prawdy dla układu                               | **Na razie `localStorage` + eksport**    | Rozjazd danych między edytorem a stroną wystawców pozostaje; publikacja zmian nadal wymaga ręcznego skopiowania JSON-a, commita i builda. Do rewizji przy Etapie 3. |
+| Pierwszy etap wdrożenia                                | **Etap 1 — naprawa edycji i usuwania**   | Brak zależności od backendu, najszybciej odczuwalna zmiana.                                                                                                         |
+| Zachowanie przy powiększeniu stoiska poza krawędź hali | **Przycięcie pozycji do hali**           | Spójne z istniejącym `clampStandOriginToHall`.                                                                                                                      |
+| Przekazywanie propozycji układu (2026-10-07)           | **Plik JSON w repozytorium jako preset** | Eksport `Generuj JSON` → podmiana pliku w `docs/` → deploy → druga osoba klika przycisk presetu. Bez wgrywania pliku z dysku i bez backendu.                        |
 
 ---
 
@@ -149,11 +150,21 @@ Wzór na przychód:
 ### 6.1 Model danych (Etap 3+)
 
 ```ts
-HallLayout {
-  editionYear, name, status: 'draft' | 'published',
-  hall: { widthM, heightM, gridSizeM },
-  standTypes: [{ id, label, widthM, heightM, price }],
-  stands: [{ id, index, typeId, origin: { row, col }, isHorizontal, vendorId?, description? }]
+interface HallLayout {
+  editionYear: number;
+  name: string;
+  status: 'draft' | 'published';
+  hall: { widthM: number; heightM: number; gridSizeM: number };
+  standTypes: { id: string; label: string; widthM: number; heightM: number; price: number }[];
+  stands: {
+    id: string;
+    index: string;
+    typeId: string;
+    origin: { row: number; col: number };
+    isHorizontal: boolean;
+    vendorId?: string;
+    description?: string;
+  }[];
 }
 ```
 
@@ -221,6 +232,21 @@ Każdy etap wymaga osobnej akceptacji i sam w sobie daje wartość.
 | 7   | Ekran Przydziały + zapisywana kaskada + dwa stoiska na wystawcę | realny proces przydziału                                                            | 3–4 dni    | ⬜ niezaczęte      |
 | 8   | Podłączenie „High Interest" i dostępności na żywo do formularza | wystawca widzi ryzyko i zajętość                                                    | 1 dzień    | ⬜ niezaczęte      |
 | 9   | Przeniesienie edytora do `pages/admin/editor/` + testy widoku   | zgodność ze strukturą projektu                                                      | 0,5–1 dnia | ⬜ niezaczęte      |
+
+### 7.1 Priorytety na 2026-10-07 — nowy układ stoisk na wieczór
+
+Edytor zostaje bez backendu, zmiany są tylko lokalne (`localStorage`). Gotowa propozycja trafia do repozytorium jako preset i jest wdrażana przed wysłaniem drugiej osobie.
+
+| Prio     | Zadanie                                                                                                                         | Szac.  | Status        |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------ | :----- | :------------ |
+| P0       | Wykrywanie kolizji: podświetlenie nakładających się stoisk i licznik nad siatką (część Etapu 2)                                 | 1–2 h  | ✅ zrobione   |
+| P0       | Podsumowanie układu: liczba stoisk per typ, m² sprzedawalne, wykorzystanie hali (część Etapu 2)                                 | ~1 h   | ⬜ niezaczęte |
+| P1       | Publikacja propozycji: wyeksportowany JSON zastępuje `docs/hall-2027-proposal.json` (lub trafia jako nowy preset), potem deploy | 15 min | ⬜ niezaczęte |
+| Odłożone | Wgrywanie pliku z dysku, Etapy 3–9, usunięcie logów debugowych                                                                  | —      | —             |
+
+**Krok P0.1 — wykrywanie kolizji.** Czysty `utils/standCollisionUtils.ts` (`findStandCollisions`) zwraca każdą parę nachodzących stoisk raz, razem z prostokątem części wspólnej; stoiska bez współrzędnych są pomijane (5 testów). Na siatce część wspólna ma czerwoną kreskowaną nakładkę, a nad siatką pasek pokazuje „Brak nachodzących stoisk” albo licznik i pigułki `S1 × S2` — klik w pigułkę zaznacza pierwsze stoisko i przewija do niego. Kolizje liczą się na podglądzie przeciągania, więc znikają i pojawiają się na żywo. Oba gotowe układy (2026 i propozycja 2027) nie mają kolizji.
+
+Weryfikacja w przeglądarce (headless Chromium, dev server na 8090): nakładka na części wspólnej `S1`/`S2` ma 570, 386, 33 × 33 px, co odpowiada kratkom 4/5–5/6 co do piksela; klik w pigułkę zaznaczył `S1`; przeciągnięcie `S2` w dół zmieniło pasek na „Brak nachodzących stoisk”; pasek ma 50 px w obu stanach, więc siatka nie przeskakuje (lewy górny róg kratki 0/0 na 485, 318 przed i po). Zero błędów w konsoli.
 
 Etapy 3 i 4 wymagają backendu albo świadomej decyzji o pozostaniu przy JSON w repozytorium. Etapy 1, 2, 5, 6 i 9 są wykonalne w całości na froncie.
 
