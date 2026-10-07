@@ -1206,7 +1206,8 @@ export const pl = {
           areaDifference: 'm² vs 2026'
         },
         total: 'Razem do sprzedania',
-        hallUsage: 'Wykorzystanie hali: {{percent}}% z {{hallArea}} m² (2026: {{baselinePercent}}%)'
+        hallUsage:
+          'Wykorzystanie hali: {{percent}}% z {{hallArea}} m² (2026: {{baselinePercent}}% z {{baselineHallArea}} m²)'
       },
       collisions: {
         none: 'Brak nachodzących stoisk',

@@ -1,5 +1,5 @@
 import type { StandProps, StandType } from '../StandProps.ts';
-import { HALL_HEIGHT_M, HALL_WIDTH_M } from './hallGeometry.ts';
+import { HALL_2026_HEIGHT_M, HALL_HEIGHT_M, HALL_WIDTH_M } from './hallGeometry.ts';
 import { getStandAreaM2 } from './standListUtils.ts';
 
 export const SELLABLE_STAND_TYPES = ['premium', 'standard', 'mini'] as const satisfies readonly StandType[];
@@ -7,6 +7,7 @@ export const SELLABLE_STAND_TYPES = ['premium', 'standard', 'mini'] as const sat
 export type SellableStandType = (typeof SELLABLE_STAND_TYPES)[number];
 
 export const HALL_AREA_M2 = HALL_WIDTH_M * HALL_HEIGHT_M;
+export const HALL_2026_AREA_M2 = HALL_WIDTH_M * HALL_2026_HEIGHT_M;
 
 export interface StandTypeTotals {
   count: number;
@@ -16,6 +17,7 @@ export interface StandTypeTotals {
 export interface LayoutSummary {
   byType: Record<SellableStandType, StandTypeTotals>;
   sellable: StandTypeTotals;
+  hallAreaM2: number;
   hallUsagePercent: number;
 }
 
@@ -30,14 +32,14 @@ const sumTotals = (stands: readonly StandProps[]): StandTypeTotals =>
     EMPTY_TOTALS
   );
 
-export const summarizeLayout = (stands: readonly StandProps[]): LayoutSummary => {
+export const summarizeLayout = (stands: readonly StandProps[], hallAreaM2: number = HALL_AREA_M2): LayoutSummary => {
   const sellableStands = stands.filter((stand) => isSellableStandType(stand.type));
   const sellable = sumTotals(sellableStands);
   const byType = Object.fromEntries(
     SELLABLE_STAND_TYPES.map((type) => [type, sumTotals(sellableStands.filter((stand) => stand.type === type))])
   ) as Record<SellableStandType, StandTypeTotals>;
 
-  return { byType, sellable, hallUsagePercent: (sellable.areaM2 / HALL_AREA_M2) * 100 };
+  return { byType, sellable, hallAreaM2, hallUsagePercent: (sellable.areaM2 / hallAreaM2) * 100 };
 };
 
 export const formatSignedDifference = (value: number, locale: string, maximumFractionDigits = 1): string => {

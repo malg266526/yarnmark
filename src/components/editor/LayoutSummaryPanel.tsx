@@ -4,7 +4,6 @@ import { RedesignSpacings } from '../../styles/spacings';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { useLayoutSummary } from './useLayoutSummary';
 import {
-  HALL_AREA_M2,
   SELLABLE_STAND_TYPES,
   formatDecimal,
   formatSignedDifference,
@@ -132,8 +131,9 @@ export const LayoutSummaryPanel = () => {
       <HallUsage>
         {t('editorPage.layoutSummary.hallUsage', {
           percent: formatDecimal(current.hallUsagePercent, locale),
-          hallArea: formatDecimal(HALL_AREA_M2, locale),
-          baselinePercent: formatDecimal(baseline.hallUsagePercent, locale)
+          hallArea: formatDecimal(current.hallAreaM2, locale),
+          baselinePercent: formatDecimal(baseline.hallUsagePercent, locale),
+          baselineHallArea: formatDecimal(baseline.hallAreaM2, locale)
         })}
       </HallUsage>
     </Panel>

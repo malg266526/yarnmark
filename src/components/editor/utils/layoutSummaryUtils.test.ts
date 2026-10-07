@@ -1,6 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { HALL_AREA_M2, formatDecimal, formatSignedDifference, summarizeLayout } from './layoutSummaryUtils.ts';
+import {
+  HALL_2026_AREA_M2,
+  HALL_AREA_M2,
+  formatDecimal,
+  formatSignedDifference,
+  summarizeLayout
+} from './layoutSummaryUtils.ts';
 import type { StandProps } from '../StandProps.ts';
 
 const createStand = (stand: Partial<StandProps> = {}): StandProps => ({
@@ -24,6 +30,7 @@ test('summarizeLayout counts sellable stands per type and measures them on the g
     mini: { count: 1, areaM2: 6 }
   });
   assert.deepEqual(summary.sellable, { count: 4, areaM2: 43.5 });
+  assert.equal(summary.hallAreaM2, HALL_AREA_M2);
   assert.equal(summary.hallUsagePercent, (43.5 / HALL_AREA_M2) * 100);
 });
 
@@ -34,6 +41,17 @@ test('summarizeLayout leaves technical stands out of the sellable totals', () =>
 
   assert.deepEqual(summary.sellable, { count: 0, areaM2: 0 });
   assert.equal(summary.hallUsagePercent, 0);
+});
+
+test('summarizeLayout measures hall usage against the given hall area', () => {
+  const summary = summarizeLayout(
+    [createStand({ start: { row: 0, col: 0 }, end: { row: 6, col: 5 } })],
+    HALL_2026_AREA_M2
+  );
+
+  assert.equal(HALL_2026_AREA_M2, 1144);
+  assert.equal(summary.hallAreaM2, 1144);
+  assert.equal(summary.hallUsagePercent, (10.5 / 1144) * 100);
 });
 
 test('formatSignedDifference prefixes the sign and hides rounding noise', () => {

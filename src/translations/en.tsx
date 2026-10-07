@@ -1206,7 +1206,7 @@ export const en: TranslationsShape = {
           areaDifference: 'm² vs 2026'
         },
         total: 'Total sellable',
-        hallUsage: 'Hall usage: {{percent}}% of {{hallArea}} m² (2026: {{baselinePercent}}%)'
+        hallUsage: 'Hall usage: {{percent}}% of {{hallArea}} m² (2026: {{baselinePercent}}% of {{baselineHallArea}} m²)'
       },
       collisions: {
         none: 'No overlapping stands',

@@ -57,7 +57,7 @@ Układ żyje dziś w pięciu niezależnych miejscach:
 
 Do tego przydziały stoisk żyją w zewnętrznym API jako `allocatedStandId` na zgłoszeniu.
 
-**Dane już się rozjechały:** `src/assets/hall.json` i `docs/hall-2026.json` mają te same 52 stoiska o tych samych `id` i indeksach, ale **44 z 52 stoisk mają inne współrzędne** (np. `S17`: rząd 50 vs 56). Edytor edytuje inny układ niż ten, który widzą wystawcy.
+**Dane już się rozjechały** (dla presetu 2026 rozwiązane 2026-10-07, p. 7.1 krok P0.2b)**:** `src/assets/hall.json` i `docs/hall-2026.json` mają te same 52 stoiska o tych samych `id` i indeksach, ale **44 z 52 stoisk mają inne współrzędne** (np. `S17`: rząd 50 vs 56). Edytor edytuje inny układ niż ten, który widzą wystawcy.
 
 Komentarz w `vendorFormStandIds.ts:1-4` („Hand-typed snapshot of hall.json. Keep in sync when hall.json changes") zapowiada kolejne rozjazdy.
 
@@ -254,6 +254,10 @@ Weryfikacja w przeglądarce: pusty edytor pokazuje 0 stoisk i różnice −5/−
 
 **Poprawka poboczna — `StandList.tsx`.** Inspekcja WebStorma zgłaszała błąd CSS przy pierwszej interpolacji po deklaracji `transition` w `StandItem`; przeniesienie `transition` na koniec szablonu usuwa błąd bez zmiany działania. Inspekcja `src/components/editor`, `src/translations` i `docs` po zmianach: 0 błędów.
 
+**Krok P0.2a — wymiary hali 2026 vs 2027.** W 2026 hala miała 26 × 44 m, w 2027 ma 26 × 46 m. Punkt odniesienia w podsumowaniu liczy teraz wykorzystanie hali 2026 względem 1144 m² (`HALL_2026_AREA_M2`), a nie 1196 m²; `summarizeLayout` przyjmuje powierzchnię hali jako parametr. Wynik dla 2026: 43,8 % z 1144 m² (wcześniej błędnie 41,9 %). Propozycja 2027: 44,6 % z 1196 m².
+
+**Krok P0.2b — preset „Mapa 2026” = prawdziwy układ 2026.** `docs/hall-2026.json` był przesunięty pod halę 46 m (dolny rząd w kratkach 86–91) i różnił się współrzędnymi od układu widzianego przez wystawców (p. 2.D). Zastąpiony kopią `src/assets/hall.json` — 52 stoiska o tych samych numerach, z wystawcami, mieszczące się w 44 m (ostatnia kratka 87), bez kolizji. Podsumowanie dla 2026: 5/36/7 = 48 stoisk, 504 m², 44,1 % z 1144 m² — zgodnie z §4.2 (wcześniejsze 501 m² wynikało z przesuniętego presetu). Propozycja 2027 względem 2026: +5 stoisk, +30 m². Po wczytaniu mapy 2026 w edytorze (siatka 46 m) dolne 2 m hali są puste — to oczekiwane.
+
 Etapy 3 i 4 wymagają backendu albo świadomej decyzji o pozostaniu przy JSON w repozytorium. Etapy 1, 2, 5, 6 i 9 są wykonalne w całości na froncie.
 
 ---
@@ -319,7 +323,7 @@ Weryfikacja w przeglądarce na prawdziwym presecie 2026 (52 stoiska): nagłówki
 ## 9. Otwarte pytania
 
 - [ ] **Ceny stoisk** — Premium / Standard / Mini za 2026 oraz ewentualne zmiany na 2027. Blokuje Etap 5.
-- [ ] **Powierzchnia hali** — 1196 m² (26 × 46 z kodu) czy 1142 m² (treść strony)?
+- [x] **Powierzchnia hali** — rozstrzygnięte 2026-10-07: w 2026 hala miała 26 × 44 m (≈ 1142–1144 m², stąd tekst na stronie), w 2027 ma 26 × 46 m = 1196 m². Edytor pracuje na wymiarach 2027 (`HALL_HEIGHT_M`), wymiar 2026 jest w `HALL_2026_HEIGHT_M`.
 - [ ] **Backend dla układu hali** — czy powstanie, czy zostajemy przy JSON w repozytorium? Blokuje Etapy 3 i 4.
 - [ ] **Ograniczenia hali** — minimalna szerokość alejki, wyjścia ewakuacyjne, słupy, rampa. Potrzebne do walidacji układu i liczenia optymalnego rozstawienia.
 - [ ] **Logi debugowe** (p. 2.G) — usunąć przy okazji Etapu 1 czy zostawić? Kod jest wcześniejszy niż ten plan, więc czeka na decyzję.
