@@ -126,6 +126,12 @@ test('parseVendorApplications preserves many-to-many assignments and deduplicate
   );
 });
 
+test('parseVendorApplications treats null assigned stands from the backend as no assignments', () => {
+  const application = { ...createVendorApplicationPayload(), assignedStands: null };
+
+  assert.deepEqual(parseVendorApplications([application])[0].assignedStands, []);
+});
+
 test('parseVendorApplications maps a legacy single allocated stand and hall ids to stand indexes', () => {
   const withoutAssignedStands: Partial<ReturnType<typeof createVendorApplicationPayload>> =
     createVendorApplicationPayload();

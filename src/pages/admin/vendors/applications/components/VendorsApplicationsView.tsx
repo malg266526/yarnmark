@@ -193,6 +193,14 @@ export const VendorsApplicationsView = ({
           simulationDescription={t('vendorsApplicationsPage.cascadeAlgorithm.simulationDescription')}
           exportLabel={t('vendorsApplicationsPage.cascadeAlgorithm.export')}
           emptyLabel={t('vendorsApplicationsPage.cascadeAlgorithm.empty')}
+          resolveEmptyExplanation={({ acceptedCount, acceptedWithStandsCount }) =>
+            acceptedCount === 0
+              ? t('vendorsApplicationsPage.cascadeAlgorithm.emptyNoAccepted')
+              : t('vendorsApplicationsPage.cascadeAlgorithm.emptyAllAssigned', {
+                  accepted: acceptedCount,
+                  assigned: acceptedWithStandsCount
+                })
+          }
           exportLabels={{
             applicationId: t('vendorsApplicationsPage.cascadeAlgorithm.exportColumns.applicationId'),
             storeName: t('vendorsApplicationsPage.cascadeAlgorithm.exportColumns.storeName'),

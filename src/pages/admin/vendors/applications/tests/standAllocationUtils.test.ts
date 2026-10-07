@@ -5,7 +5,8 @@ import {
   getAcceptedApplicationsSortedBySubmittedAt,
   getCascadeChoiceReservations,
   getCascadeManualNegotiationReservations,
-  sortApplicationsBySubmittedAt
+  sortApplicationsBySubmittedAt,
+  summarizeCascadeEligibility
 } from '../utils/standAllocationUtils.ts';
 import { getBaseApplication } from './vendorApplicationFixture.ts';
 
@@ -173,4 +174,19 @@ test('cascade reserves all saved stands regardless of status and skips already a
     ]
   );
   assert.deepEqual(applications, snapshot);
+});
+
+test('summarizeCascadeEligibility explains why the cascade has no candidates', () => {
+  const applications: VendorApplication[] = [
+    { ...getBaseApplication(), id: 'free', status: 'accepted', assignedStands: [] },
+    { ...getBaseApplication(), id: 'assigned', status: 'accepted', assignedStands: ['S1'] },
+    { ...getBaseApplication(), id: 'pending', status: 'pending', assignedStands: [] },
+    { ...getBaseApplication(), id: 'done', status: 'stand-assigned', assignedStands: ['S2'] }
+  ];
+
+  assert.deepEqual(summarizeCascadeEligibility(applications), {
+    acceptedCount: 2,
+    acceptedWithStandsCount: 1,
+    eligibleCount: 1
+  });
 });

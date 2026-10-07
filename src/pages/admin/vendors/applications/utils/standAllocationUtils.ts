@@ -63,3 +63,20 @@ export const getCascadeChoiceReservations = (applications: VendorApplication[]):
 
 export const getCascadeManualNegotiationReservations = (applications: VendorApplication[]) =>
   getCascadeChoiceReservations(applications).filter(({ reservedStandId }) => reservedStandId === null);
+
+export interface CascadeEligibilitySummary {
+  acceptedCount: number;
+  acceptedWithStandsCount: number;
+  eligibleCount: number;
+}
+
+export const summarizeCascadeEligibility = (applications: VendorApplication[]): CascadeEligibilitySummary => {
+  const acceptedApplications = applications.filter(({ status }) => status === 'accepted');
+  const acceptedWithStandsCount = acceptedApplications.filter(({ assignedStands }) => assignedStands.length > 0).length;
+
+  return {
+    acceptedCount: acceptedApplications.length,
+    acceptedWithStandsCount,
+    eligibleCount: acceptedApplications.length - acceptedWithStandsCount
+  };
+};

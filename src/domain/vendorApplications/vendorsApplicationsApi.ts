@@ -40,7 +40,7 @@ const vendorApplicationRecordSchema = vendorFormStateSchema
       .optional()
       .transform((allocationIteration) => allocationIteration ?? null),
     allocationState: vendorApplicationAllocationStateSchema,
-    assignedStands: z.array(z.string()).optional(),
+    assignedStands: z.array(z.string()).nullable().optional(),
     id: z.string(),
     logoUrl: z
       .string()

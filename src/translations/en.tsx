@@ -620,6 +620,10 @@ export const en: TranslationsShape = {
           'Proposals cover accepted applications without an assignment. Saved assignments are preserved and their stands excluded from the simulation regardless of application status. Exporting does not save changes in the panel.',
         export: 'Export proposal (CSV)',
         empty: 'No accepted applications without an assigned stand.',
+        emptyNoAccepted:
+          'No application has the “accepted” status. The cascade only considers accepted vendors — set that status in the list or cards.',
+        emptyAllAssigned:
+          'Accepted applications: {{accepted}}, and all of them ({{assigned}}) already have a stand. The cascade skips assigned applications — clear the assignment in the details to include them again.',
         proposedStand: 'Proposed stand',
         exportColumns: {
           applicationId: 'Application ID',

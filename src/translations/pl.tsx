@@ -619,6 +619,10 @@ export const pl = {
           'Propozycje dotyczą zaakceptowanych zgłoszeń bez przydziału. Zapisane przydziały są zachowane, a ich stoiska wyłączone z symulacji niezależnie od statusu zgłoszenia. Eksport nie zapisuje zmian w panelu.',
         export: 'Eksportuj propozycję (CSV)',
         empty: 'Brak zaakceptowanych zgłoszeń bez przydzielonego stoiska.',
+        emptyNoAccepted:
+          'Żadne zgłoszenie nie ma statusu „zaakceptowane”. Kaskada bierze pod uwagę tylko zaakceptowanych wystawców — ustaw ten status w liście lub kartach.',
+        emptyAllAssigned:
+          'Zaakceptowanych zgłoszeń: {{accepted}}, z czego wszystkie ({{assigned}}) mają już przydzielone stoisko. Kaskada pomija zgłoszenia z przydziałem — zdejmij przydział w szczegółach, jeśli chcesz je przeliczyć.',
         proposedStand: 'Proponowane stoisko',
         exportColumns: {
           applicationId: 'ID zgłoszenia',

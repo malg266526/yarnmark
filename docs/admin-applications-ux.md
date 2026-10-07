@@ -1,6 +1,6 @@
 # Panel admina — TODO
 
-1. [ ] **P1.10:** ustalić kontrakt API i dodać zatwierdzanie przydziałów (`suggested` → `confirmed`).
+1. [ ] **P1.10:** dodać zatwierdzanie propozycji kaskady przez istniejący PATCH: `assignedStands` + `status: stand-assigned`.
 2. [ ] **P1.11:** dodać notatki i historię zmian w drawerze: kto, kiedy, co zmienił (backend + UI).
 3. [ ] **P1.13:** powiązać zgłoszenia z `editionId` i przechowywać plan hali dla każdej edycji.
 4. [ ] **P2.16 + P2.19:** pokazać powód braku propozycji i alternatywy podobnego typu/metrażu, uwzględniając wszystkich wystawców współdzielących stoisko.

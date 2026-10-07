@@ -14,6 +14,7 @@ import {
   CascadeExportLink
 } from '../VendorsApplicationsPage.styled';
 import { formatDateTime } from '../utils/vendorsApplicationsFormatters';
+import { summarizeCascadeEligibility } from '../utils/standAllocationUtils';
 import { useCascadeProposal, CASCADE_PROPOSAL_FILE_NAME } from '../hooks/useCascadeProposal';
 import { VendorsApplicationsCascadeViewProps } from './vendorsApplicationsViewContracts';
 
@@ -22,6 +23,7 @@ export const VendorsApplicationsCascadeView = ({
   simulationDescription,
   exportLabel,
   emptyLabel,
+  resolveEmptyExplanation,
   exportLabels,
   algorithmSteps,
   algorithmTitle,
@@ -54,7 +56,6 @@ export const VendorsApplicationsCascadeView = ({
         </CascadeExportLink>
       </CascadeSimulationNotice>
       <AcceptedApplicationsQueue>
-        {reservedApplications.length === 0 ? <ApplicationsMeta>{emptyLabel}</ApplicationsMeta> : null}
         <AcceptedApplicationsQueueTitle>{algorithmTitle}</AcceptedApplicationsQueueTitle>
         <AcceptedApplicationsQueueDescription start={0}>
           {algorithmSteps.map((step) => (
@@ -63,29 +64,36 @@ export const VendorsApplicationsCascadeView = ({
         </AcceptedApplicationsQueueDescription>
       </AcceptedApplicationsQueue>
 
-      <AcceptedApplicationsQueue>
-        <ApplicationsStack>
-          {reservedApplications.map(({ application, reservedStandId }) => (
-            <ApplicationCard key={application.id}>
-              <ApplicationHeader>
-                <ApplicationTitle>{application.storeName}</ApplicationTitle>
-                <ApplicationsMetaRow>
-                  <ApplicationsMeta>{formatDateTime(application.submittedAt, locale)}</ApplicationsMeta>
-                  <ApplicationsMeta>
-                    {preferredStandsLabel}:{' '}
-                    {application.preferredStands.length > 0
-                      ? application.preferredStands.join(', ')
-                      : noneSelectedLabel}
-                  </ApplicationsMeta>
-                  <ApplicationsMeta>
-                    {allocatedStandLabel}: {reservedStandId ?? notAssignedLabel}
-                  </ApplicationsMeta>
-                </ApplicationsMetaRow>
-              </ApplicationHeader>
-            </ApplicationCard>
-          ))}
-        </ApplicationsStack>
-      </AcceptedApplicationsQueue>
+      {reservedApplications.length === 0 ? (
+        <AcceptedApplicationsQueue>
+          <AcceptedApplicationsQueueTitle>{emptyLabel}</AcceptedApplicationsQueueTitle>
+          <ApplicationsMeta>{resolveEmptyExplanation(summarizeCascadeEligibility(applications))}</ApplicationsMeta>
+        </AcceptedApplicationsQueue>
+      ) : (
+        <AcceptedApplicationsQueue>
+          <ApplicationsStack>
+            {reservedApplications.map(({ application, reservedStandId }) => (
+              <ApplicationCard key={application.id}>
+                <ApplicationHeader>
+                  <ApplicationTitle>{application.storeName}</ApplicationTitle>
+                  <ApplicationsMetaRow>
+                    <ApplicationsMeta>{formatDateTime(application.submittedAt, locale)}</ApplicationsMeta>
+                    <ApplicationsMeta>
+                      {preferredStandsLabel}:{' '}
+                      {application.preferredStands.length > 0
+                        ? application.preferredStands.join(', ')
+                        : noneSelectedLabel}
+                    </ApplicationsMeta>
+                    <ApplicationsMeta>
+                      {allocatedStandLabel}: {reservedStandId ?? notAssignedLabel}
+                    </ApplicationsMeta>
+                  </ApplicationsMetaRow>
+                </ApplicationHeader>
+              </ApplicationCard>
+            ))}
+          </ApplicationsStack>
+        </AcceptedApplicationsQueue>
+      )}
 
       {manualNegotiationApplications.length > 0 ? (
         <AcceptedApplicationsQueue>
