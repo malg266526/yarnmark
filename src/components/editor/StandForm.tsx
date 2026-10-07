@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Coordinate, StandColorsMap, StandProps } from './StandProps';
+import { Coordinate, StandColorsMap, StandProps, StandType } from './StandProps';
 import { Button, CtaButton } from '../Button';
 import { useEditor } from './EditorContext';
 import { useStandForm } from './useStandForm';
@@ -92,7 +92,7 @@ const ColorOption = styled.option<{ color?: string }>`
 
 const colorOptions = Object.keys(StandColorsMap) as (keyof typeof StandColorsMap)[];
 
-const StandTypes: Array<'premium' | 'mini' | 'standard' | 'other'> = ['premium', 'mini', 'standard', 'other'];
+const StandTypes: StandType[] = ['premium', 'mini', 'standard', 'c', 'other'];
 
 interface StandFormProps {
   start: Coordinate | undefined;

@@ -53,9 +53,10 @@ test('compareStandIndexes sorts naturally, not alphabetically', () => {
   assert.deepEqual(sorted, ['S1', 'S2', 'S10']);
 });
 
-test('groupStandsByType keeps the premium, standard, mini, other order', () => {
+test('groupStandsByType keeps the premium, standard, C, mini, other order', () => {
   const stands = [
     createStand({ id: '1', index: 'M1', type: 'mini' }),
+    createStand({ id: '5', index: 'C1', type: 'c' }),
     createStand({ id: '2', index: 'a1', type: 'other' }),
     createStand({ id: '3', index: 'S1', type: 'standard' }),
     createStand({ id: '4', index: 'P1', type: 'premium' })
@@ -63,7 +64,7 @@ test('groupStandsByType keeps the premium, standard, mini, other order', () => {
 
   assert.deepEqual(
     groupStandsByType(stands, '').map((group) => group.type),
-    ['premium', 'standard', 'mini', 'other']
+    ['premium', 'standard', 'c', 'mini', 'other']
   );
 });
 

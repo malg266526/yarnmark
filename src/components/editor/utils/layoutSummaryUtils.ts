@@ -1,13 +1,10 @@
 import type { StandProps, StandType } from '../StandProps.ts';
-import { HALL_2026_HEIGHT_M, HALL_HEIGHT_M, HALL_WIDTH_M } from './hallGeometry.ts';
+import { HALL_AREA_M2 } from './hallGeometry.ts';
 import { getStandAreaM2 } from './standListUtils.ts';
 
-export const SELLABLE_STAND_TYPES = ['premium', 'standard', 'mini'] as const satisfies readonly StandType[];
+export const SELLABLE_STAND_TYPES = ['premium', 'standard', 'c', 'mini'] as const satisfies readonly StandType[];
 
 export type SellableStandType = (typeof SELLABLE_STAND_TYPES)[number];
-
-export const HALL_AREA_M2 = HALL_WIDTH_M * HALL_HEIGHT_M;
-export const HALL_2026_AREA_M2 = HALL_WIDTH_M * HALL_2026_HEIGHT_M;
 
 export interface StandTypeTotals {
   count: number;

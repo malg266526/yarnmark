@@ -251,15 +251,15 @@ export const pl = {
       organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was.',
       hallInfo: {
         title: 'Hala',
-        area: 'Mamy do dyspozycji powierzchnię <strong>1142m2</strong>.',
+        area: 'Mamy do dyspozycji halę o wymiarach <strong>{{width}} × {{height}} m</strong>, czyli powierzchnię <strong>{{area}} m²</strong>.',
         openHours: 'Wejście na halę w celu rozłożenia stoiska będzie możliwe od godz. 5:00.',
         ramp: 'Z parkingu prosto na halę prowadzi rampa, bez potrzeby korzystania ze schodów czy wind.',
         participants:
           'Wejście dla odwiedzających targi będzie znajdować się od ulicy Focha, gdzie do hali głównej udadzą się efektownym zejściem, z którego będzie widać całą halę wystawienniczą.',
         stands: 'Na hali będą trzy rodzaje stoisk:',
-        standPremium: '<strong>Premium 3x5.5m</strong>',
-        standardStand: '<strong>Standard 3x3,5m</strong>',
-        miniStand: '<strong>Mini 3x2m</strong>',
+        standPremium: '<strong>Premium 3 × 5,5 m</strong>',
+        standardStand: '<strong>Standard 3 × 3,5 m</strong>',
+        miniStand: '<strong>Mini 3 × 2 m</strong>',
         tables:
           'Stoisko premium posiada 2 krzesła oraz 2 stoły 160x80cm. Stoisko standard posiada 2 krzesła oraz 2 stoły 140x70cm, a stoisko Mini 2 krzesła oraz 1 stół 140x70cm',
         extensionCords: 'W skład stoiska NIE wchodzą przedłużacze, prosimy o posiadanie własnych.',
@@ -1193,6 +1193,7 @@ export const pl = {
           premium: 'premium',
           mini: 'mini',
           standard: 'standard',
+          c: 'C',
           other: 'inne'
         }
       },

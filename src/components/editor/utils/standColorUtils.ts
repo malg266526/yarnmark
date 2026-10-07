@@ -7,6 +7,7 @@ const ALTERNATING_TYPE_COLORS: Record<StandType, readonly StandColor[]> = {
   premium: ['premium'],
   standard: ['normal1', 'normal2'],
   mini: ['small1', 'small2'],
+  c: [CUSTOM_STAND_COLOR],
   other: ['taken']
 };
 

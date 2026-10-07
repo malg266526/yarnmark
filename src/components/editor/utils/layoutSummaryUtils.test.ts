@@ -1,12 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {
-  HALL_2026_AREA_M2,
-  HALL_AREA_M2,
-  formatDecimal,
-  formatSignedDifference,
-  summarizeLayout
-} from './layoutSummaryUtils.ts';
+import { formatDecimal, formatSignedDifference, summarizeLayout } from './layoutSummaryUtils.ts';
+import { HALL_2026_AREA_M2, HALL_AREA_M2 } from './hallGeometry.ts';
 import type { StandProps } from '../StandProps.ts';
 
 const createStand = (stand: Partial<StandProps> = {}): StandProps => ({
@@ -21,17 +16,19 @@ test('summarizeLayout counts sellable stands per type and measures them on the g
     createStand({ id: 'p', type: 'premium', start: { row: 0, col: 0 }, end: { row: 10, col: 5 } }),
     createStand({ id: 's1', type: 'standard', start: { row: 0, col: 6 }, end: { row: 6, col: 11 } }),
     createStand({ id: 's2', type: 'standard', start: { row: 7, col: 6 }, end: { row: 13, col: 11 } }),
-    createStand({ id: 'm', type: 'mini', start: { row: 20, col: 0 }, end: { row: 25, col: 3 } })
+    createStand({ id: 'm', type: 'mini', start: { row: 20, col: 0 }, end: { row: 25, col: 3 } }),
+    createStand({ id: 'c', type: 'c', start: { row: 30, col: 0 }, end: { row: 35, col: 5 } })
   ]);
 
   assert.deepEqual(summary.byType, {
     premium: { count: 1, areaM2: 16.5 },
     standard: { count: 2, areaM2: 21 },
+    c: { count: 1, areaM2: 9 },
     mini: { count: 1, areaM2: 6 }
   });
-  assert.deepEqual(summary.sellable, { count: 4, areaM2: 43.5 });
+  assert.deepEqual(summary.sellable, { count: 5, areaM2: 52.5 });
   assert.equal(summary.hallAreaM2, HALL_AREA_M2);
-  assert.equal(summary.hallUsagePercent, (43.5 / HALL_AREA_M2) * 100);
+  assert.equal(summary.hallUsagePercent, (52.5 / HALL_AREA_M2) * 100);
 });
 
 test('summarizeLayout leaves technical stands out of the sellable totals', () => {

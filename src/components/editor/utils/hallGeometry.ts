@@ -2,6 +2,8 @@ export const SQUARE_SIZE_M = 0.5;
 export const HALL_WIDTH_M = 26;
 export const HALL_HEIGHT_M = 46;
 export const HALL_2026_HEIGHT_M = 44;
+export const HALL_AREA_M2 = HALL_WIDTH_M * HALL_HEIGHT_M;
+export const HALL_2026_AREA_M2 = HALL_WIDTH_M * HALL_2026_HEIGHT_M;
 export const GRID_COLS = HALL_WIDTH_M / SQUARE_SIZE_M;
 export const GRID_ROWS = HALL_HEIGHT_M / SQUARE_SIZE_M;
 

@@ -2,6 +2,7 @@ export const StandSizes = {
   premium: { width: 3, height: 5.5 },
   standard: { width: 3, height: 3.5 },
   mini: { width: 2, height: 3 },
+  c: { width: 3, height: 3 },
   other: { width: 3, height: 3 }
 } as const;
 

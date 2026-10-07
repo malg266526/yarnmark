@@ -12,7 +12,7 @@ export const StandColorsMap = {
 
 export type StandColor = keyof typeof StandColorsMap;
 
-export type StandType = 'premium' | 'mini' | 'standard' | 'other';
+export type StandType = 'premium' | 'mini' | 'standard' | 'c' | 'other';
 
 export type Coordinate = { row: number; col: number };
 

@@ -258,6 +258,14 @@ Weryfikacja w przeglądarce: pusty edytor pokazuje 0 stoisk i różnice −5/−
 
 **Krok P0.2b — preset „Mapa 2026” = prawdziwy układ 2026.** `docs/hall-2026.json` był przesunięty pod halę 46 m (dolny rząd w kratkach 86–91) i różnił się współrzędnymi od układu widzianego przez wystawców (p. 2.D). Zastąpiony kopią `src/assets/hall.json` — 52 stoiska o tych samych numerach, z wystawcami, mieszczące się w 44 m (ostatnia kratka 87), bez kolizji. Podsumowanie dla 2026: 5/36/7 = 48 stoisk, 504 m², 44,1 % z 1144 m² — zgodnie z §4.2 (wcześniejsze 501 m² wynikało z przesuniętego presetu). Propozycja 2027 względem 2026: +5 stoisk, +30 m². Po wczytaniu mapy 2026 w edytorze (siatka 46 m) dolne 2 m hali są puste — to oczekiwane.
 
+**Krok P0.3 — nowy typ stoiska C (3 × 3 m).** W układzie 2027 dochodzą stoiska C. Edytor ma nowy typ `c` (`StandType`): rozmiar 3 × 3 m w `StandSizes`, kolor `normal3` (ten sam, który `standColorUtils` dawał już stoiskom o numerach na `c`), opcja „C” w formularzu, własna grupa na liście (kolejność premium → standard → C → mini → inne), wiersz w podsumowaniu układu i liczenie do stoisk sprzedawalnych; `parseHallStands` przyjmuje typ `c` w plikach JSON. Testy: grupowanie, podsumowanie, kolor i wczytywanie z typem `c`.
+
+Weryfikacja w przeglądarce: wybór typu C ustawia 3 × 3 m, dodane stoisko `C1` zapisuje się jako `type: 'c'`, `color: 'normal3'`, zajmuje kratki 10/10–15/15 (6 × 6 kratek = 3 × 3 m), lista pokazuje grupę „C (1)”, podsumowanie wiersz „C | 1 | +1 | 9 | +9”. Zero błędów w konsoli.
+
+Poza edytorem typ `c` nie jest jeszcze obsługiwany: publiczna mapa (`components/hall/hallStands.ts`) i formularz zgłoszeniowy (`vendorStandTypeUtils.ts`) znają tylko premium/standard/mini/other — do uzupełnienia przed opublikowaniem układu 2027 w `src/assets/hall.json`. Stoiska C narysowane przed wprowadzeniem typu (`C1`, `c3` jako standard, `c2` jako other w presecie 2027 i w kopiach roboczych) mają stary typ, dlatego podsumowanie pokazywało dla C zero. `utils/standTypeUtils.ts` (`normalizeStandType`) nadaje typ `c` każdemu stoisku o numerze zaczynającym się od „C” — ta sama reguła, której `standColorUtils` używa do koloru. Normalizacja działa tylko przy odczycie kopii roboczej (`EditorContext`); `parseHallStands` zachowuje typy z pliku, więc punkt odniesienia 2026 liczy `C1` z 2026 (3 × 4 m) jako standard — decyzja z 2026-10-07.
+
+Weryfikacja w przeglądarce na kopii roboczej z propozycją 2027 zapisaną ze starymi typami: podsumowanie pokazuje „standard 35 (−1) / C 3 (+3, 27 m²) / mini 11 (+4)”, razem 54 stoiska (+6), 543 m², 45,4 % wobec 44,1 % w 2026; lista ma grupę „C (3)”, a kliknięte `C1` ma zaznaczony typ C. Zero błędów w konsoli.
+
 Etapy 3 i 4 wymagają backendu albo świadomej decyzji o pozostaniu przy JSON w repozytorium. Etapy 1, 2, 5, 6 i 9 są wykonalne w całości na froncie.
 
 ---

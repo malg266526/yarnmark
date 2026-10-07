@@ -2,7 +2,7 @@ import type { StandProps, StandType } from '../StandProps.ts';
 import { SQUARE_SIZE_M } from './hallGeometry.ts';
 import { getStandBoxSize } from './moveStand.ts';
 
-export const STAND_TYPE_ORDER: readonly StandType[] = ['premium', 'standard', 'mini', 'other'];
+export const STAND_TYPE_ORDER: readonly StandType[] = ['premium', 'standard', 'c', 'mini', 'other'];
 
 export interface StandTypeGroup {
   type: StandType;

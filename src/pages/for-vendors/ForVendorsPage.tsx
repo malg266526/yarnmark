@@ -19,6 +19,7 @@ import { HallLegend } from '../../components/HallLegend';
 import { RowLayout } from '../../components/RowLayout';
 import { Link } from '../../components/Link';
 import { FontSize } from '../../styles/font-size';
+import { HALL_AREA_M2, HALL_HEIGHT_M, HALL_WIDTH_M } from '../../components/editor/utils/hallGeometry';
 
 const InvitationBoxWrapper = styled.div`
   padding-left: 240px;
@@ -100,7 +101,10 @@ export const ForVendorsPage = () => {
 
         <PlainInfo>
           <Typography size="md">
-            <Trans i18nKey="infoForVendorsPage.hallInfo.area" />
+            <Trans
+              i18nKey="infoForVendorsPage.hallInfo.area"
+              values={{ width: HALL_WIDTH_M, height: HALL_HEIGHT_M, area: HALL_AREA_M2 }}
+            />
           </Typography>
           <Typography size="md">{t('infoForVendorsPage.hallInfo.openHours')}</Typography>
           <Typography size="md">{t('infoForVendorsPage.hallInfo.ramp')}</Typography>
