@@ -240,13 +240,19 @@ Edytor zostaje bez backendu, zmiany są tylko lokalne (`localStorage`). Gotowa p
 | Prio     | Zadanie                                                                                                                         | Szac.  | Status        |
 | :------- | :------------------------------------------------------------------------------------------------------------------------------ | :----- | :------------ |
 | P0       | Wykrywanie kolizji: podświetlenie nakładających się stoisk i licznik nad siatką (część Etapu 2)                                 | 1–2 h  | ✅ zrobione   |
-| P0       | Podsumowanie układu: liczba stoisk per typ, m² sprzedawalne, wykorzystanie hali (część Etapu 2)                                 | ~1 h   | ⬜ niezaczęte |
+| P0       | Podsumowanie układu: liczba stoisk per typ, m² sprzedawalne, wykorzystanie hali (część Etapu 2)                                 | ~1 h   | ✅ zrobione   |
 | P1       | Publikacja propozycji: wyeksportowany JSON zastępuje `docs/hall-2027-proposal.json` (lub trafia jako nowy preset), potem deploy | 15 min | ⬜ niezaczęte |
 | Odłożone | Wgrywanie pliku z dysku, Etapy 3–9, usunięcie logów debugowych                                                                  | —      | —             |
 
 **Krok P0.1 — wykrywanie kolizji.** Czysty `utils/standCollisionUtils.ts` (`findStandCollisions`) zwraca każdą parę nachodzących stoisk raz, razem z prostokątem części wspólnej; stoiska bez współrzędnych są pomijane (5 testów). Na siatce część wspólna ma czerwoną kreskowaną nakładkę, a nad siatką pasek pokazuje „Brak nachodzących stoisk” albo licznik i pigułki `S1 × S2` — klik w pigułkę zaznacza pierwsze stoisko i przewija do niego. Kolizje liczą się na podglądzie przeciągania, więc znikają i pojawiają się na żywo. Oba gotowe układy (2026 i propozycja 2027) nie mają kolizji.
 
 Weryfikacja w przeglądarce (headless Chromium, dev server na 8090): nakładka na części wspólnej `S1`/`S2` ma 570, 386, 33 × 33 px, co odpowiada kratkom 4/5–5/6 co do piksela; klik w pigułkę zaznaczył `S1`; przeciągnięcie `S2` w dół zmieniło pasek na „Brak nachodzących stoisk”; pasek ma 50 px w obu stanach, więc siatka nie przeskakuje (lewy górny róg kratki 0/0 na 485, 318 przed i po). Zero błędów w konsoli.
+
+**Krok P0.2 — podsumowanie układu.** Czysty `utils/layoutSummaryUtils.ts` (`summarizeLayout`) liczy stoiska sprzedawalne (premium, standard, mini — bez technicznych `other`) per typ, ich powierzchnię z prostokąta na siatce i wykorzystanie hali względem 26 × 46 m = 1196 m²; `formatDecimal` i `formatSignedDifference` formatują liczby wg języka interfejsu (5 testów). Panel „Podsumowanie układu” pod formularzem stoiska pokazuje dla każdego typu liczbę stoisk i m² oraz różnicę względem mapy 2026 (punkt odniesienia liczony raz z presetu w `useLayoutSummary`), wiersz „Razem do sprzedania” i wykorzystanie hali.
+
+Weryfikacja w przeglądarce: pusty edytor pokazuje 0 stoisk i różnice −5/−36/−7; mapa 2026 daje 5/36/7 = 48 stoisk, 501 m², 41,9 % (różnice 0); propozycja 2027 daje 5/37/11 = 53 stoiska, 534 m², 44,6 %, różnice +1/+4 = +5 stoisk i +33 m². Liczba stoisk zgadza się z §4.2; powierzchnia 2026 wychodzi 501 m², a nie 504 m² z §4.2, bo jedno stoisko standard jest na siatce narysowane mniejsze niż 3 × 3,5 m (standard razem 376,5 m² zamiast 378 m²). Wiersze tabeli mają po 28 px, kolumny liczbowe są wyrównane do prawej krawędzi co do piksela. Zero błędów w konsoli.
+
+**Poprawka poboczna — `StandList.tsx`.** Inspekcja WebStorma zgłaszała błąd CSS przy pierwszej interpolacji po deklaracji `transition` w `StandItem`; przeniesienie `transition` na koniec szablonu usuwa błąd bez zmiany działania. Inspekcja `src/components/editor`, `src/translations` i `docs` po zmianach: 0 błędów.
 
 Etapy 3 i 4 wymagają backendu albo świadomej decyzji o pozostaniu przy JSON w repozytorium. Etapy 1, 2, 5, 6 i 9 są wykonalne w całości na froncie.
 

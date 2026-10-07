@@ -17,6 +17,7 @@ import { useStandRemoval } from './useStandRemoval';
 import { getBoxOutlineRect, getStandOutlineRect } from './utils/standGeometryUtils';
 import { findStandCollisions } from './utils/standCollisionUtils';
 import { StandCollisionsSummary } from './StandCollisionsSummary';
+import { LayoutSummaryPanel } from './LayoutSummaryPanel';
 import { isExistingStand } from './utils/standSelectionUtils';
 import { HALL_PRESET_IDS } from './utils/hallPresets';
 import { StandList } from './StandList';
@@ -445,6 +446,7 @@ export const Editor = () => {
       <StandDetailsContainer>
         <StandInfo start={start} end={end} />
         <StandForm start={start} end={end} onRemoveStand={standRemoval.requestRemove} />
+        <LayoutSummaryPanel />
 
         <CtaButton type="submit" onClick={() => saveHallToFile(stands)}>
           {t('editorPage.generateJson')}

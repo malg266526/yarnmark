@@ -1196,6 +1196,18 @@ export const en: TranslationsShape = {
           other: 'other'
         }
       },
+      layoutSummary: {
+        title: 'Layout summary',
+        columns: {
+          type: 'Type',
+          count: 'Stands',
+          countDifference: 'vs 2026',
+          area: 'm²',
+          areaDifference: 'm² vs 2026'
+        },
+        total: 'Total sellable',
+        hallUsage: 'Hall usage: {{percent}}% of {{hallArea}} m² (2026: {{baselinePercent}}%)'
+      },
       collisions: {
         none: 'No overlapping stands',
         count: 'Overlapping stands: {{count}}',

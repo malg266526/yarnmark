@@ -1196,6 +1196,18 @@ export const pl = {
           other: 'inne'
         }
       },
+      layoutSummary: {
+        title: 'Podsumowanie układu',
+        columns: {
+          type: 'Typ',
+          count: 'Stoiska',
+          countDifference: 'vs 2026',
+          area: 'm²',
+          areaDifference: 'm² vs 2026'
+        },
+        total: 'Razem do sprzedania',
+        hallUsage: 'Wykorzystanie hali: {{percent}}% z {{hallArea}} m² (2026: {{baselinePercent}}%)'
+      },
       collisions: {
         none: 'Brak nachodzących stoisk',
         count: 'Nachodzące stoiska: {{count}}',

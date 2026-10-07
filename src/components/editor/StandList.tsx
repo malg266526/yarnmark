@@ -58,14 +58,15 @@ const StandItem = styled.div<{ selected?: boolean }>`
   border: 1px solid ${({ selected }) => (selected ? '#dc2626' : '#e5e7eb')};
   background-color: ${({ selected }) => (selected ? '#fef2f2' : '#fff')};
   cursor: pointer;
-  transition:
-    background-color 0.2s,
-    border-color 0.2s;
   gap: ${RedesignSpacings.sm};
 
   &:hover {
     background-color: ${({ selected }) => (selected ? '#fee2e2' : '#f9fafb')};
   }
+
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
 `;
 
 const StandSummary = styled.div`
