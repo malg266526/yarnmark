@@ -12,6 +12,7 @@ import {
   unwrapSubmissions
 } from '../apiClient.ts';
 import { vendorFormStateSchema } from './vendorFormSchema.ts';
+import { normalizeStandIds } from './vendorFormStandIds.ts';
 import { VENDOR_FORM_API_URL } from './vendorFormConstants.ts';
 
 const DEFAULT_VENDOR_APPLICATION_STATUS: VendorApplicationStatus = 'pending';
@@ -30,27 +31,31 @@ const vendorApplicationAllocationStateSchema = z
       allocationState ?? DEFAULT_VENDOR_APPLICATION_ALLOCATION_STATE
   );
 
-const vendorApplicationRecordSchema = vendorFormStateSchema.extend({
-  allocatedStandId: z
-    .string()
-    .nullable()
-    .optional()
-    .transform((allocatedStandId) => allocatedStandId ?? null),
-  allocationIteration: z
-    .number()
-    .nullable()
-    .optional()
-    .transform((allocationIteration) => allocationIteration ?? null),
-  allocationState: vendorApplicationAllocationStateSchema,
-  id: z.string(),
-  logoUrl: z
-    .string()
-    .nullable()
-    .optional()
-    .transform((logoUrl) => resolveApiAssetUrl(logoUrl)),
-  status: vendorApplicationStatusSchema,
-  submittedAt: z.string()
-});
+const vendorApplicationRecordSchema = vendorFormStateSchema
+  .extend({
+    allocatedStandId: z.string().nullable().optional(),
+    allocationIteration: z
+      .number()
+      .nullable()
+      .optional()
+      .transform((allocationIteration) => allocationIteration ?? null),
+    allocationState: vendorApplicationAllocationStateSchema,
+    assignedStands: z.array(z.string()).nullable().optional(),
+    id: z.string(),
+    logoUrl: z
+      .string()
+      .nullable()
+      .optional()
+      .transform((logoUrl) => resolveApiAssetUrl(logoUrl)),
+    status: vendorApplicationStatusSchema,
+    submittedAt: z.string()
+  })
+  .transform(
+    ({ allocatedStandId, assignedStands, ...application }): VendorApplication => ({
+      ...application,
+      assignedStands: normalizeStandIds(assignedStands ?? (allocatedStandId ? [allocatedStandId] : []))
+    })
+  );
 
 export const parseVendorApplications = (responseBody: unknown): VendorApplication[] => {
   const applicationRecords = applicationRecordsSchema.safeParse(unwrapSubmissions(responseBody));

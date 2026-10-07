@@ -1,9 +1,9 @@
 import type { VendorApplication } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
 
 export const getBaseApplication = (): VendorApplication => ({
-  allocatedStandId: null,
   allocationIteration: null,
   allocationState: 'none',
+  assignedStands: [],
   id: 'application-1',
   status: 'pending',
   submittedAt: '2026-05-11T10:30:00.000Z',

@@ -70,5 +70,11 @@ export const useWorkshopsApplications = () => {
     }
   };
 
-  return { applications, deleteApplication, deletingApplicationId, loading, setApplicationStatus };
+  return {
+    applications,
+    deleteApplication,
+    deletingApplicationId,
+    loading,
+    setApplicationStatus
+  };
 };

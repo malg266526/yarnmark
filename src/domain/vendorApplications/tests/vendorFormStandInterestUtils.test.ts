@@ -10,9 +10,9 @@ import {
 } from '../vendorFormStandInterestUtils.ts';
 
 const createApplication = (id: string, preferredStands: string[]): VendorApplication => ({
-  allocatedStandId: null,
   allocationIteration: null,
   allocationState: 'none',
+  assignedStands: [],
   id,
   status: 'pending',
   submittedAt: '2026-05-11T10:30:00.000Z',

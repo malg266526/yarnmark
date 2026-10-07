@@ -578,7 +578,31 @@ export const en: TranslationsShape = {
       savedCount: '{{count}} applications saved',
       showByStand: 'Show by stand',
       showCards: 'Show cards',
+      showRows: 'Show list',
+      showSplit: 'List and map',
+      showMap: 'Show map',
       showCascadeStandAllocation: 'Cascading stand allocation',
+      statusField: {
+        saving: 'Saving…'
+      },
+      standAssignment: {
+        none: '— no stand —',
+        preferredGroup: 'Vendor preferences',
+        otherGroup: 'Other stands',
+        preferredStand: '{{order}}. {{standId}}',
+        sharedStand: '{{stand}} — assigned: {{names}}',
+        sharingHint: 'A vendor can have multiple stands, and each stand can be shared by multiple vendors.',
+        add: 'Add a stand',
+        choose: 'Choose a stand…',
+        remove: 'Remove stand {{standId}} from the assignment',
+        selectedStand: '{{standId}} ×',
+        save: 'Save assignments'
+      },
+      statusUndo: {
+        message: 'Status of “{{name}}” changed to “{{status}}”.',
+        action: 'Undo',
+        dismiss: 'Dismiss'
+      },
       delete: {
         button: 'Delete application',
         deleting: 'Deleting...',
@@ -591,19 +615,35 @@ export const en: TranslationsShape = {
       },
       cascadeAlgorithm: {
         title: 'How the algorithm works',
+        simulation: 'Simulation — preview only, nothing is saved',
+        simulationDescription:
+          'Proposals cover accepted applications without an assignment. Saved assignments are preserved and their stands excluded from the simulation regardless of application status. Exporting does not save changes in the panel.',
+        export: 'Export proposal (CSV)',
+        empty: 'No accepted applications without an assigned stand.',
+        emptyNoAccepted:
+          'No application has the “accepted” status. The cascade only considers accepted vendors — set that status in the list or cards.',
+        emptyAllAssigned:
+          'Accepted applications: {{accepted}}, and all of them ({{assigned}}) already have a stand. The cascade skips assigned applications — clear the assignment in the details to include them again.',
+        proposedStand: 'Proposed stand',
+        exportColumns: {
+          applicationId: 'Application ID',
+          storeName: 'Store',
+          result: 'Simulation result',
+          suggested: 'Proposal — not saved'
+        },
         steps: {
           acceptVendors:
             'The organizer first accepts selected vendors by setting their status to "accepted" in the "Show cards" section.',
           sortAccepted:
-            'The system takes only accepted applications and sorts them by the earliest submitted form first.',
+            'The system takes accepted applications without an assigned stand and sorts them by the earliest submission first. All saved assignments exclude occupied stands from the simulation.',
           checkPreferences:
             'Next, for each vendor in order, it checks the preferred stands from highest priority to lowest priority and assigns the first stand that is still available at that moment.',
           sendToManualNegotiation:
             'If all selected stands are already taken, the application moves to the manual negotiation section.',
           confirmedAssignments:
-            'After the assignments are generated, the organizer approves the chosen suggestions. Only then does the stand receive the official "confirmed" status and become finally occupied.',
+            'Proposals are not saved automatically. The organizer can assign a stand manually in the application details. Separate proposal confirmation is not yet available.',
           nextIterations:
-            'If some assignments are not approved or some vendors still have no available stand from their priority list, the algorithm can be run again for the remaining free stands in the next iteration.'
+            'After a manual assignment is saved, the simulation recalculates proposals for the remaining accepted applications and available stands.'
         }
       },
       manualNegotiation: {
@@ -613,7 +653,7 @@ export const en: TranslationsShape = {
         status: 'Status',
         mainCategory: 'Main category',
         preferredStands: 'Preferred stands',
-        allocatedStand: 'Allocated stand',
+        allocatedStand: 'Assigned stands',
         allocationState: 'Allocation state',
         allocationIteration: 'Allocation iteration',
         attendedBefore: 'Previous editions',
@@ -656,6 +696,78 @@ export const en: TranslationsShape = {
         notAssigned: 'Not assigned',
         notProvided: 'Not provided',
         noneSelected: 'None selected'
+      },
+      map: {
+        demandLevels: {
+          none: 'No requests',
+          low: '1 request',
+          medium: '2 requests',
+          high: '3 or more requests'
+        },
+        coverage: {
+          summary: 'Stands in the hall: {{total}} · requested: {{requested}} · without requests: {{free}}',
+          freeStandsLabel: 'Without requests'
+        },
+        standDemand: 'Stand {{standId}} — requests: {{count}}',
+        standAssignments: 'Stand {{standId}} — assigned: {{names}}; requests: {{count}}',
+        selectHint: 'Pick a stand on the map to see who requested it. The choice also sets the list filter.',
+        noRequests: 'Stand {{standId}} has no requests yet.',
+        loadError: 'The hall layout could not be loaded.'
+      },
+      flags: {
+        title: 'Risk flags',
+        none: '—',
+        labels: {
+          duplicateEmail: 'Duplicate e-mail',
+          duplicateStoreName: 'Duplicate name',
+          incompletePreferences: 'Incomplete preferences',
+          singleStandType: 'One stand type'
+        },
+        descriptions: {
+          duplicateEmail: 'Another application uses the same e-mail address.',
+          duplicateStoreName: 'Another application uses the same store name.',
+          incompletePreferences: 'Fewer than three distinct stands were picked, which leaves the cascade less room.',
+          singleStandType:
+            'Every picked stand is of the same type — there may be no alternative left once they are taken.'
+        }
+      },
+      rows: {
+        columns: {
+          storeName: 'Store',
+          submittedAt: 'Submitted',
+          category: 'Category',
+          preferences: 'Preferences · contenders',
+          status: 'Status',
+          flags: 'Flags'
+        },
+        competitors: 'Stand {{standId}} — applications besides this one: {{count}}',
+        openDetails: 'Show details of the application “{{name}}”'
+      },
+      drawer: {
+        label: 'Application details: {{name}}',
+        close: 'Close'
+      },
+      toolbar: {
+        statusLabel: 'Filter by status',
+        allStatuses: 'All',
+        searchLabel: 'Search',
+        searchPlaceholder: 'Store name, e-mail or phone',
+        categoryLabel: 'Category',
+        allCategories: 'All categories',
+        standLabel: 'Preferred stand',
+        allStands: 'All stands',
+        sortLabel: 'Sorting',
+        sortOrders: {
+          oldest: 'Oldest applications',
+          newest: 'Newest applications',
+          name: 'Store name A–Z',
+          demand: 'Competition for 1st choice'
+        },
+        reset: 'Clear filters',
+        exportCsv: 'Export list as CSV',
+        assignedStands: 'Saved stand assignments',
+        visibleCount: 'Visible applications: {{visible}} of {{total}}',
+        noMatches: 'No application matches the selected filters.'
       }
     },
     workshopsApplicationsPage: {
@@ -664,6 +776,51 @@ export const en: TranslationsShape = {
       loading: 'Loading applications...',
       empty: 'No applications yet.',
       savedCount: '{{count}} applications saved',
+      showRows: 'Show list',
+      showCards: 'Show cards',
+      toolbar: {
+        statusLabel: 'Filter by status',
+        allStatuses: 'All',
+        searchLabel: 'Search',
+        searchPlaceholder: 'Title, tutor, e-mail or phone',
+        levelLabel: 'Level',
+        allLevels: 'All levels',
+        sortLabel: 'Sorting',
+        sortOrders: {
+          oldest: 'Oldest applications',
+          newest: 'Newest applications',
+          title: 'Title A–Z',
+          tutor: 'Tutor A–Z'
+        },
+        reset: 'Clear filters',
+        visibleCount: 'Visible applications: {{visible}} of {{total}}',
+        noMatches: 'No application matches the selected filters.'
+      },
+      rows: {
+        columns: {
+          title: 'Workshop',
+          tutor: 'Tutor',
+          level: 'Level',
+          participants: 'Participants',
+          price: 'Price',
+          duration: 'Duration',
+          submittedAt: 'Submitted',
+          status: 'Status',
+          warnings: 'Warnings'
+        },
+        openDetails: 'Show details of the “{{name}}” application'
+      },
+      drawer: {
+        label: 'Application details: {{name}}',
+        close: 'Close'
+      },
+      warnings: {
+        none: 'No warnings',
+        missingContract: {
+          label: 'Missing contract',
+          detail: 'The contract type required for settlement is missing.'
+        }
+      },
       delete: {
         button: 'Delete application',
         deleting: 'Deleting...',
@@ -689,6 +846,7 @@ export const en: TranslationsShape = {
         contractType: 'Contract type',
         logoFilename: 'Logo',
         additionalInfo: 'Additional information',
+        warnings: 'Sanity checks',
         notProvided: 'Not provided'
       },
       statuses: {
@@ -1086,7 +1244,7 @@ export const en: TranslationsShape = {
       kicker: 'Admin',
       navigationLabel: 'Admin navigation',
       links: {
-        applications: 'Applications',
+        applications: 'Vendor applications',
         workshopsApplications: 'Workshop applications',
         users: 'Users',
         editor: 'Editor',

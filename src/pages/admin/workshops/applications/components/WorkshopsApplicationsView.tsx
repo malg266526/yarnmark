@@ -1,11 +1,21 @@
 import React from 'react';
-import { ApplicationsEmpty, ApplicationsMeta, ApplicationsSection } from '../WorkshopsApplicationsPage.styled';
+import {
+  ApplicationActionButton,
+  ApplicationsEmpty,
+  ApplicationsMeta,
+  ApplicationsSection,
+  ApplicationsToolbar
+} from '../WorkshopsApplicationsPage.styled';
 import type {
   WorkshopApplication,
   WorkshopApplicationStatus
 } from '../../../../../domain/workshopApplications/workshopFormSubmission.ts';
 import { useTypedTranslation } from '../../../../../translations/useTypedTranslation';
+import { useWorkshopsApplicationsToolbar } from '../hooks/useWorkshopsApplicationsToolbar';
+import { WorkshopApplicationDetailsDrawer } from './WorkshopApplicationDetailsDrawer';
 import { WorkshopsApplicationsCardsView } from './WorkshopsApplicationsCardsView';
+import { WorkshopsApplicationsRowsView } from './WorkshopsApplicationsRowsView';
+import { WorkshopsApplicationsToolbarView } from './WorkshopsApplicationsToolbarView';
 
 interface WorkshopsApplicationsViewProps {
   applications: WorkshopApplication[];
@@ -23,6 +33,22 @@ export const WorkshopsApplicationsView = ({
   setApplicationStatus
 }: WorkshopsApplicationsViewProps) => {
   const t = useTypedTranslation();
+  const {
+    closeApplication,
+    filters,
+    hasActiveFilters,
+    openApplication,
+    openApplicationRecord,
+    resetFilters,
+    setFilter,
+    setViewMode,
+    statusCounts,
+    viewMode,
+    visibleApplications,
+    warningsByApplicationId
+  } = useWorkshopsApplicationsToolbar(applications, t.i18n.language);
+  const translate = (translationKey: string, options?: Record<string, unknown>) =>
+    t(translationKey as never, options as never);
 
   if (loading) {
     return <ApplicationsEmpty>{t('workshopsApplicationsPage.loading')}</ApplicationsEmpty>;
@@ -34,14 +60,62 @@ export const WorkshopsApplicationsView = ({
 
   return (
     <ApplicationsSection>
-      <ApplicationsMeta>{t('workshopsApplicationsPage.savedCount', { count: applications.length })}</ApplicationsMeta>
-      <WorkshopsApplicationsCardsView
-        applications={applications}
+      <ApplicationsMeta>
+        {visibleApplications.length === applications.length
+          ? t('workshopsApplicationsPage.savedCount', { count: applications.length })
+          : t('workshopsApplicationsPage.toolbar.visibleCount', {
+              total: applications.length,
+              visible: visibleApplications.length
+            })}
+      </ApplicationsMeta>
+      <ApplicationsToolbar>
+        <ApplicationActionButton type="button" aria-pressed={viewMode === 'rows'} onClick={() => setViewMode('rows')}>
+          {t('workshopsApplicationsPage.showRows')}
+        </ApplicationActionButton>
+        <ApplicationActionButton type="button" aria-pressed={viewMode === 'cards'} onClick={() => setViewMode('cards')}>
+          {t('workshopsApplicationsPage.showCards')}
+        </ApplicationActionButton>
+      </ApplicationsToolbar>
+      <WorkshopsApplicationsToolbarView
+        filters={filters}
+        hasActiveFilters={hasActiveFilters}
+        resetFilters={resetFilters}
+        setFilter={setFilter}
+        statusCounts={statusCounts}
+        totalCount={applications.length}
+        translate={translate}
+      />
+      {visibleApplications.length === 0 ? (
+        <ApplicationsEmpty>{t('workshopsApplicationsPage.toolbar.noMatches')}</ApplicationsEmpty>
+      ) : viewMode === 'rows' ? (
+        <WorkshopsApplicationsRowsView
+          applications={visibleApplications}
+          locale={t.i18n.language}
+          openApplication={openApplication}
+          openApplicationId={openApplicationRecord?.id ?? null}
+          translate={translate}
+          warningsByApplicationId={warningsByApplicationId}
+        />
+      ) : (
+        <WorkshopsApplicationsCardsView
+          applications={visibleApplications}
+          deleteApplication={deleteApplication}
+          deletingApplicationId={deletingApplicationId}
+          locale={t.i18n.language}
+          setApplicationStatus={setApplicationStatus}
+          translate={translate}
+          warningsByApplicationId={warningsByApplicationId}
+        />
+      )}
+      <WorkshopApplicationDetailsDrawer
+        application={openApplicationRecord}
+        closeApplication={closeApplication}
         deleteApplication={deleteApplication}
         deletingApplicationId={deletingApplicationId}
         locale={t.i18n.language}
         setApplicationStatus={setApplicationStatus}
-        translate={(translationKey, options) => t(translationKey as never, options as never)}
+        translate={translate}
+        warnings={openApplicationRecord ? (warningsByApplicationId.get(openApplicationRecord.id) ?? []) : []}
       />
     </ApplicationsSection>
   );

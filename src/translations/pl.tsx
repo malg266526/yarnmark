@@ -577,7 +577,31 @@ export const pl = {
       savedCount: 'Zapisanych zgłoszeń: {{count}}',
       showByStand: 'Pokaż wg stoisk',
       showCards: 'Pokaż karty',
+      showRows: 'Pokaż listę',
+      showSplit: 'Lista i mapa',
+      showMap: 'Pokaż mapę',
       showCascadeStandAllocation: 'Kaskadowe przypisanie stoisk',
+      statusField: {
+        saving: 'Zapisywanie…'
+      },
+      standAssignment: {
+        none: '— bez przydziału —',
+        preferredGroup: 'Preferencje wystawcy',
+        otherGroup: 'Pozostałe stoiska',
+        preferredStand: '{{order}}. {{standId}}',
+        sharedStand: '{{stand}} — przypisani: {{names}}',
+        sharingHint: 'Wystawca może mieć kilka stoisk, a jedno stoisko może być współdzielone przez kilku wystawców.',
+        add: 'Dodaj stoisko',
+        choose: 'Wybierz stoisko…',
+        remove: 'Usuń stoisko {{standId}} z przydziału',
+        selectedStand: '{{standId}} ×',
+        save: 'Zapisz przydziały'
+      },
+      statusUndo: {
+        message: 'Status „{{name}}” zmieniony na „{{status}}”.',
+        action: 'Cofnij',
+        dismiss: 'Zamknij'
+      },
       delete: {
         button: 'Usuń zgłoszenie',
         deleting: 'Usuwanie...',
@@ -590,19 +614,35 @@ export const pl = {
       },
       cascadeAlgorithm: {
         title: 'Jak działa algorytm',
+        simulation: 'Symulacja — podgląd, nic nie jest zapisane',
+        simulationDescription:
+          'Propozycje dotyczą zaakceptowanych zgłoszeń bez przydziału. Zapisane przydziały są zachowane, a ich stoiska wyłączone z symulacji niezależnie od statusu zgłoszenia. Eksport nie zapisuje zmian w panelu.',
+        export: 'Eksportuj propozycję (CSV)',
+        empty: 'Brak zaakceptowanych zgłoszeń bez przydzielonego stoiska.',
+        emptyNoAccepted:
+          'Żadne zgłoszenie nie ma statusu „zaakceptowane”. Kaskada bierze pod uwagę tylko zaakceptowanych wystawców — ustaw ten status w liście lub kartach.',
+        emptyAllAssigned:
+          'Zaakceptowanych zgłoszeń: {{accepted}}, z czego wszystkie ({{assigned}}) mają już przydzielone stoisko. Kaskada pomija zgłoszenia z przydziałem — zdejmij przydział w szczegółach, jeśli chcesz je przeliczyć.',
+        proposedStand: 'Proponowane stoisko',
+        exportColumns: {
+          applicationId: 'ID zgłoszenia',
+          storeName: 'Sklep',
+          result: 'Wynik symulacji',
+          suggested: 'Propozycja — niezapisana'
+        },
         steps: {
           acceptVendors:
             'Organizator najpierw akceptuje wybranych wystawców, ustawiając status "zaakceptowane" w sekcji "Pokaż karty".',
           sortAccepted:
-            'System bierze tylko zaakceptowane zgłoszenia i sortuje je od najwcześniej wysłanego formularza.',
+            'System bierze zaakceptowane zgłoszenia bez przydzielonego stoiska i sortuje je od najwcześniej wysłanego formularza. Wszystkie zapisane przydziały wyłączają zajęte stoiska z symulacji.',
           checkPreferences:
             'Następnie dla każdego wystawcy po kolei sprawdza jego listę preferowanych stoisk od najwyższego priorytetu do najniższego i przypisuje pierwsze stoisko, które w tym momencie pozostaje jeszcze wolne.',
           sendToManualNegotiation:
             'Jeśli wszystkie wybrane stoiska są już zajęte, zgłoszenie trafia do sekcji negocjacji ręcznej.',
           confirmedAssignments:
-            'Po wygenerowaniu przypisań organizator zatwierdza wybrane propozycje. Dopiero wtedy dane stoisko dostaje oficjalny status "klepnięte" i jest ostatecznie zajęte.',
+            'Propozycje nie są zapisywane automatycznie. Organizator może przypisać wybrane stoisko ręcznie w szczegółach zgłoszenia. Osobne „klepnięcie” propozycji nie jest jeszcze dostępne.',
           nextIterations:
-            'Jeśli część przypisań nie zostanie zatwierdzona albo dla części wystawców nadal nie ma miejsca z ich priorytetów, algorytm można uruchomić ponownie dla pozostałych wolnych stoisk w kolejnej iteracji.'
+            'Po zapisaniu ręcznego przydziału symulacja przelicza propozycje dla pozostałych zaakceptowanych zgłoszeń i wolnych stoisk.'
         }
       },
       manualNegotiation: {
@@ -612,7 +652,7 @@ export const pl = {
         status: 'Status',
         mainCategory: 'Główna kategoria',
         preferredStands: 'Preferowane stoiska',
-        allocatedStand: 'Przydzielone stoisko',
+        allocatedStand: 'Przydzielone stoiska',
         allocationState: 'Stan alokacji',
         allocationIteration: 'Iteracja alokacji',
         attendedBefore: 'Poprzednie edycje',
@@ -655,6 +695,78 @@ export const pl = {
         notAssigned: 'Nieprzypisane',
         notProvided: 'Nie podano',
         noneSelected: 'Brak'
+      },
+      map: {
+        demandLevels: {
+          none: 'Bez chętnych',
+          low: '1 chętny',
+          medium: '2 chętnych',
+          high: '3 i więcej chętnych'
+        },
+        coverage: {
+          summary: 'Stoisk w hali: {{total}} · z chętnymi: {{requested}} · bez chętnych: {{free}}',
+          freeStandsLabel: 'Bez chętnych'
+        },
+        standDemand: 'Stoisko {{standId}} — chętnych: {{count}}',
+        standAssignments: 'Stoisko {{standId}} — przypisani: {{names}}; chętnych: {{count}}',
+        selectHint: 'Kliknij stoisko na mapie, aby zobaczyć listę chętnych. Wybór ustawia też filtr listy.',
+        noRequests: 'Stoisko {{standId}} nie ma jeszcze żadnych chętnych.',
+        loadError: 'Nie udało się wczytać planu hali.'
+      },
+      flags: {
+        title: 'Flagi ryzyka',
+        none: '—',
+        labels: {
+          duplicateEmail: 'Duplikat e-maila',
+          duplicateStoreName: 'Duplikat nazwy',
+          incompletePreferences: 'Niepełne preferencje',
+          singleStandType: 'Jeden typ stoisk'
+        },
+        descriptions: {
+          duplicateEmail: 'Inne zgłoszenie podaje ten sam adres e-mail.',
+          duplicateStoreName: 'Inne zgłoszenie podaje tę samą nazwę sklepu.',
+          incompletePreferences: 'Wybrano mniej niż trzy różne stoiska, więc kaskada ma mniej miejsca na manewr.',
+          singleStandType:
+            'Wszystkie wybrane stoiska są tego samego typu — przy komplecie chętnych może zabraknąć alternatywy.'
+        }
+      },
+      rows: {
+        columns: {
+          storeName: 'Sklep',
+          submittedAt: 'Zgłoszono',
+          category: 'Kategoria',
+          preferences: 'Preferencje · chętni',
+          status: 'Status',
+          flags: 'Flagi'
+        },
+        competitors: 'Stoisko {{standId}} — chętnych oprócz tego zgłoszenia: {{count}}',
+        openDetails: 'Pokaż szczegóły zgłoszenia „{{name}}”'
+      },
+      drawer: {
+        label: 'Szczegóły zgłoszenia: {{name}}',
+        close: 'Zamknij'
+      },
+      toolbar: {
+        statusLabel: 'Filtruj po statusie',
+        allStatuses: 'Wszystkie',
+        searchLabel: 'Szukaj',
+        searchPlaceholder: 'Nazwa, e-mail lub telefon',
+        categoryLabel: 'Kategoria',
+        allCategories: 'Wszystkie kategorie',
+        standLabel: 'Preferowane stoisko',
+        allStands: 'Wszystkie stoiska',
+        sortLabel: 'Sortowanie',
+        sortOrders: {
+          oldest: 'Najstarsze zgłoszenia',
+          newest: 'Najnowsze zgłoszenia',
+          name: 'Nazwa sklepu A–Z',
+          demand: 'Konkurencja o 1. wybór'
+        },
+        reset: 'Wyczyść filtry',
+        exportCsv: 'Eksportuj listę CSV',
+        assignedStands: 'Zapisane przydziały stoisk',
+        visibleCount: 'Widoczne zgłoszenia: {{visible}} z {{total}}',
+        noMatches: 'Żadne zgłoszenie nie pasuje do wybranych filtrów.'
       }
     },
     workshopsApplicationsPage: {
@@ -663,6 +775,51 @@ export const pl = {
       loading: 'Wczytywanie zgłoszeń...',
       empty: 'Brak zgłoszeń.',
       savedCount: 'Zapisanych zgłoszeń: {{count}}',
+      showRows: 'Pokaż listę',
+      showCards: 'Pokaż karty',
+      toolbar: {
+        statusLabel: 'Filtruj po statusie',
+        allStatuses: 'Wszystkie',
+        searchLabel: 'Szukaj',
+        searchPlaceholder: 'Tytuł, prowadzący, e-mail lub telefon',
+        levelLabel: 'Poziom',
+        allLevels: 'Wszystkie poziomy',
+        sortLabel: 'Sortowanie',
+        sortOrders: {
+          oldest: 'Najstarsze zgłoszenia',
+          newest: 'Najnowsze zgłoszenia',
+          title: 'Tytuł A–Z',
+          tutor: 'Prowadzący A–Z'
+        },
+        reset: 'Wyczyść filtry',
+        visibleCount: 'Widoczne zgłoszenia: {{visible}} z {{total}}',
+        noMatches: 'Żadne zgłoszenie nie pasuje do wybranych filtrów.'
+      },
+      rows: {
+        columns: {
+          title: 'Warsztat',
+          tutor: 'Prowadzący',
+          level: 'Poziom',
+          participants: 'Uczestnicy',
+          price: 'Cena',
+          duration: 'Czas',
+          submittedAt: 'Zgłoszono',
+          status: 'Status',
+          warnings: 'Uwagi'
+        },
+        openDetails: 'Pokaż szczegóły zgłoszenia „{{name}}”'
+      },
+      drawer: {
+        label: 'Szczegóły zgłoszenia: {{name}}',
+        close: 'Zamknij'
+      },
+      warnings: {
+        none: 'Brak uwag',
+        missingContract: {
+          label: 'Brak umowy',
+          detail: 'Brak typu umowy potrzebnego do rozliczenia.'
+        }
+      },
       delete: {
         button: 'Usuń zgłoszenie',
         deleting: 'Usuwanie...',
@@ -688,6 +845,7 @@ export const pl = {
         contractType: 'Typ umowy',
         logoFilename: 'Logo',
         additionalInfo: 'Informacje dodatkowe',
+        warnings: 'Sanity-checki',
         notProvided: 'Nie podano'
       },
       statuses: {
@@ -1086,7 +1244,7 @@ export const pl = {
       kicker: 'Admin',
       navigationLabel: 'Nawigacja panelu administracyjnego',
       links: {
-        applications: 'Zgłoszenia',
+        applications: 'Zgłoszenia wystawców',
         workshopsApplications: 'Zgłoszenia warsztatowe',
         users: 'Użytkownicy',
         editor: 'Edytor',

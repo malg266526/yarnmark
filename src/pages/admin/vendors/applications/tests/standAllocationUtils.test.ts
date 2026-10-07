@@ -5,7 +5,8 @@ import {
   getAcceptedApplicationsSortedBySubmittedAt,
   getCascadeChoiceReservations,
   getCascadeManualNegotiationReservations,
-  sortApplicationsBySubmittedAt
+  sortApplicationsBySubmittedAt,
+  summarizeCascadeEligibility
 } from '../utils/standAllocationUtils.ts';
 import { getBaseApplication } from './vendorApplicationFixture.ts';
 
@@ -149,4 +150,43 @@ test('getCascadeManualNegotiationReservations returns accepted applications with
     getCascadeManualNegotiationReservations(applications).map(({ application }) => application.id),
     ['application-4']
   );
+});
+
+test('cascade reserves all saved stands regardless of status and skips already assigned applications', () => {
+  const applications: VendorApplication[] = [
+    { ...getBaseApplication(), id: 'assigned', status: 'accepted', assignedStands: ['P2', 'S1'] },
+    { ...getBaseApplication(), id: 'pending', status: 'pending', assignedStands: ['P3'] },
+    { ...getBaseApplication(), id: 'stand-assigned', status: 'stand-assigned', assignedStands: ['S6'] },
+    { ...getBaseApplication(), id: 'rejected', status: 'rejected', assignedStands: ['M1'] },
+    { ...getBaseApplication(), id: 'candidate', status: 'accepted', preferredStands: ['P2', 'P3', 'S8'] },
+    { ...getBaseApplication(), id: 'blocked', status: 'accepted', preferredStands: ['S1', 'S6', 'M1'] }
+  ];
+  const snapshot = structuredClone(applications);
+
+  assert.deepEqual(
+    getCascadeChoiceReservations(applications).map(({ application, reservedStandId }) => [
+      application.id,
+      reservedStandId
+    ]),
+    [
+      ['candidate', 'S8'],
+      ['blocked', null]
+    ]
+  );
+  assert.deepEqual(applications, snapshot);
+});
+
+test('summarizeCascadeEligibility explains why the cascade has no candidates', () => {
+  const applications: VendorApplication[] = [
+    { ...getBaseApplication(), id: 'free', status: 'accepted', assignedStands: [] },
+    { ...getBaseApplication(), id: 'assigned', status: 'accepted', assignedStands: ['S1'] },
+    { ...getBaseApplication(), id: 'pending', status: 'pending', assignedStands: [] },
+    { ...getBaseApplication(), id: 'done', status: 'stand-assigned', assignedStands: ['S2'] }
+  ];
+
+  assert.deepEqual(summarizeCascadeEligibility(applications), {
+    acceptedCount: 2,
+    acceptedWithStandsCount: 1,
+    eligibleCount: 1
+  });
 });
