@@ -21,6 +21,7 @@ const createApplication = (id: string, preferredStands: string[]): VendorApplica
   mainCategory: 'yarns',
   mainCategoryOther: '',
   preferredStands,
+  wantsTwoStands: false,
   interestedIfUnavailable: true,
   sponsorshipInterest: null,
   phoneNumber: '+48 123 456 789',

@@ -12,6 +12,7 @@ export const getBaseApplication = (): VendorApplication => ({
   mainCategory: 'yarns',
   mainCategoryOther: '',
   preferredStands: ['A1'],
+  wantsTwoStands: false,
   interestedIfUnavailable: false,
   sponsorshipInterest: null,
   phoneNumber: '+48 123 456 789',

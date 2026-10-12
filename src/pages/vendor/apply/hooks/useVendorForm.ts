@@ -4,7 +4,12 @@ import { useForm, type Resolver } from 'react-hook-form';
 import type { UnprefixedTranslationKeys } from '../../../../translations/useTypedTranslation';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import type { VendorFormViewProps } from '../components/vendorFormViewContracts';
-import { toggleStandSelection } from '../../../../domain/vendorApplications/vendorFormUtils.ts';
+import {
+  getMaxPreferredStands,
+  getOpenPairStandId,
+  getPreferredStandGroups,
+  toggleStandSelection
+} from '../../../../domain/vendorApplications/vendorFormUtils.ts';
 import {
   fetchStandsDemandFromApi,
   submitVendorApplicationToApi
@@ -12,8 +17,7 @@ import {
 import {
   VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH,
   VENDOR_FORM_DRAFT_STORAGE_KEY,
-  VENDOR_FORM_LOGO_MAX_BYTES,
-  VENDOR_FORM_MAX_PREFERRED_STANDS
+  VENDOR_FORM_LOGO_MAX_BYTES
 } from '../../../../domain/vendorApplications/vendorFormConstants.ts';
 import {
   collectVendorFormValidationErrors,
@@ -102,6 +106,15 @@ export const useVendorForm = (): VendorFormViewProps => {
     [formData.preferredStands, highInterestStandIds]
   );
 
+  const maxPreferredStands = getMaxPreferredStands(formData.wantsTwoStands);
+
+  const preferredStandGroups = useMemo(
+    () => getPreferredStandGroups(formData.preferredStands, formData.wantsTwoStands),
+    [formData.preferredStands, formData.wantsTwoStands]
+  );
+
+  const pairAnchorStandId = getOpenPairStandId(formData.preferredStands, formData.wantsTwoStands);
+
   const updateLogoFile = async (file: File | null) => {
     if (!file) {
       setValue('logoFileName', null, { shouldDirty: true });
@@ -133,9 +146,18 @@ export const useVendorForm = (): VendorFormViewProps => {
   };
 
   const togglePreferredStand = (standId: string) => {
-    const nextValue = toggleStandSelection(getValues('preferredStands'), standId, VENDOR_FORM_MAX_PREFERRED_STANDS);
+    const nextValue = toggleStandSelection(getValues('preferredStands'), standId, maxPreferredStands);
 
     setValue('preferredStands', nextValue, { shouldDirty: true, shouldValidate: hasAttemptedSubmit });
+    markFormAsIncompleteAndClearSubmitError();
+  };
+
+  const setWantsTwoStands = (value: boolean) => {
+    setValue('wantsTwoStands', value, { shouldDirty: true });
+    setValue('preferredStands', getValues('preferredStands').slice(0, getMaxPreferredStands(value)), {
+      shouldDirty: true,
+      shouldValidate: hasAttemptedSubmit
+    });
     markFormAsIncompleteAndClearSubmitError();
   };
 
@@ -270,13 +292,17 @@ export const useVendorForm = (): VendorFormViewProps => {
   return {
     derivedState: {
       highInterestSelectedStandIds,
-      highInterestStandIds
+      highInterestStandIds,
+      maxPreferredStands,
+      pairAnchorStandId,
+      preferredStandGroups
     },
     formActions: {
       closeSuccessModal,
       setAcceptedStatuteValue,
       setBooleanFieldValue,
       setMainCategory,
+      setWantsTwoStands,
       submitVendorForm,
       togglePreferredStand,
       updateBusinessDescription,

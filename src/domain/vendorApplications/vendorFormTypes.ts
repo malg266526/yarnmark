@@ -6,6 +6,7 @@ export interface VendorFormState {
   mainCategory: VendorFormMainCategory;
   mainCategoryOther: string;
   preferredStands: string[];
+  wantsTwoStands: boolean;
   interestedIfUnavailable: boolean | null;
   sponsorshipInterest: boolean | null;
   phoneNumber: string;
@@ -24,6 +25,7 @@ export const INITIAL_VENDOR_FORM_STATE: VendorFormState = {
   mainCategory: null,
   mainCategoryOther: '',
   preferredStands: [],
+  wantsTwoStands: false,
   interestedIfUnavailable: null,
   sponsorshipInterest: null,
   phoneNumber: '',

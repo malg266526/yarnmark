@@ -30,6 +30,7 @@ export const VendorFormView = ({ derivedState, formActions, formBindings, formSt
         derivedState={derivedState}
         formActions={{
           setBooleanFieldValue: formActions.setBooleanFieldValue,
+          setWantsTwoStands: formActions.setWantsTwoStands,
           togglePreferredStand: formActions.togglePreferredStand
         }}
         formBindings={formBindings}

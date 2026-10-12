@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH } from './vendorFormConstants.ts';
-import { isEmailValid, isPhoneValid } from './vendorFormUtils.ts';
+import { hasIncompleteStandPair, isEmailValid, isPhoneValid } from './vendorFormUtils.ts';
 import { normalizeStandIds } from './vendorFormStandIds.ts';
 
 export const VENDOR_FORM_VALIDATION_KEYS = {
@@ -17,6 +17,7 @@ export const VENDOR_FORM_VALIDATION_KEYS = {
   phoneInvalid: 'vendorsFormPage.validation.phoneInvalid',
   phoneRequired: 'vendorsFormPage.validation.phoneRequired',
   preferredStandsRequired: 'vendorsFormPage.validation.preferredStandsRequired',
+  standPairIncomplete: 'vendorsFormPage.validation.standPairIncomplete',
   statuteRequired: 'vendorsFormPage.validation.statuteRequired',
   storeNameRequired: 'vendorsFormPage.validation.storeNameRequired'
 } as const;
@@ -53,6 +54,10 @@ export const vendorFormStateSchema = z.object({
   mainCategory: z.enum(['yarns', 'accessories', 'ceramics', 'candles', 'other']).nullable(),
   mainCategoryOther: z.string(),
   preferredStands: z.array(z.string()).transform((standIds) => normalizeStandIds(standIds)),
+  wantsTwoStands: z
+    .boolean()
+    .nullish()
+    .transform((wantsTwoStands) => wantsTwoStands ?? false),
   interestedIfUnavailable: vendorFormNullableBooleanSchema,
   sponsorshipInterest: vendorFormNullableBooleanSchema,
   phoneNumber: z.string(),
@@ -114,6 +119,14 @@ export const vendorFormValidationSchema = vendorFormStateSchema
       ctx.addIssue({
         code: 'custom',
         message: VENDOR_FORM_VALIDATION_KEYS.preferredStandsRequired,
+        path: ['preferredStands']
+      });
+    }
+
+    if (hasIncompleteStandPair(value.preferredStands, value.wantsTwoStands)) {
+      ctx.addIssue({
+        code: 'custom',
+        message: VENDOR_FORM_VALIDATION_KEYS.standPairIncomplete,
         path: ['preferredStands']
       });
     }

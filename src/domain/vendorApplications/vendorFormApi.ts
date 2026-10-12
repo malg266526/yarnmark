@@ -4,7 +4,10 @@ import { VENDOR_FORM_API_URL, VENDOR_STANDS_DEMAND_API_URL } from './vendorFormC
 import type { StandDemand, VendorFormState } from './vendorFormTypes.ts';
 
 export const submitVendorApplicationToApi = async (formData: VendorFormState): Promise<string> => {
-  const responseBody = await requestApi(VENDOR_FORM_API_URL, { method: 'POST', body: formData });
+  const payload: Partial<VendorFormState> = { ...formData };
+  delete payload.wantsTwoStands;
+
+  const responseBody = await requestApi(VENDOR_FORM_API_URL, { method: 'POST', body: payload });
 
   return resolveSubmittedAt(responseBody);
 };

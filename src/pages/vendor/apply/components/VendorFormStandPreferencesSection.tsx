@@ -6,6 +6,7 @@ import { FormFieldError } from '../../../../components/form/FormFieldError';
 import { FormFieldHeading } from '../../../../components/form/FormFieldHeading';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import {
+  CheckboxRow,
   DisclaimerText,
   Fieldset,
   FormSection,
@@ -23,7 +24,10 @@ import {
   StandStatusPill,
   WarningCard
 } from '../VendorFormPage.styled';
-import { VENDOR_FORM_MAX_PREFERRED_STANDS } from '../../../../domain/vendorApplications/vendorFormConstants.ts';
+import {
+  VENDOR_FORM_MAX_PREFERRED_STANDS,
+  VENDOR_FORM_STANDS_PER_PAIR
+} from '../../../../domain/vendorApplications/vendorFormConstants.ts';
 import { SelectableHall } from './SelectableHall';
 import type { VendorFormActions, VendorFormBindings, VendorFormDerivedState } from './vendorFormViewContracts';
 
@@ -32,7 +36,7 @@ const INTERESTED_IF_UNAVAILABLE_ERROR_ID = 'vendor-interested-if-unavailable-err
 
 interface VendorFormStandPreferencesSectionProps {
   derivedState: VendorFormDerivedState;
-  formActions: Pick<VendorFormActions, 'setBooleanFieldValue' | 'togglePreferredStand'>;
+  formActions: Pick<VendorFormActions, 'setBooleanFieldValue' | 'setWantsTwoStands' | 'togglePreferredStand'>;
   formBindings: VendorFormBindings;
 }
 
@@ -43,8 +47,14 @@ export const VendorFormStandPreferencesSection = ({
 }: VendorFormStandPreferencesSectionProps) => {
   const t = useTypedTranslation();
   const { formData, resolveFieldErrorMessage } = formBindings;
-  const { highInterestSelectedStandIds, highInterestStandIds } = derivedState;
-  const { setBooleanFieldValue, togglePreferredStand } = formActions;
+  const {
+    highInterestSelectedStandIds,
+    highInterestStandIds,
+    maxPreferredStands,
+    pairAnchorStandId,
+    preferredStandGroups
+  } = derivedState;
+  const { setBooleanFieldValue, setWantsTwoStands, togglePreferredStand } = formActions;
   const preferredStandsError = resolveFieldErrorMessage('preferredStands');
   const interestedIfUnavailableError = resolveFieldErrorMessage('interestedIfUnavailable');
 
@@ -57,22 +67,39 @@ export const VendorFormStandPreferencesSection = ({
           aria-describedby={preferredStandsError ? PREFERRED_STANDS_ERROR_ID : undefined}
         >
           <FormFieldHeading title={t('vendorsFormPage.steps.preferredStands.title')} requirement="required" />
+          <CheckboxRow htmlFor="wants_two_stands">
+            <input
+              id="wants_two_stands"
+              type="checkbox"
+              data-vendor-form-field="wantsTwoStands"
+              checked={formData.wantsTwoStands}
+              onChange={(event) => setWantsTwoStands(event.target.checked)}
+            />
+            <span>{t('vendorsFormPage.steps.preferredStands.twoStandsLabel')}</span>
+          </CheckboxRow>
           <FieldHint>
-            {t('vendorsFormPage.steps.preferredStands.hint', {
-              max: VENDOR_FORM_MAX_PREFERRED_STANDS
-            })}
+            {formData.wantsTwoStands
+              ? t('vendorsFormPage.steps.preferredStands.pairHint', { max: VENDOR_FORM_MAX_PREFERRED_STANDS })
+              : t('vendorsFormPage.steps.preferredStands.hint', { max: VENDOR_FORM_MAX_PREFERRED_STANDS })}
           </FieldHint>
           <FieldHint>{t('vendorsFormPage.steps.preferredStands.orderHint')}</FieldHint>
           <FieldHint>
-            {t('vendorsFormPage.steps.preferredStands.counter', {
-              current: formData.preferredStands.length,
-              max: VENDOR_FORM_MAX_PREFERRED_STANDS
-            })}
+            {formData.wantsTwoStands
+              ? t('vendorsFormPage.steps.preferredStands.pairCounter', {
+                  current: Math.floor(formData.preferredStands.length / VENDOR_FORM_STANDS_PER_PAIR),
+                  max: VENDOR_FORM_MAX_PREFERRED_STANDS
+                })
+              : t('vendorsFormPage.steps.preferredStands.counter', {
+                  current: formData.preferredStands.length,
+                  max: maxPreferredStands
+                })}
           </FieldHint>
           <HallLayout>
             <HallMapColumn>
               <SelectableHall
                 highInterestStandIds={highInterestStandIds}
+                isPairMode={formData.wantsTwoStands}
+                pairAnchorStandId={pairAnchorStandId}
                 selectedStandIds={formData.preferredStands}
                 onToggleStand={togglePreferredStand}
               />
@@ -111,6 +138,20 @@ export const VendorFormStandPreferencesSection = ({
               </LegendRow>
             </LegendCard>
           </HallLayout>
+          {formData.wantsTwoStands && preferredStandGroups.length > 0 ? (
+            <StandStatusList>
+              {preferredStandGroups.map((standGroup, groupIndex) => (
+                <StandStatusPill key={standGroup.join('-')}>
+                  {t(
+                    standGroup.length === VENDOR_FORM_STANDS_PER_PAIR
+                      ? 'vendorsFormPage.steps.preferredStands.pairLabel'
+                      : 'vendorsFormPage.steps.preferredStands.pairIncomplete',
+                    { number: groupIndex + 1, stands: standGroup.join(' + ') }
+                  )}
+                </StandStatusPill>
+              ))}
+            </StandStatusList>
+          ) : null}
           {highInterestSelectedStandIds.length > 0 ? (
             <StandStatusList>
               {highInterestSelectedStandIds.map((standId) => (
