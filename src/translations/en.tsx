@@ -592,7 +592,7 @@ export const en: TranslationsShape = {
       showRows: 'Show list',
       showSplit: 'List and map',
       showMap: 'Show map',
-      showCascadeStandAllocation: 'Cascading stand allocation',
+      showCertainStands: 'Show certain stands',
       statusField: {
         saving: 'Saving…'
       },
@@ -624,43 +624,18 @@ export const en: TranslationsShape = {
       acceptedQueue: {
         title: 'Step 1. Accepted vendors sorted by form submission time'
       },
-      cascadeAlgorithm: {
-        title: 'How the algorithm works',
-        simulation: 'Simulation — preview only, nothing is saved',
-        simulationDescription:
-          'Proposals cover accepted applications without an assignment. Saved assignments are preserved and their stands excluded from the simulation regardless of application status. Exporting does not save changes in the panel.',
-        export: 'Export proposal (CSV)',
-        empty: 'No accepted applications without an assigned stand.',
-        emptyNoAccepted:
-          'No application has the “accepted” status. The cascade only considers accepted vendors — set that status in the list or cards.',
-        emptyAllAssigned:
-          'Accepted applications: {{accepted}}, and all of them ({{assigned}}) already have a stand. The cascade skips assigned applications — clear the assignment in the details to include them again.',
-        proposedStand: 'Proposed stand',
-        exportColumns: {
-          applicationId: 'Application ID',
-          storeName: 'Store',
-          result: 'Simulation result',
-          suggested: 'Proposal — not saved'
-        },
-        steps: {
-          acceptVendors:
-            'The organizer first accepts selected vendors by setting their status to "accepted" in the "Show cards" section.',
-          sortAccepted:
-            'The system takes accepted applications without an assigned stand and sorts them by the earliest submission first. All saved assignments exclude occupied stands from the simulation.',
-          checkPreferences:
-            'Next, for each vendor in order, it checks the preferred stands from highest priority to lowest priority and assigns the first stand that is still available at that moment.',
-          sendToManualNegotiation:
-            'If all selected stands are already taken, the application moves to the manual negotiation section.',
-          confirmedAssignments:
-            'Proposals are not saved automatically. The organizer can assign a stand manually in the application details. Separate proposal confirmation is not yet available.',
-          nextIterations:
-            'After a manual assignment is saved, the simulation recalculates proposals for the remaining accepted applications and available stands.'
-        }
-      },
-      manualNegotiation: {
-        title: 'Manual negotiation'
+      certainStands: {
+        title: 'Certain stands',
+        description:
+          'Stands exactly one vendor applied for — there is nothing to settle. Preview only, nothing is saved.',
+        counter: 'Certain stands: {{count}}',
+        vendor: 'Vendor',
+        choice: 'Choice {{position}}',
+        multipleStands: 'Only candidate for {{count}} stands — you can assign just one',
+        empty: 'No stand has exactly one candidate.'
       },
       fields: {
+        applicationId: 'Application ID',
         status: 'Status',
         mainCategory: 'Main category',
         preferredStands: 'Preferred stands',

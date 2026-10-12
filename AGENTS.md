@@ -66,6 +66,14 @@
 
 ## Translations
 
+- **Never invent user-facing copy on your own.** Any new message the user will read — a hint, a counter, a
+  warning, a validation message, a button or link label, an empty state, a tooltip, an `aria-label` — must be
+  proposed in chat and approved before you add it. Write the exact wording you intend to use and ask; do not
+  ship it and wait to see whether it gets cut. This holds even when the copy feels obviously needed for the
+  feature to work, and in both `pl` and `en`.
+- When a requirement needs a message that was not approved yet, build the rest and ask for the wording instead
+  of filling the gap with your own sentence.
+- Rewording or deleting existing approved copy needs the same approval.
 - Never hardcode user-facing text directly in JSX. Always source it through `useTypedTranslation` and the `src/translations/en.tsx` / `src/translations/pl.tsx` files.
 - Add new keys to `pl.tsx` first (it is the source of the `TranslationsShape` type), then mirror the key in `en.tsx`.
 - Use interpolation (`{{value}}`) for dynamic parts instead of string concatenation.

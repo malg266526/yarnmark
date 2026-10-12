@@ -591,7 +591,7 @@ export const pl = {
       showRows: 'Pokaż listę',
       showSplit: 'Lista i mapa',
       showMap: 'Pokaż mapę',
-      showCascadeStandAllocation: 'Kaskadowe przypisanie stoisk',
+      showCertainStands: 'Pokaż pewne stoiska',
       statusField: {
         saving: 'Zapisywanie…'
       },
@@ -623,43 +623,18 @@ export const pl = {
       acceptedQueue: {
         title: 'Krok 1. Zaakceptowani wystawcy według czasu wysłania formularza'
       },
-      cascadeAlgorithm: {
-        title: 'Jak działa algorytm',
-        simulation: 'Symulacja — podgląd, nic nie jest zapisane',
-        simulationDescription:
-          'Propozycje dotyczą zaakceptowanych zgłoszeń bez przydziału. Zapisane przydziały są zachowane, a ich stoiska wyłączone z symulacji niezależnie od statusu zgłoszenia. Eksport nie zapisuje zmian w panelu.',
-        export: 'Eksportuj propozycję (CSV)',
-        empty: 'Brak zaakceptowanych zgłoszeń bez przydzielonego stoiska.',
-        emptyNoAccepted:
-          'Żadne zgłoszenie nie ma statusu „zaakceptowane”. Kaskada bierze pod uwagę tylko zaakceptowanych wystawców — ustaw ten status w liście lub kartach.',
-        emptyAllAssigned:
-          'Zaakceptowanych zgłoszeń: {{accepted}}, z czego wszystkie ({{assigned}}) mają już przydzielone stoisko. Kaskada pomija zgłoszenia z przydziałem — zdejmij przydział w szczegółach, jeśli chcesz je przeliczyć.',
-        proposedStand: 'Proponowane stoisko',
-        exportColumns: {
-          applicationId: 'ID zgłoszenia',
-          storeName: 'Sklep',
-          result: 'Wynik symulacji',
-          suggested: 'Propozycja — niezapisana'
-        },
-        steps: {
-          acceptVendors:
-            'Organizator najpierw akceptuje wybranych wystawców, ustawiając status "zaakceptowane" w sekcji "Pokaż karty".',
-          sortAccepted:
-            'System bierze zaakceptowane zgłoszenia bez przydzielonego stoiska i sortuje je od najwcześniej wysłanego formularza. Wszystkie zapisane przydziały wyłączają zajęte stoiska z symulacji.',
-          checkPreferences:
-            'Następnie dla każdego wystawcy po kolei sprawdza jego listę preferowanych stoisk od najwyższego priorytetu do najniższego i przypisuje pierwsze stoisko, które w tym momencie pozostaje jeszcze wolne.',
-          sendToManualNegotiation:
-            'Jeśli wszystkie wybrane stoiska są już zajęte, zgłoszenie trafia do sekcji negocjacji ręcznej.',
-          confirmedAssignments:
-            'Propozycje nie są zapisywane automatycznie. Organizator może przypisać wybrane stoisko ręcznie w szczegółach zgłoszenia. Osobne „klepnięcie” propozycji nie jest jeszcze dostępne.',
-          nextIterations:
-            'Po zapisaniu ręcznego przydziału symulacja przelicza propozycje dla pozostałych zaakceptowanych zgłoszeń i wolnych stoisk.'
-        }
-      },
-      manualNegotiation: {
-        title: 'Do negocjacji ręcznej'
+      certainStands: {
+        title: 'Pewne stoiska',
+        description:
+          'Stoiska, o które ubiega się dokładnie jeden wystawca — nie ma o co rozstrzygać. Podgląd, nic nie jest zapisywane.',
+        counter: 'Pewnych stoisk: {{count}}',
+        vendor: 'Wystawca',
+        choice: '{{position}}. wybór',
+        multipleStands: 'Jedyny chętny do {{count}} stoisk — przydzielisz tylko jedno',
+        empty: 'Żadne stoisko nie ma dokładnie jednego chętnego.'
       },
       fields: {
+        applicationId: 'ID zgłoszenia',
         status: 'Status',
         mainCategory: 'Główna kategoria',
         preferredStands: 'Preferowane stoiska',
