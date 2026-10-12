@@ -40,7 +40,7 @@ export const HallLegend = () => {
 
       <RowLayout gap="xs">
         <ColorSample color="standC" />
-        <p>{t('hallMap.standard2Stand')}</p>
+        <p>{t('hallMap.cStand')}</p>
       </RowLayout>
 
       <RowLayout gap="xs">

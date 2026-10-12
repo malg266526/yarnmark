@@ -62,13 +62,13 @@ export const pl = {
       title: 'Mapa hali',
       premiumStand: 'Miejsce Premium 3x5.5m',
       standardStand: 'Miejsce Standard 3x3,5m',
-      standard2Stand: 'Miejsce Standard 3x4m',
+      cStand: 'Miejsce C 3x3m',
       miniStand: 'Miejsce Mini 3x2m',
       taken: 'Miejsce zarezerwowane'
     },
     whereToEat: 'Gdzie zjeść?',
     welcomeBand: {
-      invitation: 'Serdecznie zapraszamy na III edycję targów włóczki w stolicy Małopolski!',
+      invitation: 'Serdecznie zapraszamy na IV edycję targów włóczki w stolicy Małopolski!',
       // when: '26/04/2025r w godz. 10:00 - 17:00',
       when: '{{date, datetime}}',
       where: 'Hala 100-lecia KS Cracovia',
@@ -244,10 +244,10 @@ export const pl = {
       workshopsEmailLabel: 'Warsztaty'
     },
     infoForVendorsPage: {
-      title: 'Informacje dla wystawców 2026',
+      title: 'Informacje dla wystawców 2027',
       seeStatue: 'Regulamin sprzedaży stoisk:',
       here: 'Tutaj',
-      invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w III edycji Krakoskiego Yarnmarku!',
+      invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w IV edycji Krakoskiego Yarnmarku!',
       organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was.',
       hallInfo: {
         title: 'Hala',
@@ -256,9 +256,10 @@ export const pl = {
         ramp: 'Z parkingu prosto na halę prowadzi rampa, bez potrzeby korzystania ze schodów czy wind.',
         participants:
           'Wejście dla odwiedzających targi będzie znajdować się od ulicy Focha, gdzie do hali głównej udadzą się efektownym zejściem, z którego będzie widać całą halę wystawienniczą.',
-        stands: 'Na hali będą trzy rodzaje stoisk:',
+        stands: 'Na hali będą cztery rodzaje stoisk:',
         standPremium: '<strong>Premium 3 × 5,5 m</strong>',
         standardStand: '<strong>Standard 3 × 3,5 m</strong>',
+        standC: '<strong>C 3 × 3 m</strong>',
         miniStand: '<strong>Mini 3 × 2 m</strong>',
         tables:
           'Stoisko premium posiada 2 krzesła oraz 2 stoły 160x80cm. Stoisko standard posiada 2 krzesła oraz 2 stoły 140x70cm, a stoisko Mini 2 krzesła oraz 1 stół 140x70cm',
@@ -284,7 +285,7 @@ export const pl = {
       },
       registration: {
         title: 'Zapisy',
-        wantToJoin: 'Chcesz zostać wystawcą na Krakoski Yarnmark 2026?',
+        wantToJoin: 'Chcesz zostać wystawcą na Krakoski Yarnmark 2027?',
         newForm: 'Zapraszamy do strony z formularzem zgłoszeniowym: <0>Formularz</0>.',
         extraInfoByMail: 'Masz dodatkowe pytania? Napisz na <strong>krakoski.yarnmark@gmail.com</strong>',
         beAVendor:
@@ -366,6 +367,8 @@ export const pl = {
           premiumSize: '3 × 5,5 m',
           standardLabel: 'Standard',
           standardSize: '3 × 3,5 m',
+          cLabel: 'C',
+          cSize: '3 × 3 m',
           miniLabel: 'Mini',
           miniSize: '2 × 3 m'
         },

@@ -123,6 +123,13 @@ export const VendorFormStandPreferencesSection = ({
                 </LegendText>
               </LegendRow>
               <LegendRow>
+                <LegendBadge>C</LegendBadge>
+                <LegendText>
+                  {t('vendorsFormPage.steps.preferredStands.cLabel')}
+                  <LegendSize>{t('vendorsFormPage.steps.preferredStands.cSize')}</LegendSize>
+                </LegendText>
+              </LegendRow>
+              <LegendRow>
                 <LegendBadge>M</LegendBadge>
                 <LegendText>
                   {t('vendorsFormPage.steps.preferredStands.miniLabel')}

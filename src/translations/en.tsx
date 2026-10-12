@@ -115,12 +115,12 @@ export const en: TranslationsShape = {
       title: 'Hallenplan',
       premiumStand: 'Premium spot 3x3,5m',
       standardStand: 'Standard spot 3x3,5m',
-      standard2Stand: 'Standard spot 3x4m',
+      cStand: 'C spot 3x3m',
       miniStand: 'Mini spot 3x2m',
       taken: 'Reserved'
     },
     welcomeBand: {
-      invitation: 'We heartily invite you for III edition of yarn fair in capital of Malopolska!',
+      invitation: 'We heartily invite you for IV edition of yarn fair in capital of Malopolska!',
       // when: '26/04/2025r at 10:00 AM - 5:00 PM',
       when: '{{date, datetime(dateStyle: long)}}',
       where: 'Hala 100-lecia KS Cracovia',
@@ -245,10 +245,10 @@ export const en: TranslationsShape = {
       workshopsEmailLabel: 'Workshops'
     },
     infoForVendorsPage: {
-      title: 'Information for vendors 2026',
+      title: 'Information for vendors 2027',
       seeStatue: 'Terms and Conditions for the sale of vendors stands:',
       here: 'Here',
-      invitation: 'We heartily invite you to participate in III edition of Krakoski Yarnmark!',
+      invitation: 'We heartily invite you to participate in IV edition of Krakoski Yarnmark!',
       organisationInfo: 'Below a bit of organisational information for you.',
       hallInfo: {
         title: 'Hall',
@@ -257,9 +257,10 @@ export const en: TranslationsShape = {
         ramp: 'From parking lot straight to the hall leads a ramp, without need to use stairs or elevators.',
         participants:
           'Entrance for fair participants will be on the side of Foch street, where they will enter the main hall efective descent from which whole exhibition hall will be visible.',
-        stands: 'There will be three types of spots in the hall:',
+        stands: 'There will be four types of spots in the hall:',
         standPremium: '<strong>Premium 3 × 5.5 m</strong>',
         standardStand: '<strong>Standard 3 × 3.5 m</strong>',
+        standC: '<strong>C 3 × 3 m</strong>',
         miniStand: '<strong>Mini 3 × 2 m</strong>',
         tables:
           'Premium spot includes 2 chairs and 2 tables 160x80cm. Standard spot includes 2 chairs and 2 tables 140x70cm, while a Mini spot includes 2 chairs  and 1 table 140x70cm',
@@ -285,7 +286,7 @@ export const en: TranslationsShape = {
       },
       registration: {
         title: 'Reservations',
-        wantToJoin: 'Do you want to become a vendor at Krakoski Yarnmark 2026?',
+        wantToJoin: 'Do you want to become a vendor at Krakoski Yarnmark 2027?',
         newForm: 'Please visit the application form page: <0>Form</0>.',
         extraInfoByMail:
           'Would you like to receive additional information via email? Write to <strong>krakoski.yarnmark@gmail.com</strong > ',
@@ -367,6 +368,8 @@ export const en: TranslationsShape = {
           premiumSize: '3 × 5.5 m',
           standardLabel: 'Standard',
           standardSize: '3 × 3.5 m',
+          cLabel: 'C',
+          cSize: '3 × 3 m',
           miniLabel: 'Mini',
           miniSize: '2 × 3 m'
         },
