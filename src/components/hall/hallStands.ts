@@ -5,6 +5,7 @@ const hallStandTypeSchema = zod.union([
   zod.literal('premium'),
   zod.literal('mini'),
   zod.literal('standard'),
+  zod.literal('c'),
   zod.literal('other')
 ]);
 
@@ -12,7 +13,7 @@ const hallStandColorSchema = zod.union([
   zod.literal('premium'),
   zod.literal('normal1'),
   zod.literal('normal2'),
-  zod.literal('normal3'),
+  zod.literal('standC'),
   zod.literal('small1'),
   zod.literal('small2'),
   zod.literal('taken'),

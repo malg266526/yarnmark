@@ -276,10 +276,10 @@
   {
     "id": "mgl68zf8-rfy5hgh",
     "index": "C1",
-    "type": "standard",
+    "type": "c",
     "width": 3,
     "height": 3,
-    "color": "normal3",
+    "color": "standC",
     "isHorizontal": false,
     "start": {
       "row": 86,
@@ -889,12 +889,12 @@
   },
   {
     "id": "muogalqc-epeuaxz",
-    "index": "c2",
-    "type": "other",
+    "index": "C2",
+    "type": "c",
     "isHorizontal": false,
     "width": 3,
     "height": 3,
-    "color": "normal3",
+    "color": "standC",
     "start": {
       "row": 22,
       "col": 46
@@ -906,12 +906,12 @@
   },
   {
     "id": "muogav4a-snrn8q7",
-    "index": "c3",
-    "type": "standard",
+    "index": "C3",
+    "type": "c",
     "isHorizontal": false,
     "width": 3,
     "height": 3,
-    "color": "normal3",
+    "color": "standC",
     "start": {
       "row": 22,
       "col": 1
@@ -923,7 +923,7 @@
   },
   {
     "id": "muogbl5b-dua6ycd",
-    "index": "m8",
+    "index": "M8",
     "type": "mini",
     "isHorizontal": true,
     "width": 3,
@@ -940,7 +940,7 @@
   },
   {
     "id": "muogbtvy-qzprjhj",
-    "index": "m9",
+    "index": "M9",
     "type": "mini",
     "isHorizontal": true,
     "width": 3,
@@ -957,7 +957,7 @@
   },
   {
     "id": "muogc2jx-0vwrm1d",
-    "index": "m10",
+    "index": "M10",
     "type": "mini",
     "isHorizontal": true,
     "width": 3,
@@ -974,7 +974,7 @@
   },
   {
     "id": "muogc8oy-ofhouxb",
-    "index": "m11",
+    "index": "M11",
     "type": "mini",
     "isHorizontal": true,
     "width": 3,

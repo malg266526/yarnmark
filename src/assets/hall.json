@@ -2,30 +2,30 @@
   {
     "id": "mgl5iw69-apfj5ox",
     "index": "a1",
+    "description": "Wejście / Entrance",
     "type": "other",
-    "isHorizontal": false,
     "width": 3,
     "height": 3,
     "color": "tech",
-    "description": "Wejście / Entrance",
+    "isHorizontal": false,
     "start": {
-      "row": 82,
+      "row": 86,
       "col": 46
     },
     "end": {
-      "row": 87,
+      "row": 91,
       "col": 51
     }
   },
   {
     "id": "mgl5l1dd-638vrn7",
     "index": "a0",
+    "description": "Wejście dla wystawców / Vendors entrance",
     "type": "other",
-    "isHorizontal": false,
     "width": 5,
     "height": 3,
     "color": "tech",
-    "description": "Wejście dla wystawców / Vendors entrance",
+    "isHorizontal": false,
     "start": {
       "row": 0,
       "col": 0
@@ -33,17 +33,16 @@
     "end": {
       "row": 5,
       "col": 12
-    },
-    "vendor": ""
+    }
   },
   {
     "id": "mgl5ldw7-35aihnp",
     "index": "S1",
     "type": "standard",
-    "isHorizontal": true,
     "width": 3.5,
     "height": 3,
     "color": "normal1",
+    "isHorizontal": true,
     "start": {
       "row": 0,
       "col": 13
@@ -51,17 +50,16 @@
     "end": {
       "row": 5,
       "col": 19
-    },
-    "vendor": "Lusia Knits"
+    }
   },
   {
     "id": "mgl5lmv2-rf2z8vs",
     "index": "S2",
     "type": "standard",
-    "isHorizontal": true,
     "width": 3.5,
     "height": 3,
     "color": "normal2",
+    "isHorizontal": true,
     "start": {
       "row": 0,
       "col": 20
@@ -69,17 +67,16 @@
     "end": {
       "row": 5,
       "col": 26
-    },
-    "vendor": "Biferno"
+    }
   },
   {
     "id": "mgl5mosd-zy7ymt5",
     "index": "S3",
     "type": "standard",
-    "isHorizontal": true,
     "width": 3.5,
     "height": 3,
     "color": "normal1",
+    "isHorizontal": true,
     "start": {
       "row": 0,
       "col": 27
@@ -87,17 +84,16 @@
     "end": {
       "row": 5,
       "col": 33
-    },
-    "vendor": "Biferno"
+    }
   },
   {
     "id": "mgl5mz0x-9lgguya",
     "index": "S4",
     "type": "standard",
-    "isHorizontal": true,
     "width": 3.5,
     "height": 3,
     "color": "normal2",
+    "isHorizontal": true,
     "start": {
       "row": 0,
       "col": 34
@@ -105,17 +101,16 @@
     "end": {
       "row": 5,
       "col": 40
-    },
-    "vendor": "Luka ceramika & Paciorkowce i Wisielce"
+    }
   },
   {
     "id": "mgl5ogvq-pqucf09",
     "index": "P1",
     "type": "premium",
-    "isHorizontal": true,
     "width": 5.5,
     "height": 3,
     "color": "premium",
+    "isHorizontal": true,
     "start": {
       "row": 0,
       "col": 41
@@ -123,17 +118,16 @@
     "end": {
       "row": 5,
       "col": 51
-    },
-    "vendor": "Dye Dye Done"
+    }
   },
   {
     "id": "mgl60s92-lscpjj7",
     "index": "P2",
     "type": "premium",
-    "isHorizontal": false,
     "width": 3,
     "height": 5.5,
     "color": "premium",
+    "isHorizontal": false,
     "start": {
       "row": 11,
       "col": 46
@@ -141,240 +135,227 @@
     "end": {
       "row": 21,
       "col": 51
-    },
-    "vendor": "Strikke"
+    }
   },
   {
     "id": "mgl613ar-ngm5blq",
     "index": "S5",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal1",
+    "isHorizontal": false,
     "start": {
-      "row": 22,
+      "row": 28,
       "col": 46
     },
     "end": {
-      "row": 28,
+      "row": 34,
       "col": 51
-    },
-    "vendor": "Wełna Bawełna"
+    }
   },
   {
     "id": "mgl618tt-1yiapaw",
     "index": "S6",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal2",
+    "isHorizontal": false,
     "start": {
-      "row": 29,
+      "row": 35,
       "col": 46
     },
     "end": {
-      "row": 35,
+      "row": 41,
       "col": 51
-    },
-    "vendor": "Wełna Bawełna"
+    }
   },
   {
     "id": "mgl64q1f-x7w94p5",
     "index": "S7",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal1",
+    "isHorizontal": false,
     "start": {
-      "row": 36,
+      "row": 42,
       "col": 46
     },
     "end": {
-      "row": 42,
+      "row": 48,
       "col": 51
-    },
-    "vendor": "Time to Knit"
+    }
   },
   {
     "id": "mgl64v4d-yqddbkl",
     "index": "S8",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal2",
+    "isHorizontal": false,
     "start": {
-      "row": 43,
+      "row": 49,
       "col": 46
     },
     "end": {
-      "row": 49,
+      "row": 55,
       "col": 51
-    },
-    "vendor": "Kokonki"
+    }
   },
   {
     "id": "mgl6517j-mjhaicf",
     "index": "S9",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal1",
+    "isHorizontal": false,
     "start": {
-      "row": 50,
+      "row": 56,
       "col": 46
     },
     "end": {
-      "row": 56,
+      "row": 62,
       "col": 51
-    },
-    "vendor": "Kokonki"
+    }
   },
   {
     "id": "mgl65aou-ptdjo6e",
     "index": "S10",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal2",
+    "isHorizontal": false,
     "start": {
-      "row": 57,
+      "row": 63,
       "col": 46
     },
     "end": {
-      "row": 63,
+      "row": 69,
       "col": 51
-    },
-    "vendor": "Martin's Lab"
+    }
   },
   {
     "id": "mgl65qbi-2kfiih9",
     "index": "P3",
     "type": "premium",
-    "isHorizontal": false,
     "width": 3,
     "height": 5.5,
     "color": "premium",
+    "isHorizontal": false,
     "start": {
-      "row": 64,
+      "row": 70,
       "col": 46
     },
     "end": {
-      "row": 74,
+      "row": 80,
       "col": 51
-    },
-    "vendor": "Liloppi"
+    }
   },
   {
     "id": "mgl66pt4-1ygebgf",
     "index": "S11",
     "type": "standard",
-    "isHorizontal": true,
     "width": 3.5,
     "height": 3,
     "color": "normal1",
+    "isHorizontal": true,
     "start": {
-      "row": 82,
+      "row": 86,
       "col": 39
     },
     "end": {
-      "row": 87,
+      "row": 91,
       "col": 45
-    },
-    "vendor": "Gabo Wool"
+    }
   },
   {
     "id": "mgl68zf8-rfy5hgh",
     "index": "C1",
-    "type": "standard",
-    "isHorizontal": false,
+    "type": "c",
     "width": 3,
-    "height": 4,
-    "color": "normal3",
+    "height": 3,
+    "color": "standC",
+    "isHorizontal": false,
     "start": {
-      "row": 80,
-      "col": 0
+      "row": 86,
+      "col": 21
     },
     "end": {
-      "row": 87,
-      "col": 5
-    },
-    "vendor": "Centrum Włóczek Bafpol"
+      "row": 91,
+      "col": 26
+    }
   },
   {
     "id": "mgl6econ-j4mlyk8",
     "index": "S15",
     "type": "standard",
-    "isHorizontal": true,
     "width": 3.5,
     "height": 3,
     "color": "normal1",
+    "isHorizontal": true,
     "start": {
-      "row": 82,
-      "col": 6
+      "row": 86,
+      "col": 0
     },
     "end": {
-      "row": 87,
-      "col": 12
-    },
-    "vendor": "Centrum Włóczek Bafpol"
+      "row": 91,
+      "col": 6
+    }
   },
   {
     "id": "mgl6ektc-rbbbi4w",
     "index": "S14",
     "type": "standard",
-    "isHorizontal": true,
     "width": 3.5,
     "height": 3,
     "color": "normal2",
+    "isHorizontal": true,
     "start": {
-      "row": 82,
-      "col": 13
+      "row": 86,
+      "col": 7
     },
     "end": {
-      "row": 87,
-      "col": 19
-    },
-    "vendor": "Brioszka"
+      "row": 91,
+      "col": 13
+    }
   },
   {
     "id": "mgl6et3j-e9giz38",
     "index": "S13",
     "type": "standard",
-    "isHorizontal": true,
     "width": 3.5,
     "height": 3,
     "color": "normal1",
+    "isHorizontal": true,
     "start": {
-      "row": 82,
-      "col": 20
+      "row": 86,
+      "col": 14
     },
     "end": {
-      "row": 87,
-      "col": 26
-    },
-    "vendor": "Brioszka"
+      "row": 91,
+      "col": 20
+    }
   },
   {
     "id": "mgl6fi1f-6o60rka",
     "index": "A2",
+    "description": "Przejście do toalet / Passage to toilets",
     "type": "other",
-    "isHorizontal": false,
     "width": 2.5,
     "height": 3,
     "color": "tech",
-    "description": "Przejście do toalet / Passage to toilets",
+    "isHorizontal": false,
     "start": {
-      "row": 82,
+      "row": 86,
       "col": 27
     },
     "end": {
-      "row": 87,
+      "row": 91,
       "col": 31
     }
   },
@@ -382,28 +363,27 @@
     "id": "mgl6fuog-0pibcjv",
     "index": "S12",
     "type": "standard",
-    "isHorizontal": true,
     "width": 3.5,
     "height": 3,
     "color": "normal2",
+    "isHorizontal": true,
     "start": {
-      "row": 82,
+      "row": 86,
       "col": 32
     },
     "end": {
-      "row": 87,
+      "row": 91,
       "col": 38
-    },
-    "vendor": "Gabo Wool"
+    }
   },
   {
     "id": "mgl6kh0d-1jnqs8s",
     "index": "P5",
     "type": "premium",
-    "isHorizontal": false,
     "width": 3,
     "height": 5.5,
     "color": "premium",
+    "isHorizontal": false,
     "start": {
       "row": 11,
       "col": 1
@@ -411,132 +391,125 @@
     "end": {
       "row": 21,
       "col": 6
-    },
-    "vendor": "Motkomania"
+    }
   },
   {
     "id": "mgl6l031-6oufobz",
     "index": "S21",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal2",
+    "isHorizontal": false,
     "start": {
-      "row": 22,
+      "row": 28,
       "col": 1
     },
     "end": {
-      "row": 28,
+      "row": 34,
       "col": 6
-    },
-    "vendor": "WoolMorning"
+    }
   },
   {
     "id": "mgl6l6xj-wvxnju7",
     "index": "S20",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal1",
+    "isHorizontal": false,
     "start": {
-      "row": 29,
+      "row": 35,
       "col": 1
     },
     "end": {
-      "row": 35,
+      "row": 41,
       "col": 6
-    },
-    "vendor": "Yarnpower"
+    }
   },
   {
     "id": "mgl6lej8-i38l6td",
     "index": "S19",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal2",
+    "isHorizontal": false,
     "start": {
-      "row": 36,
+      "row": 42,
       "col": 1
     },
     "end": {
-      "row": 42,
+      "row": 48,
       "col": 6
-    },
-    "vendor": "Dziergaweczki"
+    }
   },
   {
     "id": "mgl6lzj5-6kpu2mj",
     "index": "S18",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal1",
+    "isHorizontal": false,
     "start": {
-      "row": 43,
+      "row": 49,
       "col": 1
     },
     "end": {
-      "row": 49,
+      "row": 55,
       "col": 6
-    },
-    "vendor": "Miss Knitski"
+    }
   },
   {
     "id": "mgl6mdh4-mwhosiw",
     "index": "S17",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal2",
+    "isHorizontal": false,
     "start": {
-      "row": 50,
+      "row": 56,
       "col": 1
     },
     "end": {
-      "row": 56,
+      "row": 62,
       "col": 6
-    },
-    "vendor": "Pimotki"
+    }
   },
   {
     "id": "mgl6mkfw-8hallfi",
     "index": "S16",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal1",
+    "isHorizontal": false,
     "start": {
-      "row": 57,
+      "row": 63,
       "col": 1
     },
     "end": {
-      "row": 63,
+      "row": 69,
       "col": 6
-    },
-    "vendor": "Pimotki"
+    }
   },
   {
     "id": "mgl6n8xv-mczs30e",
     "index": "A3",
+    "description": "do socjalnego",
     "type": "other",
-    "isHorizontal": false,
     "width": 4,
     "height": 0.5,
     "color": "tech",
-    "description": "do socjalnego",
+    "isHorizontal": false,
     "start": {
-      "row": 64,
+      "row": 70,
       "col": 1
     },
     "end": {
-      "row": 64,
+      "row": 70,
       "col": 6
     }
   },
@@ -544,396 +517,476 @@
     "id": "mgl6nkta-rs38jfz",
     "index": "P4",
     "type": "premium",
-    "isHorizontal": false,
     "width": 3,
     "height": 5.5,
     "color": "premium",
+    "isHorizontal": false,
     "start": {
-      "row": 65,
+      "row": 71,
       "col": 1
     },
     "end": {
-      "row": 75,
+      "row": 81,
       "col": 6
-    },
-    "vendor": "Włóczykijki"
+    }
   },
   {
     "id": "mgl6ush4-p91myjt",
     "index": "M1",
     "type": "mini",
-    "isHorizontal": false,
     "width": 2,
     "height": 3,
     "color": "small1",
+    "isHorizontal": false,
     "start": {
-      "row": 15,
+      "row": 13,
       "col": 15
     },
     "end": {
-      "row": 20,
+      "row": 18,
       "col": 18
-    },
-    "vendor": "Włóczkotki"
+    }
   },
   {
     "id": "mgl6v4gk-ouwx9zh",
     "index": "M2",
     "type": "mini",
-    "isHorizontal": false,
     "width": 2,
     "height": 3,
     "color": "small2",
+    "isHorizontal": false,
     "start": {
-      "row": 21,
+      "row": 19,
       "col": 15
     },
     "end": {
-      "row": 26,
+      "row": 24,
       "col": 18
-    },
-    "vendor": "Mokosza"
+    }
   },
   {
     "id": "mgl6vc2j-3qc7l5j",
     "index": "M3",
     "type": "mini",
-    "isHorizontal": false,
     "width": 2,
     "height": 3,
     "color": "small1",
+    "isHorizontal": false,
     "start": {
-      "row": 27,
+      "row": 25,
       "col": 15
     },
     "end": {
-      "row": 32,
+      "row": 30,
       "col": 18
-    },
-    "vendor": "Winter Bee Candle"
+    }
   },
   {
     "id": "mgl6wf6b-2ayxfbb",
     "index": "S22",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal2",
+    "isHorizontal": false,
     "start": {
-      "row": 15,
+      "row": 13,
       "col": 26
     },
     "end": {
-      "row": 21,
+      "row": 19,
       "col": 31
-    },
-    "vendor": "Mila Druciarnia"
+    }
   },
   {
     "id": "mgl6wl89-uat4n17",
     "index": "S23",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal1",
+    "isHorizontal": false,
     "start": {
-      "row": 15,
+      "row": 13,
       "col": 32
     },
     "end": {
-      "row": 21,
+      "row": 19,
       "col": 37
-    },
-    "vendor": "Sama se uszyj"
+    }
   },
   {
     "id": "mgl6wrxx-idnr7z0",
     "index": "S24",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal1",
+    "isHorizontal": false,
     "start": {
-      "row": 22,
+      "row": 20,
       "col": 26
     },
     "end": {
-      "row": 28,
+      "row": 26,
       "col": 31
-    },
-    "vendor": "Mila Druciarnia"
+    }
   },
   {
     "id": "mgl6wwic-tvap3dc",
     "index": "S27",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal1",
+    "isHorizontal": false,
     "start": {
-      "row": 29,
+      "row": 27,
       "col": 32
     },
     "end": {
-      "row": 35,
+      "row": 33,
       "col": 37
-    },
-    "vendor": "Animotki"
+    }
   },
   {
     "id": "mgl6x1b7-40fayv0",
     "index": "S25",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal2",
+    "isHorizontal": false,
     "start": {
-      "row": 22,
+      "row": 20,
       "col": 32
     },
     "end": {
-      "row": 28,
+      "row": 26,
       "col": 37
-    },
-    "vendor": "Woolloop"
+    }
   },
   {
     "id": "mgl6x7j0-3q74q4a",
     "index": "S26",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal2",
+    "isHorizontal": false,
     "start": {
-      "row": 29,
+      "row": 27,
       "col": 26
     },
     "end": {
-      "row": 35,
+      "row": 33,
       "col": 31
-    },
-    "vendor": "Hanka mi zrobiła"
+    }
   },
   {
     "id": "mgl6yx3j-a6gbbdv",
     "index": "S28",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal2",
+    "isHorizontal": false,
     "start": {
-      "row": 44,
+      "row": 52,
       "col": 15
     },
     "end": {
-      "row": 50,
+      "row": 58,
       "col": 20
-    },
-    "vendor": "Furora Yarns"
+    }
   },
   {
     "id": "mgl6z2cb-1uxwbpm",
     "index": "S29",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal1",
+    "isHorizontal": false,
     "start": {
-      "row": 44,
+      "row": 52,
       "col": 21
     },
     "end": {
-      "row": 50,
+      "row": 58,
       "col": 26
-    },
-    "vendor": "The Knitting Box"
+    }
   },
   {
     "id": "mgl6zbss-39u5b6d",
     "index": "S30",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal1",
+    "isHorizontal": false,
     "start": {
-      "row": 51,
+      "row": 59,
       "col": 15
     },
     "end": {
-      "row": 57,
+      "row": 65,
       "col": 20
-    },
-    "vendor": "Furora Yarns"
+    }
   },
   {
     "id": "mgl6zfsg-fr2jl43",
     "index": "S31",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal2",
+    "isHorizontal": false,
     "start": {
-      "row": 51,
+      "row": 59,
       "col": 21
     },
     "end": {
-      "row": 57,
+      "row": 65,
       "col": 26
-    },
-    "vendor": "Mania Chomikuje"
+    }
   },
   {
     "id": "mgl6zjh0-jwq4ubf",
     "index": "S32",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal2",
+    "isHorizontal": false,
     "start": {
-      "row": 58,
+      "row": 66,
       "col": 15
     },
     "end": {
-      "row": 64,
+      "row": 72,
       "col": 20
-    },
-    "vendor": "7oczek"
+    }
   },
   {
     "id": "mgl6zxpt-k5hpk88",
     "index": "S33",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal1",
+    "isHorizontal": false,
     "start": {
-      "row": 58,
+      "row": 66,
       "col": 21
     },
     "end": {
-      "row": 64,
+      "row": 72,
       "col": 26
-    },
-    "vendor": "Alemasztocudne & Koło kniei"
+    }
   },
   {
     "id": "mgl71r2j-qkagdvk",
     "index": "S34",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal1",
+    "isHorizontal": false,
     "start": {
-      "row": 65,
+      "row": 73,
       "col": 15
     },
     "end": {
-      "row": 71,
+      "row": 79,
       "col": 20
-    },
-    "vendor": "7oczek"
+    }
   },
   {
     "id": "mgl71yd5-znghfel",
     "index": "S35",
     "type": "standard",
-    "isHorizontal": false,
     "width": 3,
     "height": 3.5,
     "color": "normal2",
+    "isHorizontal": false,
     "start": {
-      "row": 65,
+      "row": 73,
       "col": 21
     },
     "end": {
-      "row": 71,
+      "row": 79,
       "col": 26
-    },
-    "vendor": "Floral Fiber Fusion & Halbanka"
+    }
   },
   {
     "id": "mgl72tsa-qs2e7an",
     "index": "M7",
     "type": "mini",
-    "isHorizontal": false,
     "width": 2,
     "height": 3,
     "color": "small2",
+    "isHorizontal": false,
     "start": {
-      "row": 66,
+      "row": 74,
       "col": 34
     },
     "end": {
-      "row": 71,
+      "row": 79,
       "col": 37
-    },
-    "vendor": "Wydawnictwo RM"
+    }
   },
   {
     "id": "mgl76hx7-qw6e0d0",
     "index": "M6",
     "type": "mini",
-    "isHorizontal": false,
     "width": 2,
     "height": 3,
     "color": "small1",
+    "isHorizontal": false,
     "start": {
-      "row": 60,
+      "row": 68,
       "col": 34
     },
     "end": {
-      "row": 65,
+      "row": 73,
       "col": 37
-    },
-    "vendor": "Okki Handmade"
+    }
   },
   {
     "id": "mgl76tw7-mgn1xq1",
     "index": "M5",
     "type": "mini",
-    "isHorizontal": false,
     "width": 2,
     "height": 3,
     "color": "small2",
+    "isHorizontal": false,
     "start": {
-      "row": 54,
+      "row": 62,
       "col": 34
     },
     "end": {
-      "row": 59,
+      "row": 67,
       "col": 37
-    },
-    "vendor": "Tulinki"
+    }
   },
   {
     "id": "mgl775wk-c5g9xg2",
     "index": "M4",
     "type": "mini",
-    "isHorizontal": false,
     "width": 2,
     "height": 3,
     "color": "small1",
+    "isHorizontal": false,
     "start": {
-      "row": 48,
+      "row": 56,
       "col": 34
     },
     "end": {
-      "row": 53,
+      "row": 61,
       "col": 37
+    }
+  },
+  {
+    "id": "muogalqc-epeuaxz",
+    "index": "C2",
+    "type": "c",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3,
+    "color": "standC",
+    "start": {
+      "row": 22,
+      "col": 46
     },
-    "vendor": "Szklarka"
+    "end": {
+      "row": 27,
+      "col": 51
+    }
+  },
+  {
+    "id": "muogav4a-snrn8q7",
+    "index": "C3",
+    "type": "c",
+    "isHorizontal": false,
+    "width": 3,
+    "height": 3,
+    "color": "standC",
+    "start": {
+      "row": 22,
+      "col": 1
+    },
+    "end": {
+      "row": 27,
+      "col": 6
+    }
+  },
+  {
+    "id": "muogbl5b-dua6ycd",
+    "index": "M8",
+    "type": "mini",
+    "isHorizontal": true,
+    "width": 3,
+    "height": 2,
+    "color": "small1",
+    "start": {
+      "row": 41,
+      "col": 15
+    },
+    "end": {
+      "row": 44,
+      "col": 20
+    }
+  },
+  {
+    "id": "muogbtvy-qzprjhj",
+    "index": "M9",
+    "type": "mini",
+    "isHorizontal": true,
+    "width": 3,
+    "height": 2,
+    "color": "small2",
+    "start": {
+      "row": 41,
+      "col": 21
+    },
+    "end": {
+      "row": 44,
+      "col": 26
+    }
+  },
+  {
+    "id": "muogc2jx-0vwrm1d",
+    "index": "M10",
+    "type": "mini",
+    "isHorizontal": true,
+    "width": 3,
+    "height": 2,
+    "color": "small1",
+    "start": {
+      "row": 41,
+      "col": 27
+    },
+    "end": {
+      "row": 44,
+      "col": 32
+    }
+  },
+  {
+    "id": "muogc8oy-ofhouxb",
+    "index": "M11",
+    "type": "mini",
+    "isHorizontal": true,
+    "width": 3,
+    "height": 2,
+    "color": "small2",
+    "start": {
+      "row": 41,
+      "col": 33
+    },
+    "end": {
+      "row": 44,
+      "col": 38
+    }
   }
 ]
