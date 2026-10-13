@@ -67,6 +67,7 @@ export const useVendorForm = (): VendorFormViewProps => {
   const [isLoadingLogo, setIsLoadingLogo] = useState(false);
   const [validationErrors, setValidationErrors] = useState<Partial<Record<keyof VendorFormValues, string>>>({});
   const [standDemand, setStandDemand] = useState<StandDemand>({});
+  const [isStandDemandLoaded, setIsStandDemandLoaded] = useState<boolean>(false);
 
   const form = useForm<VendorFormValues>({
     defaultValues: initialDraft.formData,
@@ -95,8 +96,14 @@ export const useVendorForm = (): VendorFormViewProps => {
 
   useEffect(() => {
     fetchStandsDemandFromApi()
-      .then(setStandDemand)
-      .catch(() => setStandDemand({}));
+      .then((data) => {
+        setStandDemand(data);
+        setIsStandDemandLoaded(true);
+      })
+      .catch(() => {
+        setStandDemand({});
+        setIsStandDemandLoaded(false);
+      });
   }, []);
 
   const highInterestStandIds = useMemo(() => getHighDemandStandIds(standDemand), [standDemand]);
@@ -293,6 +300,8 @@ export const useVendorForm = (): VendorFormViewProps => {
     derivedState: {
       highInterestSelectedStandIds,
       highInterestStandIds,
+      interestKnownStandIds: Object.keys(standDemand),
+      isStandDemandAvailable: isStandDemandLoaded,
       maxPreferredStands,
       pairAnchorStandId,
       preferredStandGroups

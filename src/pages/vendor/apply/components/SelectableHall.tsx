@@ -1,14 +1,14 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { HallMap } from '../../../../components/hall/HallMap';
-import { isVendorStand, parseHallStands, type HallStand } from '../../../../components/hall/hallStands';
+import { type HallStand, isVendorStand, parseHallStands } from '../../../../components/hall/hallStands';
 import { isReservedStand, resolveStandColorKey } from '../../../../components/hall/standReservationUtils';
 import { HallStandVendor } from '../../../../components/hall/HallStandVendor';
 import { getPairableStandIndexes } from '../../../../components/hall/standAdjacencyUtils';
 import { StandColorsMap } from '../../../../components/editor/StandProps';
 import { Typography } from '../../../../components/Typography';
 import { usePhone } from '../../../../hooks/usePhone';
-import { BackgroundColors, WarningColors } from '../../../../styles/theme';
+import { BackgroundColors, BrownScale, WarningColors } from '../../../../styles/theme';
 
 const SELECTED_COLOR = '#FF8C00';
 
@@ -82,6 +82,7 @@ const StandElement = styled.button<{
   $left: number;
   $top: number;
   $color: string;
+  $hasNoInterestFrame: boolean;
   $width: number;
   $height: number;
   $isHighInterest: boolean;
@@ -95,6 +96,7 @@ const StandElement = styled.button<{
   width: ${({ $width }) => $width}px;
   height: ${({ $height }) => $height}px;
   background-color: ${({ $color }) => $color};
+  box-shadow: ${({ $hasNoInterestFrame }) => ($hasNoInterestFrame ? `inset 0 0 0 2px ${BrownScale[700]}` : 'none')};
 
   &::after {
     ${highInterestBadgeLayout}
@@ -106,6 +108,8 @@ type LoadState = { status: 'pending' } | { status: 'error'; error: Error } | { s
 
 interface SelectableHallProps {
   highInterestStandIds?: string[];
+  interestKnownStandIds?: string[];
+  isDemandAvailable?: boolean;
   isPairMode?: boolean;
   pairAnchorStandId?: string | null;
   selectedStandIds: string[];
@@ -115,6 +119,8 @@ interface SelectableHallProps {
 
 export const SelectableHall = ({
   highInterestStandIds = [],
+  interestKnownStandIds = [],
+  isDemandAvailable = false,
   isPairMode = false,
   pairAnchorStandId = null,
   selectedStandIds,
@@ -175,6 +181,14 @@ export const SelectableHall = ({
             (!pairableStandIds || selectedStandIds.includes(stand.index) || pairableStandIds.includes(stand.index));
           const standSelectionId = stand.index;
           const isHighInterest = highInterestStandIds.includes(standSelectionId);
+          const isNoInterest =
+            isVendorStand(stand) &&
+            !isReservedStand(stand) &&
+            isDemandAvailable &&
+            !interestKnownStandIds.includes(standSelectionId);
+
+          const isSelected = selectedStandIds.includes(standSelectionId);
+          const resolvedColor = isSelected ? SELECTED_COLOR : resolveColor(stand);
 
           return (
             <StandElement
@@ -184,13 +198,16 @@ export const SelectableHall = ({
               $top={box.top}
               $width={box.width}
               $height={box.height}
-              $color={resolveColor(stand)}
+              $color={resolvedColor}
+              $hasNoInterestFrame={isNoInterest}
               $isHighInterest={isHighInterest}
               $isBlocked={isVendorStand(stand) && !isReservedStand(stand) && !selectable}
               $selectable={selectable}
               disabled={!selectable}
               aria-pressed={selectable ? selectedStandIds.includes(standSelectionId) : undefined}
-              aria-label={`${stand.description ?? `Stand ${stand.index}`}${isHighInterest ? ', High Interest' : ''}`}
+              aria-label={`${stand.description ?? `Stand ${stand.index}`}${
+                isHighInterest ? ', High Interest' : isNoInterest ? ', No Interest' : ''
+              }`}
               onClick={selectable ? () => onToggleStand(standSelectionId) : undefined}
             >
               {stand.type !== 'other' ? stand.index : stand.description}

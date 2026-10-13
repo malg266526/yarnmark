@@ -372,10 +372,13 @@ export const pl = {
           counter: 'Wybrano {{current}} z {{max}}',
           detailsHint:
             'Szczegółowe informacje o rodzajach, wymiarach i wyposażeniu stoisk znajdziesz na stronie <0>Informacje dla wystawców</0>.',
+          availableLabel: 'Wolne',
           highInterestLabel: 'High Interest',
           highInterestHint: 'co najmniej 3 chętnych',
           highInterestWarning:
             'To stoisko jest bardzo popularne. Szansa na jego otrzymanie jest mniejsza. Rozważ inne lokalizacje jako priorytet. Dotyczy: {{stands}}.',
+          noInterestLabel: 'No Interest',
+          noInterestHint: 'brak zgłoszeń na ten moment',
           legendTitle: 'Typy stoisk',
           premiumLabel: 'Premium',
           premiumSize: '3 × 5,5 m',

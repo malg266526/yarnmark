@@ -373,10 +373,13 @@ export const en: TranslationsShape = {
           counter: '{{current}} of {{max}} selected',
           detailsHint:
             'Detailed information about stand types, dimensions, and equipment is available on the <0>Info for vendors</0> page.',
+          availableLabel: 'Available',
           highInterestLabel: 'High Interest',
           highInterestHint: 'at least 3 interested vendors',
           highInterestWarning:
             'This stand is very popular. The chance of receiving it is lower. Consider other locations as a higher priority. Affected stands: {{stands}}.',
+          noInterestLabel: 'No Interest',
+          noInterestHint: 'no interest yet',
           legendTitle: 'Stand types',
           premiumLabel: 'Premium',
           premiumSize: '3 × 5.5 m',

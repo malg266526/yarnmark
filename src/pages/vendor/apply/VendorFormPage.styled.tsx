@@ -4,7 +4,15 @@ import { DropShadow, Radius } from '../../../styles/cards';
 import { FontSize } from '../../../styles/font-size';
 import { ScreenSize } from '../../../styles/screeen-size';
 import { RedesignSpacings } from '../../../styles/spacings';
-import { BackgroundColors, Colors, FontFamilies, GrayScale, TextColors, WarningColors } from '../../../styles/theme';
+import {
+  BackgroundColors,
+  BrownScale,
+  Colors,
+  FontFamilies,
+  GrayScale,
+  TextColors,
+  WarningColors
+} from '../../../styles/theme';
 
 export const FormCard = styled.div`
   width: 100%;
@@ -79,6 +87,20 @@ export const LegendBadge = styled.span`
   color: ${TextColors.secondary};
   font-weight: 700;
   font-size: ${FontSize.sm};
+`;
+
+export const LegendSwatch = styled.span<{
+  $color: string;
+  $borderColor?: string;
+  $hasNoInterestFrame?: boolean;
+}>`
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border-radius: ${Radius.md};
+  background: ${({ $color }) => $color};
+  border: 1px solid ${({ $borderColor }) => $borderColor ?? GrayScale[300]};
+  box-shadow: ${({ $hasNoInterestFrame }) => ($hasNoInterestFrame ? `inset 0 0 0 2px ${BrownScale[700]}` : 'none')};
 `;
 
 export const LegendText = styled.div`

@@ -17,6 +17,7 @@ import {
   LegendCard,
   LegendRow,
   LegendSize,
+  LegendSwatch,
   LegendText,
   RadioGroup,
   RadioOption,
@@ -24,6 +25,7 @@ import {
   StandStatusPill,
   WarningCard
 } from '../VendorFormPage.styled';
+import { BackgroundColors } from '../../../../styles/theme';
 import {
   VENDOR_FORM_MAX_PREFERRED_STANDS,
   VENDOR_FORM_STANDS_PER_PAIR
@@ -50,6 +52,8 @@ export const VendorFormStandPreferencesSection = ({
   const {
     highInterestSelectedStandIds,
     highInterestStandIds,
+    interestKnownStandIds,
+    isStandDemandAvailable,
     maxPreferredStands,
     pairAnchorStandId,
     preferredStandGroups
@@ -98,6 +102,8 @@ export const VendorFormStandPreferencesSection = ({
             <HallMapColumn>
               <SelectableHall
                 highInterestStandIds={highInterestStandIds}
+                interestKnownStandIds={interestKnownStandIds}
+                isDemandAvailable={isStandDemandAvailable}
                 isPairMode={formData.wantsTwoStands}
                 pairAnchorStandId={pairAnchorStandId}
                 selectedStandIds={formData.preferredStands}
@@ -141,6 +147,21 @@ export const VendorFormStandPreferencesSection = ({
                 <LegendText>
                   {t('vendorsFormPage.steps.preferredStands.highInterestLabel')}
                   <LegendSize>{t('vendorsFormPage.steps.preferredStands.highInterestHint')}</LegendSize>
+                </LegendText>
+              </LegendRow>
+              <LegendRow>
+                <LegendSwatch $color={BackgroundColors.green.medium} $borderColor={BackgroundColors.green.medium} />
+                <LegendText>{t('vendorsFormPage.steps.preferredStands.availableLabel')}</LegendText>
+              </LegendRow>
+              <LegendRow>
+                <LegendSwatch
+                  $color={BackgroundColors.green.medium}
+                  $borderColor={BackgroundColors.green.medium}
+                  $hasNoInterestFrame
+                />
+                <LegendText>
+                  {t('vendorsFormPage.steps.preferredStands.noInterestLabel')}
+                  <LegendSize>{t('vendorsFormPage.steps.preferredStands.noInterestHint')}</LegendSize>
                 </LegendText>
               </LegendRow>
             </LegendCard>

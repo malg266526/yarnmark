@@ -16,6 +16,8 @@ export interface VendorFormBindings {
 export interface VendorFormDerivedState {
   highInterestSelectedStandIds: string[];
   highInterestStandIds: string[];
+  interestKnownStandIds: string[];
+  isStandDemandAvailable: boolean;
   maxPreferredStands: number;
   pairAnchorStandId: string | null;
   preferredStandGroups: string[][];
