@@ -26,6 +26,7 @@ import { WorkshopFormPage } from './pages/workshops/apply/WorkshopFormPage';
 import { VendorsApplicationsPage } from './pages/admin/vendors/applications/VendorsApplicationsPage';
 import { WorkshopsApplicationsPage } from './pages/admin/workshops/applications/WorkshopsApplicationsPage';
 import { AdminUsersPage } from './pages/admin/users/AdminUsersPage';
+import { AdminNewsletterPage } from './pages/admin/newsletter/AdminNewsletterPage';
 import { AdminLayout } from './pages/admin/AdminLayout';
 
 const WORKSHOPS_CONTACT_EMAIL = 'yarnmark.warsztaty@gmail.com';
@@ -96,6 +97,7 @@ export const App = () => {
             <Route path="vendor-form" element={<Navigate to="/vendor/apply" replace />} />
             <Route path="vendors/applications" element={<VendorsApplicationsPage />} />
             <Route path="workshops/applications" element={<WorkshopsApplicationsPage />} />
+            <Route path="newsletter" element={<AdminNewsletterPage />} />
             <Route path="users" element={<AdminUsersPage />} />
           </Route>
         </Routes>

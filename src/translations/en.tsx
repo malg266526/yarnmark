@@ -284,6 +284,20 @@ export const en: TranslationsShape = {
         contact:
           'Please send any questions and doubts related to the stands to the e-mail address<strong>krakoski.yarnmark@gmail.com</strong>'
       },
+      newsletter: {
+        title: 'Mailing list',
+        description: 'Join our mailing list',
+        emailLabel: 'Email address',
+        emailPlaceholder: 'your@address.com',
+        submit: 'Sign up',
+        submitting: 'Signing up...',
+        success: 'Thank you! Your address is on the list.',
+        submitError: 'The address could not be saved. Please try again.',
+        validation: {
+          emailRequired: 'Enter an email address.',
+          emailInvalid: 'Enter a valid email address.'
+        }
+      },
       registration: {
         title: 'Reservations',
         wantToJoin: 'Do you want to become a vendor at Krakoski Yarnmark 2027?',
@@ -1234,6 +1248,19 @@ export const en: TranslationsShape = {
         noStands: 'No stands on the plan.'
       }
     },
+    adminNewsletterPage: {
+      kicker: 'Admin panel',
+      title: 'Mailing list',
+      loading: 'Loading addresses...',
+      empty: 'No addresses yet.',
+      error: 'The addresses could not be loaded. Please try again.',
+      subscribersCount: '{{count}} addresses',
+      addedToExcel: 'Added to Excel?',
+      excelStatus: {
+        no: 'NO',
+        yes: 'YES'
+      }
+    },
     adminUsersPage: {
       kicker: 'Admin panel',
       title: 'Panel users',
@@ -1283,6 +1310,7 @@ export const en: TranslationsShape = {
       links: {
         applications: 'Vendor applications',
         workshopsApplications: 'Workshop applications',
+        newsletter: 'Mailing list',
         users: 'Users',
         editor: 'Editor',
         vendorForm: 'Vendor form',

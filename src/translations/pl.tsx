@@ -283,6 +283,20 @@ export const pl = {
         contact:
           'Wszelkie pytania i wątpliwości związane ze stoiskami prosimy kierować na adres mailowy <strong>krakoski.yarnmark@gmail.com</strong>'
       },
+      newsletter: {
+        title: 'Lista mailingowa',
+        description: 'Dołącz do naszej listy mailingowej',
+        emailLabel: 'Adres e-mail',
+        emailPlaceholder: 'twoj@adres.pl',
+        submit: 'Zapisz się',
+        submitting: 'Zapisywanie...',
+        success: 'Dziękujemy! Twój adres jest na liście.',
+        submitError: 'Nie udało się zapisać adresu. Spróbuj ponownie.',
+        validation: {
+          emailRequired: 'Podaj adres e-mail.',
+          emailInvalid: 'Podaj poprawny adres e-mail.'
+        }
+      },
       registration: {
         title: 'Zapisy',
         wantToJoin: 'Chcesz zostać wystawcą na Krakoski Yarnmark 2027?',
@@ -1235,6 +1249,19 @@ export const pl = {
         noStands: 'Brak stoisk na planie.'
       }
     },
+    adminNewsletterPage: {
+      kicker: 'Panel administratora',
+      title: 'Lista mailingowa',
+      loading: 'Wczytywanie adresów...',
+      empty: 'Brak zapisanych adresów.',
+      error: 'Nie udało się wczytać adresów. Spróbuj ponownie.',
+      subscribersCount: 'Adresów: {{count}}',
+      addedToExcel: 'Dodany do Excela?',
+      excelStatus: {
+        no: 'NIE',
+        yes: 'TAK'
+      }
+    },
     adminUsersPage: {
       kicker: 'Panel administratora',
       title: 'Użytkownicy panelu',
@@ -1284,6 +1311,7 @@ export const pl = {
       links: {
         applications: 'Zgłoszenia wystawców',
         workshopsApplications: 'Zgłoszenia warsztatowe',
+        newsletter: 'Lista mailingowa',
         users: 'Użytkownicy',
         editor: 'Edytor',
         vendorForm: 'Formularz dla wystawców',

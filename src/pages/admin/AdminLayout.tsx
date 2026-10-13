@@ -19,7 +19,14 @@ import {
   AdminSidebar
 } from './AdminLayout.styled';
 
-type AdminLinkId = 'applications' | 'workshopsApplications' | 'users' | 'editor' | 'vendorForm' | 'workshopForm';
+type AdminLinkId =
+  | 'applications'
+  | 'workshopsApplications'
+  | 'newsletter'
+  | 'users'
+  | 'editor'
+  | 'vendorForm'
+  | 'workshopForm';
 
 interface AdminLink {
   id: AdminLinkId;
@@ -35,6 +42,10 @@ const ADMIN_LINKS: AdminLink[] = [
   {
     id: 'workshopsApplications',
     to: '/admin/workshops/applications'
+  },
+  {
+    id: 'newsletter',
+    to: '/admin/newsletter'
   },
   {
     id: 'users',

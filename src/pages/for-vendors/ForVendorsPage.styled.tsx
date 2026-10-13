@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { RedesignSpacings } from '../../styles/spacings';
 import { ScreenSize } from '../../styles/screeen-size';
-import { BackgroundColors, Colors } from '../../styles/theme';
+import { BackgroundColors, Colors, FontFamilies } from '../../styles/theme';
+import { FontSize } from '../../styles/font-size';
 
 export const PlainInfo = styled.div`
   display: flex;
@@ -44,4 +45,23 @@ export const HallWrapper = styled.div`
   @media (max-width: ${ScreenSize.phone}) {
     width: 96%;
   }
+`;
+
+export const NewsletterForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: ${RedesignSpacings.sm};
+  align-items: flex-start;
+  width: 100%;
+  max-width: 420px;
+`;
+
+export const NewsletterField = styled.div`
+  width: 100%;
+`;
+
+export const NewsletterSuccess = styled.div`
+  color: ${BackgroundColors.green.strong};
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.sm};
 `;

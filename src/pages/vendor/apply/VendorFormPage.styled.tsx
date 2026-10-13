@@ -131,21 +131,6 @@ export const Fieldset = styled.fieldset`
   gap: ${RedesignSpacings.sm};
 `;
 
-export const TextInput = styled.input`
-  width: 100%;
-  padding: 12px 14px;
-  border: 1px solid ${GrayScale[300]};
-  border-radius: ${Radius.lg};
-  font-size: ${FontSize.md};
-  font-family: ${FontFamilies.primary};
-  background: white;
-
-  &:focus {
-    outline: 2px solid ${BackgroundColors.green.medium};
-    border-color: ${BackgroundColors.green.strong};
-  }
-`;
-
 export const TextArea = styled.textarea`
   width: 100%;
   min-height: 140px;
@@ -229,3 +214,5 @@ export const SummaryList = styled.dl`
     margin: 0;
   }
 `;
+
+export { TextInput } from '../../../components/form/FormField.styled';
