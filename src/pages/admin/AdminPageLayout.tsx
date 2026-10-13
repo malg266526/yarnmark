@@ -9,11 +9,19 @@ interface AdminPageLayoutProps {
   children: ReactNode;
   kicker?: ReactNode;
   title: ReactNode;
+  actions?: ReactNode;
   desktopPadding?: keyof typeof RedesignSpacings;
   maxWidth?: `${number}%` | `${number}px`;
 }
 
-export const AdminPageLayout = ({ children, kicker, title, desktopPadding, maxWidth }: AdminPageLayoutProps) => {
+export const AdminPageLayout = ({
+  children,
+  kicker,
+  title,
+  actions,
+  desktopPadding,
+  maxWidth
+}: AdminPageLayoutProps) => {
   const isPhone = usePhone();
 
   return (
@@ -26,7 +34,7 @@ export const AdminPageLayout = ({ children, kicker, title, desktopPadding, maxWi
       padding={isPhone ? 'sm' : desktopPadding || 'xxl'}
       maxWidth={maxWidth}
     >
-      <UtilityPageHeader kicker={kicker} title={title} />
+      <UtilityPageHeader kicker={kicker} title={title} actions={actions} />
 
       <AdminPageBody>{children}</AdminPageBody>
     </AdminPagePanel>

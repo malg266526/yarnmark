@@ -19,6 +19,17 @@ const HeaderRoot = styled.div`
   }
 `;
 
+const TopRow = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: ${RedesignSpacings.xs};
+`;
+
+const HeaderActions = styled.div`
+  margin-left: auto;
+`;
+
 const Description = styled(Typography)`
   max-width: 720px;
 `;
@@ -27,15 +38,28 @@ interface UtilityPageHeaderProps {
   title: ReactNode;
   description?: ReactNode;
   kicker?: ReactNode;
+  actions?: ReactNode;
   titleSize?: ComponentProps<typeof Typography>['size'];
 }
 
-export const UtilityPageHeader = ({ title, description, kicker, titleSize = 'xxl' }: UtilityPageHeaderProps) => (
+export const UtilityPageHeader = ({
+  title,
+  description,
+  kicker,
+  actions,
+  titleSize = 'xxl'
+}: UtilityPageHeaderProps) => (
   <HeaderRoot>
-    {kicker ? (
-      <Kicker>
-        <Typography size="xs">{kicker}</Typography>
-      </Kicker>
+    {kicker || actions ? (
+      <TopRow>
+        {kicker ? (
+          <Kicker>
+            <Typography size="xs">{kicker}</Typography>
+          </Kicker>
+        ) : null}
+
+        {actions ? <HeaderActions>{actions}</HeaderActions> : null}
+      </TopRow>
     ) : null}
 
     <Typography size={titleSize} weight="bold" as="h1">
