@@ -1249,6 +1249,19 @@ export const pl = {
         noStands: 'Brak stoisk na planie.'
       }
     },
+    adminNewsletterPage: {
+      kicker: 'Panel administratora',
+      title: 'Lista mailingowa',
+      loading: 'Wczytywanie adresów...',
+      empty: 'Brak zapisanych adresów.',
+      error: 'Nie udało się wczytać adresów. Spróbuj ponownie.',
+      subscribersCount: 'Adresów: {{count}}',
+      addedToExcel: 'Dodany do Excela?',
+      excelStatus: {
+        no: 'NIE',
+        yes: 'TAK'
+      }
+    },
     adminUsersPage: {
       kicker: 'Panel administratora',
       title: 'Użytkownicy panelu',
@@ -1298,6 +1311,7 @@ export const pl = {
       links: {
         applications: 'Zgłoszenia wystawców',
         workshopsApplications: 'Zgłoszenia warsztatowe',
+        newsletter: 'Lista mailingowa',
         users: 'Użytkownicy',
         editor: 'Edytor',
         vendorForm: 'Formularz dla wystawców',

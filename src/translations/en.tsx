@@ -1248,6 +1248,19 @@ export const en: TranslationsShape = {
         noStands: 'No stands on the plan.'
       }
     },
+    adminNewsletterPage: {
+      kicker: 'Admin panel',
+      title: 'Mailing list',
+      loading: 'Loading addresses...',
+      empty: 'No addresses yet.',
+      error: 'The addresses could not be loaded. Please try again.',
+      subscribersCount: '{{count}} addresses',
+      addedToExcel: 'Added to Excel?',
+      excelStatus: {
+        no: 'NO',
+        yes: 'YES'
+      }
+    },
     adminUsersPage: {
       kicker: 'Admin panel',
       title: 'Panel users',
@@ -1297,6 +1310,7 @@ export const en: TranslationsShape = {
       links: {
         applications: 'Vendor applications',
         workshopsApplications: 'Workshop applications',
+        newsletter: 'Mailing list',
         users: 'Users',
         editor: 'Editor',
         vendorForm: 'Vendor form',
