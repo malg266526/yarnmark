@@ -1259,6 +1259,8 @@ export const en: TranslationsShape = {
       error: 'The addresses could not be loaded. Please try again.',
       subscribersCount: '{{count}} addresses',
       addedToExcel: 'Added to Excel?',
+      markAsAdded: 'Mark',
+      updateError: 'Could not update the mailing list status. Try again.',
       excelStatus: {
         no: 'NO',
         yes: 'YES'

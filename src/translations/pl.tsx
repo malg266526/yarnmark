@@ -1260,6 +1260,8 @@ export const pl = {
       error: 'Nie udało się wczytać adresów. Spróbuj ponownie.',
       subscribersCount: 'Adresów: {{count}}',
       addedToExcel: 'Dodany do Excela?',
+      markAsAdded: 'Odhacz',
+      updateError: 'Nie udało się zmienić statusu adresu. Spróbuj ponownie.',
       excelStatus: {
         no: 'NIE',
         yes: 'TAK'

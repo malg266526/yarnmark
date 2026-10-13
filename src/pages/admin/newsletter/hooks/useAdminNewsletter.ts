@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useAdminSession } from '../../useAdminSession';
-import { listNewsletterSubscribers } from '../../../../domain/newsletter/newsletterApi.ts';
+import {
+  listNewsletterSubscribers,
+  markNewsletterSubscriberAsAdded
+} from '../../../../domain/newsletter/newsletterApi.ts';
 import type { NewsletterSubscriber } from '../../../../domain/newsletter/newsletterTypes.ts';
 
 export const useAdminNewsletter = () => {
@@ -8,6 +11,8 @@ export const useAdminNewsletter = () => {
   const [subscribers, setSubscribers] = useState<NewsletterSubscriber[]>([]);
   const [loading, setLoading] = useState(true);
   const [hasFailed, setHasFailed] = useState(false);
+  const [updatingEmail, setUpdatingEmail] = useState<string | null>(null);
+  const [hasUpdateFailed, setHasUpdateFailed] = useState(false);
 
   useEffect(() => {
     let isActive = true;
@@ -40,5 +45,25 @@ export const useAdminNewsletter = () => {
     };
   }, [token, handleAdminApiError]);
 
-  return { subscribers, loading, hasFailed };
+  const markAsAdded = async (email: string) => {
+    setUpdatingEmail(email);
+    setHasUpdateFailed(false);
+
+    try {
+      await markNewsletterSubscriberAsAdded(token, email);
+      setSubscribers((currentSubscribers) =>
+        currentSubscribers.map((subscriber) =>
+          subscriber.email === email ? { ...subscriber, status: 'isAddded' } : subscriber
+        )
+      );
+    } catch (error: unknown) {
+      console.error('Newsletter subscriber status could not be updated', error);
+      handleAdminApiError(error);
+      setHasUpdateFailed(true);
+    } finally {
+      setUpdatingEmail(null);
+    }
+  };
+
+  return { subscribers, loading, hasFailed, updatingEmail, hasUpdateFailed, markAsAdded };
 };

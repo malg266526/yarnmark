@@ -3,8 +3,10 @@ import { useTypedTranslation } from '../../../../translations/useTypedTranslatio
 import type { NewsletterSubscriber } from '../../../../domain/newsletter/newsletterTypes.ts';
 import {
   SubscriberEmail,
+  SubscriberAction,
   SubscriberRow,
   SubscriberStatus,
+  SubscriberStatusGroup,
   SubscribersEmpty,
   SubscribersList,
   SubscribersMeta,
@@ -15,9 +17,19 @@ interface AdminNewsletterViewProps {
   subscribers: NewsletterSubscriber[];
   loading: boolean;
   hasFailed: boolean;
+  updatingEmail: string | null;
+  hasUpdateFailed: boolean;
+  onMarkAsAdded: (email: string) => void;
 }
 
-export const AdminNewsletterView = ({ subscribers, loading, hasFailed }: AdminNewsletterViewProps) => {
+export const AdminNewsletterView = ({
+  subscribers,
+  loading,
+  hasFailed,
+  updatingEmail,
+  hasUpdateFailed,
+  onMarkAsAdded
+}: AdminNewsletterViewProps) => {
   const t = useTypedTranslation();
 
   if (loading) {
@@ -35,6 +47,9 @@ export const AdminNewsletterView = ({ subscribers, loading, hasFailed }: AdminNe
   return (
     <SubscribersSection>
       <SubscribersMeta>{t('adminNewsletterPage.subscribersCount', { count: subscribers.length })}</SubscribersMeta>
+      {hasUpdateFailed ? (
+        <SubscribersEmpty role="alert">{t('adminNewsletterPage.updateError')}</SubscribersEmpty>
+      ) : null}
 
       <SubscribersList>
         <SubscriberRow>
@@ -44,13 +59,24 @@ export const AdminNewsletterView = ({ subscribers, loading, hasFailed }: AdminNe
         {subscribers.map((subscriber) => (
           <SubscriberRow key={subscriber.email}>
             <SubscriberEmail>{subscriber.email}</SubscriberEmail>
-            <SubscriberStatus>
-              {t(
-                subscriber.status === 'pending'
-                  ? 'adminNewsletterPage.excelStatus.no'
-                  : 'adminNewsletterPage.excelStatus.yes'
-              )}
-            </SubscriberStatus>
+            <SubscriberStatusGroup>
+              <SubscriberStatus>
+                {t(
+                  subscriber.status === 'pending'
+                    ? 'adminNewsletterPage.excelStatus.no'
+                    : 'adminNewsletterPage.excelStatus.yes'
+                )}
+              </SubscriberStatus>
+              {subscriber.status === 'pending' ? (
+                <SubscriberAction
+                  type="button"
+                  disabled={updatingEmail !== null}
+                  onClick={() => onMarkAsAdded(subscriber.email)}
+                >
+                  {t('adminNewsletterPage.markAsAdded')}
+                </SubscriberAction>
+              ) : null}
+            </SubscriberStatusGroup>
           </SubscriberRow>
         ))}
       </SubscribersList>
