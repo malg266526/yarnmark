@@ -100,6 +100,10 @@ export const VendorApplicationDetailsView = ({
       <ApplicationFieldValue>{formatBoolean(application.attendedBefore, values)}</ApplicationFieldValue>
     </ApplicationField>
     <ApplicationField>
+      <ApplicationFieldLabel>{translate('vendorsApplicationsPage.fields.wantsTwoStands')}</ApplicationFieldLabel>
+      <ApplicationFieldValue>{formatBoolean(application.wantsTwoStands, values)}</ApplicationFieldValue>
+    </ApplicationField>
+    <ApplicationField>
       <ApplicationFieldLabel>
         {translate('vendorsApplicationsPage.fields.interestedIfUnavailable')}
       </ApplicationFieldLabel>

@@ -18,9 +18,9 @@ test('isCustomStandIndex recognises C stands regardless of case and whitespace',
 });
 
 test('getSuggestedStandColor gives C stands their own color', () => {
-  assert.equal(getSuggestedStandColor({ index: 'c3', type: 'standard' }, []), 'normal3');
-  assert.equal(getSuggestedStandColor({ index: 'C4', type: 'mini' }, []), 'normal3');
-  assert.equal(getSuggestedStandColor({ index: 'X1', type: 'c' }, []), 'normal3');
+  assert.equal(getSuggestedStandColor({ index: 'c3', type: 'standard' }, []), 'standC');
+  assert.equal(getSuggestedStandColor({ index: 'C4', type: 'mini' }, []), 'standC');
+  assert.equal(getSuggestedStandColor({ index: 'X1', type: 'c' }, []), 'standC');
 });
 
 test('getSuggestedStandColor starts with the first shade when no stand of the type exists', () => {
@@ -33,7 +33,7 @@ test('getSuggestedStandColor alternates shades based on the last stand of the sa
     createStand({ index: 'S1', type: 'standard', color: 'normal1' }),
     createStand({ index: 'M1', type: 'mini', color: 'small1' }),
     createStand({ index: 'S2', type: 'standard', color: 'normal2' }),
-    createStand({ index: 'C1', type: 'standard', color: 'normal3' })
+    createStand({ index: 'C1', type: 'standard', color: 'standC' })
   ];
 
   assert.equal(getSuggestedStandColor({ index: 'S3', type: 'standard' }, stands), 'normal1');

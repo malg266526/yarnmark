@@ -295,7 +295,7 @@
     "isHorizontal": false,
     "width": 3,
     "height": 4,
-    "color": "normal3",
+    "color": "standC",
     "start": {
       "row": 80,
       "col": 0

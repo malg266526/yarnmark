@@ -39,8 +39,8 @@ export const HallLegend = () => {
       </RowLayout>
 
       <RowLayout gap="xs">
-        <ColorSample color="normal3" />
-        <p>{t('hallMap.standard2Stand')}</p>
+        <ColorSample color="standC" />
+        <p>{t('hallMap.cStand')}</p>
       </RowLayout>
 
       <RowLayout gap="xs">

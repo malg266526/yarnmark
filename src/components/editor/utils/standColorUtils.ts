@@ -1,7 +1,7 @@
 import type { StandColor, StandProps, StandType } from '../StandProps.ts';
 
 export const CUSTOM_STAND_INDEX_PREFIX = 'c';
-export const CUSTOM_STAND_COLOR: StandColor = 'normal3';
+export const CUSTOM_STAND_COLOR: StandColor = 'standC';
 
 const ALTERNATING_TYPE_COLORS: Record<StandType, readonly StandColor[]> = {
   premium: ['premium'],

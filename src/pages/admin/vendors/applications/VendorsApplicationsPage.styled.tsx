@@ -26,7 +26,7 @@ export const ApplicationsSection = styled.section`
   gap: ${RedesignSpacings.md};
 `;
 
-export const AcceptedApplicationsQueue = styled.section`
+export const ProposalSection = styled.section`
   display: flex;
   flex-direction: column;
   gap: ${RedesignSpacings.sm};
@@ -37,14 +37,14 @@ export const AcceptedApplicationsQueue = styled.section`
   border: 1px solid ${BorderColors.subtleGreen};
 `;
 
-export const AcceptedApplicationsQueueTitle = styled.h2`
+export const ProposalSectionTitle = styled.h2`
   margin: 0;
   font-family: ${FontFamilies.primary};
   font-size: ${FontSize.lg};
   color: ${TextColors.primary};
 `;
 
-export const AcceptedApplicationsQueueDescription = styled.ol`
+export const ProposalSectionDescription = styled.ol`
   margin: 0;
   padding-left: ${RedesignSpacings.md};
   display: flex;
@@ -476,16 +476,16 @@ export const ApplicationsStandAssignmentRow = styled.div`
   }
 `;
 
-export const CascadeSimulationNotice = styled(AcceptedApplicationsQueue)`
+export const ProposalNotice = styled(ProposalSection)`
   border-color: ${WarningColors.border};
   background: ${WarningColors.background};
 `;
 
-export const CascadeSimulationTitle = styled(AcceptedApplicationsQueueTitle)`
+export const ProposalNoticeTitle = styled(ProposalSectionTitle)`
   color: ${WarningColors.text};
 `;
 
-export const CascadeExportLink = styled(ApplicationsFilterResetButton).attrs({ as: 'a' })`
+export const ExportLink = styled(ApplicationsFilterResetButton).attrs({ as: 'a' })`
   align-self: flex-start;
 
   &:focus-visible {
@@ -499,7 +499,7 @@ export const CascadeExportLink = styled(ApplicationsFilterResetButton).attrs({ a
   }
 `;
 
-export const ApplicationsExportLink = styled(CascadeExportLink)`
+export const ApplicationsExportLink = styled(ExportLink)`
   align-self: flex-end;
 `;
 

@@ -62,13 +62,13 @@ export const pl = {
       title: 'Mapa hali',
       premiumStand: 'Miejsce Premium 3x5.5m',
       standardStand: 'Miejsce Standard 3x3,5m',
-      standard2Stand: 'Miejsce Standard 3x4m',
+      cStand: 'Miejsce C 3x3m',
       miniStand: 'Miejsce Mini 3x2m',
       taken: 'Miejsce zarezerwowane'
     },
     whereToEat: 'Gdzie zjeść?',
     welcomeBand: {
-      invitation: 'Serdecznie zapraszamy na III edycję targów włóczki w stolicy Małopolski!',
+      invitation: 'Serdecznie zapraszamy na IV edycję targów włóczki w stolicy Małopolski!',
       // when: '26/04/2025r w godz. 10:00 - 17:00',
       when: '{{date, datetime}}',
       where: 'Hala 100-lecia KS Cracovia',
@@ -244,10 +244,10 @@ export const pl = {
       workshopsEmailLabel: 'Warsztaty'
     },
     infoForVendorsPage: {
-      title: 'Informacje dla wystawców 2026',
+      title: 'Informacje dla wystawców 2027',
       seeStatue: 'Regulamin sprzedaży stoisk:',
       here: 'Tutaj',
-      invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w III edycji Krakoskiego Yarnmarku!',
+      invitation: 'Serdecznie Was zapraszamy do wzięcia udziału w IV edycji Krakoskiego Yarnmarku!',
       organisationInfo: 'Poniżej kilka informacji organizacyjnych dla Was.',
       hallInfo: {
         title: 'Hala',
@@ -256,9 +256,10 @@ export const pl = {
         ramp: 'Z parkingu prosto na halę prowadzi rampa, bez potrzeby korzystania ze schodów czy wind.',
         participants:
           'Wejście dla odwiedzających targi będzie znajdować się od ulicy Focha, gdzie do hali głównej udadzą się efektownym zejściem, z którego będzie widać całą halę wystawienniczą.',
-        stands: 'Na hali będą trzy rodzaje stoisk:',
+        stands: 'Na hali będą cztery rodzaje stoisk:',
         standPremium: '<strong>Premium 3 × 5,5 m</strong>',
         standardStand: '<strong>Standard 3 × 3,5 m</strong>',
+        standC: '<strong>C 3 × 3 m</strong>',
         miniStand: '<strong>Mini 3 × 2 m</strong>',
         tables:
           'Stoisko premium posiada 2 krzesła oraz 2 stoły 160x80cm. Stoisko standard posiada 2 krzesła oraz 2 stoły 140x70cm, a stoisko Mini 2 krzesła oraz 1 stół 140x70cm',
@@ -284,7 +285,7 @@ export const pl = {
       },
       registration: {
         title: 'Zapisy',
-        wantToJoin: 'Chcesz zostać wystawcą na Krakoski Yarnmark 2026?',
+        wantToJoin: 'Chcesz zostać wystawcą na Krakoski Yarnmark 2027?',
         newForm: 'Zapraszamy do strony z formularzem zgłoszeniowym: <0>Formularz</0>.',
         extraInfoByMail: 'Masz dodatkowe pytania? Napisz na <strong>krakoski.yarnmark@gmail.com</strong>',
         beAVendor:
@@ -346,6 +347,12 @@ export const pl = {
         },
         preferredStands: {
           title: 'Wybierz preferowane stoiska na mapie',
+          twoStandsLabel: 'Chcę kupić dwa stoiska',
+          pairHint:
+            'Możesz wybrać maksymalnie {{max}} pary po dwa sąsiadujące stoiska — po kliknięciu pierwszego zostawiamy do wyboru tylko stoiska, które z nim graniczą. Zielone — wolne, pomarańczowe — wybrane przez Ciebie.',
+          pairCounter: 'Wybrano {{current}} z {{max}} par',
+          pairLabel: 'Para {{number}}: {{stands}}',
+          pairIncomplete: 'Para {{number}}: {{stands}} — wskaż sąsiadujące stoisko',
           hint: 'Możesz wybrać maksymalnie {{max}} stoiska. Zielone — wolne, pomarańczowe — wybrane przez Ciebie.',
           orderHint: 'Kolejność klikania ma znaczenie — pierwsze kliknięte stoisko traktujemy jako pierwszy wybór.',
           counter: 'Wybrano {{current}} z {{max}}',
@@ -360,6 +367,8 @@ export const pl = {
           premiumSize: '3 × 5,5 m',
           standardLabel: 'Standard',
           standardSize: '3 × 3,5 m',
+          cLabel: 'C',
+          cSize: '3 × 3 m',
           miniLabel: 'Mini',
           miniSize: '2 × 3 m'
         },
@@ -411,6 +420,8 @@ export const pl = {
         mainCategoryOtherRequired: 'Wpisz główną kategorię produktów.',
         interestedIfUnavailableRequired: 'Wybierz jedną z odpowiedzi.',
         preferredStandsRequired: 'Wybierz co najmniej jedno preferowane stoisko.',
+        standPairIncomplete:
+          'Każda para musi mieć dwa sąsiadujące stoiska. Dokończ rozpoczętą parę albo odznacz ostatnie stoisko.',
         phoneRequired: 'Podaj numer telefonu.',
         phoneInvalid: 'Podaj poprawny numer telefonu.',
         emailRequired: 'Podaj adres e-mail.',
@@ -426,6 +437,9 @@ export const pl = {
         confirm: 'OK',
         storeName: 'Nazwa sklepu',
         submittedAt: 'Data zapisania',
+        wantsTwoStands: 'Chce kupić dwa stoiska',
+        yes: 'Tak',
+        no: 'Nie',
         attendedBefore: 'Poprzednie edycje',
         mainCategory: 'Główna kategoria',
         preferredStands: 'Preferowane stoiska',
@@ -580,7 +594,7 @@ export const pl = {
       showRows: 'Pokaż listę',
       showSplit: 'Lista i mapa',
       showMap: 'Pokaż mapę',
-      showCascadeStandAllocation: 'Kaskadowe przypisanie stoisk',
+      showCertainStands: 'Pokaż pewne stoiska',
       statusField: {
         saving: 'Zapisywanie…'
       },
@@ -612,46 +626,22 @@ export const pl = {
       acceptedQueue: {
         title: 'Krok 1. Zaakceptowani wystawcy według czasu wysłania formularza'
       },
-      cascadeAlgorithm: {
-        title: 'Jak działa algorytm',
-        simulation: 'Symulacja — podgląd, nic nie jest zapisane',
-        simulationDescription:
-          'Propozycje dotyczą zaakceptowanych zgłoszeń bez przydziału. Zapisane przydziały są zachowane, a ich stoiska wyłączone z symulacji niezależnie od statusu zgłoszenia. Eksport nie zapisuje zmian w panelu.',
-        export: 'Eksportuj propozycję (CSV)',
-        empty: 'Brak zaakceptowanych zgłoszeń bez przydzielonego stoiska.',
-        emptyNoAccepted:
-          'Żadne zgłoszenie nie ma statusu „zaakceptowane”. Kaskada bierze pod uwagę tylko zaakceptowanych wystawców — ustaw ten status w liście lub kartach.',
-        emptyAllAssigned:
-          'Zaakceptowanych zgłoszeń: {{accepted}}, z czego wszystkie ({{assigned}}) mają już przydzielone stoisko. Kaskada pomija zgłoszenia z przydziałem — zdejmij przydział w szczegółach, jeśli chcesz je przeliczyć.',
-        proposedStand: 'Proponowane stoisko',
-        exportColumns: {
-          applicationId: 'ID zgłoszenia',
-          storeName: 'Sklep',
-          result: 'Wynik symulacji',
-          suggested: 'Propozycja — niezapisana'
-        },
-        steps: {
-          acceptVendors:
-            'Organizator najpierw akceptuje wybranych wystawców, ustawiając status "zaakceptowane" w sekcji "Pokaż karty".',
-          sortAccepted:
-            'System bierze zaakceptowane zgłoszenia bez przydzielonego stoiska i sortuje je od najwcześniej wysłanego formularza. Wszystkie zapisane przydziały wyłączają zajęte stoiska z symulacji.',
-          checkPreferences:
-            'Następnie dla każdego wystawcy po kolei sprawdza jego listę preferowanych stoisk od najwyższego priorytetu do najniższego i przypisuje pierwsze stoisko, które w tym momencie pozostaje jeszcze wolne.',
-          sendToManualNegotiation:
-            'Jeśli wszystkie wybrane stoiska są już zajęte, zgłoszenie trafia do sekcji negocjacji ręcznej.',
-          confirmedAssignments:
-            'Propozycje nie są zapisywane automatycznie. Organizator może przypisać wybrane stoisko ręcznie w szczegółach zgłoszenia. Osobne „klepnięcie” propozycji nie jest jeszcze dostępne.',
-          nextIterations:
-            'Po zapisaniu ręcznego przydziału symulacja przelicza propozycje dla pozostałych zaakceptowanych zgłoszeń i wolnych stoisk.'
-        }
-      },
-      manualNegotiation: {
-        title: 'Do negocjacji ręcznej'
+      certainStands: {
+        title: 'Pewne stoiska',
+        description:
+          'Stoiska, o które ubiega się dokładnie jeden wystawca — nie ma o co rozstrzygać. Podgląd, nic nie jest zapisywane.',
+        counter: 'Pewnych stoisk: {{count}}',
+        vendor: 'Wystawca',
+        choice: '{{position}}. wybór',
+        multipleStands: 'Jedyny chętny do {{count}} stoisk — przydzielisz tylko jedno',
+        empty: 'Żadne stoisko nie ma dokładnie jednego chętnego.'
       },
       fields: {
+        applicationId: 'ID zgłoszenia',
         status: 'Status',
         mainCategory: 'Główna kategoria',
         preferredStands: 'Preferowane stoiska',
+        wantsTwoStands: 'Chce dwa stoiska',
         allocatedStand: 'Przydzielone stoiska',
         allocationState: 'Stan alokacji',
         allocationIteration: 'Iteracja alokacji',

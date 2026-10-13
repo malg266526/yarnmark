@@ -4,7 +4,7 @@ import { resolveStandType } from '../vendorStandTypeUtils.ts';
 
 test('resolveStandType maps hall stand prefixes to vendor stand types', () => {
   assert.equal(resolveStandType('S12'), 'standard');
-  assert.equal(resolveStandType('C1'), 'standard');
+  assert.equal(resolveStandType('C1'), 'c');
   assert.equal(resolveStandType('P5'), 'premium');
   assert.equal(resolveStandType('M7'), 'mini');
 });

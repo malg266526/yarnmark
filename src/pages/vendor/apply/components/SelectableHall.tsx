@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useMemo, useState } from 'react';
+import styled, { css } from 'styled-components';
 import { HallMap } from '../../../../components/hall/HallMap';
 import { isVendorStand, parseHallStands, type HallStand } from '../../../../components/hall/hallStands';
+import { isReservedStand, resolveStandColorKey } from '../../../../components/hall/standReservationUtils';
+import { HallStandVendor } from '../../../../components/hall/HallStandVendor';
+import { getPairableStandIndexes } from '../../../../components/hall/standAdjacencyUtils';
 import { StandColorsMap } from '../../../../components/editor/StandProps';
 import { Typography } from '../../../../components/Typography';
 import { usePhone } from '../../../../hooks/usePhone';
@@ -14,29 +17,18 @@ const Scroller = styled.div`
   overflow: auto;
 `;
 
-const StandElement = styled.button<{
-  $left: number;
-  $top: number;
-  $color: string;
-  $width: number;
-  $height: number;
-  $isHighInterest: boolean;
-  $selectable: boolean;
-}>`
+const BLOCKED_STAND_OPACITY = 0.35;
+
+const standElementLayout = css`
   all: unset;
   position: absolute;
-  left: ${({ $left }) => $left}px;
-  top: ${({ $top }) => $top}px;
-  width: ${({ $width }) => $width}px;
-  height: ${({ $height }) => $height}px;
-  background-color: ${({ $color }) => $color};
-  border: 2px solid white;
   box-sizing: border-box;
-  cursor: ${({ $selectable }) => ($selectable ? 'pointer' : 'default')};
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  border: 2px solid white;
   font-size: 12px;
   color: #111;
 
@@ -44,22 +36,69 @@ const StandElement = styled.button<{
     outline: 2px solid #111;
     outline-offset: 1px;
   }
+`;
+
+const selectableStand = css`
+  cursor: pointer;
+  opacity: 1;
+`;
+
+const blockedStand = css`
+  cursor: default;
+  opacity: ${BLOCKED_STAND_OPACITY};
+`;
+
+const plainStand = css`
+  cursor: default;
+  opacity: 1;
+`;
+
+const highInterestBadgeLayout = css`
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 5px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+`;
+
+const highInterestBadgeVisible = css`
+  content: 'HI';
+  display: inline-flex;
+  background: ${WarningColors.badgeBackground};
+  color: ${WarningColors.badgeText};
+`;
+
+const highInterestBadgeHidden = css`
+  content: none;
+  display: none;
+`;
+
+const StandElement = styled.button<{
+  $left: number;
+  $top: number;
+  $color: string;
+  $width: number;
+  $height: number;
+  $isHighInterest: boolean;
+  $isBlocked: boolean;
+  $selectable: boolean;
+}>`
+  ${standElementLayout}
+  ${({ $isBlocked, $selectable }) => ($selectable ? selectableStand : $isBlocked ? blockedStand : plainStand)}
+  left: ${({ $left }) => $left}px;
+  top: ${({ $top }) => $top}px;
+  width: ${({ $width }) => $width}px;
+  height: ${({ $height }) => $height}px;
+  background-color: ${({ $color }) => $color};
 
   &::after {
-    content: ${({ $isHighInterest }) => ($isHighInterest ? "'HI'" : 'none')};
-    display: ${({ $isHighInterest }) => ($isHighInterest ? 'inline-flex' : 'none')};
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 2px;
-    right: 2px;
-    padding: 1px 5px;
-    border-radius: 999px;
-    background: ${WarningColors.badgeBackground};
-    color: ${WarningColors.badgeText};
-    font-size: 11px;
-    font-weight: 700;
-    line-height: 1;
+    ${highInterestBadgeLayout}
+    ${({ $isHighInterest }) => ($isHighInterest ? highInterestBadgeVisible : highInterestBadgeHidden)}
   }
 `;
 
@@ -67,6 +106,8 @@ type LoadState = { status: 'pending' } | { status: 'error'; error: Error } | { s
 
 interface SelectableHallProps {
   highInterestStandIds?: string[];
+  isPairMode?: boolean;
+  pairAnchorStandId?: string | null;
   selectedStandIds: string[];
   onToggleStand: (standId: string) => void;
   multiplier?: number;
@@ -74,6 +115,8 @@ interface SelectableHallProps {
 
 export const SelectableHall = ({
   highInterestStandIds = [],
+  isPairMode = false,
+  pairAnchorStandId = null,
   selectedStandIds,
   onToggleStand,
   multiplier
@@ -92,6 +135,14 @@ export const SelectableHall = ({
     }
   }, []);
 
+  const pairableStandIds = useMemo(() => {
+    if (!isPairMode || loadState.status !== 'success') {
+      return null;
+    }
+
+    return getPairableStandIndexes(loadState.stands.filter(isVendorStand), pairAnchorStandId);
+  }, [isPairMode, loadState, pairAnchorStandId]);
+
   if (loadState.status === 'pending') {
     return <Typography size="sm">Loading…</Typography>;
   }
@@ -101,8 +152,8 @@ export const SelectableHall = ({
   }
 
   const resolveColor = (stand: HallStand): string => {
-    if (!isVendorStand(stand)) {
-      return StandColorsMap[stand.color];
+    if (!isVendorStand(stand) || isReservedStand(stand)) {
+      return StandColorsMap[resolveStandColorKey(stand)];
     }
 
     if (selectedStandIds.includes(stand.index)) {
@@ -118,7 +169,10 @@ export const SelectableHall = ({
         multiplier={resolvedMultiplier}
         stands={loadState.stands}
         renderStand={(stand, box) => {
-          const selectable = isVendorStand(stand);
+          const selectable =
+            isVendorStand(stand) &&
+            !isReservedStand(stand) &&
+            (!pairableStandIds || selectedStandIds.includes(stand.index) || pairableStandIds.includes(stand.index));
           const standSelectionId = stand.index;
           const isHighInterest = highInterestStandIds.includes(standSelectionId);
 
@@ -132,6 +186,7 @@ export const SelectableHall = ({
               $height={box.height}
               $color={resolveColor(stand)}
               $isHighInterest={isHighInterest}
+              $isBlocked={isVendorStand(stand) && !isReservedStand(stand) && !selectable}
               $selectable={selectable}
               disabled={!selectable}
               aria-pressed={selectable ? selectedStandIds.includes(standSelectionId) : undefined}
@@ -139,6 +194,7 @@ export const SelectableHall = ({
               onClick={selectable ? () => onToggleStand(standSelectionId) : undefined}
             >
               {stand.type !== 'other' ? stand.index : stand.description}
+              <HallStandVendor vendor={stand.vendor} vendorLogoUrl={stand.vendorLogoUrl} />
             </StandElement>
           );
         }}

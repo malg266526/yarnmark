@@ -115,12 +115,12 @@ export const en: TranslationsShape = {
       title: 'Hallenplan',
       premiumStand: 'Premium spot 3x3,5m',
       standardStand: 'Standard spot 3x3,5m',
-      standard2Stand: 'Standard spot 3x4m',
+      cStand: 'C spot 3x3m',
       miniStand: 'Mini spot 3x2m',
       taken: 'Reserved'
     },
     welcomeBand: {
-      invitation: 'We heartily invite you for III edition of yarn fair in capital of Malopolska!',
+      invitation: 'We heartily invite you for IV edition of yarn fair in capital of Malopolska!',
       // when: '26/04/2025r at 10:00 AM - 5:00 PM',
       when: '{{date, datetime(dateStyle: long)}}',
       where: 'Hala 100-lecia KS Cracovia',
@@ -245,10 +245,10 @@ export const en: TranslationsShape = {
       workshopsEmailLabel: 'Workshops'
     },
     infoForVendorsPage: {
-      title: 'Information for vendors 2026',
+      title: 'Information for vendors 2027',
       seeStatue: 'Terms and Conditions for the sale of vendors stands:',
       here: 'Here',
-      invitation: 'We heartily invite you to participate in III edition of Krakoski Yarnmark!',
+      invitation: 'We heartily invite you to participate in IV edition of Krakoski Yarnmark!',
       organisationInfo: 'Below a bit of organisational information for you.',
       hallInfo: {
         title: 'Hall',
@@ -257,9 +257,10 @@ export const en: TranslationsShape = {
         ramp: 'From parking lot straight to the hall leads a ramp, without need to use stairs or elevators.',
         participants:
           'Entrance for fair participants will be on the side of Foch street, where they will enter the main hall efective descent from which whole exhibition hall will be visible.',
-        stands: 'There will be three types of spots in the hall:',
+        stands: 'There will be four types of spots in the hall:',
         standPremium: '<strong>Premium 3 × 5.5 m</strong>',
         standardStand: '<strong>Standard 3 × 3.5 m</strong>',
+        standC: '<strong>C 3 × 3 m</strong>',
         miniStand: '<strong>Mini 3 × 2 m</strong>',
         tables:
           'Premium spot includes 2 chairs and 2 tables 160x80cm. Standard spot includes 2 chairs and 2 tables 140x70cm, while a Mini spot includes 2 chairs  and 1 table 140x70cm',
@@ -285,7 +286,7 @@ export const en: TranslationsShape = {
       },
       registration: {
         title: 'Reservations',
-        wantToJoin: 'Do you want to become a vendor at Krakoski Yarnmark 2026?',
+        wantToJoin: 'Do you want to become a vendor at Krakoski Yarnmark 2027?',
         newForm: 'Please visit the application form page: <0>Form</0>.',
         extraInfoByMail:
           'Would you like to receive additional information via email? Write to <strong>krakoski.yarnmark@gmail.com</strong > ',
@@ -347,6 +348,12 @@ export const en: TranslationsShape = {
         },
         preferredStands: {
           title: 'Pick your preferred stands on the map',
+          twoStandsLabel: 'I want to buy two stands',
+          pairHint:
+            'You can pick up to {{max}} pairs of two neighbouring stands — after the first click only the stands next to it stay available. Green — available, orange — selected by you.',
+          pairCounter: '{{current}} of {{max}} pairs selected',
+          pairLabel: 'Pair {{number}}: {{stands}}',
+          pairIncomplete: 'Pair {{number}}: {{stands}} — pick a neighbouring stand',
           hint: 'You can pick up to {{max}} stands. Green — available, orange — selected by you.',
           orderHint: 'Order matters — the first stand you click becomes your top pick.',
           counter: '{{current}} of {{max}} selected',
@@ -361,6 +368,8 @@ export const en: TranslationsShape = {
           premiumSize: '3 × 5.5 m',
           standardLabel: 'Standard',
           standardSize: '3 × 3.5 m',
+          cLabel: 'C',
+          cSize: '3 × 3 m',
           miniLabel: 'Mini',
           miniSize: '2 × 3 m'
         },
@@ -412,6 +421,8 @@ export const en: TranslationsShape = {
         mainCategoryOtherRequired: 'Enter the main product category.',
         interestedIfUnavailableRequired: 'Choose one of the answers.',
         preferredStandsRequired: 'Choose at least one preferred stand.',
+        standPairIncomplete:
+          'Every pair needs two neighbouring stands. Finish the started pair or unselect the last stand.',
         phoneRequired: 'Enter a phone number.',
         phoneInvalid: 'Enter a valid phone number.',
         emailRequired: 'Enter an email address.',
@@ -427,6 +438,9 @@ export const en: TranslationsShape = {
         confirm: 'OK',
         storeName: 'Store name',
         submittedAt: 'Saved at',
+        wantsTwoStands: 'Wants to buy two stands',
+        yes: 'Yes',
+        no: 'No',
         attendedBefore: 'Previous editions',
         mainCategory: 'Main category',
         preferredStands: 'Preferred stands',
@@ -581,7 +595,7 @@ export const en: TranslationsShape = {
       showRows: 'Show list',
       showSplit: 'List and map',
       showMap: 'Show map',
-      showCascadeStandAllocation: 'Cascading stand allocation',
+      showCertainStands: 'Show certain stands',
       statusField: {
         saving: 'Saving…'
       },
@@ -613,46 +627,22 @@ export const en: TranslationsShape = {
       acceptedQueue: {
         title: 'Step 1. Accepted vendors sorted by form submission time'
       },
-      cascadeAlgorithm: {
-        title: 'How the algorithm works',
-        simulation: 'Simulation — preview only, nothing is saved',
-        simulationDescription:
-          'Proposals cover accepted applications without an assignment. Saved assignments are preserved and their stands excluded from the simulation regardless of application status. Exporting does not save changes in the panel.',
-        export: 'Export proposal (CSV)',
-        empty: 'No accepted applications without an assigned stand.',
-        emptyNoAccepted:
-          'No application has the “accepted” status. The cascade only considers accepted vendors — set that status in the list or cards.',
-        emptyAllAssigned:
-          'Accepted applications: {{accepted}}, and all of them ({{assigned}}) already have a stand. The cascade skips assigned applications — clear the assignment in the details to include them again.',
-        proposedStand: 'Proposed stand',
-        exportColumns: {
-          applicationId: 'Application ID',
-          storeName: 'Store',
-          result: 'Simulation result',
-          suggested: 'Proposal — not saved'
-        },
-        steps: {
-          acceptVendors:
-            'The organizer first accepts selected vendors by setting their status to "accepted" in the "Show cards" section.',
-          sortAccepted:
-            'The system takes accepted applications without an assigned stand and sorts them by the earliest submission first. All saved assignments exclude occupied stands from the simulation.',
-          checkPreferences:
-            'Next, for each vendor in order, it checks the preferred stands from highest priority to lowest priority and assigns the first stand that is still available at that moment.',
-          sendToManualNegotiation:
-            'If all selected stands are already taken, the application moves to the manual negotiation section.',
-          confirmedAssignments:
-            'Proposals are not saved automatically. The organizer can assign a stand manually in the application details. Separate proposal confirmation is not yet available.',
-          nextIterations:
-            'After a manual assignment is saved, the simulation recalculates proposals for the remaining accepted applications and available stands.'
-        }
-      },
-      manualNegotiation: {
-        title: 'Manual negotiation'
+      certainStands: {
+        title: 'Certain stands',
+        description:
+          'Stands exactly one vendor applied for — there is nothing to settle. Preview only, nothing is saved.',
+        counter: 'Certain stands: {{count}}',
+        vendor: 'Vendor',
+        choice: 'Choice {{position}}',
+        multipleStands: 'Only candidate for {{count}} stands — you can assign just one',
+        empty: 'No stand has exactly one candidate.'
       },
       fields: {
+        applicationId: 'Application ID',
         status: 'Status',
         mainCategory: 'Main category',
         preferredStands: 'Preferred stands',
+        wantsTwoStands: 'Wants two stands',
         allocatedStand: 'Assigned stands',
         allocationState: 'Allocation state',
         allocationIteration: 'Allocation iteration',

@@ -123,6 +123,11 @@ export const ForVendorsPage = () => {
             </li>
             <li>
               <Typography size="md">
+                <Trans i18nKey="infoForVendorsPage.hallInfo.standC" />
+              </Typography>
+            </li>
+            <li>
+              <Typography size="md">
                 <Trans i18nKey="infoForVendorsPage.hallInfo.miniStand" />
               </Typography>
             </li>

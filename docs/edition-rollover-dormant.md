@@ -27,7 +27,7 @@ Automatycznie po tym kroku:
 
 ## 3. Ręcznie
 
-- [ ] Numer edycji w zaproszeniu: `welcomeBand.invitation` („III edycję…”) → numer kolejnej edycji
+- [x] Numer edycji w zaproszeniu: `welcomeBand.invitation` → IV edycja (zrobione dla edycji 2027, także `infoForVendorsPage.invitation`)
 - [ ] Ankieta po targach: `previousEdition.fillTheSurvey` – rok i link do nowej ankiety
 - [ ] Pamiątki: linki do produktów w `src/pages/main-page/bands/LastEditionBand.tsx` (rok w URL)
 - [ ] Tekst SEO: `src/App.tsx` (`TransparentText`) – rok

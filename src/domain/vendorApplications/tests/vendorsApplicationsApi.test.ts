@@ -44,6 +44,7 @@ const createVendorApplicationPayload = () => ({
   mainCategory: 'yarns' as const,
   mainCategoryOther: '',
   preferredStands: ['P1'],
+  wantsTwoStands: false,
   interestedIfUnavailable: false,
   sponsorshipInterest: null,
   phoneNumber: '+48 123 456 789',

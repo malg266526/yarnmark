@@ -22,7 +22,7 @@ export const DefaultTypeColorMap: Record<StandType, keyof typeof StandColorsMap>
   premium: 'premium',
   standard: 'normal1',
   mini: 'small1',
-  c: 'normal3',
+  c: 'standC',
   other: 'taken'
 };
 

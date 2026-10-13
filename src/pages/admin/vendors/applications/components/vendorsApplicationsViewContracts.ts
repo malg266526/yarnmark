@@ -7,8 +7,6 @@ import type {
   VendorApplicationStatusCounts
 } from '../utils/vendorApplicationsFilterUtils.ts';
 import type { VendorApplicationFlag } from '../utils/vendorApplicationFlagsUtils.ts';
-import type { CascadeEligibilitySummary } from '../utils/standAllocationUtils.ts';
-import type { CascadeExportLabels } from '../utils/cascadeExportUtils';
 
 export interface VendorApplicationDisplayValues {
   no: string;
@@ -94,22 +92,15 @@ export interface VendorsApplicationsCardsViewProps
   savingStatusApplicationId: string | null;
 }
 
-export interface VendorsApplicationsCascadeViewProps {
-  simulationLabel: string;
-  simulationDescription: string;
-  exportLabel: string;
-  emptyLabel: string;
-  resolveEmptyExplanation: (summary: CascadeEligibilitySummary) => string;
-  exportLabels: CascadeExportLabels;
-  algorithmSteps: string[];
-  algorithmTitle: string;
+export interface VendorsApplicationsCertainStandsViewProps {
   applications: VendorApplication[];
-  allocatedStandLabel: string;
-  locale: string;
-  manualNegotiationTitle: string;
-  preferredStandsLabel: string;
-  noneSelectedLabel: string;
-  notAssignedLabel: string;
+  description: string;
+  emptyLabel: string;
+  resolveChoiceLabel: (choicePosition: number) => string;
+  resolveCountLabel: (certainStandCount: number) => string;
+  resolveMultipleStandsLabel: (certainStandCount: number) => string;
+  title: string;
+  vendorLabel: string;
 }
 
 export type StandPriorityHighlights = ReadonlyMap<string, number>;

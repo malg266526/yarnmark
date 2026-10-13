@@ -2,6 +2,7 @@ import React from 'react';
 import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import { Fieldset, SummaryList } from '../VendorFormPage.styled';
+import { getPreferredStandGroups } from '../../../../domain/vendorApplications/vendorFormUtils.ts';
 import type { VendorFormBindings, VendorFormStatusState } from './vendorFormViewContracts';
 
 interface VendorFormSummaryProps {
@@ -37,10 +38,14 @@ export const VendorFormSummary = ({ formBindings, formStatus }: VendorFormSummar
               ? t(`vendorsFormPage.steps.mainCategory.${formData.mainCategory}` as const)
               : null}
         </dd>
+        <dt>{t('vendorsFormPage.summary.wantsTwoStands')}</dt>
+        <dd>{t(formData.wantsTwoStands ? 'vendorsFormPage.summary.yes' : 'vendorsFormPage.summary.no')}</dd>
         <dt>{t('vendorsFormPage.summary.preferredStands')}</dt>
         <dd>
           {formData.preferredStands.length > 0
-            ? formData.preferredStands.map((standId, index) => `${index + 1}. ${standId}`).join(', ')
+            ? getPreferredStandGroups(formData.preferredStands, formData.wantsTwoStands)
+                .map((standGroup, groupIndex) => `${groupIndex + 1}. ${standGroup.join(' + ')}`)
+                .join(', ')
             : t('vendorsFormPage.summary.notProvided')}
         </dd>
         <dt>{t('vendorsFormPage.summary.interestedIfUnavailable')}</dt>

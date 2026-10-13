@@ -1,9 +1,9 @@
-export type VendorStandType = 'mini' | 'premium' | 'standard';
+export type VendorStandType = 'c' | 'mini' | 'premium' | 'standard';
 
-// Stand index prefixes used by src/assets/hall.json: S/C are standard, P premium, M mini.
+// Stand index prefixes used by src/assets/hall.json: S standard, C its own 3x3 type, P premium, M mini.
 // Entrances and technical areas (a0, a1, A2, A3) have no vendor stand type.
 const STAND_TYPE_BY_INDEX_PREFIX: Record<string, VendorStandType> = {
-  C: 'standard',
+  C: 'c',
   M: 'mini',
   P: 'premium',
   S: 'standard'

@@ -33,7 +33,7 @@ import { VendorsApplicationsRowsView } from './VendorsApplicationsRowsView';
 import { VendorsApplicationsSplitView } from './VendorsApplicationsSplitView';
 import { VendorsApplicationsStandRequestsView } from './VendorsApplicationsStandRequestsView';
 import { VendorsApplicationsUndoToast } from './VendorsApplicationsUndoToast';
-import { VendorsApplicationsCascadeView } from './VendorsApplicationsCascadeView';
+import { VendorsApplicationsCertainStandsView } from './VendorsApplicationsCertainStandsView';
 import { VendorsApplicationsStandGroupsView } from './VendorsApplicationsStandGroupsView';
 import { VendorsApplicationsToolbarView } from './VendorsApplicationsToolbarView';
 
@@ -92,7 +92,7 @@ export const VendorsApplicationsView = ({
   const exportUrl = useVendorApplicationsExport(
     visibleApplications,
     {
-      applicationId: t('vendorsApplicationsPage.cascadeAlgorithm.exportColumns.applicationId'),
+      applicationId: t('vendorsApplicationsPage.fields.applicationId'),
       submittedAt: t('vendorsApplicationsPage.rows.columns.submittedAt'),
       storeName: t('vendorsApplicationsPage.rows.columns.storeName'),
       email: t('vendorsApplicationsPage.fields.email'),
@@ -149,11 +149,11 @@ export const VendorsApplicationsView = ({
           {t('vendorsApplicationsPage.showMap')}
         </ApplicationActionButton>
         <ApplicationActionButton
-          aria-pressed={viewMode === 'cascade'}
+          aria-pressed={viewMode === 'certain'}
           type="button"
-          onClick={() => setViewMode('cascade')}
+          onClick={() => setViewMode('certain')}
         >
-          {t('vendorsApplicationsPage.showCascadeStandAllocation')}
+          {t('vendorsApplicationsPage.showCertainStands')}
         </ApplicationActionButton>
         <ApplicationActionButton
           aria-pressed={viewMode === 'stands'}
@@ -187,46 +187,22 @@ export const VendorsApplicationsView = ({
         </ApplicationsMapLayout>
       ) : null}
 
-      {viewMode === 'cascade' ? (
-        <VendorsApplicationsCascadeView
-          simulationLabel={t('vendorsApplicationsPage.cascadeAlgorithm.simulation')}
-          simulationDescription={t('vendorsApplicationsPage.cascadeAlgorithm.simulationDescription')}
-          exportLabel={t('vendorsApplicationsPage.cascadeAlgorithm.export')}
-          emptyLabel={t('vendorsApplicationsPage.cascadeAlgorithm.empty')}
-          resolveEmptyExplanation={({ acceptedCount, acceptedWithStandsCount }) =>
-            acceptedCount === 0
-              ? t('vendorsApplicationsPage.cascadeAlgorithm.emptyNoAccepted')
-              : t('vendorsApplicationsPage.cascadeAlgorithm.emptyAllAssigned', {
-                  accepted: acceptedCount,
-                  assigned: acceptedWithStandsCount
-                })
-          }
-          exportLabels={{
-            applicationId: t('vendorsApplicationsPage.cascadeAlgorithm.exportColumns.applicationId'),
-            storeName: t('vendorsApplicationsPage.cascadeAlgorithm.exportColumns.storeName'),
-            email: t('vendorsApplicationsPage.fields.email'),
-            preferredStands: t('vendorsApplicationsPage.fields.preferredStands'),
-            proposedStand: t('vendorsApplicationsPage.cascadeAlgorithm.proposedStand'),
-            result: t('vendorsApplicationsPage.cascadeAlgorithm.exportColumns.result'),
-            suggested: t('vendorsApplicationsPage.cascadeAlgorithm.exportColumns.suggested'),
-            manualNegotiation: t('vendorsApplicationsPage.manualNegotiation.title')
-          }}
-          algorithmSteps={[
-            t('vendorsApplicationsPage.cascadeAlgorithm.steps.acceptVendors'),
-            t('vendorsApplicationsPage.cascadeAlgorithm.steps.sortAccepted'),
-            t('vendorsApplicationsPage.cascadeAlgorithm.steps.checkPreferences'),
-            t('vendorsApplicationsPage.cascadeAlgorithm.steps.sendToManualNegotiation'),
-            t('vendorsApplicationsPage.cascadeAlgorithm.steps.confirmedAssignments'),
-            t('vendorsApplicationsPage.cascadeAlgorithm.steps.nextIterations')
-          ]}
-          algorithmTitle={t('vendorsApplicationsPage.cascadeAlgorithm.title')}
-          allocatedStandLabel={t('vendorsApplicationsPage.cascadeAlgorithm.proposedStand')}
+      {viewMode === 'certain' ? (
+        <VendorsApplicationsCertainStandsView
           applications={applications}
-          locale={t.i18n.language}
-          manualNegotiationTitle={t('vendorsApplicationsPage.manualNegotiation.title')}
-          noneSelectedLabel={t('vendorsApplicationsPage.values.noneSelected')}
-          notAssignedLabel={t('vendorsApplicationsPage.values.notAssigned')}
-          preferredStandsLabel={t('vendorsApplicationsPage.fields.preferredStands')}
+          description={t('vendorsApplicationsPage.certainStands.description')}
+          emptyLabel={t('vendorsApplicationsPage.certainStands.empty')}
+          resolveChoiceLabel={(choicePosition) =>
+            t('vendorsApplicationsPage.certainStands.choice', { position: choicePosition })
+          }
+          resolveCountLabel={(certainStandCount) =>
+            t('vendorsApplicationsPage.certainStands.counter', { count: certainStandCount })
+          }
+          resolveMultipleStandsLabel={(certainStandCount) =>
+            t('vendorsApplicationsPage.certainStands.multipleStands', { count: certainStandCount })
+          }
+          title={t('vendorsApplicationsPage.certainStands.title')}
+          vendorLabel={t('vendorsApplicationsPage.certainStands.vendor')}
         />
       ) : null}
 

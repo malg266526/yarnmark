@@ -5,8 +5,13 @@ import { INITIAL_VENDOR_FORM_STATE } from '../vendorFormTypes.ts';
 import { VENDOR_FORM_API_URL } from '../vendorFormConstants.ts';
 import { submitVendorApplicationToApi } from '../vendorFormApi.ts';
 
-test('submitVendorApplicationToApi posts the form data as JSON to the vendor apply endpoint', async () => {
-  const formData = { ...INITIAL_VENDOR_FORM_STATE, storeName: 'Test shop' };
+test('submitVendorApplicationToApi posts stand pairs without the local wantsTwoStands flag', async () => {
+  const formData = {
+    ...INITIAL_VENDOR_FORM_STATE,
+    storeName: 'Test shop',
+    wantsTwoStands: true,
+    preferredStands: ['S1', 'S2', 'M4', 'M5']
+  };
   const calls: Array<[string, RequestInit | undefined]> = [];
   const originalFetch = globalThis.fetch;
 
@@ -28,7 +33,11 @@ test('submitVendorApplicationToApi posts the form data as JSON to the vendor app
     calls[0][1]?.headers && (calls[0][1].headers as Record<string, string>)['Content-Type'],
     'application/json'
   );
-  assert.deepEqual(JSON.parse(calls[0][1]?.body as string), formData);
+  const expectedPayload: Partial<typeof formData> = { ...formData };
+  delete expectedPayload.wantsTwoStands;
+
+  assert.deepEqual(JSON.parse(calls[0][1]?.body as string), expectedPayload);
+  assert.equal(formData.wantsTwoStands, true);
 });
 
 test('submitVendorApplicationToApi rejects when the request fails', async () => {

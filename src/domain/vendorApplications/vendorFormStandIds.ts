@@ -54,7 +54,13 @@ const HALL_STAND_INDEX_BY_ID = {
   'mgl72tsa-qs2e7an': 'M7',
   'mgl76hx7-qw6e0d0': 'M6',
   'mgl76tw7-mgn1xq1': 'M5',
-  'mgl775wk-c5g9xg2': 'M4'
+  'mgl775wk-c5g9xg2': 'M4',
+  'muogalqc-epeuaxz': 'C2',
+  'muogav4a-snrn8q7': 'C3',
+  'muogbl5b-dua6ycd': 'M8',
+  'muogbtvy-qzprjhj': 'M9',
+  'muogc2jx-0vwrm1d': 'M10',
+  'muogc8oy-ofhouxb': 'M11'
 } as const;
 
 export const normalizeStandId = (standId: string) =>

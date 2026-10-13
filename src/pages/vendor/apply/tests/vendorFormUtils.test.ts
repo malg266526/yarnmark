@@ -1,6 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
+  getMaxPreferredStands,
+  getOpenPairStandId,
+  getPreferredStandGroups,
+  hasIncompleteStandPair,
   isEmailValid,
   isPhoneValid,
   toggleStandSelection
@@ -164,4 +168,71 @@ test('toggleStandSelection refuses to add when at the cap', () => {
 
 test('toggleStandSelection still allows removal when at the cap', () => {
   assert.deepEqual(toggleStandSelection(['a', 'b', 'c'], 'a', 3), ['b', 'c']);
+});
+
+test('getMaxPreferredStands doubles the cap when the vendor wants two stands', () => {
+  assert.equal(getMaxPreferredStands(false), 3);
+  assert.equal(getMaxPreferredStands(true), 6);
+});
+
+test('getPreferredStandGroups keeps single stands as one-element preferences', () => {
+  assert.deepEqual(getPreferredStandGroups(['S1', 'S2', 'S3'], false), [['S1'], ['S2'], ['S3']]);
+});
+
+test('getPreferredStandGroups pairs stands in selection order', () => {
+  assert.deepEqual(getPreferredStandGroups(['S1', 'S2', 'M4', 'M5'], true), [
+    ['S1', 'S2'],
+    ['M4', 'M5']
+  ]);
+});
+
+test('getPreferredStandGroups leaves a half-finished pair as its own group', () => {
+  assert.deepEqual(getPreferredStandGroups(['S1', 'S2', 'M4'], true), [['S1', 'S2'], ['M4']]);
+});
+
+test('hasIncompleteStandPair only reports an odd count when pairs are requested', () => {
+  assert.equal(hasIncompleteStandPair(['S1', 'S2', 'M4'], true), true);
+  assert.equal(hasIncompleteStandPair(['S1', 'S2'], true), false);
+  assert.equal(hasIncompleteStandPair(['S1', 'S2', 'M4'], false), false);
+  assert.equal(hasIncompleteStandPair([], true), false);
+});
+
+test('parseStoredVendorFormDraft reads a draft saved before the two-stands checkbox existed', () => {
+  const legacyFormData: Record<string, unknown> = { ...createValidVendorFormState(), preferredStands: ['S1'] };
+
+  delete legacyFormData.wantsTwoStands;
+
+  const draft = parseStoredVendorFormDraft(JSON.stringify({ formData: legacyFormData, isComplete: false }));
+
+  assert.equal(draft?.formData.wantsTwoStands, false);
+});
+
+test('collectVendorFormValidationErrors rejects a half-finished pair of stands', () => {
+  const errors = collectVendorFormValidationErrors({
+    ...createValidVendorFormState(),
+    wantsTwoStands: true,
+    preferredStands: ['S1', 'S2', 'M4']
+  });
+
+  assert.equal(errors.preferredStands, 'vendorsFormPage.validation.standPairIncomplete');
+});
+
+test('collectVendorFormValidationErrors accepts complete pairs of stands', () => {
+  const errors = collectVendorFormValidationErrors({
+    ...createValidVendorFormState(),
+    wantsTwoStands: true,
+    preferredStands: ['S1', 'S2', 'M4', 'M5']
+  });
+
+  assert.equal(errors.preferredStands, undefined);
+});
+
+test('getOpenPairStandId points at the stand still waiting for its neighbour', () => {
+  assert.equal(getOpenPairStandId(['S1', 'S2', 'M4'], true), 'M4');
+});
+
+test('getOpenPairStandId returns nothing when every pair is complete or pairs are off', () => {
+  assert.equal(getOpenPairStandId(['S1', 'S2'], true), null);
+  assert.equal(getOpenPairStandId([], true), null);
+  assert.equal(getOpenPairStandId(['S1'], false), null);
 });
