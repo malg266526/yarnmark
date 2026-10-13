@@ -1,5 +1,6 @@
 import zod from 'zod';
 import hallJson from '../../assets/hall.json';
+import { RESERVED_STAND_COLORS } from './standReservationUtils.ts';
 
 const hallStandTypeSchema = zod.union([
   zod.literal('premium'),
@@ -25,6 +26,7 @@ const hallStandSchema = zod.object({
   id: zod.string(),
   index: zod.string(),
   vendor: zod.string().optional(),
+  vendorLogoUrl: zod.string().optional(),
   description: zod.string().optional(),
   type: hallStandTypeSchema,
   color: hallStandColorSchema,
@@ -42,4 +44,4 @@ export type HallStand = zod.infer<typeof hallStandSchema>;
 export const parseHallStands = (stands: unknown = hallJson) => hallStandsSchema.safeParse(stands);
 
 export const isVendorStand = (stand: HallStand) =>
-  stand.type !== 'other' && stand.color !== 'taken' && stand.color !== 'taken2';
+  stand.type !== 'other' && !RESERVED_STAND_COLORS.includes(stand.color);

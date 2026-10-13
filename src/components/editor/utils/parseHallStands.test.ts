@@ -29,6 +29,7 @@ test('parseHallStands keeps stands saved by the editor, including their ids', ()
       id: 'abc',
       index: 'S1',
       vendor: 'Lusia Knits',
+      vendorLogoUrl: undefined,
       description: undefined,
       type: 'standard',
       width: 3.5,
@@ -78,6 +79,23 @@ test('parseHallStands keeps the saved type of stands numbered with C', () => {
   const stands = parseHallStands([{ index: 'C1', type: 'standard' }], createFixedId);
 
   assert.equal(stands?.[0].type, 'standard');
+});
+
+test('parseHallStands keeps the vendor logo of an assigned stand', () => {
+  const stands = parseHallStands(
+    [
+      {
+        id: 'abc',
+        index: 'P4',
+        type: 'premium',
+        vendor: 'Włóczykijki s.c.',
+        vendorLogoUrl: 'uploads/vendors/af28ab48.webp'
+      }
+    ],
+    createFixedId
+  );
+
+  assert.equal(stands?.[0].vendorLogoUrl, 'uploads/vendors/af28ab48.webp');
 });
 
 test('parseHallStands returns null when the data is not a list of stands', () => {

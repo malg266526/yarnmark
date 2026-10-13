@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { HallMap } from '../../../../components/hall/HallMap';
 import { isVendorStand, parseHallStands, type HallStand } from '../../../../components/hall/hallStands';
+import { isReservedStand, resolveStandColorKey } from '../../../../components/hall/standReservationUtils';
+import { HallStandVendor } from '../../../../components/hall/HallStandVendor';
 import { getPairableStandIndexes } from '../../../../components/hall/standAdjacencyUtils';
 import { StandColorsMap } from '../../../../components/editor/StandProps';
 import { Typography } from '../../../../components/Typography';
@@ -22,6 +24,7 @@ const standElementLayout = css`
   position: absolute;
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -149,8 +152,8 @@ export const SelectableHall = ({
   }
 
   const resolveColor = (stand: HallStand): string => {
-    if (!isVendorStand(stand)) {
-      return StandColorsMap[stand.color];
+    if (!isVendorStand(stand) || isReservedStand(stand)) {
+      return StandColorsMap[resolveStandColorKey(stand)];
     }
 
     if (selectedStandIds.includes(stand.index)) {
@@ -168,6 +171,7 @@ export const SelectableHall = ({
         renderStand={(stand, box) => {
           const selectable =
             isVendorStand(stand) &&
+            !isReservedStand(stand) &&
             (!pairableStandIds || selectedStandIds.includes(stand.index) || pairableStandIds.includes(stand.index));
           const standSelectionId = stand.index;
           const isHighInterest = highInterestStandIds.includes(standSelectionId);
@@ -182,7 +186,7 @@ export const SelectableHall = ({
               $height={box.height}
               $color={resolveColor(stand)}
               $isHighInterest={isHighInterest}
-              $isBlocked={isVendorStand(stand) && !selectable}
+              $isBlocked={isVendorStand(stand) && !isReservedStand(stand) && !selectable}
               $selectable={selectable}
               disabled={!selectable}
               aria-pressed={selectable ? selectedStandIds.includes(standSelectionId) : undefined}
@@ -190,6 +194,7 @@ export const SelectableHall = ({
               onClick={selectable ? () => onToggleStand(standSelectionId) : undefined}
             >
               {stand.type !== 'other' ? stand.index : stand.description}
+              <HallStandVendor vendor={stand.vendor} vendorLogoUrl={stand.vendorLogoUrl} />
             </StandElement>
           );
         }}

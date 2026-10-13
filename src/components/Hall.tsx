@@ -4,6 +4,8 @@ import type zod from 'zod';
 import { StandColorsMap } from './editor/StandProps';
 import { HallMap } from './hall/HallMap';
 import { hallStandsSchema, parseHallStands } from './hall/hallStands';
+import { HallStandVendor } from './hall/HallStandVendor';
+import { resolveStandColorKey } from './hall/standReservationUtils';
 import { Typography } from './Typography';
 import { usePhone } from '../hooks/usePhone';
 
@@ -26,11 +28,6 @@ const StandElement = styled.div<{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
-
-const VendorSlot = styled.div`
-  text-align: center;
-  font-size: 14px;
 `;
 
 type HallType = {
@@ -80,14 +77,14 @@ export const Hall = ({ multiplier }: HallType) => {
             <StandElement
               id={standConfiguration.id}
               key={standConfiguration.id}
-              color={StandColorsMap[standConfiguration.color]}
+              color={StandColorsMap[resolveStandColorKey(standConfiguration)]}
               left={box.left}
               top={box.top}
               height={box.height}
               width={box.width}
             >
               {standConfiguration.type !== 'other' && <div>{standConfiguration.index}</div>}
-              {standConfiguration.vendor && <VendorSlot>{standConfiguration.vendor}</VendorSlot>}
+              <HallStandVendor vendor={standConfiguration.vendor} vendorLogoUrl={standConfiguration.vendorLogoUrl} />
               {standConfiguration.description && (
                 <div>
                   <Typography size={isPhone ? 'xxs' : 'xs'}>{standConfiguration.description}</Typography>

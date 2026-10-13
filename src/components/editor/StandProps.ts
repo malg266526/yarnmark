@@ -20,6 +20,7 @@ export interface StandProps {
   id: string;
   index: string;
   vendor?: string;
+  vendorLogoUrl?: string;
   description?: string;
   type: StandType;
   width?: number;
