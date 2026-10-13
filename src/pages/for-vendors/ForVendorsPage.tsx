@@ -20,6 +20,7 @@ import { RowLayout } from '../../components/RowLayout';
 import { Link } from '../../components/Link';
 import { FontSize } from '../../styles/font-size';
 import { HALL_AREA_M2, HALL_HEIGHT_M, HALL_WIDTH_M } from '../../components/editor/utils/hallGeometry';
+import { NewsletterSection } from './components/NewsletterSection';
 
 const InvitationBoxWrapper = styled.div`
   padding-left: 240px;
@@ -86,6 +87,10 @@ export const ForVendorsPage = () => {
           </RowLayout>
         </PlainInfo>
       </Band.NarrowColumn>
+
+      <Separator />
+
+      <NewsletterSection />
 
       <Separator />
 

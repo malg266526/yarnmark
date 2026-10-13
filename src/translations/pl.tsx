@@ -283,6 +283,20 @@ export const pl = {
         contact:
           'Wszelkie pytania i wątpliwości związane ze stoiskami prosimy kierować na adres mailowy <strong>krakoski.yarnmark@gmail.com</strong>'
       },
+      newsletter: {
+        title: 'Lista mailingowa',
+        description: 'Dołącz do naszej listy mailingowej',
+        emailLabel: 'Adres e-mail',
+        emailPlaceholder: 'twoj@adres.pl',
+        submit: 'Zapisz się',
+        submitting: 'Zapisywanie...',
+        success: 'Dziękujemy! Twój adres jest na liście.',
+        submitError: 'Nie udało się zapisać adresu. Spróbuj ponownie.',
+        validation: {
+          emailRequired: 'Podaj adres e-mail.',
+          emailInvalid: 'Podaj poprawny adres e-mail.'
+        }
+      },
       registration: {
         title: 'Zapisy',
         wantToJoin: 'Chcesz zostać wystawcą na Krakoski Yarnmark 2027?',

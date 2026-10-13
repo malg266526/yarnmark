@@ -284,6 +284,20 @@ export const en: TranslationsShape = {
         contact:
           'Please send any questions and doubts related to the stands to the e-mail address<strong>krakoski.yarnmark@gmail.com</strong>'
       },
+      newsletter: {
+        title: 'Mailing list',
+        description: 'Join our mailing list',
+        emailLabel: 'Email address',
+        emailPlaceholder: 'your@address.com',
+        submit: 'Sign up',
+        submitting: 'Signing up...',
+        success: 'Thank you! Your address is on the list.',
+        submitError: 'The address could not be saved. Please try again.',
+        validation: {
+          emailRequired: 'Enter an email address.',
+          emailInvalid: 'Enter a valid email address.'
+        }
+      },
       registration: {
         title: 'Reservations',
         wantToJoin: 'Do you want to become a vendor at Krakoski Yarnmark 2027?',
