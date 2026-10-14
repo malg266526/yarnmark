@@ -329,6 +329,7 @@ export const en: TranslationsShape = {
     },
     vendorsFormPage: {
       title: 'Vendor application form',
+      openingNotice: 'The form will be available from 19 October 2026 at 9:00 a.m. Polish time.',
       kicker: 'For vendors',
       submit: 'Submit application',
       submitting: 'Submitting...',
