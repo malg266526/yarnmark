@@ -242,6 +242,8 @@ export const en: TranslationsShape = {
     vendors_archive: 'Vendors {{year}}',
     contactPage: {
       title: 'Contact',
+      marketingEmail: 'yarnmark.marketing@gmail.com',
+      marketingEmailLabel: 'Marketing',
       workshopsEmailLabel: 'Workshops'
     },
     infoForVendorsPage: {

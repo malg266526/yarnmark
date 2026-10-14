@@ -241,6 +241,8 @@ export const pl = {
     vendors_archive: 'Wystawcy {{year}}',
     contactPage: {
       title: 'Kontakt',
+      marketingEmail: 'yarnmark.marketing@gmail.com',
+      marketingEmailLabel: 'Marketing',
       workshopsEmailLabel: 'Warsztaty'
     },
     infoForVendorsPage: {

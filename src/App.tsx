@@ -8,7 +8,15 @@ import { Icon } from './components/Icon';
 import { MinimalistLayout } from './components/MinimalistLayout';
 import { RowLayout } from './components/RowLayout';
 import { FlexColumnLayout } from './components/FlexColumnLayout';
-import { Footer, LeftBackgroundImage, Root, TransparentText, VanillaLink } from './App.styled';
+import {
+  Footer,
+  FooterContacts,
+  FooterInstagramLink,
+  LeftBackgroundImage,
+  Root,
+  TransparentText,
+  VanillaLink
+} from './App.styled';
 import { ForVendorsPage } from './pages/for-vendors/ForVendorsPage';
 import { MainPage } from './pages/main-page/MainPage';
 import { useTypedTranslation } from './translations/useTypedTranslation';
@@ -108,29 +116,42 @@ export const App = () => {
           <MinimalistLayout>
             <Typography size={isPhone ? 'xl' : 'xxl'}>{t('contactPage.title')}</Typography>
 
-            <VanillaLink href="mailto:krakoski.yarnmark@gmail.com" target="_blank" rel="noreferrer">
-              <RowLayout>
-                <Icon size={iconSize} src={emailIconUrl} />
-                <Typography size={textSize}>krakoski.yarnmark@gmail.com</Typography>
-              </RowLayout>
-            </VanillaLink>
-
-            <VanillaLink href={`mailto:${WORKSHOPS_CONTACT_EMAIL}`} target="_blank" rel="noreferrer">
-              <FlexColumnLayout gap="none" padding="none" align="flex-end">
-                <Typography size="sm">{t('contactPage.workshopsEmailLabel')}</Typography>
+            <FooterContacts>
+              <FooterInstagramLink href="https://www.instagram.com/yarnmark.krk/" target="_blank" rel="noreferrer">
                 <RowLayout>
-                  <Icon size={iconSize} src={emailIconUrl} />
-                  <Typography size={textSize}>{WORKSHOPS_CONTACT_EMAIL}</Typography>
+                  <Icon size={iconSize} src={instagramIconUrl} />
+                  <Typography size={textSize}>@yarnmark.krk</Typography>
                 </RowLayout>
-              </FlexColumnLayout>
-            </VanillaLink>
+              </FooterInstagramLink>
+              <FlexColumnLayout gap="sm" padding="none" align="flex-end">
+                <VanillaLink href="mailto:krakoski.yarnmark@gmail.com" target="_blank" rel="noreferrer">
+                  <RowLayout>
+                    <Icon size={iconSize} src={emailIconUrl} />
+                    <Typography size={textSize}>krakoski.yarnmark@gmail.com</Typography>
+                  </RowLayout>
+                </VanillaLink>
 
-            <VanillaLink href="https://www.instagram.com/yarnmark.krk/" target="_blank" rel="noreferrer">
-              <RowLayout>
-                <Icon size={iconSize} src={instagramIconUrl} />
-                <Typography size={textSize}>@yarnmark.krk</Typography>
-              </RowLayout>
-            </VanillaLink>
+                <VanillaLink href={`mailto:${t('contactPage.marketingEmail')}`} target="_blank" rel="noreferrer">
+                  <FlexColumnLayout gap="none" padding="none" align="flex-end">
+                    <Typography size="sm">{t('contactPage.marketingEmailLabel')}</Typography>
+                    <RowLayout>
+                      <Icon size={iconSize} src={emailIconUrl} />
+                      <Typography size={textSize}>{t('contactPage.marketingEmail')}</Typography>
+                    </RowLayout>
+                  </FlexColumnLayout>
+                </VanillaLink>
+
+                <VanillaLink href={`mailto:${WORKSHOPS_CONTACT_EMAIL}`} target="_blank" rel="noreferrer">
+                  <FlexColumnLayout gap="none" padding="none" align="flex-end">
+                    <Typography size="sm">{t('contactPage.workshopsEmailLabel')}</Typography>
+                    <RowLayout>
+                      <Icon size={iconSize} src={emailIconUrl} />
+                      <Typography size={textSize}>{WORKSHOPS_CONTACT_EMAIL}</Typography>
+                    </RowLayout>
+                  </FlexColumnLayout>
+                </VanillaLink>
+              </FlexColumnLayout>
+            </FooterContacts>
 
             <LeftBackgroundImage src={talkImageUrl} alt="talk_icon" />
           </MinimalistLayout>
