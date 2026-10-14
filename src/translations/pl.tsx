@@ -241,6 +241,8 @@ export const pl = {
     vendors_archive: 'Wystawcy {{year}}',
     contactPage: {
       title: 'Kontakt',
+      marketingEmail: 'yarnmark.marketing@gmail.com',
+      marketingEmailLabel: 'Marketing',
       workshopsEmailLabel: 'Warsztaty'
     },
     infoForVendorsPage: {
@@ -326,6 +328,7 @@ export const pl = {
     },
     vendorsFormPage: {
       title: 'Formularz zgłoszeniowy wystawców',
+      openingNotice: 'Formularz będzie dostępny od 19 października 2026 o godz. 9:00 czasu polskiego.',
       kicker: 'Dla wystawców',
       submit: 'Wyślij zgłoszenie',
       submitting: 'Wysyłanie...',

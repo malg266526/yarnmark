@@ -64,3 +64,18 @@ export const VanillaLink = styled.a`
   color: ${TextColors.primary};
   text-decoration: none;
 `;
+
+export const FooterContacts = styled.div`
+  display: flex;
+  flex-wrap: wrap-reverse;
+  align-items: end;
+  justify-content: flex-end;
+  gap: ${RedesignSpacings.xl};
+  width: 100%;
+`;
+
+export const FooterInstagramLink = styled(VanillaLink)`
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+`;
