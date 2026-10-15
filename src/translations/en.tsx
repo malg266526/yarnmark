@@ -1,4 +1,4 @@
-import { TranslationsShape } from './pl';
+import { pl, TranslationsShape } from './pl';
 
 export const en: TranslationsShape = {
   translation: {
@@ -113,9 +113,9 @@ export const en: TranslationsShape = {
     whereToEat: 'Where to eat?',
     hallMap: {
       title: 'Hallenplan',
-      premiumStand: 'Premium spot 3x3,5m',
+      premiumStand: 'Premium spot 3x5.5m',
       standardStand: 'Standard spot 3x3,5m',
-      cStand: 'C spot 3x3m',
+      cStand: 'Kwadrat spot 3x3m',
       miniStand: 'Mini spot 3x2m',
       taken: 'Reserved'
     },
@@ -262,7 +262,7 @@ export const en: TranslationsShape = {
         stands: 'There will be four types of spots in the hall:',
         standPremium: '<strong>Premium 3 × 5.5 m</strong>',
         standardStand: '<strong>Standard 3 × 3.5 m</strong>',
-        standC: '<strong>C 3 × 3 m</strong>',
+        standC: '<strong>Kwadrat 3 × 3 m</strong>',
         miniStand: '<strong>Mini 3 × 2 m</strong>',
         tables:
           'Premium spot includes 2 chairs and 2 tables 160x80cm. Standard spot includes 2 chairs and 2 tables 140x70cm, while a Mini spot includes 2 chairs  and 1 table 140x70cm',
@@ -1116,45 +1116,9 @@ export const en: TranslationsShape = {
       heading: 'Krakoski Yarnmark regulations'
     },
     vendorsStatue: {
+      ...pl.translation.vendorsStatue,
       kicker: 'For vendors',
-      badge: 'Read before sending the form',
-      title: 'Terms and Conditions for the sale of the vendors stands 2026',
-      subtitle: 'Conditions for the sale of vendors stands 2026',
-      intro:
-        'Observing various trade fairs, both in Poland and abroad, and taking into account the requirements and competitiveness of knitting-themed events, the Organizers of Krakoski Yarnmark have decided to change the concept of stand sales. This Regulation has been created to clearly define the principles by which the Organizers of Krakoski Yarnmark will be guided when selecting vendors. Out of respect for both Vendors and Visitors, we wish for Krakoski Yarnmark to be a place of diversity, while maintaining a dominant focus on knitting.',
-      explanationIntro: 'In this document, the following terms refer to:',
-      explanation1: '<strong>Trade Fair</strong> - shall mean Krakoski Yarnmark 2026, to be held on 18.04.2026r',
-      explanation2:
-        '<strong>Vendor</strong> - shall mean a participant selected by the Organizers of Krakoski Yarnmark, who has been allocated a stand as indicated in the application form.',
-      explanation3:
-        '<strong>Potential Vendor</strong> - shall mean an entrepreneur who has completed the application form and is applying for a stand at Krakoski Yarnmark, seeking the opportunity to display and/or sell their products or goods, and who, following the announcement of the list of confirmed vendors, is placed on the reserve list.',
-      explanation4:
-        '<strong>Application Form</strong> - the form available at the <0>link</0> which is the basis for being considered as a <strong>Potential Vendor</strong>.',
-      condition1:
-        'The basis for applying for a stand at the Krakoski Yarnmark is the completion of the application form.',
-      condition2:
-        'Completing the application form does NOT entail an obligation of immediate payment, does NOT guarantee a place at the Trade Fair, and does NOT constitute the conclusion of an agreement between the Organizer and the Vendor.',
-      condition3:
-        'The order in which applications are submitted shall not be taken into consideration when selecting Vendors.',
-      condition4: '<strong>Potential Vendor:</strong>',
-      subcondition4a:
-        'When purchasing a Premium stand, the Vendor may not purchase a Standard or Mini stand in addition.',
-      subcondition4b: 'The Vendor may not purchase more than one Mini stand.',
-      subcondition4c: 'The Vendor may not purchase more than two Standard stands.',
-      condition5:
-        'Premium and Standard stands may be shared by more than one <strong>Vendor</strong>. Vendors organize themselves among themselves, notifying the Organizers about sharing a stand. Notification of stand sharing must be sent by January 31, 2026.',
-      condition6: 'The deadline for submitting applications is <strong>16.11.2025</strong> at <strong>23:59</strong>.',
-      condition7:
-        'The Organizers reserve the right to select <strong>Vendors</strong>. Notification of selection will be sent at <strong>25.11.2025</strong>. Remaining <strong>Potential Vendors</strong> will receive an email informing them of their placement on the reserve list.',
-      condition8:
-        'A <strong>Vendor</strong>, who has received notification of selection will simultaneously receive an invoice, which must be paid by <strong>2.12.2025r.</strong>. The date of receipt of the payment to the account indicated on the invoice is decisive. In the event of non-payment within the deadline, the stand will be offered to the next <strong>Potential Vendor</strong> on the reserve list.',
-      condition9: 'In the event of withdrawal from participation in the Krakoski Yarnmark:',
-      subcondition9a: 'At least 60 days before the Trade Fair, the Organizer shall refund 100% of the stand fee.',
-      subcondition9b: 'At least 30 days before the Trade Fair, the Organizer shall refund 50% of the stand fee.',
-      subcondition9c:
-        'Less than 30 days before the Trade Fair, the Organizer shall not refund the stand fee to the <strong>Vendor</strong>.',
-      condition10:
-        'The <strong>Vendor</strong> declares that they are aware of the dimensions and equipment of the stand they have selected. The Vendor undertakes not to extend the stand, merchandise, or advertising beyond the boundaries specified by the Organizers.'
+      badge: 'Read before sending the form'
     },
     editorPage: {
       kicker: 'Admin',

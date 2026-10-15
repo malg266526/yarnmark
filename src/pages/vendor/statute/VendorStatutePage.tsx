@@ -122,11 +122,11 @@ export const VendorStatutePage = () => {
                 <li>{t('vendorsStatue.condition3')}</li>
                 <li>
                   <Trans i18nKey="vendorsStatue.condition4" />
-                  <ul>
+                  <ol type="a">
                     <li>{t('vendorsStatue.subcondition4a')}</li>
                     <li>{t('vendorsStatue.subcondition4b')}</li>
                     <li>{t('vendorsStatue.subcondition4c')}</li>
-                  </ul>
+                  </ol>
                 </li>
                 <li>
                   <Trans i18nKey="vendorsStatue.condition5" />
@@ -142,17 +142,31 @@ export const VendorStatutePage = () => {
                 </li>
                 <li>
                   <Trans i18nKey="vendorsStatue.condition9" />
-                  <ul>
+                  <ol type="a">
                     <li>{t('vendorsStatue.subcondition9a')}</li>
                     <li>{t('vendorsStatue.subcondition9b')}</li>
                     <li>
                       <Trans i18nKey="vendorsStatue.subcondition9c" />
                     </li>
-                  </ul>
+                  </ol>
                 </li>
+              </ol>
+              <CenteredH2>{t('vendorsStatue.vendorRulesTitle')}</CenteredH2>
+
+              <ol>
                 <li>
-                  <Trans i18nKey="vendorsStatue.condition10" />
+                  {t('vendorsStatue.vendorObligations')}
+                  <ol type="a">
+                    <li>{t('vendorsStatue.vendorObligation1')}</li>
+                    <li>{t('vendorsStatue.vendorObligation2')}</li>
+                    <li>{t('vendorsStatue.vendorObligation3')}</li>
+                    <li>{t('vendorsStatue.vendorObligation4')}</li>
+                    <li>{t('vendorsStatue.vendorObligation5')}</li>
+                  </ol>
                 </li>
+                <li>{t('vendorsStatue.vendorDataConsent')}</li>
+                <li>{t('vendorsStatue.vendorSubletting')}</li>
+                <li>{t('vendorsStatue.assistanceDogs')}</li>
               </ol>
             </StatuteContent>
           </SectionCard>
