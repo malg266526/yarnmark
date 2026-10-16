@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useAdminSession } from '../../useAdminSession';
-import { listNewsletterSubscribers } from '../../../../domain/newsletter/newsletterApi.ts';
-import type { NewsletterSubscriber } from '../../../../domain/newsletter/newsletterTypes.ts';
+import { listNewsletterSubscribers, updateNewsletterStatus } from '../../../../domain/newsletter/newsletterApi.ts';
+import type { NewsletterStatus, NewsletterSubscriber } from '../../../../domain/newsletter/newsletterTypes.ts';
 
 export const useAdminNewsletter = () => {
   const { token, handleAdminApiError } = useAdminSession();
   const [subscribers, setSubscribers] = useState<NewsletterSubscriber[]>([]);
+  const [updatingId, setUpdatingId] = useState<string | null>(null);
+  const [updateFailed, setUpdateFailed] = useState(false);
   const [loading, setLoading] = useState(true);
   const [hasFailed, setHasFailed] = useState(false);
 
@@ -40,5 +42,26 @@ export const useAdminNewsletter = () => {
     };
   }, [token, handleAdminApiError]);
 
-  return { subscribers, loading, hasFailed };
+  const updateStatus = async (id: string, status: NewsletterStatus) => {
+    if (updatingId !== null) {
+      return;
+    }
+
+    setUpdatingId(id);
+    setUpdateFailed(false);
+
+    try {
+      await updateNewsletterStatus(token, id, status);
+      setSubscribers((current) =>
+        current.map((subscriber) => (subscriber.id === id ? { ...subscriber, status } : subscriber))
+      );
+    } catch (error: unknown) {
+      handleAdminApiError(error);
+      setUpdateFailed(true);
+    } finally {
+      setUpdatingId(null);
+    }
+  };
+
+  return { subscribers, loading, hasFailed, updatingId, updateFailed, updateStatus };
 };

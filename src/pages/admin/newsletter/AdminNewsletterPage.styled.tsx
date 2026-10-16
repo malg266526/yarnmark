@@ -65,3 +65,31 @@ export const SubscribersEmpty = styled.div`
   box-shadow: ${DropShadow.card};
   font-family: ${FontFamilies.primary};
 `;
+
+export const SubscriberStatusControl = styled.label`
+  display: inline-flex;
+  align-items: center;
+  gap: ${RedesignSpacings.xs};
+  font-size: ${FontSize.sm};
+  color: ${TextColors.secondary};
+
+  &:has(input:disabled) {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+`;
+
+export const SubscriberStatusCheckbox = styled.input`
+  margin: 0;
+  accent-color: ${TextColors.accent};
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid ${TextColors.accent};
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+`;

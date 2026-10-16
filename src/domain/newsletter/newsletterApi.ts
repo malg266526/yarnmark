@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { requestApi } from '../apiClient.ts';
 import { NEWSLETTER_API_URL } from './newsletterConstants.ts';
-import type { NewsletterSubscriber } from './newsletterTypes.ts';
+import type { NewsletterStatus, NewsletterSubscriber } from './newsletterTypes.ts';
 
 const newsletterRecordsSchema = z.union([
   z.array(z.unknown()),
@@ -10,6 +10,7 @@ const newsletterRecordsSchema = z.union([
 ]);
 
 const newsletterRecordSchema = z.object({
+  id: z.string().min(1).optional(),
   email: z.string().min(1),
   status: z.string().optional()
 });
@@ -23,6 +24,7 @@ export const parseNewsletterSubscribers = (responseBody: unknown): NewsletterSub
     return parsedSubscriber.success
       ? [
           {
+            ...(parsedSubscriber.data.id ? { id: parsedSubscriber.data.id } : {}),
             email: parsedSubscriber.data.email,
             ...(parsedSubscriber.data.status ? { status: parsedSubscriber.data.status } : {})
           }
@@ -37,3 +39,7 @@ export const subscribeToNewsletter = async (email: string): Promise<void> => {
 
 export const listNewsletterSubscribers = async (token: string): Promise<NewsletterSubscriber[]> =>
   parseNewsletterSubscribers(await requestApi(NEWSLETTER_API_URL, { token }));
+
+export const updateNewsletterStatus = async (token: string, id: string, status: NewsletterStatus): Promise<void> => {
+  await requestApi(`${NEWSLETTER_API_URL}/${encodeURIComponent(id)}`, { method: 'PATCH', token, body: { status } });
+};

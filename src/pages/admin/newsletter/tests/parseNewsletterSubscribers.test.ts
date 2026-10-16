@@ -30,7 +30,7 @@ test('parseNewsletterSubscribers unwraps the backend subscriptions response', ()
         }
       ]
     }),
-    [{ email: 'malgtylek@gmail.com', status: 'pending' }]
+    [{ id: '63586f74-7d84-463d-9d5e-33878dc59bc9', email: 'malgtylek@gmail.com', status: 'pending' }]
   );
 });
 
