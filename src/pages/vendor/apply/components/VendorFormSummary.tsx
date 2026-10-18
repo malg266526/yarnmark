@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography } from '../../../../components/Typography';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import { Fieldset, SummaryList } from '../VendorFormPage.styled';
-import { getPreferredStandGroups } from '../../../../domain/vendorApplications/vendorFormUtils.ts';
+import { STAND_OPTION_SEPARATOR } from '../../../../domain/vendorApplications/vendorFormConstants.ts';
 import type { VendorFormBindings, VendorFormStatusState } from './vendorFormViewContracts';
 
 interface VendorFormSummaryProps {
@@ -38,13 +38,11 @@ export const VendorFormSummary = ({ formBindings, formStatus }: VendorFormSummar
               ? t(`vendorsFormPage.steps.mainCategory.${formData.mainCategory}` as const)
               : null}
         </dd>
-        <dt>{t('vendorsFormPage.summary.wantsTwoStands')}</dt>
-        <dd>{t(formData.wantsTwoStands ? 'vendorsFormPage.summary.yes' : 'vendorsFormPage.summary.no')}</dd>
         <dt>{t('vendorsFormPage.summary.preferredStands')}</dt>
         <dd>
-          {formData.preferredStands.length > 0
-            ? getPreferredStandGroups(formData.preferredStands, formData.wantsTwoStands)
-                .map((standGroup, groupIndex) => `${groupIndex + 1}. ${standGroup.join(' + ')}`)
+          {formData.preferredStandGroups.length > 0
+            ? formData.preferredStandGroups
+                .map((standGroup, groupIndex) => `${groupIndex + 1}. ${standGroup.join(STAND_OPTION_SEPARATOR)}`)
                 .join(', ')
             : t('vendorsFormPage.summary.notProvided')}
         </dd>
@@ -72,6 +70,8 @@ export const VendorFormSummary = ({ formBindings, formStatus }: VendorFormSummar
         <dd>{formData.logoFileName ?? t('vendorsFormPage.summary.notProvided')}</dd>
         <dt>{t('vendorsFormPage.summary.businessDescription')}</dt>
         <dd>{formData.businessDescription}</dd>
+        <dt>{t('vendorsFormPage.summary.comments')}</dt>
+        <dd>{formData.comments || t('vendorsFormPage.summary.notProvided')}</dd>
         <dt>{t('vendorsFormPage.summary.statute')}</dt>
         <dd>{t('vendorsFormPage.summary.accepted')}</dd>
       </SummaryList>

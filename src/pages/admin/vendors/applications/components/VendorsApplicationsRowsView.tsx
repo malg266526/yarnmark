@@ -76,7 +76,7 @@ export const VendorsApplicationsRowsView = ({
                   values.noneSelected
                 ) : (
                   <ApplicationsPreferenceList>
-                    {preferences.map(({ competitorCount, standId }, preferenceIndex) => (
+                    {preferences.map(({ choicePosition, competitorCount, standId }) => (
                       <ApplicationsPreferenceTag
                         key={standId}
                         title={translate('vendorsApplicationsPage.rows.competitors', {
@@ -84,7 +84,7 @@ export const VendorsApplicationsRowsView = ({
                           standId
                         })}
                       >
-                        <ApplicationsPreferenceOrder>{preferenceIndex + 1}</ApplicationsPreferenceOrder>
+                        <ApplicationsPreferenceOrder>{choicePosition}</ApplicationsPreferenceOrder>
                         {standId}
                         <ApplicationsPreferenceCompetitors>{competitorCount}</ApplicationsPreferenceCompetitors>
                       </ApplicationsPreferenceTag>

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { countCertainStandsByApplication, getCertainStandProposals } from '../utils/certainStandUtils.ts';
-import { getBaseApplication } from './vendorApplicationFixture.ts';
+import { getBaseApplication, withPreferredStands } from './vendorApplicationFixture.ts';
 import type { VendorApplication } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
 
 const createApplication = (application: Partial<VendorApplication>): VendorApplication => ({
@@ -11,8 +11,8 @@ const createApplication = (application: Partial<VendorApplication>): VendorAppli
 
 test('getCertainStandProposals returns stands wanted by exactly one vendor', () => {
   const proposals = getCertainStandProposals([
-    createApplication({ id: 'a', storeName: 'Alfa', preferredStands: ['S1', 'S2'] }),
-    createApplication({ id: 'b', storeName: 'Beta', preferredStands: ['S2', 'S3'] })
+    createApplication({ id: 'a', storeName: 'Alfa', ...withPreferredStands(['S1', 'S2']) }),
+    createApplication({ id: 'b', storeName: 'Beta', ...withPreferredStands(['S2', 'S3']) })
   ]);
 
   assert.deepEqual(
@@ -25,7 +25,9 @@ test('getCertainStandProposals returns stands wanted by exactly one vendor', () 
 });
 
 test('getCertainStandProposals reports which choice the stand was for that vendor', () => {
-  const proposals = getCertainStandProposals([createApplication({ id: 'a', preferredStands: ['S1', 'S2', 'S3'] })]);
+  const proposals = getCertainStandProposals([
+    createApplication({ id: 'a', ...withPreferredStands(['S1', 'S2', 'S3']) })
+  ]);
 
   assert.deepEqual(
     proposals.map(({ standId, choicePosition }) => [standId, choicePosition]),
@@ -39,8 +41,8 @@ test('getCertainStandProposals reports which choice the stand was for that vendo
 
 test('getCertainStandProposals ignores rejected applications when counting rivals', () => {
   const proposals = getCertainStandProposals([
-    createApplication({ id: 'a', storeName: 'Alfa', preferredStands: ['S1'] }),
-    createApplication({ id: 'b', storeName: 'Beta', preferredStands: ['S1'], status: 'rejected' })
+    createApplication({ id: 'a', storeName: 'Alfa', ...withPreferredStands(['S1']) }),
+    createApplication({ id: 'b', storeName: 'Beta', ...withPreferredStands(['S1']), status: 'rejected' })
   ]);
 
   assert.deepEqual(
@@ -51,8 +53,8 @@ test('getCertainStandProposals ignores rejected applications when counting rival
 
 test('getCertainStandProposals ignores vendors that already hold a stand', () => {
   const proposals = getCertainStandProposals([
-    createApplication({ id: 'a', storeName: 'Alfa', preferredStands: ['S5'] }),
-    createApplication({ id: 'b', storeName: 'Beta', preferredStands: ['S5'], assignedStands: ['M1'] })
+    createApplication({ id: 'a', storeName: 'Alfa', ...withPreferredStands(['S5']) }),
+    createApplication({ id: 'b', storeName: 'Beta', ...withPreferredStands(['S5']), assignedStands: ['M1'] })
   ]);
 
   assert.deepEqual(
@@ -63,8 +65,8 @@ test('getCertainStandProposals ignores vendors that already hold a stand', () =>
 
 test('getCertainStandProposals skips stands that are already assigned to someone', () => {
   const proposals = getCertainStandProposals([
-    createApplication({ id: 'a', preferredStands: ['S1', 'S2'] }),
-    createApplication({ id: 'b', preferredStands: [], assignedStands: ['S1'] })
+    createApplication({ id: 'a', ...withPreferredStands(['S1', 'S2']) }),
+    createApplication({ id: 'b', ...withPreferredStands([]), assignedStands: ['S1'] })
   ]);
 
   assert.deepEqual(
@@ -74,7 +76,7 @@ test('getCertainStandProposals skips stands that are already assigned to someone
 });
 
 test('getCertainStandProposals counts a stand once per vendor even when listed twice', () => {
-  const proposals = getCertainStandProposals([createApplication({ id: 'a', preferredStands: ['S1', 'S1'] })]);
+  const proposals = getCertainStandProposals([createApplication({ id: 'a', ...withPreferredStands(['S1', 'S1']) })]);
 
   assert.deepEqual(
     proposals.map(({ standId, choicePosition }) => [standId, choicePosition]),
@@ -84,15 +86,17 @@ test('getCertainStandProposals counts a stand once per vendor even when listed t
 
 test('getCertainStandProposals leaves out stands with more than one candidate', () => {
   const proposals = getCertainStandProposals([
-    createApplication({ id: 'a', preferredStands: ['S1'] }),
-    createApplication({ id: 'b', preferredStands: ['S1'] })
+    createApplication({ id: 'a', ...withPreferredStands(['S1']) }),
+    createApplication({ id: 'b', ...withPreferredStands(['S1']) })
   ]);
 
   assert.deepEqual(proposals, []);
 });
 
 test('getCertainStandProposals sorts stands in human order', () => {
-  const proposals = getCertainStandProposals([createApplication({ id: 'a', preferredStands: ['S10', 'S2', 'P1'] })]);
+  const proposals = getCertainStandProposals([
+    createApplication({ id: 'a', ...withPreferredStands(['S10', 'S2', 'P1']) })
+  ]);
 
   assert.deepEqual(
     proposals.map(({ standId }) => standId),
@@ -102,8 +106,8 @@ test('getCertainStandProposals sorts stands in human order', () => {
 
 test('countCertainStandsByApplication reports vendors that are the only candidate several times', () => {
   const proposals = getCertainStandProposals([
-    createApplication({ id: 'a', preferredStands: ['S1', 'S2'] }),
-    createApplication({ id: 'b', preferredStands: ['S3'] })
+    createApplication({ id: 'a', ...withPreferredStands(['S1', 'S2']) }),
+    createApplication({ id: 'b', ...withPreferredStands(['S3']) })
   ]);
 
   const counts = countCertainStandsByApplication(proposals);

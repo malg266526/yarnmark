@@ -1,7 +1,9 @@
 import type { VendorApplication } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
 import { getStandInterestCounts } from '../../../../../domain/vendorApplications/vendorFormStandInterestUtils.ts';
+import { getStandChoicePositions } from './standChoiceUtils.ts';
 
 export interface VendorApplicationStandPreference {
+  choicePosition: number;
   competitorCount: number;
   standId: string;
 }
@@ -19,7 +21,8 @@ export const buildVendorApplicationRows = (
 
   return visibleApplications.map((application) => ({
     application,
-    preferences: [...new Set(application.preferredStands)].map((standId) => ({
+    preferences: [...getStandChoicePositions(application)].map(([standId, choicePosition]) => ({
+      choicePosition,
       competitorCount: Math.max((requestCounts.get(standId) ?? 1) - 1, 0),
       standId
     }))
@@ -27,9 +30,4 @@ export const buildVendorApplicationRows = (
 };
 
 export const buildStandPriorityHighlights = (application: VendorApplication | null): ReadonlyMap<string, number> =>
-  new Map(
-    (application ? [...new Set(application.preferredStands)] : []).map((standId, standIndex) => [
-      standId,
-      standIndex + 1
-    ])
-  );
+  application ? getStandChoicePositions(application) : new Map<string, number>();

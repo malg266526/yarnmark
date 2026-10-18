@@ -16,9 +16,12 @@ export interface VendorFormBindings {
 export interface VendorFormDerivedState {
   highInterestSelectedStandIds: string[];
   highInterestStandIds: string[];
-  maxPreferredStands: number;
-  pairAnchorStandId: string | null;
-  preferredStandGroups: string[][];
+  interestKnownStandIds: string[];
+  isStandDemandAvailable: boolean;
+  pairableStandIds: string[] | null;
+  pairingStandId: string | null;
+  selectedStandIds: string[];
+  unpairableStandIds: string[];
 }
 
 export interface VendorFormStatusState {
@@ -36,7 +39,7 @@ export interface VendorFormActions {
   setAcceptedStatuteValue: (value: boolean) => void;
   setBooleanFieldValue: (fieldName: VendorFormBooleanFieldName, value: boolean) => void;
   setMainCategory: (category: VendorFormMainCategory) => void;
-  setWantsTwoStands: (value: boolean) => void;
+  setStandOptionPaired: (optionIndex: number, isPaired: boolean) => void;
   submitVendorForm: () => Promise<void>;
   togglePreferredStand: (standId: string) => void;
   updateBusinessDescription: (value: string) => void;

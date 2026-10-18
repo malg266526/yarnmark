@@ -364,27 +364,29 @@ export const pl = {
         },
         preferredStands: {
           title: 'Wybierz preferowane stoiska na mapie',
-          twoStandsLabel: 'Chcę kupić dwa stoiska',
-          pairHint:
-            'Możesz wybrać maksymalnie {{max}} pary po dwa sąsiadujące stoiska — po kliknięciu pierwszego zostawiamy do wyboru tylko stoiska, które z nim graniczą. Zielone — wolne, pomarańczowe — wybrane przez Ciebie.',
-          pairCounter: 'Wybrano {{current}} z {{max}} par',
-          pairLabel: 'Para {{number}}: {{stands}}',
-          pairIncomplete: 'Para {{number}}: {{stands}} — wskaż sąsiadujące stoisko',
-          hint: 'Możesz wybrać maksymalnie {{max}} stoiska. Zielone — wolne, pomarańczowe — wybrane przez Ciebie.',
+          optionLabel: 'Opcja {{number}}: {{stands}}',
+          optionIncomplete: 'Opcja {{number}}: {{stands}} — wskaż sąsiadujące stoisko',
+          optionsTitle: 'Twoje opcje',
+          optionsEmpty: 'Kliknij stoisko na mapie, aby dodać opcję.',
+          addSecondStand: 'Dobierz drugie, sąsiednie stoisko',
+          hint: 'Możesz wybrać maksymalnie {{max}} opcje. Każda opcja to jedno stoisko — jeśli chcesz dwa sąsiadujące stoiska, zaznacz „Dobierz drugie, sąsiednie stoisko” przy wybranej opcji. Zielone — wolne, pomarańczowe — wybrane przez Ciebie.',
           orderHint: 'Kolejność klikania ma znaczenie — pierwsze kliknięte stoisko traktujemy jako pierwszy wybór.',
           counter: 'Wybrano {{current}} z {{max}}',
           detailsHint:
             'Szczegółowe informacje o rodzajach, wymiarach i wyposażeniu stoisk znajdziesz na stronie <0>Informacje dla wystawców</0>.',
+          availableLabel: 'Wolne',
           highInterestLabel: 'High Interest',
           highInterestHint: 'co najmniej 3 chętnych',
           highInterestWarning:
             'To stoisko jest bardzo popularne. Szansa na jego otrzymanie jest mniejsza. Rozważ inne lokalizacje jako priorytet. Dotyczy: {{stands}}.',
+          noInterestLabel: 'No Interest',
+          noInterestHint: 'brak zgłoszeń na ten moment',
           legendTitle: 'Typy stoisk',
           premiumLabel: 'Premium',
           premiumSize: '3 × 5,5 m',
           standardLabel: 'Standard',
           standardSize: '3 × 3,5 m',
-          cLabel: 'C',
+          cLabel: 'Kwadrat',
           cSize: '3 × 3 m',
           miniLabel: 'Mini',
           miniSize: '2 × 3 m'
@@ -422,6 +424,9 @@ export const pl = {
           placeholder: 'Napisz krótko, czym zajmuje się Twoja marka.',
           limitHint: '{{current}} / {{max}} znaków'
         },
+        comments: {
+          label: 'Uwagi'
+        },
         statute: {
           title: 'Potwierdzenie regulaminu',
           prefix: 'Akceptuję',
@@ -437,8 +442,6 @@ export const pl = {
         mainCategoryOtherRequired: 'Wpisz główną kategorię produktów.',
         interestedIfUnavailableRequired: 'Wybierz jedną z odpowiedzi.',
         preferredStandsRequired: 'Wybierz co najmniej jedno preferowane stoisko.',
-        standPairIncomplete:
-          'Każda para musi mieć dwa sąsiadujące stoiska. Dokończ rozpoczętą parę albo odznacz ostatnie stoisko.',
         phoneRequired: 'Podaj numer telefonu.',
         phoneInvalid: 'Podaj poprawny numer telefonu.',
         emailRequired: 'Podaj adres e-mail.',
@@ -454,9 +457,6 @@ export const pl = {
         confirm: 'OK',
         storeName: 'Nazwa sklepu',
         submittedAt: 'Data zapisania',
-        wantsTwoStands: 'Chce kupić dwa stoiska',
-        yes: 'Tak',
-        no: 'Nie',
         attendedBefore: 'Poprzednie edycje',
         mainCategory: 'Główna kategoria',
         preferredStands: 'Preferowane stoiska',
@@ -467,6 +467,7 @@ export const pl = {
         invoiceDetails: 'Dane do faktury',
         logo: 'Logo',
         businessDescription: 'Opis działalności',
+        comments: 'Uwagi',
         statute: 'Regulamin',
         accepted: 'Zaakceptowano',
         notProvided: 'Nie podano'
@@ -670,6 +671,7 @@ export const pl = {
         invoiceDetails: 'Dane do faktury',
         logoFilename: 'Nazwa pliku z logo',
         businessDescription: 'Opis działalności',
+        comments: 'Uwagi',
         acceptedStatute: 'Regulamin zaakceptowany'
       },
       statuses: {

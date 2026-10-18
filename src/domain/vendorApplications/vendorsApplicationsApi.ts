@@ -14,6 +14,7 @@ import {
 import { vendorFormStateSchema } from './vendorFormSchema.ts';
 import { normalizeStandIds } from './vendorFormStandIds.ts';
 import { VENDOR_FORM_API_URL } from './vendorFormConstants.ts';
+import { getPreferredStandGroups, hasStandPair } from './vendorFormUtils.ts';
 
 const DEFAULT_VENDOR_APPLICATION_STATUS: VendorApplicationStatus = 'pending';
 const DEFAULT_VENDOR_APPLICATION_ALLOCATION_STATE: VendorApplicationAllocationState = 'none';
@@ -31,11 +32,14 @@ const vendorApplicationAllocationStateSchema = z
       allocationState ?? DEFAULT_VENDOR_APPLICATION_ALLOCATION_STATE
   );
 
-const backendStandIdsSchema = z
+const backendStandGroupsSchema = z
   .array(z.union([z.string(), z.array(z.string())]))
-  .transform((standIds) => standIds.flat());
+  .transform((standGroups) => standGroups.map((standGroup) => (Array.isArray(standGroup) ? standGroup : [standGroup])));
+
+const backendStandIdsSchema = backendStandGroupsSchema.transform((standGroups) => standGroups.flat());
 
 const vendorApplicationRecordSchema = vendorFormStateSchema
+  .omit({ preferredStandGroups: true })
   .extend({
     allocatedStandId: z.string().nullable().optional(),
     allocationIteration: z
@@ -51,15 +55,26 @@ const vendorApplicationRecordSchema = vendorFormStateSchema
       .nullable()
       .optional()
       .transform((logoUrl) => resolveApiAssetUrl(logoUrl)),
-    preferredStands: backendStandIdsSchema.transform((standIds) => normalizeStandIds(standIds)),
+    preferredStands: backendStandGroupsSchema,
+    wantsTwoStands: z.boolean().nullish(),
     status: vendorApplicationStatusSchema,
     submittedAt: z.string()
   })
   .transform(
-    ({ allocatedStandId, assignedStands, ...application }): VendorApplication => ({
-      ...application,
-      assignedStands: normalizeStandIds(assignedStands ?? (allocatedStandId ? [allocatedStandId] : []))
-    })
+    ({ allocatedStandId, assignedStands, preferredStands, wantsTwoStands, ...application }): VendorApplication => {
+      const isLegacyFlatPairList = wantsTwoStands && preferredStands.every((standGroup) => standGroup.length === 1);
+      const preferredStandGroups = (
+        isLegacyFlatPairList ? getPreferredStandGroups(preferredStands.flat(), true) : preferredStands
+      ).map((standGroup) => normalizeStandIds(standGroup));
+
+      return {
+        ...application,
+        preferredStandGroups,
+        preferredStands: normalizeStandIds(preferredStandGroups.flat()),
+        wantsTwoStands: hasStandPair(preferredStandGroups),
+        assignedStands: normalizeStandIds(assignedStands ?? (allocatedStandId ? [allocatedStandId] : []))
+      };
+    }
   );
 
 export const parseVendorApplications = (responseBody: unknown): VendorApplication[] => {

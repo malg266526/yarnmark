@@ -55,6 +55,7 @@ const createVendorApplicationPayload = () => ({
   logoMimeType: 'image/png',
   logoUrl: null,
   businessDescription: 'Short business description',
+  comments: '',
   acceptedStatute: true
 });
 
@@ -64,16 +65,16 @@ test('parseVendorApplications returns an empty list for invalid payloads', () =>
   assert.deepEqual(parseVendorApplications({ foo: 'bar' }), []);
 });
 
-test('parseVendorApplications restores a valid payload', () => {
-  const applications = [createVendorApplicationPayload()];
+const createParsedVendorApplication = () => ({ ...createVendorApplicationPayload(), preferredStandGroups: [['P1']] });
 
-  assert.deepEqual(parseVendorApplications(applications), applications);
+test('parseVendorApplications restores a valid payload', () => {
+  assert.deepEqual(parseVendorApplications([createVendorApplicationPayload()]), [createParsedVendorApplication()]);
 });
 
 test('parseVendorApplications accepts a payload wrapped in an applications object', () => {
-  const applications = [createVendorApplicationPayload()];
-
-  assert.deepEqual(parseVendorApplications({ applications }), applications);
+  assert.deepEqual(parseVendorApplications({ applications: [createVendorApplicationPayload()] }), [
+    createParsedVendorApplication()
+  ]);
 });
 
 test('parseVendorApplications normalizes optional legacy fields and preserves current statuses', () => {
@@ -100,6 +101,7 @@ test('parseVendorApplications normalizes optional legacy fields and preserves cu
       assignedStands: [],
       allocationIteration: null,
       allocationState: 'none',
+      preferredStandGroups: [['P2'], ['P3']],
       preferredStands: ['P2', 'P3'],
       sponsorshipInterest: null,
       status: 'rejected'
@@ -120,6 +122,52 @@ test('parseVendorApplications flattens stands nested in arrays by the backend', 
 
   assert.deepEqual(application?.preferredStands, ['P4']);
   assert.deepEqual(application?.assignedStands, ['P4']);
+});
+
+test('parseVendorApplications restores stand pairs sent by the backend as nested lists', () => {
+  const [application] = parseVendorApplications([
+    {
+      ...createVendorApplicationPayload(),
+      preferredStands: [
+        ['S1', 'S2'],
+        ['M4', 'M5']
+      ],
+      wantsTwoStands: undefined
+    }
+  ]);
+
+  assert.deepEqual(application?.preferredStands, ['S1', 'S2', 'M4', 'M5']);
+  assert.equal(application?.wantsTwoStands, true);
+});
+
+test('parseVendorApplications keeps a mix of pairs and single stands as separate options', () => {
+  const [application] = parseVendorApplications([
+    { ...createVendorApplicationPayload(), preferredStands: [['S1', 'S2'], ['P1'], ['S6']], wantsTwoStands: undefined }
+  ]);
+
+  assert.deepEqual(application?.preferredStandGroups, [['S1', 'S2'], ['P1'], ['S6']]);
+  assert.deepEqual(application?.preferredStands, ['S1', 'S2', 'P1', 'S6']);
+  assert.equal(application?.wantsTwoStands, true);
+});
+
+test('parseVendorApplications pairs a legacy flat stand list of a vendor who wanted two stands', () => {
+  const [application] = parseVendorApplications([
+    { ...createVendorApplicationPayload(), preferredStands: ['S1', 'S2', 'M4', 'M5'], wantsTwoStands: true }
+  ]);
+
+  assert.deepEqual(application?.preferredStandGroups, [
+    ['S1', 'S2'],
+    ['M4', 'M5']
+  ]);
+});
+
+test('parseVendorApplications keeps single stands sent as one-element lists unpaired', () => {
+  const [application] = parseVendorApplications([
+    { ...createVendorApplicationPayload(), preferredStands: [['P4'], ['S1']], wantsTwoStands: undefined }
+  ]);
+
+  assert.deepEqual(application?.preferredStands, ['P4', 'S1']);
+  assert.equal(application?.wantsTwoStands, false);
 });
 
 test('parseVendorApplications preserves many-to-many assignments and deduplicates only within each application', () => {
@@ -159,7 +207,9 @@ test('parseVendorApplications keeps valid records when one record is malformed',
   const validApplication = createVendorApplicationPayload();
   const malformedApplication = { id: 'broken-application' };
 
-  assert.deepEqual(parseVendorApplications([validApplication, malformedApplication]), [validApplication]);
+  assert.deepEqual(parseVendorApplications([validApplication, malformedApplication]), [
+    createParsedVendorApplication()
+  ]);
 });
 
 test('parseVendorApplications maps the backend submissions payload', () => {

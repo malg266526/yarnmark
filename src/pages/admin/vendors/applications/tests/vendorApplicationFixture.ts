@@ -1,4 +1,5 @@
 import type { VendorApplication } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
+import { getPreferredStandGroups } from '../../../../../domain/vendorApplications/vendorFormUtils.ts';
 
 export const getBaseApplication = (): VendorApplication => ({
   allocationIteration: null,
@@ -11,6 +12,7 @@ export const getBaseApplication = (): VendorApplication => ({
   attendedBefore: true,
   mainCategory: 'yarns',
   mainCategoryOther: '',
+  preferredStandGroups: [['A1']],
   preferredStands: ['A1'],
   wantsTwoStands: false,
   interestedIfUnavailable: false,
@@ -23,5 +25,15 @@ export const getBaseApplication = (): VendorApplication => ({
   logoMimeType: 'image/png',
   logoUrl: null,
   businessDescription: 'Short business description',
+  comments: '',
   acceptedStatute: true
+});
+
+export const withPreferredStands = (
+  preferredStands: string[],
+  wantsTwoStands = false
+): Pick<VendorApplication, 'preferredStandGroups' | 'preferredStands' | 'wantsTwoStands'> => ({
+  preferredStandGroups: getPreferredStandGroups(preferredStands, wantsTwoStands),
+  preferredStands,
+  wantsTwoStands
 });

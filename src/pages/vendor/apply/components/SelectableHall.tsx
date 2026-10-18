@@ -1,14 +1,13 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { HallMap } from '../../../../components/hall/HallMap';
 import { isVendorStand, parseHallStands, type HallStand } from '../../../../components/hall/hallStands';
 import { isReservedStand, resolveStandColorKey } from '../../../../components/hall/standReservationUtils';
 import { HallStandVendor } from '../../../../components/hall/HallStandVendor';
-import { getPairableStandIndexes } from '../../../../components/hall/standAdjacencyUtils';
 import { StandColorsMap } from '../../../../components/editor/StandProps';
 import { Typography } from '../../../../components/Typography';
 import { usePhone } from '../../../../hooks/usePhone';
-import { BackgroundColors, WarningColors } from '../../../../styles/theme';
+import { BackgroundColors, BrownScale, WarningColors } from '../../../../styles/theme';
 
 const SELECTED_COLOR = '#FF8C00';
 
@@ -82,6 +81,7 @@ const StandElement = styled.button<{
   $left: number;
   $top: number;
   $color: string;
+  $hasNoInterestFrame: boolean;
   $width: number;
   $height: number;
   $isHighInterest: boolean;
@@ -95,6 +95,7 @@ const StandElement = styled.button<{
   width: ${({ $width }) => $width}px;
   height: ${({ $height }) => $height}px;
   background-color: ${({ $color }) => $color};
+  box-shadow: ${({ $hasNoInterestFrame }) => ($hasNoInterestFrame ? `inset 0 0 0 2px ${BrownScale[700]}` : 'none')};
 
   &::after {
     ${highInterestBadgeLayout}
@@ -106,8 +107,9 @@ type LoadState = { status: 'pending' } | { status: 'error'; error: Error } | { s
 
 interface SelectableHallProps {
   highInterestStandIds?: string[];
-  isPairMode?: boolean;
-  pairAnchorStandId?: string | null;
+  interestKnownStandIds?: string[];
+  isDemandAvailable?: boolean;
+  pairableStandIds?: string[] | null;
   selectedStandIds: string[];
   onToggleStand: (standId: string) => void;
   multiplier?: number;
@@ -115,8 +117,9 @@ interface SelectableHallProps {
 
 export const SelectableHall = ({
   highInterestStandIds = [],
-  isPairMode = false,
-  pairAnchorStandId = null,
+  interestKnownStandIds = [],
+  isDemandAvailable = false,
+  pairableStandIds = null,
   selectedStandIds,
   onToggleStand,
   multiplier
@@ -134,14 +137,6 @@ export const SelectableHall = ({
       setLoadState({ status: 'error', error: parsed.error });
     }
   }, []);
-
-  const pairableStandIds = useMemo(() => {
-    if (!isPairMode || loadState.status !== 'success') {
-      return null;
-    }
-
-    return getPairableStandIndexes(loadState.stands.filter(isVendorStand), pairAnchorStandId);
-  }, [isPairMode, loadState, pairAnchorStandId]);
 
   if (loadState.status === 'pending') {
     return <Typography size="sm">Loading…</Typography>;
@@ -169,12 +164,18 @@ export const SelectableHall = ({
         multiplier={resolvedMultiplier}
         stands={loadState.stands}
         renderStand={(stand, box) => {
+          const isSelected = selectedStandIds.includes(stand.index);
           const selectable =
             isVendorStand(stand) &&
             !isReservedStand(stand) &&
-            (!pairableStandIds || selectedStandIds.includes(stand.index) || pairableStandIds.includes(stand.index));
+            (!pairableStandIds || pairableStandIds.includes(stand.index));
           const standSelectionId = stand.index;
           const isHighInterest = highInterestStandIds.includes(standSelectionId);
+          const isNoInterest =
+            isVendorStand(stand) &&
+            !isReservedStand(stand) &&
+            isDemandAvailable &&
+            !interestKnownStandIds.includes(standSelectionId);
 
           return (
             <StandElement
@@ -185,12 +186,15 @@ export const SelectableHall = ({
               $width={box.width}
               $height={box.height}
               $color={resolveColor(stand)}
+              $hasNoInterestFrame={isNoInterest}
               $isHighInterest={isHighInterest}
-              $isBlocked={isVendorStand(stand) && !isReservedStand(stand) && !selectable}
+              $isBlocked={isVendorStand(stand) && !isReservedStand(stand) && !selectable && !isSelected}
               $selectable={selectable}
               disabled={!selectable}
-              aria-pressed={selectable ? selectedStandIds.includes(standSelectionId) : undefined}
-              aria-label={`${stand.description ?? `Stand ${stand.index}`}${isHighInterest ? ', High Interest' : ''}`}
+              aria-pressed={isVendorStand(stand) && !isReservedStand(stand) ? isSelected : undefined}
+              aria-label={`${stand.description ?? `Stand ${stand.index}`}${
+                isHighInterest ? ', High Interest' : isNoInterest ? ', No Interest' : ''
+              }`}
               onClick={selectable ? () => onToggleStand(standSelectionId) : undefined}
             >
               {stand.type !== 'other' ? stand.index : stand.description}

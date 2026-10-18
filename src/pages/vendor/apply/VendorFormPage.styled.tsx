@@ -4,7 +4,15 @@ import { DropShadow, Radius } from '../../../styles/cards';
 import { FontSize } from '../../../styles/font-size';
 import { ScreenSize } from '../../../styles/screeen-size';
 import { RedesignSpacings } from '../../../styles/spacings';
-import { BackgroundColors, Colors, FontFamilies, GrayScale, TextColors, WarningColors } from '../../../styles/theme';
+import {
+  BackgroundColors,
+  BrownScale,
+  Colors,
+  FontFamilies,
+  GrayScale,
+  TextColors,
+  WarningColors
+} from '../../../styles/theme';
 
 export const FormAvailabilityRoot = styled.div`
   position: relative;
@@ -136,6 +144,20 @@ export const LegendBadge = styled.span`
   font-size: ${FontSize.sm};
 `;
 
+export const LegendSwatch = styled.span<{
+  $color: string;
+  $borderColor?: string;
+  $hasNoInterestFrame?: boolean;
+}>`
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border-radius: ${Radius.md};
+  background: ${({ $color }) => $color};
+  border: 1px solid ${({ $borderColor }) => $borderColor ?? GrayScale[300]};
+  box-shadow: ${({ $hasNoInterestFrame }) => ($hasNoInterestFrame ? `inset 0 0 0 2px ${BrownScale[700]}` : 'none')};
+`;
+
 export const LegendText = styled.div`
   display: flex;
   flex-direction: column;
@@ -145,6 +167,54 @@ export const LegendText = styled.div`
 export const LegendSize = styled.span`
   color: ${TextColors.secondary};
   font-size: ${FontSize.xs};
+`;
+
+export const HallSideColumn = styled.div`
+  flex: 0 1 300px;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: ${RedesignSpacings.md};
+`;
+
+export const StandOptionsList = styled.ol`
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const StandOptionItem = styled.li`
+  display: flex;
+  flex-direction: column;
+  gap: ${RedesignSpacings.xxs};
+  padding: ${RedesignSpacings.xs} 0;
+  border-top: 1px solid ${GrayScale[100]};
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.sm};
+  text-align: start;
+
+  &:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+`;
+
+export const StandOptionLabel = styled.span`
+  color: ${TextColors.primary};
+  font-weight: 600;
+`;
+
+export const StandOptionsEmpty = styled.p`
+  margin: 0;
+  color: ${TextColors.secondary};
+  font-family: ${FontFamilies.primary};
+  font-size: ${FontSize.sm};
 `;
 
 export const WarningCard = styled.div`
@@ -231,6 +301,11 @@ export const CheckboxRow = styled.label`
   gap: ${RedesignSpacings.xs};
   font-family: ${FontFamilies.primary};
   line-height: 1.4;
+`;
+
+export const StandOptionPairToggle = styled(CheckboxRow)<{ $disabled: boolean }>`
+  color: ${({ $disabled }) => ($disabled ? GrayScale[500] : TextColors.primary)};
+  cursor: ${({ $disabled }) => ($disabled ? 'default' : 'pointer')};
 `;
 
 export const ActionsRow = styled.div`

@@ -5,8 +5,7 @@ export interface VendorFormState {
   attendedBefore: boolean | null;
   mainCategory: VendorFormMainCategory;
   mainCategoryOther: string;
-  preferredStands: string[];
-  wantsTwoStands: boolean;
+  preferredStandGroups: string[][];
   interestedIfUnavailable: boolean | null;
   sponsorshipInterest: boolean | null;
   phoneNumber: string;
@@ -16,6 +15,7 @@ export interface VendorFormState {
   logoDataUrl: string | null;
   logoMimeType: string | null;
   businessDescription: string;
+  comments: string;
   acceptedStatute: boolean;
 }
 
@@ -24,8 +24,7 @@ export const INITIAL_VENDOR_FORM_STATE: VendorFormState = {
   attendedBefore: null,
   mainCategory: null,
   mainCategoryOther: '',
-  preferredStands: [],
-  wantsTwoStands: false,
+  preferredStandGroups: [],
   interestedIfUnavailable: null,
   sponsorshipInterest: null,
   phoneNumber: '',
@@ -35,6 +34,7 @@ export const INITIAL_VENDOR_FORM_STATE: VendorFormState = {
   logoDataUrl: null,
   logoMimeType: null,
   businessDescription: '',
+  comments: '',
   acceptedStatute: false
 };
 

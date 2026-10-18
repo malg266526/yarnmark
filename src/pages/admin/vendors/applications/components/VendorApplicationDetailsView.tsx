@@ -9,6 +9,7 @@ import {
   ApplicationFieldValue,
   ApplicationsFieldHint
 } from '../VendorsApplicationsPage.styled';
+import { formatStandGroup, getApplicationStandGroups } from '../utils/standChoiceUtils';
 import { downloadVendorApplicationLogo } from '../utils/vendorsApplicationsImageUtils';
 import { formatBoolean, formatMainCategory } from '../utils/vendorsApplicationsFormatters';
 import { VENDOR_APPLICATION_STATUS_ORDER } from '../vendorsApplicationsConstants';
@@ -75,7 +76,9 @@ export const VendorApplicationDetailsView = ({
       <ApplicationFieldLabel>{translate('vendorsApplicationsPage.fields.preferredStands')}</ApplicationFieldLabel>
       <ApplicationFieldValue>
         {application.preferredStands.length > 0
-          ? application.preferredStands.map((standId, index) => `${index + 1}. ${standId}`).join(', ')
+          ? getApplicationStandGroups(application)
+              .map((standGroup, index) => `${index + 1}. ${formatStandGroup(standGroup)}`)
+              .join(', ')
           : values.noneSelected}
       </ApplicationFieldValue>
     </ApplicationField>
@@ -150,6 +153,10 @@ export const VendorApplicationDetailsView = ({
     <ApplicationField>
       <ApplicationFieldLabel>{translate('vendorsApplicationsPage.fields.businessDescription')}</ApplicationFieldLabel>
       <ApplicationFieldValue>{application.businessDescription}</ApplicationFieldValue>
+    </ApplicationField>
+    <ApplicationField>
+      <ApplicationFieldLabel>{translate('vendorsApplicationsPage.fields.comments')}</ApplicationFieldLabel>
+      <ApplicationFieldValue>{application.comments || values.notProvided}</ApplicationFieldValue>
     </ApplicationField>
     <ApplicationField>
       <ApplicationFieldLabel>{translate('vendorsApplicationsPage.fields.acceptedStatute')}</ApplicationFieldLabel>

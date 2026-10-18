@@ -20,6 +20,7 @@ const createApplication = (id: string, preferredStands: string[]): VendorApplica
   attendedBefore: true,
   mainCategory: 'yarns',
   mainCategoryOther: '',
+  preferredStandGroups: preferredStands.map((standId) => [standId]),
   preferredStands,
   wantsTwoStands: false,
   interestedIfUnavailable: true,
@@ -32,6 +33,7 @@ const createApplication = (id: string, preferredStands: string[]): VendorApplica
   logoMimeType: 'image/png',
   logoUrl: null,
   businessDescription: 'Short business description',
+  comments: '',
   acceptedStatute: true
 });
 

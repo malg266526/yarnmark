@@ -1,4 +1,5 @@
 import type { VendorApplication } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
+import { getStandChoicePositions } from './standChoiceUtils.ts';
 
 export interface CertainStandProposal {
   applicationId: string;
@@ -16,24 +17,21 @@ export const getCertainStandProposals = (applications: VendorApplication[]): Cer
   const requestsByStandId = new Map<string, CertainStandProposal[]>();
 
   for (const application of applications.filter(isCompetingForStands)) {
-    const countedStandIds = new Set<string>();
-
-    application.preferredStands.forEach((standId, standIndex) => {
-      if (takenStandIds.has(standId) || countedStandIds.has(standId)) {
-        return;
+    for (const [standId, choicePosition] of getStandChoicePositions(application)) {
+      if (takenStandIds.has(standId)) {
+        continue;
       }
 
-      countedStandIds.add(standId);
       requestsByStandId.set(standId, [
         ...(requestsByStandId.get(standId) ?? []),
         {
           applicationId: application.id,
-          choicePosition: standIndex + 1,
+          choicePosition,
           standId,
           storeName: application.storeName
         }
       ]);
-    });
+    }
   }
 
   return [...requestsByStandId.values()]

@@ -1,4 +1,5 @@
 import type { VendorApplication } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
+import { getStandChoicePositions } from './standChoiceUtils.ts';
 
 export type StandPriority = 'highest' | 'medium' | 'lowest';
 
@@ -36,18 +37,18 @@ export const groupApplicationsByStand = (applications: VendorApplication[]): Sta
   const standGroupsMap = new Map<string, StandRequest[]>();
 
   for (const application of applications) {
-    application.preferredStands.forEach((standId, standIndex) => {
+    for (const [standId, choicePosition] of getStandChoicePositions(application)) {
       const currentStandRequests = standGroupsMap.get(standId) ?? [];
 
       currentStandRequests.push({
         applicationId: application.id,
-        priority: getStandPriority(standIndex),
+        priority: getStandPriority(choicePosition - 1),
         storeName: application.storeName,
         submittedAt: application.submittedAt
       });
 
       standGroupsMap.set(standId, currentStandRequests);
-    });
+    }
   }
 
   return [...standGroupsMap.entries()]

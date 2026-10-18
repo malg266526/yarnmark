@@ -11,3 +11,4 @@ export const VENDOR_FORM_HIGH_INTEREST_MIN_REQUESTS = 3;
 export const VENDOR_FORM_LOGO_MAX_BYTES = 8 * 1024 * 1024;
 export const VENDOR_FORM_LOGO_MAX_DIMENSION = 1024;
 export const STAND_DEMAND_HIGH_LEVEL = 'high';
+export const STAND_OPTION_SEPARATOR = ' + ';
