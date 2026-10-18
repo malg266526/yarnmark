@@ -8,7 +8,8 @@ import {
   ApplicationsStandAssignmentButton,
   ApplicationsStandAssignmentRow
 } from '../VendorsApplicationsPage.styled';
-import type { StandAssignmentOption } from '../utils/standAssignmentUtils';
+import { toStandAssignmentValue, type StandAssignmentOption } from '../utils/standAssignmentUtils';
+import { formatStandGroup } from '../utils/standChoiceUtils';
 import { VendorApplicationStandAssignmentViewProps } from './vendorsApplicationsViewContracts';
 import { useStandAssignmentForm } from '../hooks/useStandAssignmentForm';
 
@@ -25,13 +26,19 @@ export const VendorApplicationStandAssignmentView = ({
   );
   const fieldId = `vendor-application-stand-${application.id}`;
 
-  const renderOption = ({ preferenceOrder, standId, assignedVendors }: StandAssignmentOption) => {
+  const renderOption = ({ preferenceOrder, standIds, assignedVendors }: StandAssignmentOption) => {
+    const standId = formatStandGroup(standIds);
     const standLabel = preferenceOrder
       ? translate('vendorsApplicationsPage.standAssignment.preferredStand', { order: preferenceOrder, standId })
       : standId;
+    const value = toStandAssignmentValue(standIds);
 
     return (
-      <option key={standId} value={standId} disabled={selectedStandIds.includes(standId)}>
+      <option
+        key={value}
+        value={value}
+        disabled={standIds.every((optionStandId) => selectedStandIds.includes(optionStandId))}
+      >
         {assignedVendors.length > 0
           ? translate('vendorsApplicationsPage.standAssignment.sharedStand', {
               names: assignedVendors.map(({ storeName }) => storeName).join(', '),

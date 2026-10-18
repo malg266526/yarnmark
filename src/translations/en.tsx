@@ -115,7 +115,7 @@ export const en: TranslationsShape = {
       title: 'Hallenplan',
       premiumStand: 'Premium spot 3x5.5m',
       standardStand: 'Standard spot 3x3,5m',
-      cStand: 'Kwadrat spot 3x3m',
+      cStand: 'Square spot 3x3m',
       miniStand: 'Mini spot 3x2m',
       taken: 'Reserved'
     },
@@ -262,7 +262,7 @@ export const en: TranslationsShape = {
         stands: 'There will be four types of spots in the hall:',
         standPremium: '<strong>Premium 3 × 5.5 m</strong>',
         standardStand: '<strong>Standard 3 × 3.5 m</strong>',
-        standC: '<strong>Kwadrat 3 × 3 m</strong>',
+        standC: '<strong>Square 3 × 3 m</strong>',
         miniStand: '<strong>Mini 3 × 2 m</strong>',
         tables:
           'Premium spot includes 2 chairs and 2 tables 160x80cm. Standard spot includes 2 chairs and 2 tables 140x70cm, while a Mini spot includes 2 chairs  and 1 table 140x70cm',
@@ -387,7 +387,7 @@ export const en: TranslationsShape = {
           premiumSize: '3 × 5.5 m',
           standardLabel: 'Standard',
           standardSize: '3 × 3.5 m',
-          cLabel: 'Kwadrat',
+          cLabel: 'Square',
           cSize: '3 × 3 m',
           miniLabel: 'Mini',
           miniSize: '2 × 3 m'
@@ -628,6 +628,8 @@ export const en: TranslationsShape = {
         choose: 'Choose a stand…',
         remove: 'Remove stand {{standId}} from the assignment',
         selectedStand: '{{standId}} ×',
+        assign: 'Assign',
+        assignLabel: 'Assign stand {{standId}} to {{name}}',
         save: 'Save assignments'
       },
       statusUndo: {

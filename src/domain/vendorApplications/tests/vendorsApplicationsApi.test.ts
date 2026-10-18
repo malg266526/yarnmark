@@ -264,11 +264,11 @@ test('deleteVendorApplication throws when the backend rejects the deletion', asy
 test('updateVendorApplicationStatus sends assigned stands and status to the application endpoint', async () => {
   const requests = stubFetch(200, {});
 
-  await updateVendorApplicationStatus(ADMIN_TOKEN, 'application/1', ['S1', 'M2'], 'stand-assigned');
+  await updateVendorApplicationStatus(ADMIN_TOKEN, 'application/1', ['S1', 'M2'], 'stand-assigned', []);
 
   assert.equal(requests[0].url, `${VENDOR_FORM_API_URL}/application%2F1`);
   assert.equal(requests[0].init?.method, 'PATCH');
-  assert.equal(requests[0].init?.body, JSON.stringify({ assignedStands: ['S1', 'M2'], status: 'stand-assigned' }));
+  assert.equal(requests[0].init?.body, JSON.stringify({ assignedStands: [['S1'], ['M2']], status: 'stand-assigned' }));
   assert.deepEqual(requests[0].init?.headers, {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${ADMIN_TOKEN}`
@@ -278,21 +278,35 @@ test('updateVendorApplicationStatus sends assigned stands and status to the appl
 test('updateVendorApplicationStatus throws when the backend rejects the update', async () => {
   stubFetch(404, null);
 
-  await assert.rejects(updateVendorApplicationStatus(ADMIN_TOKEN, 'unknown-id', [], 'accepted'), ApiRequestError);
+  await assert.rejects(updateVendorApplicationStatus(ADMIN_TOKEN, 'unknown-id', [], 'accepted', []), ApiRequestError);
 });
 
 test('updating one application can share stands and clear its assignments independently', async () => {
   const requests = stubFetch(200, {});
-  await updateVendorApplicationStatus(ADMIN_TOKEN, 'first', ['S1', 'M2', 'P3'], 'accepted');
-  await updateVendorApplicationStatus(ADMIN_TOKEN, 'second', ['S1', 'P3'], 'accepted');
-  await updateVendorApplicationStatus(ADMIN_TOKEN, 'first', [], 'accepted');
+  await updateVendorApplicationStatus(ADMIN_TOKEN, 'first', ['S1', 'M2', 'P3'], 'accepted', []);
+  await updateVendorApplicationStatus(ADMIN_TOKEN, 'second', ['S1', 'P3'], 'accepted', []);
+  await updateVendorApplicationStatus(ADMIN_TOKEN, 'first', [], 'accepted', []);
   assert.deepEqual(
     requests.map(({ init }) => JSON.parse(init?.body as string)),
     [
-      { assignedStands: ['S1', 'M2', 'P3'], status: 'accepted' },
-      { assignedStands: ['S1', 'P3'], status: 'accepted' },
+      { assignedStands: [['S1'], ['M2'], ['P3']], status: 'accepted' },
+      { assignedStands: [['S1'], ['P3']], status: 'accepted' },
       { assignedStands: [], status: 'accepted' }
     ]
   );
   assert.ok(requests[2].url.endsWith('/first'));
+});
+
+test('updateVendorApplicationStatus sends an assigned preferred pair as one group', async () => {
+  const requests = stubFetch(200, {});
+
+  await updateVendorApplicationStatus(ADMIN_TOKEN, 'mixed', ['P1', 'S2', 'S1'], 'stand-assigned', [
+    ['S1', 'S2'],
+    ['P1']
+  ]);
+
+  assert.deepEqual(JSON.parse(requests[0].init?.body as string), {
+    assignedStands: [['P1'], ['S1', 'S2']],
+    status: 'stand-assigned'
+  });
 });

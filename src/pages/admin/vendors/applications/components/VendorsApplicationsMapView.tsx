@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react';
 import { StandColorsMap } from '../../../../../components/editor/StandProps';
 import { HallMap } from '../../../../../components/hall/HallMap';
+import { getEnclosingHallStandBox, getHallStandBox } from '../../../../../components/hall/hallStandBox';
+import { areStandsAdjacent } from '../../../../../components/hall/standAdjacencyUtils';
 import { isVendorStand, parseHallStands, type HallStand } from '../../../../../components/hall/hallStands';
 import { GRID_COLS } from '../../../../../components/editor/utils/hallGeometry';
 import { getStandInterestCounts } from '../../../../../domain/vendorApplications/vendorFormStandInterestUtils';
@@ -12,6 +14,7 @@ import {
   ApplicationsMapCoverageStand,
   ApplicationsMapCoverageSummary,
   ApplicationsMapHint,
+  ApplicationsMapStandPairFrame,
   ApplicationsMapStandPriority,
   STAND_PRIORITY_COLORS,
   ApplicationsMapLayout,
@@ -22,7 +25,8 @@ import {
   ApplicationsMapScroller,
   ApplicationsMapStand,
   ApplicationsMapStandAssignedContent,
-  ApplicationsMapStandLogos,
+  ApplicationsMapStandVendorName,
+  ApplicationsMapStandVendorNames,
   ApplicationsMapStandMeta,
   ApplicationsMapStandCount
 } from '../VendorsApplicationsPage.styled';
@@ -35,7 +39,6 @@ import {
 import { VENDOR_APPLICATIONS_FILTER_ALL } from '../vendorsApplicationsConstants';
 import { VendorsApplicationsMapViewProps } from './vendorsApplicationsViewContracts';
 import { buildVendorMapAssignments } from '../utils/vendorMapAssignmentsUtils';
-import { VendorApplicationMapLogo } from './VendorApplicationMapLogo';
 
 const DEMAND_LEVEL_COLORS: Record<StandDemandLevel, string> = {
   none: GrayScale[100],
@@ -44,8 +47,12 @@ const DEMAND_LEVEL_COLORS: Record<StandDemandLevel, string> = {
   high: HallColors[300]
 };
 
+const resolvePriorityColor = (priority: number) =>
+  STAND_PRIORITY_COLORS[Math.min(priority, STAND_PRIORITY_COLORS.length) - 1];
+
 export const VendorsApplicationsMapView = ({
   applications,
+  highlightedStandPairs = [],
   highlightedStands,
   multiplier,
   selectedStandId,
@@ -60,6 +67,21 @@ export const VendorsApplicationsMapView = ({
   }
 
   const mapWidth = GRID_COLS * multiplier;
+  const pairFrames = highlightedStandPairs.flatMap(({ choicePosition, standIds }) => {
+    const pairStands = parsedStands.data.filter(({ index }) => standIds.includes(index));
+    const [firstStand, secondStand] = pairStands;
+
+    return pairStands.length === 2 && areStandsAdjacent(firstStand, secondStand)
+      ? [
+          {
+            box: getEnclosingHallStandBox(pairStands.map((stand) => getHallStandBox(stand, multiplier))),
+            choicePosition,
+            standIds
+          }
+        ]
+      : [];
+  });
+  const pairedStandIds = new Set(pairFrames.flatMap(({ standIds }) => standIds));
   const coverage = buildHallCoverage(
     parsedStands.data.filter(isVendorStand).map(({ index }) => index),
     requestCounts
@@ -121,10 +143,10 @@ export const VendorsApplicationsMapView = ({
                       names: assignedVendors.map(({ storeName }) => storeName).join(', ')
                     })
                   : translate('vendorsApplicationsPage.map.standDemand', { count: requestCount, standId: stand.index });
-              const highlightedPriority = highlightedStands?.get(stand.index);
-              const highlightColor = highlightedPriority
-                ? STAND_PRIORITY_COLORS[Math.min(highlightedPriority, STAND_PRIORITY_COLORS.length) - 1]
-                : undefined;
+              const highlightedPriority = pairedStandIds.has(stand.index)
+                ? undefined
+                : highlightedStands?.get(stand.index);
+              const highlightColor = highlightedPriority ? resolvePriorityColor(highlightedPriority) : undefined;
 
               return (
                 <ApplicationsMapStand
@@ -152,16 +174,13 @@ export const VendorsApplicationsMapView = ({
                     <>
                       {assignedVendors.length > 0 ? (
                         <ApplicationsMapStandAssignedContent>
-                          <ApplicationsMapStandLogos
-                            $columns={Math.min(
-                              assignedVendors.length,
-                              Math.ceil(Math.sqrt((assignedVendors.length * box.width) / box.height))
-                            )}
-                          >
-                            {assignedVendors.map((vendor) => (
-                              <VendorApplicationMapLogo key={vendor.applicationId} vendor={vendor} />
+                          <ApplicationsMapStandVendorNames>
+                            {assignedVendors.map(({ applicationId, storeName }) => (
+                              <ApplicationsMapStandVendorName key={applicationId}>
+                                {storeName}
+                              </ApplicationsMapStandVendorName>
                             ))}
-                          </ApplicationsMapStandLogos>
+                          </ApplicationsMapStandVendorNames>
                           <ApplicationsMapStandMeta>{stand.index}</ApplicationsMapStandMeta>
                         </ApplicationsMapStandAssignedContent>
                       ) : (
@@ -180,7 +199,22 @@ export const VendorsApplicationsMapView = ({
                 </ApplicationsMapStand>
               );
             }}
-          />
+          >
+            {pairFrames.map(({ box, choicePosition }) => (
+              <ApplicationsMapStandPairFrame
+                key={choicePosition}
+                $color={resolvePriorityColor(choicePosition)}
+                $height={box.height}
+                $left={box.left}
+                $top={box.top}
+                $width={box.width}
+              >
+                <ApplicationsMapStandPriority $color={resolvePriorityColor(choicePosition)}>
+                  {choicePosition}
+                </ApplicationsMapStandPriority>
+              </ApplicationsMapStandPairFrame>
+            ))}
+          </HallMap>
         </ApplicationsMapScroller>
       </ApplicationsMapPanel>
     </ApplicationsMapLayout>

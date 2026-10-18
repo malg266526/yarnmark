@@ -1,10 +1,11 @@
 import type { VendorApplication } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
-import { getStandChoicePositions } from './standChoiceUtils.ts';
+import { getApplicationStandGroups } from './standChoiceUtils.ts';
 
 export type StandPriority = 'highest' | 'medium' | 'lowest';
 
 export interface StandRequest {
   applicationId: string;
+  pairStandIds: string[];
   priority: StandPriority;
   storeName: string;
   submittedAt: string;
@@ -37,18 +38,21 @@ export const groupApplicationsByStand = (applications: VendorApplication[]): Sta
   const standGroupsMap = new Map<string, StandRequest[]>();
 
   for (const application of applications) {
-    for (const [standId, choicePosition] of getStandChoicePositions(application)) {
-      const currentStandRequests = standGroupsMap.get(standId) ?? [];
+    getApplicationStandGroups(application).forEach((standOption, optionIndex) => {
+      for (const standId of standOption) {
+        const currentStandRequests = standGroupsMap.get(standId) ?? [];
 
-      currentStandRequests.push({
-        applicationId: application.id,
-        priority: getStandPriority(choicePosition - 1),
-        storeName: application.storeName,
-        submittedAt: application.submittedAt
-      });
+        currentStandRequests.push({
+          applicationId: application.id,
+          pairStandIds: standOption.length > 1 ? standOption : [],
+          priority: getStandPriority(optionIndex),
+          storeName: application.storeName,
+          submittedAt: application.submittedAt
+        });
 
-      standGroupsMap.set(standId, currentStandRequests);
-    }
+        standGroupsMap.set(standId, currentStandRequests);
+      }
+    });
   }
 
   return [...standGroupsMap.entries()]

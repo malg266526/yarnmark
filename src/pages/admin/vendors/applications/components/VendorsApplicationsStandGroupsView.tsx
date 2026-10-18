@@ -6,10 +6,12 @@ import {
   StandRequestItem,
   StandRequestList,
   StandRequestMeta,
+  StandRequestPair,
   StandRequestVendor
 } from '../VendorsApplicationsPage.styled';
 import { formatDateTime } from '../utils/vendorsApplicationsFormatters';
 import { groupApplicationsByStand } from '../utils/standGroupingUtils';
+import { formatStandGroup } from '../utils/standChoiceUtils';
 import { VendorsApplicationsStandGroupsViewProps } from './vendorsApplicationsViewContracts';
 
 export const VendorsApplicationsStandGroupsView = ({
@@ -27,7 +29,12 @@ export const VendorsApplicationsStandGroupsView = ({
           <StandRequestList>
             {standGroup.requests.map((request) => (
               <StandRequestItem key={`${standGroup.standId}-${request.applicationId}`}>
-                <StandRequestVendor>{request.storeName}</StandRequestVendor>
+                <StandRequestVendor>
+                  {request.storeName}
+                  {request.pairStandIds.length > 0 ? (
+                    <StandRequestPair>{formatStandGroup(request.pairStandIds)}</StandRequestPair>
+                  ) : null}
+                </StandRequestVendor>
                 <StandRequestMeta>{formatDateTime(request.submittedAt, locale)}</StandRequestMeta>
                 <StandRequestMeta>{resolvePriorityLabel(request.priority)}</StandRequestMeta>
               </StandRequestItem>

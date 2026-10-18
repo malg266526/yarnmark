@@ -67,3 +67,21 @@ test('groupApplicationsByStand gives both stands of a pair the priority of that 
     ]
   );
 });
+
+test('groupApplicationsByStand shows the whole pair on the lists of both its stands', () => {
+  const standGroups = groupApplicationsByStand([
+    { ...getBaseApplication(), id: 'mixed', preferredStandGroups: [['P1'], ['S1', 'S2']] }
+  ]);
+
+  assert.deepEqual(
+    standGroups.map(({ standId, requests }) => ({
+      standId,
+      requests: requests.map(({ pairStandIds, priority }) => ({ pairStandIds, priority }))
+    })),
+    [
+      { standId: 'P1', requests: [{ pairStandIds: [], priority: 'highest' }] },
+      { standId: 'S1', requests: [{ pairStandIds: ['S1', 'S2'], priority: 'medium' }] },
+      { standId: 'S2', requests: [{ pairStandIds: ['S1', 'S2'], priority: 'medium' }] }
+    ]
+  );
+});

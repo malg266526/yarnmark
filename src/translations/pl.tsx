@@ -627,6 +627,8 @@ export const pl = {
         choose: 'Wybierz stoisko…',
         remove: 'Usuń stoisko {{standId}} z przydziału',
         selectedStand: '{{standId}} ×',
+        assign: 'Przydziel',
+        assignLabel: 'Przydziel stoisko {{standId}} wystawcy {{name}}',
         save: 'Zapisz przydziały'
       },
       statusUndo: {

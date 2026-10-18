@@ -51,6 +51,29 @@ export const removeSecondStand = (preferredStandGroups: string[][], optionIndex:
     groupIndex === optionIndex ? standGroup.slice(0, 1) : standGroup
   );
 
+export const groupAssignedStands = (assignedStands: string[], preferredStandGroups: string[][]): string[][] => {
+  const pairs = preferredStandGroups.filter(
+    (standGroup) => standGroup.length > 1 && standGroup.every((standId) => assignedStands.includes(standId))
+  );
+  const pairedStandIds = new Set<string>();
+
+  return assignedStands.flatMap((standId) => {
+    if (pairedStandIds.has(standId)) {
+      return [];
+    }
+
+    const pair = pairs.find((standGroup) => standGroup.includes(standId));
+
+    if (!pair) {
+      return [[standId]];
+    }
+
+    pair.forEach((pairStandId) => pairedStandIds.add(pairStandId));
+
+    return [pair];
+  });
+};
+
 export const isEmailValid = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
 export const isPhoneValid = (value: string) => /^[+\d\s()-]{7,}$/.test(value.trim());

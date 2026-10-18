@@ -14,7 +14,7 @@ import {
 import { vendorFormStateSchema } from './vendorFormSchema.ts';
 import { normalizeStandIds } from './vendorFormStandIds.ts';
 import { VENDOR_FORM_API_URL } from './vendorFormConstants.ts';
-import { getPreferredStandGroups, hasStandPair } from './vendorFormUtils.ts';
+import { getPreferredStandGroups, groupAssignedStands, hasStandPair } from './vendorFormUtils.ts';
 
 const DEFAULT_VENDOR_APPLICATION_STATUS: VendorApplicationStatus = 'pending';
 const DEFAULT_VENDOR_APPLICATION_ALLOCATION_STATE: VendorApplicationAllocationState = 'none';
@@ -111,11 +111,12 @@ export const updateVendorApplicationStatus = async (
   token: string,
   applicationId: string,
   assignedStands: string[],
-  status: VendorApplicationStatus
+  status: VendorApplicationStatus,
+  preferredStandGroups: string[][]
 ): Promise<void> => {
   await requestApi(`${VENDOR_FORM_API_URL}/${encodeURIComponent(applicationId)}`, {
     method: 'PATCH',
-    body: { assignedStands, status },
+    body: { assignedStands: groupAssignedStands(assignedStands, preferredStandGroups), status },
     token
   });
 };

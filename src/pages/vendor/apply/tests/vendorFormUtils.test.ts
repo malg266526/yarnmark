@@ -4,6 +4,7 @@ import {
   getActivePairingStandId,
   getPreferredStandGroups,
   getSelectedStandIds,
+  groupAssignedStands,
   hasStandPair,
   isEmailValid,
   isPhoneValid,
@@ -245,4 +246,10 @@ test('getSelectedStandIds lists the stands of every option', () => {
 test('hasStandPair reports whether any option is a pair', () => {
   assert.equal(hasStandPair([['P1'], ['S1', 'S2']]), true);
   assert.equal(hasStandPair([['P1'], ['S6']]), false);
+});
+
+test('groupAssignedStands keeps an assigned preferred pair together and every other stand on its own', () => {
+  assert.deepEqual(groupAssignedStands(['S1', 'P1', 'S2'], [['S1', 'S2'], ['P1']]), [['S1', 'S2'], ['P1']]);
+  assert.deepEqual(groupAssignedStands(['S1', 'M3'], [['S1', 'S2']]), [['S1'], ['M3']]);
+  assert.deepEqual(groupAssignedStands([], [['S1', 'S2']]), []);
 });

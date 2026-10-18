@@ -182,6 +182,7 @@ export const VendorsApplicationsView = ({
               locale={t.i18n.language}
               resolvePriorityLabel={(priority) => t(`vendorsApplicationsPage.priorities.${priority}` as const)}
               selectedStandId={filters.standId}
+              standAssignment={standAssignment}
               translate={translate}
             />
           </ApplicationsMapSide>
