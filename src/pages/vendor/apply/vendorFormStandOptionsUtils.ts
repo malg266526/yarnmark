@@ -1,12 +1,15 @@
 import type { HallStand } from '../../../components/hall/hallStands.ts';
 import { getAdjacentStandIndexes } from '../../../components/hall/standAdjacencyUtils.ts';
+import { canStandBePaired } from '../../../domain/vendorApplications/vendorStandTypeUtils.ts';
 
 export const getFreeNeighbourStandIds = (
   selectableStands: readonly HallStand[],
   standId: string,
   selectedStandIds: readonly string[]
 ): string[] =>
-  getAdjacentStandIndexes(standId, selectableStands).filter((neighbourId) => !selectedStandIds.includes(neighbourId));
+  getAdjacentStandIndexes(standId, selectableStands).filter(
+    (neighbourId) => canStandBePaired(neighbourId) && !selectedStandIds.includes(neighbourId)
+  );
 
 export const getUnpairableStandIds = (
   selectableStands: readonly HallStand[],

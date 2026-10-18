@@ -26,3 +26,9 @@ test('getUnpairableStandIds reports single options without a free neighbour', ()
   assert.deepEqual(getUnpairableStandIds(row, [['S1'], ['S9']]), ['S9']);
   assert.deepEqual(getUnpairableStandIds(row, [['S1'], ['S2', 'S3']]), ['S1']);
 });
+
+test('getFreeNeighbourStandIds never offers a mini stand as the second stand of a pair', () => {
+  const rowWithMini = [createStand('S1', 0), createStand('M1', 1), createStand('S2', 2)];
+
+  assert.deepEqual(getFreeNeighbourStandIds(rowWithMini, 'S1', ['S1']), []);
+});

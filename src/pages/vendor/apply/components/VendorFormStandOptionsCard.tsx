@@ -10,6 +10,7 @@ import {
   StandOptionsList
 } from '../VendorFormPage.styled';
 import { STAND_OPTION_SEPARATOR } from '../../../../domain/vendorApplications/vendorFormConstants.ts';
+import { canStandBePaired } from '../../../../domain/vendorApplications/vendorStandTypeUtils.ts';
 
 interface VendorFormStandOptionsCardProps {
   onSetStandOptionPaired: (optionIndex: number, isPaired: boolean) => void;
@@ -52,16 +53,18 @@ export const VendorFormStandOptionsCard = ({
                     { number: optionIndex + 1, stands: standGroup.join(STAND_OPTION_SEPARATOR) }
                   )}
                 </StandOptionLabel>
-                <StandOptionPairToggle htmlFor={toggleId} $disabled={isPairDisabled}>
-                  <input
-                    id={toggleId}
-                    type="checkbox"
-                    checked={isPaired || isPairing}
-                    disabled={isPairDisabled}
-                    onChange={(event) => onSetStandOptionPaired(optionIndex, event.target.checked)}
-                  />
-                  <span>{t('vendorsFormPage.steps.preferredStands.addSecondStand')}</span>
-                </StandOptionPairToggle>
+                {isPaired || canStandBePaired(firstStandId) ? (
+                  <StandOptionPairToggle htmlFor={toggleId} $disabled={isPairDisabled}>
+                    <input
+                      id={toggleId}
+                      type="checkbox"
+                      checked={isPaired || isPairing}
+                      disabled={isPairDisabled}
+                      onChange={(event) => onSetStandOptionPaired(optionIndex, event.target.checked)}
+                    />
+                    <span>{t('vendorsFormPage.steps.preferredStands.addSecondStand')}</span>
+                  </StandOptionPairToggle>
+                ) : null}
               </StandOptionItem>
             );
           })}

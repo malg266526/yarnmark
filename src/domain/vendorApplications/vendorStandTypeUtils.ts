@@ -11,3 +11,5 @@ const STAND_TYPE_BY_INDEX_PREFIX: Record<string, VendorStandType> = {
 
 export const resolveStandType = (standId: string): VendorStandType | null =>
   STAND_TYPE_BY_INDEX_PREFIX[standId.trim().charAt(0).toUpperCase()] ?? null;
+
+export const canStandBePaired = (standId: string): boolean => resolveStandType(standId) !== 'mini';
