@@ -115,7 +115,7 @@ export const en: TranslationsShape = {
       title: 'Hallenplan',
       premiumStand: 'Premium spot 3x5.5m',
       standardStand: 'Standard spot 3x3,5m',
-      cStand: 'Kwadrat spot 3x3m',
+      cStand: 'Square spot 3x3m',
       miniStand: 'Mini spot 3x2m',
       taken: 'Reserved'
     },
@@ -262,7 +262,7 @@ export const en: TranslationsShape = {
         stands: 'There will be four types of spots in the hall:',
         standPremium: '<strong>Premium 3 × 5.5 m</strong>',
         standardStand: '<strong>Standard 3 × 3.5 m</strong>',
-        standC: '<strong>Kwadrat 3 × 3 m</strong>',
+        standC: '<strong>Square 3 × 3 m</strong>',
         miniStand: '<strong>Mini 3 × 2 m</strong>',
         tables:
           'Premium spot includes 2 chairs and 2 tables 160x80cm. Standard spot includes 2 chairs and 2 tables 140x70cm, while a Mini spot includes 2 chairs  and 1 table 140x70cm',
@@ -365,27 +365,29 @@ export const en: TranslationsShape = {
         },
         preferredStands: {
           title: 'Pick your preferred stands on the map',
-          twoStandsLabel: 'I want to buy two stands',
-          pairHint:
-            'You can pick up to {{max}} pairs of two neighbouring stands — after the first click only the stands next to it stay available. Green — available, orange — selected by you.',
-          pairCounter: '{{current}} of {{max}} pairs selected',
-          pairLabel: 'Pair {{number}}: {{stands}}',
-          pairIncomplete: 'Pair {{number}}: {{stands}} — pick a neighbouring stand',
-          hint: 'You can pick up to {{max}} stands. Green — available, orange — selected by you.',
+          optionLabel: 'Option {{number}}: {{stands}}',
+          optionIncomplete: 'Option {{number}}: {{stands}} — pick a neighbouring stand',
+          optionsTitle: 'Your options',
+          optionsEmpty: 'Click a stand on the map to add an option.',
+          addSecondStand: 'Add a second, neighbouring stand',
+          hint: 'You can pick up to {{max}} options. Each option is one stand — if you want two neighbouring stands, tick “Add a second, neighbouring stand” next to that option. Green — available, orange — selected by you.',
           orderHint: 'Order matters — the first stand you click becomes your top pick.',
           counter: '{{current}} of {{max}} selected',
           detailsHint:
             'Detailed information about stand types, dimensions, and equipment is available on the <0>Info for vendors</0> page.',
+          availableLabel: 'Available',
           highInterestLabel: 'High Interest',
           highInterestHint: 'at least 3 interested vendors',
           highInterestWarning:
             'This stand is very popular. The chance of receiving it is lower. Consider other locations as a higher priority. Affected stands: {{stands}}.',
+          noInterestLabel: 'No Interest',
+          noInterestHint: 'no interest yet',
           legendTitle: 'Stand types',
           premiumLabel: 'Premium',
           premiumSize: '3 × 5.5 m',
           standardLabel: 'Standard',
           standardSize: '3 × 3.5 m',
-          cLabel: 'C',
+          cLabel: 'Square',
           cSize: '3 × 3 m',
           miniLabel: 'Mini',
           miniSize: '2 × 3 m'
@@ -423,6 +425,9 @@ export const en: TranslationsShape = {
           placeholder: 'Write a short description of your business.',
           limitHint: '{{current}} / {{max}} characters'
         },
+        comments: {
+          label: 'Comments'
+        },
         statute: {
           title: 'Terms confirmation',
           prefix: 'I accept the',
@@ -438,8 +443,6 @@ export const en: TranslationsShape = {
         mainCategoryOtherRequired: 'Enter the main product category.',
         interestedIfUnavailableRequired: 'Choose one of the answers.',
         preferredStandsRequired: 'Choose at least one preferred stand.',
-        standPairIncomplete:
-          'Every pair needs two neighbouring stands. Finish the started pair or unselect the last stand.',
         phoneRequired: 'Enter a phone number.',
         phoneInvalid: 'Enter a valid phone number.',
         emailRequired: 'Enter an email address.',
@@ -455,9 +458,6 @@ export const en: TranslationsShape = {
         confirm: 'OK',
         storeName: 'Store name',
         submittedAt: 'Saved at',
-        wantsTwoStands: 'Wants to buy two stands',
-        yes: 'Yes',
-        no: 'No',
         attendedBefore: 'Previous editions',
         mainCategory: 'Main category',
         preferredStands: 'Preferred stands',
@@ -468,6 +468,7 @@ export const en: TranslationsShape = {
         invoiceDetails: 'Invoice details',
         logo: 'Logo',
         businessDescription: 'Business description',
+        comments: 'Comments',
         statute: 'Terms',
         accepted: 'Accepted',
         notProvided: 'Not provided'
@@ -627,6 +628,8 @@ export const en: TranslationsShape = {
         choose: 'Choose a stand…',
         remove: 'Remove stand {{standId}} from the assignment',
         selectedStand: '{{standId}} ×',
+        assign: 'Assign',
+        assignLabel: 'Assign stand {{standId}} to {{name}}',
         save: 'Save assignments'
       },
       statusUndo: {
@@ -671,6 +674,7 @@ export const en: TranslationsShape = {
         invoiceDetails: 'Invoice details',
         logoFilename: 'Logo filename',
         businessDescription: 'Business description',
+        comments: 'Comments',
         acceptedStatute: 'Terms accepted'
       },
       statuses: {

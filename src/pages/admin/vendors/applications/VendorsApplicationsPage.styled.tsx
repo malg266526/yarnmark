@@ -65,6 +65,10 @@ export const ApplicationsToolbar = styled.div`
 const FILTER_CONTROL_HEIGHT = '38px';
 const FILTER_COUNT_SIZE = '24px';
 const FILTER_COUNT_INLINE_PADDING = '7px';
+const PAIRED_STAND_CHIP_SIZE = '18px';
+const STAND_REQUEST_PAIR_SIZE = '22px';
+const MAP_VENDOR_NAME_MAX_LINES = 3;
+const STAND_REQUEST_ACTION_WIDTH = '120px';
 const FILTER_COUNT_FONT_BASELINE_CORRECTION = '1.5px';
 const FILTER_CONTROL_INLINE_PADDING = '12px';
 const FILTER_SELECT_ARROW_WIDTH = '12px';
@@ -292,7 +296,7 @@ export const ApplicationsPreferenceList = styled.div`
   gap: ${RedesignSpacings.xxs};
 `;
 
-export const ApplicationsPreferenceTag = styled.span`
+export const ApplicationsPreferenceTag = styled.span<{ $isPair: boolean }>`
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -301,12 +305,32 @@ export const ApplicationsPreferenceTag = styled.span`
   padding: 0 ${FILTER_COUNT_INLINE_PADDING};
   border: 1px solid ${BackgroundColors.green.medium};
   border-radius: ${Radius.xxl};
+  background: ${({ $isPair }) => ($isPair ? BackgroundColors.green.medium : 'transparent')};
   line-height: 1;
   white-space: nowrap;
 `;
 
-export const ApplicationsPreferenceOrder = styled.span`
-  color: ${GrayScale[600]};
+export const ApplicationsPreferenceStandSeparator = styled.span`
+  color: ${TextColors.primary};
+`;
+
+const pairedStandChip = css`
+  height: ${PAIRED_STAND_CHIP_SIZE};
+  padding: 0 ${FILTER_COUNT_INLINE_PADDING};
+  border-radius: ${Radius.xxl};
+  background: ${Colors.white};
+`;
+
+export const ApplicationsPreferenceStand = styled.span<{ $isInPair: boolean }>`
+  display: inline-flex;
+  align-items: center;
+  align-self: ${({ $isInPair }) => ($isInPair ? 'center' : 'stretch')};
+  gap: 6px;
+  ${({ $isInPair }) => ($isInPair ? pairedStandChip : '')}
+`;
+
+export const ApplicationsPreferenceOrder = styled.span<{ $isInPair: boolean }>`
+  color: ${({ $isInPair }) => ($isInPair ? TextColors.primary : GrayScale[600])};
   font-variant-numeric: tabular-nums;
 
   &::after {
@@ -712,40 +736,25 @@ export const ApplicationsMapStandAssignedContent = styled.span`
   padding: 2px 0;
 `;
 
-export const ApplicationsMapStandLogos = styled.span<{ $columns: number }>`
-  box-sizing: border-box;
-  display: grid;
-  grid-template-columns: repeat(${({ $columns }) => $columns}, minmax(0, 1fr));
-  grid-auto-rows: minmax(0, 1fr);
+export const ApplicationsMapStandVendorNames = styled.span`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   gap: 2px;
   min-height: 0;
   padding: 0 2px;
-`;
-
-export const ApplicationsMapStandLogoFrame = styled.span`
-  container-type: size;
-  display: grid;
-  place-items: center;
-`;
-
-export const ApplicationsMapStandLogo = styled.img`
-  box-sizing: border-box;
-  display: block;
-  width: min(100cqw, 100cqh);
-  height: min(100cqw, 100cqh);
-  padding: 2px;
-  border: 1px solid ${BorderColors.subtleGreen};
-  border-radius: 50%;
-  object-fit: contain;
-  background: ${Colors.white};
+  overflow: hidden;
 `;
 
 export const ApplicationsMapStandVendorName = styled.span`
-  display: block;
-  align-self: center;
+  display: -webkit-box;
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  overflow-wrap: anywhere;
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: ${MAP_VENDOR_NAME_MAX_LINES};
 `;
 
 export const ApplicationsMapStandMeta = styled.span`
@@ -786,6 +795,23 @@ export const ApplicationsMapCoverageStand = styled(ApplicationActionButton)`
   padding: 0 ${FILTER_COUNT_INLINE_PADDING};
   font-size: ${FontSize.xs};
   line-height: 1;
+`;
+
+export const ApplicationsMapStandPairFrame = styled.span<{
+  $color: string;
+  $height: number;
+  $left: number;
+  $top: number;
+  $width: number;
+}>`
+  position: absolute;
+  box-sizing: border-box;
+  left: ${({ $left }) => $left}px;
+  top: ${({ $top }) => $top}px;
+  width: ${({ $width }) => $width}px;
+  height: ${({ $height }) => $height}px;
+  border: 3px solid ${({ $color }) => $color};
+  pointer-events: none;
 `;
 
 export const ApplicationsMapStandPriority = styled.span<{ $color: string }>`
@@ -867,9 +893,12 @@ export const StandRequestList = styled.div`
   gap: ${RedesignSpacings.sm};
 `;
 
-export const StandRequestItem = styled.div`
+export const StandRequestItem = styled.div<{ $hasAction?: boolean }>`
   display: grid;
-  grid-template-columns: minmax(0, 1fr) max-content max-content;
+  grid-template-columns: ${({ $hasAction }) =>
+    $hasAction
+      ? `minmax(0, 1fr) max-content max-content ${STAND_REQUEST_ACTION_WIDTH}`
+      : 'minmax(0, 1fr) max-content max-content'};
   gap: ${RedesignSpacings.sm};
   align-items: baseline;
   padding-bottom: ${RedesignSpacings.xs};
@@ -889,6 +918,20 @@ export const StandRequestVendor = styled.div`
   font-family: ${FontFamilies.primary};
   font-size: ${FontSize.md};
   color: ${TextColors.primary};
+`;
+
+export const StandRequestPair = styled.span`
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  height: ${STAND_REQUEST_PAIR_SIZE};
+  margin-left: ${RedesignSpacings.xs};
+  padding: 0 ${FILTER_COUNT_INLINE_PADDING};
+  border-radius: ${Radius.xxl};
+  background: ${BackgroundColors.green.medium};
+  font-size: ${FontSize.sm};
+  line-height: 1;
+  white-space: nowrap;
 `;
 
 export const StandRequestMeta = styled.div`

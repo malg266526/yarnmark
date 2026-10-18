@@ -1,10 +1,18 @@
 import type { VendorApplication } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
+import { getApplicationStandGroups } from './standChoiceUtils.ts';
+
+const STAND_ASSIGNMENT_VALUE_SEPARATOR = ',';
 
 export interface StandAssignmentOption {
   preferenceOrder: number | null;
-  standId: string;
+  standIds: string[];
   assignedVendors: Pick<VendorApplication, 'id' | 'storeName'>[];
 }
+
+export const toStandAssignmentValue = (standIds: string[]): string => standIds.join(STAND_ASSIGNMENT_VALUE_SEPARATOR);
+
+export const fromStandAssignmentValue = (value: string): string[] =>
+  value.split(STAND_ASSIGNMENT_VALUE_SEPARATOR).filter(Boolean);
 
 export interface StandAssignmentOptions {
   otherStands: StandAssignmentOption[];
@@ -33,11 +41,16 @@ export const buildStandAssignmentOptions = (
   vendorStandIds: string[]
 ): StandAssignmentOptions => {
   const assignedVendors = collectAssignedVendors(applications, application.id);
-  const preferredStandIds = [...new Set(application.preferredStands)];
-  const toOption = (standId: string): StandAssignmentOption => ({
-    preferenceOrder: preferredStandIds.includes(standId) ? preferredStandIds.indexOf(standId) + 1 : null,
-    standId,
-    assignedVendors: assignedVendors.get(standId) ?? []
+  const standOptions = getApplicationStandGroups(application);
+  const singleStandIds = standOptions.filter((standIds) => standIds.length === 1).flat();
+  const toOption = (standIds: string[], preferenceOrder: number | null): StandAssignmentOption => ({
+    preferenceOrder,
+    standIds,
+    assignedVendors: [
+      ...new Map(
+        standIds.flatMap((standId) => assignedVendors.get(standId) ?? []).map((vendor) => [vendor.id, vendor])
+      ).values()
+    ]
   });
 
   const knownStandIds = [
@@ -46,7 +59,9 @@ export const buildStandAssignmentOptions = (
   ];
 
   return {
-    otherStands: knownStandIds.filter((standId) => !preferredStandIds.includes(standId)).map(toOption),
-    preferredStands: preferredStandIds.map(toOption)
+    otherStands: knownStandIds
+      .filter((standId) => !singleStandIds.includes(standId))
+      .map((standId) => toOption([standId], null)),
+    preferredStands: standOptions.map((standIds, optionIndex) => toOption(standIds, optionIndex + 1))
   };
 };

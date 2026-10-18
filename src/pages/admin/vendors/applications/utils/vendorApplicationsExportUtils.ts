@@ -1,5 +1,6 @@
 import type { VendorApplication } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
 import { buildCsv } from './csvUtils.ts';
+import { formatStandGroup, getApplicationStandGroups } from './standChoiceUtils.ts';
 
 export interface VendorApplicationsExportLabels {
   applicationId: string;
@@ -11,6 +12,7 @@ export interface VendorApplicationsExportLabels {
   status: string;
   preferredStands: string;
   assignedStands: string;
+  comments: string;
 }
 
 export const buildVendorApplicationsCsv = (
@@ -29,7 +31,8 @@ export const buildVendorApplicationsCsv = (
       labels.category,
       labels.status,
       labels.preferredStands,
-      labels.assignedStands
+      labels.assignedStands,
+      labels.comments
     ],
     ...applications.map((application) => [
       application.id,
@@ -43,7 +46,8 @@ export const buildVendorApplicationsCsv = (
           ? resolveCategoryLabel(application.mainCategory)
           : '',
       resolveStatusLabel(application.status),
-      application.preferredStands.join(', '),
-      application.assignedStands.join(', ')
+      getApplicationStandGroups(application).map(formatStandGroup).join(', '),
+      application.assignedStands.join(', '),
+      application.comments
     ])
   ]);

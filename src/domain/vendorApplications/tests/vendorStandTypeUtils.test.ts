@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { resolveStandType } from '../vendorStandTypeUtils.ts';
+import { canStandBePaired, resolveStandType } from '../vendorStandTypeUtils.ts';
 
 test('resolveStandType maps hall stand prefixes to vendor stand types', () => {
   assert.equal(resolveStandType('S12'), 'standard');
@@ -14,4 +14,11 @@ test('resolveStandType returns null for entrances, technical areas and unknown i
   assert.equal(resolveStandType('A2'), null);
   assert.equal(resolveStandType('X1'), null);
   assert.equal(resolveStandType(''), null);
+});
+
+test('canStandBePaired rejects only mini stands', () => {
+  assert.equal(canStandBePaired('M4'), false);
+  assert.equal(canStandBePaired('S1'), true);
+  assert.equal(canStandBePaired('P1'), true);
+  assert.equal(canStandBePaired('C2'), true);
 });

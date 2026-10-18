@@ -7,6 +7,7 @@ import type {
   VendorApplicationStatusCounts
 } from '../utils/vendorApplicationsFilterUtils.ts';
 import type { VendorApplicationFlag } from '../utils/vendorApplicationFlagsUtils.ts';
+import type { StandPairHighlight } from '../utils/vendorApplicationRowsUtils.ts';
 
 export interface VendorApplicationDisplayValues {
   no: string;
@@ -28,6 +29,7 @@ export interface VendorApplicationFlagsViewProps {
 }
 
 export interface VendorApplicationStandAssignment {
+  acceptStand: (applicationId: string, standId: string) => Promise<void>;
   allApplications: VendorApplication[];
   assignStands: (applicationId: string, standIds: string[]) => Promise<void>;
   savingStandApplicationId: string | null;
@@ -107,6 +109,7 @@ export type StandPriorityHighlights = ReadonlyMap<string, number>;
 
 export interface VendorsApplicationsMapViewProps {
   applications: VendorApplication[];
+  highlightedStandPairs?: StandPairHighlight[];
   highlightedStands?: StandPriorityHighlights;
   multiplier: number;
   selectStand: (standId: string) => void;
@@ -119,6 +122,7 @@ export interface VendorsApplicationsStandRequestsViewProps {
   locale: string;
   resolvePriorityLabel: (priority: 'highest' | 'medium' | 'lowest') => string;
   selectedStandId: string;
+  standAssignment: Pick<VendorApplicationStandAssignment, 'acceptStand' | 'assignStands' | 'savingStandApplicationId'>;
   translate: TranslateViewText;
 }
 

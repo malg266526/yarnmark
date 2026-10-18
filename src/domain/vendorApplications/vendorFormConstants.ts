@@ -1,5 +1,7 @@
 export const VENDOR_FORM_DRAFT_STORAGE_KEY = 'vendors-form-draft';
 export const VENDOR_FORM_OPENS_AT = '2026-10-19T09:00:00+02:00';
+export const VENDOR_FORM_SERVER_CLOCK_URL = '/robots.txt';
+export const VENDOR_FORM_SERVER_CLOCK_RETRY_MS = 10_000;
 export const VENDOR_FORM_API_URL = 'https://yarnmark-api.com/api/vendors';
 export const VENDOR_STANDS_DEMAND_API_URL = `${VENDOR_FORM_API_URL}/stands-demand`;
 export const VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH = 2200;
@@ -9,3 +11,4 @@ export const VENDOR_FORM_HIGH_INTEREST_MIN_REQUESTS = 3;
 export const VENDOR_FORM_LOGO_MAX_BYTES = 8 * 1024 * 1024;
 export const VENDOR_FORM_LOGO_MAX_DIMENSION = 1024;
 export const STAND_DEMAND_HIGH_LEVEL = 'high';
+export const STAND_OPTION_SEPARATOR = ' + ';

@@ -8,7 +8,7 @@ import {
   DEFAULT_VENDOR_APPLICATIONS_FILTERS,
   selectVendorApplications
 } from '../utils/vendorApplicationsFilterUtils.ts';
-import { getBaseApplication } from './vendorApplicationFixture.ts';
+import { getBaseApplication, withPreferredStands } from './vendorApplicationFixture.ts';
 
 const labels: VendorApplicationsExportLabels = {
   applicationId: 'ID',
@@ -19,7 +19,8 @@ const labels: VendorApplicationsExportLabels = {
   category: 'Kategoria',
   status: 'Status',
   preferredStands: 'Preferencje',
-  assignedStands: 'Zapisane przydziały'
+  assignedStands: 'Zapisane przydziały',
+  comments: 'Uwagi'
 };
 const categoryLabel = (category: string) => `category:${category}`;
 const statusLabel = (status: string) => `status:${status}`;
@@ -44,6 +45,17 @@ test('CSV exports only filtered applications in list order with all saved assign
   assert.deepEqual(applications[0].assignedStands, ['S2', 'M3']);
 });
 
+test('CSV joins the stands of each preferred pair', () => {
+  const application = {
+    ...getBaseApplication(),
+    ...withPreferredStands(['S1', 'S2', 'M4', 'M5'], true),
+    assignedStands: []
+  };
+  const csv = buildVendorApplicationsCsv([application], labels, categoryLabel, statusLabel);
+
+  assert.ok(csv.includes('"S1 + S2, M4 + M5";""'));
+});
+
 test('CSV supports other and missing categories and escapes user content', () => {
   const application = {
     ...getBaseApplication(),
@@ -64,6 +76,13 @@ test('CSV supports other and missing categories and escapes user content', () =>
 test('empty CSV contains only translated headers', () => {
   assert.equal(
     buildVendorApplicationsCsv([], labels, categoryLabel, statusLabel),
-    '\uFEFF"ID";"Zgłoszono";"Sklep";"E-mail";"Telefon";"Kategoria";"Status";"Preferencje";"Zapisane przydziały"'
+    '\uFEFF"ID";"Zgłoszono";"Sklep";"E-mail";"Telefon";"Kategoria";"Status";"Preferencje";"Zapisane przydziały";"Uwagi"'
   );
+});
+
+test('CSV ends each row with the vendor comments', () => {
+  const application = { ...getBaseApplication(), assignedStands: [], comments: 'Potrzebuję "prądu"' };
+  const csv = buildVendorApplicationsCsv([application], labels, categoryLabel, statusLabel);
+
+  assert.ok(csv.endsWith('"";"Potrzebuję ""prądu"""'));
 });

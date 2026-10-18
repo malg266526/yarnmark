@@ -1,6 +1,7 @@
 import type { VendorApplication } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
 import { VENDOR_FORM_MAX_PREFERRED_STANDS } from '../../../../../domain/vendorApplications/vendorFormConstants.ts';
 import { resolveStandType } from '../../../../../domain/vendorApplications/vendorStandTypeUtils.ts';
+import { getApplicationStandGroups } from './standChoiceUtils.ts';
 
 // Only signals the submission form cannot enforce: duplicates span several applications,
 // and the form accepts one or two preferred stands of any type.
@@ -47,7 +48,7 @@ const FLAG_PREDICATES: Record<VendorApplicationFlag, (context: VendorApplication
   duplicateEmail: ({ application, emailCounts }) => isDuplicated(emailCounts, application.email),
   duplicateStoreName: ({ application, storeNameCounts }) => isDuplicated(storeNameCounts, application.storeName),
   incompletePreferences: ({ application }) =>
-    new Set(application.preferredStands).size < VENDOR_FORM_MAX_PREFERRED_STANDS,
+    getApplicationStandGroups(application).length < VENDOR_FORM_MAX_PREFERRED_STANDS,
   singleStandType: ({ application }) => hasSingleStandType(application.preferredStands)
 };
 

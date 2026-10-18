@@ -4,7 +4,7 @@ import {
   ApplicationsSplitList,
   ApplicationsSplitMap
 } from '../VendorsApplicationsPage.styled';
-import { buildStandPriorityHighlights } from '../utils/vendorApplicationRowsUtils';
+import { buildStandPairHighlights, buildStandPriorityHighlights } from '../utils/vendorApplicationRowsUtils';
 import { VendorsApplicationsMapView } from './VendorsApplicationsMapView';
 import { VendorsApplicationsRowsView } from './VendorsApplicationsRowsView';
 import { VendorsApplicationsSplitViewProps } from './vendorsApplicationsViewContracts';
@@ -45,6 +45,7 @@ export const VendorsApplicationsSplitView = ({
       <ApplicationsSplitMap>
         <VendorsApplicationsMapView
           applications={allApplications}
+          highlightedStandPairs={buildStandPairHighlights(highlightedApplication)}
           highlightedStands={buildStandPriorityHighlights(highlightedApplication)}
           multiplier={mapMultiplier}
           selectStand={selectStand}

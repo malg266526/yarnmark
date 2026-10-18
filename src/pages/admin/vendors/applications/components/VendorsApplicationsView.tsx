@@ -100,7 +100,8 @@ export const VendorsApplicationsView = ({
       category: t('vendorsApplicationsPage.rows.columns.category'),
       status: t('vendorsApplicationsPage.fields.status'),
       preferredStands: t('vendorsApplicationsPage.fields.preferredStands'),
-      assignedStands: t('vendorsApplicationsPage.toolbar.assignedStands')
+      assignedStands: t('vendorsApplicationsPage.toolbar.assignedStands'),
+      comments: t('vendorsApplicationsPage.fields.comments')
     },
     resolveCategoryLabel,
     (status) => t(`vendorsApplicationsPage.statuses.${status}` as const)
@@ -181,6 +182,7 @@ export const VendorsApplicationsView = ({
               locale={t.i18n.language}
               resolvePriorityLabel={(priority) => t(`vendorsApplicationsPage.priorities.${priority}` as const)}
               selectedStandId={filters.standId}
+              standAssignment={standAssignment}
               translate={translate}
             />
           </ApplicationsMapSide>

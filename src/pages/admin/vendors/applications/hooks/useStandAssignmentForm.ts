@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { normalizeStandIds } from '../../../../../domain/vendorApplications/vendorFormStandIds.ts';
 import type { VendorApplicationStandAssignmentViewProps } from '../components/vendorsApplicationsViewContracts';
-import { buildStandAssignmentOptions } from '../utils/standAssignmentUtils';
+import { buildStandAssignmentOptions, fromStandAssignmentValue } from '../utils/standAssignmentUtils';
 
 export const useStandAssignmentForm = (
   application: VendorApplicationStandAssignmentViewProps['application'],
@@ -19,9 +19,11 @@ export const useStandAssignmentForm = (
     selectedStandIds.length !== application.assignedStands.length ||
     selectedStandIds.some((standId) => !application.assignedStands.includes(standId));
 
-  const addStand = (standId: string) => {
-    if (!standId || isSaving) return;
-    setSelectedStandIds((current) => normalizeStandIds([...current, standId]));
+  const addStand = (value: string) => {
+    const standIds = fromStandAssignmentValue(value);
+
+    if (standIds.length === 0 || isSaving) return;
+    setSelectedStandIds((current) => normalizeStandIds([...current, ...standIds]));
   };
 
   const removeStand = (standId: string) => {

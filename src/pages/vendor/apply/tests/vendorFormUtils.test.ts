@@ -1,13 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  getMaxPreferredStands,
-  getOpenPairStandId,
+  getActivePairingStandId,
   getPreferredStandGroups,
-  hasIncompleteStandPair,
+  getSelectedStandIds,
+  groupAssignedStands,
+  hasStandPair,
   isEmailValid,
   isPhoneValid,
-  toggleStandSelection
+  removeSecondStand,
+  toggleStandOption
 } from '../../../../domain/vendorApplications/vendorFormUtils.ts';
 import { INITIAL_VENDOR_FORM_STATE } from '../../../../domain/vendorApplications/vendorFormTypes.ts';
 import { createEmptyVendorFormDraft, parseStoredVendorFormDraft } from '../vendorFormStorage.ts';
@@ -19,7 +21,7 @@ const createValidVendorFormState = () => ({
   attendedBefore: true,
   mainCategory: 'yarns' as const,
   mainCategoryOther: '',
-  preferredStands: [],
+  preferredStandGroups: [],
   interestedIfUnavailable: true,
   sponsorshipInterest: null,
   phoneNumber: '+48 123 456 789',
@@ -56,7 +58,7 @@ test('parseStoredVendorFormDraft restores a valid payload', () => {
   const draft = {
     formData: {
       ...createValidVendorFormState(),
-      preferredStands: ['stand-1', 'stand-2'],
+      preferredStandGroups: [['stand-1', 'stand-2'], ['stand-3']],
       interestedIfUnavailable: false,
       sponsorshipInterest: true
     },
@@ -70,7 +72,7 @@ test('parseStoredVendorFormDraft normalizes stored hall ids to readable stand id
   const draft = {
     formData: {
       ...createValidVendorFormState(),
-      preferredStands: ['mgl60s92-lscpjj7', 'mgl65qbi-2kfiih9']
+      preferredStandGroups: [['mgl60s92-lscpjj7', 'mgl65qbi-2kfiih9']]
     },
     isComplete: false
   };
@@ -78,15 +80,16 @@ test('parseStoredVendorFormDraft normalizes stored hall ids to readable stand id
   assert.deepEqual(parseStoredVendorFormDraft(JSON.stringify(draft)), {
     formData: {
       ...draft.formData,
-      preferredStands: ['P2', 'P3']
+      preferredStandGroups: [['P2', 'P3']]
     },
     isComplete: false
   });
 });
 
-test('parseStoredVendorFormDraft rejects a payload missing preferredStands', () => {
+test('parseStoredVendorFormDraft restores a draft with the old flat stand list without its stands', () => {
   const draft = {
     formData: {
+      preferredStands: ['S1', 'S2'],
       storeName: 'Shop name',
       attendedBefore: true,
       mainCategory: 'yarns' as const,
@@ -103,14 +106,17 @@ test('parseStoredVendorFormDraft rejects a payload missing preferredStands', () 
     isComplete: true
   };
 
-  assert.equal(parseStoredVendorFormDraft(JSON.stringify(draft)), null);
+  const restoredDraft = parseStoredVendorFormDraft(JSON.stringify(draft));
+
+  assert.deepEqual(restoredDraft?.formData.preferredStandGroups, []);
+  assert.equal(restoredDraft?.formData.storeName, 'Shop name');
 });
 
 test('parseStoredVendorFormDraft restores legacy payload without sponsorship interest as null', () => {
   const legacyDraft = {
     formData: {
       ...createValidVendorFormState(),
-      preferredStands: ['P1'],
+      preferredStandGroups: [['P1']],
       sponsorshipInterest: undefined
     },
     isComplete: false
@@ -141,7 +147,7 @@ test('collectVendorFormValidationErrors returns multiple missing-section errors 
     storeName: 'vendorsFormPage.validation.storeNameRequired',
     attendedBefore: 'vendorsFormPage.validation.attendedBeforeRequired',
     mainCategory: 'vendorsFormPage.validation.mainCategoryRequired',
-    preferredStands: 'vendorsFormPage.validation.preferredStandsRequired',
+    preferredStandGroups: 'vendorsFormPage.validation.preferredStandsRequired',
     interestedIfUnavailable: 'vendorsFormPage.validation.interestedIfUnavailableRequired',
     phoneNumber: 'vendorsFormPage.validation.phoneRequired',
     email: 'vendorsFormPage.validation.emailRequired',
@@ -150,29 +156,6 @@ test('collectVendorFormValidationErrors returns multiple missing-section errors 
     businessDescription: 'vendorsFormPage.validation.businessDescriptionRequired',
     acceptedStatute: 'vendorsFormPage.validation.statuteRequired'
   });
-});
-
-test('toggleStandSelection adds a stand when under the cap', () => {
-  assert.deepEqual(toggleStandSelection(['a'], 'b', 3), ['a', 'b']);
-});
-
-test('toggleStandSelection removes a stand that is already selected', () => {
-  assert.deepEqual(toggleStandSelection(['a', 'b', 'c'], 'b', 3), ['a', 'c']);
-});
-
-test('toggleStandSelection refuses to add when at the cap', () => {
-  const current = ['a', 'b', 'c'];
-
-  assert.equal(toggleStandSelection(current, 'd', 3), current);
-});
-
-test('toggleStandSelection still allows removal when at the cap', () => {
-  assert.deepEqual(toggleStandSelection(['a', 'b', 'c'], 'a', 3), ['b', 'c']);
-});
-
-test('getMaxPreferredStands doubles the cap when the vendor wants two stands', () => {
-  assert.equal(getMaxPreferredStands(false), 3);
-  assert.equal(getMaxPreferredStands(true), 6);
 });
 
 test('getPreferredStandGroups keeps single stands as one-element preferences', () => {
@@ -190,49 +173,83 @@ test('getPreferredStandGroups leaves a half-finished pair as its own group', () 
   assert.deepEqual(getPreferredStandGroups(['S1', 'S2', 'M4'], true), [['S1', 'S2'], ['M4']]);
 });
 
-test('hasIncompleteStandPair only reports an odd count when pairs are requested', () => {
-  assert.equal(hasIncompleteStandPair(['S1', 'S2', 'M4'], true), true);
-  assert.equal(hasIncompleteStandPair(['S1', 'S2'], true), false);
-  assert.equal(hasIncompleteStandPair(['S1', 'S2', 'M4'], false), false);
-  assert.equal(hasIncompleteStandPair([], true), false);
-});
-
-test('parseStoredVendorFormDraft reads a draft saved before the two-stands checkbox existed', () => {
-  const legacyFormData: Record<string, unknown> = { ...createValidVendorFormState(), preferredStands: ['S1'] };
-
-  delete legacyFormData.wantsTwoStands;
+test('parseStoredVendorFormDraft drops the fields of the removed two-stands checkbox from an old draft', () => {
+  const legacyFormData = {
+    ...createValidVendorFormState(),
+    preferredStandGroups: [['S1']],
+    wantsTwoStands: true,
+    pairAnchorStandId: 'S2'
+  };
 
   const draft = parseStoredVendorFormDraft(JSON.stringify({ formData: legacyFormData, isComplete: false }));
 
-  assert.equal(draft?.formData.wantsTwoStands, false);
+  assert.deepEqual(draft?.formData.preferredStandGroups, [['S1']]);
+  assert.equal(draft && 'wantsTwoStands' in draft.formData, false);
+  assert.equal(draft && 'pairAnchorStandId' in draft.formData, false);
 });
 
-test('collectVendorFormValidationErrors rejects a half-finished pair of stands', () => {
+test('collectVendorFormValidationErrors accepts a mix of pairs and single stands', () => {
   const errors = collectVendorFormValidationErrors({
     ...createValidVendorFormState(),
-    wantsTwoStands: true,
-    preferredStands: ['S1', 'S2', 'M4']
+    preferredStandGroups: [['S1', 'S2'], ['P1'], ['S6']]
   });
 
-  assert.equal(errors.preferredStands, 'vendorsFormPage.validation.standPairIncomplete');
+  assert.equal(errors.preferredStandGroups, undefined);
 });
 
-test('collectVendorFormValidationErrors accepts complete pairs of stands', () => {
-  const errors = collectVendorFormValidationErrors({
-    ...createValidVendorFormState(),
-    wantsTwoStands: true,
-    preferredStands: ['S1', 'S2', 'M4', 'M5']
-  });
+const pickStands = (standIds: string[]) =>
+  standIds.reduce<string[][]>((standGroups, standId) => toggleStandOption(standGroups, standId, null), []);
 
-  assert.equal(errors.preferredStands, undefined);
+test('toggleStandOption adds every clicked stand as its own option in click order', () => {
+  assert.deepEqual(pickStands(['S1', 'P1', 'S6']), [['S1'], ['P1'], ['S6']]);
 });
 
-test('getOpenPairStandId points at the stand still waiting for its neighbour', () => {
-  assert.equal(getOpenPairStandId(['S1', 'S2', 'M4'], true), 'M4');
+test('toggleStandOption pairs the clicked stand with the option waiting for a second stand', () => {
+  assert.deepEqual(toggleStandOption([['S1'], ['P1'], ['S6']], 'S2', 'S1'), [['S1', 'S2'], ['P1'], ['S6']]);
 });
 
-test('getOpenPairStandId returns nothing when every pair is complete or pairs are off', () => {
-  assert.equal(getOpenPairStandId(['S1', 'S2'], true), null);
-  assert.equal(getOpenPairStandId([], true), null);
-  assert.equal(getOpenPairStandId(['S1'], false), null);
+test('toggleStandOption adds a second stand even when all options are taken', () => {
+  assert.deepEqual(toggleStandOption([['S1'], ['P1'], ['S6']], 'S7', 'S6'), [['S1'], ['P1'], ['S6', 'S7']]);
+});
+
+test('toggleStandOption ignores a pairing stand that is no longer a single option', () => {
+  assert.deepEqual(toggleStandOption([['S1', 'S2']], 'P1', 'S1'), [['S1', 'S2'], ['P1']]);
+  assert.deepEqual(toggleStandOption([['P1']], 'S6', 'S1'), [['P1'], ['S6']]);
+});
+
+test('toggleStandOption removes the whole option when one of its stands is clicked again', () => {
+  assert.deepEqual(toggleStandOption([['S1', 'S2'], ['P1']], 'S2', null), [['P1']]);
+});
+
+test('toggleStandOption refuses a fourth option but still allows removal', () => {
+  const standGroups = [['S1', 'S2'], ['P1'], ['S6']];
+
+  assert.equal(toggleStandOption(standGroups, 'M1', null), standGroups);
+  assert.deepEqual(toggleStandOption(standGroups, 'P1', null), [['S1', 'S2'], ['S6']]);
+});
+
+test('removeSecondStand turns a pair back into a single stand option', () => {
+  assert.deepEqual(removeSecondStand([['S1', 'S2'], ['P1']], 0), [['S1'], ['P1']]);
+});
+
+test('getActivePairingStandId only accepts a stand that is still a single option', () => {
+  assert.equal(getActivePairingStandId([['S1'], ['P1']], 'P1'), 'P1');
+  assert.equal(getActivePairingStandId([['S1', 'S2']], 'S1'), null);
+  assert.equal(getActivePairingStandId([['S1']], 'M1'), null);
+  assert.equal(getActivePairingStandId([['S1']], null), null);
+});
+
+test('getSelectedStandIds lists the stands of every option', () => {
+  assert.deepEqual(getSelectedStandIds([['S1', 'S2'], ['P1']]), ['S1', 'S2', 'P1']);
+});
+
+test('hasStandPair reports whether any option is a pair', () => {
+  assert.equal(hasStandPair([['P1'], ['S1', 'S2']]), true);
+  assert.equal(hasStandPair([['P1'], ['S6']]), false);
+});
+
+test('groupAssignedStands keeps an assigned preferred pair together and every other stand on its own', () => {
+  assert.deepEqual(groupAssignedStands(['S1', 'P1', 'S2'], [['S1', 'S2'], ['P1']]), [['S1', 'S2'], ['P1']]);
+  assert.deepEqual(groupAssignedStands(['S1', 'M3'], [['S1', 'S2']]), [['S1'], ['M3']]);
+  assert.deepEqual(groupAssignedStands([], [['S1', 'S2']]), []);
 });

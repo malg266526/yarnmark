@@ -2,6 +2,7 @@ import React from 'react';
 import { FormCard, FormLayout } from '../VendorFormPage.styled';
 import { VendorFormBasicsSection } from './VendorFormBasicsSection';
 import { VendorFormBusinessDescriptionSection } from './VendorFormBusinessDescriptionSection';
+import { VendorFormCommentsSection } from './VendorFormCommentsSection';
 import { VendorFormContactSection } from './VendorFormContactSection';
 import { VendorFormInvoiceSection } from './VendorFormInvoiceSection';
 import { VendorFormStandPreferencesSection } from './VendorFormStandPreferencesSection';
@@ -30,7 +31,7 @@ export const VendorFormView = ({ derivedState, formActions, formBindings, formSt
         derivedState={derivedState}
         formActions={{
           setBooleanFieldValue: formActions.setBooleanFieldValue,
-          setWantsTwoStands: formActions.setWantsTwoStands,
+          setStandOptionPaired: formActions.setStandOptionPaired,
           togglePreferredStand: formActions.togglePreferredStand
         }}
         formBindings={formBindings}
@@ -48,6 +49,8 @@ export const VendorFormView = ({ derivedState, formActions, formBindings, formSt
         formActions={{ updateBusinessDescription: formActions.updateBusinessDescription }}
         formBindings={formBindings}
       />
+
+      <VendorFormCommentsSection formBindings={formBindings} />
 
       <VendorFormStatuteSection
         formActions={{ setAcceptedStatuteValue: formActions.setAcceptedStatuteValue }}

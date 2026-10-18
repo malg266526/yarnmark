@@ -11,6 +11,8 @@ export interface VendorApplication extends VendorFormState {
   assignedStands: string[];
   id: string;
   logoUrl: string | null;
+  preferredStands: string[];
+  wantsTwoStands: boolean;
   status: VendorApplicationStatus;
   submittedAt: string;
 }

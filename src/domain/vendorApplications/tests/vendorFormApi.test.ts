@@ -5,12 +5,11 @@ import { INITIAL_VENDOR_FORM_STATE } from '../vendorFormTypes.ts';
 import { VENDOR_FORM_API_URL } from '../vendorFormConstants.ts';
 import { submitVendorApplicationToApi } from '../vendorFormApi.ts';
 
-test('submitVendorApplicationToApi posts stand pairs without the local wantsTwoStands flag', async () => {
+test('submitVendorApplicationToApi posts the stand options as preferredStands', async () => {
   const formData = {
     ...INITIAL_VENDOR_FORM_STATE,
     storeName: 'Test shop',
-    wantsTwoStands: true,
-    preferredStands: ['S1', 'S2', 'M4', 'M5']
+    preferredStandGroups: [['S1', 'S2'], ['P1'], ['S6']]
   };
   const calls: Array<[string, RequestInit | undefined]> = [];
   const originalFetch = globalThis.fetch;
@@ -33,11 +32,40 @@ test('submitVendorApplicationToApi posts stand pairs without the local wantsTwoS
     calls[0][1]?.headers && (calls[0][1].headers as Record<string, string>)['Content-Type'],
     'application/json'
   );
-  const expectedPayload: Partial<typeof formData> = { ...formData };
-  delete expectedPayload.wantsTwoStands;
+  const expectedPayload: Partial<typeof formData> & { preferredStands: string[][] } = {
+    ...formData,
+    preferredStands: [['S1', 'S2'], ['P1'], ['S6']]
+  };
+  delete expectedPayload.preferredStandGroups;
 
   assert.deepEqual(JSON.parse(calls[0][1]?.body as string), expectedPayload);
-  assert.equal(formData.wantsTwoStands, true);
+  assert.deepEqual(formData.preferredStandGroups, [['S1', 'S2'], ['P1'], ['S6']]);
+});
+
+test('submitVendorApplicationToApi posts single stand options as one-element lists', async () => {
+  const formData = {
+    ...INITIAL_VENDOR_FORM_STATE,
+    storeName: 'Test shop',
+    preferredStandGroups: [['P4'], ['S1'], ['M2']]
+  };
+  const calls: Array<RequestInit | undefined> = [];
+  const originalFetch = globalThis.fetch;
+
+  globalThis.fetch = (async (_url: string, init?: RequestInit) => {
+    calls.push(init);
+    return new Response(null, { status: 200 });
+  }) as typeof fetch;
+
+  try {
+    await submitVendorApplicationToApi(formData);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+
+  const payload = JSON.parse(calls[0]?.body as string) as Record<string, unknown>;
+
+  assert.deepEqual(payload.preferredStands, [['P4'], ['S1'], ['M2']]);
+  assert.equal('preferredStandGroups' in payload, false);
 });
 
 test('submitVendorApplicationToApi rejects when the request fails', async () => {
@@ -85,4 +113,25 @@ test('submitVendorApplicationToApi does not send credentials with the public sub
   }
 
   assert.equal(calls[0]?.credentials, 'same-origin');
+});
+
+test('submitVendorApplicationToApi sends the comments field', async () => {
+  const formData = { ...INITIAL_VENDOR_FORM_STATE, storeName: 'Test shop', comments: 'Potrzebuję dostępu do prądu' };
+  const calls: Array<RequestInit | undefined> = [];
+  const originalFetch = globalThis.fetch;
+
+  globalThis.fetch = (async (_url: string, init?: RequestInit) => {
+    calls.push(init);
+    return new Response(null, { status: 200 });
+  }) as typeof fetch;
+
+  try {
+    await submitVendorApplicationToApi(formData);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+
+  const payload = JSON.parse(calls[0]?.body as string) as Record<string, unknown>;
+
+  assert.equal(payload.comments, 'Potrzebuję dostępu do prądu');
 });

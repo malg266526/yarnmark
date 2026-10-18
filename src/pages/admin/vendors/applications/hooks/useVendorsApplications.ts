@@ -66,7 +66,13 @@ export const useVendorsApplications = () => {
     setSavingStatusApplicationId(application.id);
 
     try {
-      await updateVendorApplicationStatus(token, application.id, application.assignedStands, status);
+      await updateVendorApplicationStatus(
+        token,
+        application.id,
+        application.assignedStands,
+        status,
+        application.preferredStandGroups
+      );
       setApplications((currentApplications) =>
         currentApplications.map((currentApplication) =>
           currentApplication.id === application.id ? { ...currentApplication, status } : currentApplication
@@ -129,7 +135,13 @@ export const useVendorsApplications = () => {
     setSavingStandApplicationId(applicationId);
 
     try {
-      await updateVendorApplicationStatus(token, applicationId, assignedStands, application.status);
+      await updateVendorApplicationStatus(
+        token,
+        applicationId,
+        assignedStands,
+        application.status,
+        application.preferredStandGroups
+      );
       setApplications((currentApplications) =>
         currentApplications.map((currentApplication) =>
           currentApplication.id === applicationId ? { ...currentApplication, assignedStands } : currentApplication
@@ -137,6 +149,50 @@ export const useVendorsApplications = () => {
       );
     } catch (error) {
       console.error('Vendor application stand could not be assigned', error);
+      handleAdminApiError(error);
+    } finally {
+      setSavingStandApplicationId(null);
+    }
+  };
+
+  const acceptStand = async (applicationId: string, standId: string) => {
+    const application = applications.find(({ id }) => id === applicationId);
+
+    if (!application) {
+      return;
+    }
+
+    const assignedStands = normalizeStandIds([...application.assignedStands, standId]);
+    const status: VendorApplicationStatus = 'stand-assigned';
+
+    setSavingStandApplicationId(applicationId);
+
+    try {
+      await updateVendorApplicationStatus(
+        token,
+        applicationId,
+        assignedStands,
+        status,
+        application.preferredStandGroups
+      );
+      setApplications((currentApplications) =>
+        currentApplications.map((currentApplication) =>
+          currentApplication.id === applicationId
+            ? { ...currentApplication, assignedStands, status }
+            : currentApplication
+        )
+      );
+
+      if (application.status !== status) {
+        setLastStatusChange({
+          applicationId,
+          previousStatus: application.status,
+          status,
+          storeName: application.storeName
+        });
+      }
+    } catch (error) {
+      console.error('Vendor application stand could not be accepted', error);
       handleAdminApiError(error);
     } finally {
       setSavingStandApplicationId(null);
@@ -162,6 +218,7 @@ export const useVendorsApplications = () => {
   };
 
   return {
+    acceptStand,
     applications,
     assignStands,
     deleteApplication,

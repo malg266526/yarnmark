@@ -1,17 +1,21 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import type { VendorApplication } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
-import { buildStandPriorityHighlights, buildVendorApplicationRows } from '../utils/vendorApplicationRowsUtils.ts';
-import { getBaseApplication } from './vendorApplicationFixture.ts';
+import {
+  buildStandPairHighlights,
+  buildStandPriorityHighlights,
+  buildVendorApplicationRows
+} from '../utils/vendorApplicationRowsUtils.ts';
+import { getBaseApplication, withPreferredStands } from './vendorApplicationFixture.ts';
 
 const buildApplication = (overrides: Partial<VendorApplication>): VendorApplication => ({
   ...getBaseApplication(),
   ...overrides
 });
 
-const wooly = buildApplication({ id: 'wooly', preferredStands: ['S1', 'S10'] });
-const candleLab = buildApplication({ id: 'candle-lab', preferredStands: ['S1', 'P1'] });
-const ceramics = buildApplication({ id: 'ceramics', preferredStands: ['S10'] });
+const wooly = buildApplication({ id: 'wooly', ...withPreferredStands(['S1', 'S10']) });
+const candleLab = buildApplication({ id: 'candle-lab', ...withPreferredStands(['S1', 'P1']) });
+const ceramics = buildApplication({ id: 'ceramics', ...withPreferredStands(['S10']) });
 const applications = [wooly, candleLab, ceramics];
 
 test('buildVendorApplicationRows keeps preference order and counts the other applications wanting each stand', () => {
@@ -22,37 +26,57 @@ test('buildVendorApplicationRows keeps preference order and counts the other app
     ['wooly', 'candle-lab', 'ceramics']
   );
   assert.deepEqual(rows[0].preferences, [
-    { competitorCount: 1, standId: 'S1' },
-    { competitorCount: 1, standId: 'S10' }
+    { choicePosition: 1, stands: [{ competitorCount: 1, standId: 'S1' }] },
+    { choicePosition: 2, stands: [{ competitorCount: 1, standId: 'S10' }] }
   ]);
   assert.deepEqual(rows[1].preferences, [
-    { competitorCount: 1, standId: 'S1' },
-    { competitorCount: 0, standId: 'P1' }
+    { choicePosition: 1, stands: [{ competitorCount: 1, standId: 'S1' }] },
+    { choicePosition: 2, stands: [{ competitorCount: 0, standId: 'P1' }] }
   ]);
 });
 
 test('buildVendorApplicationRows counts competition over all applications, not only the visible ones', () => {
   const rows = buildVendorApplicationRows([ceramics], applications);
 
-  assert.deepEqual(rows[0].preferences, [{ competitorCount: 1, standId: 'S10' }]);
+  assert.deepEqual(rows[0].preferences, [{ choicePosition: 1, stands: [{ competitorCount: 1, standId: 'S10' }] }]);
 });
 
 test('buildVendorApplicationRows lists a stand once even when an application repeats it', () => {
-  const duplicated = buildApplication({ id: 'duplicated', preferredStands: ['S1', 'S1'] });
+  const duplicated = buildApplication({ id: 'duplicated', ...withPreferredStands(['S1', 'S1']) });
   const rows = buildVendorApplicationRows([duplicated], [duplicated]);
 
-  assert.deepEqual(rows[0].preferences, [{ competitorCount: 0, standId: 'S1' }]);
+  assert.deepEqual(rows[0].preferences, [{ choicePosition: 1, stands: [{ competitorCount: 0, standId: 'S1' }] }]);
+});
+
+test('buildVendorApplicationRows keeps both stands of a pair in one option next to single stands', () => {
+  const mixed = buildApplication({
+    id: 'mixed',
+    preferredStandGroups: [['S1', 'S2'], ['P1']],
+    preferredStands: ['S1', 'S2', 'P1']
+  });
+  const rows = buildVendorApplicationRows([mixed], [mixed, wooly]);
+
+  assert.deepEqual(rows[0].preferences, [
+    {
+      choicePosition: 1,
+      stands: [
+        { competitorCount: 1, standId: 'S1' },
+        { competitorCount: 0, standId: 'S2' }
+      ]
+    },
+    { choicePosition: 2, stands: [{ competitorCount: 0, standId: 'P1' }] }
+  ]);
 });
 
 test('buildVendorApplicationRows returns no preferences for an application that selected none', () => {
-  const withoutPreferences = buildApplication({ id: 'empty', preferredStands: [] });
+  const withoutPreferences = buildApplication({ id: 'empty', ...withPreferredStands([]) });
 
   assert.deepEqual(buildVendorApplicationRows([withoutPreferences], applications)[0].preferences, []);
 });
 
 test('buildStandPriorityHighlights numbers the picked stands from the highest priority', () => {
   const highlights = buildStandPriorityHighlights(
-    buildApplication({ id: 'highlighted', preferredStands: ['S1', 'S10', 'P1'] })
+    buildApplication({ id: 'highlighted', ...withPreferredStands(['S1', 'S10', 'P1']) })
   );
 
   assert.deepEqual(
@@ -67,7 +91,7 @@ test('buildStandPriorityHighlights numbers the picked stands from the highest pr
 
 test('buildStandPriorityHighlights skips repeated stands and handles no highlighted application', () => {
   const highlights = buildStandPriorityHighlights(
-    buildApplication({ id: 'duplicated', preferredStands: ['S1', 'S1', 'P1'] })
+    buildApplication({ id: 'duplicated', ...withPreferredStands(['S1', 'S1', 'P1']) })
   );
 
   assert.deepEqual(
@@ -78,4 +102,13 @@ test('buildStandPriorityHighlights skips repeated stands and handles no highligh
     ]
   );
   assert.equal(buildStandPriorityHighlights(null).size, 0);
+});
+
+test('buildStandPairHighlights returns only the pairs with their choice position', () => {
+  const highlights = buildStandPairHighlights(
+    buildApplication({ id: 'mixed', preferredStandGroups: [['P1'], ['S1', 'S2'], ['S6']] })
+  );
+
+  assert.deepEqual(highlights, [{ choicePosition: 2, standIds: ['S1', 'S2'] }]);
+  assert.deepEqual(buildStandPairHighlights(null), []);
 });

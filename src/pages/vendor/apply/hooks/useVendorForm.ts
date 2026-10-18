@@ -5,11 +5,14 @@ import type { UnprefixedTranslationKeys } from '../../../../translations/useType
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import type { VendorFormViewProps } from '../components/vendorFormViewContracts';
 import {
-  getMaxPreferredStands,
-  getOpenPairStandId,
-  getPreferredStandGroups,
-  toggleStandSelection
+  getActivePairingStandId,
+  getSelectedStandIds,
+  removeSecondStand,
+  toggleStandOption
 } from '../../../../domain/vendorApplications/vendorFormUtils.ts';
+import { isVendorStand, parseHallStands } from '../../../../components/hall/hallStands.ts';
+import { isReservedStand } from '../../../../components/hall/standReservationUtils.ts';
+import { getFreeNeighbourStandIds, getUnpairableStandIds } from '../vendorFormStandOptionsUtils.ts';
 import {
   fetchStandsDemandFromApi,
   submitVendorApplicationToApi
@@ -34,7 +37,8 @@ import { focusFirstInvalidField } from '../../../../components/form/formFocus.ts
 import { isFormDraftRestorable, resolveFormDraftStatus } from '../../../../components/form/formDraftStatusUtils.ts';
 import { createEmptyVendorFormDraft, parseStoredVendorFormDraft } from '../vendorFormStorage.ts';
 import { getHighDemandStandIds } from '../../../../domain/vendorApplications/vendorFormStandInterestUtils.ts';
-import { isVendorFormAvailable } from '../../../../domain/vendorApplications/vendorFormAvailabilityUtils.ts';
+import { isVendorFormOpenByServerClock } from '../../../../domain/vendorApplications/vendorFormServerClock.ts';
+import { hasVerifiedVendorFormAdminAccess } from '../vendorFormAdminAccess';
 
 const VENDOR_FORM_FIELD_ATTRIBUTE = 'data-vendor-form-field';
 
@@ -44,6 +48,14 @@ const collectSchemaErrors = (values: VendorFormValues) => {
   return result.success
     ? {}
     : Object.fromEntries(result.error.issues.map((issue) => [String(issue.path[0]), issue.message]));
+};
+
+const readSelectableHallStands = () => {
+  const parsedStands = parseHallStands();
+
+  return parsedStands.success
+    ? parsedStands.data.filter((stand) => isVendorStand(stand) && !isReservedStand(stand))
+    : [];
 };
 
 const readInitialVendorFormDraft = () => {
@@ -68,6 +80,9 @@ export const useVendorForm = (): VendorFormViewProps => {
   const [isLoadingLogo, setIsLoadingLogo] = useState(false);
   const [validationErrors, setValidationErrors] = useState<Partial<Record<keyof VendorFormValues, string>>>({});
   const [standDemand, setStandDemand] = useState<StandDemand>({});
+  const [isStandDemandLoaded, setIsStandDemandLoaded] = useState<boolean>(false);
+  const [pairingStandId, setPairingStandId] = useState<string | null>(null);
+  const [selectableHallStands] = useState(readSelectableHallStands);
 
   const form = useForm<VendorFormValues>({
     defaultValues: initialDraft.formData,
@@ -96,25 +111,42 @@ export const useVendorForm = (): VendorFormViewProps => {
 
   useEffect(() => {
     fetchStandsDemandFromApi()
-      .then(setStandDemand)
-      .catch(() => setStandDemand({}));
+      .then((data) => {
+        setStandDemand(data);
+        setIsStandDemandLoaded(true);
+      })
+      .catch(() => {
+        setStandDemand({});
+        setIsStandDemandLoaded(false);
+      });
   }, []);
 
   const highInterestStandIds = useMemo(() => getHighDemandStandIds(standDemand), [standDemand]);
 
+  const selectedStandIds = useMemo(
+    () => getSelectedStandIds(formData.preferredStandGroups),
+    [formData.preferredStandGroups]
+  );
+
+  const activePairingStandId = getActivePairingStandId(formData.preferredStandGroups, pairingStandId);
+
+  const pairableStandIds = useMemo(
+    () =>
+      activePairingStandId
+        ? getFreeNeighbourStandIds(selectableHallStands, activePairingStandId, selectedStandIds)
+        : null,
+    [activePairingStandId, selectableHallStands, selectedStandIds]
+  );
+
+  const unpairableStandIds = useMemo(
+    () => getUnpairableStandIds(selectableHallStands, formData.preferredStandGroups),
+    [selectableHallStands, formData.preferredStandGroups]
+  );
+
   const highInterestSelectedStandIds = useMemo(
-    () => formData.preferredStands.filter((standId) => highInterestStandIds.includes(standId)),
-    [formData.preferredStands, highInterestStandIds]
+    () => selectedStandIds.filter((standId) => highInterestStandIds.includes(standId)),
+    [selectedStandIds, highInterestStandIds]
   );
-
-  const maxPreferredStands = getMaxPreferredStands(formData.wantsTwoStands);
-
-  const preferredStandGroups = useMemo(
-    () => getPreferredStandGroups(formData.preferredStands, formData.wantsTwoStands),
-    [formData.preferredStands, formData.wantsTwoStands]
-  );
-
-  const pairAnchorStandId = getOpenPairStandId(formData.preferredStands, formData.wantsTwoStands);
 
   const updateLogoFile = async (file: File | null) => {
     if (!file) {
@@ -146,20 +178,26 @@ export const useVendorForm = (): VendorFormViewProps => {
     }
   };
 
-  const togglePreferredStand = (standId: string) => {
-    const nextValue = toggleStandSelection(getValues('preferredStands'), standId, maxPreferredStands);
-
-    setValue('preferredStands', nextValue, { shouldDirty: true, shouldValidate: hasAttemptedSubmit });
+  const setPreferredStandGroups = (preferredStandGroups: string[][]) => {
+    setValue('preferredStandGroups', preferredStandGroups, { shouldDirty: true, shouldValidate: hasAttemptedSubmit });
     markFormAsIncompleteAndClearSubmitError();
   };
 
-  const setWantsTwoStands = (value: boolean) => {
-    setValue('wantsTwoStands', value, { shouldDirty: true });
-    setValue('preferredStands', getValues('preferredStands').slice(0, getMaxPreferredStands(value)), {
-      shouldDirty: true,
-      shouldValidate: hasAttemptedSubmit
-    });
-    markFormAsIncompleteAndClearSubmitError();
+  const togglePreferredStand = (standId: string) => {
+    setPreferredStandGroups(toggleStandOption(getValues('preferredStandGroups'), standId, activePairingStandId));
+    setPairingStandId(null);
+  };
+
+  const setStandOptionPaired = (optionIndex: number, isPaired: boolean) => {
+    const preferredStandGroups = getValues('preferredStandGroups');
+
+    if (isPaired) {
+      setPairingStandId(preferredStandGroups[optionIndex]?.[0] ?? null);
+      return;
+    }
+
+    setPairingStandId(null);
+    setPreferredStandGroups(removeSecondStand(preferredStandGroups, optionIndex));
   };
 
   useEffect(() => {
@@ -197,7 +235,7 @@ export const useVendorForm = (): VendorFormViewProps => {
   }, [formData, hasAttemptedSubmit]);
 
   const submitVendorForm = async () => {
-    if (isLoadingLogo || !isVendorFormAvailable(Date.now())) {
+    if (isLoadingLogo || !(hasVerifiedVendorFormAdminAccess() || isVendorFormOpenByServerClock())) {
       return;
     }
 
@@ -229,6 +267,7 @@ export const useVendorForm = (): VendorFormViewProps => {
       setIsSuccessModalOpen(true);
       setHasAttemptedSubmit(false);
       setValidationErrors({});
+      setPairingStandId(null);
       reset(INITIAL_VENDOR_FORM_STATE);
     } catch (error) {
       console.error(error);
@@ -294,16 +333,19 @@ export const useVendorForm = (): VendorFormViewProps => {
     derivedState: {
       highInterestSelectedStandIds,
       highInterestStandIds,
-      maxPreferredStands,
-      pairAnchorStandId,
-      preferredStandGroups
+      interestKnownStandIds: Object.keys(standDemand),
+      isStandDemandAvailable: isStandDemandLoaded,
+      pairableStandIds,
+      pairingStandId: activePairingStandId,
+      selectedStandIds,
+      unpairableStandIds
     },
     formActions: {
       closeSuccessModal,
       setAcceptedStatuteValue,
       setBooleanFieldValue,
       setMainCategory,
-      setWantsTwoStands,
+      setStandOptionPaired,
       submitVendorForm,
       togglePreferredStand,
       updateBusinessDescription,

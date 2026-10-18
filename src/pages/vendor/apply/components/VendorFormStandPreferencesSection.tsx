@@ -6,7 +6,7 @@ import { FormFieldError } from '../../../../components/form/FormFieldError';
 import { FormFieldHeading } from '../../../../components/form/FormFieldHeading';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import {
-  CheckboxRow,
+  HallSideColumn,
   DisclaimerText,
   Fieldset,
   FormSection,
@@ -17,6 +17,7 @@ import {
   LegendCard,
   LegendRow,
   LegendSize,
+  LegendSwatch,
   LegendText,
   RadioGroup,
   RadioOption,
@@ -24,11 +25,10 @@ import {
   StandStatusPill,
   WarningCard
 } from '../VendorFormPage.styled';
-import {
-  VENDOR_FORM_MAX_PREFERRED_STANDS,
-  VENDOR_FORM_STANDS_PER_PAIR
-} from '../../../../domain/vendorApplications/vendorFormConstants.ts';
+import { BackgroundColors } from '../../../../styles/theme';
+import { VENDOR_FORM_MAX_PREFERRED_STANDS } from '../../../../domain/vendorApplications/vendorFormConstants.ts';
 import { SelectableHall } from './SelectableHall';
+import { VendorFormStandOptionsCard } from './VendorFormStandOptionsCard';
 import type { VendorFormActions, VendorFormBindings, VendorFormDerivedState } from './vendorFormViewContracts';
 
 const PREFERRED_STANDS_ERROR_ID = 'vendor-preferred-stands-error';
@@ -36,7 +36,7 @@ const INTERESTED_IF_UNAVAILABLE_ERROR_ID = 'vendor-interested-if-unavailable-err
 
 interface VendorFormStandPreferencesSectionProps {
   derivedState: VendorFormDerivedState;
-  formActions: Pick<VendorFormActions, 'setBooleanFieldValue' | 'setWantsTwoStands' | 'togglePreferredStand'>;
+  formActions: Pick<VendorFormActions, 'setBooleanFieldValue' | 'setStandOptionPaired' | 'togglePreferredStand'>;
   formBindings: VendorFormBindings;
 }
 
@@ -50,115 +50,111 @@ export const VendorFormStandPreferencesSection = ({
   const {
     highInterestSelectedStandIds,
     highInterestStandIds,
-    maxPreferredStands,
-    pairAnchorStandId,
-    preferredStandGroups
+    interestKnownStandIds,
+    isStandDemandAvailable,
+    pairableStandIds,
+    pairingStandId,
+    selectedStandIds,
+    unpairableStandIds
   } = derivedState;
-  const { setBooleanFieldValue, setWantsTwoStands, togglePreferredStand } = formActions;
-  const preferredStandsError = resolveFieldErrorMessage('preferredStands');
+  const { setBooleanFieldValue, setStandOptionPaired, togglePreferredStand } = formActions;
+  const preferredStandsError = resolveFieldErrorMessage('preferredStandGroups');
   const interestedIfUnavailableError = resolveFieldErrorMessage('interestedIfUnavailable');
 
   return (
     <>
       <FormSection>
         <Fieldset
-          data-vendor-form-field="preferredStands"
+          data-vendor-form-field="preferredStandGroups"
           aria-invalid={Boolean(preferredStandsError)}
           aria-describedby={preferredStandsError ? PREFERRED_STANDS_ERROR_ID : undefined}
         >
           <FormFieldHeading title={t('vendorsFormPage.steps.preferredStands.title')} requirement="required" />
-          <CheckboxRow htmlFor="wants_two_stands">
-            <input
-              id="wants_two_stands"
-              type="checkbox"
-              data-vendor-form-field="wantsTwoStands"
-              checked={formData.wantsTwoStands}
-              onChange={(event) => setWantsTwoStands(event.target.checked)}
-            />
-            <span>{t('vendorsFormPage.steps.preferredStands.twoStandsLabel')}</span>
-          </CheckboxRow>
           <FieldHint>
-            {formData.wantsTwoStands
-              ? t('vendorsFormPage.steps.preferredStands.pairHint', { max: VENDOR_FORM_MAX_PREFERRED_STANDS })
-              : t('vendorsFormPage.steps.preferredStands.hint', { max: VENDOR_FORM_MAX_PREFERRED_STANDS })}
+            {t('vendorsFormPage.steps.preferredStands.hint', { max: VENDOR_FORM_MAX_PREFERRED_STANDS })}
           </FieldHint>
           <FieldHint>{t('vendorsFormPage.steps.preferredStands.orderHint')}</FieldHint>
           <FieldHint>
-            {formData.wantsTwoStands
-              ? t('vendorsFormPage.steps.preferredStands.pairCounter', {
-                  current: Math.floor(formData.preferredStands.length / VENDOR_FORM_STANDS_PER_PAIR),
-                  max: VENDOR_FORM_MAX_PREFERRED_STANDS
-                })
-              : t('vendorsFormPage.steps.preferredStands.counter', {
-                  current: formData.preferredStands.length,
-                  max: maxPreferredStands
-                })}
+            {t('vendorsFormPage.steps.preferredStands.counter', {
+              current: formData.preferredStandGroups.length,
+              max: VENDOR_FORM_MAX_PREFERRED_STANDS
+            })}
           </FieldHint>
           <HallLayout>
             <HallMapColumn>
               <SelectableHall
                 highInterestStandIds={highInterestStandIds}
-                isPairMode={formData.wantsTwoStands}
-                pairAnchorStandId={pairAnchorStandId}
-                selectedStandIds={formData.preferredStands}
+                interestKnownStandIds={interestKnownStandIds}
+                isDemandAvailable={isStandDemandAvailable}
+                pairableStandIds={pairableStandIds}
+                selectedStandIds={selectedStandIds}
                 onToggleStand={togglePreferredStand}
               />
             </HallMapColumn>
-            <LegendCard aria-label={t('vendorsFormPage.steps.preferredStands.legendTitle')}>
-              <Typography size="sm" weight="bold">
-                {t('vendorsFormPage.steps.preferredStands.legendTitle')}
-              </Typography>
-              <LegendRow>
-                <LegendBadge>P</LegendBadge>
-                <LegendText>
-                  {t('vendorsFormPage.steps.preferredStands.premiumLabel')}
-                  <LegendSize>{t('vendorsFormPage.steps.preferredStands.premiumSize')}</LegendSize>
-                </LegendText>
-              </LegendRow>
-              <LegendRow>
-                <LegendBadge>S</LegendBadge>
-                <LegendText>
-                  {t('vendorsFormPage.steps.preferredStands.standardLabel')}
-                  <LegendSize>{t('vendorsFormPage.steps.preferredStands.standardSize')}</LegendSize>
-                </LegendText>
-              </LegendRow>
-              <LegendRow>
-                <LegendBadge>C</LegendBadge>
-                <LegendText>
-                  {t('vendorsFormPage.steps.preferredStands.cLabel')}
-                  <LegendSize>{t('vendorsFormPage.steps.preferredStands.cSize')}</LegendSize>
-                </LegendText>
-              </LegendRow>
-              <LegendRow>
-                <LegendBadge>M</LegendBadge>
-                <LegendText>
-                  {t('vendorsFormPage.steps.preferredStands.miniLabel')}
-                  <LegendSize>{t('vendorsFormPage.steps.preferredStands.miniSize')}</LegendSize>
-                </LegendText>
-              </LegendRow>
-              <LegendRow>
-                <LegendBadge>HI</LegendBadge>
-                <LegendText>
-                  {t('vendorsFormPage.steps.preferredStands.highInterestLabel')}
-                  <LegendSize>{t('vendorsFormPage.steps.preferredStands.highInterestHint')}</LegendSize>
-                </LegendText>
-              </LegendRow>
-            </LegendCard>
+            <HallSideColumn>
+              <VendorFormStandOptionsCard
+                pairingStandId={pairingStandId}
+                preferredStandGroups={formData.preferredStandGroups}
+                unpairableStandIds={unpairableStandIds}
+                onSetStandOptionPaired={setStandOptionPaired}
+              />
+              <LegendCard aria-label={t('vendorsFormPage.steps.preferredStands.legendTitle')}>
+                <Typography size="sm" weight="bold">
+                  {t('vendorsFormPage.steps.preferredStands.legendTitle')}
+                </Typography>
+                <LegendRow>
+                  <LegendBadge>P</LegendBadge>
+                  <LegendText>
+                    {t('vendorsFormPage.steps.preferredStands.premiumLabel')}
+                    <LegendSize>{t('vendorsFormPage.steps.preferredStands.premiumSize')}</LegendSize>
+                  </LegendText>
+                </LegendRow>
+                <LegendRow>
+                  <LegendBadge>S</LegendBadge>
+                  <LegendText>
+                    {t('vendorsFormPage.steps.preferredStands.standardLabel')}
+                    <LegendSize>{t('vendorsFormPage.steps.preferredStands.standardSize')}</LegendSize>
+                  </LegendText>
+                </LegendRow>
+                <LegendRow>
+                  <LegendBadge>C</LegendBadge>
+                  <LegendText>
+                    {t('vendorsFormPage.steps.preferredStands.cLabel')}
+                    <LegendSize>{t('vendorsFormPage.steps.preferredStands.cSize')}</LegendSize>
+                  </LegendText>
+                </LegendRow>
+                <LegendRow>
+                  <LegendBadge>M</LegendBadge>
+                  <LegendText>
+                    {t('vendorsFormPage.steps.preferredStands.miniLabel')}
+                    <LegendSize>{t('vendorsFormPage.steps.preferredStands.miniSize')}</LegendSize>
+                  </LegendText>
+                </LegendRow>
+                <LegendRow>
+                  <LegendBadge>HI</LegendBadge>
+                  <LegendText>
+                    {t('vendorsFormPage.steps.preferredStands.highInterestLabel')}
+                    <LegendSize>{t('vendorsFormPage.steps.preferredStands.highInterestHint')}</LegendSize>
+                  </LegendText>
+                </LegendRow>
+                <LegendRow>
+                  <LegendSwatch $color={BackgroundColors.green.medium} $borderColor={BackgroundColors.green.medium} />
+                  <LegendText>{t('vendorsFormPage.steps.preferredStands.availableLabel')}</LegendText>
+                </LegendRow>
+                <LegendRow>
+                  <LegendSwatch
+                    $color={BackgroundColors.green.medium}
+                    $borderColor={BackgroundColors.green.medium}
+                    $hasNoInterestFrame
+                  />
+                  <LegendText>
+                    {t('vendorsFormPage.steps.preferredStands.noInterestLabel')}
+                    <LegendSize>{t('vendorsFormPage.steps.preferredStands.noInterestHint')}</LegendSize>
+                  </LegendText>
+                </LegendRow>
+              </LegendCard>
+            </HallSideColumn>
           </HallLayout>
-          {formData.wantsTwoStands && preferredStandGroups.length > 0 ? (
-            <StandStatusList>
-              {preferredStandGroups.map((standGroup, groupIndex) => (
-                <StandStatusPill key={standGroup.join('-')}>
-                  {t(
-                    standGroup.length === VENDOR_FORM_STANDS_PER_PAIR
-                      ? 'vendorsFormPage.steps.preferredStands.pairLabel'
-                      : 'vendorsFormPage.steps.preferredStands.pairIncomplete',
-                    { number: groupIndex + 1, stands: standGroup.join(' + ') }
-                  )}
-                </StandStatusPill>
-              ))}
-            </StandStatusList>
-          ) : null}
           {highInterestSelectedStandIds.length > 0 ? (
             <StandStatusList>
               {highInterestSelectedStandIds.map((standId) => (

@@ -2,11 +2,11 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import type { VendorApplication } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
 import { buildVendorApplicationFlags } from '../utils/vendorApplicationFlagsUtils.ts';
-import { getBaseApplication } from './vendorApplicationFixture.ts';
+import { getBaseApplication, withPreferredStands } from './vendorApplicationFixture.ts';
 
 const buildApplication = (overrides: Partial<VendorApplication>): VendorApplication => ({
   ...getBaseApplication(),
-  preferredStands: ['S1', 'P1', 'M3'],
+  ...withPreferredStands(['S1', 'P1', 'M3']),
   ...overrides
 });
 
@@ -55,25 +55,39 @@ test('fields the submission form already requires do not produce flags', () => {
 });
 
 test('fewer than three distinct stands is flagged, duplicates do not count as separate picks', () => {
-  const application = buildApplication({ id: 'few', preferredStands: ['S1', 'S1', 'P1'] });
+  const application = buildApplication({ id: 'few', ...withPreferredStands(['S1', 'S1', 'P1']) });
 
   assert.deepEqual(flagsOf([application], 'few'), ['incompletePreferences']);
 });
 
+test('three pairs of stands are complete preferences, two pairs are flagged', () => {
+  const threePairs = buildApplication({
+    id: 'three-pairs',
+    ...withPreferredStands(['S1', 'S2', 'P1', 'P2', 'M3', 'M4'], true)
+  });
+  const twoPairs = buildApplication({
+    id: 'two-pairs',
+    ...withPreferredStands(['S1', 'S2', 'P1', 'P2'], true)
+  });
+
+  assert.deepEqual(flagsOf([threePairs], 'three-pairs'), []);
+  assert.deepEqual(flagsOf([twoPairs], 'two-pairs'), ['incompletePreferences']);
+});
+
 test('picking only one stand type is flagged', () => {
-  const premiumOnly = buildApplication({ id: 'premium-only', preferredStands: ['P1', 'P2', 'P3'] });
+  const premiumOnly = buildApplication({ id: 'premium-only', ...withPreferredStands(['P1', 'P2', 'P3']) });
 
   assert.deepEqual(flagsOf([premiumOnly], 'premium-only'), ['singleStandType']);
 });
 
 test('a single pick is not reported as one stand type, only as incomplete preferences', () => {
-  const application = buildApplication({ id: 'single', preferredStands: ['P1'] });
+  const application = buildApplication({ id: 'single', ...withPreferredStands(['P1']) });
 
   assert.deepEqual(flagsOf([application], 'single'), ['incompletePreferences']);
 });
 
 test('stands with an unknown prefix never produce a one-type flag', () => {
-  const application = buildApplication({ id: 'unknown', preferredStands: ['X1', 'X2', 'X3'] });
+  const application = buildApplication({ id: 'unknown', ...withPreferredStands(['X1', 'X2', 'X3']) });
 
   assert.deepEqual(flagsOf([application], 'unknown'), []);
 });

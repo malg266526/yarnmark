@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {
   ApplicationsPreferenceCompetitors,
   ApplicationsPreferenceList,
   ApplicationsPreferenceOrder,
+  ApplicationsPreferenceStand,
+  ApplicationsPreferenceStandSeparator,
   ApplicationsPreferenceTag,
   ApplicationsRowNameButton,
   ApplicationsStatusTag,
@@ -14,6 +16,7 @@ import {
   ApplicationsTableScroller
 } from '../VendorsApplicationsPage.styled';
 import { buildVendorApplicationRows } from '../utils/vendorApplicationRowsUtils';
+import { STAND_GROUP_SEPARATOR } from '../utils/standChoiceUtils';
 import { VendorApplicationFlagsView } from './VendorApplicationFlagsView';
 import { formatCompactDateTime, formatMainCategory } from '../utils/vendorsApplicationsFormatters';
 import { VendorsApplicationsRowsViewProps } from './vendorsApplicationsViewContracts';
@@ -76,17 +79,32 @@ export const VendorsApplicationsRowsView = ({
                   values.noneSelected
                 ) : (
                   <ApplicationsPreferenceList>
-                    {preferences.map(({ competitorCount, standId }, preferenceIndex) => (
+                    {preferences.map(({ choicePosition, stands }) => (
                       <ApplicationsPreferenceTag
-                        key={standId}
-                        title={translate('vendorsApplicationsPage.rows.competitors', {
-                          count: competitorCount,
-                          standId
-                        })}
+                        key={choicePosition}
+                        $isPair={stands.length > 1}
+                        title={stands
+                          .map(({ competitorCount, standId }) =>
+                            translate('vendorsApplicationsPage.rows.competitors', { count: competitorCount, standId })
+                          )
+                          .join('\n')}
                       >
-                        <ApplicationsPreferenceOrder>{preferenceIndex + 1}</ApplicationsPreferenceOrder>
-                        {standId}
-                        <ApplicationsPreferenceCompetitors>{competitorCount}</ApplicationsPreferenceCompetitors>
+                        <ApplicationsPreferenceOrder $isInPair={stands.length > 1}>
+                          {choicePosition}
+                        </ApplicationsPreferenceOrder>
+                        {stands.map(({ competitorCount, standId }, standIndex) => (
+                          <Fragment key={standId}>
+                            {standIndex > 0 ? (
+                              <ApplicationsPreferenceStandSeparator>
+                                {STAND_GROUP_SEPARATOR.trim()}
+                              </ApplicationsPreferenceStandSeparator>
+                            ) : null}
+                            <ApplicationsPreferenceStand $isInPair={stands.length > 1}>
+                              {standId}
+                              <ApplicationsPreferenceCompetitors>{competitorCount}</ApplicationsPreferenceCompetitors>
+                            </ApplicationsPreferenceStand>
+                          </Fragment>
+                        ))}
                       </ApplicationsPreferenceTag>
                     ))}
                   </ApplicationsPreferenceList>
