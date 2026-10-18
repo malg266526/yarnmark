@@ -34,7 +34,8 @@ import { focusFirstInvalidField } from '../../../../components/form/formFocus.ts
 import { isFormDraftRestorable, resolveFormDraftStatus } from '../../../../components/form/formDraftStatusUtils.ts';
 import { createEmptyVendorFormDraft, parseStoredVendorFormDraft } from '../vendorFormStorage.ts';
 import { getHighDemandStandIds } from '../../../../domain/vendorApplications/vendorFormStandInterestUtils.ts';
-import { isVendorFormAvailable } from '../../../../domain/vendorApplications/vendorFormAvailabilityUtils.ts';
+import { isVendorFormOpenByServerClock } from '../../../../domain/vendorApplications/vendorFormServerClock.ts';
+import { hasVerifiedVendorFormAdminAccess } from '../vendorFormAdminAccess';
 
 const VENDOR_FORM_FIELD_ATTRIBUTE = 'data-vendor-form-field';
 
@@ -197,7 +198,7 @@ export const useVendorForm = (): VendorFormViewProps => {
   }, [formData, hasAttemptedSubmit]);
 
   const submitVendorForm = async () => {
-    if (isLoadingLogo || !isVendorFormAvailable(Date.now())) {
+    if (isLoadingLogo || !(hasVerifiedVendorFormAdminAccess() || isVendorFormOpenByServerClock())) {
       return;
     }
 

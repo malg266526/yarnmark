@@ -31,6 +31,10 @@ const vendorApplicationAllocationStateSchema = z
       allocationState ?? DEFAULT_VENDOR_APPLICATION_ALLOCATION_STATE
   );
 
+const backendStandIdsSchema = z
+  .array(z.union([z.string(), z.array(z.string())]))
+  .transform((standIds) => standIds.flat());
+
 const vendorApplicationRecordSchema = vendorFormStateSchema
   .extend({
     allocatedStandId: z.string().nullable().optional(),
@@ -40,13 +44,14 @@ const vendorApplicationRecordSchema = vendorFormStateSchema
       .optional()
       .transform((allocationIteration) => allocationIteration ?? null),
     allocationState: vendorApplicationAllocationStateSchema,
-    assignedStands: z.array(z.string()).nullable().optional(),
+    assignedStands: backendStandIdsSchema.nullable().optional(),
     id: z.string(),
     logoUrl: z
       .string()
       .nullable()
       .optional()
       .transform((logoUrl) => resolveApiAssetUrl(logoUrl)),
+    preferredStands: backendStandIdsSchema.transform((standIds) => normalizeStandIds(standIds)),
     status: vendorApplicationStatusSchema,
     submittedAt: z.string()
   })
@@ -75,6 +80,10 @@ export const parseVendorApplications = (responseBody: unknown): VendorApplicatio
 
 export const listVendorApplications = async (token: string): Promise<VendorApplication[]> =>
   parseVendorApplications(await requestApi(VENDOR_FORM_API_URL, { token }));
+
+export const verifyVendorApplicationsAccess = async (token: string): Promise<void> => {
+  await requestApi(VENDOR_FORM_API_URL, { method: 'HEAD', token });
+};
 
 export const deleteVendorApplication = async (token: string, applicationId: string): Promise<void> => {
   await requestApi(`${VENDOR_FORM_API_URL}/${encodeURIComponent(applicationId)}`, {

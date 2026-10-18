@@ -113,6 +113,15 @@ test('parseVendorApplications keeps the stands assigned by the backend', () => {
   assert.deepEqual(parseVendorApplications([application])[0].assignedStands, ['S12', 'M2']);
 });
 
+test('parseVendorApplications flattens stands nested in arrays by the backend', () => {
+  const [application] = parseVendorApplications([
+    { ...createVendorApplicationPayload(), preferredStands: [['P4']], assignedStands: [['P4']] }
+  ]);
+
+  assert.deepEqual(application?.preferredStands, ['P4']);
+  assert.deepEqual(application?.assignedStands, ['P4']);
+});
+
 test('parseVendorApplications preserves many-to-many assignments and deduplicates only within each application', () => {
   const applications = [
     { ...createVendorApplicationPayload(), id: 'first', assignedStands: ['S1', 'M2', 'P3', 'S1'] },
