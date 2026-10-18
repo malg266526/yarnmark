@@ -14,61 +14,6 @@ import {
   WarningColors
 } from '../../../styles/theme';
 
-export const FormAvailabilityRoot = styled.div`
-  position: relative;
-  width: 100%;
-  max-width: 1100px;
-`;
-
-export const FormAvailabilityFields = styled.fieldset`
-  width: 100%;
-  min-inline-size: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-
-  &:disabled {
-    opacity: 0.45;
-  }
-`;
-
-export const FormAvailabilityOverlay = styled.div`
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  padding: ${RedesignSpacings.md};
-  border-radius: ${Radius.xl};
-  background: rgba(255, 255, 255, 0.35);
-
-  @media (max-width: ${ScreenSize.phone}) {
-    padding: ${RedesignSpacings.sm};
-  }
-`;
-
-export const FormAvailabilityNotice = styled.div`
-  position: fixed;
-  inset: 0;
-  width: calc(100% - ${RedesignSpacings.md} * 2);
-  height: fit-content;
-  max-width: 640px;
-  margin: auto;
-  padding: ${RedesignSpacings.md};
-  border: 1px solid ${BackgroundColors.green.medium};
-  border-radius: ${Radius.lg};
-  background: ${Colors.white};
-  box-shadow: ${DropShadow.card};
-  color: ${TextColors.primary};
-  font-family: ${FontFamilies.primary};
-  font-size: ${FontSize.md};
-  line-height: 1.5;
-  text-align: center;
-
-  @media (max-width: ${ScreenSize.phone}) {
-    width: calc(100% - ${RedesignSpacings.sm} * 2);
-    padding: ${RedesignSpacings.sm};
-  }
-`;
-
 export const FormCard = styled.div`
   width: 100%;
   max-width: 1100px;
