@@ -370,6 +370,7 @@ export const en: TranslationsShape = {
           optionsTitle: 'Your options',
           optionsEmpty: 'Click a stand on the map to add an option.',
           optionsSeparator: 'or',
+          optionsAddMore: 'Click a stand on the map to pick an alternative stand.',
           addSecondStand: 'Add a second, neighbouring stand',
           hint: 'You can pick up to {{max}} alternative options. Each option is one stand — <0>if you want two neighbouring stands, tick “Add a second, neighbouring stand” next to that option.</0> Green — available, orange — selected by you.',
           orderHint: 'Order matters — the first stand you click becomes your top pick.',

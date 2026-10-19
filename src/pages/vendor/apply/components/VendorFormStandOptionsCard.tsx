@@ -10,7 +10,10 @@ import {
   StandOptionsEmpty,
   StandOptionsList
 } from '../VendorFormPage.styled';
-import { STAND_OPTION_SEPARATOR } from '../../../../domain/vendorApplications/vendorFormConstants.ts';
+import {
+  STAND_OPTION_SEPARATOR,
+  VENDOR_FORM_MAX_PREFERRED_STANDS
+} from '../../../../domain/vendorApplications/vendorFormConstants.ts';
 import { canStandBePaired } from '../../../../domain/vendorApplications/vendorStandTypeUtils.ts';
 
 interface VendorFormStandOptionsCardProps {
@@ -74,6 +77,12 @@ export const VendorFormStandOptionsCard = ({
               </StandOptionItem>
             );
           })}
+          {preferredStandGroups.length < VENDOR_FORM_MAX_PREFERRED_STANDS ? (
+            <StandOptionItem>
+              <StandOptionSeparator>{t('vendorsFormPage.steps.preferredStands.optionsSeparator')}</StandOptionSeparator>
+              <StandOptionsEmpty>{t('vendorsFormPage.steps.preferredStands.optionsAddMore')}</StandOptionsEmpty>
+            </StandOptionItem>
+          ) : null}
         </StandOptionsList>
       )}
     </LegendCard>

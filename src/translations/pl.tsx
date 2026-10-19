@@ -369,6 +369,7 @@ export const pl = {
           optionsTitle: 'Twoje opcje',
           optionsEmpty: 'Kliknij stoisko na mapie, aby dodać opcję.',
           optionsSeparator: 'lub',
+          optionsAddMore: 'Kliknij stoisko na mapie, aby wybrać alternatywne stoisko.',
           addSecondStand: 'Dobierz drugie, sąsiednie stoisko',
           hint: 'Możesz wybrać maksymalnie {{max}} alternatywne opcje. Każda opcja to jedno stoisko — <0>jeśli chcesz dwa sąsiadujące stoiska, zaznacz „Dobierz drugie, sąsiednie stoisko” przy wybranej opcji.</0> Zielone — wolne, pomarańczowe — wybrane przez Ciebie.',
           orderHint: 'Kolejność klikania ma znaczenie — pierwsze kliknięte stoisko traktujemy jako pierwszy wybór.',
