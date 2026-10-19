@@ -369,13 +369,15 @@ export const en: TranslationsShape = {
           optionIncomplete: 'Option {{number}}: {{stands}} — pick a neighbouring stand',
           optionsTitle: 'Your options',
           optionsEmpty: 'Click a stand on the map to add an option.',
+          optionsSeparator: 'or',
           addSecondStand: 'Add a second, neighbouring stand',
-          hint: 'You can pick up to {{max}} options. Each option is one stand — if you want two neighbouring stands, tick “Add a second, neighbouring stand” next to that option. Green — available, orange — selected by you.',
+          hint: 'You can pick up to {{max}} alternative options. Each option is one stand — <0>if you want two neighbouring stands, tick “Add a second, neighbouring stand” next to that option.</0> Green — available, orange — selected by you.',
           orderHint: 'Order matters — the first stand you click becomes your top pick.',
           counter: '{{current}} of {{max}} selected',
           detailsHint:
             'Detailed information about stand types, dimensions, and equipment is available on the <0>Info for vendors</0> page.',
           availableLabel: 'Available',
+          availableHint: 'no vendor assigned at the moment',
           highInterestLabel: 'High Interest',
           highInterestHint: 'at least 3 interested vendors',
           highInterestWarning:

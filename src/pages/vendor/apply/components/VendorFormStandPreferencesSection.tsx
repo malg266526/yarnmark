@@ -11,6 +11,7 @@ import {
   Fieldset,
   FormSection,
   HallLayout,
+  HintEmphasis,
   HallMapColumn,
   InlineLink,
   LegendBadge,
@@ -70,9 +71,13 @@ export const VendorFormStandPreferencesSection = ({
           aria-describedby={preferredStandsError ? PREFERRED_STANDS_ERROR_ID : undefined}
         >
           <FormFieldHeading title={t('vendorsFormPage.steps.preferredStands.title')} requirement="required" />
-          <FieldHint>
-            {t('vendorsFormPage.steps.preferredStands.hint', { max: VENDOR_FORM_MAX_PREFERRED_STANDS })}
-          </FieldHint>
+          <DisclaimerText>
+            <Trans
+              i18nKey="vendorsFormPage.steps.preferredStands.hint"
+              values={{ max: VENDOR_FORM_MAX_PREFERRED_STANDS }}
+              components={[<HintEmphasis key="pair_hint_emphasis" />]}
+            />
+          </DisclaimerText>
           <FieldHint>{t('vendorsFormPage.steps.preferredStands.orderHint')}</FieldHint>
           <FieldHint>
             {t('vendorsFormPage.steps.preferredStands.counter', {
@@ -80,6 +85,12 @@ export const VendorFormStandPreferencesSection = ({
               max: VENDOR_FORM_MAX_PREFERRED_STANDS
             })}
           </FieldHint>
+          <VendorFormStandOptionsCard
+            pairingStandId={pairingStandId}
+            preferredStandGroups={formData.preferredStandGroups}
+            unpairableStandIds={unpairableStandIds}
+            onSetStandOptionPaired={setStandOptionPaired}
+          />
           <HallLayout>
             <HallMapColumn>
               <SelectableHall
@@ -92,12 +103,6 @@ export const VendorFormStandPreferencesSection = ({
               />
             </HallMapColumn>
             <HallSideColumn>
-              <VendorFormStandOptionsCard
-                pairingStandId={pairingStandId}
-                preferredStandGroups={formData.preferredStandGroups}
-                unpairableStandIds={unpairableStandIds}
-                onSetStandOptionPaired={setStandOptionPaired}
-              />
               <LegendCard aria-label={t('vendorsFormPage.steps.preferredStands.legendTitle')}>
                 <Typography size="sm" weight="bold">
                   {t('vendorsFormPage.steps.preferredStands.legendTitle')}
@@ -139,7 +144,10 @@ export const VendorFormStandPreferencesSection = ({
                 </LegendRow>
                 <LegendRow>
                   <LegendSwatch $color={BackgroundColors.green.medium} $borderColor={BackgroundColors.green.medium} />
-                  <LegendText>{t('vendorsFormPage.steps.preferredStands.availableLabel')}</LegendText>
+                  <LegendText>
+                    {t('vendorsFormPage.steps.preferredStands.availableLabel')}
+                    <LegendSize>{t('vendorsFormPage.steps.preferredStands.availableHint')}</LegendSize>
+                  </LegendText>
                 </LegendRow>
                 <LegendRow>
                   <LegendSwatch

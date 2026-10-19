@@ -6,6 +6,7 @@ import {
   StandOptionItem,
   StandOptionLabel,
   StandOptionPairToggle,
+  StandOptionSeparator,
   StandOptionsEmpty,
   StandOptionsList
 } from '../VendorFormPage.styled';
@@ -45,6 +46,11 @@ export const VendorFormStandOptionsCard = ({
 
             return (
               <StandOptionItem key={standGroup.join('-')}>
+                {optionIndex > 0 ? (
+                  <StandOptionSeparator>
+                    {t('vendorsFormPage.steps.preferredStands.optionsSeparator')}
+                  </StandOptionSeparator>
+                ) : null}
                 <StandOptionLabel>
                   {t(
                     isPairing
