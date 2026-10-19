@@ -368,13 +368,15 @@ export const pl = {
           optionIncomplete: 'Opcja {{number}}: {{stands}} — wskaż sąsiadujące stoisko',
           optionsTitle: 'Twoje opcje',
           optionsEmpty: 'Kliknij stoisko na mapie, aby dodać opcję.',
+          optionsSeparator: 'lub',
           addSecondStand: 'Dobierz drugie, sąsiednie stoisko',
-          hint: 'Możesz wybrać maksymalnie {{max}} opcje. Każda opcja to jedno stoisko — jeśli chcesz dwa sąsiadujące stoiska, zaznacz „Dobierz drugie, sąsiednie stoisko” przy wybranej opcji. Zielone — wolne, pomarańczowe — wybrane przez Ciebie.',
+          hint: 'Możesz wybrać maksymalnie {{max}} alternatywne opcje. Każda opcja to jedno stoisko — <0>jeśli chcesz dwa sąsiadujące stoiska, zaznacz „Dobierz drugie, sąsiednie stoisko” przy wybranej opcji.</0> Zielone — wolne, pomarańczowe — wybrane przez Ciebie.',
           orderHint: 'Kolejność klikania ma znaczenie — pierwsze kliknięte stoisko traktujemy jako pierwszy wybór.',
           counter: 'Wybrano {{current}} z {{max}}',
           detailsHint:
             'Szczegółowe informacje o rodzajach, wymiarach i wyposażeniu stoisk znajdziesz na stronie <0>Informacje dla wystawców</0>.',
           availableLabel: 'Wolne',
+          availableHint: 'brak przypisanego wystawcy na ten moment',
           highInterestLabel: 'High Interest',
           highInterestHint: 'co najmniej 3 chętnych',
           highInterestWarning:

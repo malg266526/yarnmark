@@ -134,19 +134,33 @@ export const StandOptionItem = styled.li`
   display: flex;
   flex-direction: column;
   gap: ${RedesignSpacings.xxs};
-  padding: ${RedesignSpacings.xs} 0;
-  border-top: 1px solid ${GrayScale[100]};
+  padding: ${RedesignSpacings.xxs} 0;
   font-family: ${FontFamilies.primary};
   font-size: ${FontSize.sm};
   text-align: start;
 
   &:first-child {
-    border-top: 0;
     padding-top: 0;
   }
 
   &:last-child {
     padding-bottom: 0;
+  }
+`;
+
+export const StandOptionSeparator = styled.span`
+  display: flex;
+  align-items: center;
+  gap: ${RedesignSpacings.xs};
+  margin-bottom: ${RedesignSpacings.xxs};
+  color: ${TextColors.secondary};
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1 1 auto;
+    height: 1px;
+    background: ${GrayScale[100]};
   }
 `;
 
@@ -265,6 +279,10 @@ export const ActionsSpacer = styled.span`
 `;
 
 export const InlineLink = styled.a`
+  color: ${TextColors.accent};
+`;
+
+export const HintEmphasis = styled.span`
   color: ${TextColors.accent};
 `;
 
