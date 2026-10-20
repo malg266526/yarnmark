@@ -12,6 +12,7 @@ import {
   ApplicationsTableCell,
   ApplicationsTableDateCell,
   ApplicationsTableHeaderCell,
+  ApplicationsTableOrdinalCell,
   ApplicationsTableRow,
   ApplicationsTableScroller
 } from '../VendorsApplicationsPage.styled';
@@ -21,7 +22,7 @@ import { VendorApplicationFlagsView } from './VendorApplicationFlagsView';
 import { formatCompactDateTime, formatMainCategory } from '../utils/vendorsApplicationsFormatters';
 import { VendorsApplicationsRowsViewProps } from './vendorsApplicationsViewContracts';
 
-const ROW_COLUMNS = ['storeName', 'submittedAt', 'category', 'preferences', 'status', 'flags'] as const;
+const ROW_COLUMNS = ['ordinal', 'storeName', 'submittedAt', 'category', 'preferences', 'status', 'flags'] as const;
 
 export const VendorsApplicationsRowsView = ({
   allApplications,
@@ -50,7 +51,7 @@ export const VendorsApplicationsRowsView = ({
           </tr>
         </thead>
         <tbody>
-          {rows.map(({ application, preferences }) => (
+          {rows.map(({ application, ordinal, preferences }) => (
             <ApplicationsTableRow
               key={application.id}
               $isOpen={openApplicationId === application.id}
@@ -60,6 +61,7 @@ export const VendorsApplicationsRowsView = ({
               onFocus={() => highlightApplication?.(application.id)}
               onBlur={() => highlightApplication?.(null)}
             >
+              <ApplicationsTableOrdinalCell>{ordinal}</ApplicationsTableOrdinalCell>
               <ApplicationsTableCell>
                 <ApplicationsRowNameButton
                   type="button"

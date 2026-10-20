@@ -747,6 +747,7 @@ export const en: TranslationsShape = {
       },
       rows: {
         columns: {
+          ordinal: 'No.',
           storeName: 'Store',
           submittedAt: 'Submitted',
           category: 'Category',
@@ -1278,6 +1279,21 @@ export const en: TranslationsShape = {
       },
       logout: 'Log out'
     },
+    adminSettingsPage: {
+      kicker: 'Admin panel',
+      title: 'Settings',
+      newVendorSound: 'Notify me with a sound about a new vendor',
+      soundVariant: {
+        label: 'Notification sound',
+        play: 'Play',
+        playLabel: 'Play: {{name}}',
+        variants: {
+          chime: 'Chime',
+          melody: 'Melody',
+          beeps: 'Beeps'
+        }
+      }
+    },
     adminLayout: {
       kicker: 'Admin',
       navigationLabel: 'Admin navigation',
@@ -1288,7 +1304,8 @@ export const en: TranslationsShape = {
         users: 'Users',
         editor: 'Editor',
         vendorForm: 'Vendor form',
-        workshopForm: 'Workshop form'
+        workshopForm: 'Workshop form',
+        settings: 'Settings'
       }
     }
   }

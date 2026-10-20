@@ -746,6 +746,7 @@ export const pl = {
       },
       rows: {
         columns: {
+          ordinal: 'Lp.',
           storeName: 'Sklep',
           submittedAt: 'Zgłoszono',
           category: 'Kategoria',
@@ -1328,6 +1329,21 @@ export const pl = {
       },
       logout: 'Wyloguj'
     },
+    adminSettingsPage: {
+      kicker: 'Panel administratora',
+      title: 'Ustawienia',
+      newVendorSound: 'Powiadamiaj dźwiękiem o nowym wystawcy',
+      soundVariant: {
+        label: 'Dźwięk powiadomienia',
+        play: 'Odsłuchaj',
+        playLabel: 'Odsłuchaj: {{name}}',
+        variants: {
+          chime: 'Dzwonek',
+          melody: 'Melodia',
+          beeps: 'Pikanie'
+        }
+      }
+    },
     adminLayout: {
       kicker: 'Admin',
       navigationLabel: 'Nawigacja panelu administracyjnego',
@@ -1338,7 +1354,8 @@ export const pl = {
         users: 'Użytkownicy',
         editor: 'Edytor',
         vendorForm: 'Formularz dla wystawców',
-        workshopForm: 'Formularz dla warsztatowców'
+        workshopForm: 'Formularz dla warsztatowców',
+        settings: 'Ustawienia'
       }
     }
   }

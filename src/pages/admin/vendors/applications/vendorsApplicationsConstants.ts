@@ -38,3 +38,5 @@ export type VendorApplicationsSortOrder = (typeof VENDOR_APPLICATIONS_SORT_ORDER
 export const VENDOR_APPLICATIONS_FILTER_ALL = 'all';
 
 export const VENDOR_APPLICATION_STATUS_UNDO_TIMEOUT_MS = 8000;
+
+export const VENDOR_APPLICATIONS_POLL_INTERVAL_MS = 60 * 1000;
