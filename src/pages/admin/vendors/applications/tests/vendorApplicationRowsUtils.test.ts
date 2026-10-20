@@ -35,6 +35,19 @@ test('buildVendorApplicationRows keeps preference order and counts the other app
   ]);
 });
 
+test('buildVendorApplicationRows numbers rows and gives a repeated store name the number of its first occurrence', () => {
+  const first = buildApplication({ id: 'first', storeName: 'Wełniana Chata' });
+  const second = buildApplication({ id: 'second', storeName: 'Kłębek' });
+  const repeated = buildApplication({ id: 'repeated', storeName: '  wełniana chata ' });
+  const third = buildApplication({ id: 'third', storeName: 'Glina' });
+  const visibleApplications = [first, second, repeated, third];
+
+  assert.deepEqual(
+    buildVendorApplicationRows(visibleApplications, visibleApplications).map(({ ordinal }) => ordinal),
+    [1, 2, 1, 3]
+  );
+});
+
 test('buildVendorApplicationRows counts competition over all applications, not only the visible ones', () => {
   const rows = buildVendorApplicationRows([ceramics], applications);
 

@@ -22,7 +22,7 @@ interface VendorApplicationFlagContext {
   storeNameCounts: NormalizedValueCounts;
 }
 
-const normalizeValue = (value: string) => value.trim().toLowerCase();
+export const normalizeValue = (value: string) => value.trim().toLowerCase();
 
 const countNormalizedValues = (
   applications: VendorApplication[],

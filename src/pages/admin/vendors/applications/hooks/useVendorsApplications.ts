@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useAdminSession } from '../../../useAdminSession';
 import {
   deleteVendorApplication,
@@ -9,8 +9,15 @@ import type {
   VendorApplication,
   VendorApplicationStatus
 } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
-import { VENDOR_APPLICATION_STATUS_UNDO_TIMEOUT_MS } from '../vendorsApplicationsConstants';
+import {
+  VENDOR_APPLICATION_STATUS_UNDO_TIMEOUT_MS,
+  VENDOR_APPLICATIONS_POLL_INTERVAL_MS
+} from '../vendorsApplicationsConstants';
 import { normalizeStandIds } from '../../../../../domain/vendorApplications/vendorFormStandIds.ts';
+import { findNewVendorApplicationIds } from '../utils/newVendorApplicationsUtils';
+import { useNewVendorSoundSetting } from '../../../settings/hooks/useNewVendorSoundSetting';
+import { useNewVendorSoundVariantSetting } from '../../../settings/hooks/useNewVendorSoundVariantSetting';
+import { playNewVendorSound } from '../../../settings/newVendorSoundPlayer';
 
 export interface VendorApplicationStatusChange {
   applicationId: string;
@@ -27,28 +34,57 @@ export const useVendorsApplications = () => {
   const [savingStandApplicationId, setSavingStandApplicationId] = useState<string | null>(null);
   const [lastStatusChange, setLastStatusChange] = useState<VendorApplicationStatusChange | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const knownApplicationIdsRef = useRef<ReadonlySet<string> | null>(null);
+  const [isNewVendorSoundEnabled] = useNewVendorSoundSetting();
+  const [newVendorSoundVariant] = useNewVendorSoundVariantSetting();
+  const isNewVendorSoundEnabledRef = useRef(isNewVendorSoundEnabled);
+  const newVendorSoundVariantRef = useRef(newVendorSoundVariant);
+
+  useEffect(() => {
+    isNewVendorSoundEnabledRef.current = isNewVendorSoundEnabled;
+    newVendorSoundVariantRef.current = newVendorSoundVariant;
+  }, [isNewVendorSoundEnabled, newVendorSoundVariant]);
 
   useEffect(() => {
     let isActive = true;
 
-    listVendorApplications(token)
-      .then((fetchedApplications) => {
-        if (isActive) {
+    const loadApplications = () =>
+      listVendorApplications(token)
+        .then((fetchedApplications) => {
+          if (!isActive) {
+            return;
+          }
+
+          const knownApplicationIds = knownApplicationIdsRef.current;
+
+          if (
+            isNewVendorSoundEnabledRef.current &&
+            knownApplicationIds &&
+            findNewVendorApplicationIds(knownApplicationIds, fetchedApplications).length > 0
+          ) {
+            void playNewVendorSound(newVendorSoundVariantRef.current);
+          }
+
+          knownApplicationIdsRef.current = new Set(fetchedApplications.map(({ id }) => id));
           setApplications(fetchedApplications);
-        }
-      })
-      .catch((error: unknown) => {
-        console.error('Vendor applications could not be loaded', error);
-        handleAdminApiError(error);
-      })
-      .finally(() => {
-        if (isActive) {
-          setLoading(false);
-        }
-      });
+        })
+        .catch((error: unknown) => {
+          console.error('Vendor applications could not be loaded', error);
+          handleAdminApiError(error);
+        })
+        .finally(() => {
+          if (isActive) {
+            setLoading(false);
+          }
+        });
+
+    void loadApplications();
+
+    const intervalId = window.setInterval(loadApplications, VENDOR_APPLICATIONS_POLL_INTERVAL_MS);
 
     return () => {
       isActive = false;
+      window.clearInterval(intervalId);
     };
   }, [token, handleAdminApiError]);
 

@@ -26,7 +26,8 @@ type AdminLinkId =
   | 'users'
   | 'editor'
   | 'vendorForm'
-  | 'workshopForm';
+  | 'workshopForm'
+  | 'settings';
 
 interface AdminLink {
   id: AdminLinkId;
@@ -63,6 +64,10 @@ const ADMIN_LINKS: AdminLink[] = [
   {
     id: 'workshopForm',
     to: '/workshops/apply'
+  },
+  {
+    id: 'settings',
+    to: '/admin/settings'
   }
 ];
 

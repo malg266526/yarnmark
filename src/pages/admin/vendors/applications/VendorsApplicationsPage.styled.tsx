@@ -273,6 +273,13 @@ export const ApplicationsTableDateCell = styled(ApplicationsTableCell)`
   white-space: nowrap;
 `;
 
+export const ApplicationsTableOrdinalCell = styled(ApplicationsTableCell)`
+  color: ${TextColors.secondary};
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+`;
+
 export const ApplicationsRowNameButton = styled(Button)`
   box-sizing: border-box;
   display: inline-block;
