@@ -1,4 +1,4 @@
-import { pl, TranslationsShape } from './pl';
+import { TranslationsShape } from './pl';
 
 export const en: TranslationsShape = {
   translation: {
@@ -284,7 +284,7 @@ export const en: TranslationsShape = {
       stands: {
         title: 'Stands',
         contact:
-          'Please send any questions and doubts related to the stands to the e-mail address<strong>krakoski.yarnmark@gmail.com</strong>'
+          'Please send any questions and doubts related to the stands to the e-mail address <strong>krakoski.yarnmark@gmail.com</strong>'
       },
       newsletter: {
         title: 'Mailing list',
@@ -1124,9 +1124,59 @@ export const en: TranslationsShape = {
       heading: 'Krakoski Yarnmark regulations'
     },
     vendorsStatue: {
-      ...pl.translation.vendorsStatue,
       kicker: 'For vendors',
-      badge: 'Read before sending the form'
+      badge: 'Read before sending the form',
+      title: 'Terms and Conditions for the sale of vendor stands 2027',
+      subtitle: 'Terms and Conditions for the sale of vendor stands 2027',
+      intro:
+        'These Terms and Conditions clearly set out the principles the Organizers of Krakoski Yarnmark will follow when selecting vendors. In the event of a breach of the provisions below, the Organizers reserve the right to refuse participation in future editions of Krakoski Yarnmark. Out of respect for both Vendors and Visitors, we want Krakoski Yarnmark to be a diverse event with a primary focus on knitting. When selecting vendors, we therefore consider both the balance of product categories represented at the event and the quality of the products on offer.',
+      explanationIntro: 'In these Terms and Conditions, the following definitions apply:',
+      explanation1: '<strong>Fair</strong> - shall mean Krakoski Yarnmark 2027, to be held on 17 April 2027',
+      explanation2:
+        '<strong>Vendor</strong> - shall mean an entrepreneur selected by the Organizers of Krakoski Yarnmark, who has been allocated a stand as indicated in the application form.',
+      explanation3:
+        '<strong>Potential Vendor</strong> - shall mean an entrepreneur who has completed the application form and is applying for a stand at Krakoski Yarnmark, seeking the opportunity to offer their products and/or goods for sale, and who, following the announcement of the list of confirmed vendors, is placed on the waiting list.',
+      explanation4:
+        '<strong>Application Form</strong> - the form available at the <0>link</0> which is the basis for being considered as a <strong>Potential Vendor</strong>.',
+      condition1:
+        'The basis for applying for a stand at the Krakoski Yarnmark is the completion of the application form.',
+      condition2:
+        'Completing the application form does NOT entail an obligation of immediate payment, does NOT guarantee a place at the Fair, and does NOT constitute the conclusion of an agreement between the Organizer and the Vendor.',
+      condition3:
+        'The order in which applications are submitted shall not be taken into consideration when selecting Vendors.',
+      condition4: 'A <strong>Potential Vendor</strong>:',
+      subcondition4a: 'may not purchase a Mini stand in addition to a Premium stand;',
+      subcondition4b: 'may not purchase more than one Mini stand;',
+      subcondition4c: 'may not purchase more than two Standard stands.',
+      condition5:
+        'Premium and Standard stands may be shared by more than one <strong>Vendor</strong>. Vendors are responsible for arranging stand sharing between themselves and must notify the Organizers by 31 January 2027.',
+      condition6:
+        'The deadline for submitting applications is <strong>3 November 2026</strong> at <strong>23:59</strong>.',
+      condition7:
+        'The Organizers reserve the right to select <strong>Vendors</strong>. Notification of selection will be sent on <strong>10 November 2026</strong>. Remaining <strong>Potential Vendors</strong> will receive an email informing them of their placement on the waiting list.',
+      condition8:
+        'Selected <strong>Vendors</strong> will receive an invoice together with their selection notification. Payment must reach the bank account specified on the invoice by <strong>17 November 2026</strong>. If payment is not received by this deadline, the stand will be offered to the next <strong>Potential Vendor</strong> on the waiting list.',
+      condition9: 'In the event of withdrawal from participation in the Krakoski Yarnmark:',
+      subcondition9a: 'At least 60 days before the Fair, the Organizers shall refund 100% of the stand fee.',
+      subcondition9b: 'At least 30 days before the Fair, the Organizers shall refund 50% of the stand fee.',
+      subcondition9c:
+        'Less than 30 days before the Fair, the Organizers shall not refund the stand fee to the <strong>Vendor</strong>.',
+      vendorRulesTitle: 'RULES for Vendors',
+      vendorObligations: 'The Vendor is obliged to:',
+      vendorObligation1: 'inform the Organizers of any obstacles to arriving at or attending the Fair;',
+      vendorObligation2:
+        'publish at least one post on their business social media accounts using the promotional materials provided by the Organizers and tagging the Fair, no later than two weeks before the Fair; these materials will be sent in the second half of March 2027;',
+      vendorObligation3:
+        'keep all equipment, goods and advertising materials within the boundaries of their allocated stand;',
+      vendorObligation4:
+        'set up the stand, including laying out the goods and clearing materials from the walkways, by 9:45 on the day of the Fair;',
+      vendorObligation5: 'take proper care of the equipment provided by the Organizers.',
+      vendorDataConsent:
+        'The Vendor consents to the processing of their personal and business data for the purpose of promoting the Fair.',
+      vendorSubletting:
+        'The Vendor may not sublet the stand or make it available free of charge to third parties without the prior consent of the Organizers. Such a request must be sent at least 15 working days before the Fair.',
+      assistanceDogs:
+        "The Organizers do not allow dogs on the premises of the Yarnmark, with the exception of assistance dogs and guide dogs. The dog's handler should carry the appropriate documents confirming the animal's status, as well as any other documents required by law."
     },
     editorPage: {
       kicker: 'Admin',
