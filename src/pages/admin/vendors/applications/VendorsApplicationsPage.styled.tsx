@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import Modal from 'react-modal';
 import { Button } from '../../../../components/Button';
-import { Radius, DropShadow } from '../../../../styles/cards';
+import { DropShadow, Radius } from '../../../../styles/cards';
 import { FontSize } from '../../../../styles/font-size';
 import { ScreenSize } from '../../../../styles/screeen-size';
 import { RedesignSpacings } from '../../../../styles/spacings';
@@ -859,6 +859,18 @@ export const ApplicationsSplitMap = styled.div`
   flex: 0 0 auto;
   flex-direction: column;
   gap: ${RedesignSpacings.sm};
+  /* Keep the map visible while scrolling long lists */
+  position: sticky;
+  top: ${RedesignSpacings.sm};
+  align-self: flex-start;
+  /* Ensure it doesn't stretch and break sticky behavior */
+  max-width: 100%;
+
+  /* On small screens fall back to normal flow */
+  @media (max-width: ${ScreenSize.phone}) {
+    position: static;
+    top: auto;
+  }
 `;
 
 export const ApplicationsMapHint = styled.p`
