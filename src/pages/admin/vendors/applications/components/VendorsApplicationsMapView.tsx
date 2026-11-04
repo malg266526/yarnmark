@@ -52,6 +52,7 @@ const resolvePriorityColor = (priority: number) =>
 
 export const VendorsApplicationsMapView = ({
   applications,
+  assignments: assignmentsOverride,
   highlightedStandPairs = [],
   highlightedStands,
   multiplier,
@@ -61,7 +62,8 @@ export const VendorsApplicationsMapView = ({
 }: VendorsApplicationsMapViewProps) => {
   const parsedStands = useMemo(() => parseHallStands(), []);
   const requestCounts = useMemo(() => getStandInterestCounts(applications), [applications]);
-  const assignments = useMemo(() => buildVendorMapAssignments(applications), [applications]);
+  const savedAssignments = useMemo(() => buildVendorMapAssignments(applications), [applications]);
+  const assignments = assignmentsOverride ?? savedAssignments;
   if (!parsedStands.success) {
     return <ApplicationsMapHint>{translate('vendorsApplicationsPage.map.loadError')}</ApplicationsMapHint>;
   }

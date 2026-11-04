@@ -8,6 +8,8 @@ import type {
 } from '../utils/vendorApplicationsFilterUtils.ts';
 import type { VendorApplicationFlag } from '../utils/vendorApplicationFlagsUtils.ts';
 import type { StandPairHighlight } from '../utils/vendorApplicationRowsUtils.ts';
+import type { VendorMapAssignment } from '../utils/vendorMapAssignmentsUtils.ts';
+import type { StandPlanVendorOption, StandPlanVendorOptions } from '../utils/standPlanUtils.ts';
 
 export interface VendorApplicationDisplayValues {
   no: string;
@@ -109,6 +111,7 @@ export type StandPriorityHighlights = ReadonlyMap<string, number>;
 
 export interface VendorsApplicationsMapViewProps {
   applications: VendorApplication[];
+  assignments?: ReadonlyMap<string, VendorMapAssignment[]>;
   highlightedStandPairs?: StandPairHighlight[];
   highlightedStands?: StandPriorityHighlights;
   multiplier: number;
@@ -166,4 +169,28 @@ export interface VendorsApplicationsSplitViewProps
   mapMultiplier: number;
   selectStand: (standId: string) => void;
   selectedStandId: string;
+}
+
+export interface VendorsApplicationsStandPlan {
+  addVendor: (applicationId: string) => void;
+  assignments: ReadonlyMap<string, VendorMapAssignment[]>;
+  changeCount: number;
+  discard: () => void;
+  highlightedApplication: VendorApplication | null;
+  isSaving: boolean;
+  removeVendor: (applicationId: string) => void;
+  save: () => Promise<void>;
+  selectedStandId: string;
+  selectStand: (standId: string) => void;
+  standVendors: StandPlanVendorOption[];
+  toggleHighlightedApplication: (applicationId: string) => void;
+  unassignedApplications: VendorApplication[];
+  vendorOptions: StandPlanVendorOptions;
+}
+
+export interface VendorsApplicationsPlannerViewProps {
+  mapMultiplier: number;
+  plannedApplications: VendorApplication[];
+  standPlan: VendorsApplicationsStandPlan;
+  translate: TranslateViewText;
 }

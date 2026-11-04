@@ -20,6 +20,7 @@ import type { VendorApplicationStatusChange } from '../hooks/useVendorsApplicati
 import type { VendorApplicationStandAssignment } from './vendorsApplicationsViewContracts';
 import { useVendorsApplicationsToolbar } from '../hooks/useVendorsApplicationsToolbar';
 import { useVendorApplicationsExport } from '../hooks/useVendorApplicationsExport';
+import { useStandPlanDraft } from '../hooks/useStandPlanDraft';
 import {
   VENDOR_APPLICATIONS_LIST_VIEW_MODES,
   VENDOR_APPLICATIONS_MAP_MULTIPLIER,
@@ -29,6 +30,7 @@ import {
 import { VendorApplicationDetailsDrawer } from './VendorApplicationDetailsDrawer';
 import { VendorsApplicationsCardsView } from './VendorsApplicationsCardsView';
 import { VendorsApplicationsMapView } from './VendorsApplicationsMapView';
+import { VendorsApplicationsPlannerView } from './VendorsApplicationsPlannerView';
 import { VendorsApplicationsRowsView } from './VendorsApplicationsRowsView';
 import { VendorsApplicationsSplitView } from './VendorsApplicationsSplitView';
 import { VendorsApplicationsStandRequestsView } from './VendorsApplicationsStandRequestsView';
@@ -70,6 +72,7 @@ export const VendorsApplicationsView = ({
     return parsedStands.success ? parsedStands.data.filter(isVendorStand).map(({ index }) => index) : [];
   }, []);
   const standAssignment = { ...standAssignmentActions, allApplications: applications, vendorStandIds };
+  const { plannedApplications, standPlan } = useStandPlanDraft(applications, standAssignmentActions.assignStands);
   const {
     closeApplication,
     filters,
@@ -163,6 +166,13 @@ export const VendorsApplicationsView = ({
         >
           {t('vendorsApplicationsPage.showByStand')}
         </ApplicationActionButton>
+        <ApplicationActionButton
+          aria-pressed={viewMode === 'planner'}
+          type="button"
+          onClick={() => setViewMode('planner')}
+        >
+          {t('vendorsApplicationsPage.showPlanner')}
+        </ApplicationActionButton>
       </ApplicationsToolbar>
 
       {viewMode === 'map' ? (
@@ -213,6 +223,15 @@ export const VendorsApplicationsView = ({
           applications={applications}
           locale={t.i18n.language}
           resolvePriorityLabel={(priority) => t(`vendorsApplicationsPage.priorities.${priority}` as const)}
+        />
+      ) : null}
+
+      {viewMode === 'planner' ? (
+        <VendorsApplicationsPlannerView
+          mapMultiplier={isPhone ? VENDOR_APPLICATIONS_MAP_PHONE_MULTIPLIER : VENDOR_APPLICATIONS_MAP_MULTIPLIER}
+          plannedApplications={plannedApplications}
+          standPlan={standPlan}
+          translate={translate}
         />
       ) : null}
 
