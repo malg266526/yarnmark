@@ -6,12 +6,15 @@ export interface VendorMapAssignment {
   logoSource: string | null;
 }
 
+export const isStandAssignedApplication = ({ status }: VendorApplication) => status === 'stand-assigned';
+
 export const buildVendorMapAssignments = (
-  applications: VendorApplication[]
+  applications: VendorApplication[],
+  isAssignmentShown: (application: VendorApplication) => boolean = isStandAssignedApplication
 ): ReadonlyMap<string, VendorMapAssignment[]> => {
   const assignments = new Map<string, VendorMapAssignment[]>();
   for (const application of applications) {
-    if (application.status !== 'stand-assigned') continue;
+    if (!isAssignmentShown(application)) continue;
     const vendor: VendorMapAssignment = {
       applicationId: application.id,
       storeName: application.storeName,

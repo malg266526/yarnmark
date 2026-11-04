@@ -612,6 +612,7 @@ export const en: TranslationsShape = {
       empty: 'No applications yet.',
       savedCount: '{{count}} applications saved',
       showByStand: 'Show by stand',
+      showPlanner: 'Stand plan',
       showCards: 'Show cards',
       showRows: 'Show list',
       showSplit: 'List and map',
@@ -619,6 +620,24 @@ export const en: TranslationsShape = {
       showCertainStands: 'Show certain stands',
       statusField: {
         saving: 'Saving…'
+      },
+      planner: {
+        description:
+          'The stand plan draft is visible only in the admin panel. Changes reach the applications after you click “Save stand plan”. Application statuses do not change.',
+        unsavedCount: 'Unsaved changes: {{count}}',
+        save: 'Save stand plan',
+        discard: 'Discard changes',
+        selectHint: 'Click a stand on the map to assign vendors to it.',
+        assigned: 'Assigned',
+        addVendor: 'Add vendor',
+        chooseVendor: 'Choose a vendor…',
+        requestingGroup: 'Requested this stand',
+        otherGroup: 'Other vendors',
+        vendorWithStands: '{{name}} — already has: {{stands}}',
+        removeVendor: 'Remove vendor {{name}} from stand {{standId}}',
+        unassignedTitle: 'Without a stand ({{count}})',
+        unassignedHint: 'Click a vendor to see their preferences on the map.',
+        allAssigned: 'All vendors have a stand.'
       },
       standAssignment: {
         none: '— no stand —',

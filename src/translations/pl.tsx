@@ -611,6 +611,7 @@ export const pl = {
       empty: 'Brak zgłoszeń.',
       savedCount: 'Zapisanych zgłoszeń: {{count}}',
       showByStand: 'Pokaż wg stoisk',
+      showPlanner: 'Rozmieszczenie',
       showCards: 'Pokaż karty',
       showRows: 'Pokaż listę',
       showSplit: 'Lista i mapa',
@@ -618,6 +619,24 @@ export const pl = {
       showCertainStands: 'Pokaż pewne stoiska',
       statusField: {
         saving: 'Zapisywanie…'
+      },
+      planner: {
+        description:
+          'Szkic rozmieszczenia jest widoczny tylko w panelu admina. Zmiany trafią do zgłoszeń po kliknięciu „Zapisz rozmieszczenie”. Statusy zgłoszeń się nie zmieniają.',
+        unsavedCount: 'Niezapisane zmiany: {{count}}',
+        save: 'Zapisz rozmieszczenie',
+        discard: 'Odrzuć zmiany',
+        selectHint: 'Kliknij stoisko na mapie, aby przypisać do niego wystawców.',
+        assigned: 'Przypisani',
+        addVendor: 'Dodaj wystawcę',
+        chooseVendor: 'Wybierz wystawcę…',
+        requestingGroup: 'Chętni na to stoisko',
+        otherGroup: 'Pozostali wystawcy',
+        vendorWithStands: '{{name}} — ma już: {{stands}}',
+        removeVendor: 'Usuń wystawcę {{name}} ze stoiska {{standId}}',
+        unassignedTitle: 'Bez stoiska ({{count}})',
+        unassignedHint: 'Kliknij wystawcę, aby zobaczyć jego preferencje na mapie.',
+        allAssigned: 'Wszyscy wystawcy mają stoisko.'
       },
       standAssignment: {
         none: '— bez przydziału —',

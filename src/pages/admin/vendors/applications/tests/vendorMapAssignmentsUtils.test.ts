@@ -42,3 +42,18 @@ test('removing an assignment or changing its status removes its map logo', () =>
   assert.equal(buildVendorMapAssignments([{ ...application, status: 'accepted' }]).size, 0);
   assert.equal(buildVendorMapAssignments([]).size, 0);
 });
+
+test('map can show planned stands regardless of application status', () => {
+  const base = { ...getBaseApplication(), assignedStands: ['S1'] };
+  const assignments = buildVendorMapAssignments(
+    [
+      { ...base, id: 'pending', status: 'pending' },
+      { ...base, id: 'accepted', status: 'accepted' }
+    ],
+    () => true
+  );
+  assert.deepEqual(
+    assignments.get('S1')?.map(({ applicationId }) => applicationId),
+    ['pending', 'accepted']
+  );
+});
