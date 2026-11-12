@@ -14,7 +14,6 @@ import { Icon as IconifyIcon } from '@iconify/react';
 import { Band } from '../../components/bands/Band';
 import mapIcon from '../../assets/figmaIcons/map_icon.svg';
 import { BandsToggles, TicketsToggles } from '../../toggles';
-import { EDITION_TITLE_OPTIONS } from '../../fairEditionConfig';
 
 const InfoSectionWrapper = styled.div`
   position: relative;
@@ -60,7 +59,7 @@ export const NavigationBand = () => {
         {BandsToggles.vendorsEnabled && (
           <IconButton onClick={() => (window.location.href = '/home#vendors')} aria-label="go to vendors">
             <Icon size="xl" zIndex={0} src={storeIconUrl} />
-            <Typography size="sm">{t('vendors', EDITION_TITLE_OPTIONS)}</Typography>
+            <Typography size="sm">{t('vendors')}</Typography>
           </IconButton>
         )}
 
