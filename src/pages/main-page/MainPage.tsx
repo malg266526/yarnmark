@@ -73,7 +73,7 @@ export const MainPage = () => {
 
           {BandsToggles.vendorsEnabled && (
             <>
-              <Band.SecondaryTitle>{t('vendors', EDITION_TITLE_OPTIONS)}</Band.SecondaryTitle>
+              <Band.SecondaryTitle>{t('vendors')}</Band.SecondaryTitle>
 
               <Band.CenteredColumn id="vendors" size="lg" padding="none" color={BackgroundColors.vendors}>
                 <VendorsList />
@@ -120,7 +120,7 @@ export const MainPage = () => {
               color={BackgroundColors.vendors}
               justify="center"
             >
-              <Band.Title>{t('vendors', EDITION_TITLE_OPTIONS)}</Band.Title>
+              <Band.Title>{t('vendors')}</Band.Title>
               <VendorsList />
             </Band.CenteredColumn>
           )}
