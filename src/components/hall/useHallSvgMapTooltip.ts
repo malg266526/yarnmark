@@ -1,9 +1,10 @@
 import { useCallback, useMemo, useState } from 'react';
-import { getHallSvgMapTooltipPosition, type HallSvgMapLayout, type HallSvgMapTooltipPosition } from './hallSvgMapUtils';
+import type { TooltipPosition } from '../tooltip/tooltipTypes';
+import { getHallSvgMapTooltipPosition, type HallSvgMapLayout } from './hallSvgMapUtils';
 
 export interface HallSvgMapTooltipState {
   text: string;
-  position: HallSvgMapTooltipPosition;
+  position: TooltipPosition;
 }
 
 export const useHallSvgMapTooltip = (layout: HallSvgMapLayout) => {

@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { HALL_SVG_MAP_DESIGN } from './hallSvgMapDesign';
 import { HallSvgMapStand } from './HallSvgMapStand';
-import { HallSvgMapTooltip } from './HallSvgMapTooltip';
+import { Tooltip } from '../tooltip/Tooltip';
 import { useHallSvgMapTooltip } from './useHallSvgMapTooltip';
 import type { HallSvgMapLayout } from './hallSvgMapUtils';
 
@@ -47,7 +47,7 @@ export const HallSvgMap = ({ isFluid, layout, title }: HallSvgMapProps) => {
           <HallSvgMapStand key={stand.id} stand={stand} onHoverStart={showStandTooltip} onHoverEnd={hideStandTooltip} />
         ))}
       </MapSvg>
-      {tooltip && <HallSvgMapTooltip text={tooltip.text} position={tooltip.position} />}
+      {tooltip && <Tooltip text={tooltip.text} position={tooltip.position} />}
     </HallSvgMapFrame>
   );
 };

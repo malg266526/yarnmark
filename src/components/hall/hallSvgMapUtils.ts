@@ -1,5 +1,6 @@
 import type { AssignedStandVendors } from '../../domain/vendorApplications/assignedStandsApi.ts';
 import { resolveApiAssetUrl } from '../../domain/apiClient.ts';
+import type { TooltipAlign, TooltipPlacement, TooltipPosition } from '../tooltip/tooltipTypes.ts';
 import { GRID_COLS, GRID_ROWS } from '../editor/utils/hallGeometry.ts';
 import type { HallStand } from './hallStands.ts';
 import { HALL_SVG_MAP_DESIGN, HALL_SVG_MAP_STAND_COLORS } from './hallSvgMapDesign.ts';
@@ -35,16 +36,6 @@ export interface HallSvgMapStandLayout {
   index: { text: string; y: number } | null;
   label: { lines: string[]; y: number } | null;
   logo: HallSvgMapLogoLayout | null;
-}
-
-export type HallSvgMapTooltipPlacement = 'above' | 'below';
-export type HallSvgMapTooltipAlign = 'start' | 'center' | 'end';
-
-export interface HallSvgMapTooltipPosition {
-  leftPercent: number;
-  topPercent: number;
-  placement: HallSvgMapTooltipPlacement;
-  align: HallSvgMapTooltipAlign;
 }
 
 export interface HallSvgMapLayout {
@@ -205,12 +196,12 @@ export interface HallSvgMapTooltipAnchor {
 export const getHallSvgMapTooltipPosition = (
   anchor: HallSvgMapTooltipAnchor,
   map: Pick<HallSvgMapLayout, 'width' | 'height'>
-): HallSvgMapTooltipPosition => {
+): TooltipPosition => {
   const { tooltipMinSpaceAbove, tooltipEdgeAlignRatio } = HALL_SVG_MAP_DESIGN;
-  const placement: HallSvgMapTooltipPlacement = anchor.top < tooltipMinSpaceAbove ? 'below' : 'above';
+  const placement: TooltipPlacement = anchor.top < tooltipMinSpaceAbove ? 'below' : 'above';
   const anchorY = placement === 'above' ? anchor.top : anchor.bottom;
   const horizontalRatio = anchor.centerX / map.width;
-  const align: HallSvgMapTooltipAlign =
+  const align: TooltipAlign =
     horizontalRatio < tooltipEdgeAlignRatio ? 'start' : horizontalRatio > 1 - tooltipEdgeAlignRatio ? 'end' : 'center';
 
   return {
