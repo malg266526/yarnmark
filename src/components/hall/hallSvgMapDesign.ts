@@ -28,5 +28,13 @@ export const HALL_SVG_MAP_DESIGN = {
   fontSizeStep: 0.3,
   lineHeightEm: 1.1,
   averageCharWidthEm: 0.55,
-  baselineOffsetEm: 0.8
+  baselineOffsetEm: 0.8,
+  logoSizeRatio: 0.7,
+  logoGap: 2,
+  logoPadding: 2,
+  logoBackground: '#ffffff',
+  logoBorderColor: 'rgba(50, 98, 19, 0.18)',
+  logoBorderWidth: 1,
+  tooltipMinSpaceAbove: 96,
+  tooltipEdgeAlignRatio: 0.25
 } as const;

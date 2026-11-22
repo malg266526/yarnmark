@@ -1,11 +1,19 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { HALL_SVG_MAP_DESIGN } from './hallSvgMapDesign';
+import { HallSvgMapStand } from './HallSvgMapStand';
+import { HallSvgMapTooltip } from './HallSvgMapTooltip';
+import { useHallSvgMapTooltip } from './useHallSvgMapTooltip';
 import type { HallSvgMapLayout } from './hallSvgMapUtils';
 
 const fluidSizeStyles = css`
   width: 100%;
   height: auto;
+`;
+
+const HallSvgMapFrame = styled.div<{ $isFluid: boolean }>`
+  position: relative;
+  width: ${({ $isFluid }) => ($isFluid ? '100%' : 'fit-content')};
 `;
 
 const MapSvg = styled.svg<{ $isFluid: boolean }>`
@@ -22,62 +30,24 @@ interface HallSvgMapProps {
 }
 
 export const HallSvgMap = ({ isFluid, layout, title }: HallSvgMapProps) => {
-  const design = HALL_SVG_MAP_DESIGN;
+  const { tooltip, showStandTooltip, hideStandTooltip } = useHallSvgMapTooltip(layout);
 
   return (
-    <MapSvg
-      $isFluid={isFluid}
-      role="img"
-      aria-label={title}
-      width={layout.width}
-      height={layout.height}
-      viewBox={`0 0 ${layout.width} ${layout.height}`}
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      {layout.stands.map((stand) => (
-        <g key={stand.id}>
-          <rect
-            x={stand.x}
-            y={stand.y}
-            width={stand.width}
-            height={stand.height}
-            rx={design.standRadius}
-            ry={design.standRadius}
-            fill={stand.fill}
-            stroke={design.strokeColor}
-            strokeWidth={design.strokeWidth}
-          />
-          {stand.index && (
-            <text
-              x={stand.centerX}
-              y={stand.index.y}
-              textAnchor="middle"
-              fontSize={stand.fontSize}
-              fontWeight="bold"
-              fill={design.indexColor}
-              fontFamily={design.fontFamily}
-            >
-              {stand.index.text}
-            </text>
-          )}
-          {stand.label && (
-            <text
-              x={stand.centerX}
-              y={stand.label.y}
-              textAnchor="middle"
-              fontSize={stand.fontSize}
-              fill={design.labelColor}
-              fontFamily={design.fontFamily}
-            >
-              {stand.label.lines.map((line, lineIndex) => (
-                <tspan key={lineIndex} x={stand.centerX} dy={lineIndex === 0 ? 0 : `${design.lineHeightEm}em`}>
-                  {line}
-                </tspan>
-              ))}
-            </text>
-          )}
-        </g>
-      ))}
-    </MapSvg>
+    <HallSvgMapFrame $isFluid={isFluid}>
+      <MapSvg
+        $isFluid={isFluid}
+        role="img"
+        aria-label={title}
+        width={layout.width}
+        height={layout.height}
+        viewBox={`0 0 ${layout.width} ${layout.height}`}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {layout.stands.map((stand) => (
+          <HallSvgMapStand key={stand.id} stand={stand} onHoverStart={showStandTooltip} onHoverEnd={hideStandTooltip} />
+        ))}
+      </MapSvg>
+      {tooltip && <HallSvgMapTooltip text={tooltip.text} position={tooltip.position} />}
+    </HallSvgMapFrame>
   );
 };

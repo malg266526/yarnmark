@@ -2,10 +2,13 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import type { HallStand } from '../hallStands.ts';
 import {
+  applyAssignedStandVendors,
   fitHallSvgMapLabel,
   getHallSvgMapLayout,
   getHallSvgMapStandLabel,
   getHallSvgMapStandLayout,
+  getHallSvgMapTooltipPosition,
+  resolveHallSvgMapLogoUrl,
   wrapHallSvgMapLabel
 } from '../hallSvgMapUtils.ts';
 
@@ -101,4 +104,71 @@ test('getHallSvgMapLayout sizes the map to the whole hall grid', () => {
   assert.equal(layout.width, 52 * 13 + 50);
   assert.equal(layout.height, 92 * 13 + 50);
   assert.equal(layout.stands.length, 1);
+});
+
+test('applyAssignedStandVendors puts the assigned vendor on the stand with the matching index', () => {
+  const stands = [createStand({ index: 'P4' }), createStand({ index: 'S1', vendor: 'Static' })];
+  const assignedVendors = new Map([
+    ['P4', { storeName: 'Włóczykijki s.c.', logoUrl: 'https://example.com/logo.webp' }]
+  ]);
+
+  const [assigned, untouched] = applyAssignedStandVendors(stands, assignedVendors);
+
+  assert.equal(assigned.vendor, 'Włóczykijki s.c.');
+  assert.equal(assigned.vendorLogoUrl, 'https://example.com/logo.webp');
+  assert.equal(untouched, stands[1]);
+});
+
+test('applyAssignedStandVendors drops a stale logo when the assigned vendor has none', () => {
+  const [stand] = applyAssignedStandVendors(
+    [createStand({ index: 'P4', vendor: 'Old', vendorLogoUrl: 'old.webp' })],
+    new Map([['P4', { storeName: 'New', logoUrl: null }]])
+  );
+
+  assert.equal(stand.vendor, 'New');
+  assert.equal(stand.vendorLogoUrl, undefined);
+});
+
+test('resolveHallSvgMapLogoUrl keeps absolute urls and resolves relative api paths', () => {
+  assert.equal(resolveHallSvgMapLogoUrl('https://example.com/logo.webp'), 'https://example.com/logo.webp');
+  assert.equal(resolveHallSvgMapLogoUrl('uploads/logo.webp'), 'https://yarnmark-api.com/uploads/logo.webp');
+  assert.equal(resolveHallSvgMapLogoUrl(undefined), null);
+});
+
+test('getHallSvgMapStandLayout centres the index and a round logo for a stand with a vendor logo', () => {
+  const layout = getHallSvgMapStandLayout(
+    createStand({ index: 'P4', vendor: 'Włóczykijki s.c.', vendorLogoUrl: 'uploads/logo.webp' }),
+    'pl'
+  );
+  const logo = layout.logo;
+
+  assert.ok(logo);
+  assert.equal(logo.href, 'https://yarnmark-api.com/uploads/logo.webp');
+  assert.equal(logo.name, 'Włóczykijki s.c.');
+  assert.equal(logo.index?.text, 'P4');
+  assert.equal(logo.index?.fontSize, 13);
+  assert.ok(Math.abs(logo.size - 0.7 * Math.min(91, 78 - 15)) < 1e-9);
+  assert.ok(Math.abs(logo.x + logo.size / 2 - layout.centerX) < 1e-9);
+  const top = (logo.index?.y ?? 0) - 13 * 0.8;
+  assert.ok(Math.abs(top - layout.y - (layout.y + layout.height - (logo.y + logo.size))) < 1e-9);
+  assert.equal(getHallSvgMapStandLayout(createStand({ vendor: 'Bez logo' }), 'pl').logo, null);
+});
+
+test('getHallSvgMapTooltipPosition points at the top of the anchor in the middle of the map', () => {
+  const position = getHallSvgMapTooltipPosition({ top: 300, bottom: 360, centerX: 400 }, { width: 800, height: 1000 });
+
+  assert.deepEqual(position, { leftPercent: 50, topPercent: 30, placement: 'above', align: 'center' });
+});
+
+test('getHallSvgMapTooltipPosition drops below an anchor near the map top and aligns to the map edges', () => {
+  assert.deepEqual(getHallSvgMapTooltipPosition({ top: 25, bottom: 100, centerX: 100 }, { width: 800, height: 1000 }), {
+    leftPercent: 12.5,
+    topPercent: 10,
+    placement: 'below',
+    align: 'start'
+  });
+  assert.equal(
+    getHallSvgMapTooltipPosition({ top: 500, bottom: 560, centerX: 700 }, { width: 800, height: 1000 }).align,
+    'end'
+  );
 });

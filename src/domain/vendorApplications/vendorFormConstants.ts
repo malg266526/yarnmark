@@ -1,6 +1,7 @@
 export const VENDOR_FORM_DRAFT_STORAGE_KEY = 'vendors-form-draft';
 export const VENDOR_FORM_API_URL = 'https://yarnmark-api.com/api/vendors';
 export const VENDOR_STANDS_DEMAND_API_URL = `${VENDOR_FORM_API_URL}/stands-demand`;
+export const VENDOR_ASSIGNED_STANDS_API_URL = `${VENDOR_FORM_API_URL}/assigned-stands`;
 export const VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH = 2200;
 export const VENDOR_FORM_MAX_PREFERRED_STANDS = 3;
 export const VENDOR_FORM_STANDS_PER_PAIR = 2;
