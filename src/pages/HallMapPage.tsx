@@ -11,7 +11,8 @@ import { CenteredSection } from '../components/CenteredSection';
 import { BandTitle } from '../components/bands/BandTitle';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import { BackgroundColors } from '../styles/theme';
-import HallImageSvg from '../assets/mapa_hali_jasna.svg';
+import { HallSvgMap } from '../components/hall/HallSvgMap';
+import { useHallSvgMap } from '../components/hall/useHallSvgMap';
 
 const InvitationBoxWrapper = styled.div`
   padding-left: 240px;
@@ -25,13 +26,10 @@ const MapContainer = styled.div<{ isPhone: boolean }>`
   overflow-y: ${({ isPhone }) => (isPhone ? 'scroll' : 'auto')};
 `;
 
-const MapImage = styled.img<{ isPhone: boolean }>`
-  width: ${({ isPhone }) => (isPhone ? '100%' : 'auto')};
-`;
-
 export const HallMapPage = () => {
   const isPhone = usePhone();
   const t = useTypedTranslation();
+  const hallMapLayout = useHallSvgMap();
 
   const BandType = isPhone ? Band.Solid : Band.CenteredColumn;
 
@@ -51,7 +49,7 @@ export const HallMapPage = () => {
 
       <BandType id="hallMap" size="sm" color={BackgroundColors.navigationBand} padding={isPhone ? 'none' : 'lg'}>
         <MapContainer isPhone={isPhone}>
-          <MapImage src={HallImageSvg} isPhone={isPhone} />
+          {hallMapLayout && <HallSvgMap layout={hallMapLayout} isFluid={isPhone} title={t('hallMap.title')} />}
         </MapContainer>
       </BandType>
     </PageContent>
