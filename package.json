@@ -61,7 +61,6 @@
     "bootstrap": "5.3.3",
     "i18next": "23.5.1",
     "react": "18.2.0",
-    "react-bootstrap": "2.10.4",
     "react-dom": "18.2.0",
     "react-hook-form": "7.89.0",
     "react-i18next": "13.2.2",
