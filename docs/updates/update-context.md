@@ -37,9 +37,9 @@ Stan na: 2026-11-25 (commit `3b2cc80`, branch `master`). Ostatnia aktualizacja p
 | @types/react / react-dom  | 18.2.x          | 19.3.x          |
 | react-router-dom          | 6.16.0          | 7.18.7          |
 | typescript                | 5.9.3           | 7.0.2           |
-| eslint                    | 8.49.0          | 10.15.0         |
-| @typescript-eslint/\*     | 6.6.0           | 8.74.0          |
-| eslint-plugin-react-hooks | 4.6.0           | 7.1.1           |
+| eslint                    | 9.39.5          | 10.15.0         |
+| @typescript-eslint/\*     | 8.74.0          | 8.74.0          |
+| eslint-plugin-react-hooks | 5.2.0           | 7.1.1           |
 | esbuild                   | 0.19.2          | 0.28.2          |
 | i18next / react-i18next   | 23.5.1 / 13.2.2 | 27.2.9 / 18.0.3 |
 | @hookform/resolvers       | 5.9.1           | 7.0.9           |
@@ -55,7 +55,7 @@ Pełna lista: `npm outdated`.
 - **Konfiguracja TS przestarzała:** `target: ES2019`, `moduleResolution: Node`, `jsx: "react"` (stary transform —
   `import React` w każdym pliku), brak aliasów ścieżek. ✅ `typeRoots: ["./src/types.ts"]` usunięte (wskazywało
   nieistniejący plik i wyłączało automatyczne `@types`); TypeScript podbity do 5.9.3 (wymóg styled-components 6.7).
-- **ESLint w starym formacie** (`.eslintrc.js` + `.eslintignore`) zamiast flat config.
+- ~~**ESLint w starym formacie** (`.eslintrc.js` + `.eslintignore`) zamiast flat config.~~ ✅ ESLint 9 + `eslint.config.mjs`.
 - **Duplikacja domen:** wystawcy i warsztaty mają równoległe stosy (formularz, schema, storage, API, panel admina).
 - **Bardzo duże pliki:** `pl.tsx`/`en.tsx` (1381 linii), `VendorsApplicationsPage.styled.tsx` (960),
   `Carouselge.tsx` (561), `Editor.tsx` (524), `Menu.tsx` (342), `useVendorForm.ts` (367).
@@ -89,34 +89,34 @@ Rekomendowane podejście dwuetapowe:
 Każdy krok to osobny PR. Po każdym: `npm run format`, `npm run typecheck`, `npm run lint`, `npm test` bez błędów.
 Aktualizacje zależności izolowane (jedna biblioteka / jedna grupa na PR), wersje przypięte bez `^`/`~`.
 
-### Krok 0. Inwentaryzacja i zrozumienie kodu — [ ] (w toku)
+### Krok 0. Inwentaryzacja i zrozumienie kodu — 🟡 w toku
 
 - Przejście przez architekturę: mapa modułów, przepływ danych, strefy routingu.
 - `npm run check:unused` (knip) — nieużywany kod, eksporty i zależności.
-  - [x] Usunięte: `PhotoBox.tsx`, `TextCarousel.tsx`, `react-bootstrap`, `bootstrap`.
+  - [x] ✅ Usunięte: `PhotoBox.tsx`, `TextCarousel.tsx`, `react-bootstrap`, `bootstrap`.
   - [ ] Pozostałe nieużywane pliki: `Box`, `generateJson`, `KnittingIconOnHover`, `SocialMediaLink`, `useFirstClick`,
         `useOnClickOutside`; zależności FontAwesome; ok. 40 nieużywanych eksportów i 26 typów.
 - Porządki w roocie (`konwerter.py`, `mapa3.html`, `todo.txt`, `stands_algorithm.md`, `.codex`) — decyzja: usunąć /
   przenieść do `docs/`.
 - Uzupełnienie `README.md` (uruchomienie, skrypty, struktura).
 
-### Krok 1. Tooling: TypeScript i ESLint — [ ] (w toku)
+### Krok 1. Tooling: TypeScript i ESLint — 🟡 w toku
 
-- [x] TypeScript 5.9.3 (ostatnia 5.x; 7.0 to przepisanie w Go — osobna decyzja), usunięte `typeRoots`.
+- [x] ✅ TypeScript 5.9.3 (ostatnia 5.x; 7.0 to przepisanie w Go — osobna decyzja), usunięte `typeRoots`.
 - Uwaga: `target` w `tsconfig.json` dotyczy tylko typecheckingu (`tsc --noEmit`); kod generuje esbuild z własnym
   `target: 'es2019'` (`esbuild.config.mjs`). `jsx` z `tsconfig.json` esbuild czyta i stosuje przy buildzie.
-- [x] **1a. `target` i `lib`** (tylko `tsconfig.json`): `target: "ES2022"`, `lib: ["DOM", "DOM.Iterable", "ES2022"]`,
+- [x] ✅ **1a. `target` i `lib`** (tylko `tsconfig.json`): `target: "ES2022"`, `lib: ["DOM", "DOM.Iterable", "ES2022"]`,
       `noEmit: true` (wymagane przez `allowImportingTsExtensions`). Sprawdzenie: `yarn typecheck`.
-- [x] **1b. `moduleResolution: "Bundler"`** (tylko `tsconfig.json`) — rozwiązywanie importów jak w esbuildzie,
+- [x] ✅ **1b. `moduleResolution: "Bundler"`** (tylko `tsconfig.json`) — rozwiązywanie importów jak w esbuildzie,
       z obsługą pola `exports`. Sprawdzenie: `yarn typecheck`.
-- [x] **1c. Nowy transform JSX:** `jsx: "react-jsx"` w `tsconfig.json` + `'plugin:react/jsx-runtime'` w
+- [x] ✅ **1c. Nowy transform JSX:** `jsx: "react-jsx"` w `tsconfig.json` + `'plugin:react/jsx-runtime'` w
       `.eslintrc.js` (wyłącza `react/react-in-jsx-scope`). Preset wyłącza też `react/jsx-uses-react`, więc lint wymusza
       zrobienie 1d w tym samym commicie. Sprawdzenie: typecheck, lint, testy
       i przeklikanie strony (zmienia się wygenerowany kod).
-- [x] **1d. Usunięcie zbędnych `import React`** — 152 pliki importują `React`, z czego 111 to samo
+- [x] ✅ **1d. Usunięcie zbędnych `import React`** — 152 pliki importują `React`, z czego 111 to samo
       `import React from 'react';`. Usuwać tam, gdzie plik nie używa `React.` (np. `React.ReactNode`); przy
       `import React, { … }` zostawić nazwane importy. Skryptem, potem typecheck, lint, testy.
-- [x] **1e. Aliasy ścieżek:** dodane `paths: { "@/*": ["./src/*"] }` i `eslint-import-resolver-typescript` 4.4.5
+- [x] ✅ **1e. Aliasy ścieżek:** dodane `paths: { "@/*": ["./src/*"] }` i `eslint-import-resolver-typescript` 4.4.5
       (resolver w `.eslintrc.js`, bez niego `import/no-unresolved` odrzuca `@/…`). ✅ Importy przepisane na `@/` tam,
       gdzie alias jest krótszy (ostrzeżenie WebStorma „Import can be shortened”): 804 importy w 176 plikach. Wyjątek: 43
       pliki osiągalne z testów (`*.test.ts` i ich zależności) zostają przy ścieżkach względnych, bo `node --test` nie
@@ -131,20 +131,30 @@ Aktualizacje zależności izolowane (jedna biblioteka / jedna grupa na PR), wers
   `linebreak-style`, `react/jsx-tag-spacing`); skrypt `lint:fix` używa `--ext`, którego nie ma w ESLint 9.
 - Cel: **ESLint 9 (9.39.5), nie 10** — `eslint-plugin-react`, `eslint-plugin-import` i `eslint-plugin-jsx-a11y`
   w najnowszych wersjach obsługują ESLint najwyżej w wersji 9.
-- [x] **2a. ESLint 8.49.0 → 8.57.1** (ostatnia 8.x) — samo podbicie, bez zmian w konfiguracji. Potrzebne, bo
+- [x] ✅ **2a. ESLint 8.49.0 → 8.57.1** (ostatnia 8.x) — samo podbicie, bez zmian w konfiguracji. Potrzebne, bo
       typescript-eslint 8 wymaga ESLint ≥ 8.57.
-- [x] **2b. `@typescript-eslint/parser` i `eslint-plugin` 6.6.0 → 8.74.0** — nadal na starym formacie konfiguracji.
+- [x] ✅ **2b. `@typescript-eslint/parser` i `eslint-plugin` 6.6.0 → 8.74.0** — nadal na starym formacie konfiguracji.
       Razem z nim `eslint-plugin-react` 7.33.2 → 7.37.5: stary plugin nie rozumiał AST typescript-eslint 8 i zgłaszał
       fałszywe `react/prop-types` dla `forwardRef` w `MultiCarousel.tsx`. Zestaw reguł bez zmian (272, porównanie
       `eslint --print-config`).
-- [ ] **2c. Pluginy bez zmiany reguł:** `eslint-plugin-jsx-a11y` 6.10.2,
+- [x] ✅ **2c. Pluginy bez zmiany reguł:** `eslint-plugin-jsx-a11y` 6.10.2,
       `eslint-plugin-import` 2.32.0, `eslint-config-prettier` 10.1.8, `eslint-plugin-prettier` 5.5.7 (`react-hooks`
       osobno, krok 2e).
-- [ ] **2d. ESLint 9 + flat config:** `eslint` 9.39.5, `@eslint/js`, `globals`; nowy `eslint.config.mjs` (paczka
-      `typescript-eslint` zamiast osobnych parsera i pluginu); usunięcie `.eslintrc.js` i `.eslintignore`; poprawka
-      skryptu `lint:fix`. Reguły przeniesione 1:1 — sprawdzenie przez porównanie `eslint --print-config` przed i po
-      oraz identyczny wynik lintu.
-- [ ] **2e. `eslint-plugin-react-hooks` 4.6.0 → 7.1.1** — wersja 7 dodaje reguły React Compilera (m.in. `purity`,
+      Aktywnych reguł nadal 90; `eslint-config-prettier` 10 dopisuje tylko wyłączenia (`off`) dla `@stylistic/*` i
+      `unicorn/template-indent`, których projekt nie używa.
+- [x] ✅ **2d. ESLint 9 + flat config:** `eslint` 9.39.5, `@eslint/js` 9.39.5, `globals` 17.14.0, `typescript-eslint`
+      8.74.0 (zamiast osobnych `@typescript-eslint/parser` i `eslint-plugin`); nowy `eslint.config.mjs`; usunięte
+      `.eslintrc.js` i `.eslintignore` (wzorce dla obrazków i fontów zbędne — ESLint 9 i tak lintuje tylko JS/TS);
+      `lint:fix` bez `--ext`. Dodatkowo, z konieczności:
+  - `eslint-plugin-react-hooks` 4.6.0 → 5.2.0 — 4.6.x wywraca się na ESLint 9 (`context.getSource is not a
+function`); 5.x to pierwsza linia ze wsparciem ESLint 9, bez reguł React Compilera (te są w 6/7, krok 2e).
+  - `linterOptions.reportUnusedDisableDirectives: 'off'` — jak w ESLint 8. ESLint 9 domyślnie ostrzega o zbędnych
+    `eslint-disable`; jedyny taki to `useStandDrag.ts:101` (`exhaustive-deps` w 5.2 nic tam nie zgłasza) — do
+    decyzji przy 2f.
+  - Zestaw reguł: te same reguły projektu i pluginów; różnica tylko w `eslint:recommended` z ESLint 9 — usunięte
+    przestarzałe `no-inner-declarations`, `no-new-symbol`; dodane `no-constant-binary-expression`,
+    `no-empty-static-block`, `no-new-native-nonconstructor`, `no-unused-private-class-members` (bez nowych błędów).
+- [ ] **2e. `eslint-plugin-react-hooks` 5.2.0 → 7.1.1** — wersja 7 dodaje reguły React Compilera (m.in. `purity`,
       `refs`, `set-state-in-effect`), które mogą pokazać dużo nowych błędów. Najpierw policzyć i pokazać wyniki, potem
       decyzja, co włączyć.
 - [ ] **2f. Porządki w regułach (opcjonalnie):** usunięcie reguł formatowania dublujących Prettiera; rozważenie
@@ -152,13 +162,13 @@ Aktualizacje zależności izolowane (jedna biblioteka / jedna grupa na PR), wers
       `typescript-eslint` recommended i `jsx-a11y` recommended (nowe błędy do naprawy — osobno).
 - Kolejność: 2a → 2b → 2c → 2d → 2e → 2f.
 
-### Krok 2. Bundler — [ ]
+### Krok 2. Bundler — ⬜ do zrobienia
 
 - Decyzja: zostać na esbuild (podbicie do 0.28 + pluginy) czy przejść na **Vite**.
 - Vite ułatwia późniejsze Module Federation, Vitest i HMR.
 - Zachować działanie service workera i workflowów CI (metadane paczki, porównanie rozmiaru).
 
-### Krok 3. Aktualizacje głównych bibliotek — [ ]
+### Krok 3. Aktualizacje głównych bibliotek — ⬜ do zrobienia
 
 Kolejno, każda osobno:
 
@@ -168,7 +178,7 @@ Kolejno, każda osobno:
 4. Pozostałe: zod, react-hook-form, @hookform/resolvers, @iconify/react, FontAwesome (✅ styled-components 6.7.0,
    ✅ bootstrap usunięty).
 
-### Krok 4. Nowoczesne praktyki Reactowe — [ ]
+### Krok 4. Nowoczesne praktyki Reactowe — ⬜ do zrobienia
 
 - Code splitting tras: `React.lazy` + `Suspense` (osobna paczka dla `/admin/*`).
 - Error boundaries.
@@ -176,27 +186,27 @@ Kolejno, każda osobno:
 - Actions / `useActionState` / `useOptimistic` w formularzach i panelu admina.
 - TanStack Query jako warstwa pobierania danych i cache nad `apiClient.ts`.
 
-### Krok 5. Refaktor domeny i komponentów — [ ]
+### Krok 5. Refaktor domeny i komponentów — ⬜ do zrobienia
 
 - Wspólna abstrakcja „zgłoszenia” (status flow, storage, API, panel) dla wystawców i warsztatów.
 - Rozbicie największych plików (`Editor.tsx`, `Carouselge.tsx`, `Menu.tsx`,
   `VendorsApplicationsPage.styled.tsx`, `useVendorForm.ts`).
 - Podział tłumaczeń na namespace'y.
-- [x] Jeden system stylowania: Bootstrap usunięty, potrzebne reguły Reboot przeniesione do `src/styles/reboot.ts`
+- [x] ✅ Jeden system stylowania: Bootstrap usunięty, potrzebne reguły Reboot przeniesione do `src/styles/reboot.ts`
       (zweryfikowane pomiarem computed styles na 9 widokach).
-- [ ] (w toku) Migracja na transient props `$prop` i usunięcie łatki `shouldForwardProp`:
-  - [x] Wszystkie prywatne (niewyeksportowane) styled-components oraz komponenty bandu wzorów.
+- [ ] 🟡 Migracja na transient props `$prop` i usunięcie łatki `shouldForwardProp`:
+  - [x] ✅ Wszystkie prywatne (niewyeksportowane) styled-components oraz komponenty bandu wzorów.
   - [ ] Współdzielone/eksportowane: `Typography`, `FlexColumnLayout`, `RowLayout`, `BandRootLayout`, `Icon`, `Card`,
         `CtaButton`, `Curtain`, `CardLayout` (+ `MobileCardLayout`), `Ribbon`, `LeftBackgroundImage`, `HeaderCell`/`BodyCell`,
         `Carouselge.ItemBackground`.
   - [ ] Na końcu: usunięcie `StyleSheetManager shouldForwardProp` z `src/index.tsx` i `@emotion/is-prop-valid`.
 
-### Krok 6. Testy komponentów — [ ]
+### Krok 6. Testy komponentów — ⬜ do zrobienia
 
 - Vitest + Testing Library obok istniejących testów utilsów (lub migracja całości na Vitest).
 - Testy kluczowych przepływów: formularz wystawcy, formularz warsztatów, logowanie admina.
 
-### Krok 7. Monorepo i mikrofrontend — [ ]
+### Krok 7. Monorepo i mikrofrontend — ⬜ do zrobienia
 
 - Workspaces: `apps/public`, `apps/admin`, `packages/ui`, `packages/domain`, `packages/translations`.
 - Ćwiczenie: admin jako mikrofrontend (Module Federation) lub osobny deploy pod `/admin`.
