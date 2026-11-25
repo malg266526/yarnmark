@@ -18,16 +18,16 @@ interface DotsProps {
   onNext?: () => void;
 }
 
-const DotsLayout = styled.div<DotsProps>`
+const DotsLayout = styled.div<{ $direction?: DotsProps['direction'] }>`
   display: flex;
-  flex-direction: ${({ direction }) => direction || 'row'};
+  flex-direction: ${({ $direction }) => $direction || 'row'};
   align-items: center;
   gap: ${RedesignSpacings.xs};
   padding: ${RedesignSpacings.xs};
 `;
 
-export const Dots = ({ direction, size, onPrev, onNext }: DotsProps) => (
-  <DotsLayout direction={direction} size={size}>
+export const Dots = ({ direction, onPrev, onNext }: DotsProps) => (
+  <DotsLayout $direction={direction}>
     <Button onClick={onPrev} aria-label="prev button">
       <Icon size="xxs" zIndex={0} src={ellipseStrong} />
     </Button>

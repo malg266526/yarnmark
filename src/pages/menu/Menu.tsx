@@ -32,10 +32,10 @@ import partyIcon from '../../assets/iconify/party-icon.svg';
 import usersIcon from '../../assets/iconify/users.svg';
 import { BandsToggles, TicketsToggles } from '../../toggles';
 
-const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
+const RootLayout = styled.div<{ $isOpen?: boolean; $isVisible?: boolean }>`
   display: flex;
   flex-direction: column;
-  width: ${({ isOpen, isVisible }) => (isVisible ? (isOpen ? '240px' : '76px') : 0)};
+  width: ${({ $isOpen, $isVisible }) => ($isVisible ? ($isOpen ? '240px' : '76px') : 0)};
   position: fixed;
   height: 100vh;
   z-index: 10;
@@ -62,15 +62,15 @@ const RootLayout = styled.div<{ isOpen?: boolean; isVisible?: boolean }>`
   }
 `;
 
-const Section = styled.div<{ isOpen?: boolean }>`
+const Section = styled.div<{ $isOpen?: boolean }>`
   display: flex;
   flex-direction: column;
   border-bottom: 0.25px solid #326213;
   gap: ${RedesignSpacings.xs};
   padding-top: 0;
   padding-bottom: 15px;
-  padding-left: ${({ isOpen }) => (isOpen ? RedesignSpacings.xs : 0)};
-  padding-right: ${({ isOpen }) => (isOpen ? RedesignSpacings.xs : 0)};
+  padding-left: ${({ $isOpen }) => ($isOpen ? RedesignSpacings.xs : 0)};
+  padding-right: ${({ $isOpen }) => ($isOpen ? RedesignSpacings.xs : 0)};
 
   // overflow: hidden;
 
@@ -90,9 +90,9 @@ const LanguageSection = styled(Section)`
   padding: 0 ${RedesignSpacings.xs};
 `;
 
-const MenuItem = styled.a<{ isOpen?: boolean; disabled?: boolean }>`
+const MenuItem = styled.a<{ $isOpen?: boolean; $disabled?: boolean }>`
   display: flex;
-  width: ${({ isOpen }) => (isOpen ? '100%' : 'fit-content')};
+  width: ${({ $isOpen }) => ($isOpen ? '100%' : 'fit-content')};
   height: 32px;
   align-items: center;
   align-self: center;
@@ -101,10 +101,10 @@ const MenuItem = styled.a<{ isOpen?: boolean; disabled?: boolean }>`
   text-decoration: none;
   border-radius: 6px;
 
-  cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
-  pointer-events: ${({ disabled }) => (disabled ? 'none' : 'auto')};
+  cursor: ${({ $disabled }) => ($disabled ? 'default' : 'pointer')};
+  pointer-events: ${({ $disabled }) => ($disabled ? 'none' : 'auto')};
 
-  color: ${({ disabled }) => (disabled ? GrayScale[700] : TextColors.secondary)};
+  color: ${({ $disabled }) => ($disabled ? GrayScale[700] : TextColors.secondary)};
   background-color: ${BackgroundColors.ticketBand};
 
   ${Icon} {
@@ -132,9 +132,9 @@ const MenuItem = styled.a<{ isOpen?: boolean; disabled?: boolean }>`
   }
 `;
 
-const SwitchRow = styled.div<{ isOpen?: boolean }>`
+const SwitchRow = styled.div<{ $isOpen?: boolean }>`
   display: flex;
-  justify-content: ${({ isOpen }) => (isOpen ? 'space-between' : 'center')};
+  justify-content: ${({ $isOpen }) => ($isOpen ? 'space-between' : 'center')};
   align-items: center;
   padding: ${RedesignSpacings.sm} ${RedesignSpacings.xxs};
 
@@ -143,7 +143,7 @@ const SwitchRow = styled.div<{ isOpen?: boolean }>`
   }
 `;
 
-const TicketsSection = styled.div<{ isOpen?: boolean }>`
+const TicketsSection = styled.div<{ $isOpen?: boolean }>`
   display: flex;
   flex-direction: column;
   background-color: ${BackgroundColors.ticketBand};
@@ -151,7 +151,7 @@ const TicketsSection = styled.div<{ isOpen?: boolean }>`
   gap: 7px;
   width: fit-content;
   align-self: center;
-  padding-right: ${({ isOpen }) => (isOpen ? '8px' : '0')};
+  padding-right: ${({ $isOpen }) => ($isOpen ? '8px' : '0')};
 `;
 
 const SwitchButton = styled(Button)`
@@ -164,13 +164,13 @@ const SwitchButton = styled(Button)`
   }
 `;
 
-const Dots = styled.span<{ isOpen?: boolean }>`
+const Dots = styled.span<{ $isOpen?: boolean }>`
   background: url(${dotsStrokeIcon}) no-repeat center;
   background-size: contain;
   height: 30px;
   width: 72px;
   max-width: 72px;
-  margin: ${({ isOpen }) => (isOpen ? 0 : 'auto')};
+  margin: ${({ $isOpen }) => ($isOpen ? 0 : 'auto')};
 `;
 
 interface UpgradedMenuProps {
@@ -186,17 +186,17 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
   const isMenuExpanded = isOpen || isPhone;
 
   return (
-    <RootLayout isVisible={isVisible} isOpen={isMenuExpanded} id="menu_root">
-      <Section isOpen={isMenuExpanded}>
+    <RootLayout $isVisible={isVisible} $isOpen={isMenuExpanded} id="menu_root">
+      <Section $isOpen={isMenuExpanded}>
         {isPhone ? (
           <Button onClick={closeMenu}>
             <Icon size="lg" src={closeMenuIcon} />
           </Button>
         ) : (
-          <Dots isOpen={isMenuExpanded} />
+          <Dots $isOpen={isMenuExpanded} />
         )}
 
-        <SwitchRow isOpen={isMenuExpanded} id="switch_menu_row">
+        <SwitchRow $isOpen={isMenuExpanded} id="switch_menu_row">
           {isMenuExpanded ? (
             <>
               <Picture picture={yarnmarkLogoPictureConfig} alt="yarnmark_logo" width={40} height={50} />
@@ -211,25 +211,25 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           )}
         </SwitchRow>
 
-        <MenuItem href="/home" isOpen={isMenuExpanded} aria-label="home_menu_item" onClick={closeMenu}>
+        <MenuItem href="/home" $isOpen={isMenuExpanded} aria-label="home_menu_item" onClick={closeMenu}>
           <Icon size="sm" zIndex={0} src={homeIcon} />
           {isMenuExpanded && <Typography size="sm"> {t('menu.home')}</Typography>}
         </MenuItem>
       </Section>
 
-      <Section isOpen={isMenuExpanded} id="links_section">
-        <MenuItem href="/home#mainInfoButtons" isOpen={isMenuExpanded} aria-label="main_information_menu_item">
+      <Section $isOpen={isMenuExpanded} id="links_section">
+        <MenuItem href="/home#mainInfoButtons" $isOpen={isMenuExpanded} aria-label="main_information_menu_item">
           <Icon size="sm" zIndex={0} src={infoIcon} />
           {isMenuExpanded && <Typography size="sm"> {t('menu.whatAndWhere')}</Typography>}
         </MenuItem>
 
-        <TicketsSection isOpen={isMenuExpanded}>
+        <TicketsSection $isOpen={isMenuExpanded}>
           <MenuItem
             href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-bilety/357"
             target="_blank"
-            isOpen={isMenuExpanded}
+            $isOpen={isMenuExpanded}
             aria-label="yarnmark_ticket_menu_item"
-            disabled={!TicketsToggles.enabled}
+            $disabled={!TicketsToggles.enabled}
           >
             <Icon size="sm" zIndex={0} src={ticketIcon} />
             {isMenuExpanded && <Typography size="sm">{t('menu.entranceTicket')}</Typography>}
@@ -238,8 +238,8 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
           <MenuItem
             href="https://wloczykijki.pl/pl/c/Krakoski-Yarnmark-warsztaty/358"
             target="_blank"
-            isOpen={isMenuExpanded}
-            disabled={!TicketsToggles.workshopTickets}
+            $isOpen={isMenuExpanded}
+            $disabled={!TicketsToggles.workshopTickets}
             aria-label="workshops_tickets_menu_item"
           >
             <Icon size="sm" zIndex={0} src={ticketIcon} />
@@ -248,27 +248,32 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
         </TicketsSection>
 
         {BandsToggles.workshopsEnabled && (
-          <MenuItem href="/home#workshops" isOpen={isMenuExpanded} aria-label="workshops_menu_item" onClick={closeMenu}>
+          <MenuItem
+            href="/home#workshops"
+            $isOpen={isMenuExpanded}
+            aria-label="workshops_menu_item"
+            onClick={closeMenu}
+          >
             <Icon size="sm" zIndex={0} src={workshopIcons} />
             {isMenuExpanded && <Typography size="sm">{t('menu.workshops')}</Typography>}
           </MenuItem>
         )}
 
         {BandsToggles.vendorsEnabled && (
-          <MenuItem href="/home#vendors" isOpen={isMenuExpanded} aria-label="vendors_menu_item" onClick={closeMenu}>
+          <MenuItem href="/home#vendors" $isOpen={isMenuExpanded} aria-label="vendors_menu_item" onClick={closeMenu}>
             <Icon size="sm" zIndex={0} src={shopIcon} />
             {isMenuExpanded && <Typography size="sm">{t('menu.vendors')}</Typography>}
           </MenuItem>
         )}
 
         {BandsToggles.afterEnabled && (
-          <MenuItem href="/home#after" isOpen={isMenuExpanded} aria-label="after_menu_item" onClick={closeMenu}>
+          <MenuItem href="/home#after" $isOpen={isMenuExpanded} aria-label="after_menu_item" onClick={closeMenu}>
             <Icon size="sm" zIndex={0} src={partyIcon} />
             {isMenuExpanded && <Typography size="sm">{t('menu.after')}</Typography>}
           </MenuItem>
         )}
 
-        <MenuItem href="/home#patterns" isOpen={isMenuExpanded} aria-label="patterns_menu_item" onClick={closeMenu}>
+        <MenuItem href="/home#patterns" $isOpen={isMenuExpanded} aria-label="patterns_menu_item" onClick={closeMenu}>
           <Icon size="sm" zIndex={0} src={shirtIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.memories')}</Typography>}
         </MenuItem>
@@ -276,7 +281,7 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
         {BandsToggles.teamAndPartnersEnabled && (
           <MenuItem
             href="/home#team-and-partners"
-            isOpen={isMenuExpanded}
+            $isOpen={isMenuExpanded}
             aria-label="team_and_partners_menu_item"
             onClick={closeMenu}
           >
@@ -287,7 +292,7 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
 
         <MenuItem
           href="/home#lastEdition"
-          isOpen={isMenuExpanded}
+          $isOpen={isMenuExpanded}
           aria-label="last_edition_menu_item"
           onClick={closeMenu}
         >
@@ -296,17 +301,17 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
         </MenuItem>
 
         {BandsToggles.foodEnabled && (
-          <MenuItem href="/home#food" isOpen={isMenuExpanded} aria-label="food_menu_item" onClick={closeMenu}>
+          <MenuItem href="/home#food" $isOpen={isMenuExpanded} aria-label="food_menu_item" onClick={closeMenu}>
             <Icon size="sm" src={burgerImageUrl} />
             {isMenuExpanded && <Typography size="sm">{t('menu.food')}</Typography>}
           </MenuItem>
         )}
       </Section>
 
-      <LastSection isOpen={isMenuExpanded}>
+      <LastSection $isOpen={isMenuExpanded}>
         <MenuItem
           href="/info-for-vendors"
-          isOpen={isMenuExpanded}
+          $isOpen={isMenuExpanded}
           aria-label="stands_map_menu_item"
           onClick={closeMenu}
         >
@@ -315,18 +320,18 @@ export const Menu = ({ isVisible, closeMenu }: UpgradedMenuProps) => {
         </MenuItem>
 
         {BandsToggles.hallMapEnabled && (
-          <MenuItem href="/hall" isOpen={isMenuExpanded} aria-label="hall_map_menu_item">
+          <MenuItem href="/hall" $isOpen={isMenuExpanded} aria-label="hall_map_menu_item">
             <Icon size="sm" zIndex={0} src={pinEllipseIcon} />
             {isMenuExpanded && <Typography size="sm">{t('menu.hallMap')}</Typography>}
           </MenuItem>
         )}
 
-        <MenuItem href="/statutes" isOpen={isMenuExpanded} aria-label="statutes_menu_item" onClick={closeMenu}>
+        <MenuItem href="/statutes" $isOpen={isMenuExpanded} aria-label="statutes_menu_item" onClick={closeMenu}>
           <Icon size="sm" zIndex={0} src={contractIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.statutes')}</Typography>}
         </MenuItem>
 
-        <MenuItem href="#footer" isOpen={isMenuExpanded} aria-label="contact_menu_item" onClick={closeMenu}>
+        <MenuItem href="#footer" $isOpen={isMenuExpanded} aria-label="contact_menu_item" onClick={closeMenu}>
           <Icon size="sm" zIndex={0} src={contactIcon} />
           {isMenuExpanded && <Typography size="sm">{t('menu.contact')}</Typography>}
         </MenuItem>

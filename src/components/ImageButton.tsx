@@ -18,7 +18,7 @@ const activeCss = css`
   box-shadow: 1px 1px 5px 1px #555;
 `;
 
-const ImageButtonLayout = styled.div<{ active?: boolean }>`
+const ImageButtonLayout = styled.div<{ $active?: boolean }>`
   display: flex;
   align-items: center;
   padding: ${RedesignSpacings.xs};
@@ -35,12 +35,12 @@ const ImageButtonLayout = styled.div<{ active?: boolean }>`
     ${activeCss};
   }
 
-  ${({ active }) => active && activeCss};
+  ${({ $active }) => $active && activeCss};
 `;
 
 export const ImageButton = forwardRef<HTMLDivElement, ImageButtonProps>(
-  ({ icon, children, ...rest }: ImageButtonProps, ref) => (
-    <ImageButtonLayout ref={ref} {...rest}>
+  ({ icon, children, active, onClick }: ImageButtonProps, ref) => (
+    <ImageButtonLayout ref={ref} $active={active} onClick={onClick}>
       <RoundBorderIcon>{icon}</RoundBorderIcon>
       {children}
     </ImageButtonLayout>

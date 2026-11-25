@@ -10,19 +10,19 @@ import { Typography } from './Typography';
 import { usePhone } from '../hooks/usePhone';
 
 const StandElement = styled.div<{
-  left: number;
-  top: number;
-  color: string;
-  width: number;
-  height: number;
+  $left: number;
+  $top: number;
+  $color: string;
+  $width: number;
+  $height: number;
 }>`
   position: absolute;
-  left: ${({ left }) => left}px;
-  top: ${({ top }) => top}px;
-  width: ${({ width }) => width}px;
-  height: ${({ height }) => height}px;
+  left: ${({ $left }) => $left}px;
+  top: ${({ $top }) => $top}px;
+  width: ${({ $width }) => $width}px;
+  height: ${({ $height }) => $height}px;
 
-  background-color: ${({ color }) => color};
+  background-color: ${({ $color }) => $color};
 
   display: flex;
   flex-direction: column;
@@ -77,11 +77,11 @@ export const Hall = ({ multiplier }: HallType) => {
             <StandElement
               id={standConfiguration.id}
               key={standConfiguration.id}
-              color={StandColorsMap[resolveStandColorKey(standConfiguration)]}
-              left={box.left}
-              top={box.top}
-              height={box.height}
-              width={box.width}
+              $color={StandColorsMap[resolveStandColorKey(standConfiguration)]}
+              $left={box.left}
+              $top={box.top}
+              $height={box.height}
+              $width={box.width}
             >
               {standConfiguration.type !== 'other' && <div>{standConfiguration.index}</div>}
               <HallStandVendor vendor={standConfiguration.vendor} vendorLogoUrl={standConfiguration.vendorLogoUrl} />

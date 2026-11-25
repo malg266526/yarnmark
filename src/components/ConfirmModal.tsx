@@ -37,8 +37,8 @@ const Actions = styled.div`
   gap: ${RedesignSpacings.xs};
 `;
 
-const ConfirmButton = styled(CtaButton)<{ variant: ConfirmVariant }>`
-  background-color: ${({ variant }) => (variant === 'danger' ? TextColors.accent : BackgroundColors.green.strong)};
+const ConfirmButton = styled(CtaButton)<{ $variant: ConfirmVariant }>`
+  background-color: ${({ $variant }) => ($variant === 'danger' ? TextColors.accent : BackgroundColors.green.strong)};
 
   &:focus-visible {
     outline: 2px solid ${TextColors.primary};
@@ -95,7 +95,7 @@ export const ConfirmModal = ({
       <Actions>
         <GhostButton onClick={onCancel}>{cancelLabel ?? t('confirmModal.cancel')}</GhostButton>
 
-        <ConfirmButton variant={variant} onClick={onConfirm}>
+        <ConfirmButton $variant={variant} onClick={onConfirm}>
           {confirmLabel ?? t('confirmModal.confirm')}
         </ConfirmButton>
       </Actions>

@@ -18,10 +18,10 @@ const Root = styled.div`
   gap: ${RedesignSpacings.xs};
 `;
 
-const CurrentLanguageRow = styled.div<{ justify?: 'center' | 'space-between' }>`
+const CurrentLanguageRow = styled.div<{ $justify?: 'center' | 'space-between' }>`
   display: flex;
   align-items: center;
-  justify-content: ${({ justify }) => justify || 'space-between'};
+  justify-content: ${({ $justify }) => $justify || 'space-between'};
   cursor: pointer;
   padding: ${RedesignSpacings.xxs};
 
@@ -38,12 +38,12 @@ const ChevronIcon = styled(Icon)`
   }
 `;
 
-const Flags = styled.div<{ isOpen?: boolean }>`
+const Flags = styled.div<{ $isOpen?: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  max-height: ${({ isOpen }) => (isOpen ? '120px' : '0px')};
+  max-height: ${({ $isOpen }) => ($isOpen ? '120px' : '0px')};
   transition: all 0.2s ease-in;
   overflow: hidden;
   gap: ${RedesignSpacings.xxs};
@@ -56,8 +56,8 @@ const Flags = styled.div<{ isOpen?: boolean }>`
     top: 100px;
     left: 10px;
     background-color: white;
-    padding: ${({ isOpen }) => (isOpen ? RedesignSpacings.xs : '0px')};
-    max-height: ${({ isOpen }) => (isOpen ? '180px' : '0px')};
+    padding: ${({ $isOpen }) => ($isOpen ? RedesignSpacings.xs : '0px')};
+    max-height: ${({ $isOpen }) => ($isOpen ? '180px' : '0px')};
   }
 `;
 
@@ -94,7 +94,7 @@ export const LanguageSwitcher = ({ isOpen }: LanguageSwitcherProps) => {
 
   return (
     <Root>
-      <CurrentLanguageRow onClick={toggleLanguageSwitch} justify={isOpen ? 'space-between' : 'center'}>
+      <CurrentLanguageRow onClick={toggleLanguageSwitch} $justify={isOpen ? 'space-between' : 'center'}>
         <Icon size={flagIconSize} zIndex={0} src={flagSrc} />
 
         {isOpen && (
@@ -107,7 +107,7 @@ export const LanguageSwitcher = ({ isOpen }: LanguageSwitcherProps) => {
         )}
       </CurrentLanguageRow>
 
-      <Flags isOpen={isLanguageSwitchOpen}>
+      <Flags $isOpen={isLanguageSwitchOpen}>
         <Button onClick={() => onChangeLanguageClicked('pl')} aria-label="change_language_to_pl">
           <Icon size={flagIconSize} src={polandIcon} />
         </Button>

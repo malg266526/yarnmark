@@ -29,7 +29,7 @@ const GoBackButtons = styled(RowLayout)`
   margin-bottom: -${RedesignSpacings.xs};
 `;
 
-const InfoSection = styled.div<{ isExpanded?: boolean }>`
+const InfoSection = styled.div<{ $isExpanded?: boolean }>`
   display: flex;
   width: 100%;
   height: 100%;
@@ -37,14 +37,14 @@ const InfoSection = styled.div<{ isExpanded?: boolean }>`
 
   justify-content: space-around;
   align-items: center;
-  gap: ${({ isExpanded }) => (isExpanded ? RedesignSpacings.sm : RedesignSpacings.xs)};
+  gap: ${({ $isExpanded }) => ($isExpanded ? RedesignSpacings.sm : RedesignSpacings.xs)};
   text-align: center;
 
-  overflow: ${({ isExpanded }) => (isExpanded ? 'auto' : 'visible')};
+  overflow: ${({ $isExpanded }) => ($isExpanded ? 'auto' : 'visible')};
 `;
 
-const VerticalRibbonIcon = styled.div<{ src: string }>`
-  background: url(${({ src }) => src}) no-repeat center;
+const VerticalRibbonIcon = styled.div<{ $src: string }>`
+  background: url(${({ $src }) => $src}) no-repeat center;
   background-size: cover;
 
   height: 100%;
@@ -105,7 +105,7 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
           <Typography size="sm">{t(`workshops.room.${workshop.room}`)}</Typography>
         </Ribbon>
       ) : (
-        <VerticalRibbonIcon src={verticalRibbonIcon}>
+        <VerticalRibbonIcon $src={verticalRibbonIcon}>
           <VerticalRibbonTextWrapper>
             <Typography size="sm">{workshop.time}</Typography>
           </VerticalRibbonTextWrapper>
@@ -123,7 +123,7 @@ export const MobileRibbonCard = ({ workshop }: RibbonCardProps) => {
         style={{ borderRadius: '50%', objectFit: 'cover' }}
       />
 
-      <InfoSection id="info-section" isExpanded={isExpanded}>
+      <InfoSection id="info-section" $isExpanded={isExpanded}>
         {isExpanded ? (
           <FlexColumnLayout padding="none" width="100%" gap="sm">
             <Expandable title={<WorkshopSectionTitle size="md">Czego się nauczysz?</WorkshopSectionTitle>}>

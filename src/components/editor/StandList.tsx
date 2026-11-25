@@ -49,19 +49,19 @@ const EmptyMessage = styled.div`
   color: #6b7280;
 `;
 
-const StandItem = styled.div<{ selected?: boolean }>`
+const StandItem = styled.div<{ $selected?: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px 12px;
   border-radius: 8px;
-  border: 1px solid ${({ selected }) => (selected ? '#dc2626' : '#e5e7eb')};
-  background-color: ${({ selected }) => (selected ? '#fef2f2' : '#fff')};
+  border: 1px solid ${({ $selected }) => ($selected ? '#dc2626' : '#e5e7eb')};
+  background-color: ${({ $selected }) => ($selected ? '#fef2f2' : '#fff')};
   cursor: pointer;
   gap: ${RedesignSpacings.sm};
 
   &:hover {
-    background-color: ${({ selected }) => (selected ? '#fee2e2' : '#f9fafb')};
+    background-color: ${({ $selected }) => ($selected ? '#fee2e2' : '#f9fafb')};
   }
 
   transition:
@@ -153,7 +153,7 @@ export const StandList = ({ onRemoveStand }: StandListProps) => {
               {group.stands.map((stand) => (
                 <StandItem
                   key={stand.id}
-                  selected={stand.id === currentStand.id}
+                  $selected={stand.id === currentStand.id}
                   onClick={() => setCurrentStand(stand)}
                 >
                   <StandSummary>

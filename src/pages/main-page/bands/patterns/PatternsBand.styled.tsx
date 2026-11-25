@@ -10,28 +10,28 @@ export const EditionKicker = styled(Kicker)`
   font-weight: 600;
 `;
 
-export const PanelsRow = styled.div<{ direction: 'row' | 'column' }>`
+export const PanelsRow = styled.div<{ $direction: 'row' | 'column' }>`
   width: 100%;
   max-width: 1404px;
   display: flex;
-  flex-direction: ${({ direction }) => direction};
+  flex-direction: ${({ $direction }) => $direction};
   align-items: stretch;
   gap: ${RedesignSpacings.md};
 `;
 
-export const EditionPanel = styled(Card)<{ grow: number; isStacked: boolean }>`
-  flex: ${({ grow, isStacked }) => (isStacked ? '0 0 auto' : `${grow} 1 0`)};
+export const EditionPanel = styled(Card)<{ $grow: number; $isStacked: boolean }>`
+  flex: ${({ $grow, $isStacked }) => ($isStacked ? '0 0 auto' : `${$grow} 1 0`)};
   min-width: 0;
   overflow: hidden;
   align-items: stretch;
 `;
 
-export const PanelPhoto = styled(Picture)<{ ratio: number }>`
+export const PanelPhoto = styled(Picture)<{ $ratio: number }>`
   img {
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: ${({ ratio }) => ratio};
+    aspect-ratio: ${({ $ratio }) => $ratio};
   }
 `;
 
@@ -44,15 +44,15 @@ export const PanelBody = styled.div`
   text-align: center;
 `;
 
-export const PanelEntries = styled.div<{ isStacked: boolean }>`
+export const PanelEntries = styled.div<{ $isStacked: boolean }>`
   display: flex;
-  flex-wrap: ${({ isStacked }) => (isStacked ? 'wrap' : 'nowrap')};
+  flex-wrap: ${({ $isStacked }) => ($isStacked ? 'wrap' : 'nowrap')};
   justify-content: space-evenly;
   gap: ${RedesignSpacings.sm};
   width: 100%;
 
   & > * {
-    flex: ${({ isStacked }) => (isStacked ? '0 1 auto' : '1 1 0')};
+    flex: ${({ $isStacked }) => ($isStacked ? '0 1 auto' : '1 1 0')};
     min-width: 0;
   }
 `;

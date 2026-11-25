@@ -7,7 +7,6 @@
     "jsx": "react",
     "allowImportingTsExtensions": true,
     "allowSyntheticDefaultImports": true,
-    "typeRoots": ["./src/types.ts"],
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "moduleResolution": "Node"

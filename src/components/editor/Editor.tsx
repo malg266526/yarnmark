@@ -14,7 +14,7 @@ import { ConfirmModal } from '../ConfirmModal';
 import { saveHallToFile } from './utils/saveHallToFile';
 import { useHallPresetImport } from './useHallPresetImport';
 import { useStandRemoval } from './useStandRemoval';
-import { getBoxOutlineRect, getStandOutlineRect } from './utils/standGeometryUtils';
+import { getBoxOutlineRect, getStandOutlineRect, type StandOutlineRect } from './utils/standGeometryUtils';
 import { findStandCollisions } from './utils/standCollisionUtils';
 import { StandCollisionsSummary } from './StandCollisionsSummary';
 import { LayoutSummaryPanel } from './LayoutSummaryPanel';
@@ -123,12 +123,12 @@ const GridContainer = styled.div`
   position: relative;
 `;
 
-const SelectionOutline = styled.div<{ left: number; top: number; width: number; height: number }>`
+const SelectionOutline = styled.div<{ $rect: StandOutlineRect }>`
   position: absolute;
-  left: ${({ left }) => left}px;
-  top: ${({ top }) => top}px;
-  width: ${({ width }) => width}px;
-  height: ${({ height }) => height}px;
+  left: ${({ $rect }) => $rect.left}px;
+  top: ${({ $rect }) => $rect.top}px;
+  width: ${({ $rect }) => $rect.width}px;
+  height: ${({ $rect }) => $rect.height}px;
   box-sizing: border-box;
   border: 4px solid #dc2626;
   box-shadow:
@@ -138,12 +138,12 @@ const SelectionOutline = styled.div<{ left: number; top: number; width: number; 
   z-index: 3;
 `;
 
-const CollisionOverlay = styled.div<{ left: number; top: number; width: number; height: number }>`
+const CollisionOverlay = styled.div<{ $rect: StandOutlineRect }>`
   position: absolute;
-  left: ${({ left }) => left}px;
-  top: ${({ top }) => top}px;
-  width: ${({ width }) => width}px;
-  height: ${({ height }) => height}px;
+  left: ${({ $rect }) => $rect.left}px;
+  top: ${({ $rect }) => $rect.top}px;
+  width: ${({ $rect }) => $rect.width}px;
+  height: ${({ $rect }) => $rect.height}px;
   box-sizing: border-box;
   border: 2px solid #dc2626;
   background: repeating-linear-gradient(45deg, rgba(220, 38, 38, 0.6) 0 4px, rgba(255, 255, 255, 0.4) 4px 8px);
@@ -191,10 +191,10 @@ const GridFooter = styled.div`
 `;
 
 const Square = styled.div<{
-  background: string;
-  isInsideStand?: boolean;
-  movable?: boolean;
-  isDragging?: boolean;
+  $background: string;
+  $isInsideStand?: boolean;
+  $movable?: boolean;
+  $isDragging?: boolean;
 }>`
   width: ${SQUARE_PX}px;
   height: ${SQUARE_PX}px;
@@ -206,11 +206,11 @@ const Square = styled.div<{
   user-select: none;
   font-size: 0.8rem;
   line-height: 1;
-  background: ${({ background }) => background};
-  border: ${({ isInsideStand }) => (isInsideStand ? '1px solid #f0f0f0' : '1px solid #bbb')};
+  background: ${({ $background }) => $background};
+  border: ${({ $isInsideStand }) => ($isInsideStand ? '1px solid #f0f0f0' : '1px solid #bbb')};
   transition: background 0.1s ease;
   position: relative;
-  cursor: ${({ isDragging, movable }) => (isDragging ? 'grabbing' : movable ? 'grab' : 'default')};
+  cursor: ${({ $isDragging, $movable }) => ($isDragging ? 'grabbing' : $movable ? 'grab' : 'default')};
 `;
 
 const StandIndex = styled.div`
@@ -425,10 +425,10 @@ export const Editor = () => {
                             data-grid-cell
                             data-row={row}
                             data-col={col}
-                            background={background}
-                            isInsideStand={isInsideStand}
-                            movable={isSelectedStand(stand)}
-                            isDragging={standDrag.isDragging}
+                            $background={background}
+                            $isInsideStand={isInsideStand}
+                            $movable={isSelectedStand(stand)}
+                            $isDragging={standDrag.isDragging}
                             onMouseDown={() => handleCellMouseDown(row, col)}
                             onMouseEnter={() => handleCellMouseEnter(row, col)}
                             onMouseUp={handleCellMouseUp}
@@ -451,12 +451,12 @@ export const Editor = () => {
                     <CollisionOverlay
                       key={`${first.id}-${second.id}`}
                       data-collision-overlay
-                      {...getBoxOutlineRect(overlap)}
+                      $rect={getBoxOutlineRect(overlap)}
                     />
                   ))}
                   <SectionGapsOverlay gaps={sectionGaps} />
                   {selectionOutline ? (
-                    <SelectionOutline ref={selectionOutlineRef} data-selection-outline {...selectionOutline} />
+                    <SelectionOutline ref={selectionOutlineRef} data-selection-outline $rect={selectionOutline} />
                   ) : null}
                 </GridContainer>
               </GridBody>

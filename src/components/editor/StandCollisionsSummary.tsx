@@ -7,7 +7,7 @@ import { useTypedTranslation } from '../../translations/useTypedTranslation';
 
 const COLLISION_PILL_HEIGHT_PX = 28;
 
-const SummaryContainer = styled.div<{ hasCollisions: boolean }>`
+const SummaryContainer = styled.div<{ $hasCollisions: boolean }>`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -17,9 +17,9 @@ const SummaryContainer = styled.div<{ hasCollisions: boolean }>`
   min-height: calc(${COLLISION_PILL_HEIGHT_PX}px + 2 * ${RedesignSpacings.xs} + 2px);
   padding: ${RedesignSpacings.xs} ${RedesignSpacings.sm};
   border-radius: 8px;
-  border: 1px solid ${({ hasCollisions }) => (hasCollisions ? '#dc2626' : '#16a34a')};
-  background-color: ${({ hasCollisions }) => (hasCollisions ? '#fef2f2' : '#f0fdf4')};
-  color: ${({ hasCollisions }) => (hasCollisions ? '#991b1b' : '#166534')};
+  border: 1px solid ${({ $hasCollisions }) => ($hasCollisions ? '#dc2626' : '#16a34a')};
+  background-color: ${({ $hasCollisions }) => ($hasCollisions ? '#fef2f2' : '#f0fdf4')};
+  color: ${({ $hasCollisions }) => ($hasCollisions ? '#991b1b' : '#166534')};
   font-weight: 700;
 `;
 
@@ -59,14 +59,14 @@ export const StandCollisionsSummary = ({ collisions, onSelectStand }: StandColli
 
   if (collisions.length === 0) {
     return (
-      <SummaryContainer hasCollisions={false} role="status">
+      <SummaryContainer $hasCollisions={false} role="status">
         {t('editorPage.collisions.none')}
       </SummaryContainer>
     );
   }
 
   return (
-    <SummaryContainer hasCollisions role="status">
+    <SummaryContainer $hasCollisions role="status">
       {t('editorPage.collisions.count', { count: collisions.length })}
       {collisions.map(({ first, second }) => (
         <CollisionPill
