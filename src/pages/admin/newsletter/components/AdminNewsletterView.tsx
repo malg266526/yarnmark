@@ -1,6 +1,5 @@
-import React from 'react';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import type { NewsletterSubscriber } from '../../../../domain/newsletter/newsletterTypes.ts';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import type { NewsletterSubscriber } from '@/domain/newsletter/newsletterTypes.ts';
 import {
   SubscriberEmail,
   SubscriberRow,

@@ -1,9 +1,9 @@
-import React, { ReactNode } from 'react';
-import { usePhone } from '../../hooks/usePhone';
-import { BackgroundColors } from '../../styles/theme';
-import { UtilityPageHeader } from '../../components/UtilityPageHeader';
+import { ReactNode } from 'react';
+import { usePhone } from '@/hooks/usePhone';
+import { BackgroundColors } from '@/styles/theme';
+import { UtilityPageHeader } from '@/components/UtilityPageHeader';
 import { AdminPageBody, AdminPagePanel } from './AdminPageLayout.styled';
-import { RedesignSpacings } from '../../styles/spacings';
+import { RedesignSpacings } from '@/styles/spacings';
 
 interface AdminPageLayoutProps {
   children: ReactNode;

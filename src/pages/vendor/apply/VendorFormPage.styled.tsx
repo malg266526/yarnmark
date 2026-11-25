@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { FieldHint } from '../../../components/form/FormField.styled';
-import { DropShadow, Radius } from '../../../styles/cards';
-import { FontSize } from '../../../styles/font-size';
-import { ScreenSize } from '../../../styles/screeen-size';
-import { RedesignSpacings } from '../../../styles/spacings';
+import { FieldHint } from '@/components/form/FormField.styled';
+import { DropShadow, Radius } from '@/styles/cards';
+import { FontSize } from '@/styles/font-size';
+import { ScreenSize } from '@/styles/screeen-size';
+import { RedesignSpacings } from '@/styles/spacings';
 import {
   BackgroundColors,
   BrownScale,
@@ -12,7 +12,7 @@ import {
   GrayScale,
   TextColors,
   WarningColors
-} from '../../../styles/theme';
+} from '@/styles/theme';
 
 export const FormCard = styled.div`
   width: 100%;
@@ -308,4 +308,4 @@ export const SummaryList = styled.dl`
   }
 `;
 
-export { TextInput } from '../../../components/form/FormField.styled';
+export { TextInput } from '@/components/form/FormField.styled';

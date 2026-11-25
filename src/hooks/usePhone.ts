@@ -1,5 +1,5 @@
 import { useCallback, useLayoutEffect, useState } from 'react';
-import { ScreenSize } from '../styles/screeen-size';
+import { ScreenSize } from '@/styles/screeen-size';
 
 const phoneScreenSize = Number(ScreenSize.phone.replace('px', ''));
 const getWindowWidth = () => (window.innerWidth < window.outerWidth ? window.innerWidth : window.outerWidth);

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { FontSize } from '../../styles/font-size';
-import { RedesignSpacings } from '../../styles/spacings';
-import { BackgroundColors, Colors, FontFamilies, GrayScale, TextColors } from '../../styles/theme';
+import { FontSize } from '@/styles/font-size';
+import { RedesignSpacings } from '@/styles/spacings';
+import { BackgroundColors, Colors, FontFamilies, GrayScale, TextColors } from '@/styles/theme';
 
 export const SWITCH_TRACK_WIDTH_PX = 44;
 export const SWITCH_TRACK_HEIGHT_PX = 24;

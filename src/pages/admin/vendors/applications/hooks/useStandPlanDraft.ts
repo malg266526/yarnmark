@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import type { VendorApplication } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
+import type { VendorApplication } from '@/domain/vendorApplications/vendorFormSubmission.ts';
 import type { VendorsApplicationsStandPlan } from '../components/vendorsApplicationsViewContracts';
 import { VENDOR_APPLICATIONS_FILTER_ALL } from '../vendorsApplicationsConstants';
 import { buildVendorMapAssignments } from '../utils/vendorMapAssignmentsUtils';

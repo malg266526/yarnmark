@@ -4,16 +4,13 @@ import {
   deleteVendorApplication,
   listVendorApplications,
   updateVendorApplicationStatus
-} from '../../../../../domain/vendorApplications/vendorsApplicationsApi.ts';
-import type {
-  VendorApplication,
-  VendorApplicationStatus
-} from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
+} from '@/domain/vendorApplications/vendorsApplicationsApi.ts';
+import type { VendorApplication, VendorApplicationStatus } from '@/domain/vendorApplications/vendorFormSubmission.ts';
 import {
   VENDOR_APPLICATION_STATUS_UNDO_TIMEOUT_MS,
   VENDOR_APPLICATIONS_POLL_INTERVAL_MS
 } from '../vendorsApplicationsConstants';
-import { normalizeStandIds } from '../../../../../domain/vendorApplications/vendorFormStandIds.ts';
+import { normalizeStandIds } from '@/domain/vendorApplications/vendorFormStandIds.ts';
 import { findNewVendorApplicationIds } from '../utils/newVendorApplicationsUtils';
 import { useNewVendorSoundSetting } from '../../../settings/hooks/useNewVendorSoundSetting';
 import { useNewVendorSoundVariantSetting } from '../../../settings/hooks/useNewVendorSoundVariantSetting';

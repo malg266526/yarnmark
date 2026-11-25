@@ -1,9 +1,8 @@
-import React from 'react';
-import { Typography } from '../../../../components/Typography';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import { FormField } from '../../../../components/form/FormField';
+import { Typography } from '@/components/Typography';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { FormField } from '@/components/form/FormField';
 import { Fieldset, FormSection, TextArea } from '../WorkshopFormPage.styled';
-import { WORKSHOP_FORM_DESCRIPTION_MAX_LENGTH } from '../../../../domain/workshopApplications/workshopFormConstants.ts';
+import { WORKSHOP_FORM_DESCRIPTION_MAX_LENGTH } from '@/domain/workshopApplications/workshopFormConstants.ts';
 import type { WorkshopFormActions, WorkshopFormBindings } from './workshopFormViewContracts';
 
 const DESCRIPTION_ERROR_ID = 'workshop-description-error';

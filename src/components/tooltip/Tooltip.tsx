@@ -1,4 +1,3 @@
-import React from 'react';
 import { TooltipArrow, TooltipBubble } from './Tooltip.styled';
 import type { TooltipPosition } from './tooltipTypes';
 

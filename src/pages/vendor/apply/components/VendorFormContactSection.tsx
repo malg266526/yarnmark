@@ -1,7 +1,6 @@
-import React from 'react';
-import { Typography } from '../../../../components/Typography';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import { FormField } from '../../../../components/form/FormField';
+import { Typography } from '@/components/Typography';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { FormField } from '@/components/form/FormField';
 import { Fieldset, FormSection, TextInput } from '../VendorFormPage.styled';
 import type { VendorFormBindings } from './vendorFormViewContracts';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useVendorForm } from '../hooks/useVendorForm';
 import { VendorFormView } from './VendorFormView';
 

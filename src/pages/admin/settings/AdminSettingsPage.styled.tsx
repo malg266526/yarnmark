@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { Button } from '../../../components/Button';
-import { DropShadow, Radius } from '../../../styles/cards';
-import { FontSize } from '../../../styles/font-size';
-import { RedesignSpacings } from '../../../styles/spacings';
-import { BackgroundColors, Colors, FontFamilies, TextColors } from '../../../styles/theme';
+import { Button } from '@/components/Button';
+import { DropShadow, Radius } from '@/styles/cards';
+import { FontSize } from '@/styles/font-size';
+import { RedesignSpacings } from '@/styles/spacings';
+import { BackgroundColors, Colors, FontFamilies, TextColors } from '@/styles/theme';
 
 const SETTINGS_CONTROL_HEIGHT = '36px';
 const SETTINGS_CONTROL_INLINE_PADDING = RedesignSpacings.xs;

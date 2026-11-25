@@ -1,4 +1,3 @@
-import React from 'react';
 import { ApplicationFlagList, ApplicationFlagTag } from '../VendorsApplicationsPage.styled';
 import { VendorApplicationFlagsViewProps } from './vendorsApplicationsViewContracts';
 

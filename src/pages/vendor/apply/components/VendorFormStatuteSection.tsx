@@ -1,7 +1,6 @@
-import React from 'react';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import { FormFieldError } from '../../../../components/form/FormFieldError';
-import { FormFieldHeading } from '../../../../components/form/FormFieldHeading';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { FormFieldError } from '@/components/form/FormFieldError';
+import { FormFieldHeading } from '@/components/form/FormFieldHeading';
 import { CheckboxRow, DisclaimerText, Fieldset, FormSection, InlineLink } from '../VendorFormPage.styled';
 import type { VendorFormActions, VendorFormBindings } from './vendorFormViewContracts';
 

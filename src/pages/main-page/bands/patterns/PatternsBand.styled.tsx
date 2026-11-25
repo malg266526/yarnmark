@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { Picture } from '../../../../components/Picture';
-import { Kicker } from '../../../../components/Kicker';
-import { Card } from '../../../../components/Card';
-import { FontSize } from '../../../../styles/font-size';
-import { RedesignSpacings } from '../../../../styles/spacings';
+import { Picture } from '@/components/Picture';
+import { Kicker } from '@/components/Kicker';
+import { Card } from '@/components/Card';
+import { FontSize } from '@/styles/font-size';
+import { RedesignSpacings } from '@/styles/spacings';
 
 export const EditionKicker = styled(Kicker)`
   font-size: ${FontSize.sm};

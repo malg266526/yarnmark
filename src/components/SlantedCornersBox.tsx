@@ -1,11 +1,11 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { RedesignSpacings } from '../styles/spacings';
-import { BrownScale, Colors } from '../styles/theme';
-import knittingSvgUrl from '../assets/images/skein3.svg';
+import { RedesignSpacings } from '@/styles/spacings';
+import { BrownScale, Colors } from '@/styles/theme';
+import knittingSvgUrl from '@/assets/images/skein3.svg';
 
-import { ScreenSize } from '../styles/screeen-size';
-import { DropShadow, Radius } from '../styles/cards';
+import { ScreenSize } from '@/styles/screeen-size';
+import { DropShadow, Radius } from '@/styles/cards';
 
 type FrameWidth = `${number}${'px' | '%'}`;
 

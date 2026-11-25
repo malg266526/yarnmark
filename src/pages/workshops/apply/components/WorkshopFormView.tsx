@@ -1,4 +1,3 @@
-import React from 'react';
 import { FormCard, FormLayout } from '../WorkshopFormPage.styled';
 import { WorkshopFormAdditionalInfoSection } from './WorkshopFormAdditionalInfoSection';
 import { WorkshopFormBasicsSection } from './WorkshopFormBasicsSection';

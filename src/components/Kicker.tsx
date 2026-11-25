@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { TextColors } from '../styles/theme';
+import { TextColors } from '@/styles/theme';
 
 export const Kicker = styled.div`
   color: ${TextColors.secondary};

@@ -1,7 +1,4 @@
-import type {
-  VendorApplication,
-  VendorApplicationStatus
-} from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
+import type { VendorApplication, VendorApplicationStatus } from '@/domain/vendorApplications/vendorFormSubmission.ts';
 import type {
   VendorApplicationsFilters,
   VendorApplicationStatusCounts

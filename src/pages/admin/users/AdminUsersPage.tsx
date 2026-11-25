@@ -1,8 +1,7 @@
-import React from 'react';
 import { AdminUsersView } from './components/AdminUsersView';
 import { useAdminUsers } from './hooks/useAdminUsers';
 import { AdminUsersPageStyled } from './AdminUsersPage.styled';
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import { AdminPageLayout } from '../AdminPageLayout';
 
 export const AdminUsersPage = () => {

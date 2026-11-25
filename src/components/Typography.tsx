@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { FontSize } from '../styles/font-size';
+import { FontSize } from '@/styles/font-size';
 
 type FontWeight = 'regular' | 'bold' | 'light';
 

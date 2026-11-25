@@ -1,8 +1,7 @@
-import React from 'react';
-import { Editor } from '../components/editor/Editor';
-import { EditorProvider } from '../components/editor/EditorContext';
+import { Editor } from '@/components/editor/Editor';
+import { EditorProvider } from '@/components/editor/EditorContext';
 import { AdminPageLayout } from './admin/AdminPageLayout';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 
 export const EditorPage = () => {
   const t = useTypedTranslation();

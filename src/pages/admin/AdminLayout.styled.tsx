@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../styles/spacings';
-import { BorderColors, BrownScale, GrayScale, TextColors } from '../../styles/theme';
-import { ScreenSize } from '../../styles/screeen-size';
+import { RedesignSpacings } from '@/styles/spacings';
+import { BorderColors, BrownScale, GrayScale, TextColors } from '@/styles/theme';
+import { ScreenSize } from '@/styles/screeen-size';
 
 export const AdminRoot = styled.div`
   width: 100%;

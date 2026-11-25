@@ -1,9 +1,9 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import knittingSvgUrl from '../assets/images/skein3.svg';
-import { RedesignSpacings } from '../styles/spacings';
-import { Colors } from '../styles/theme';
-import { ScreenSize } from '../styles/screeen-size';
+import knittingSvgUrl from '@/assets/images/skein3.svg';
+import { RedesignSpacings } from '@/styles/spacings';
+import { Colors } from '@/styles/theme';
+import { ScreenSize } from '@/styles/screeen-size';
 
 type FrameWidth = `${number}${'px' | '%'}`;
 

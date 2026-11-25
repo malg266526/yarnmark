@@ -1,11 +1,11 @@
-import type { FormDraftStatus } from '../../../../components/form/formDraftStatusUtils.ts';
+import type { FormDraftStatus } from '@/components/form/formDraftStatusUtils.ts';
 import type { UseFormRegister } from 'react-hook-form';
-import type { WorkshopFormValues } from '../../../../domain/workshopApplications/workshopFormSchema.ts';
+import type { WorkshopFormValues } from '@/domain/workshopApplications/workshopFormSchema.ts';
 import type {
   WorkshopFormContractType,
   WorkshopFormExperienceLevel,
   WorkshopFormState
-} from '../../../../domain/workshopApplications/workshopFormTypes.ts';
+} from '@/domain/workshopApplications/workshopFormTypes.ts';
 
 export type WorkshopFormNumberFieldName = 'minParticipants' | 'maxParticipants' | 'grossPricePerParticipant';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   ApplicationsRowTitleButton,
   ApplicationsStatusTag,
@@ -10,7 +9,7 @@ import {
   ApplicationsTableScroller
 } from '../WorkshopsApplicationsPage.styled';
 import { formatCompactDateTime } from '../utils/workshopsApplicationsFormatters';
-import type { WorkshopApplication } from '../../../../../domain/workshopApplications/workshopFormSubmission';
+import type { WorkshopApplication } from '@/domain/workshopApplications/workshopFormSubmission';
 import type { WorkshopApplicationWarning } from '../utils/workshopScheduleUtils';
 import { WorkshopApplicationWarningsView } from './WorkshopApplicationWarningsView';
 

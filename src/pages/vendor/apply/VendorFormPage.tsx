@@ -1,5 +1,4 @@
-import React from 'react';
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import { VendorForm } from './components/VendorForm';
 import { AdminPageLayout } from '../../admin/AdminPageLayout';
 import { LanguageSwitcher } from '../../LanguageSwitcher';

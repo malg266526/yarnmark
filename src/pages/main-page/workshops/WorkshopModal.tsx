@@ -1,21 +1,20 @@
-import { Typography } from '../../../components/Typography';
-import React from 'react';
+import { Typography } from '@/components/Typography';
 import styled from 'styled-components';
-import { BackgroundColors, TextColors } from '../../../styles/theme';
+import { BackgroundColors, TextColors } from '@/styles/theme';
 import Modal from 'react-modal';
-import { RedesignSpacings } from '../../../styles/spacings';
-import { DropShadow } from '../../../styles/cards';
+import { RedesignSpacings } from '@/styles/spacings';
+import { DropShadow } from '@/styles/cards';
 import { WorkshopsEntry } from './workshopsConfig';
-import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
-import { Picture } from '../../../components/Picture';
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
-import { Button, CtaButton } from '../../../components/Button';
-import { RowLayout } from '../../../components/RowLayout';
-import { GhostButton } from '../../../components/GhostButton';
-import backIcon from '../../../assets/figmaIcons/back_arrow_icon.svg';
-import closeStrokeIcon from '../../../assets/figmaIcons/close_stroke_icon.svg';
-import { Icon } from '../../../components/Icon';
-import { TextToListFormatter } from '../../../components/TextToListFormatter';
+import { FlexColumnLayout } from '@/components/FlexColumnLayout';
+import { Picture } from '@/components/Picture';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { Button, CtaButton } from '@/components/Button';
+import { RowLayout } from '@/components/RowLayout';
+import { GhostButton } from '@/components/GhostButton';
+import backIcon from '@/assets/figmaIcons/back_arrow_icon.svg';
+import closeStrokeIcon from '@/assets/figmaIcons/close_stroke_icon.svg';
+import { Icon } from '@/components/Icon';
+import { TextToListFormatter } from '@/components/TextToListFormatter';
 import { Trans } from 'react-i18next';
 
 const WorkshopModalLayout = styled(Modal)`

@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useAdminSession } from '../../useAdminSession';
 import { hasAdminPermission } from '../../adminAuthUtils';
-import { approveAdminUser, listAdminUsers, revokeAdminUser } from '../../../../domain/adminUsers/adminUsersApi.ts';
-import { APPROVE_ADMINS_PERMISSION } from '../../../../domain/adminUsers/adminUsersConstants.ts';
+import { approveAdminUser, listAdminUsers, revokeAdminUser } from '@/domain/adminUsers/adminUsersApi.ts';
+import { APPROVE_ADMINS_PERMISSION } from '@/domain/adminUsers/adminUsersConstants.ts';
 import type {
   AdminUser,
   AdminUserAction,
   AdminUserPendingAction,
   AdminUserPermission
-} from '../../../../domain/adminUsers/adminUsersTypes.ts';
+} from '@/domain/adminUsers/adminUsersTypes.ts';
 import {
   buildPermissionSelections,
   togglePermissionSelection,

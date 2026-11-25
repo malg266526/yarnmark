@@ -1,4 +1,4 @@
-import type { VendorApplication } from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
+import type { VendorApplication } from '@/domain/vendorApplications/vendorFormSubmission.ts';
 import {
   buildVendorApplicationsCsv,
   type VendorApplicationsExportLabels

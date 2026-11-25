@@ -1,10 +1,10 @@
-import React, { ComponentProps, ReactNode } from 'react';
+import { ComponentProps, ReactNode } from 'react';
 import styled from 'styled-components';
-import { GrayScale } from '../styles/theme';
-import { RedesignSpacings } from '../styles/spacings';
+import { GrayScale } from '@/styles/theme';
+import { RedesignSpacings } from '@/styles/spacings';
 import { Typography } from './Typography';
 import { Kicker } from './Kicker';
-import { ScreenSize } from '../styles/screeen-size';
+import { ScreenSize } from '@/styles/screeen-size';
 
 const HeaderRoot = styled.div`
   width: 100%;

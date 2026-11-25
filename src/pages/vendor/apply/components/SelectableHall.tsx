@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { HallMap } from '../../../../components/hall/HallMap';
-import { isVendorStand, parseHallStands, type HallStand } from '../../../../components/hall/hallStands';
-import { isReservedStand, resolveStandColorKey } from '../../../../components/hall/standReservationUtils';
-import { HallStandVendor } from '../../../../components/hall/HallStandVendor';
-import { StandColorsMap } from '../../../../components/editor/StandProps';
-import { Typography } from '../../../../components/Typography';
-import { usePhone } from '../../../../hooks/usePhone';
-import { BackgroundColors, BrownScale, WarningColors } from '../../../../styles/theme';
+import { HallMap } from '@/components/hall/HallMap';
+import { isVendorStand, parseHallStands, type HallStand } from '@/components/hall/hallStands';
+import { isReservedStand, resolveStandColorKey } from '@/components/hall/standReservationUtils';
+import { HallStandVendor } from '@/components/hall/HallStandVendor';
+import { StandColorsMap } from '@/components/editor/StandProps';
+import { Typography } from '@/components/Typography';
+import { usePhone } from '@/hooks/usePhone';
+import { BackgroundColors, BrownScale, WarningColors } from '@/styles/theme';
 
 const SELECTED_COLOR = '#FF8C00';
 

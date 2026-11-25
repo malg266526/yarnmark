@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import {
   fetchAssignedStandVendorsFromApi,
   type AssignedStandVendors
-} from '../domain/vendorApplications/assignedStandsApi';
+} from '@/domain/vendorApplications/assignedStandsApi';
 
 const NO_ASSIGNED_STAND_VENDORS: AssignedStandVendors = new Map();
 

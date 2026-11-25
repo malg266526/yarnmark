@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import type { WorkshopApplication } from '../../../../../domain/workshopApplications/workshopFormSubmission.ts';
+import type { WorkshopApplication } from '@/domain/workshopApplications/workshopFormSubmission.ts';
 import type { WorkshopsApplicationsViewMode } from '../workshopsApplicationsConstants.ts';
 import {
   buildWorkshopApplicationsSearchParams,

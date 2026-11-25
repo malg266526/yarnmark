@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from 'react';
-import { Typography } from '../../../../components/Typography';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import { WORKSHOP_FORM_LOGO_ACCEPTED_MIME_TYPES } from '../../../../domain/workshopApplications/workshopFormConstants.ts';
-import { LogoPreview } from '../../../../components/form/LogoPreview';
-import { FormField } from '../../../../components/form/FormField';
-import { FieldHint } from '../../../../components/form/FormField.styled';
+import { useEffect, useRef } from 'react';
+import { Typography } from '@/components/Typography';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { WORKSHOP_FORM_LOGO_ACCEPTED_MIME_TYPES } from '@/domain/workshopApplications/workshopFormConstants.ts';
+import { LogoPreview } from '@/components/form/LogoPreview';
+import { FormField } from '@/components/form/FormField';
+import { FieldHint } from '@/components/form/FormField.styled';
 import { DownloadActions, Fieldset, FormSection, TextInput } from '../WorkshopFormPage.styled';
 import type { WorkshopFormActions, WorkshopFormBindings, WorkshopFormStatusState } from './workshopFormViewContracts';
 

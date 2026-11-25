@@ -1,4 +1,3 @@
-import React from 'react';
 import { Typography } from '../Typography';
 import { FieldRequirement } from './FieldRequirement';
 import { FieldHeading, type FieldRequirementType } from './FormField.styled';

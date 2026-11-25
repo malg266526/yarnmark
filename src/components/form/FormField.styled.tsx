@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { Button } from '../Button';
-import { Radius } from '../../styles/cards';
-import { FontSize } from '../../styles/font-size';
-import { RedesignSpacings } from '../../styles/spacings';
-import { BackgroundColors, FontFamilies, GrayScale, TextColors } from '../../styles/theme';
+import { Radius } from '@/styles/cards';
+import { FontSize } from '@/styles/font-size';
+import { RedesignSpacings } from '@/styles/spacings';
+import { BackgroundColors, FontFamilies, GrayScale, TextColors } from '@/styles/theme';
 
 export type FieldRequirementType = 'required' | 'optional';
 

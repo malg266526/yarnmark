@@ -2,10 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HashLink, HashLinkProps } from 'react-router-hash-link';
 import styled, { css } from 'styled-components';
-import yarnSvgUrl from '../assets/images/skein3.svg';
-import { Radius } from '../styles/cards';
-import { FontSize } from '../styles/font-size';
-import { TextColors } from '../styles/theme';
+import yarnSvgUrl from '@/assets/images/skein3.svg';
+import { Radius } from '@/styles/cards';
+import { FontSize } from '@/styles/font-size';
+import { TextColors } from '@/styles/theme';
 
 export const linkStyle = css<{ $disabled?: boolean }>`
   padding: 10px 8px;

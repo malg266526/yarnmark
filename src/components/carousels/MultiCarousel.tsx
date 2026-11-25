@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import React, { forwardRef, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
-import { RedesignSpacings } from '../../styles/spacings';
-import { ScreenSize } from '../../styles/screeen-size';
-import skeinIconSrc from '../../assets/images/indicator_skein_green.svg';
+import { forwardRef, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import { RedesignSpacings } from '@/styles/spacings';
+import { ScreenSize } from '@/styles/screeen-size';
+import skeinIconSrc from '@/assets/images/indicator_skein_green.svg';
 import { Icon } from '../Icon';
 import { Button } from '../Button';
 import { Dots } from '../Dots';

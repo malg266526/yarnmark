@@ -1,7 +1,7 @@
 import React, { forwardRef, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
-import { RedesignSpacings } from '../styles/spacings';
-import { DropShadow, Radius } from '../styles/cards';
+import { RedesignSpacings } from '@/styles/spacings';
+import { DropShadow, Radius } from '@/styles/cards';
 import { RoundBorderIcon } from './RoundBorderIcon';
 
 export interface ImageButtonProps {

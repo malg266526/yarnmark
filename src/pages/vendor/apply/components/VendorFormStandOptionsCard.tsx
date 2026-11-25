@@ -1,6 +1,5 @@
-import React from 'react';
-import { Typography } from '../../../../components/Typography';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
+import { Typography } from '@/components/Typography';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import {
   LegendCard,
   StandOptionItem,
@@ -13,8 +12,8 @@ import {
 import {
   STAND_OPTION_SEPARATOR,
   VENDOR_FORM_MAX_PREFERRED_STANDS
-} from '../../../../domain/vendorApplications/vendorFormConstants.ts';
-import { canStandBePaired } from '../../../../domain/vendorApplications/vendorStandTypeUtils.ts';
+} from '@/domain/vendorApplications/vendorFormConstants.ts';
+import { canStandBePaired } from '@/domain/vendorApplications/vendorStandTypeUtils.ts';
 
 interface VendorFormStandOptionsCardProps {
   onSetStandOptionPaired: (optionIndex: number, isPaired: boolean) => void;

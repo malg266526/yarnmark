@@ -1,6 +1,5 @@
-import React from 'react';
-import { FormSuccessModal } from '../../../../components/form/FormSuccessModal';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
+import { FormSuccessModal } from '@/components/form/FormSuccessModal';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import type { WorkshopFormBindings, WorkshopFormStatusState } from './workshopFormViewContracts';
 import { WorkshopFormSummary } from './WorkshopFormSummary';
 

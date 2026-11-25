@@ -1,32 +1,29 @@
 import { useEffect, useMemo, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, type Resolver } from 'react-hook-form';
-import type { UnprefixedTranslationKeys } from '../../../../translations/useTypedTranslation';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
+import type { UnprefixedTranslationKeys } from '@/translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import type { WorkshopFormNumberFieldName, WorkshopFormViewProps } from '../components/workshopFormViewContracts';
-import { submitWorkshopApplicationToApi } from '../../../../domain/workshopApplications/workshopFormApi.ts';
+import { submitWorkshopApplicationToApi } from '@/domain/workshopApplications/workshopFormApi.ts';
 import {
   WORKSHOP_FORM_DESCRIPTION_MAX_LENGTH,
   WORKSHOP_FORM_DRAFT_STORAGE_KEY,
   WORKSHOP_FORM_LOGO_ACCEPTED_MIME_TYPES,
   WORKSHOP_FORM_LOGO_MAX_BYTES,
   WORKSHOP_FORM_LOGO_MAX_DIMENSION
-} from '../../../../domain/workshopApplications/workshopFormConstants.ts';
+} from '@/domain/workshopApplications/workshopFormConstants.ts';
 import {
   collectWorkshopFormValidationErrors,
   workshopFormValidationSchema,
   type WorkshopFormValues
-} from '../../../../domain/workshopApplications/workshopFormSchema.ts';
-import {
-  prepareLogoForUpload,
-  type LogoRejectionReason
-} from '../../../../domain/workshopApplications/workshopFormLogoUtils.ts';
+} from '@/domain/workshopApplications/workshopFormSchema.ts';
+import { prepareLogoForUpload, type LogoRejectionReason } from '@/domain/workshopApplications/workshopFormLogoUtils.ts';
 import {
   INITIAL_WORKSHOP_FORM_STATE,
   type WorkshopFormState
-} from '../../../../domain/workshopApplications/workshopFormTypes.ts';
-import { focusFirstInvalidField } from '../../../../components/form/formFocus.ts';
-import { isFormDraftRestorable, resolveFormDraftStatus } from '../../../../components/form/formDraftStatusUtils.ts';
+} from '@/domain/workshopApplications/workshopFormTypes.ts';
+import { focusFirstInvalidField } from '@/components/form/formFocus.ts';
+import { isFormDraftRestorable, resolveFormDraftStatus } from '@/components/form/formDraftStatusUtils.ts';
 import { createEmptyWorkshopFormDraft, parseStoredWorkshopFormDraft } from '../workshopFormStorage.ts';
 
 const WORKSHOP_FORM_FIELD_ATTRIBUTE = 'data-workshop-form-field';

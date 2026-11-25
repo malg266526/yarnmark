@@ -3,8 +3,8 @@ import { BandRootLayout, BandSize, Justify } from './BandRootLayout';
 import { BandTitle, BeamTitle, SecondaryBandTitle } from './BandTitle';
 import { BackgroundImageBand } from './BackgroundImageBand';
 import { SolidBackgroundBand } from './SolidBackgroundBand';
-import { RedesignSpacings } from '../../styles/spacings';
-import { usePhone } from '../../hooks/usePhone';
+import { RedesignSpacings } from '@/styles/spacings';
+import { usePhone } from '@/hooks/usePhone';
 
 interface WallpaperBand {
   id: string;

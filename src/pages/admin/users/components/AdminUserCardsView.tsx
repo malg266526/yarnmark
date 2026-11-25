@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   UserActionButton,
   UserActionRow,
@@ -13,7 +12,7 @@ import {
   UsersGrid,
   UsersMeta
 } from '../AdminUsersPage.styled';
-import { ADMIN_USER_PERMISSIONS } from '../../../../domain/adminUsers/adminUsersConstants.ts';
+import { ADMIN_USER_PERMISSIONS } from '@/domain/adminUsers/adminUsersConstants.ts';
 import { formatDateTime, resolveAdminUserStatusLabel } from '../utils/adminUsersFormatters';
 import { AdminUserCardsViewProps } from './adminUsersViewContracts';
 

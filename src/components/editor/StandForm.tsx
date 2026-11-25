@@ -1,11 +1,10 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Coordinate, StandColorsMap, StandProps, StandType } from './StandProps';
 import { Button, CtaButton } from '../Button';
 import { useEditor } from './EditorContext';
 import { useStandForm } from './useStandForm';
-import { RedesignSpacings } from '../../styles/spacings';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { RedesignSpacings } from '@/styles/spacings';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 
 // Extra styled container for layout and background
 const Container = styled.div`

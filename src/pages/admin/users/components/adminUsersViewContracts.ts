@@ -1,8 +1,4 @@
-import type {
-  AdminUser,
-  AdminUserPendingAction,
-  AdminUserPermission
-} from '../../../../domain/adminUsers/adminUsersTypes.ts';
+import type { AdminUser, AdminUserPendingAction, AdminUserPermission } from '@/domain/adminUsers/adminUsersTypes.ts';
 import type { AdminUserPermissionSelections } from '../utils/adminUserPermissionsUtils';
 
 export interface AdminUserCardsViewProps {

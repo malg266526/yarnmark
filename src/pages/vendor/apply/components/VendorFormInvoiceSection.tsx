@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react';
-import { Typography } from '../../../../components/Typography';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import { LogoPreview } from '../../../../components/form/LogoPreview';
-import { FormField } from '../../../../components/form/FormField';
-import { FieldHint } from '../../../../components/form/FormField.styled';
+import { useEffect, useRef } from 'react';
+import { Typography } from '@/components/Typography';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { LogoPreview } from '@/components/form/LogoPreview';
+import { FormField } from '@/components/form/FormField';
+import { FieldHint } from '@/components/form/FormField.styled';
 import { DownloadActions, Fieldset, FormSection, TextArea, TextInput } from '../VendorFormPage.styled';
 import type { VendorFormActions, VendorFormBindings, VendorFormStatusState } from './vendorFormViewContracts';
 

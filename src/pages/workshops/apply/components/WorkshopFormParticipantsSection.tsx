@@ -1,9 +1,8 @@
-import React from 'react';
-import { Typography } from '../../../../components/Typography';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import { FormField } from '../../../../components/form/FormField';
-import { FormFieldError } from '../../../../components/form/FormFieldError';
-import { FormFieldHeading } from '../../../../components/form/FormFieldHeading';
+import { Typography } from '@/components/Typography';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { FormField } from '@/components/form/FormField';
+import { FormFieldError } from '@/components/form/FormFieldError';
+import { FormFieldHeading } from '@/components/form/FormFieldHeading';
 import { Fieldset, FormSection, RadioGroup, RadioOption, TextInput } from '../WorkshopFormPage.styled';
 import type { WorkshopFormActions, WorkshopFormBindings } from './workshopFormViewContracts';
 

@@ -1,5 +1,4 @@
-import React from 'react';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import { LogoActionButton, LogoPreviewImage, LogoPreviewRow } from './FormField.styled';
 
 interface LogoPreviewProps {

@@ -1,8 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
 import { FlexColumnLayout } from './FlexColumnLayout';
-import { ScreenSize } from '../styles/screeen-size';
-import { RedesignSpacings } from '../styles/spacings';
+import { ScreenSize } from '@/styles/screeen-size';
+import { RedesignSpacings } from '@/styles/spacings';
 import { Trans } from 'react-i18next';
 
 const WorkshopUl = styled.ul`

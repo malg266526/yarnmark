@@ -1,6 +1,5 @@
-import React from 'react';
 import styled from 'styled-components';
-import { Colors } from '../styles/theme';
+import { Colors } from '@/styles/theme';
 
 const gapSize = 4;
 const lineSize = 4;

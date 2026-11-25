@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { useLayoutSummary } from './useLayoutSummary';
 import type { SellableStandType } from './utils/layoutSummaryUtils';
 import {

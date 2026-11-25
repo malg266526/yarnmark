@@ -1,10 +1,9 @@
-import React from 'react';
 import { Trans } from 'react-i18next';
-import { Typography } from '../../../../components/Typography';
-import { FieldHint } from '../../../../components/form/FormField.styled';
-import { FormFieldError } from '../../../../components/form/FormFieldError';
-import { FormFieldHeading } from '../../../../components/form/FormFieldHeading';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
+import { Typography } from '@/components/Typography';
+import { FieldHint } from '@/components/form/FormField.styled';
+import { FormFieldError } from '@/components/form/FormFieldError';
+import { FormFieldHeading } from '@/components/form/FormFieldHeading';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import {
   HallSideColumn,
   DisclaimerText,
@@ -26,8 +25,8 @@ import {
   StandStatusPill,
   WarningCard
 } from '../VendorFormPage.styled';
-import { BackgroundColors } from '../../../../styles/theme';
-import { VENDOR_FORM_MAX_PREFERRED_STANDS } from '../../../../domain/vendorApplications/vendorFormConstants.ts';
+import { BackgroundColors } from '@/styles/theme';
+import { VENDOR_FORM_MAX_PREFERRED_STANDS } from '@/domain/vendorApplications/vendorFormConstants.ts';
 import { SelectableHall } from './SelectableHall';
 import { VendorFormStandOptionsCard } from './VendorFormStandOptionsCard';
 import type { VendorFormActions, VendorFormBindings, VendorFormDerivedState } from './vendorFormViewContracts';

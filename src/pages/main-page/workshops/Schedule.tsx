@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../../styles/spacings';
-import { getHallColorKey, HallColors } from '../../../styles/theme';
-import { Typography } from '../../../components/Typography';
-import { ScreenSize } from '../../../styles/screeen-size';
-import { usePhone } from '../../../hooks/usePhone';
+import { RedesignSpacings } from '@/styles/spacings';
+import { getHallColorKey, HallColors } from '@/styles/theme';
+import { Typography } from '@/components/Typography';
+import { ScreenSize } from '@/styles/screeen-size';
+import { usePhone } from '@/hooks/usePhone';
 import { WorkshopsConfig, WorkshopsEntry } from './workshopsConfig';
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 
 const Table = styled.div<{ $columns: number }>`
   display: grid;

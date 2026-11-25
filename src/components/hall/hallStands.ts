@@ -1,5 +1,5 @@
 import zod from 'zod';
-import hallJson from '../../assets/hall.json';
+import hallJson from '@/assets/hall.json';
 import { RESERVED_STAND_COLORS } from './standReservationUtils.ts';
 
 const hallStandTypeSchema = zod.union([

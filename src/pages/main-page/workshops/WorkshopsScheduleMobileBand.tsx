@@ -1,15 +1,14 @@
-import React from 'react';
 import styled from 'styled-components';
-import { Band } from '../../../components/bands/Band';
+import { Band } from '@/components/bands/Band';
 import { Schedule } from './Schedule';
-import { Picture } from '../../../components/Picture';
-import workshopsMapUrl from '../../../assets/images/workshops/mapka_warsztaty.jfif';
-import workshopsMapUrlWepb from '../../../assets/images/workshops/mapka_warsztaty.webp';
-import workshopsMapUrlAvif from '../../../assets/images/workshops/mapka_warsztaty.avif';
-import { Accordion } from '../../../components/accordion/Accordion';
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
-import { RedesignSpacings } from '../../../styles/spacings';
-import { BackgroundColors } from '../../../styles/theme';
+import { Picture } from '@/components/Picture';
+import workshopsMapUrl from '@/assets/images/workshops/mapka_warsztaty.jfif';
+import workshopsMapUrlWepb from '@/assets/images/workshops/mapka_warsztaty.webp';
+import workshopsMapUrlAvif from '@/assets/images/workshops/mapka_warsztaty.avif';
+import { Accordion } from '@/components/accordion/Accordion';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { RedesignSpacings } from '@/styles/spacings';
+import { BackgroundColors } from '@/styles/theme';
 
 type WorkshopsBandType = {
   id: string;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { RedesignSpacings } from '../styles/spacings';
-import { Theme } from '../styles/theme';
+import { RedesignSpacings } from '@/styles/spacings';
+import { Theme } from '@/styles/theme';
 
 export const PageContent = styled.div<{
   variant: 'wide' | 'narrow';

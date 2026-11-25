@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react';
-import { RedesignSpacings } from '../../styles/spacings';
+import { ReactNode } from 'react';
+import { RedesignSpacings } from '@/styles/spacings';
 import { Align, BandRootLayout, BandSize, Justify } from './BandRootLayout';
 import styled from 'styled-components';
 

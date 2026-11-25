@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { GrayScale, TextColors } from '../styles/theme';
-import { FontSize } from '../styles/font-size';
-import { RedesignSpacings } from '../styles/spacings';
-import { Radius } from '../styles/cards';
+import { GrayScale, TextColors } from '@/styles/theme';
+import { FontSize } from '@/styles/font-size';
+import { RedesignSpacings } from '@/styles/spacings';
+import { Radius } from '@/styles/cards';
 
 export const Button = styled.button`
   all: unset;

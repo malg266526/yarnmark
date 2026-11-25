@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { normalizeStandIds } from '../../../../../domain/vendorApplications/vendorFormStandIds.ts';
+import { normalizeStandIds } from '@/domain/vendorApplications/vendorFormStandIds.ts';
 import type { VendorApplicationStandAssignmentViewProps } from '../components/vendorsApplicationsViewContracts';
 import { buildStandAssignmentOptions, fromStandAssignmentValue } from '../utils/standAssignmentUtils';
 

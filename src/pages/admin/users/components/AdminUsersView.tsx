@@ -1,6 +1,5 @@
-import React from 'react';
 import { UsersEmpty, UsersMeta, UsersSection } from '../AdminUsersPage.styled';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import { AdminUserCardsView } from './AdminUserCardsView';
 import type { AdminUserCardsViewProps } from './adminUsersViewContracts';
 

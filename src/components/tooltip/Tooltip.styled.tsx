@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
-import { DropShadow } from '../../styles/cards';
-import { FontSize } from '../../styles/font-size';
-import { BorderColors, Colors, FontFamilies, TextColors } from '../../styles/theme';
+import { DropShadow } from '@/styles/cards';
+import { FontSize } from '@/styles/font-size';
+import { BorderColors, Colors, FontFamilies, TextColors } from '@/styles/theme';
 import type { TooltipAlign, TooltipPlacement } from './tooltipTypes';
 
 export const TOOLTIP_ARROW_SIZE = 10;

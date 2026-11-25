@@ -1,5 +1,4 @@
-import React from 'react';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import { NEW_VENDOR_SOUND_VARIANTS, type NewVendorSoundVariant } from '../adminSettingsConstants';
 import {
   SoundPreviewButton,

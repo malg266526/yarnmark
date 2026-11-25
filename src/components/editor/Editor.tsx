@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { RowIndexes } from './RowIndexes';
 import { StandInfo } from './StandInfo';
@@ -6,7 +6,7 @@ import { StandForm } from './StandForm';
 import { DefaultStand, useEditor } from './EditorContext';
 import { useMouseHandlers } from './utils/useMouseHandlers';
 import { useStandDrag } from './utils/useStandDrag';
-import { RedesignSpacings } from '../../styles/spacings';
+import { RedesignSpacings } from '@/styles/spacings';
 import { StandColorsMap, StandProps } from './StandProps';
 import { isWithinBox } from './utils/isWithinBox';
 import { CtaButton } from '../Button';
@@ -25,7 +25,7 @@ import { isExistingStand } from './utils/standSelectionUtils';
 import { HALL_PRESET_IDS } from './utils/hallPresets';
 import { StandList } from './StandList';
 import { ColIndexes } from './ColIndexes';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import {
   GAP_PX,
   GRID_COLS,

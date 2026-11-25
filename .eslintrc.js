@@ -5,6 +5,7 @@ module.exports = {
     'eslint:recommended',
     'prettier',
     'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
     'plugin:import/errors',
     'plugin:import/warnings'
   ],
@@ -25,6 +26,9 @@ module.exports = {
   },
   settings: {
     'import/resolver': {
+      typescript: {
+        project: './tsconfig.json'
+      },
       node: {
         extensions: ['.ts', '.tsx', '.js']
       }

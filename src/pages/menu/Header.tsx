@@ -1,15 +1,14 @@
-import { usePhone } from '../../hooks/usePhone';
-import React from 'react';
+import { usePhone } from '@/hooks/usePhone';
 import { Menu } from './Menu';
-import { Curtain } from '../../components/Curtain';
-import { Typography } from '../../components/Typography';
+import { Curtain } from '@/components/Curtain';
+import { Typography } from '@/components/Typography';
 import { LanguageSwitcher } from '../LanguageSwitcher';
-import { useToggle } from '../../hooks/useToggle';
+import { useToggle } from '@/hooks/useToggle';
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../styles/spacings';
-import { TextColors } from '../../styles/theme';
-import { Button } from '../../components/Button';
-import dotsVerticalIcon from '../../assets/figmaIcons/dots_vertical_icon.svg';
+import { RedesignSpacings } from '@/styles/spacings';
+import { TextColors } from '@/styles/theme';
+import { Button } from '@/components/Button';
+import dotsVerticalIcon from '@/assets/figmaIcons/dots_vertical_icon.svg';
 
 const MobileHeader = styled.header`
   display: flex;

@@ -1,7 +1,6 @@
-import React from 'react';
-import { CtaButton } from '../../../../components/Button';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import { ErrorText, FieldHint } from '../../../../components/form/FormField.styled';
+import { CtaButton } from '@/components/Button';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { ErrorText, FieldHint } from '@/components/form/FormField.styled';
 import { ActionsRow, ActionsSpacer } from '../WorkshopFormPage.styled';
 import type { WorkshopFormStatusState } from './workshopFormViewContracts';
 

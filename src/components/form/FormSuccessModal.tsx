@@ -1,4 +1,4 @@
-import React, { type ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { CtaButton } from '../Button';
 import {
   SUCCESS_MODAL_OVERLAY_CLASS_NAME,

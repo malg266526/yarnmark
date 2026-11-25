@@ -1,12 +1,12 @@
-import type { PictureType } from '../../../../components/Picture';
-import type { UnprefixedTranslationKeys } from '../../../../translations/useTypedTranslation';
+import type { PictureType } from '@/components/Picture';
+import type { UnprefixedTranslationKeys } from '@/translations/useTypedTranslation';
 
-import grupoweAvifSrc from '../../../../assets/napole/grupowe.avif';
-import grupoweWebpSrc from '../../../../assets/napole/grupowe.webp';
-import grupoweJpgSrc from '../../../../assets/napole/grupowe.jpeg';
-import laGruGruJpgSrc from '../../../../assets/images/lagrugru/DSC04493.jpg';
-import laGruGruWebpSrc from '../../../../assets/images/lagrugru/DSC04493.webp';
-import laGruGruAvifSrc from '../../../../assets/images/lagrugru/DSC04493.avif';
+import grupoweAvifSrc from '@/assets/napole/grupowe.avif';
+import grupoweWebpSrc from '@/assets/napole/grupowe.webp';
+import grupoweJpgSrc from '@/assets/napole/grupowe.jpeg';
+import laGruGruJpgSrc from '@/assets/images/lagrugru/DSC04493.jpg';
+import laGruGruWebpSrc from '@/assets/images/lagrugru/DSC04493.webp';
+import laGruGruAvifSrc from '@/assets/images/lagrugru/DSC04493.avif';
 
 export type EditionPhoto = {
   picture: PictureType;

@@ -1,4 +1,4 @@
-import { useToggle } from '../../../hooks/useToggle';
+import { useToggle } from '@/hooks/useToggle';
 import { useCallback, useState } from 'react';
 import { WorkshopsEntry } from './workshopsConfig';
 
