@@ -22,8 +22,8 @@ const InvitationBoxWrapper = styled.div`
   }
 `;
 
-const MapContainer = styled.div<{ isPhone: boolean }>`
-  overflow-y: ${({ isPhone }) => (isPhone ? 'scroll' : 'auto')};
+const MapContainer = styled.div<{ $isPhone: boolean }>`
+  overflow-y: ${({ $isPhone }) => ($isPhone ? 'scroll' : 'auto')};
 `;
 
 export const HallMapPage = () => {
@@ -48,7 +48,7 @@ export const HallMapPage = () => {
       </Band.Wallpaper>
 
       <BandType id="hallMap" size="sm" color={BackgroundColors.navigationBand} padding={isPhone ? 'none' : 'lg'}>
-        <MapContainer isPhone={isPhone}>
+        <MapContainer $isPhone={isPhone}>
           {hallMapLayout && <HallSvgMap layout={hallMapLayout} isFluid={isPhone} title={t('hallMap.title')} />}
         </MapContainer>
       </BandType>
