@@ -88,7 +88,7 @@ const ShakeAnimationFrames = css`
   }
 `;
 
-const BuyTicketLink = styled(CtaButton)<{ shouldShake?: boolean; disabled?: boolean }>`
+const BuyTicketLink = styled(CtaButton)<{ $shouldShake?: boolean; disabled?: boolean }>`
   border-radius: ${Radius.xl};
   font-weight: 600;
   font-size: ${FontSize.lg};
@@ -103,7 +103,7 @@ const BuyTicketLink = styled(CtaButton)<{ shouldShake?: boolean; disabled?: bool
   animation-name: shake;
   animation-duration: 4s;
   animation-iteration-count: infinite;
-  animation-play-state: ${({ shouldShake }) => (shouldShake ? 'running' : 'paused')};
+  animation-play-state: ${({ $shouldShake }) => ($shouldShake ? 'running' : 'paused')};
 `;
 
 export const TicketCard = () => {
@@ -128,7 +128,7 @@ export const TicketCard = () => {
         <BuyTicketLink
           onClick={onBuyTicketClicked}
           aria-label="buy_ticket"
-          shouldShake={shouldShake}
+          $shouldShake={shouldShake}
           disabled={!TicketsToggles.enabled}
         >
           {t('tickets.buyTicket')}
