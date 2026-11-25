@@ -86,8 +86,12 @@ export default [
       'import/no-unused-modules': 0,
       'import/group-exports': 0,
       'react/jsx-key': 1,
+      ...reactHooks.configs['recommended-latest'].rules,
       'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'error'
+      'react-hooks/exhaustive-deps': 'error',
+      'react-hooks/refs': 'off',
+      'react-hooks/set-state-in-effect': 'off',
+      'react-hooks/incompatible-library': 'off'
     }
   }
 ];

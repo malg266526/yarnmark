@@ -39,7 +39,7 @@ Stan na: 2026-11-25 (commit `3b2cc80`, branch `master`). Ostatnia aktualizacja p
 | typescript                | 5.9.3           | 7.0.2           |
 | eslint                    | 9.39.5          | 10.15.0         |
 | @typescript-eslint/\*     | 8.74.0          | 8.74.0          |
-| eslint-plugin-react-hooks | 5.2.0           | 7.1.1           |
+| eslint-plugin-react-hooks | 7.1.1           | 7.1.1           |
 | esbuild                   | 0.19.2          | 0.28.2          |
 | i18next / react-i18next   | 23.5.1 / 13.2.2 | 27.2.9 / 18.0.3 |
 | @hookform/resolvers       | 5.9.1           | 7.0.9           |
@@ -154,9 +154,20 @@ function`); 5.x to pierwsza linia ze wsparciem ESLint 9, bez reguł React Compil
   - Zestaw reguł: te same reguły projektu i pluginów; różnica tylko w `eslint:recommended` z ESLint 9 — usunięte
     przestarzałe `no-inner-declarations`, `no-new-symbol`; dodane `no-constant-binary-expression`,
     `no-empty-static-block`, `no-new-native-nonconstructor`, `no-unused-private-class-members` (bez nowych błędów).
-- [ ] **2e. `eslint-plugin-react-hooks` 5.2.0 → 7.1.1** — wersja 7 dodaje reguły React Compilera (m.in. `purity`,
-      `refs`, `set-state-in-effect`), które mogą pokazać dużo nowych błędów. Najpierw policzyć i pokazać wyniki, potem
-      decyzja, co włączyć.
+- [x] ✅ **2e. `eslint-plugin-react-hooks` 5.2.0 → 7.1.1** — włączony preset `recommended-latest` (opis reguł z
+      przykładami: `docs/updates/new-rules.md`), `exhaustive-deps` zostaje na `error`. `purity` włączone po poprawce
+      `Schedule.tsx` (stabilny `key` zamiast `Math.random()`). Wyłączone do kroku 4: `refs`, `set-state-in-effect`,
+      `incompatible-library`. Wynik jednorazowego lintu z całym presetem przed włączeniem (32 zgłoszenia):
+  - `refs` — 20 błędów w 6 plikach: `useStandDrag.ts` (przypisywanie `ref.current` w renderze),
+    `useIntersectionObserver.ts`, sekcje formularzy (`VendorFormBusinessDescriptionSection`,
+    `WorkshopFormDescriptionSection`, `WorkshopFormParticipantsSection`, `WorkshopFormPricingSection` — `field.ref`
+    z React Hook Form przekazywany w JSX).
+  - `set-state-in-effect` — 9 błędów w 8 plikach: `Hall.tsx`, `MultiCarousel.tsx`, `useLocalStorage.ts`,
+    `usePhone.ts` (2), `useAdminNewsletter.ts`, `useAdminUsers.ts`, `useStandPlanDraft.ts`, `SelectableHall.tsx`.
+  - `purity` — 1 błąd: `Schedule.tsx:111` (`key={Math.random()}`).
+  - `incompatible-library` — 2 ostrzeżenia: `watch()` z React Hook Form w `useVendorForm.ts` i `useWorkshopForm.ts`.
+  - Pozostałe reguły presetu (`immutability`, `static-components`, `use-memo`, `globals`, `set-state-in-render`,
+    `error-boundaries` i in.) — 0 zgłoszeń.
 - [ ] **2f. Porządki w regułach (opcjonalnie):** usunięcie reguł formatowania dublujących Prettiera; rozważenie
       zastąpienia `eslint-plugin-prettier` osobnym `prettier --check` (szybszy lint); włączenie presetów
       `typescript-eslint` recommended i `jsx-a11y` recommended (nowe błędy do naprawy — osobno).
