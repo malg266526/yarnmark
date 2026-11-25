@@ -25,10 +25,10 @@ const MapIframeWrapper = styled.div`
   align-self: flex-start;
 `;
 
-const BusesSection = styled.div<{ isOpen?: boolean }>`
+const BusesSection = styled.div<{ $isOpen?: boolean }>`
   display: flex;
   flex-direction: column;
-  max-height: ${({ isOpen }) => (isOpen ? '200px' : '0px')};
+  max-height: ${({ $isOpen }) => ($isOpen ? '200px' : '0px')};
   overflow-y: scroll;
   text-align: justify;
   gap: ${RedesignSpacings.xs};
@@ -78,7 +78,7 @@ const EventLocationCard = () => {
       </SecondaryButton>
 
       {isSpotOpened && (
-        <BusesSection isOpen={isSpotOpened}>
+        <BusesSection $isOpen={isSpotOpened}>
           <Typography size="sm">{t('spotBand.publicTransport')}</Typography>
           <Typography size="sm">{t('spotBand.list')}</Typography>
           <Typography size="sm">

@@ -15,6 +15,12 @@ interface RootProps {
   marginTop?: keyof typeof RedesignSpacings;
 }
 
+interface AnimationFrameStyleProps {
+  $overflowSize: RootProps['overflowSize'];
+  $overflowLength: RootProps['overflowLength'];
+  $marginTop?: RootProps['marginTop'];
+}
+
 const boxShadow = css`
   box-shadow: 1px 1px 5px 1px #333;
 `;
@@ -58,12 +64,12 @@ const Root = styled.div`
   align-items: center;
 `;
 
-const AnimationFrame = styled.div<RootProps>`
+const AnimationFrame = styled.div<AnimationFrameStyleProps>`
   position: relative;
   z-index: 1;
   ${boxShadow};
   ${animationFrames};
-  margin-top: ${({ marginTop }) => RedesignSpacings[marginTop || 'none']};
+  margin-top: ${({ $marginTop }) => RedesignSpacings[$marginTop || 'none']};
 
   @media (max-width: ${ScreenSize.phone}) {
     max-width: 100%;
@@ -91,11 +97,11 @@ const AnimationFrame = styled.div<RootProps>`
     ${skew};
     ${boxShadow};
 
-    ${({ overflowSize, overflowLength }) => css`
-      top: -${overflowSize};
-      left: calc(100% - ${overflowLength} + ${overflowSize});
-      height: ${overflowLength};
-      width: ${overflowLength};
+    ${({ $overflowSize, $overflowLength }) => css`
+      top: -${$overflowSize};
+      left: calc(100% - ${$overflowLength} + ${$overflowSize});
+      height: ${$overflowLength};
+      width: ${$overflowLength};
     `};
 
     ${animationCss};
@@ -121,11 +127,11 @@ const AnimationFrame = styled.div<RootProps>`
     ${skew};
     ${boxShadow};
 
-    ${({ overflowSize, overflowLength }) => css`
-      top: calc(100% - ${overflowLength} + ${overflowSize});
-      left: -${overflowSize};
-      height: ${overflowLength};
-      width: ${overflowLength};
+    ${({ $overflowSize, $overflowLength }) => css`
+      top: calc(100% - ${$overflowLength} + ${$overflowSize});
+      left: -${$overflowSize};
+      height: ${$overflowLength};
+      width: ${$overflowLength};
     `};
 
     ${animationCss};
@@ -133,24 +139,24 @@ const AnimationFrame = styled.div<RootProps>`
 `;
 
 const PaperCard = styled.div<{
-  width?: FrameWidth;
-  height?: FrameWidth;
-  padding: keyof typeof RedesignSpacings;
-  gap?: keyof typeof RedesignSpacings;
+  $width?: FrameWidth;
+  $height?: FrameWidth;
+  $padding: keyof typeof RedesignSpacings;
+  $gap?: keyof typeof RedesignSpacings;
 }>`
-  ${({ width }) =>
-    width &&
+  ${({ $width }) =>
+    $width &&
     css`
-      width: ${width};
+      width: ${$width};
     `};
-  ${({ height }) =>
-    height &&
+  ${({ $height }) =>
+    $height &&
     css`
-      height: ${height};
+      height: ${$height};
     `};
 
-  padding: ${({ padding }) => RedesignSpacings[padding]};
-  gap: ${({ gap }) => RedesignSpacings[gap || 'none']};
+  padding: ${({ $padding }) => RedesignSpacings[$padding]};
+  gap: ${({ $gap }) => RedesignSpacings[$gap || 'none']};
 
   background: ${BrownScale[50]};
   position: relative;
@@ -171,8 +177,8 @@ const PaperCard = styled.div<{
   &:before {
     content: '';
     position: absolute;
-    top: calc(${({ padding }) => RedesignSpacings[padding === 'none' ? 'md' : padding]} / 2);
-    left: calc(${({ padding }) => RedesignSpacings[padding === 'none' ? 'md' : padding]} / 2);
+    top: calc(${({ $padding }) => RedesignSpacings[$padding === 'none' ? 'md' : $padding]} / 2);
+    left: calc(${({ $padding }) => RedesignSpacings[$padding === 'none' ? 'md' : $padding]} / 2);
     width: 26px;
     height: 26px;
     background: url(${knittingSvgUrl}) no-repeat center;
@@ -194,11 +200,16 @@ export const SlantedCornersBox = ({
   overflowLength = '30%',
   overflowSize = '3px',
   marginTop,
-  ...rest
+  width,
+  height,
+  padding,
+  gap
 }: SlantingFrameBoxProps) => (
   <Root>
-    <AnimationFrame overflowLength={overflowLength} overflowSize={overflowSize} marginTop={marginTop}>
-      <PaperCard {...rest}>{children}</PaperCard>
+    <AnimationFrame $overflowLength={overflowLength} $overflowSize={overflowSize} $marginTop={marginTop}>
+      <PaperCard $width={width} $height={height} $padding={padding} $gap={gap}>
+        {children}
+      </PaperCard>
     </AnimationFrame>
   </Root>
 );
