@@ -7,31 +7,31 @@ import { Radius } from '../styles/cards';
 import { FontSize } from '../styles/font-size';
 import { TextColors } from '../styles/theme';
 
-export const linkStyle = css<{ disabled?: boolean }>`
+export const linkStyle = css<{ $disabled?: boolean }>`
   padding: 10px 8px;
   border-radius: ${Radius.md};
   font-size: ${FontSize.lg};
   font-weight: 300;
   text-decoration: none;
   position: relative;
-  cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
-  pointer-events: ${({ disabled }) => (disabled ? 'none' : 'auto')};
-  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
+  cursor: ${({ $disabled }) => ($disabled ? 'default' : 'pointer')};
+  pointer-events: ${({ $disabled }) => ($disabled ? 'none' : 'auto')};
+  opacity: ${({ $disabled }) => ($disabled ? 0.5 : 1)};
 `;
 
-const StyledLink = styled(HashLink)<{ color?: string; disabled?: boolean }>`
-  ${({ color }) =>
-    color &&
+const StyledLink = styled(HashLink)<{ $color?: string; $disabled?: boolean }>`
+  ${({ $color }) =>
+    $color &&
     css`
-      color: ${color};
+      color: ${$color};
     `};
 
   ${linkStyle}
 
   &:hover:after,
   &:hover:before {
-    transform: ${({ disabled }) => (disabled ? 'translate(0, 10px)' : 'translate(0, 0)')};
-    opacity: ${({ disabled }) => (disabled ? 0 : 1)};
+    transform: ${({ $disabled }) => ($disabled ? 'translate(0, 10px)' : 'translate(0, 0)')};
+    opacity: ${({ $disabled }) => ($disabled ? 0 : 1)};
   }
 
   &::before {
@@ -57,10 +57,10 @@ const StyledLink = styled(HashLink)<{ color?: string; disabled?: boolean }>`
     height: 2px;
     width: 100%;
     background: #000;
-    ${({ color }) =>
-      color &&
+    ${({ $color }) =>
+      $color &&
       css`
-        background: ${color};
+        background: ${$color};
       `};
     opacity: 0;
     transition: all 150ms ease-in-out;
@@ -85,10 +85,10 @@ export const Link = styled(
     return (
       <StyledLink
         {...rest}
-        color={color}
+        $color={color}
         smooth
         to={to}
-        disabled={disabled}
+        $disabled={disabled}
         onClick={(event: React.MouseEvent) => {
           if (disabled) {
             event.preventDefault();

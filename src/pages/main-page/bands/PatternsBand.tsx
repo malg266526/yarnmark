@@ -37,17 +37,17 @@ export const PatternsBand = ({ id }: PatternsBandType) => {
     >
       <Band.Title>{t('patternsBand.title')}</Band.Title>
 
-      <PanelsRow direction={isPhone ? 'column' : 'row'}>
+      <PanelsRow $direction={isPhone ? 'column' : 'row'}>
         {editions.map(({ year, patterns }) => (
-          <EditionPanel key={year} grow={EDITION_PHOTOS[year].ratio} isStacked={isPhone}>
+          <EditionPanel key={year} $grow={EDITION_PHOTOS[year].ratio} $isStacked={isPhone}>
             <PanelPhoto
-              ratio={EDITION_PHOTOS[year].ratio}
+              $ratio={EDITION_PHOTOS[year].ratio}
               picture={EDITION_PHOTOS[year].picture}
               alt={t(EDITION_PHOTOS[year].altKey)}
             />
             <PanelBody>
               <EditionKicker>{t('patternsBand.edition', { year })}</EditionKicker>
-              <PanelEntries isStacked={isTablet}>
+              <PanelEntries $isStacked={isTablet}>
                 {patterns.map((pattern) => (
                   <PatternEntry key={pattern.id} pattern={pattern} isPhone={isPhone} />
                 ))}
