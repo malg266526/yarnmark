@@ -1,11 +1,11 @@
-import { Picture } from '../../../../components/Picture';
-import { Typography } from '../../../../components/Typography';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
+import { Picture } from '@/components/Picture';
+import { Typography } from '@/components/Typography';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../../../styles/spacings';
+import { RedesignSpacings } from '@/styles/spacings';
 import { WorkshopsEntry } from '../workshopsConfig';
 import { Ribbon } from './Ribbon';
-import { CtaButton } from '../../../../components/Button';
+import { CtaButton } from '@/components/Button';
 import { CardLayout } from './CardLayout';
 import { WorkshopPrice } from './WorkshopPrice';
 

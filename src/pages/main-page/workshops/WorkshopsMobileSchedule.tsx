@@ -1,7 +1,7 @@
 import { WorkshopsConfig } from './workshopsConfig';
 import { MobileRibbonCard } from './cards/MobileRibbonCard';
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../../styles/spacings';
+import { RedesignSpacings } from '@/styles/spacings';
 
 const Container = styled.div`
   display: flex;

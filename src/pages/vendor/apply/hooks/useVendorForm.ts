@@ -1,42 +1,39 @@
 import { useEffect, useMemo, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, type Resolver } from 'react-hook-form';
-import type { UnprefixedTranslationKeys } from '../../../../translations/useTypedTranslation';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
+import type { UnprefixedTranslationKeys } from '@/translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import type { VendorFormViewProps } from '../components/vendorFormViewContracts';
 import {
   getActivePairingStandId,
   getSelectedStandIds,
   removeSecondStand,
   toggleStandOption
-} from '../../../../domain/vendorApplications/vendorFormUtils.ts';
-import { isVendorStand, parseHallStands } from '../../../../components/hall/hallStands.ts';
-import { isReservedStand } from '../../../../components/hall/standReservationUtils.ts';
+} from '@/domain/vendorApplications/vendorFormUtils.ts';
+import { isVendorStand, parseHallStands } from '@/components/hall/hallStands.ts';
+import { isReservedStand } from '@/components/hall/standReservationUtils.ts';
 import { getFreeNeighbourStandIds, getUnpairableStandIds } from '../vendorFormStandOptionsUtils.ts';
-import {
-  fetchStandsDemandFromApi,
-  submitVendorApplicationToApi
-} from '../../../../domain/vendorApplications/vendorFormApi.ts';
+import { fetchStandsDemandFromApi, submitVendorApplicationToApi } from '@/domain/vendorApplications/vendorFormApi.ts';
 import {
   VENDOR_FORM_BUSINESS_DESCRIPTION_MAX_LENGTH,
   VENDOR_FORM_DRAFT_STORAGE_KEY,
   VENDOR_FORM_LOGO_MAX_BYTES
-} from '../../../../domain/vendorApplications/vendorFormConstants.ts';
+} from '@/domain/vendorApplications/vendorFormConstants.ts';
 import {
   collectVendorFormValidationErrors,
   vendorFormValidationSchema,
   type VendorFormValues
-} from '../../../../domain/vendorApplications/vendorFormSchema.ts';
-import { LogoTooLargeError, prepareLogoForUpload } from '../../../../domain/vendorApplications/vendorFormLogoUtils.ts';
+} from '@/domain/vendorApplications/vendorFormSchema.ts';
+import { LogoTooLargeError, prepareLogoForUpload } from '@/domain/vendorApplications/vendorFormLogoUtils.ts';
 import {
   INITIAL_VENDOR_FORM_STATE,
   type StandDemand,
   type VendorFormState
-} from '../../../../domain/vendorApplications/vendorFormTypes.ts';
-import { focusFirstInvalidField } from '../../../../components/form/formFocus.ts';
-import { isFormDraftRestorable, resolveFormDraftStatus } from '../../../../components/form/formDraftStatusUtils.ts';
+} from '@/domain/vendorApplications/vendorFormTypes.ts';
+import { focusFirstInvalidField } from '@/components/form/formFocus.ts';
+import { isFormDraftRestorable, resolveFormDraftStatus } from '@/components/form/formDraftStatusUtils.ts';
 import { createEmptyVendorFormDraft, parseStoredVendorFormDraft } from '../vendorFormStorage.ts';
-import { getHighDemandStandIds } from '../../../../domain/vendorApplications/vendorFormStandInterestUtils.ts';
+import { getHighDemandStandIds } from '@/domain/vendorApplications/vendorFormStandInterestUtils.ts';
 
 const VENDOR_FORM_FIELD_ATTRIBUTE = 'data-vendor-form-field';
 

@@ -1,4 +1,4 @@
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import { FieldRequirementMark, type FieldRequirementType } from './FormField.styled';
 
 interface FieldRequirementProps {

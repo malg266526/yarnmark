@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { useAssignedStandVendors } from '../../hooks/useAssignedStandVendors';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { useAssignedStandVendors } from '@/hooks/useAssignedStandVendors';
 import { parseHallStands } from './hallStands';
 import { applyAssignedStandVendors, getHallSvgMapLayout, type HallSvgMapLayout } from './hallSvgMapUtils';
 

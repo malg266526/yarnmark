@@ -1,10 +1,10 @@
 import styled, { keyframes } from 'styled-components';
-import { Button } from '../../../components/Button';
-import { Radius, DropShadow } from '../../../styles/cards';
-import { FontSize } from '../../../styles/font-size';
-import { ScreenSize } from '../../../styles/screeen-size';
-import { RedesignSpacings } from '../../../styles/spacings';
-import { BackgroundColors, BorderColors, Colors, FontFamilies, GrayScale, TextColors } from '../../../styles/theme';
+import { Button } from '@/components/Button';
+import { Radius, DropShadow } from '@/styles/cards';
+import { FontSize } from '@/styles/font-size';
+import { ScreenSize } from '@/styles/screeen-size';
+import { RedesignSpacings } from '@/styles/spacings';
+import { BackgroundColors, BorderColors, Colors, FontFamilies, GrayScale, TextColors } from '@/styles/theme';
 
 export const AdminUsersPageStyled = styled.div`
   width: 100%;

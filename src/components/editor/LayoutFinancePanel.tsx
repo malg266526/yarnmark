@@ -1,4 +1,4 @@
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import { useLayoutFinance } from './useLayoutFinance';
 import {
   BodyCell,

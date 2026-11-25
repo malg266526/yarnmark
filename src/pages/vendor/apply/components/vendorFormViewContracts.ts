@@ -1,7 +1,7 @@
 import type { UseFormRegister } from 'react-hook-form';
-import type { VendorFormValues } from '../../../../domain/vendorApplications/vendorFormSchema.ts';
-import type { FormDraftStatus } from '../../../../components/form/formDraftStatusUtils.ts';
-import type { VendorFormMainCategory, VendorFormState } from '../../../../domain/vendorApplications/vendorFormTypes.ts';
+import type { VendorFormValues } from '@/domain/vendorApplications/vendorFormSchema.ts';
+import type { FormDraftStatus } from '@/components/form/formDraftStatusUtils.ts';
+import type { VendorFormMainCategory, VendorFormState } from '@/domain/vendorApplications/vendorFormTypes.ts';
 
 export type VendorFormBooleanFieldName = 'attendedBefore' | 'interestedIfUnavailable' | 'sponsorshipInterest';
 

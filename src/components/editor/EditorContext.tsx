@@ -1,7 +1,7 @@
 import { createContext, useContext, ReactNode, useMemo, useState } from 'react';
 import { StandColorsMap, StandProps, StandType } from './StandProps';
 import { StandSizes } from './utils/getSizeForOrientation';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { generateId } from './utils/generateId';
 import { normalizeStandType } from './utils/standTypeUtils';
 

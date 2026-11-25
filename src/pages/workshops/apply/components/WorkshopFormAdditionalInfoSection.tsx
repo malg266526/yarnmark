@@ -1,6 +1,6 @@
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
-import { FormField } from '../../../../components/form/FormField';
-import { FormFieldHeading } from '../../../../components/form/FormFieldHeading';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { FormField } from '@/components/form/FormField';
+import { FormFieldHeading } from '@/components/form/FormFieldHeading';
 import { Fieldset, FormSection, TextArea } from '../WorkshopFormPage.styled';
 import type { WorkshopFormBindings } from './workshopFormViewContracts';
 

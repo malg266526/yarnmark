@@ -117,7 +117,10 @@ Aktualizacje zależności izolowane (jedna biblioteka / jedna grupa na PR), wers
   `import React from 'react';`. Usuwać tam, gdzie plik nie używa `React.` (np. `React.ReactNode`); przy
   `import React, { … }` zostawić nazwane importy. Skryptem, potem typecheck, lint, testy.
 - ✅ **1e. Aliasy ścieżek:** dodane `paths: { "@/*": ["./src/*"] }` i `eslint-import-resolver-typescript` 4.4.5
-  (resolver w `.eslintrc.js`, bez niego `import/no-unresolved` odrzuca `@/…`). Istniejące importy bez zmian.
+  (resolver w `.eslintrc.js`, bez niego `import/no-unresolved` odrzuca `@/…`). ✅ Importy przepisane na `@/` tam,
+  gdzie alias jest krótszy (ostrzeżenie WebStorma „Import can be shortened”): 804 importy w 176 plikach. Wyjątek: 43
+  pliki osiągalne z testów (`*.test.ts` i ich zależności) zostają przy ścieżkach względnych, bo `node --test` nie
+  rozumie aliasu.
   Pierwotny opis (opcjonalnie): `paths: { "@/*": ["./src/*"] }` (esbuild czyta `paths` z tsconfig;
   `node --test` nie, ale testy importują tylko utilsy). Przepisanie 552 importów `../../../…` to osobna decyzja —
   `@/` w nowym/zmienianym kodzie albo partiami, katalog po katalogu.

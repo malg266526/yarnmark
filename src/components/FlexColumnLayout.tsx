@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { RedesignSpacings } from '../styles/spacings';
+import { RedesignSpacings } from '@/styles/spacings';
 
 export const FlexColumnLayout = styled.div<{
   fullHeight?: boolean;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAdminSession } from '../../useAdminSession';
-import { listNewsletterSubscribers } from '../../../../domain/newsletter/newsletterApi.ts';
-import type { NewsletterSubscriber } from '../../../../domain/newsletter/newsletterTypes.ts';
+import { listNewsletterSubscribers } from '@/domain/newsletter/newsletterApi.ts';
+import type { NewsletterSubscriber } from '@/domain/newsletter/newsletterTypes.ts';
 
 export const useAdminNewsletter = () => {
   const { token, handleAdminApiError } = useAdminSession();

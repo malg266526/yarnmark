@@ -1,5 +1,5 @@
-import { Typography } from '../../../../components/Typography';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
+import { Typography } from '@/components/Typography';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import { Fieldset, SummaryList } from '../WorkshopFormPage.styled';
 import type { WorkshopFormBindings, WorkshopFormStatusState } from './workshopFormViewContracts';
 

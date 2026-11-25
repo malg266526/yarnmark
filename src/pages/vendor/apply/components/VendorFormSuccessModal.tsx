@@ -1,5 +1,5 @@
-import { FormSuccessModal } from '../../../../components/form/FormSuccessModal';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
+import { FormSuccessModal } from '@/components/form/FormSuccessModal';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import type { VendorFormBindings, VendorFormStatusState } from './vendorFormViewContracts';
 import { VendorFormSummary } from './VendorFormSummary';
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { RowLayout } from './RowLayout';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
-import { RedesignSpacings } from '../styles/spacings';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { RedesignSpacings } from '@/styles/spacings';
 import { StandColorsMap } from './editor/StandProps';
 
 const LegendRoot = styled.div`

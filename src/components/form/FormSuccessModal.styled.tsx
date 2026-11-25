@@ -1,8 +1,8 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import Modal from 'react-modal';
-import { DropShadow, Radius } from '../../styles/cards';
-import { RedesignSpacings } from '../../styles/spacings';
-import { Colors } from '../../styles/theme';
+import { DropShadow, Radius } from '@/styles/cards';
+import { RedesignSpacings } from '@/styles/spacings';
+import { Colors } from '@/styles/theme';
 
 export const SuccessModalLayout = styled(Modal)`
   display: flex;

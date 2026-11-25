@@ -1,18 +1,18 @@
-import { BackgroundColors, TextColors } from '../../styles/theme';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { Icon, sizeToIconWidth } from '../../components/Icon';
+import { BackgroundColors, TextColors } from '@/styles/theme';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { Icon, sizeToIconWidth } from '@/components/Icon';
 import styled from 'styled-components';
-import { Typography } from '../../components/Typography';
-import { RedesignSpacings } from '../../styles/spacings';
-import { RowLayout } from '../../components/RowLayout';
-import redMapMarkerIconUrl from '../../assets/figmaIcons/red_map_marker_icon.svg';
-import blueTicketsIconUrl from '../../assets/figmaIcons/blue_tickets_icon.svg';
-import storeIconUrl from '../../assets/figmaIcons/store_icon.svg';
-import { Button } from '../../components/Button';
+import { Typography } from '@/components/Typography';
+import { RedesignSpacings } from '@/styles/spacings';
+import { RowLayout } from '@/components/RowLayout';
+import redMapMarkerIconUrl from '@/assets/figmaIcons/red_map_marker_icon.svg';
+import blueTicketsIconUrl from '@/assets/figmaIcons/blue_tickets_icon.svg';
+import storeIconUrl from '@/assets/figmaIcons/store_icon.svg';
+import { Button } from '@/components/Button';
 import { Icon as IconifyIcon } from '@iconify/react';
-import { Band } from '../../components/bands/Band';
-import mapIcon from '../../assets/figmaIcons/map_icon.svg';
-import { BandsToggles, TicketsToggles } from '../../toggles';
+import { Band } from '@/components/bands/Band';
+import mapIcon from '@/assets/figmaIcons/map_icon.svg';
+import { BandsToggles, TicketsToggles } from '@/toggles';
 
 const InfoSectionWrapper = styled.div`
   position: relative;

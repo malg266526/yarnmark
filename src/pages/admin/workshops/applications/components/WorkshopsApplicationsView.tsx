@@ -8,8 +8,8 @@ import {
 import type {
   WorkshopApplication,
   WorkshopApplicationStatus
-} from '../../../../../domain/workshopApplications/workshopFormSubmission.ts';
-import { useTypedTranslation } from '../../../../../translations/useTypedTranslation';
+} from '@/domain/workshopApplications/workshopFormSubmission.ts';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import { useWorkshopsApplicationsToolbar } from '../hooks/useWorkshopsApplicationsToolbar';
 import { WorkshopApplicationDetailsDrawer } from './WorkshopApplicationDetailsDrawer';
 import { WorkshopsApplicationsCardsView } from './WorkshopsApplicationsCardsView';

@@ -1,18 +1,18 @@
-import { Typography } from '../../../components/Typography';
-import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
+import { Typography } from '@/components/Typography';
+import { FlexColumnLayout } from '@/components/FlexColumnLayout';
 import { Trans } from 'react-i18next';
-import { Icon } from '../../../components/Icon';
-import redMapMarkerIconUrl from '../../../assets/figmaIcons/red_map_marker_icon.svg';
-import blueTicketsIconUrl from '../../../assets/figmaIcons/blue_tickets_icon.svg';
-import calendarIconUrl from '../../../assets/figmaIcons/calendar_icon.svg';
+import { Icon } from '@/components/Icon';
+import redMapMarkerIconUrl from '@/assets/figmaIcons/red_map_marker_icon.svg';
+import blueTicketsIconUrl from '@/assets/figmaIcons/blue_tickets_icon.svg';
+import calendarIconUrl from '@/assets/figmaIcons/calendar_icon.svg';
 import styled from 'styled-components';
-import { GrayScale, TextColors } from '../../../styles/theme';
-import { Band } from '../../../components/bands/Band';
-import mapIcon from '../../../assets/figmaIcons/map_icon.svg';
+import { GrayScale, TextColors } from '@/styles/theme';
+import { Band } from '@/components/bands/Band';
+import mapIcon from '@/assets/figmaIcons/map_icon.svg';
 
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
-import { BandsToggles, TicketsToggles } from '../../../toggles';
-import { FairEdition } from '../../../fairEditionConfig';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { BandsToggles, TicketsToggles } from '@/toggles';
+import { FairEdition } from '@/fairEditionConfig';
 
 const InfoColumn = styled(FlexColumnLayout)`
   text-align: center;

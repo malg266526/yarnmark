@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import { FlexColumnLayout } from './FlexColumnLayout';
-import { FontSize } from '../styles/font-size';
+import { FontSize } from '@/styles/font-size';
 import { Typography } from './Typography';
-import { usePhone } from '../hooks/usePhone';
+import { usePhone } from '@/hooks/usePhone';
 
 export const TextH2 = styled.h2`
   font-size: ${FontSize.lg};

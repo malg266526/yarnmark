@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import { getSectionGapLineRect, type SectionGap } from './utils/sectionGapUtils';
 import { formatDecimal } from './utils/layoutSummaryUtils';
 

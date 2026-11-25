@@ -1,7 +1,7 @@
 import { type MutableRefObject } from 'react';
-import { Typography } from '../../components/Typography';
-import { UtilityPageHeader } from '../../components/UtilityPageHeader';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { Typography } from '@/components/Typography';
+import { UtilityPageHeader } from '@/components/UtilityPageHeader';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import { AdminLoginCard, AdminLoginError, AdminLoginRoot } from './AdminLogin.styled';
 import type { AdminAuthState } from './adminAuthUtils';
 

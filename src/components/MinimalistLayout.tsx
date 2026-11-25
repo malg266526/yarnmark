@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { ScreenSize } from '../styles/screeen-size';
-import { RedesignSpacings } from '../styles/spacings';
+import { ScreenSize } from '@/styles/screeen-size';
+import { RedesignSpacings } from '@/styles/spacings';
 
 export const MinimalistLayout = styled.div`
   display: flex;

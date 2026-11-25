@@ -1,5 +1,5 @@
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
-import { Switch } from '../../../components/form/Switch';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { Switch } from '@/components/form/Switch';
 import { AdminPageLayout } from '../AdminPageLayout';
 import { AdminSettingsPanel } from './AdminSettingsPage.styled';
 import { SoundVariantField } from './components/SoundVariantField';

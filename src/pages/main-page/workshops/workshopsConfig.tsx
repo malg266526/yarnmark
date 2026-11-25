@@ -1,35 +1,35 @@
-import knitologUrlWebp from '../../../assets/images/workshops/Knitolog.webp';
-import knitologUrl from '../../../assets/images/workshops/Knitolog.jfif';
+import knitologUrlWebp from '@/assets/images/workshops/Knitolog.webp';
+import knitologUrl from '@/assets/images/workshops/Knitolog.jfif';
 
-import edknittedUrl from '../../../assets/images/workshops/edknitted.jfif';
-import edknittedUrlWebp from '../../../assets/images/workshops/edkknitted.webp';
+import edknittedUrl from '@/assets/images/workshops/edknitted.jfif';
+import edknittedUrlWebp from '@/assets/images/workshops/edkknitted.webp';
 
-import kroopaUrl from '../../../assets/images/workshops/Kroopa2.jpg';
-import kroopaUrlAvif from '../../../assets/images/workshops/Kroopa2.avif';
-import kroopaUrlWebp from '../../../assets/images/workshops/Kroopa2.webp';
+import kroopaUrl from '@/assets/images/workshops/Kroopa2.jpg';
+import kroopaUrlAvif from '@/assets/images/workshops/Kroopa2.avif';
+import kroopaUrlWebp from '@/assets/images/workshops/Kroopa2.webp';
 
-import iwonaUrl from '../../../assets/images/workshops/iwona.jfif';
-import iwonaUrlWebp from '../../../assets/images/workshops/iwona.webp';
+import iwonaUrl from '@/assets/images/workshops/iwona.jfif';
+import iwonaUrlWebp from '@/assets/images/workshops/iwona.webp';
 
-import magdaUrl from '../../../assets/images/workshops/magda.jfif';
-import magdaUrlWebp from '../../../assets/images/workshops/magda.webp';
+import magdaUrl from '@/assets/images/workshops/magda.jfif';
+import magdaUrlWebp from '@/assets/images/workshops/magda.webp';
 
-import skeinUrl from '../../../assets/images/workshops/skein2.jfif';
-import skeinUrlWebp from '../../../assets/images/workshops/skein2.webp';
+import skeinUrl from '@/assets/images/workshops/skein2.jfif';
+import skeinUrlWebp from '@/assets/images/workshops/skein2.webp';
 
-import noweHaftyUrl from '../../../assets/images/workshops/NoweHafty.jpg';
-import noweHaftyUrlAvif from '../../../assets/images/workshops/NoweHafty.avif';
-import noweHaftyUrlWebp from '../../../assets/images/workshops/NoweHafty.webp';
+import noweHaftyUrl from '@/assets/images/workshops/NoweHafty.jpg';
+import noweHaftyUrlAvif from '@/assets/images/workshops/NoweHafty.avif';
+import noweHaftyUrlWebp from '@/assets/images/workshops/NoweHafty.webp';
 
-import splotkaUrl from '../../../assets/images/workshops/Splotka.jpg';
-import splotkaUrlAvif from '../../../assets/images/workshops/Splotka.avif';
-import splotkaUrlWebp from '../../../assets/images/workshops/Splotka.webp';
+import splotkaUrl from '@/assets/images/workshops/Splotka.jpg';
+import splotkaUrlAvif from '@/assets/images/workshops/Splotka.avif';
+import splotkaUrlWebp from '@/assets/images/workshops/Splotka.webp';
 
-import sisUrl from '../../../assets/images/workshops/Sis.png';
-import sisUrlAvif from '../../../assets/images/workshops/Sis.avif';
-import sisUrlWebp from '../../../assets/images/workshops/skein.webp';
+import sisUrl from '@/assets/images/workshops/Sis.png';
+import sisUrlAvif from '@/assets/images/workshops/Sis.avif';
+import sisUrlWebp from '@/assets/images/workshops/skein.webp';
 
-import { UnprefixedTranslationKeys } from '../../../translations/useTypedTranslation';
+import { UnprefixedTranslationKeys } from '@/translations/useTypedTranslation';
 
 type Room = 'conference' | 'library' | 'bursa1' | 'bursa2' | 'skein' | 'forum' | 'reading_room';
 

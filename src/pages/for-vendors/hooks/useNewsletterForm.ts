@@ -1,10 +1,10 @@
 import { useCallback, useState, type FormEvent } from 'react';
-import { subscribeToNewsletter } from '../../../domain/newsletter/newsletterApi.ts';
+import { subscribeToNewsletter } from '@/domain/newsletter/newsletterApi.ts';
 import {
   normalizeNewsletterEmail,
   validateNewsletterEmail,
   type NewsletterValidationKey
-} from '../../../domain/newsletter/newsletterUtils.ts';
+} from '@/domain/newsletter/newsletterUtils.ts';
 
 export type NewsletterFormStatus = 'idle' | 'submitting' | 'success' | 'error';
 

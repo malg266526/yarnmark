@@ -1,17 +1,17 @@
 import styled from 'styled-components';
-import { ScreenSize } from '../styles/screeen-size';
-import { usePhone } from '../hooks/usePhone';
-import { PageContent } from '../components/PageContent';
+import { ScreenSize } from '@/styles/screeen-size';
+import { usePhone } from '@/hooks/usePhone';
+import { PageContent } from '@/components/PageContent';
 import { Header } from './menu/Header';
-import { Band } from '../components/bands/Band';
-import { WoolPicture } from '../components/WoolPicture';
-import { SlantedCornersBox } from '../components/SlantedCornersBox';
-import { CenteredSection } from '../components/CenteredSection';
-import { BandTitle } from '../components/bands/BandTitle';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
-import { BackgroundColors } from '../styles/theme';
-import { HallSvgMap } from '../components/hall/HallSvgMap';
-import { useHallSvgMap } from '../components/hall/useHallSvgMap';
+import { Band } from '@/components/bands/Band';
+import { WoolPicture } from '@/components/WoolPicture';
+import { SlantedCornersBox } from '@/components/SlantedCornersBox';
+import { CenteredSection } from '@/components/CenteredSection';
+import { BandTitle } from '@/components/bands/BandTitle';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { BackgroundColors } from '@/styles/theme';
+import { HallSvgMap } from '@/components/hall/HallSvgMap';
+import { useHallSvgMap } from '@/components/hall/useHallSvgMap';
 
 const InvitationBoxWrapper = styled.div`
   padding-left: 240px;

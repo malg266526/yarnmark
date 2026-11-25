@@ -1,16 +1,16 @@
-import { FlexColumnLayout } from '../../../../components/FlexColumnLayout';
-import { Typography } from '../../../../components/Typography';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
+import { FlexColumnLayout } from '@/components/FlexColumnLayout';
+import { Typography } from '@/components/Typography';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import styled, { css } from 'styled-components';
-import { Card } from '../../../../components/Card';
-import { RedesignSpacings } from '../../../../styles/spacings';
-import { TextColors } from '../../../../styles/theme';
-import { ScreenSize } from '../../../../styles/screeen-size';
-import { Radius } from '../../../../styles/cards';
-import { FontSize } from '../../../../styles/font-size';
-import { CtaButton } from '../../../../components/Button';
-import { TicketsToggles } from '../../../../toggles';
-import { FairEdition } from '../../../../fairEditionConfig';
+import { Card } from '@/components/Card';
+import { RedesignSpacings } from '@/styles/spacings';
+import { TextColors } from '@/styles/theme';
+import { ScreenSize } from '@/styles/screeen-size';
+import { Radius } from '@/styles/cards';
+import { FontSize } from '@/styles/font-size';
+import { CtaButton } from '@/components/Button';
+import { TicketsToggles } from '@/toggles';
+import { FairEdition } from '@/fairEditionConfig';
 
 const TicketCardLayout = styled(Card)`
   width: 376px;

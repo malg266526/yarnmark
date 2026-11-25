@@ -1,21 +1,21 @@
-import { Band } from '../../../components/bands/Band';
-import { BackgroundColors } from '../../../styles/theme';
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
-import { MultiCarousel } from '../../../components/carousels/MultiCarousel';
+import { Band } from '@/components/bands/Band';
+import { BackgroundColors } from '@/styles/theme';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { MultiCarousel } from '@/components/carousels/MultiCarousel';
 import { WorkshopsConfig } from './workshopsConfig';
 import { RibbonCard } from './cards/RibbonCard';
 import { WorkshopModal } from './WorkshopModal';
 import { useWorkshopModalToggle } from './useWorkshopModalToggle';
-import workshopsMapUrlAvif from '../../../assets/images/workshops/mapka_warsztaty.avif';
-import workshopsMapUrl from '../../../assets/images/workshops/mapka_warsztaty.jfif';
-import workshopsMapUrlWepb from '../../../assets/images/workshops/mapka_warsztaty.webp';
+import workshopsMapUrlAvif from '@/assets/images/workshops/mapka_warsztaty.avif';
+import workshopsMapUrl from '@/assets/images/workshops/mapka_warsztaty.jfif';
+import workshopsMapUrlWepb from '@/assets/images/workshops/mapka_warsztaty.webp';
 import { Schedule } from './Schedule';
-import { Picture } from '../../../components/Picture';
+import { Picture } from '@/components/Picture';
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../../styles/spacings';
-import { Accordion } from '../../../components/accordion/Accordion';
-import { BandsToggles } from '../../../toggles';
-import { EDITION_TITLE_OPTIONS } from '../../../fairEditionConfig';
+import { RedesignSpacings } from '@/styles/spacings';
+import { Accordion } from '@/components/accordion/Accordion';
+import { BandsToggles } from '@/toggles';
+import { EDITION_TITLE_OPTIONS } from '@/fairEditionConfig';
 
 type WorkshopsBandType = {
   id: string;

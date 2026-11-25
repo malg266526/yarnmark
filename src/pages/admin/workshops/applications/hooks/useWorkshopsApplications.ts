@@ -4,11 +4,11 @@ import {
   deleteWorkshopApplication,
   listWorkshopApplications,
   updateWorkshopApplicationStatus
-} from '../../../../../domain/workshopApplications/workshopsApplicationsApi.ts';
+} from '@/domain/workshopApplications/workshopsApplicationsApi.ts';
 import type {
   WorkshopApplication,
   WorkshopApplicationStatus
-} from '../../../../../domain/workshopApplications/workshopFormSubmission.ts';
+} from '@/domain/workshopApplications/workshopFormSubmission.ts';
 
 export const useWorkshopsApplications = () => {
   const { token, handleAdminApiError } = useAdminSession();

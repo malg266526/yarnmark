@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import Modal from 'react-modal';
-import { RedesignSpacings } from '../styles/spacings';
-import { DropShadow } from '../styles/cards';
-import { BackgroundColors, TextColors } from '../styles/theme';
+import { RedesignSpacings } from '@/styles/spacings';
+import { DropShadow } from '@/styles/cards';
+import { BackgroundColors, TextColors } from '@/styles/theme';
 import { CtaButton } from './Button';
 import { GhostButton } from './GhostButton';
 import { Typography } from './Typography';
-import { useTypedTranslation } from '../translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 
 type ConfirmVariant = 'danger' | 'primary';
 

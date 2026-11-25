@@ -1,9 +1,9 @@
 import styled, { keyframes } from 'styled-components';
 import { Typography } from './Typography';
 import { Picture, type PictureType } from './Picture';
-import { BackgroundColors, GrayScale, TextColors } from '../styles/theme';
-import { RedesignSpacings } from '../styles/spacings';
-import { ScreenSize } from '../styles/screeen-size';
+import { BackgroundColors, GrayScale, TextColors } from '@/styles/theme';
+import { RedesignSpacings } from '@/styles/spacings';
+import { ScreenSize } from '@/styles/screeen-size';
 import { FlexColumnLayout } from './FlexColumnLayout';
 
 const fadeIn = keyframes`

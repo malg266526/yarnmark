@@ -1,8 +1,8 @@
-import { Band } from '../../../components/bands/Band';
-import { Typography } from '../../../components/Typography';
-import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
+import { Band } from '@/components/bands/Band';
+import { Typography } from '@/components/Typography';
+import { FlexColumnLayout } from '@/components/FlexColumnLayout';
 import { Icon as IconifyIcon } from '@iconify/react';
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 
 type GoldenPretzelBandType = {
   id: string;

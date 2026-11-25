@@ -1,14 +1,14 @@
-import { Band } from '../../../../components/bands/Band';
+import { Band } from '@/components/bands/Band';
 import { TicketCard } from './TicketCard';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../../../styles/spacings';
-import { Typography } from '../../../../components/Typography';
-import { ScreenSize } from '../../../../styles/screeen-size';
-import { useTablet } from '../../../../hooks/usePhone';
-import { TicketsToggles } from '../../../../toggles';
+import { RedesignSpacings } from '@/styles/spacings';
+import { Typography } from '@/components/Typography';
+import { ScreenSize } from '@/styles/screeen-size';
+import { useTablet } from '@/hooks/usePhone';
+import { TicketsToggles } from '@/toggles';
 import { Trans } from 'react-i18next';
-import { TextColors } from '../../../../styles/theme';
+import { TextColors } from '@/styles/theme';
 
 const YARNMARK_INSTAGRAM_URL = 'https://www.instagram.com/yarnmark.krk/';
 

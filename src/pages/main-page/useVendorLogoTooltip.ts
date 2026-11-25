@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
-import { TOOLTIP_MAX_WIDTH } from '../../components/tooltip/Tooltip.styled';
-import type { TooltipPosition } from '../../components/tooltip/tooltipTypes';
-import { getTooltipAlignInViewport } from '../../components/tooltip/tooltipUtils';
+import { TOOLTIP_MAX_WIDTH } from '@/components/tooltip/Tooltip.styled';
+import type { TooltipPosition } from '@/components/tooltip/tooltipTypes';
+import { getTooltipAlignInViewport } from '@/components/tooltip/tooltipUtils';
 
 interface VendorLogoTooltipState {
   logoUrl: string;

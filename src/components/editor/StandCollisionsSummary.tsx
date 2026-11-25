@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import type { StandProps } from './StandProps';
 import type { StandCollision } from './utils/standCollisionUtils';
-import { RedesignSpacings } from '../../styles/spacings';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { RedesignSpacings } from '@/styles/spacings';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 
 const COLLISION_PILL_HEIGHT_PX = 28;
 

@@ -2,8 +2,8 @@ import { useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { useEditor } from './EditorContext';
 import type { StandProps } from './StandProps';
-import { RedesignSpacings } from '../../styles/spacings';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { RedesignSpacings } from '@/styles/spacings';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import { getStandAreaM2, groupStandsByType } from './utils/standListUtils';
 
 const LIST_MAX_HEIGHT_PX = 420;

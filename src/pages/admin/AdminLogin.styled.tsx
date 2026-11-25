@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../styles/spacings';
-import { Radius, DropShadow } from '../../styles/cards';
-import { FontSize } from '../../styles/font-size';
-import { BackgroundColors, BorderColors, Colors, FontFamilies, WarningColors } from '../../styles/theme';
+import { RedesignSpacings } from '@/styles/spacings';
+import { Radius, DropShadow } from '@/styles/cards';
+import { FontSize } from '@/styles/font-size';
+import { BackgroundColors, BorderColors, Colors, FontFamilies, WarningColors } from '@/styles/theme';
 
 export const AdminLoginRoot = styled.div`
   width: 100%;

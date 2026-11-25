@@ -1,15 +1,15 @@
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import { RedesignSpacings } from '../styles/spacings';
-import polandIcon from '../assets/figmaIcons/poland_round_icon.svg';
-import greatBritainIcon from '../assets/figmaIcons/great_britain_round_icon.svg';
-import { Icon } from '../components/Icon';
-import { useToggle } from '../hooks/useToggle';
-import chevronDownIcon from '../assets/figmaIcons/chevron_down-icon.svg';
-import { Button } from '../components/Button';
-import { BackgroundColors } from '../styles/theme';
-import { ScreenSize } from '../styles/screeen-size';
-import { usePhone } from '../hooks/usePhone';
+import { RedesignSpacings } from '@/styles/spacings';
+import polandIcon from '@/assets/figmaIcons/poland_round_icon.svg';
+import greatBritainIcon from '@/assets/figmaIcons/great_britain_round_icon.svg';
+import { Icon } from '@/components/Icon';
+import { useToggle } from '@/hooks/useToggle';
+import chevronDownIcon from '@/assets/figmaIcons/chevron_down-icon.svg';
+import { Button } from '@/components/Button';
+import { BackgroundColors } from '@/styles/theme';
+import { ScreenSize } from '@/styles/screeen-size';
+import { usePhone } from '@/hooks/usePhone';
 
 const Root = styled.div`
   display: flex;

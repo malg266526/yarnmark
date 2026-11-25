@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../styles/spacings';
-import { ScreenSize } from '../../styles/screeen-size';
-import { BackgroundColors, Colors, FontFamilies } from '../../styles/theme';
-import { FontSize } from '../../styles/font-size';
+import { RedesignSpacings } from '@/styles/spacings';
+import { ScreenSize } from '@/styles/screeen-size';
+import { BackgroundColors, Colors, FontFamilies } from '@/styles/theme';
+import { FontSize } from '@/styles/font-size';
 
 export const PlainInfo = styled.div`
   display: flex;

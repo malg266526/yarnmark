@@ -1,7 +1,7 @@
 import type {
   WorkshopApplication,
   WorkshopApplicationStatus
-} from '../../../../../domain/workshopApplications/workshopFormSubmission.ts';
+} from '@/domain/workshopApplications/workshopFormSubmission.ts';
 import type { WorkshopApplicationWarning } from '../utils/workshopScheduleUtils.ts';
 
 export interface WorkshopsApplicationsCardsViewProps {

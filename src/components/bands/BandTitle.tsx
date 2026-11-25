@@ -1,10 +1,10 @@
 import { Typography } from '../Typography';
 import { ReactNode } from 'react';
-import { usePhone } from '../../hooks/usePhone';
-import { BackgroundColors, TextColors } from '../../styles/theme';
+import { usePhone } from '@/hooks/usePhone';
+import { BackgroundColors, TextColors } from '@/styles/theme';
 import styled from 'styled-components';
-import { ScreenSize } from '../../styles/screeen-size';
-import { RedesignSpacings } from '../../styles/spacings';
+import { ScreenSize } from '@/styles/screeen-size';
+import { RedesignSpacings } from '@/styles/spacings';
 
 interface BandTitleProps {
   children?: ReactNode;

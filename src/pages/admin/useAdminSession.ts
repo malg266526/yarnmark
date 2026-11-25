@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useOutletContext } from 'react-router-dom';
-import { ApiRequestError } from '../../domain/apiClient.ts';
+import { ApiRequestError } from '@/domain/apiClient.ts';
 import { resolveAdminPermissions, type AdminSession } from './adminAuthUtils';
 
 const UNAUTHORIZED_STATUS = 401;

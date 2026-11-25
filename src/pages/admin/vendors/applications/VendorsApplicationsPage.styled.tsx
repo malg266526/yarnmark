@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 import Modal from 'react-modal';
-import { Button } from '../../../../components/Button';
-import { DropShadow, Radius } from '../../../../styles/cards';
-import { FontSize } from '../../../../styles/font-size';
-import { ScreenSize } from '../../../../styles/screeen-size';
-import { RedesignSpacings } from '../../../../styles/spacings';
+import { Button } from '@/components/Button';
+import { DropShadow, Radius } from '@/styles/cards';
+import { FontSize } from '@/styles/font-size';
+import { ScreenSize } from '@/styles/screeen-size';
+import { RedesignSpacings } from '@/styles/spacings';
 import {
   BackgroundColors,
   BorderColors,
@@ -13,7 +13,7 @@ import {
   GrayScale,
   TextColors,
   WarningColors
-} from '../../../../styles/theme';
+} from '@/styles/theme';
 
 export const VendorsApplicationsPageStyled = styled.div`
   width: 100%;

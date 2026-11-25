@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
-import { Typography } from '../../components/Typography';
-import { Kicker } from '../../components/Kicker';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { APPROVE_ADMINS_PERMISSION } from '../../domain/adminUsers/adminUsersConstants.ts';
+import { Typography } from '@/components/Typography';
+import { Kicker } from '@/components/Kicker';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { APPROVE_ADMINS_PERMISSION } from '@/domain/adminUsers/adminUsersConstants.ts';
 import { useAdminAuth } from './useAdminAuth';
 import { hasAdminPermission, resolveAdminPermissions } from './adminAuthUtils';
 import type { AdminOutletContext } from './useAdminSession';

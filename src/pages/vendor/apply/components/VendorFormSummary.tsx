@@ -1,7 +1,7 @@
-import { Typography } from '../../../../components/Typography';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
+import { Typography } from '@/components/Typography';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import { Fieldset, SummaryList } from '../VendorFormPage.styled';
-import { STAND_OPTION_SEPARATOR } from '../../../../domain/vendorApplications/vendorFormConstants.ts';
+import { STAND_OPTION_SEPARATOR } from '@/domain/vendorApplications/vendorFormConstants.ts';
 import type { VendorFormBindings, VendorFormStatusState } from './vendorFormViewContracts';
 
 interface VendorFormSummaryProps {

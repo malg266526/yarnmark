@@ -1,4 +1,4 @@
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import { WorkshopFormView } from './components/WorkshopFormView';
 import { useWorkshopForm } from './hooks/useWorkshopForm';
 import { AdminPageLayout } from '../../admin/AdminPageLayout';

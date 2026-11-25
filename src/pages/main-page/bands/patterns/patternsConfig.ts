@@ -1,4 +1,4 @@
-import type { UnprefixedTranslationKeys } from '../../../../translations/useTypedTranslation';
+import type { UnprefixedTranslationKeys } from '@/translations/useTypedTranslation';
 
 type PatternAuthor = {
   labelKey: UnprefixedTranslationKeys;

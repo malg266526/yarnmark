@@ -1,11 +1,11 @@
 import { useMemo, type CSSProperties } from 'react';
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../styles/spacings';
-import { ScreenSize } from '../../styles/screeen-size';
-import { Picture } from '../../components/Picture';
-import { useAssignedStandVendors } from '../../hooks/useAssignedStandVendors';
-import { getVendorLogos } from '../../domain/vendorApplications/assignedStandVendorsUtils';
-import { Tooltip } from '../../components/tooltip/Tooltip';
+import { RedesignSpacings } from '@/styles/spacings';
+import { ScreenSize } from '@/styles/screeen-size';
+import { Picture } from '@/components/Picture';
+import { useAssignedStandVendors } from '@/hooks/useAssignedStandVendors';
+import { getVendorLogos } from '@/domain/vendorApplications/assignedStandVendorsUtils';
+import { Tooltip } from '@/components/tooltip/Tooltip';
 import { useVendorLogoTooltip } from './useVendorLogoTooltip';
 
 const VENDOR_LOGO_SIZE = 100;

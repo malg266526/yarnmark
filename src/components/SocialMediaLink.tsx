@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Button } from './Button';
-import { TextColors } from '../styles/theme';
+import { TextColors } from '@/styles/theme';
 import { faInstagram, faRavelry } from '@fortawesome/free-brands-svg-icons';
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

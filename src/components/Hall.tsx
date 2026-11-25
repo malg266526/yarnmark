@@ -7,7 +7,7 @@ import { hallStandsSchema, parseHallStands } from './hall/hallStands';
 import { HallStandVendor } from './hall/HallStandVendor';
 import { resolveStandColorKey } from './hall/standReservationUtils';
 import { Typography } from './Typography';
-import { usePhone } from '../hooks/usePhone';
+import { usePhone } from '@/hooks/usePhone';
 
 const StandElement = styled.div<{
   $left: number;

@@ -1,12 +1,12 @@
 import { useMemo } from 'react';
-import { StandColorsMap } from '../../../../../components/editor/StandProps';
-import { HallMap } from '../../../../../components/hall/HallMap';
-import { getEnclosingHallStandBox, getHallStandBox } from '../../../../../components/hall/hallStandBox';
-import { areStandsAdjacent } from '../../../../../components/hall/standAdjacencyUtils';
-import { isVendorStand, parseHallStands, type HallStand } from '../../../../../components/hall/hallStands';
-import { GRID_COLS } from '../../../../../components/editor/utils/hallGeometry';
-import { getStandInterestCounts } from '../../../../../domain/vendorApplications/vendorFormStandInterestUtils';
-import { GrayScale, HallColors } from '../../../../../styles/theme';
+import { StandColorsMap } from '@/components/editor/StandProps';
+import { HallMap } from '@/components/hall/HallMap';
+import { getEnclosingHallStandBox, getHallStandBox } from '@/components/hall/hallStandBox';
+import { areStandsAdjacent } from '@/components/hall/standAdjacencyUtils';
+import { isVendorStand, parseHallStands, type HallStand } from '@/components/hall/hallStands';
+import { GRID_COLS } from '@/components/editor/utils/hallGeometry';
+import { getStandInterestCounts } from '@/domain/vendorApplications/vendorFormStandInterestUtils';
+import { GrayScale, HallColors } from '@/styles/theme';
 import {
   ApplicationsMapCoverage,
   ApplicationsMapCoverageLabel,

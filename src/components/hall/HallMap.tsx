@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react';
 import styled from 'styled-components';
-import { HallColors } from '../../styles/theme';
+import { HallColors } from '@/styles/theme';
 import { GRID_COLS, GRID_ROWS } from '../editor/utils/hallGeometry';
 import type { HallStand } from './hallStands';
 import { getHallStandBox, type HallStandBox } from './hallStandBox';

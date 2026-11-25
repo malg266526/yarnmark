@@ -1,5 +1,5 @@
 import { SQUARE_SIZE_M } from './utils/hallGeometry';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 
 interface StandInfoProps {
   start: { row: number; col: number } | undefined;

@@ -9,13 +9,10 @@ import {
   ApplicationsSection,
   ApplicationsToolbar
 } from '../VendorsApplicationsPage.styled';
-import type {
-  VendorApplication,
-  VendorApplicationStatus
-} from '../../../../../domain/vendorApplications/vendorFormSubmission.ts';
-import { useTypedTranslation } from '../../../../../translations/useTypedTranslation';
-import { usePhone } from '../../../../../hooks/usePhone';
-import { isVendorStand, parseHallStands } from '../../../../../components/hall/hallStands';
+import type { VendorApplication, VendorApplicationStatus } from '@/domain/vendorApplications/vendorFormSubmission.ts';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { usePhone } from '@/hooks/usePhone';
+import { isVendorStand, parseHallStands } from '@/components/hall/hallStands';
 import type { VendorApplicationStatusChange } from '../hooks/useVendorsApplications';
 import type { VendorApplicationStandAssignment } from './vendorsApplicationsViewContracts';
 import { useVendorsApplicationsToolbar } from '../hooks/useVendorsApplicationsToolbar';

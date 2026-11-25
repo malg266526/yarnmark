@@ -1,7 +1,7 @@
-import { Band } from '../../../components/bands/Band';
-import { BackgroundColors } from '../../../styles/theme';
-import { usePhone, useTablet } from '../../../hooks/usePhone';
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { Band } from '@/components/bands/Band';
+import { BackgroundColors } from '@/styles/theme';
+import { usePhone, useTablet } from '@/hooks/usePhone';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import { YARNMARK_PATTERNS } from './patterns/patternsConfig';
 import { groupPatternsByEdition } from './patterns/patternsUtils';
 import { EDITION_PHOTOS } from './patterns/patternsPictures';

@@ -1,7 +1,7 @@
 import { WorkshopsApplicationsView } from './components/WorkshopsApplicationsView';
 import { useWorkshopsApplications } from './hooks/useWorkshopsApplications';
 import { WorkshopsApplicationsPageStyled } from './WorkshopsApplicationsPage.styled';
-import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import { AdminPageLayout } from '../../AdminPageLayout';
 
 export const WorkshopsApplicationsPage = () => {

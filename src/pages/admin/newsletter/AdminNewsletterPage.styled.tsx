@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { DropShadow, Radius } from '../../../styles/cards';
-import { FontSize } from '../../../styles/font-size';
-import { RedesignSpacings } from '../../../styles/spacings';
-import { BorderColors, Colors, FontFamilies, TextColors } from '../../../styles/theme';
+import { DropShadow, Radius } from '@/styles/cards';
+import { FontSize } from '@/styles/font-size';
+import { RedesignSpacings } from '@/styles/spacings';
+import { BorderColors, Colors, FontFamilies, TextColors } from '@/styles/theme';
 
 export const AdminNewsletterPageStyled = styled.div`
   width: 100%;

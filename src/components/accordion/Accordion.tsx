@@ -1,9 +1,9 @@
 import { ReactNode, useState } from 'react';
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../styles/spacings';
-import { ScreenSize } from '../../styles/screeen-size';
+import { RedesignSpacings } from '@/styles/spacings';
+import { ScreenSize } from '@/styles/screeen-size';
 import { Typography } from '../Typography';
-import { BackgroundColors } from '../../styles/theme';
+import { BackgroundColors } from '@/styles/theme';
 
 interface AccordionProps {
   title: string;

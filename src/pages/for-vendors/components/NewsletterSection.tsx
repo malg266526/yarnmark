@@ -1,11 +1,11 @@
-import { Band } from '../../../components/bands/Band';
-import { CtaButton } from '../../../components/Button';
-import { FormField } from '../../../components/form/FormField';
-import { TextInput } from '../../../components/form/FormField.styled';
-import { Typography } from '../../../components/Typography';
-import { usePhone } from '../../../hooks/usePhone';
-import { BackgroundColors } from '../../../styles/theme';
-import { useTypedTranslation } from '../../../translations/useTypedTranslation';
+import { Band } from '@/components/bands/Band';
+import { CtaButton } from '@/components/Button';
+import { FormField } from '@/components/form/FormField';
+import { TextInput } from '@/components/form/FormField.styled';
+import { Typography } from '@/components/Typography';
+import { usePhone } from '@/hooks/usePhone';
+import { BackgroundColors } from '@/styles/theme';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import { NewsletterField, NewsletterForm, NewsletterSuccess, PlainInfo } from '../ForVendorsPage.styled';
 import { useNewsletterForm } from '../hooks/useNewsletterForm';
 

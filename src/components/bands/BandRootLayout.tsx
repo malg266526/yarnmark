@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import { RedesignSpacings } from '../../styles/spacings';
-import { ScreenSize } from '../../styles/screeen-size';
+import { RedesignSpacings } from '@/styles/spacings';
+import { ScreenSize } from '@/styles/screeen-size';
 
 export type Justify = 'center' | 'space-around' | 'space-between' | 'flex-start' | 'space-evenly' | 'flex-end';
 export type Align = 'center' | 'flex-start' | 'flex-end';

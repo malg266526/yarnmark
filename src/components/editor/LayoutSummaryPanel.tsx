@@ -1,4 +1,4 @@
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
 import { useLayoutSummary } from './useLayoutSummary';
 import { BodyCell, HeaderCell, Panel, PanelNote, SummaryTable, Title, TotalRow } from './LayoutPanels.styled';
 import {

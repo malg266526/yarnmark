@@ -1,17 +1,17 @@
-import { SlantedCornersBox } from '../../components/SlantedCornersBox';
-import { Picture } from '../../components/Picture';
-import { useTypedTranslation } from '../../translations/useTypedTranslation';
-import { Typography } from '../../components/Typography';
-import { FlexColumnLayout } from '../../components/FlexColumnLayout';
+import { SlantedCornersBox } from '@/components/SlantedCornersBox';
+import { Picture } from '@/components/Picture';
+import { useTypedTranslation } from '@/translations/useTypedTranslation';
+import { Typography } from '@/components/Typography';
+import { FlexColumnLayout } from '@/components/FlexColumnLayout';
 import styled from 'styled-components';
-import { RedesignSpacings } from '../../styles/spacings';
-import { RowLayout } from '../../components/RowLayout';
-import { BackgroundColors, GrayScale } from '../../styles/theme';
-import { ScreenSize } from '../../styles/screeen-size';
-import { Radius } from '../../styles/cards';
-import { Band } from '../../components/bands/Band';
-import { yarnmarkLogoPictureConfig } from '../../assets/yarnmarkLogoPictureConfig';
-import { FairEdition } from '../../fairEditionConfig';
+import { RedesignSpacings } from '@/styles/spacings';
+import { RowLayout } from '@/components/RowLayout';
+import { BackgroundColors, GrayScale } from '@/styles/theme';
+import { ScreenSize } from '@/styles/screeen-size';
+import { Radius } from '@/styles/cards';
+import { Band } from '@/components/bands/Band';
+import { yarnmarkLogoPictureConfig } from '@/assets/yarnmarkLogoPictureConfig';
+import { FairEdition } from '@/fairEditionConfig';
 
 const Content = styled(FlexColumnLayout)`
   padding: ${RedesignSpacings.xl} ${RedesignSpacings.xxs} 0 ${RedesignSpacings.xxs};
