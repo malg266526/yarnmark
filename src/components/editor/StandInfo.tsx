@@ -1,4 +1,3 @@
-import React from 'react';
 import { SQUARE_SIZE_M } from './utils/hallGeometry';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 

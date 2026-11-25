@@ -1,4 +1,3 @@
-import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Typography } from '../../components/Typography';
 import { Kicker } from '../../components/Kicker';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { FlexColumnLayout } from '../../../../components/FlexColumnLayout';
 import { Typography } from '../../../../components/Typography';
 import { Link, SecondaryLink } from '../../../../components/Link';

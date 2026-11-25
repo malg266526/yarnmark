@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { HallMap } from '../../../../components/hall/HallMap';
 import { isVendorStand, parseHallStands, type HallStand } from '../../../../components/hall/hallStands';

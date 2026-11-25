@@ -1,5 +1,4 @@
 import { Typography } from '../../../components/Typography';
-import React from 'react';
 import styled from 'styled-components';
 import { BackgroundColors, TextColors } from '../../../styles/theme';
 import Modal from 'react-modal';

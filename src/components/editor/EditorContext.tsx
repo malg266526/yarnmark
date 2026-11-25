@@ -1,4 +1,4 @@
-import React, { createContext, useContext, ReactNode, useMemo, useState } from 'react';
+import { createContext, useContext, ReactNode, useMemo, useState } from 'react';
 import { StandColorsMap, StandProps, StandType } from './StandProps';
 import { StandSizes } from './utils/getSizeForOrientation';
 import { useLocalStorage } from '../../hooks/useLocalStorage';

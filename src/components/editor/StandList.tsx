@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { useEditor } from './EditorContext';
 import type { StandProps } from './StandProps';

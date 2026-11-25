@@ -1,4 +1,4 @@
-import React, { type ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { FieldRequirement } from './FieldRequirement';
 import { FieldHint, FieldLabel, FieldLabelText, type FieldRequirementType } from './FormField.styled';
 import { FormFieldError } from './FormFieldError';

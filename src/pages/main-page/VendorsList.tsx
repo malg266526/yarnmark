@@ -1,4 +1,4 @@
-import React, { useMemo, type CSSProperties } from 'react';
+import { useMemo, type CSSProperties } from 'react';
 import styled from 'styled-components';
 import { RedesignSpacings } from '../../styles/spacings';
 import { ScreenSize } from '../../styles/screeen-size';

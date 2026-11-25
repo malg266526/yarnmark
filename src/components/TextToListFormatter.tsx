@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { FlexColumnLayout } from './FlexColumnLayout';
 import { ScreenSize } from '../styles/screeen-size';

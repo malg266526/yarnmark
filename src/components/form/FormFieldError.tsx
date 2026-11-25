@@ -1,4 +1,3 @@
-import React from 'react';
 import { ErrorText } from './FormField.styled';
 
 interface FormFieldErrorProps {

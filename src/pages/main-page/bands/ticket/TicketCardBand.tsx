@@ -1,4 +1,3 @@
-import React from 'react';
 import { Band } from '../../../../components/bands/Band';
 import { TicketCard } from './TicketCard';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';

@@ -4,7 +4,7 @@ Cel: przejść przez projekt od początku, zrozumieć kod, uporządkować go po 
 biblioteki, wprowadzić nowoczesne praktyki (React, architektura) i przećwiczyć tematy z projektu _learning notes_
 (m.in. mikrofrontendy i usprawnienia Reactowe).
 
-Stan na: 2026-11-25 (commit `3b2cc80`, branch `master`).
+Stan na: 2026-11-25 (commit `3b2cc80`, branch `master`). Ostatnia aktualizacja postępu: 2026-11-25 (commit `5c5f1b3`).
 
 ---
 
@@ -25,7 +25,7 @@ Stan na: 2026-11-25 (commit `3b2cc80`, branch `master`).
 - SPA budowane **esbuildem** (`esbuild.config.mjs`, `esbuild.serve.mjs`, `esbuild.bundle.mjs`), dev server na porcie 8090.
 - Routing: `react-router-dom` v6 (`src/App.tsx`, `<Routes>/<Route>`), strefy: publiczna, partner (`/vendor/*`,
   `/workshops/apply`), admin (`/admin/*` z `AdminLayout`).
-- Stylowanie: **styled-components 6** + **Bootstrap 5 / react-bootstrap** jednocześnie.
+- Stylowanie: **styled-components 6** (Bootstrap i react-bootstrap usunięte, globalny reset w `src/styles/reboot.ts`).
 - i18n: `i18next` + `react-i18next`, tłumaczenia w `src/translations/pl.tsx` i `en.tsx`.
 - Service worker (`src/service-worker.ts`).
 
@@ -36,7 +36,7 @@ Stan na: 2026-11-25 (commit `3b2cc80`, branch `master`).
 | react / react-dom         | 18.2.0          | 19.3.1          |
 | @types/react / react-dom  | 18.2.x          | 19.3.x          |
 | react-router-dom          | 6.16.0          | 7.18.7          |
-| typescript                | 5.2.2           | 7.0.2           |
+| typescript                | 5.9.3           | 7.0.2           |
 | eslint                    | 8.49.0          | 10.15.0         |
 | @typescript-eslint/\*     | 6.6.0           | 8.74.0          |
 | eslint-plugin-react-hooks | 4.6.0           | 7.1.1           |
@@ -45,7 +45,7 @@ Stan na: 2026-11-25 (commit `3b2cc80`, branch `master`).
 | @hookform/resolvers       | 5.9.1           | 7.0.9           |
 | @iconify/react            | 4.1.1           | 6.0.4           |
 | @types/node               | 20.6.1          | 26.6.10         |
-| styled-components         | 6.0.7           | 6.7.0           |
+| styled-components         | 6.7.0           | 6.7.0           |
 | zod                       | 4.1.12          | 4.6.7           |
 
 Pełna lista: `npm outdated`.
@@ -53,13 +53,14 @@ Pełna lista: `npm outdated`.
 ### Zidentyfikowane problemy
 
 - **Konfiguracja TS przestarzała:** `target: ES2019`, `moduleResolution: Node`, `jsx: "react"` (stary transform —
-  `import React` w każdym pliku), brak aliasów ścieżek, dziwne `typeRoots: ["./src/types.ts"]`.
+  `import React` w każdym pliku), brak aliasów ścieżek. ✅ `typeRoots: ["./src/types.ts"]` usunięte (wskazywało
+  nieistniejący plik i wyłączało automatyczne `@types`); TypeScript podbity do 5.9.3 (wymóg styled-components 6.7).
 - **ESLint w starym formacie** (`.eslintrc.js` + `.eslintignore`) zamiast flat config.
 - **Duplikacja domen:** wystawcy i warsztaty mają równoległe stosy (formularz, schema, storage, API, panel admina).
 - **Bardzo duże pliki:** `pl.tsx`/`en.tsx` (1381 linii), `VendorsApplicationsPage.styled.tsx` (960),
-  `Carouselge.tsx` (561), `Editor.tsx` (524), `Menu.tsx` (342), `TextCarousel.tsx` (330), `useVendorForm.ts` (367).
-- **Dwa systemy stylowania** (Bootstrap + styled-components) oraz łatka `shouldForwardProp` w `src/index.tsx`
-  (pozostałość migracji styled-components v5 → v6).
+  `Carouselge.tsx` (561), `Editor.tsx` (524), `Menu.tsx` (342), `useVendorForm.ts` (367).
+- ~~**Dwa systemy stylowania** (Bootstrap + styled-components)~~ ✅ Bootstrap usunięty. Nadal jest łatka
+  `shouldForwardProp` w `src/index.tsx` (pozostałość migracji styled-components v5 → v6).
 - **Brak code splittingu:** wszystkie trasy (w tym cały panel admina) w jednej paczce, brak `React.lazy`/`Suspense`.
 - **Ręczne pobieranie danych** w plikach `*Api.ts` / hookach, bez warstwy cache (np. TanStack Query).
 - **Brak testów komponentów** — testowane są tylko pure utils.
@@ -88,19 +89,39 @@ Rekomendowane podejście dwuetapowe:
 Każdy krok to osobny PR. Po każdym: `npm run format`, `npm run typecheck`, `npm run lint`, `npm test` bez błędów.
 Aktualizacje zależności izolowane (jedna biblioteka / jedna grupa na PR), wersje przypięte bez `^`/`~`.
 
-### Krok 0. Inwentaryzacja i zrozumienie kodu — ⬜
+### Krok 0. Inwentaryzacja i zrozumienie kodu — 🟡
 
 - Przejście przez architekturę: mapa modułów, przepływ danych, strefy routingu.
 - `npm run check:unused` (knip) — nieużywany kod, eksporty i zależności.
+  - ✅ Usunięte: `PhotoBox.tsx`, `TextCarousel.tsx`, `react-bootstrap`, `bootstrap`.
+  - ⬜ Pozostałe nieużywane pliki: `Box`, `generateJson`, `KnittingIconOnHover`, `SocialMediaLink`, `useFirstClick`,
+    `useOnClickOutside`; zależności FontAwesome; ok. 40 nieużywanych eksportów i 26 typów.
 - Porządki w roocie (`konwerter.py`, `mapa3.html`, `todo.txt`, `stands_algorithm.md`, `.codex`) — decyzja: usunąć /
   przenieść do `docs/`.
 - Uzupełnienie `README.md` (uruchomienie, skrypty, struktura).
 
-### Krok 1. Tooling: TypeScript i ESLint — ⬜
+### Krok 1. Tooling: TypeScript i ESLint — 🟡
 
-- TypeScript do najnowszej wersji, `moduleResolution: "bundler"`, `jsx: "react-jsx"`, nowszy `target`/`lib`,
-  poprawienie `typeRoots`, ewentualnie aliasy ścieżek.
-- Usunięcie zbędnych `import React`.
+- ✅ TypeScript 5.9.3 (ostatnia 5.x; 7.0 to przepisanie w Go — osobna decyzja), usunięte `typeRoots`.
+- Uwaga: `target` w `tsconfig.json` dotyczy tylko typecheckingu (`tsc --noEmit`); kod generuje esbuild z własnym
+  `target: 'es2019'` (`esbuild.config.mjs`). `jsx` z `tsconfig.json` esbuild czyta i stosuje przy buildzie.
+- ✅ **1a. `target` i `lib`** (tylko `tsconfig.json`): `target: "ES2022"`, `lib: ["DOM", "DOM.Iterable", "ES2022"]`,
+  `noEmit: true` (wymagane przez `allowImportingTsExtensions`). Sprawdzenie: `yarn typecheck`.
+- ✅ **1b. `moduleResolution: "Bundler"`** (tylko `tsconfig.json`) — rozwiązywanie importów jak w esbuildzie,
+  z obsługą pola `exports`. Sprawdzenie: `yarn typecheck`.
+- ✅ **1c. Nowy transform JSX:** `jsx: "react-jsx"` w `tsconfig.json` + `'plugin:react/jsx-runtime'` w
+  `.eslintrc.js` (wyłącza `react/react-in-jsx-scope`). Preset wyłącza też `react/jsx-uses-react`, więc lint wymusza
+  zrobienie 1d w tym samym commicie. Sprawdzenie: typecheck, lint, testy
+  i przeklikanie strony (zmienia się wygenerowany kod).
+- ✅ **1d. Usunięcie zbędnych `import React`** — 152 pliki importują `React`, z czego 111 to samo
+  `import React from 'react';`. Usuwać tam, gdzie plik nie używa `React.` (np. `React.ReactNode`); przy
+  `import React, { … }` zostawić nazwane importy. Skryptem, potem typecheck, lint, testy.
+- ✅ **1e. Aliasy ścieżek:** dodane `paths: { "@/*": ["./src/*"] }` i `eslint-import-resolver-typescript` 4.4.5
+  (resolver w `.eslintrc.js`, bez niego `import/no-unresolved` odrzuca `@/…`). Istniejące importy bez zmian.
+  Pierwotny opis (opcjonalnie): `paths: { "@/*": ["./src/*"] }` (esbuild czyta `paths` z tsconfig;
+  `node --test` nie, ale testy importują tylko utilsy). Przepisanie 552 importów `../../../…` to osobna decyzja —
+  `@/` w nowym/zmienianym kodzie albo partiami, katalog po katalogu.
+- Kolejność: 1a → 1b → 1c → 1d, 1e na końcu albo wcale.
 - ESLint → flat config (`eslint.config.js`), typescript-eslint 8, aktualne pluginy (react, react-hooks, jsx-a11y,
   import), eslint-config-prettier.
 
@@ -117,7 +138,8 @@ Kolejno, każda osobno:
 1. React 19 + `@types/react` 19.
 2. react-router 7 (`react-router` zamiast `react-router-dom`), ocena `react-router-hash-link`.
 3. i18next + react-i18next.
-4. Pozostałe: styled-components, zod, react-hook-form, @hookform/resolvers, @iconify/react, FontAwesome, bootstrap.
+4. Pozostałe: zod, react-hook-form, @hookform/resolvers, @iconify/react, FontAwesome (✅ styled-components 6.7.0,
+   ✅ bootstrap usunięty).
 
 ### Krok 4. Nowoczesne praktyki Reactowe — ⬜
 
@@ -133,8 +155,14 @@ Kolejno, każda osobno:
 - Rozbicie największych plików (`Editor.tsx`, `Carouselge.tsx`, `Menu.tsx`,
   `VendorsApplicationsPage.styled.tsx`, `useVendorForm.ts`).
 - Podział tłumaczeń na namespace'y.
-- Decyzja: Bootstrap vs styled-components (docelowo jeden system), usunięcie łatki `shouldForwardProp`
-  (transient props `$prop`).
+- ✅ Jeden system stylowania: Bootstrap usunięty, potrzebne reguły Reboot przeniesione do `src/styles/reboot.ts`
+  (zweryfikowane pomiarem computed styles na 9 widokach).
+- 🟡 Migracja na transient props `$prop` i usunięcie łatki `shouldForwardProp`:
+  - ✅ Wszystkie prywatne (niewyeksportowane) styled-components oraz komponenty bandu wzorów.
+  - ⬜ Współdzielone/eksportowane: `Typography`, `FlexColumnLayout`, `RowLayout`, `BandRootLayout`, `Icon`, `Card`,
+    `CtaButton`, `Curtain`, `CardLayout` (+ `MobileCardLayout`), `Ribbon`, `LeftBackgroundImage`, `HeaderCell`/`BodyCell`,
+    `Carouselge.ItemBackground`.
+  - ⬜ Na końcu: usunięcie `StyleSheetManager shouldForwardProp` z `src/index.tsx` i `@emotion/is-prop-valid`.
 
 ### Krok 6. Testy komponentów — ⬜
 
@@ -153,4 +181,4 @@ Kolejno, każda osobno:
 - Gdzie jest projekt _learning notes_ / jakie tematy z niego przećwiczyć (do dopasowania kroków 4–7).
 - Tryb pracy: wspólne omawianie kodu przed każdym krokiem czy realizacja kroku i omówienie zmian po fakcie.
 - Esbuild czy Vite (krok 2).
-- Bootstrap czy styled-components jako docelowy system stylowania (krok 5).
+- ~~Bootstrap czy styled-components jako docelowy system stylowania (krok 5).~~ ✅ styled-components.

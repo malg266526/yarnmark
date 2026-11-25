@@ -2,7 +2,6 @@ import { Band } from '../../../components/bands/Band';
 import halaAvifImageSrc from '../../../assets/images/hala.avif';
 import halaWebpImageSrc from '../../../assets/images/hala.webp';
 import halaJpgImageSrc from '../../../assets/images/hala.jpg';
-import React from 'react';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 import { SlantedCornersBox } from '../../../components/SlantedCornersBox';
 import { Trans } from 'react-i18next';

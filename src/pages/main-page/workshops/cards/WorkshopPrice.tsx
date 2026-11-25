@@ -1,5 +1,4 @@
 import { Typography } from '../../../../components/Typography';
-import React from 'react';
 import { WorkshopsEntry } from '../workshopsConfig';
 import styled from 'styled-components';
 import { TextColors } from '../../../../styles/theme';

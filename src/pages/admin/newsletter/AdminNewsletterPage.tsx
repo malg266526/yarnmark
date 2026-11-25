@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 import { AdminPageLayout } from '../AdminPageLayout';
 import { AdminNewsletterPageStyled } from './AdminNewsletterPage.styled';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 import { Switch } from '../../../components/form/Switch';
 import { AdminPageLayout } from '../AdminPageLayout';

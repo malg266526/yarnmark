@@ -1,4 +1,3 @@
-import React from 'react';
 import { SecondaryLink } from '../../../components/Link';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 import { FlexColumnLayout } from '../../../components/FlexColumnLayout';

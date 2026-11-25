@@ -1,5 +1,5 @@
 import { Typography } from '../Typography';
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { usePhone } from '../../hooks/usePhone';
 import { BackgroundColors, TextColors } from '../../styles/theme';
 import styled from 'styled-components';

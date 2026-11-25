@@ -1,5 +1,4 @@
 import { usePhone } from '../../hooks/usePhone';
-import React from 'react';
 import { Menu } from './Menu';
 import { Curtain } from '../../components/Curtain';
 import { Typography } from '../../components/Typography';

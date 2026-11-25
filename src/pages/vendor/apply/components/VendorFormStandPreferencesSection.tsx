@@ -1,4 +1,3 @@
-import React from 'react';
 import { Trans } from 'react-i18next';
 import { Typography } from '../../../../components/Typography';
 import { FieldHint } from '../../../../components/form/FormField.styled';

@@ -1,4 +1,4 @@
-import React, { ComponentProps, ReactNode } from 'react';
+import { ComponentProps, ReactNode } from 'react';
 import styled from 'styled-components';
 import { GrayScale } from '../styles/theme';
 import { RedesignSpacings } from '../styles/spacings';

@@ -1,6 +1,5 @@
 import { Picture } from '../../../../components/Picture';
 import { Typography } from '../../../../components/Typography';
-import React from 'react';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import styled from 'styled-components';
 import { RedesignSpacings } from '../../../../styles/spacings';

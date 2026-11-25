@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Coordinate, StandColorsMap, StandProps, StandType } from './StandProps';
 import { Button, CtaButton } from '../Button';

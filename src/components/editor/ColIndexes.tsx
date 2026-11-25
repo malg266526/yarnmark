@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { GAP_PX, SQUARE_PX, SQUARE_SIZE_M } from './utils/hallGeometry';
 

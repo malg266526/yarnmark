@@ -1,5 +1,4 @@
 import { BackgroundColors, TextColors } from '../../styles/theme';
-import React from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Icon, sizeToIconWidth } from '../../components/Icon';
 import styled from 'styled-components';

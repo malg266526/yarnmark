@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Band } from '../../../components/bands/Band';
 import { Schedule } from './Schedule';

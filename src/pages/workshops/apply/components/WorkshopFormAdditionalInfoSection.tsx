@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import { FormField } from '../../../../components/form/FormField';
 import { FormFieldHeading } from '../../../../components/form/FormFieldHeading';

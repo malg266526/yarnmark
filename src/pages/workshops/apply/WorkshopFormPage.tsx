@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 import { WorkshopFormView } from './components/WorkshopFormView';
 import { useWorkshopForm } from './hooks/useWorkshopForm';

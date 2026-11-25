@@ -4,7 +4,6 @@ import { Icon } from './Icon';
 import ellipseLight from '../assets/figmaIcons/ellipse_light.svg';
 import ellipseMedium from '../assets/figmaIcons/ellipse_medium.svg';
 import ellipseStrong from '../assets/figmaIcons/ellipse_strong.svg';
-import React from 'react';
 import { Button } from './Button';
 
 const MiddleIcon = styled.div`

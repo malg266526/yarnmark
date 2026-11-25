@@ -1,4 +1,3 @@
-import React from 'react';
 import { Band } from '../../../components/bands/Band';
 import { Typography } from '../../../components/Typography';
 import { FlexColumnLayout } from '../../../components/FlexColumnLayout';

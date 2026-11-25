@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { BackgroundColors, BorderColors, Colors, TextColors } from '../styles/theme';
 import { Header } from './menu/Header';

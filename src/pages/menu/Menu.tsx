@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { BackgroundColors, GrayScale, TextColors } from '../../styles/theme';
 import { RedesignSpacings } from '../../styles/spacings';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 import { VendorForm } from './components/VendorForm';
 import { AdminPageLayout } from '../../admin/AdminPageLayout';

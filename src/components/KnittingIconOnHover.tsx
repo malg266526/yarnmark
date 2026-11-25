@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import knittingImageUrl from '../assets/images/skein3.svg';
 import { Icon } from './Icon';

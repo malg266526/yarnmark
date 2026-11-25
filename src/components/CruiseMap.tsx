@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { useTypedTranslation } from '../translations/useTypedTranslation';
 import { FlexColumnLayout } from './FlexColumnLayout';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Band } from '../../../components/bands/Band';
 import { BackgroundColors } from '../../../styles/theme';
 import { usePhone, useTablet } from '../../../hooks/usePhone';

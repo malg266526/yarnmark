@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { RedesignSpacings } from '../../styles/spacings';
 import { Align, BandRootLayout, BandSize, Justify } from './BandRootLayout';
 

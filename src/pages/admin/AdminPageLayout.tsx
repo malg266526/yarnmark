@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { usePhone } from '../../hooks/usePhone';
 import { BackgroundColors } from '../../styles/theme';
 import { UtilityPageHeader } from '../../components/UtilityPageHeader';

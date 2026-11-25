@@ -1,4 +1,4 @@
-import React, { useId, useState } from 'react';
+import { useId, useState } from 'react';
 import { HALL_SVG_MAP_DESIGN } from './hallSvgMapDesign';
 import type { HallSvgMapStandLayout } from './hallSvgMapUtils';
 

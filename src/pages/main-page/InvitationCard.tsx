@@ -1,6 +1,5 @@
 import { SlantedCornersBox } from '../../components/SlantedCornersBox';
 import { Picture } from '../../components/Picture';
-import React from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { Typography } from '../../components/Typography';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';

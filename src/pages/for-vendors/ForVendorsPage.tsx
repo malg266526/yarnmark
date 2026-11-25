@@ -1,4 +1,3 @@
-import React from 'react';
 import { SlantedCornersBox } from '../../components/SlantedCornersBox';
 import { BackgroundColors } from '../../styles/theme';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';

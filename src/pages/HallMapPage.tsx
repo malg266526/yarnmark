@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { ScreenSize } from '../styles/screeen-size';
 import { usePhone } from '../hooks/usePhone';

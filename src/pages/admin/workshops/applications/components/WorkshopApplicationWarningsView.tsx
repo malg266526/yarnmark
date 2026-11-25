@@ -1,4 +1,3 @@
-import React from 'react';
 import { ApplicationWarningList, ApplicationWarningTag } from '../WorkshopsApplicationsPage.styled';
 import type { WorkshopApplicationWarning } from '../utils/workshopScheduleUtils';
 

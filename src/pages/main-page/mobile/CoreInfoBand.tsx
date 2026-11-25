@@ -1,4 +1,3 @@
-import React from 'react';
 import { Typography } from '../../../components/Typography';
 import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
 import { Trans } from 'react-i18next';

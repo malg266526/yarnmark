@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';
 import { FieldRequirementMark, type FieldRequirementType } from './FormField.styled';
 

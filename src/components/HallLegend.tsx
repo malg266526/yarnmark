@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { RowLayout } from './RowLayout';
 import { useTypedTranslation } from '../translations/useTypedTranslation';

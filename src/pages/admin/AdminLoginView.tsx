@@ -1,4 +1,4 @@
-import React, { type MutableRefObject } from 'react';
+import { type MutableRefObject } from 'react';
 import { Typography } from '../../components/Typography';
 import { UtilityPageHeader } from '../../components/UtilityPageHeader';
 import { useTypedTranslation } from '../../translations/useTypedTranslation';

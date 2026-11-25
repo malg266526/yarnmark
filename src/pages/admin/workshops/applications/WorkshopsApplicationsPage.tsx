@@ -1,4 +1,3 @@
-import React from 'react';
 import { WorkshopsApplicationsView } from './components/WorkshopsApplicationsView';
 import { useWorkshopsApplications } from './hooks/useWorkshopsApplications';
 import { WorkshopsApplicationsPageStyled } from './WorkshopsApplicationsPage.styled';

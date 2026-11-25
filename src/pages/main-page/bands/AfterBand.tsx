@@ -2,7 +2,7 @@ import { Carouselge } from '../../../components/carousels/Carouselge';
 import { FlexColumnLayout } from '../../../components/FlexColumnLayout';
 import { Trans } from 'react-i18next';
 import { AfterPartySection } from '../../../components/AfterPartySection';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 import { Typography } from '../../../components/Typography';
 import { BackgroundPicture } from '../../../components/BackgroundPicture';

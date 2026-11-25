@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { SwitchInput, SwitchLabel, SwitchTrack } from './Switch.styled';
 
 interface SwitchProps {

@@ -1,6 +1,5 @@
 import { FlexColumnLayout } from '../../../../components/FlexColumnLayout';
 import { Typography } from '../../../../components/Typography';
-import React from 'react';
 import { useTypedTranslation } from '../../../../translations/useTypedTranslation';
 import styled, { css } from 'styled-components';
 import { Card } from '../../../../components/Card';

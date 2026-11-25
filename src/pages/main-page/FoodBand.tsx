@@ -5,7 +5,7 @@ import burgerImageUrl from '../../assets/iconify/burger.svg';
 import cupcakeImageUrl from '../../assets/iconify/cupcake.svg';
 import { FramedBox } from '../../components/FramedBox';
 import { FlexColumnLayout } from '../../components/FlexColumnLayout';
-import React, { ReactNode, useCallback, useRef, useState } from 'react';
+import { ReactNode, useCallback, useRef, useState } from 'react';
 import { usePhone } from '../../hooks/usePhone';
 import { Picture } from '../../components/Picture';
 import bezogrodekLogoUrl from '../../assets/images/minifiedLogos/logobezogrodek.jpg';

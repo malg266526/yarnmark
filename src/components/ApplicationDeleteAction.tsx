@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { CtaButton } from './Button';
 import { ConfirmModal } from './ConfirmModal';
 

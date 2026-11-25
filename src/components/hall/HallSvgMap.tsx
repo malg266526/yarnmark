@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
 import { HALL_SVG_MAP_DESIGN } from './hallSvgMapDesign';
 import { HallSvgMapStand } from './HallSvgMapStand';

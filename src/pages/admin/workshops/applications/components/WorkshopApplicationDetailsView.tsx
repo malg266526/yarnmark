@@ -1,4 +1,3 @@
-import React from 'react';
 import { ApplicationDeleteAction } from '../../../../../components/ApplicationDeleteAction';
 import { LogoPreviewImage } from '../../../../../components/form/FormField.styled';
 import {

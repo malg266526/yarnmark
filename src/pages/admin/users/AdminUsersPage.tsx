@@ -1,4 +1,3 @@
-import React from 'react';
 import { AdminUsersView } from './components/AdminUsersView';
 import { useAdminUsers } from './hooks/useAdminUsers';
 import { AdminUsersPageStyled } from './AdminUsersPage.styled';

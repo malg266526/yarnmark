@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { StandColorsMap } from '../../../../../components/editor/StandProps';
 import { HallMap } from '../../../../../components/hall/HallMap';
 import { getEnclosingHallStandBox, getHallStandBox } from '../../../../../components/hall/hallStandBox';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { FormCard, FormLayout } from '../VendorFormPage.styled';
 import { VendorFormBasicsSection } from './VendorFormBasicsSection';
 import { VendorFormBusinessDescriptionSection } from './VendorFormBusinessDescriptionSection';

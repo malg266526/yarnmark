@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Band } from '../../../components/bands/Band';
 import { BackgroundColors, GrayScale, TextColors } from '../../../styles/theme';

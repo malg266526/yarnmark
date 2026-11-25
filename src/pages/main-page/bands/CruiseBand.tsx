@@ -14,7 +14,7 @@ import { Trans } from 'react-i18next';
 import mapWebpSrc from '../../../assets/images/map.webp';
 import mapJpgSrc from '../../../assets/images/map.jpg';
 import { CruiseMap } from '../../../components/CruiseMap';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 import { Typography } from '../../../components/Typography';
 import { BackgroundPicture } from '../../../components/BackgroundPicture';

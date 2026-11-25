@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Typography } from './Typography';
 import { Picture, type PictureType } from './Picture';

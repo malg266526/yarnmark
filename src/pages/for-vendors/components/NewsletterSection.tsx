@@ -1,4 +1,3 @@
-import React from 'react';
 import { Band } from '../../../components/bands/Band';
 import { CtaButton } from '../../../components/Button';
 import { FormField } from '../../../components/form/FormField';
