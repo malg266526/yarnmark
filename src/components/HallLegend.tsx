@@ -12,10 +12,10 @@ const LegendRoot = styled.div`
   margin: ${RedesignSpacings.sm};
 `;
 
-const ColorSample = styled.div<{ color: keyof typeof StandColorsMap }>`
+const ColorSample = styled.div<{ $color: keyof typeof StandColorsMap }>`
   width: 50px;
   height: 50px;
-  background-color: ${({ color }) => StandColorsMap[color] || 'white'};
+  background-color: ${({ $color }) => StandColorsMap[$color] || 'white'};
 `;
 
 export const HallLegend = () => {
@@ -24,37 +24,37 @@ export const HallLegend = () => {
   return (
     <LegendRoot>
       <RowLayout gap="xs">
-        <ColorSample color="premium" />
+        <ColorSample $color="premium" />
         <p>{t('hallMap.premiumStand')}</p>
       </RowLayout>
 
       <RowLayout gap="xs">
-        <ColorSample color="normal1" />
+        <ColorSample $color="normal1" />
         <p>{t('hallMap.standardStand')}</p>
       </RowLayout>
 
       <RowLayout gap="xs">
-        <ColorSample color="normal2" />
+        <ColorSample $color="normal2" />
         <p>{t('hallMap.standardStand')}</p>
       </RowLayout>
 
       <RowLayout gap="xs">
-        <ColorSample color="standC" />
+        <ColorSample $color="standC" />
         <p>{t('hallMap.cStand')}</p>
       </RowLayout>
 
       <RowLayout gap="xs">
-        <ColorSample color="small1" />
+        <ColorSample $color="small1" />
         <p>{t('hallMap.miniStand')}</p>
       </RowLayout>
 
       <RowLayout gap="xs">
-        <ColorSample color="small2" />
+        <ColorSample $color="small2" />
         <p>{t('hallMap.miniStand')}</p>
       </RowLayout>
 
       <RowLayout gap="xs">
-        <ColorSample color="taken" />
+        <ColorSample $color="taken" />
         <p>{t('hallMap.taken')}</p>
       </RowLayout>
     </LegendRoot>

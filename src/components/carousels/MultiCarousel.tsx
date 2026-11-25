@@ -37,13 +37,13 @@ const SlidesWrapper = styled.div`
   width: 100%;
 `;
 
-const Slides = styled.div<{ padding: number; gap: number }>`
+const Slides = styled.div<{ $padding: number; $gap: number }>`
   height: 100%;
   min-height: inherit;
   display: flex;
   align-items: center;
-  gap: ${({ gap }) => `${gap}px`};
-  padding: ${({ padding }) => `${padding}px`};
+  gap: ${({ $gap }) => `${$gap}px`};
+  padding: ${({ $padding }) => `${$padding}px`};
   overflow: hidden;
   position: relative;
   top: 0;
@@ -142,7 +142,7 @@ export const MultiCarousel = ({ items, style = DefaultStyleConfig }: MultiCarous
         </Button>
 
         <SlidesWrapper id="slides_wrapper">
-          <Slides id="carousel_slides" ref={slidesContainerRef} gap={style?.gap} padding={style?.padding}>
+          <Slides id="carousel_slides" ref={slidesContainerRef} $gap={style?.gap} $padding={style?.padding}>
             {/*Todo: try to read props of item and use id as a key*/}
             {items.map((item, index) => (
               <MultiCarouselSlide

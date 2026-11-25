@@ -38,16 +38,16 @@ const AccordionHeader = styled.button`
   }
 `;
 
-const ChevronIcon = styled.svg<{ isOpen: boolean }>`
+const ChevronIcon = styled.svg<{ $isOpen: boolean }>`
   width: 24px;
   height: 24px;
   transition: transform 0.3s ease;
-  transform: ${({ isOpen }) => (isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
+  transform: ${({ $isOpen }) => ($isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
 `;
 
-const AccordionContent = styled.div<{ isOpen: boolean }>`
+const AccordionContent = styled.div<{ $isOpen: boolean }>`
   display: grid;
-  grid-template-rows: ${({ isOpen }) => (isOpen ? '1fr' : '0fr')};
+  grid-template-rows: ${({ $isOpen }) => ($isOpen ? '1fr' : '0fr')};
   transition: grid-template-rows 0.3s ease-in-out;
 `;
 
@@ -73,12 +73,12 @@ export const Accordion = ({ title, children, defaultOpen = false }: AccordionPro
         <Typography size="lg" weight="bold">
           {title}
         </Typography>
-        <ChevronIcon isOpen={isOpen} viewBox="0 0 24 24">
+        <ChevronIcon $isOpen={isOpen} viewBox="0 0 24 24">
           <path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
         </ChevronIcon>
       </AccordionHeader>
 
-      <AccordionContent isOpen={isOpen}>
+      <AccordionContent $isOpen={isOpen}>
         <AccordionInner>
           <AccordionBody id="accordion_body">{children}</AccordionBody>
         </AccordionInner>

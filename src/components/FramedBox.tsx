@@ -39,21 +39,21 @@ const OuterRoot = styled.div`
 `;
 
 const Frame = styled.div<{
-  width?: FrameWidth;
-  height?: FrameWidth;
-  padding: keyof typeof RedesignSpacings;
+  $width?: FrameWidth;
+  $height?: FrameWidth;
+  $padding: keyof typeof RedesignSpacings;
 }>`
-  ${({ width }) =>
-    width &&
+  ${({ $width }) =>
+    $width &&
     css`
-      width: ${width};
+      width: ${$width};
     `};
-  ${({ height }) =>
-    height &&
+  ${({ $height }) =>
+    $height &&
     css`
-      height: ${height};
+      height: ${$height};
     `};
-  padding: ${({ padding }) => RedesignSpacings[padding]};
+  padding: ${({ $padding }) => RedesignSpacings[$padding]};
   background: white;
   position: relative;
   z-index: 1;
@@ -85,10 +85,12 @@ export interface FramedBoxProps {
   id?: string;
 }
 
-export const FramedBox = ({ children, ...rest }: FramedBoxProps) => (
+export const FramedBox = ({ children, width, height, padding, id }: FramedBoxProps) => (
   <OuterRoot>
     <Root>
-      <Frame {...rest}>{children}</Frame>
+      <Frame $width={width} $height={height} $padding={padding} id={id}>
+        {children}
+      </Frame>
     </Root>
   </OuterRoot>
 );

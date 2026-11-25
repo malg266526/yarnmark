@@ -85,9 +85,9 @@ const Select = styled.select`
   cursor: pointer;
 `;
 
-const ColorOption = styled.option<{ color?: string }>`
-  background-color: ${({ color }) => color || 'white'};
-  color: ${({ color }) => (color ? '#fff' : '#000')};
+const ColorOption = styled.option<{ $color?: string }>`
+  background-color: ${({ $color }) => $color || 'white'};
+  color: ${({ $color }) => ($color ? '#fff' : '#000')};
 `;
 
 const colorOptions = Object.keys(StandColorsMap) as (keyof typeof StandColorsMap)[];
@@ -207,7 +207,7 @@ export const StandForm = ({ start, end, onRemoveStand }: StandFormProps) => {
           >
             <option value="">{t('editorPage.standForm.selectColor')}</option>
             {colorOptions.map((key) => (
-              <ColorOption key={key} color={StandColorsMap[key]} value={key}>
+              <ColorOption key={key} $color={StandColorsMap[key]} value={key}>
                 {key}
               </ColorOption>
             ))}

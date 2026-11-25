@@ -16,16 +16,16 @@ interface BackgroundBand {
   overflow?: 'scroll' | 'auto';
 }
 
-const BackgroundWrapper = styled.div<{ color: string }>`
+const BackgroundWrapper = styled.div<{ $color: string }>`
   display: flex;
   flex: 1;
   width: 100%;
-  background: ${({ color }) => color};
+  background: ${({ $color }) => $color};
 `;
 
 export const SolidBackgroundBand = ({ id, children, direction, color, ...styles }: BackgroundBand) => {
   return (
-    <BackgroundWrapper color={color}>
+    <BackgroundWrapper $color={color}>
       <BandRootLayout id={id} direction={direction} {...styles}>
         {children}
       </BandRootLayout>
