@@ -37,10 +37,13 @@ import { AdminUsersPage } from './pages/admin/users/AdminUsersPage';
 import { AdminNewsletterPage } from './pages/admin/newsletter/AdminNewsletterPage';
 import { AdminLayout } from './pages/admin/AdminLayout';
 import { AdminSettingsPage } from './pages/admin/settings/AdminSettingsPage';
+import { rebootStyles } from './styles/reboot';
 
 const WORKSHOPS_CONTACT_EMAIL = 'yarnmark.warsztaty@gmail.com';
 
 const GlobalStyle = createGlobalStyle`
+  ${rebootStyles}
+
   html {
     font-size: ${FontToScreenSize.pc};
 
@@ -65,7 +68,6 @@ const GlobalStyle = createGlobalStyle`
     /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; */
   }
 
-  /** bootstrap adds margin for p elements; line below removes it */
   P {
     margin-top: initial;
     margin-bottom: initial;

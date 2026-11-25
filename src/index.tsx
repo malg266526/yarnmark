@@ -8,7 +8,6 @@ import i18next from 'i18next';
 import isPropValid from '@emotion/is-prop-valid';
 import { en } from './translations/en';
 import { pl } from './translations/pl';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const DEFAULT_PL_BROWSER_SETTINGS = 'pl-PL';
 
