@@ -8,17 +8,17 @@ import { usePhone } from '../../../hooks/usePhone';
 import { WorkshopsConfig, WorkshopsEntry } from './workshopsConfig';
 import { useTypedTranslation } from '../../../translations/useTypedTranslation';
 
-const Table = styled.div<{ columns: number }>`
+const Table = styled.div<{ $columns: number }>`
   display: grid;
   flex: 1;
   width: 100%;
 
-  grid-template-columns: repeat(${({ columns }) => columns}, 1fr);
+  grid-template-columns: repeat(${({ $columns }) => $columns}, 1fr);
   grid-template-rows: auto;
   grid-gap: ${RedesignSpacings.sm};
 
   @media (max-width: ${ScreenSize.tablet}) {
-    grid-template-columns: repeat(${({ columns }) => columns}, 160px);
+    grid-template-columns: repeat(${({ $columns }) => $columns}, 160px);
     width: auto;
     grid-gap: ${RedesignSpacings.xxs};
   }
@@ -31,7 +31,7 @@ const Th = styled.div`
   text-align: center;
 `;
 
-const Cell = styled.div<{ background?: keyof typeof HallColors }>`
+const Cell = styled.div<{ $background?: keyof typeof HallColors }>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,7 +42,7 @@ const Cell = styled.div<{ background?: keyof typeof HallColors }>`
   min-height: 150px;
   gap: ${RedesignSpacings.xs};
 
-  background-color: ${({ background }) => (background ? HallColors[background] : 'transparent')};
+  background-color: ${({ $background }) => ($background ? HallColors[$background] : 'transparent')};
 
   @media (max-width: ${ScreenSize.phone}) {
     padding: ${RedesignSpacings.xs};
@@ -111,7 +111,7 @@ export const Schedule = () => {
     if (!workshop) return <EmptyCell key={Math.random()} />;
 
     return (
-      <Cell key={workshop.topicKey + workshop.time} background={color}>
+      <Cell key={workshop.topicKey + workshop.time} $background={color}>
         <Typography size={leadingFontSize}>{workshop.leading}</Typography>
         <WorkshopTitle size={titleFontSize} weight="bold">
           {t(workshop.topicKey)}
@@ -136,7 +136,7 @@ export const Schedule = () => {
     const maxRows = Math.max(...activeRooms.map((room) => workshopsByRoom[room].length));
 
     return (
-      <Table columns={activeRooms.length}>
+      <Table $columns={activeRooms.length}>
         {activeRooms.map((room) => (
           <Th key={room}>
             <Typography size={fontSize} weight="bold">

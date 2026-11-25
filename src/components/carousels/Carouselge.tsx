@@ -42,10 +42,10 @@ const Footer = styled.div`
   flex: 1 0;
 `;
 
-const ClickElement = styled.div<{ side: 'left' | 'right'; visible?: boolean }>`
+const ClickElement = styled.div<{ $side: 'left' | 'right'; $visible?: boolean }>`
   position: absolute;
-  ${({ side }) =>
-    side === 'left'
+  ${({ $side }) =>
+    $side === 'left'
       ? css`
           left: 0;
         `
@@ -58,10 +58,10 @@ const ClickElement = styled.div<{ side: 'left' | 'right'; visible?: boolean }>`
   z-index: 1;
 
   display: flex;
-  justify-content: ${({ side }) => (side === 'left' ? 'flex-end' : 'flex-start')};
+  justify-content: ${({ $side }) => ($side === 'left' ? 'flex-end' : 'flex-start')};
   align-items: center;
-  opacity: ${({ visible }) => (visible ? 0.4 : 0)};
-  pointer-events: ${({ visible }) => (visible ? 'auto' : 'none')};
+  opacity: ${({ $visible }) => ($visible ? 0.4 : 0)};
+  pointer-events: ${({ $visible }) => ($visible ? 'auto' : 'none')};
   cursor: pointer;
   transition: all 150ms ease-in-out;
 `;
@@ -133,7 +133,7 @@ interface IndicatorRootProps {
   color: IndicatorColor;
 }
 
-const IndicatorRoot = styled.div<IndicatorRootProps>`
+const IndicatorRoot = styled.div<{ $active?: boolean; $color: IndicatorColor }>`
   cursor: pointer;
   padding: 12px;
   width: ${INACTIVE_INDICATOR_SIZE}px;
@@ -144,8 +144,8 @@ const IndicatorRoot = styled.div<IndicatorRootProps>`
   box-sizing: content-box;
   position: relative;
 
-  ${({ color }) => css`
-    filter: ${colorToFilter[color]};
+  ${({ $color }) => css`
+    filter: ${colorToFilter[$color]};
   `};
 
   &:before {
@@ -164,8 +164,8 @@ const IndicatorRoot = styled.div<IndicatorRootProps>`
     transition: all 150ms ease-in-out;
   }
 
-  ${({ active }) =>
-    active &&
+  ${({ $active }) =>
+    $active &&
     css`
       ${IndicatorBall} {
         transform: scale(3);
@@ -181,8 +181,8 @@ const IndicatorRoot = styled.div<IndicatorRootProps>`
     `};
 `;
 
-const Indicator = (props: IndicatorRootProps & { className?: string; onClick?: () => void }) => (
-  <IndicatorRoot {...props}>
+const Indicator = ({ active, color, ...rest }: IndicatorRootProps & { className?: string; onClick?: () => void }) => (
+  <IndicatorRoot $active={active} $color={color} {...rest}>
     <IndicatorBall />
   </IndicatorRoot>
 );
@@ -195,7 +195,7 @@ const OuterWrapper = styled.div`
 
 const ITEM_HEIGHT_OFFSET = 30;
 
-const ChildrenWrapper = styled.div<{ transition: number | 'none' }>`
+const ChildrenWrapper = styled.div<{ $transition: number | 'none' }>`
   position: relative;
   width: 100%;
   height: 100%;
@@ -208,10 +208,10 @@ const ChildrenWrapper = styled.div<{ transition: number | 'none' }>`
     left: ${(100 - ACTIVE_ITEM_ELEMENT_WIDTH_PERCENTAGE) / 2}%;
     top: ${ITEM_HEIGHT_OFFSET / 2}px;
     opacity: 0;
-    ${({ transition }) =>
-      transition !== 'none' &&
+    ${({ $transition }) =>
+      $transition !== 'none' &&
       css`
-        transition: all ${transition}ms ease-in-out;
+        transition: all ${$transition}ms ease-in-out;
       `}
   }
 `;
@@ -234,7 +234,7 @@ const Root = styled.div<RootProps>`
   `};
 `;
 
-const ItemRoot = styled.div<{ icon?: boolean }>`
+const ItemRoot = styled.div<{ $icon?: boolean }>`
   min-width: 200px;
   min-height: 200px;
   background: white;
@@ -247,8 +247,8 @@ const ItemRoot = styled.div<{ icon?: boolean }>`
     padding: ${RedesignSpacings.sm};
   }
 
-  ${({ icon }) =>
-    icon &&
+  ${({ $icon }) =>
+    $icon &&
     css`
       &:before {
         content: '';
@@ -512,8 +512,8 @@ export const Carouselge = Object.assign(
         <ItemDataContext.Provider value={{ getStyle, activeIndex: selectedIndex }}>
           <OuterWrapper>
             <ClickElement
-              side="left"
-              visible={isIndexValid(selectedIndex - 1)}
+              $side="left"
+              $visible={isIndexValid(selectedIndex - 1)}
               onClick={(e) => {
                 e.preventDefault();
                 if (isIndexValid(selectedIndex - 1)) {
@@ -524,8 +524,8 @@ export const Carouselge = Object.assign(
               <IconifyIcon icon="mdi:arrow-left" width="50" />
             </ClickElement>
             <ClickElement
-              side="right"
-              visible={isIndexValid(selectedIndex + 1)}
+              $side="right"
+              $visible={isIndexValid(selectedIndex + 1)}
               onClick={(e) => {
                 e.preventDefault();
                 if (isIndexValid(selectedIndex + 1)) {
@@ -535,7 +535,7 @@ export const Carouselge = Object.assign(
             >
               <IconifyIcon icon="mdi:arrow-right" width="50" />
             </ClickElement>
-            <ChildrenWrapper ref={childrenWrapperRef} transition={transitionTime}>
+            <ChildrenWrapper ref={childrenWrapperRef} $transition={transitionTime}>
               {children}
             </ChildrenWrapper>
           </OuterWrapper>
