@@ -192,7 +192,13 @@ workflowy i `compareMetadata.ts` bez zmian:
 - Przy okazji: ESLint na `getDirMetadata.ts` zgłasza wcześniejszy błąd `no-useless-escape` w `extensionRegex`
   (linia 35, `\.` w klasie znaków) — `yarn lint` nie obejmuje `workflow-helpers/`, nie poprawiony.
 
-### Krok V6. Service worker
+### Krok V6. Service worker — ⏸ odłożony
+
+Decyzja (2026-11-26): service worker na razie zostaje bez zmian, temat do podjęcia później. Stan po migracji:
+`src/service-worker.ts` i `src/service-worker-loader.ts` zostają w repozytorium, ale build Vite ich nie buduje — w
+`dist/` nie ma `service-worker.js`, `service-worker-loader.js` ani `output-info.json`. Strona i tak ich nie ładowała
+(loader był zakomentowany, w V3 usunięty), więc działanie strony się nie zmienia. Netlify (`_redirects`: `/*
+/index.html 200`) odpowie na `/service-worker.js` stroną `index.html`.
 
 - Dziś nie jest rejestrowany (patrz stan wyjściowy), ale jest budowany i oczekuje `./output-info.json` z listą
   plików. Vite nie zbuduje go sam: potrzebne osobne wejście z nazwą bez hasha (`/service-worker.js` w roocie).
@@ -207,11 +213,12 @@ workflowy i `compareMetadata.ts` bez zmian:
 - Filtr `!event.request.url.includes('esbuild-livereload')` w `service-worker.ts` dotyczy tylko esbuild-servera —
   do usunięcia albo zamiany na ścieżki Vite (`/@vite/`, `/@react-refresh`).
 
-### Krok V7. Sprzątanie
+### Krok V7. Sprzątanie — ✅ zrobione
 
 - Usunąć `esbuild.config.mjs`, `esbuild.serve.mjs`, `esbuild.bundle.mjs`.
 - Usunąć zależności: `esbuild-server`, `@craftamap/esbuild-plugin-html`, `esbuild-plugin-copy`,
-  `esbuild-plugin-manifest` (jeśli V6 go nie potrzebuje).
+  `esbuild-plugin-manifest` (generował tylko `output-info.json` dla service workera; przy powrocie do V6 Vite ma
+  własny `build.manifest`).
 - `esbuild` nadal używa `transpile-workflow-files`. Do wyboru: podbić `esbuild` do 0.28.2 (zgodne z peer dependency
   Vite) albo przejść w `workflow-helpers` na `node --experimental-transform-types`, jak już robi `edition:check`, i
   usunąć `esbuild` z zależności.
@@ -219,6 +226,26 @@ workflowy i `compareMetadata.ts` bez zmian:
 - Zaktualizować `AGENTS.md` (dev server, harness „with the project's esbuild”), `README.md`, `eslint.config.mjs`
   (`globals.node` dla `vite.config.mts`, jeśli lint ma go obejmować) i `docs/updates/update-context.md`.
 - Sprawdzenie: `npm run check:unused` (knip) — brak osieroconych plików i zależności po esbuildzie.
+
+Wynik (decyzja: `esbuild` 0.28.2):
+
+- Usunięte `esbuild.config.mjs`, `esbuild.serve.mjs`, `esbuild.bundle.mjs` oraz `esbuild-server`,
+  `@craftamap/esbuild-plugin-html`, `esbuild-plugin-copy`, `esbuild-plugin-manifest`. `esbuild` 0.19.2 → 0.28.2
+  (tylko dla `transpile-workflow-files`). Build Vite po sprzątaniu identyczny (ten sam hash `index-D-XEHeN-.js`).
+- `transpile-workflow-files` na 0.28.2 działa; łańcuch z CI (`stats` → `compare-stats`) sprawdzony na nowym
+  buildzie.
+- `AGENTS.md`: dev server to Vite (komunikat przy drugiej instancji: `Found another Vite dev process for this
+project`, zatrzymanie: `pkill -f node_modules/.bin/vite`), dodane `bundle`/`preview`, harness „with the project's
+  Vite config”. Uwaga o service workerze zostaje (V6 odłożony).
+- `docs/updates/update-context.md`: stos technologiczny, krok 2 oznaczony jako zrobiony z odnośnikiem do tego
+  dokumentu, wiersz `esbuild` usunięty z tabeli przestarzałych zależności (0.28.2 to najnowsza).
+- Bez zmian: `README.md` (nie wspomina o bundlerze), `eslint.config.mjs` (`yarn lint` obejmuje tylko `src/`, więc
+  `vite.config.mts` nie jest lintowany — `globals.node` niepotrzebne). Lokalne `.claude/settings.local.json` ma
+  uprawnienia `pkill -f esbuild.serve.mjs` — nieaktualne, plik użytkownika, nieruszany.
+- knip: brak nieużywanych devDependencies i brakujących pakietów. Nowe pozycje w „Unused files” względem kroku 0:
+  `src/service-worker.ts` i `src/service-worker-loader.ts` (były wejściami esbuilda, V6 odłożony) oraz
+  `docs/updates/vite-baseline/screenshots.mjs` (samodzielne narzędzie). Pozostałe zgłoszenia — jak w kroku 0.
+- Typecheck, lint, `format:check`, testy (378/378) i `yarn bundle` bez błędów.
 
 ## Poza zakresem migracji (kolejne kroki planu)
 
@@ -232,5 +259,5 @@ workflowy i `compareMetadata.ts` bez zmian:
 - V3: usunąć zakomentowany loader service workera z `index.html` czy go zostawić.
 - V4: usunąć deklaracje obrazków z `src/types.d.ts` czy zostawić.
 - V5: nazwy plików bez hashy (bez zmian w CI) czy hashe (zmiany w `getDirMetadata.ts` i `compareMetadata.ts`).
-- V6: service worker — parzystość, `vite-plugin-pwa` czy usunięcie.
+- V6 (odłożone): service worker — parzystość, `vite-plugin-pwa` czy usunięcie.
 - V7: `esbuild` 0.28.2 dla `workflow-helpers` czy `node --experimental-transform-types`.

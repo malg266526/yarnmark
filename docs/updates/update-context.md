@@ -22,7 +22,8 @@ Stan na: 2026-11-25 (commit `3b2cc80`, branch `master`). Ostatnia aktualizacja p
 
 ### Stos technologiczny
 
-- SPA budowane **esbuildem** (`esbuild.config.mjs`, `esbuild.serve.mjs`, `esbuild.bundle.mjs`), dev server na porcie 8090.
+- SPA budowane **Vite** (`vite.config.mts`, `index.html` w roocie), dev server na porcie 8090. Do kroku 2 — esbuild
+  (`esbuild.config.mjs`, `esbuild.serve.mjs`, `esbuild.bundle.mjs`).
 - Routing: `react-router-dom` v6 (`src/App.tsx`, `<Routes>/<Route>`), strefy: publiczna, partner (`/vendor/*`,
   `/workshops/apply`), admin (`/admin/*` z `AdminLayout`).
 - Stylowanie: **styled-components 6** (Bootstrap i react-bootstrap usunięte, globalny reset w `src/styles/reboot.ts`).
@@ -35,7 +36,6 @@ Stan na: 2026-11-25 (commit `3b2cc80`, branch `master`). Ostatnia aktualizacja p
 | :---------- | :------ | :-------- |
 | typescript  | 5.9.3   | 7.0.2     |
 | eslint      | 9.39.5  | 10.15.0   |
-| esbuild     | 0.19.2  | 0.28.2    |
 | @types/node | 24.19.4 | 26.6.10   |
 
 Pełna lista: `npm outdated`.
@@ -183,9 +183,11 @@ function`); 5.x to pierwsza linia ze wsparciem ESLint 9, bez reguł React Compil
         ale sprawdza formatowanie wszystkich plików (wcześniej tylko `src/**/*.{ts,tsx}`). Zaległych zmian formatowania: 0.
 - Kolejność: 2a → 2b → 2c → 2d → 2e → 2f.
 
-### Krok 2. Bundler — ⬜ do zrobienia
+### Krok 2. Bundler — ✅ zrobione (Vite 8; service worker odłożony)
 
-- Decyzja: zostać na esbuild (podbicie do 0.28 + pluginy) czy przejść na **Vite**.
+Plan i wyniki krok po kroku: `docs/updates/vite-migration.md`.
+
+- Decyzja: zostać na esbuild (podbicie do 0.28 + pluginy) czy przejść na **Vite**. ✅ Vite.
 - Vite ułatwia późniejsze Module Federation, Vitest i HMR.
 - Zachować działanie service workera i workflowów CI (metadane paczki, porównanie rozmiaru).
 
