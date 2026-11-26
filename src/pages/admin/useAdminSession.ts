@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useOutletContext } from 'react-router-dom';
+import { useOutletContext } from 'react-router';
 import { ApiRequestError } from '@/domain/apiClient.ts';
 import { resolveAdminPermissions, type AdminSession } from './adminAuthUtils';
 

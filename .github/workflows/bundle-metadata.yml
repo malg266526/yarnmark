@@ -13,6 +13,9 @@ on:
         required: true
         type: string
 
+env:
+  node_version: 24
+
 jobs:
   upload-metadata:
     name: Upload metadata

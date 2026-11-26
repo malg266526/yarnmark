@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router';
 import type { VendorApplication } from '@/domain/vendorApplications/vendorFormSubmission.ts';
 import type { ApplicationsViewMode } from '../vendorsApplicationsConstants.ts';
 import {

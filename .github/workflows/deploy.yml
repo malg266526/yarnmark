@@ -10,7 +10,7 @@ on:
           - production
 
 env:
-  node_version: 18
+  node_version: 24
 
 jobs:
   deploy:
