@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router';
 import { createGlobalStyle } from 'styled-components';
 import emailIconUrl from './assets/figmaIcons/email_icon.svg';
 import instagramIconUrl from './assets/figmaIcons/instagram_icon.svg';

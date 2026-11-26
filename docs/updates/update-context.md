@@ -203,8 +203,19 @@ function`); 5.x to pierwsza linia ze wsparciem ESLint 9, bez reguł React Compil
 
 Kolejno, każda osobno:
 
-1. React 19 + `@types/react` 19.
-2. react-router 7 (`react-router` zamiast `react-router-dom`), ocena `react-router-hash-link`.
+1. ✅ React 19 + `@types/react` 19: `react` / `react-dom` 18.2.0 → 19.3.1, `@types/react` 18.2.21 → 19.3.3,
+   `@types/react-dom` 18.2.7 → 19.3.0 (także w `resolutions`). Bez zmian w kodzie: typecheck, lint, testy i bundle
+   przechodzą; brak usuniętych API (`ReactDOM.render`, `findDOMNode`, `defaultProps`, `propTypes`, string refs);
+   peer dependencies pozostałych bibliotek obejmują React 19. Sprawdzone w headless Chromium: 11 tras renderuje się bez
+   błędów Reacta w konsoli, formularz wystawcy (wpisywanie, walidacja) i przełączanie menu działają.
+2. ✅ react-router 8.5.3 (zamiast planowanej 7 — v8 wyszła w czerwcu 2026): `react-router-dom` 6.16.0 usunięty
+   (w v8 pakiet nie istnieje), importy w 8 plikach przepisane na `react-router`. v8 wymaga React ≥ 19.2.7 i Node ≥ 22.22,
+   więc Node w CI podbity do 24 we wszystkich workflowach (było 18/20; w `bundle-metadata.yml` `node_version` nie był
+   w ogóle zdefiniowany — `env` wywołującego nie przechodzi do workflowu `workflow_call`). Pozostałe zmiany łamiące v8
+   (middleware, `meta`, loadery) dotyczą data routera, którego projekt nie używa. `react-router-hash-link` i
+   `@types/react-router-hash-link` usunięte (importowały `react-router-dom`; żaden link nie używał kotwic `#`) —
+   `Link.tsx` używa `Link`/`LinkProps` z `react-router`. Sprawdzone w headless Chromium: 11 tras, nawigacja
+   wewnętrzna bez przeładowania (`/info-for-vendors` → `/vendor/statute`), link zewnętrzny otwiera nową kartę, menu.
 3. i18next + react-i18next.
 4. Pozostałe: zod, react-hook-form, @hookform/resolvers, @iconify/react, FontAwesome (✅ styled-components 6.7.0,
    ✅ bootstrap usunięty).

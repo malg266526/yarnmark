@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router';
 import { Typography } from '@/components/Typography';
 import { Kicker } from '@/components/Kicker';
 import { useTypedTranslation } from '@/translations/useTypedTranslation';

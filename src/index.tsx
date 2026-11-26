@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import { App } from './App';
 import { I18nextProvider } from 'react-i18next';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router';
 import { StyleSheetManager } from 'styled-components';
 import i18next from 'i18next';
 import isPropValid from '@emotion/is-prop-valid';

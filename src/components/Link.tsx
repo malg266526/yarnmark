@@ -1,6 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { HashLink, HashLinkProps } from 'react-router-hash-link';
+import { Link as RouterLink, LinkProps, useNavigate } from 'react-router';
 import styled, { css } from 'styled-components';
 import yarnSvgUrl from '@/assets/images/skein3.svg';
 import { Radius } from '@/styles/cards';
@@ -19,7 +18,7 @@ export const linkStyle = css<{ $disabled?: boolean }>`
   opacity: ${({ $disabled }) => ($disabled ? 0.5 : 1)};
 `;
 
-const StyledLink = styled(HashLink)<{ $color?: string; $disabled?: boolean }>`
+const StyledLink = styled(RouterLink)<{ $color?: string; $disabled?: boolean }>`
   ${({ $color }) =>
     $color &&
     css`
@@ -71,22 +70,13 @@ const EXTERNAL_TARGET = '_blank';
 const SCROLL_URL = '#';
 
 export const Link = styled(
-  ({
-    children,
-    to,
-    target,
-    rel,
-    color,
-    disabled,
-    ...rest
-  }: HashLinkProps & { className?: string; disabled?: boolean }) => {
+  ({ children, to, target, rel, color, disabled, ...rest }: LinkProps & { className?: string; disabled?: boolean }) => {
     const navigate = useNavigate();
 
     return (
       <StyledLink
         {...rest}
         $color={color}
-        smooth
         to={to}
         $disabled={disabled}
         onClick={(event: React.MouseEvent) => {
