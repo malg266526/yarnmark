@@ -203,7 +203,11 @@ function`); 5.x to pierwsza linia ze wsparciem ESLint 9, bez reguł React Compil
 
 Kolejno, każda osobno:
 
-1. React 19 + `@types/react` 19.
+1. ✅ React 19 + `@types/react` 19: `react` / `react-dom` 18.2.0 → 19.3.1, `@types/react` 18.2.21 → 19.3.3,
+   `@types/react-dom` 18.2.7 → 19.3.0 (także w `resolutions`). Bez zmian w kodzie: typecheck, lint, testy i bundle
+   przechodzą; brak usuniętych API (`ReactDOM.render`, `findDOMNode`, `defaultProps`, `propTypes`, string refs);
+   peer dependencies pozostałych bibliotek obejmują React 19. Sprawdzone w headless Chromium: 11 tras renderuje się bez
+   błędów Reacta w konsoli, formularz wystawcy (wpisywanie, walidacja) i przełączanie menu działają.
 2. react-router 7 (`react-router` zamiast `react-router-dom`), ocena `react-router-hash-link`.
 3. i18next + react-i18next.
 4. Pozostałe: zod, react-hook-form, @hookform/resolvers, @iconify/react, FontAwesome (✅ styled-components 6.7.0,
