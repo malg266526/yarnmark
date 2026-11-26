@@ -107,8 +107,8 @@ export const Schedule = () => {
 
   const rooms = ['library', 'bursa1', 'conference', 'bursa2', 'reading_room', 'forum', 'skein'] as const;
 
-  const renderCell = (workshop?: WorkshopsEntry, color?: keyof typeof HallColors) => {
-    if (!workshop) return <EmptyCell key={Math.random()} />;
+  const renderCell = (emptyCellKey: string, workshop?: WorkshopsEntry, color?: keyof typeof HallColors) => {
+    if (!workshop) return <EmptyCell key={emptyCellKey} />;
 
     return (
       <Cell key={workshop.topicKey + workshop.time} $background={color}>
@@ -150,7 +150,7 @@ export const Schedule = () => {
             {activeRooms.map((room, colIndex) => {
               const workshop = workshopsByRoom[room][rowIndex];
               const colorKey = getHallColorKey(colIndex);
-              return renderCell(workshop, colorKey);
+              return renderCell(`empty-${room}-${rowIndex}`, workshop, colorKey);
             })}
           </React.Fragment>
         ))}

@@ -35,6 +35,11 @@ jobs:
         if: always()
         run: yarn lint
 
+      - name: Format check
+        id: format-check
+        if: always()
+        run: yarn format:check
+
       - name: Bundle
         id: bundle
         if: always()
