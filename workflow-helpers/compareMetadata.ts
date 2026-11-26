@@ -35,6 +35,7 @@ if (!branchMetadataFilepath) {
 const GreenCheckMark = ':white_check_mark:';
 const RedExclamationMark = ':heavy_exclamation_mark:';
 const getPercentageDifference = (baseValue: number, newValue: number) => (newValue / baseValue - 1) * 100;
+const formatBytes = (value: number) => parseBytes(value, { decimalPlaces: 2 }) ?? '';
 
 interface GetComparedMetadataProps {
   baseMetadataFilepath: string;
@@ -58,12 +59,14 @@ const getComparedMetadata = ({
   const comparedMetadata = [['', ...headers]] as string[][];
 
   for (const name of allUniqueNames) {
+    const baseSize = baseMetadata[name] ?? 0;
+    const branchSize = branchMetadata[name] ?? 0;
     comparedMetadata.push([
       name,
-      parseBytes(baseMetadata[name], { decimalPlaces: 2 }),
-      parseBytes(branchMetadata[name], { decimalPlaces: 2 }),
-      parseBytes(branchMetadata[name] - baseMetadata[name], { decimalPlaces: 2 }),
-      `${getPercentageDifference(baseMetadata[name], branchMetadata[name]).toFixed(2)}%`
+      formatBytes(baseSize),
+      formatBytes(branchSize),
+      formatBytes(branchSize - baseSize),
+      `${getPercentageDifference(baseSize, branchSize).toFixed(2)}%`
     ]);
   }
 
@@ -75,9 +78,9 @@ const getComparedMetadata = ({
   comparedMetadata.push(
     [
       'Total size',
-      parseBytes(baseTotalSize, { decimalPlaces: 2 }),
-      parseBytes(branchTotalSize, { decimalPlaces: 2 }),
-      parseBytes(branchTotalSize - baseTotalSize, { decimalPlaces: 2 }),
+      formatBytes(baseTotalSize),
+      formatBytes(branchTotalSize),
+      formatBytes(branchTotalSize - baseTotalSize),
       `${emote} ${getPercentageDifference(baseTotalSize, branchTotalSize).toFixed(2)}%`
     ].map((row) => `**${row}**`)
   );

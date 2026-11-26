@@ -108,8 +108,7 @@ export interface PrepareLogoOptions {
 export type LogoRejectionReason = 'unsupportedFormat' | 'tooLarge' | 'readFailed';
 
 export type PrepareLogoResult =
-  | { status: 'ready'; logo: PreparedLogo }
-  | { status: 'rejected'; reason: LogoRejectionReason; cause?: unknown };
+  { status: 'ready'; logo: PreparedLogo } | { status: 'rejected'; reason: LogoRejectionReason; cause?: unknown };
 
 export const prepareLogoForUpload = async (
   file: File,

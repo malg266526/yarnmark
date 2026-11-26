@@ -231,8 +231,11 @@ Kolejno, każda osobno:
    (`foodEnabled`, `goldenPretzelEnabled`, `afterEnabled`) — sprawdzone w osobnej stronie testowej z prawdziwym
    pakietem (6 ikon, poprawne rozmiary). FontAwesome używa tylko nieużywany `SocialMediaLink.tsx` (krok 0) — tylko
    typecheck.
-5. [ ] Drobne aktualizacje (osobny krok): prettier 3.6.2 → 3.10.1, @emotion/is-prop-valid 1.2.1 → 1.4.0,
-       esbuild-plugin-manifest 1.0.3 → 1.0.5, @types/argv, @types/bytes.
+5. ✅ Drobne aktualizacje (osobny krok): prettier 3.6.2 → 3.10.1, @emotion/is-prop-valid 1.2.1 → 1.4.0,
+   esbuild-plugin-manifest 1.0.3 → 1.0.5, @types/argv 0.0.5 → 0.0.8, @types/bytes 3.1.1 → 3.1.7. Nowy styl Prettiera
+   (unie typów w jednej linii, `extends Omit<…>` z rozbitymi argumentami) przyjęty w 5 plikach. Nowe typy `bytes`
+   (`string | null`) ujawniły `null`/`NaN` w porównaniu rozmiaru bundla dla plików obecnych tylko po jednej stronie —
+   `compareMetadata.ts` liczy brakujący wpis jako 0 i formatuje przez `formatBytes`.
 
 ### Krok 4. Nowoczesne praktyki Reactowe — ⬜ do zrobienia
 

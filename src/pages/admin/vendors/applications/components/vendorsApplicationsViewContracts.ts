@@ -54,8 +54,10 @@ export interface VendorApplicationDetailsViewProps {
   values: VendorApplicationDisplayValues;
 }
 
-export interface VendorApplicationDetailsDrawerProps
-  extends Omit<VendorApplicationDetailsViewProps, 'application' | 'isSavingStatus'> {
+export interface VendorApplicationDetailsDrawerProps extends Omit<
+  VendorApplicationDetailsViewProps,
+  'application' | 'isSavingStatus'
+> {
   application: VendorApplication | null;
   closeApplication: () => void;
   locale: string;
@@ -85,8 +87,10 @@ export interface VendorsApplicationsRowsViewProps {
 
 export type VendorApplicationFlagsByApplicationId = ReadonlyMap<string, VendorApplicationFlag[]>;
 
-export interface VendorsApplicationsCardsViewProps
-  extends Omit<VendorApplicationDetailsViewProps, 'application' | 'flags' | 'isSavingStatus'> {
+export interface VendorsApplicationsCardsViewProps extends Omit<
+  VendorApplicationDetailsViewProps,
+  'application' | 'flags' | 'isSavingStatus'
+> {
   applications: VendorApplication[];
   flagsByApplicationId: VendorApplicationFlagsByApplicationId;
   locale: string;
@@ -161,8 +165,10 @@ export interface VendorsApplicationsToolbarViewProps {
   translate: TranslateViewText;
 }
 
-export interface VendorsApplicationsSplitViewProps
-  extends Omit<VendorsApplicationsRowsViewProps, 'highlightApplication'> {
+export interface VendorsApplicationsSplitViewProps extends Omit<
+  VendorsApplicationsRowsViewProps,
+  'highlightApplication'
+> {
   mapMultiplier: number;
   selectStand: (standId: string) => void;
   selectedStandId: string;

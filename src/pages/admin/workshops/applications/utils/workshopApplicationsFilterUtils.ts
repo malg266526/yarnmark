@@ -10,8 +10,7 @@ import {
 
 export type WorkshopApplicationsStatusFilter = WorkshopApplicationStatus | typeof WORKSHOP_APPLICATIONS_FILTER_ALL;
 export type WorkshopApplicationsLevelFilter =
-  | Exclude<WorkshopFormExperienceLevel, null>
-  | typeof WORKSHOP_APPLICATIONS_FILTER_ALL;
+  Exclude<WorkshopFormExperienceLevel, null> | typeof WORKSHOP_APPLICATIONS_FILTER_ALL;
 
 export interface WorkshopApplicationsFilters {
   level: WorkshopApplicationsLevelFilter;
