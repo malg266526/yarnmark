@@ -168,9 +168,25 @@ function`); 5.x to pierwsza linia ze wsparciem ESLint 9, bez reguł React Compil
   - `incompatible-library` — 2 ostrzeżenia: `watch()` z React Hook Form w `useVendorForm.ts` i `useWorkshopForm.ts`.
   - Pozostałe reguły presetu (`immutability`, `static-components`, `use-memo`, `globals`, `set-state-in-render`,
     `error-boundaries` i in.) — 0 zgłoszeń.
-- [ ] **2f. Porządki w regułach (opcjonalnie):** usunięcie reguł formatowania dublujących Prettiera; rozważenie
-      zastąpienia `eslint-plugin-prettier` osobnym `prettier --check` (szybszy lint); włączenie presetów
-      `typescript-eslint` recommended i `jsx-a11y` recommended (nowe błędy do naprawy — osobno).
+- [ ] 🟡 **2f. Porządki w regułach (opcjonalnie):**
+  - [x] ✅ Usunięte reguły formatowania dublujące Prettiera: `linebreak-style`, `object-curly-spacing`,
+        `react/jsx-tag-spacing`. Wykryte przez `npx eslint-config-prettier src/App.tsx` (po zmianie: brak konfliktów);
+        próbka z naruszeniami zgłaszana była podwójnie (reguła + `prettier/prettier`). Aktywnych reguł 104 → 101,
+        żadna nie doszła.
+  - [x] ✅ Włączone presety `typescript-eslint` recommended i `jsx-a11y` recommended (przed regułami projektu, żeby
+        nasze ustawienia miały pierwszeństwo). Pluginy `@typescript-eslint` i `jsx-a11y` rejestrują teraz presety
+        (podwójna rejestracja `jsx-a11y` kończyła się błędem `Cannot redefine plugin`). Zgłoszeń po włączeniu: 10,
+        wszystkie z `typescript-eslint`; `jsx-a11y` — 0 (próbka z naruszeniami potwierdza, że reguły działają).
+    - `no-explicit-any` (9): `src/types.d.ts` — moduły obrazków typowane jako `string` (loader `file` w esbuildzie
+      zwraca URL), usunięta martwa deklaracja `infinite-react-carousel` (brak w zależnościach i importach);
+      `useOnClickOutside.ts` — `event: MouseEvent`.
+    - `ban-ts-comment` (1): `service-worker.ts` — `@ts-ignore` zastąpione rzutowaniem przez `unknown` do
+      `ServiceWorkerGlobalScope` (wygenerowany kod bez zmian: `var sw = self;`).
+    - Usunięte reguły projektu identyczne z presetami: `jsx-a11y/alt-text`, `no-unused-vars: 0`,
+      `@typescript-eslint/no-unused-vars` (wynikowa konfiguracja bez zmian, porównanie `--print-config`).
+      `no-undef: 0` zostaje — preset wyłącza ją tylko dla plików TS.
+    - Aktywnych reguł 101 → 137.
+  - [ ] Rozważenie zastąpienia `eslint-plugin-prettier` osobnym `prettier --check` (szybszy lint).
 - Kolejność: 2a → 2b → 2c → 2d → 2e → 2f.
 
 ### Krok 2. Bundler — ⬜ do zrobienia

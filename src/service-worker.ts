@@ -1,8 +1,7 @@
 /// <reference lib="ES2015" />
 /// <reference lib="webworker" />
 
-// @ts-ignore
-const sw = self as ServiceWorkerGlobalScope;
+const sw = self as unknown as ServiceWorkerGlobalScope;
 
 const CacheName = {
   runtime3: 'runtime-v2',

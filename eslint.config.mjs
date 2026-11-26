@@ -24,13 +24,13 @@ export default [
   react.configs.flat['jsx-runtime'],
   importPlugin.flatConfigs.errors,
   importPlugin.flatConfigs.warnings,
+  ...tseslint.configs.recommended,
+  jsxA11y.flatConfigs.recommended,
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     plugins: {
-      '@typescript-eslint': tseslint.plugin,
       prettier: prettierPlugin,
-      'react-hooks': reactHooks,
-      'jsx-a11y': jsxA11y
+      'react-hooks': reactHooks
     },
     languageOptions: {
       parser: tseslint.parser,
@@ -65,24 +65,10 @@ export default [
       }
     },
     rules: {
-      'jsx-a11y/alt-text': 'error',
-      'linebreak-style': ['error', 'unix'],
-      'no-unused-vars': 0,
       'no-undef': 0,
-      'object-curly-spacing': ['error', 'always'],
       'no-debugger': 1,
       'prettier/prettier': ['error', prettierRcConfig],
       'react/no-unescaped-entities': 0,
-      'react/jsx-tag-spacing': [
-        2,
-        {
-          closingSlash: 'never',
-          beforeSelfClosing: 'always',
-          afterOpening: 'never',
-          beforeClosing: 'allow'
-        }
-      ],
-      '@typescript-eslint/no-unused-vars': 2,
       'import/no-unused-modules': 0,
       'import/group-exports': 0,
       'react/jsx-key': 1,

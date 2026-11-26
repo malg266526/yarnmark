@@ -1,10 +1,10 @@
 declare module '*.jpg' {
-  const content: any;
+  const content: string;
   export default content;
 }
 
 declare module '*.jpeg' {
-  const content: any;
+  const content: string;
   export default content;
 }
 
@@ -14,31 +14,26 @@ declare module '*.jpeg' {
 // }
 
 declare module '*.png' {
-  const content: any;
+  const content: string;
   export default content;
 }
 
 declare module '*.svg' {
-  const content: any;
+  const content: string;
   export default content;
 }
 
 declare module '*.webp' {
-  const content: any;
+  const content: string;
   export default content;
 }
 
 declare module '*.avif' {
-  const content: any;
+  const content: string;
   export default content;
 }
 
 declare module '*.jfif' {
-  const content: any;
-  export default content;
-}
-
-declare module 'infinite-react-carousel' {
-  const content: any;
+  const content: string;
   export default content;
 }
