@@ -34,6 +34,7 @@ export interface WorkshopFormActions {
   setNumberFieldValue: (fieldName: WorkshopFormNumberFieldName, value: number | null) => void;
   submitWorkshopForm: () => Promise<void>;
   updateDescription: (value: string) => void;
+  updateHostDescription: (value: string) => void;
   updateLogoFile: (file: File | null) => void;
 }
 

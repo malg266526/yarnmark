@@ -1,5 +1,8 @@
 import { z } from 'zod';
-import { WORKSHOP_FORM_DESCRIPTION_MAX_LENGTH } from './workshopFormConstants.ts';
+import {
+  WORKSHOP_FORM_DESCRIPTION_MAX_LENGTH,
+  WORKSHOP_FORM_HOST_DESCRIPTION_MAX_LENGTH
+} from './workshopFormConstants.ts';
 import { isEmailValid, isPhoneValid } from '../vendorApplications/vendorFormUtils.ts';
 
 export const WORKSHOP_FORM_VALIDATION_KEYS = {
@@ -12,6 +15,8 @@ export const WORKSHOP_FORM_VALIDATION_KEYS = {
   emailRequired: 'workshopsFormPage.validation.emailRequired',
   experienceLevelRequired: 'workshopsFormPage.validation.experienceLevelRequired',
   grossPricePerParticipantRequired: 'workshopsFormPage.validation.grossPricePerParticipantRequired',
+  hostDescriptionRequired: 'workshopsFormPage.validation.hostDescriptionRequired',
+  hostDescriptionTooLong: 'workshopsFormPage.validation.hostDescriptionTooLong',
   logoRequired: 'workshopsFormPage.validation.logoRequired',
   maxParticipantsRequired: 'workshopsFormPage.validation.maxParticipantsRequired',
   maxParticipantsTooSmall: 'workshopsFormPage.validation.maxParticipantsTooSmall',
@@ -28,6 +33,11 @@ const workshopFormNullableStringSchema = z
   .nullable()
   .optional()
   .transform((value) => value ?? null);
+
+const workshopFormOptionalStringSchema = z
+  .string()
+  .nullish()
+  .transform((value) => value ?? '');
 
 const workshopFormNullableNumberSchema = z.preprocess(
   (value) => {
@@ -68,6 +78,7 @@ export const workshopFormStateSchema = z.object({
   tutorName: z.string(),
   workshopTitle: z.string(),
   description: z.string(),
+  hostDescription: workshopFormOptionalStringSchema,
   minParticipants: workshopFormNullableNumberSchema,
   maxParticipants: workshopFormNullableNumberSchema,
   experienceLevel: z.enum(['beginner', 'intermediate', 'advanced', 'any']).nullable(),
@@ -95,6 +106,11 @@ export const workshopFormValidationSchema = workshopFormStateSchema
       .trim()
       .min(1, WORKSHOP_FORM_VALIDATION_KEYS.descriptionRequired)
       .max(WORKSHOP_FORM_DESCRIPTION_MAX_LENGTH, WORKSHOP_FORM_VALIDATION_KEYS.descriptionTooLong),
+    hostDescription: z
+      .string()
+      .trim()
+      .min(1, WORKSHOP_FORM_VALIDATION_KEYS.hostDescriptionRequired)
+      .max(WORKSHOP_FORM_HOST_DESCRIPTION_MAX_LENGTH, WORKSHOP_FORM_VALIDATION_KEYS.hostDescriptionTooLong),
     duration: z.string().trim().min(1, WORKSHOP_FORM_VALIDATION_KEYS.durationRequired),
     participantsShouldBring: z.string().trim().min(1, WORKSHOP_FORM_VALIDATION_KEYS.participantsShouldBringRequired),
     phoneNumber: z

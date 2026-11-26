@@ -521,6 +521,7 @@ export const pl = {
         description: {
           title: 'Krótki opis warsztatu',
           label: 'Opis warsztatu',
+          hostLabel: 'Opis prowadzącego',
           limitHint: '{{current}} / {{max}} znaków'
         },
         logistics: {
@@ -564,6 +565,8 @@ export const pl = {
         workshopTitleRequired: 'Podaj tytuł warsztatu.',
         descriptionRequired: 'Dodaj opis warsztatu.',
         descriptionTooLong: 'Opis warsztatu jest za długi.',
+        hostDescriptionRequired: 'Dodaj opis prowadzącego.',
+        hostDescriptionTooLong: 'Opis prowadzącego jest za długi.',
         minParticipantsRequired: 'Podaj minimalną liczbę uczestników.',
         maxParticipantsRequired: 'Podaj maksymalną liczbę uczestników.',
         maxParticipantsTooSmall: 'Maksymalna liczba uczestników nie może być mniejsza niż minimalna.',

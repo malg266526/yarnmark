@@ -522,6 +522,7 @@ export const en: TranslationsShape = {
         description: {
           title: 'Short workshop description',
           label: 'Workshop description',
+          hostLabel: 'Tutor description',
           limitHint: '{{current}} / {{max}} characters'
         },
         logistics: {
@@ -565,6 +566,8 @@ export const en: TranslationsShape = {
         workshopTitleRequired: 'Enter the workshop title.',
         descriptionRequired: 'Add a workshop description.',
         descriptionTooLong: 'The workshop description is too long.',
+        hostDescriptionRequired: 'Add a tutor description.',
+        hostDescriptionTooLong: 'The tutor description is too long.',
         minParticipantsRequired: 'Enter the minimum number of participants.',
         maxParticipantsRequired: 'Enter the maximum number of participants.',
         maxParticipantsTooSmall: 'The maximum number of participants cannot be lower than the minimum.',

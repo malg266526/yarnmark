@@ -32,7 +32,10 @@ export const WorkshopFormView = ({ formActions, formBindings, formStatus }: Work
       />
 
       <WorkshopFormDescriptionSection
-        formActions={{ updateDescription: formActions.updateDescription }}
+        formActions={{
+          updateDescription: formActions.updateDescription,
+          updateHostDescription: formActions.updateHostDescription
+        }}
         formBindings={formBindings}
       />
 

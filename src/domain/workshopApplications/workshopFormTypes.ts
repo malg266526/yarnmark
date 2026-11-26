@@ -6,6 +6,7 @@ export interface WorkshopFormState {
   tutorName: string;
   workshopTitle: string;
   description: string;
+  hostDescription: string;
   minParticipants: number | null;
   maxParticipants: number | null;
   experienceLevel: WorkshopFormExperienceLevel;
@@ -28,6 +29,7 @@ export const INITIAL_WORKSHOP_FORM_STATE: WorkshopFormState = {
   tutorName: '',
   workshopTitle: '',
   description: '',
+  hostDescription: '',
   minParticipants: null,
   maxParticipants: null,
   experienceLevel: null,

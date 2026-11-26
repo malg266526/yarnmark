@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createEmptyWorkshopFormDraft, parseStoredWorkshopFormDraft } from '../workshopFormStorage.ts';
 import { INITIAL_WORKSHOP_FORM_STATE } from '../../../../domain/workshopApplications/workshopFormTypes.ts';
+import type { WorkshopFormState } from '../../../../domain/workshopApplications/workshopFormTypes.ts';
 
 const createValidWorkshopFormState = () => ({
   ...INITIAL_WORKSHOP_FORM_STATE,
@@ -50,6 +51,19 @@ test('parseStoredWorkshopFormDraft rejects a payload missing a required field', 
   };
 
   assert.equal(parseStoredWorkshopFormDraft(JSON.stringify(draft)), null);
+});
+
+test('parseStoredWorkshopFormDraft restores a draft saved before the host description existed', () => {
+  const formDataWithoutHostDescription: Partial<WorkshopFormState> = createValidWorkshopFormState();
+
+  delete formDataWithoutHostDescription.hostDescription;
+
+  const draft = { formData: formDataWithoutHostDescription, isComplete: false };
+
+  assert.deepEqual(parseStoredWorkshopFormDraft(JSON.stringify(draft)), {
+    formData: { ...formDataWithoutHostDescription, hostDescription: '' },
+    isComplete: false
+  });
 });
 
 test('createEmptyWorkshopFormDraft returns empty initial state', () => {

@@ -10,6 +10,7 @@ const createApplication = (id: string, submittedAt: string): WorkshopApplication
   tutorName: 'Anna Kowalska',
   workshopTitle: 'Crochet basics',
   description: 'A short workshop description.',
+  hostDescription: 'A short tutor description.',
   minParticipants: 4,
   maxParticipants: 10,
   experienceLevel: 'beginner',
