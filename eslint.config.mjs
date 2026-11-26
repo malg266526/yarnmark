@@ -4,10 +4,8 @@ import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import importPlugin from 'eslint-plugin-import';
-import prettierPlugin from 'eslint-plugin-prettier';
 import prettierConfig from 'eslint-config-prettier';
 import globals from 'globals';
-import prettierRcConfig from './.prettierrc.json' with { type: 'json' };
 
 export default [
   {
@@ -27,25 +25,6 @@ export default [
   ...tseslint.configs.recommended,
   jsxA11y.flatConfigs.recommended,
   {
-    files: ['**/*.{js,jsx,ts,tsx}'],
-    plugins: {
-      prettier: prettierPlugin,
-      'react-hooks': reactHooks
-    },
-    languageOptions: {
-      parser: tseslint.parser,
-      ecmaVersion: 2018,
-      sourceType: 'module',
-      parserOptions: {
-        project: './tsconfig.json',
-        ecmaFeatures: {
-          jsx: true
-        }
-      },
-      globals: {
-        ...globals.browser
-      }
-    },
     settings: {
       'import/resolver': {
         typescript: {
@@ -63,11 +42,38 @@ export default [
       react: {
         version: 'detect'
       }
+    }
+  },
+  {
+    files: ['**/*.mjs'],
+    languageOptions: {
+      globals: {
+        ...globals.node
+      }
+    }
+  },
+  {
+    files: ['**/*.{js,jsx,ts,tsx}'],
+    plugins: {
+      'react-hooks': reactHooks
+    },
+    languageOptions: {
+      parser: tseslint.parser,
+      ecmaVersion: 2018,
+      sourceType: 'module',
+      parserOptions: {
+        project: './tsconfig.json',
+        ecmaFeatures: {
+          jsx: true
+        }
+      },
+      globals: {
+        ...globals.browser
+      }
     },
     rules: {
       'no-undef': 0,
       'no-debugger': 1,
-      'prettier/prettier': ['error', prettierRcConfig],
       'react/no-unescaped-entities': 0,
       'import/no-unused-modules': 0,
       'import/group-exports': 0,

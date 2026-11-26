@@ -168,7 +168,7 @@ function`); 5.x to pierwsza linia ze wsparciem ESLint 9, bez reguł React Compil
   - `incompatible-library` — 2 ostrzeżenia: `watch()` z React Hook Form w `useVendorForm.ts` i `useWorkshopForm.ts`.
   - Pozostałe reguły presetu (`immutability`, `static-components`, `use-memo`, `globals`, `set-state-in-render`,
     `error-boundaries` i in.) — 0 zgłoszeń.
-- [ ] 🟡 **2f. Porządki w regułach (opcjonalnie):**
+- [x] ✅ **2f. Porządki w regułach:**
   - [x] ✅ Usunięte reguły formatowania dublujące Prettiera: `linebreak-style`, `object-curly-spacing`,
         `react/jsx-tag-spacing`. Wykryte przez `npx eslint-config-prettier src/App.tsx` (po zmianie: brak konfliktów);
         próbka z naruszeniami zgłaszana była podwójnie (reguła + `prettier/prettier`). Aktywnych reguł 104 → 101,
@@ -186,7 +186,11 @@ function`); 5.x to pierwsza linia ze wsparciem ESLint 9, bez reguł React Compil
       `@typescript-eslint/no-unused-vars` (wynikowa konfiguracja bez zmian, porównanie `--print-config`).
       `no-undef: 0` zostaje — preset wyłącza ją tylko dla plików TS.
     - Aktywnych reguł 101 → 137.
-  - [ ] Rozważenie zastąpienia `eslint-plugin-prettier` osobnym `prettier --check` (szybszy lint).
+  - [x] ✅ `eslint-plugin-prettier` usunięty (pakiet, plugin, reguła `prettier/prettier`, import `.prettierrc.json`)
+        i zastąpiony skryptem `format:check` (`prettier --check .`), dodanym do `.husky/pre-commit` i do workflowu
+        `pull-request.yml` (krok „Format check”). `eslint-config-prettier` zostaje — wyłącza reguły kolidujące
+        z Prettierem. Czasy lokalnie: lint ~20 s → ~16 s, `format:check` ~9 s; łącznie pre-commit wolniejszy o ~5 s,
+        ale sprawdza formatowanie wszystkich plików (wcześniej tylko `src/**/*.{ts,tsx}`). Zaległych zmian formatowania: 0.
 - Kolejność: 2a → 2b → 2c → 2d → 2e → 2f.
 
 ### Krok 2. Bundler — ⬜ do zrobienia
