@@ -77,10 +77,10 @@ dev servera, np. `index.js.map`). Pliki w `docs/updates/vite-baseline/`:
 Wynik: `@types/node` 20.6.1 → 24.19.4 (najnowsza z linii 24; doszła zależność `undici-types` 7.24.6). Bez zmian w
 kodzie. Typecheck, lint, `format:check`, testy (378/378), `yarn bundle` i `yarn transpile-workflow-files` bez błędów.
 
-### Krok V2. Instalacja Vite obok esbuilda
+### Krok V2. Instalacja Vite obok esbuilda — ✅ zrobione
 
 - Dodać `vite` 8.4.0 i `@vitejs/plugin-react` 6.3.0 (devDependencies).
-- Nowy `vite.config.ts` z ustawieniami odpowiadającymi obecnym:
+- Nowy `vite.config.mts` z ustawieniami odpowiadającymi obecnym:
   - `plugins: [react()]`;
   - `resolve.alias`: `@` → `src` (zamiast `paths` z `tsconfig.json`, które czyta esbuild);
   - `server.port: 8090`, `server.strictPort: true`, `server.open: true`;
@@ -88,6 +88,15 @@ kodzie. Typecheck, lint, `format:check`, testy (378/378), `yarn bundle` i `yarn 
   - `build.assetsInlineLimit: 0` — Vite domyślnie wstawia pliki < 4 KB jako `data:` URL; dziś każdy obrazek jest
     osobnym plikiem.
 - Stare skrypty `start` i `bundle` zostają, Vite uruchamiany na próbę: `npx vite`, `npx vite build`.
+
+Wynik: `vite` 8.4.0 i `@vitejs/plugin-react` 6.3.0 w devDependencies (bez nowych ostrzeżeń o peer dependencies;
+`esbuild` jest dla Vite 8 opcjonalny, więc 0.19.2 nie koliduje). Konfiguracja w `vite.config.mts`, nie `.ts` — bez
+`"type": "module"` w `package.json` Vite wczytywał `.ts` jako CommonJS i ostrzegał, że ten tryb przestanie być
+obsługiwany; `.mts` jest zawsze modułem ES. Plik jest objęty typecheckiem (`tsconfig.json` nie ma `include`).
+Sprawdzone na próbnym serwerze (`npx vite --port 8092`, bo 8090 zajmuje dev server esbuilda): `src/index.tsx`
+i zależności się transformują, alias `@/` rozwiązuje się do `/src/…`, importy obrazków (svg, jfif, avif, webp)
+zwracają URL jak dotąd. `/` zwraca 404 i `npx vite build` nie ma jeszcze punktu wejścia — oba wymagają `index.html`
+w roocie (krok V3). Typecheck, lint, `format:check`, testy (378/378) i `yarn bundle` bez błędów.
 
 ### Krok V3. `index.html` w roocie projektu
 
@@ -156,7 +165,7 @@ kodzie. Typecheck, lint, `format:check`, testy (378/378), `yarn bundle` i `yarn 
   usunąć `esbuild` z zależności.
 - `argv` zostaje (używają go `workflow-helpers`).
 - Zaktualizować `AGENTS.md` (dev server, harness „with the project's esbuild”), `README.md`, `eslint.config.mjs`
-  (`globals.node` dla `vite.config.ts`, jeśli lint ma go obejmować) i `docs/updates/update-context.md`.
+  (`globals.node` dla `vite.config.mts`, jeśli lint ma go obejmować) i `docs/updates/update-context.md`.
 - Sprawdzenie: `npm run check:unused` (knip) — brak osieroconych plików i zależności po esbuildzie.
 
 ## Poza zakresem migracji (kolejne kroki planu)
