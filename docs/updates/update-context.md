@@ -216,7 +216,13 @@ Kolejno, każda osobno:
    `@types/react-router-hash-link` usunięte (importowały `react-router-dom`; żaden link nie używał kotwic `#`) —
    `Link.tsx` używa `Link`/`LinkProps` z `react-router`. Sprawdzone w headless Chromium: 11 tras, nawigacja
    wewnętrzna bez przeładowania (`/info-for-vendors` → `/vendor/statute`), link zewnętrzny otwiera nową kartę, menu.
-3. i18next + react-i18next.
+3. ✅ i18next 23.5.1 → 27.2.9 i react-i18next 13.2.2 → 18.0.3 (obie wymagają Node ≥ 22 — CI już na 24). Bez zmian
+   w kodzie. Przejrzane zmiany łamiące v24–v27 / v14–v18 pod kątem tego, czego projekt używa (`init` z `lng`,
+   `resources`, `interpolation.escapeValue: false`; `I18nextProvider`, `useTranslation`, `Trans`, `changeLanguage`):
+   brak pustych tłumaczeń (`returnEmptyString: false` w v27), brak kluczy liczby mnogiej (format v4 w v24), brak
+   `fallbackLng` (domyślne `dev` i tak nie miało zasobów). Sprawdzone w headless Chromium: tekst 8 tras po polsku
+   i angielsku identyczny jak ze starą wersją (różnice tylko w losowej treści, iframe Google i danych z API),
+   przełączanie języka działa (tekst, `Trans` z linkiem, `localStorage`, `<html lang>`).
 4. Pozostałe: zod, react-hook-form, @hookform/resolvers, @iconify/react, FontAwesome (✅ styled-components 6.7.0,
    ✅ bootstrap usunięty).
 
