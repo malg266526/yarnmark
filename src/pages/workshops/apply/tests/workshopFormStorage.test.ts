@@ -66,6 +66,19 @@ test('parseStoredWorkshopFormDraft restores a draft saved before the host descri
   });
 });
 
+test('parseStoredWorkshopFormDraft restores a draft saved before the suggested max price existed', () => {
+  const formDataWithoutSuggestedMaxPrice: Partial<WorkshopFormState> = createValidWorkshopFormState();
+
+  delete formDataWithoutSuggestedMaxPrice.suggestedMaxPrice;
+
+  const draft = { formData: formDataWithoutSuggestedMaxPrice, isComplete: false };
+
+  assert.deepEqual(parseStoredWorkshopFormDraft(JSON.stringify(draft)), {
+    formData: { ...formDataWithoutSuggestedMaxPrice, suggestedMaxPrice: null },
+    isComplete: false
+  });
+});
+
 test('createEmptyWorkshopFormDraft returns empty initial state', () => {
   assert.deepEqual(createEmptyWorkshopFormDraft(), {
     formData: INITIAL_WORKSHOP_FORM_STATE,

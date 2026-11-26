@@ -23,6 +23,7 @@ export const WORKSHOP_FORM_VALIDATION_KEYS = {
   minParticipantsRequired: 'workshopsFormPage.validation.minParticipantsRequired',
   phoneInvalid: 'workshopsFormPage.validation.phoneInvalid',
   phoneRequired: 'workshopsFormPage.validation.phoneRequired',
+  suggestedMaxPriceInvalid: 'workshopsFormPage.validation.suggestedMaxPriceInvalid',
   participantsShouldBringRequired: 'workshopsFormPage.validation.participantsShouldBringRequired',
   tutorNameRequired: 'workshopsFormPage.validation.tutorNameRequired',
   workshopTitleRequired: 'workshopsFormPage.validation.workshopTitleRequired'
@@ -87,6 +88,7 @@ export const workshopFormStateSchema = z.object({
   roomRequirements: z.string(),
   requiredEquipment: z.string(),
   grossPricePerParticipant: workshopFormNullableNumberSchema,
+  suggestedMaxPrice: workshopFormNullableNumberSchema,
   contractType: z.enum(['commission', 'specificWork', 'invoice', 'other']).nullable(),
   contractTypeOther: z.string(),
   additionalInfo: z.string(),
@@ -160,6 +162,14 @@ export const workshopFormValidationSchema = workshopFormStateSchema
         code: 'custom',
         message: WORKSHOP_FORM_VALIDATION_KEYS.grossPricePerParticipantRequired,
         path: ['grossPricePerParticipant']
+      });
+    }
+
+    if (value.suggestedMaxPrice !== null && value.suggestedMaxPrice <= 0) {
+      ctx.addIssue({
+        code: 'custom',
+        message: WORKSHOP_FORM_VALIDATION_KEYS.suggestedMaxPriceInvalid,
+        path: ['suggestedMaxPrice']
       });
     }
 

@@ -96,6 +96,26 @@ test('WORKSHOP_FORM_HOST_DESCRIPTION_MAX_LENGTH matches the backend limit', () =
   assert.equal(WORKSHOP_FORM_HOST_DESCRIPTION_MAX_LENGTH, 1200);
 });
 
+test('collectWorkshopFormValidationErrors treats the suggested max price as optional', () => {
+  const errors = collectWorkshopFormValidationErrors(createValidWorkshopFormValues({ suggestedMaxPrice: null }));
+
+  assert.equal(errors.suggestedMaxPrice, undefined);
+});
+
+test('collectWorkshopFormValidationErrors accepts a positive suggested max price', () => {
+  const errors = collectWorkshopFormValidationErrors(createValidWorkshopFormValues({ suggestedMaxPrice: 79.99 }));
+
+  assert.equal(errors.suggestedMaxPrice, undefined);
+});
+
+test('collectWorkshopFormValidationErrors rejects a zero or negative suggested max price', () => {
+  for (const suggestedMaxPrice of [0, -5]) {
+    const errors = collectWorkshopFormValidationErrors(createValidWorkshopFormValues({ suggestedMaxPrice }));
+
+    assert.equal(errors.suggestedMaxPrice, 'workshopsFormPage.validation.suggestedMaxPriceInvalid');
+  }
+});
+
 test('collectWorkshopFormValidationErrors rejects a maximum lower than the minimum participants', () => {
   const errors = collectWorkshopFormValidationErrors(
     createValidWorkshopFormValues({ minParticipants: 10, maxParticipants: 5 })

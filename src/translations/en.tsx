@@ -539,7 +539,9 @@ export const en: TranslationsShape = {
         },
         pricing: {
           title: 'Payment',
-          grossPricePerParticipantLabel: 'Gross price per participant (PLN)'
+          grossPricePerParticipantLabel: 'Gross price per participant (PLN)',
+          suggestedMaxPriceLabel: 'Suggested maximum price (PLN)',
+          suggestedMaxPriceHint: 'Suggested ticket price for participants'
         },
         contractType: {
           title: 'Contract type',
@@ -575,6 +577,7 @@ export const en: TranslationsShape = {
         durationRequired: 'Enter the workshop duration.',
         participantsShouldBringRequired: 'Enter what the participant should bring.',
         grossPricePerParticipantRequired: 'Enter the gross price per participant.',
+        suggestedMaxPriceInvalid: 'Enter a price greater than 0.',
         contractTypeRequired: 'Select the contract type.',
         contractTypeOtherRequired: 'Enter the contract type.',
         logoRequired: "Add the tutor's logo or photo.",
@@ -871,6 +874,7 @@ export const en: TranslationsShape = {
         phone: 'Phone',
         email: 'Email',
         description: 'Workshop description',
+        hostDescription: 'Tutor description',
         participants: 'Number of participants',
         participantsRange: '{{min}}–{{max}}',
         experienceLevel: 'Experience level',
@@ -880,6 +884,7 @@ export const en: TranslationsShape = {
         requiredEquipment: 'Equipment provided by the organizer',
         grossPricePerParticipant: 'Gross price per participant',
         grossPricePerParticipantValue: 'PLN {{price}}',
+        suggestedMaxPrice: 'Suggested maximum price',
         contractType: 'Contract type',
         logoFilename: 'Logo',
         additionalInfo: 'Additional information',

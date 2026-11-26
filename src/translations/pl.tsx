@@ -538,7 +538,9 @@ export const pl = {
         },
         pricing: {
           title: 'Wynagrodzenie',
-          grossPricePerParticipantLabel: 'Kwota brutto za osobę (zł)'
+          grossPricePerParticipantLabel: 'Kwota brutto za osobę (zł)',
+          suggestedMaxPriceLabel: 'Sugerowana cena maksymalna (zł)',
+          suggestedMaxPriceHint: 'Sugerowana cena biletu dla uczestnika'
         },
         contractType: {
           title: 'Typ umowy',
@@ -574,6 +576,7 @@ export const pl = {
         durationRequired: 'Podaj czas trwania warsztatu.',
         participantsShouldBringRequired: 'Podaj, co powinien przynieść uczestnik.',
         grossPricePerParticipantRequired: 'Podaj kwotę brutto za osobę.',
+        suggestedMaxPriceInvalid: 'Podaj cenę większą od 0.',
         contractTypeRequired: 'Wybierz typ umowy.',
         contractTypeOtherRequired: 'Podaj typ umowy.',
         logoRequired: 'Dodaj logo lub zdjęcie prowadzącego.',
@@ -870,6 +873,7 @@ export const pl = {
         phone: 'Telefon',
         email: 'E-mail',
         description: 'Opis warsztatu',
+        hostDescription: 'Opis prowadzącego',
         participants: 'Liczba uczestników',
         participantsRange: '{{min}}–{{max}}',
         experienceLevel: 'Poziom zaawansowania',
@@ -879,6 +883,7 @@ export const pl = {
         requiredEquipment: 'Sprzęt zapewniany przez organizatora',
         grossPricePerParticipant: 'Kwota brutto za osobę',
         grossPricePerParticipantValue: '{{price}} zł',
+        suggestedMaxPrice: 'Sugerowana cena maksymalna',
         contractType: 'Typ umowy',
         logoFilename: 'Logo',
         additionalInfo: 'Informacje dodatkowe',

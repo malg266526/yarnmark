@@ -12,6 +12,7 @@ export const createWorkshopApplicationFixture = (
   email: 'anna@example.com',
   experienceLevel: 'beginner',
   grossPricePerParticipant: 100,
+  suggestedMaxPrice: 150,
   id: 'application-1',
   logoDataUrl: null,
   logoFileName: 'logo.png',

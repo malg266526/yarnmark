@@ -31,6 +31,7 @@ const createWorkshopFormState = (overrides: Partial<WorkshopFormState> = {}): Wo
   roomRequirements: 'Tables and power access.',
   requiredEquipment: 'Flipchart, monitor.',
   grossPricePerParticipant: 50,
+  suggestedMaxPrice: 80,
   contractType: 'invoice',
   contractTypeOther: '',
   additionalInfo: '',
@@ -182,6 +183,13 @@ test('parseWorkshopApplications maps the backend submissions payload', () => {
   assert.equal(application.logoDataUrl, null);
   assert.equal(application.logoUrl, 'https://yarnmark-api.com/workshops/logo.webp');
   assert.equal(application.hostDescription, '');
+  assert.equal(application.suggestedMaxPrice, null);
+});
+
+test('parseWorkshopApplications keeps the suggested max price sent by the backend', () => {
+  const [application] = parseWorkshopApplications([{ ...createWorkshopApplication(), suggestedMaxPrice: 79.99 }]);
+
+  assert.equal(application.suggestedMaxPrice, 79.99);
 });
 
 test('parseWorkshopApplications keeps the host description sent by the backend', () => {

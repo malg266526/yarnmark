@@ -15,6 +15,7 @@ export interface WorkshopFormState {
   roomRequirements: string;
   requiredEquipment: string;
   grossPricePerParticipant: number | null;
+  suggestedMaxPrice: number | null;
   contractType: WorkshopFormContractType;
   contractTypeOther: string;
   additionalInfo: string;
@@ -38,6 +39,7 @@ export const INITIAL_WORKSHOP_FORM_STATE: WorkshopFormState = {
   roomRequirements: '',
   requiredEquipment: '',
   grossPricePerParticipant: null,
+  suggestedMaxPrice: null,
   contractType: null,
   contractTypeOther: '',
   additionalInfo: '',

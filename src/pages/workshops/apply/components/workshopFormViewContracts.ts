@@ -7,7 +7,8 @@ import type {
   WorkshopFormState
 } from '@/domain/workshopApplications/workshopFormTypes.ts';
 
-export type WorkshopFormNumberFieldName = 'minParticipants' | 'maxParticipants' | 'grossPricePerParticipant';
+export type WorkshopFormNumberFieldName =
+  'minParticipants' | 'maxParticipants' | 'grossPricePerParticipant' | 'suggestedMaxPrice';
 
 export type ResolveWorkshopFormErrorMessage = (...fieldNames: Array<keyof WorkshopFormValues>) => string;
 

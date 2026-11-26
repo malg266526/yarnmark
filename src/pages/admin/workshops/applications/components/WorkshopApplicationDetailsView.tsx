@@ -38,6 +38,7 @@ export const WorkshopApplicationDetailsView = ({
         : notProvided
     ],
     ['description', application.description],
+    ['hostDescription', application.hostDescription || notProvided],
     ['duration', application.duration || notProvided],
     ['participantsShouldBring', application.participantsShouldBring || notProvided],
     ['roomRequirements', application.roomRequirements || notProvided],
@@ -47,6 +48,14 @@ export const WorkshopApplicationDetailsView = ({
       translate('workshopsApplicationsPage.fields.grossPricePerParticipantValue', {
         price: application.grossPricePerParticipant
       })
+    ],
+    [
+      'suggestedMaxPrice',
+      application.suggestedMaxPrice === null
+        ? notProvided
+        : translate('workshopsApplicationsPage.fields.grossPricePerParticipantValue', {
+            price: application.suggestedMaxPrice
+          })
     ],
     [
       'contractType',

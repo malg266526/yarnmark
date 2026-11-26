@@ -19,6 +19,7 @@ const createApplication = (id: string, submittedAt: string): WorkshopApplication
   roomRequirements: 'Tables and power access.',
   requiredEquipment: 'Flipchart, monitor.',
   grossPricePerParticipant: 50,
+  suggestedMaxPrice: null,
   contractType: 'invoice',
   contractTypeOther: '',
   additionalInfo: '',
