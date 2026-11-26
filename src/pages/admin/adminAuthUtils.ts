@@ -8,9 +8,7 @@ export interface AdminSession {
 }
 
 export type AdminLoginResult =
-  | { status: 'authenticated'; session: AdminSession }
-  | { status: 'pendingApproval' }
-  | { status: 'error' };
+  { status: 'authenticated'; session: AdminSession } | { status: 'pendingApproval' } | { status: 'error' };
 
 const adminLoginSuccessSchema = z.object({ token: z.string().min(1), user: z.unknown() });
 

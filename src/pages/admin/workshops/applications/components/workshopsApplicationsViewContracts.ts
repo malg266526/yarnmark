@@ -23,8 +23,10 @@ export interface WorkshopApplicationDetailsViewProps {
   warnings: WorkshopApplicationWarning[];
 }
 
-export interface WorkshopApplicationDetailsDrawerProps
-  extends Omit<WorkshopApplicationDetailsViewProps, 'application'> {
+export interface WorkshopApplicationDetailsDrawerProps extends Omit<
+  WorkshopApplicationDetailsViewProps,
+  'application'
+> {
   application: WorkshopApplication | null;
   closeApplication: () => void;
   locale: string;

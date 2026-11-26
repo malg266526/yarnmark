@@ -216,9 +216,26 @@ Kolejno, każda osobno:
    `@types/react-router-hash-link` usunięte (importowały `react-router-dom`; żaden link nie używał kotwic `#`) —
    `Link.tsx` używa `Link`/`LinkProps` z `react-router`. Sprawdzone w headless Chromium: 11 tras, nawigacja
    wewnętrzna bez przeładowania (`/info-for-vendors` → `/vendor/statute`), link zewnętrzny otwiera nową kartę, menu.
-3. i18next + react-i18next.
-4. Pozostałe: zod, react-hook-form, @hookform/resolvers, @iconify/react, FontAwesome (✅ styled-components 6.7.0,
-   ✅ bootstrap usunięty).
+3. ✅ i18next 23.5.1 → 27.2.9 i react-i18next 13.2.2 → 18.0.3 (obie wymagają Node ≥ 22 — CI już na 24). Bez zmian
+   w kodzie. Przejrzane zmiany łamiące v24–v27 / v14–v18 pod kątem tego, czego projekt używa (`init` z `lng`,
+   `resources`, `interpolation.escapeValue: false`; `I18nextProvider`, `useTranslation`, `Trans`, `changeLanguage`):
+   brak pustych tłumaczeń (`returnEmptyString: false` w v27), brak kluczy liczby mnogiej (format v4 w v24), brak
+   `fallbackLng` (domyślne `dev` i tak nie miało zasobów). Sprawdzone w headless Chromium: tekst 8 tras po polsku
+   i angielsku identyczny jak ze starą wersją (różnice tylko w losowej treści, iframe Google i danych z API),
+   przełączanie języka działa (tekst, `Trans` z linkiem, `localStorage`, `<html lang>`).
+4. ✅ Pozostałe (jednym krokiem): zod 4.1.12 → 4.6.7, react-hook-form 7.89.0 → 7.92.0, @hookform/resolvers
+   5.9.1 → 7.0.9 (v6/v7 zmieniają tylko resolvery Effect i TypeBox — używamy `resolvers/zod`), @iconify/react 4.1.1 →
+   6.0.4, FontAwesome 7.1.0 → 7.3.1 i react-fontawesome 3.1.0 → 3.5.0 (✅ styled-components 6.7.0, ✅ bootstrap
+   usunięty). Bez zmian w kodzie. Sprawdzone w headless Chromium (stare vs nowe wersje): walidacja formularzy
+   `/vendor/apply` i `/workshops/apply` identyczna. Ikony Iconify są tylko w pasmach wyłączonych w `src/toggles.ts`
+   (`foodEnabled`, `goldenPretzelEnabled`, `afterEnabled`) — sprawdzone w osobnej stronie testowej z prawdziwym
+   pakietem (6 ikon, poprawne rozmiary). FontAwesome używa tylko nieużywany `SocialMediaLink.tsx` (krok 0) — tylko
+   typecheck.
+5. ✅ Drobne aktualizacje (osobny krok): prettier 3.6.2 → 3.10.1, @emotion/is-prop-valid 1.2.1 → 1.4.0,
+   esbuild-plugin-manifest 1.0.3 → 1.0.5, @types/argv 0.0.5 → 0.0.8, @types/bytes 3.1.1 → 3.1.7. Nowy styl Prettiera
+   (unie typów w jednej linii, `extends Omit<…>` z rozbitymi argumentami) przyjęty w 5 plikach. Nowe typy `bytes`
+   (`string | null`) ujawniły `null`/`NaN` w porównaniu rozmiaru bundla dla plików obecnych tylko po jednej stronie —
+   `compareMetadata.ts` liczy brakujący wpis jako 0 i formatuje przez `formatBytes`.
 
 ### Krok 4. Nowoczesne praktyki Reactowe — ⬜ do zrobienia
 
