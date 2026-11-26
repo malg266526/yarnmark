@@ -29,7 +29,7 @@
     "@iconify/react": "6.0.4",
     "@types/argv": "0.0.8",
     "@types/bytes": "3.1.7",
-    "@types/node": "20.6.1",
+    "@types/node": "24.19.4",
     "@types/react": "19.3.3",
     "@types/react-dom": "19.3.0",
     "@types/react-modal": "3.16.3",

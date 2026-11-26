@@ -36,7 +36,7 @@ Stan na: 2026-11-25 (commit `3b2cc80`, branch `master`). Ostatnia aktualizacja p
 | typescript  | 5.9.3   | 7.0.2     |
 | eslint      | 9.39.5  | 10.15.0   |
 | esbuild     | 0.19.2  | 0.28.2    |
-| @types/node | 20.6.1  | 26.6.10   |
+| @types/node | 24.19.4 | 26.6.10   |
 
 Pełna lista: `npm outdated`.
 

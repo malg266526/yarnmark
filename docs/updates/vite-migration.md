@@ -67,11 +67,15 @@ dev servera, np. `index.js.map`). Pliki w `docs/updates/vite-baseline/`:
 - **Powtórzenie po migracji:** `screenshots.mjs <adres> <katalog>` (wymaga Playwrighta, ścieżka w zmiennej `PW`) na
   buildzie Vite (`vite preview`), potem porównanie zrzutów i raportu.
 
-### Krok V1. `@types/node` zgodne z Vite
+### Krok V1. `@types/node` zgodne z Vite — ✅ zrobione
 
 - `@types/node` 20.6.1 → wersja z linii 24 (zgodna z Node w CI i z peer dependency Vite).
 - Osobno, przed Vite, żeby ewentualne nowe błędy typów nie mieszały się z migracją.
-- Sprawdzenie: `yarn typecheck` (pliki `workflow-helpers/` i `esbuild.*.mjs` używają API Node).
+- Sprawdzenie: `yarn typecheck` (API Node używają pliki `workflow-helpers/*.ts`; `esbuild.*.mjs` nie są objęte
+  typecheckiem).
+
+Wynik: `@types/node` 20.6.1 → 24.19.4 (najnowsza z linii 24; doszła zależność `undici-types` 7.24.6). Bez zmian w
+kodzie. Typecheck, lint, `format:check`, testy (378/378), `yarn bundle` i `yarn transpile-workflow-files` bez błędów.
 
 ### Krok V2. Instalacja Vite obok esbuilda
 
