@@ -31,22 +31,12 @@ Stan na: 2026-11-25 (commit `3b2cc80`, branch `master`). Ostatnia aktualizacja p
 
 ### Przestarzałe zależności (najważniejsze)
 
-| Pakiet                    | Obecnie         | Najnowsza       |
-| :------------------------ | :-------------- | :-------------- |
-| react / react-dom         | 18.2.0          | 19.3.1          |
-| @types/react / react-dom  | 18.2.x          | 19.3.x          |
-| react-router-dom          | 6.16.0          | 7.18.7          |
-| typescript                | 5.9.3           | 7.0.2           |
-| eslint                    | 9.39.5          | 10.15.0         |
-| @typescript-eslint/\*     | 8.74.0          | 8.74.0          |
-| eslint-plugin-react-hooks | 7.1.1           | 7.1.1           |
-| esbuild                   | 0.19.2          | 0.28.2          |
-| i18next / react-i18next   | 23.5.1 / 13.2.2 | 27.2.9 / 18.0.3 |
-| @hookform/resolvers       | 5.9.1           | 7.0.9           |
-| @iconify/react            | 4.1.1           | 6.0.4           |
-| @types/node               | 20.6.1          | 26.6.10         |
-| styled-components         | 6.7.0           | 6.7.0           |
-| zod                       | 4.1.12          | 4.6.7           |
+| Pakiet      | Obecnie | Najnowsza |
+| :---------- | :------ | :-------- |
+| typescript  | 5.9.3   | 7.0.2     |
+| eslint      | 9.39.5  | 10.15.0   |
+| esbuild     | 0.19.2  | 0.28.2    |
+| @types/node | 20.6.1  | 26.6.10   |
 
 Pełna lista: `npm outdated`.
 
@@ -100,7 +90,7 @@ Aktualizacje zależności izolowane (jedna biblioteka / jedna grupa na PR), wers
   przenieść do `docs/`.
 - Uzupełnienie `README.md` (uruchomienie, skrypty, struktura).
 
-### Krok 1. Tooling: TypeScript i ESLint — 🟡 w toku
+### Krok 1. Tooling: TypeScript i ESLint — ✅ zrobione (w masterze, ESLint: PR #400)
 
 - [x] ✅ TypeScript 5.9.3 (ostatnia 5.x; 7.0 to przepisanie w Go — osobna decyzja), usunięte `typeRoots`.
 - Uwaga: `target` w `tsconfig.json` dotyczy tylko typecheckingu (`tsc --noEmit`); kod generuje esbuild z własnym
@@ -199,7 +189,7 @@ function`); 5.x to pierwsza linia ze wsparciem ESLint 9, bez reguł React Compil
 - Vite ułatwia późniejsze Module Federation, Vitest i HMR.
 - Zachować działanie service workera i workflowów CI (metadane paczki, porównanie rozmiaru).
 
-### Krok 3. Aktualizacje głównych bibliotek — ⬜ do zrobienia
+### Krok 3. Aktualizacje głównych bibliotek — ✅ zrobione (w masterze: PR #401 — React, react-router; PR #402 — i18next, pozostałe, drobne)
 
 Kolejno, każda osobno:
 
