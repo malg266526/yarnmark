@@ -1,4 +1,4 @@
-export type WorkshopFormContractType = 'commission' | 'specificWork' | 'invoice' | 'other' | null;
+export type WorkshopFormContractType = 'commission' | 'specificWork' | 'invoice' | 'unregisteredWork' | 'other' | null;
 
 export type WorkshopFormExperienceLevel = 'beginner' | 'intermediate' | 'advanced' | 'any' | null;
 

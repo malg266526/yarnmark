@@ -89,7 +89,7 @@ export const workshopFormStateSchema = z.object({
   requiredEquipment: z.string(),
   grossPricePerParticipant: workshopFormNullableNumberSchema,
   suggestedMaxPrice: workshopFormNullableNumberSchema,
-  contractType: z.enum(['commission', 'specificWork', 'invoice', 'other']).nullable(),
+  contractType: z.enum(['commission', 'specificWork', 'invoice', 'unregisteredWork', 'other']).nullable(),
   contractTypeOther: z.string(),
   additionalInfo: z.string(),
   logoFileName: workshopFormNullableStringSchema,

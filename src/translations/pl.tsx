@@ -547,6 +547,7 @@ export const pl = {
           commission: 'Umowa zlecenie',
           specificWork: 'Umowa o dzieło',
           invoice: 'Faktura VAT / działalność gospodarcza',
+          unregisteredWork: 'Faktura - działalność nierejestrowana',
           other: 'Inne',
           otherLabel: 'Jaki to typ umowy?',
           otherPlaceholder: 'Wpisz typ umowy'
@@ -591,6 +592,7 @@ export const pl = {
         description: 'Zgłoszenie zostało zapisane.',
         tutorName: 'Prowadzący',
         workshopTitle: 'Tytuł warsztatu',
+        hostDescription: 'Opis prowadzącego',
         submittedAt: 'Data zapisania',
         participants: 'Liczba uczestników',
         participantsRange: '{{min}}–{{max}}',
@@ -601,6 +603,7 @@ export const pl = {
         requiredEquipment: 'Sprzęt zapewniany przez organizatora',
         grossPricePerParticipant: 'Kwota brutto za osobę',
         grossPricePerParticipantValue: '{{price}} zł',
+        suggestedMaxPrice: 'Sugerowana cena maksymalna',
         contractType: 'Typ umowy',
         logo: 'Logo',
         additionalInfo: 'Informacje dodatkowe',

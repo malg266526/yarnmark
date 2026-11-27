@@ -16,7 +16,7 @@ interface WorkshopFormPricingSectionProps {
   formBindings: WorkshopFormBindings;
 }
 
-const CONTRACT_TYPES = ['commission', 'specificWork', 'invoice', 'other'] as const;
+const CONTRACT_TYPES = ['commission', 'specificWork', 'invoice', 'unregisteredWork', 'other'] as const;
 
 export const WorkshopFormPricingSection = ({ formActions, formBindings }: WorkshopFormPricingSectionProps) => {
   const t = useTypedTranslation();

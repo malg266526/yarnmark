@@ -548,6 +548,7 @@ export const en: TranslationsShape = {
           commission: 'Contract of mandate',
           specificWork: 'Contract for specific work',
           invoice: 'VAT invoice / business activity',
+          unregisteredWork: 'Invoice - unregistered business activity',
           other: 'Other',
           otherLabel: 'What type of contract is it?',
           otherPlaceholder: 'Enter the contract type'
@@ -592,6 +593,7 @@ export const en: TranslationsShape = {
         description: 'The application has been saved.',
         tutorName: 'Tutor',
         workshopTitle: 'Workshop title',
+        hostDescription: 'Tutor description',
         submittedAt: 'Saved at',
         participants: 'Number of participants',
         participantsRange: '{{min}}–{{max}}',
@@ -602,6 +604,7 @@ export const en: TranslationsShape = {
         requiredEquipment: 'Equipment provided by the organizer',
         grossPricePerParticipant: 'Gross price per participant',
         grossPricePerParticipantValue: 'PLN {{price}}',
+        suggestedMaxPrice: 'Suggested maximum price',
         contractType: 'Contract type',
         logo: 'Logo',
         additionalInfo: 'Additional information',

@@ -23,6 +23,8 @@ export const WorkshopFormSummary = ({ formBindings, formStatus }: WorkshopFormSu
         <dd>{formData.tutorName}</dd>
         <dt>{t('workshopsFormPage.summary.workshopTitle')}</dt>
         <dd>{formData.workshopTitle}</dd>
+        <dt>{t('workshopsFormPage.summary.hostDescription')}</dt>
+        <dd>{formData.hostDescription}</dd>
         <dt>{t('workshopsFormPage.summary.submittedAt')}</dt>
         <dd>{submittedAtLabel ?? t('workshopsFormPage.summary.notProvided')}</dd>
         <dt>{t('workshopsFormPage.summary.participants')}</dt>
@@ -51,6 +53,12 @@ export const WorkshopFormSummary = ({ formBindings, formStatus }: WorkshopFormSu
         <dt>{t('workshopsFormPage.summary.grossPricePerParticipant')}</dt>
         <dd>
           {t('workshopsFormPage.summary.grossPricePerParticipantValue', { price: formData.grossPricePerParticipant })}
+        </dd>
+        <dt>{t('workshopsFormPage.summary.suggestedMaxPrice')}</dt>
+        <dd>
+          {formData.suggestedMaxPrice === null
+            ? t('workshopsFormPage.summary.notProvided')
+            : t('workshopsFormPage.summary.grossPricePerParticipantValue', { price: formData.suggestedMaxPrice })}
         </dd>
         <dt>{t('workshopsFormPage.summary.contractType')}</dt>
         <dd>
