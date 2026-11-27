@@ -521,6 +521,7 @@ export const pl = {
         description: {
           title: 'Krótki opis warsztatu',
           label: 'Opis warsztatu',
+          hostLabel: 'Opis prowadzącego',
           limitHint: '{{current}} / {{max}} znaków'
         },
         logistics: {
@@ -537,13 +538,16 @@ export const pl = {
         },
         pricing: {
           title: 'Wynagrodzenie',
-          grossPricePerParticipantLabel: 'Kwota brutto za osobę (zł)'
+          grossPricePerParticipantLabel: 'Kwota brutto za osobę (zł)',
+          suggestedMaxPriceLabel: 'Sugerowana cena maksymalna (zł)',
+          suggestedMaxPriceHint: 'Sugerowana cena biletu dla uczestnika'
         },
         contractType: {
           title: 'Typ umowy',
           commission: 'Umowa zlecenie',
           specificWork: 'Umowa o dzieło',
           invoice: 'Faktura VAT / działalność gospodarcza',
+          unregisteredWork: 'Faktura - działalność nierejestrowana',
           other: 'Inne',
           otherLabel: 'Jaki to typ umowy?',
           otherPlaceholder: 'Wpisz typ umowy'
@@ -564,6 +568,8 @@ export const pl = {
         workshopTitleRequired: 'Podaj tytuł warsztatu.',
         descriptionRequired: 'Dodaj opis warsztatu.',
         descriptionTooLong: 'Opis warsztatu jest za długi.',
+        hostDescriptionRequired: 'Dodaj opis prowadzącego.',
+        hostDescriptionTooLong: 'Opis prowadzącego jest za długi.',
         minParticipantsRequired: 'Podaj minimalną liczbę uczestników.',
         maxParticipantsRequired: 'Podaj maksymalną liczbę uczestników.',
         maxParticipantsTooSmall: 'Maksymalna liczba uczestników nie może być mniejsza niż minimalna.',
@@ -571,6 +577,7 @@ export const pl = {
         durationRequired: 'Podaj czas trwania warsztatu.',
         participantsShouldBringRequired: 'Podaj, co powinien przynieść uczestnik.',
         grossPricePerParticipantRequired: 'Podaj kwotę brutto za osobę.',
+        suggestedMaxPriceInvalid: 'Podaj cenę większą od 0.',
         contractTypeRequired: 'Wybierz typ umowy.',
         contractTypeOtherRequired: 'Podaj typ umowy.',
         logoRequired: 'Dodaj logo lub zdjęcie prowadzącego.',
@@ -585,6 +592,7 @@ export const pl = {
         description: 'Zgłoszenie zostało zapisane.',
         tutorName: 'Prowadzący',
         workshopTitle: 'Tytuł warsztatu',
+        hostDescription: 'Opis prowadzącego',
         submittedAt: 'Data zapisania',
         participants: 'Liczba uczestników',
         participantsRange: '{{min}}–{{max}}',
@@ -595,6 +603,7 @@ export const pl = {
         requiredEquipment: 'Sprzęt zapewniany przez organizatora',
         grossPricePerParticipant: 'Kwota brutto za osobę',
         grossPricePerParticipantValue: '{{price}} zł',
+        suggestedMaxPrice: 'Sugerowana cena maksymalna',
         contractType: 'Typ umowy',
         logo: 'Logo',
         additionalInfo: 'Informacje dodatkowe',
@@ -867,6 +876,7 @@ export const pl = {
         phone: 'Telefon',
         email: 'E-mail',
         description: 'Opis warsztatu',
+        hostDescription: 'Opis prowadzącego',
         participants: 'Liczba uczestników',
         participantsRange: '{{min}}–{{max}}',
         experienceLevel: 'Poziom zaawansowania',
@@ -876,6 +886,7 @@ export const pl = {
         requiredEquipment: 'Sprzęt zapewniany przez organizatora',
         grossPricePerParticipant: 'Kwota brutto za osobę',
         grossPricePerParticipantValue: '{{price}} zł',
+        suggestedMaxPrice: 'Sugerowana cena maksymalna',
         contractType: 'Typ umowy',
         logoFilename: 'Logo',
         additionalInfo: 'Informacje dodatkowe',

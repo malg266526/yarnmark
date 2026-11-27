@@ -7,6 +7,7 @@ import { Fieldset, FormSection, RadioGroup, RadioOption, TextInput } from '../Wo
 import type { WorkshopFormActions, WorkshopFormBindings } from './workshopFormViewContracts';
 
 const GROSS_PRICE_PER_PARTICIPANT_ERROR_ID = 'workshop-gross-price-per-participant-error';
+const SUGGESTED_MAX_PRICE_ERROR_ID = 'workshop-suggested-max-price-error';
 const CONTRACT_TYPE_OTHER_ERROR_ID = 'workshop-contract-type-other-error';
 const CONTRACT_TYPE_ERROR_ID = 'workshop-contract-type-error';
 
@@ -15,16 +16,18 @@ interface WorkshopFormPricingSectionProps {
   formBindings: WorkshopFormBindings;
 }
 
-const CONTRACT_TYPES = ['commission', 'specificWork', 'invoice', 'other'] as const;
+const CONTRACT_TYPES = ['commission', 'specificWork', 'invoice', 'unregisteredWork', 'other'] as const;
 
 export const WorkshopFormPricingSection = ({ formActions, formBindings }: WorkshopFormPricingSectionProps) => {
   const t = useTypedTranslation();
   const { formData, register, resolveFieldErrorMessage } = formBindings;
   const grossPricePerParticipantError = resolveFieldErrorMessage('grossPricePerParticipant');
+  const suggestedMaxPriceError = resolveFieldErrorMessage('suggestedMaxPrice');
   const contractTypeOtherError = resolveFieldErrorMessage('contractTypeOther');
   const contractTypeError = resolveFieldErrorMessage('contractType');
   const { setContractType, setNumberFieldValue } = formActions;
   const priceField = register('grossPricePerParticipant');
+  const suggestedMaxPriceField = register('suggestedMaxPrice');
 
   return (
     <>
@@ -55,6 +58,29 @@ export const WorkshopFormPricingSection = ({ formActions, formBindings }: Worksh
                   'grossPricePerParticipant',
                   event.target.value === '' ? null : Number(event.target.value)
                 )
+              }
+            />
+          </FormField>
+          <FormField
+            htmlFor="suggested_max_price"
+            label={t('workshopsFormPage.steps.pricing.suggestedMaxPriceLabel')}
+            requirement="optional"
+            hint={t('workshopsFormPage.steps.pricing.suggestedMaxPriceHint')}
+            error={suggestedMaxPriceError}
+            errorId={SUGGESTED_MAX_PRICE_ERROR_ID}
+          >
+            <TextInput
+              id="suggested_max_price"
+              data-workshop-form-field="suggestedMaxPrice"
+              aria-invalid={Boolean(suggestedMaxPriceError)}
+              aria-describedby={suggestedMaxPriceError ? SUGGESTED_MAX_PRICE_ERROR_ID : undefined}
+              type="number"
+              step="0.01"
+              name={suggestedMaxPriceField.name}
+              ref={suggestedMaxPriceField.ref}
+              value={formData.suggestedMaxPrice ?? ''}
+              onChange={(event) =>
+                setNumberFieldValue('suggestedMaxPrice', event.target.value === '' ? null : Number(event.target.value))
               }
             />
           </FormField>

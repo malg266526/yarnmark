@@ -1,4 +1,4 @@
-import type { WorkshopApplication } from '../../../../../domain/workshopApplications/workshopFormSubmission.ts';
+import type { WorkshopApplication } from '@/domain/workshopApplications/workshopFormSubmission.ts';
 
 export const createWorkshopApplicationFixture = (
   overrides: Partial<WorkshopApplication> = {}
@@ -7,10 +7,12 @@ export const createWorkshopApplicationFixture = (
   contractType: 'invoice',
   contractTypeOther: '',
   description: 'Opis warsztatu',
+  hostDescription: 'Opis prowadzącego',
   duration: '3 godziny',
   email: 'anna@example.com',
   experienceLevel: 'beginner',
   grossPricePerParticipant: 100,
+  suggestedMaxPrice: 150,
   id: 'application-1',
   logoDataUrl: null,
   logoFileName: 'logo.png',

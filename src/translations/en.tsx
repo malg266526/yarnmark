@@ -522,6 +522,7 @@ export const en: TranslationsShape = {
         description: {
           title: 'Short workshop description',
           label: 'Workshop description',
+          hostLabel: 'Tutor description',
           limitHint: '{{current}} / {{max}} characters'
         },
         logistics: {
@@ -538,13 +539,16 @@ export const en: TranslationsShape = {
         },
         pricing: {
           title: 'Payment',
-          grossPricePerParticipantLabel: 'Gross price per participant (PLN)'
+          grossPricePerParticipantLabel: 'Gross price per participant (PLN)',
+          suggestedMaxPriceLabel: 'Suggested maximum price (PLN)',
+          suggestedMaxPriceHint: 'Suggested ticket price for participants'
         },
         contractType: {
           title: 'Contract type',
           commission: 'Contract of mandate',
           specificWork: 'Contract for specific work',
           invoice: 'VAT invoice / business activity',
+          unregisteredWork: 'Invoice - unregistered business activity',
           other: 'Other',
           otherLabel: 'What type of contract is it?',
           otherPlaceholder: 'Enter the contract type'
@@ -565,6 +569,8 @@ export const en: TranslationsShape = {
         workshopTitleRequired: 'Enter the workshop title.',
         descriptionRequired: 'Add a workshop description.',
         descriptionTooLong: 'The workshop description is too long.',
+        hostDescriptionRequired: 'Add a tutor description.',
+        hostDescriptionTooLong: 'The tutor description is too long.',
         minParticipantsRequired: 'Enter the minimum number of participants.',
         maxParticipantsRequired: 'Enter the maximum number of participants.',
         maxParticipantsTooSmall: 'The maximum number of participants cannot be lower than the minimum.',
@@ -572,6 +578,7 @@ export const en: TranslationsShape = {
         durationRequired: 'Enter the workshop duration.',
         participantsShouldBringRequired: 'Enter what the participant should bring.',
         grossPricePerParticipantRequired: 'Enter the gross price per participant.',
+        suggestedMaxPriceInvalid: 'Enter a price greater than 0.',
         contractTypeRequired: 'Select the contract type.',
         contractTypeOtherRequired: 'Enter the contract type.',
         logoRequired: "Add the tutor's logo or photo.",
@@ -586,6 +593,7 @@ export const en: TranslationsShape = {
         description: 'The application has been saved.',
         tutorName: 'Tutor',
         workshopTitle: 'Workshop title',
+        hostDescription: 'Tutor description',
         submittedAt: 'Saved at',
         participants: 'Number of participants',
         participantsRange: '{{min}}–{{max}}',
@@ -596,6 +604,7 @@ export const en: TranslationsShape = {
         requiredEquipment: 'Equipment provided by the organizer',
         grossPricePerParticipant: 'Gross price per participant',
         grossPricePerParticipantValue: 'PLN {{price}}',
+        suggestedMaxPrice: 'Suggested maximum price',
         contractType: 'Contract type',
         logo: 'Logo',
         additionalInfo: 'Additional information',
@@ -868,6 +877,7 @@ export const en: TranslationsShape = {
         phone: 'Phone',
         email: 'Email',
         description: 'Workshop description',
+        hostDescription: 'Tutor description',
         participants: 'Number of participants',
         participantsRange: '{{min}}–{{max}}',
         experienceLevel: 'Experience level',
@@ -877,6 +887,7 @@ export const en: TranslationsShape = {
         requiredEquipment: 'Equipment provided by the organizer',
         grossPricePerParticipant: 'Gross price per participant',
         grossPricePerParticipantValue: 'PLN {{price}}',
+        suggestedMaxPrice: 'Suggested maximum price',
         contractType: 'Contract type',
         logoFilename: 'Logo',
         additionalInfo: 'Additional information',

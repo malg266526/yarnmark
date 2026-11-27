@@ -22,6 +22,7 @@ const createWorkshopFormState = (overrides: Partial<WorkshopFormState> = {}): Wo
   tutorName: 'Anna Kowalska',
   workshopTitle: 'Crochet basics',
   description: 'A short workshop description.',
+  hostDescription: 'A short tutor description.',
   minParticipants: 4,
   maxParticipants: 10,
   experienceLevel: 'beginner',
@@ -30,6 +31,7 @@ const createWorkshopFormState = (overrides: Partial<WorkshopFormState> = {}): Wo
   roomRequirements: 'Tables and power access.',
   requiredEquipment: 'Flipchart, monitor.',
   grossPricePerParticipant: 50,
+  suggestedMaxPrice: 80,
   contractType: 'invoice',
   contractTypeOther: '',
   additionalInfo: '',
@@ -180,4 +182,26 @@ test('parseWorkshopApplications maps the backend submissions payload', () => {
   assert.equal(application.logoFileName, 'profilowe.JPG');
   assert.equal(application.logoDataUrl, null);
   assert.equal(application.logoUrl, 'https://yarnmark-api.com/workshops/logo.webp');
+  assert.equal(application.hostDescription, '');
+  assert.equal(application.suggestedMaxPrice, null);
+});
+
+test('parseWorkshopApplications keeps the suggested max price sent by the backend', () => {
+  const [application] = parseWorkshopApplications([{ ...createWorkshopApplication(), suggestedMaxPrice: 79.99 }]);
+
+  assert.equal(application.suggestedMaxPrice, 79.99);
+});
+
+test('parseWorkshopApplications keeps the host description sent by the backend', () => {
+  const [application] = parseWorkshopApplications([
+    { ...createWorkshopApplication(), hostDescription: 'Tutor with ten years of experience.' }
+  ]);
+
+  assert.equal(application.hostDescription, 'Tutor with ten years of experience.');
+});
+
+test('parseWorkshopApplications treats a null host description as empty', () => {
+  const [application] = parseWorkshopApplications([{ ...createWorkshopApplication(), hostDescription: null }]);
+
+  assert.equal(application.hostDescription, '');
 });

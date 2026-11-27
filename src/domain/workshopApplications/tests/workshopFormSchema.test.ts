@@ -2,7 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { collectWorkshopFormValidationErrors } from '../workshopFormSchema.ts';
 import { INITIAL_WORKSHOP_FORM_STATE } from '../workshopFormTypes.ts';
-import { WORKSHOP_FORM_DESCRIPTION_MAX_LENGTH } from '../workshopFormConstants.ts';
+import {
+  WORKSHOP_FORM_DESCRIPTION_MAX_LENGTH,
+  WORKSHOP_FORM_HOST_DESCRIPTION_MAX_LENGTH
+} from '../workshopFormConstants.ts';
 import type { WorkshopFormState } from '../workshopFormTypes.ts';
 
 const createValidWorkshopFormValues = (overrides: Partial<WorkshopFormState> = {}): WorkshopFormState => ({
@@ -10,6 +13,7 @@ const createValidWorkshopFormValues = (overrides: Partial<WorkshopFormState> = {
   tutorName: 'Anna Kowalska',
   workshopTitle: 'Crochet basics',
   description: 'A short workshop description.',
+  hostDescription: 'A short tutor description.',
   minParticipants: 4,
   maxParticipants: 10,
   experienceLevel: 'beginner',
@@ -31,6 +35,7 @@ test('collectWorkshopFormValidationErrors returns multiple missing-field errors 
     tutorName: 'workshopsFormPage.validation.tutorNameRequired',
     workshopTitle: 'workshopsFormPage.validation.workshopTitleRequired',
     description: 'workshopsFormPage.validation.descriptionRequired',
+    hostDescription: 'workshopsFormPage.validation.hostDescriptionRequired',
     minParticipants: 'workshopsFormPage.validation.minParticipantsRequired',
     maxParticipants: 'workshopsFormPage.validation.maxParticipantsRequired',
     experienceLevel: 'workshopsFormPage.validation.experienceLevelRequired',
@@ -63,6 +68,52 @@ test('collectWorkshopFormValidationErrors rejects a description over the max len
   );
 
   assert.equal(errors.description, 'workshopsFormPage.validation.descriptionTooLong');
+});
+
+test('collectWorkshopFormValidationErrors requires a host description and ignores whitespace-only input', () => {
+  const errors = collectWorkshopFormValidationErrors(createValidWorkshopFormValues({ hostDescription: '   ' }));
+
+  assert.equal(errors.hostDescription, 'workshopsFormPage.validation.hostDescriptionRequired');
+});
+
+test('collectWorkshopFormValidationErrors accepts a host description of exactly the max length', () => {
+  const errors = collectWorkshopFormValidationErrors(
+    createValidWorkshopFormValues({ hostDescription: 'a'.repeat(WORKSHOP_FORM_HOST_DESCRIPTION_MAX_LENGTH) })
+  );
+
+  assert.equal(errors.hostDescription, undefined);
+});
+
+test('collectWorkshopFormValidationErrors rejects a host description over the max length', () => {
+  const errors = collectWorkshopFormValidationErrors(
+    createValidWorkshopFormValues({ hostDescription: 'a'.repeat(WORKSHOP_FORM_HOST_DESCRIPTION_MAX_LENGTH + 1) })
+  );
+
+  assert.equal(errors.hostDescription, 'workshopsFormPage.validation.hostDescriptionTooLong');
+});
+
+test('WORKSHOP_FORM_HOST_DESCRIPTION_MAX_LENGTH matches the backend limit', () => {
+  assert.equal(WORKSHOP_FORM_HOST_DESCRIPTION_MAX_LENGTH, 1200);
+});
+
+test('collectWorkshopFormValidationErrors treats the suggested max price as optional', () => {
+  const errors = collectWorkshopFormValidationErrors(createValidWorkshopFormValues({ suggestedMaxPrice: null }));
+
+  assert.equal(errors.suggestedMaxPrice, undefined);
+});
+
+test('collectWorkshopFormValidationErrors accepts a positive suggested max price', () => {
+  const errors = collectWorkshopFormValidationErrors(createValidWorkshopFormValues({ suggestedMaxPrice: 79.99 }));
+
+  assert.equal(errors.suggestedMaxPrice, undefined);
+});
+
+test('collectWorkshopFormValidationErrors rejects a zero or negative suggested max price', () => {
+  for (const suggestedMaxPrice of [0, -5]) {
+    const errors = collectWorkshopFormValidationErrors(createValidWorkshopFormValues({ suggestedMaxPrice }));
+
+    assert.equal(errors.suggestedMaxPrice, 'workshopsFormPage.validation.suggestedMaxPriceInvalid');
+  }
 });
 
 test('collectWorkshopFormValidationErrors rejects a maximum lower than the minimum participants', () => {

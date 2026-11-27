@@ -1,4 +1,4 @@
-export type WorkshopFormContractType = 'commission' | 'specificWork' | 'invoice' | 'other' | null;
+export type WorkshopFormContractType = 'commission' | 'specificWork' | 'invoice' | 'unregisteredWork' | 'other' | null;
 
 export type WorkshopFormExperienceLevel = 'beginner' | 'intermediate' | 'advanced' | 'any' | null;
 
@@ -6,6 +6,7 @@ export interface WorkshopFormState {
   tutorName: string;
   workshopTitle: string;
   description: string;
+  hostDescription: string;
   minParticipants: number | null;
   maxParticipants: number | null;
   experienceLevel: WorkshopFormExperienceLevel;
@@ -14,6 +15,7 @@ export interface WorkshopFormState {
   roomRequirements: string;
   requiredEquipment: string;
   grossPricePerParticipant: number | null;
+  suggestedMaxPrice: number | null;
   contractType: WorkshopFormContractType;
   contractTypeOther: string;
   additionalInfo: string;
@@ -28,6 +30,7 @@ export const INITIAL_WORKSHOP_FORM_STATE: WorkshopFormState = {
   tutorName: '',
   workshopTitle: '',
   description: '',
+  hostDescription: '',
   minParticipants: null,
   maxParticipants: null,
   experienceLevel: null,
@@ -36,6 +39,7 @@ export const INITIAL_WORKSHOP_FORM_STATE: WorkshopFormState = {
   roomRequirements: '',
   requiredEquipment: '',
   grossPricePerParticipant: null,
+  suggestedMaxPrice: null,
   contractType: null,
   contractTypeOther: '',
   additionalInfo: '',

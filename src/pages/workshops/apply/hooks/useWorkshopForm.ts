@@ -8,6 +8,7 @@ import { submitWorkshopApplicationToApi } from '@/domain/workshopApplications/wo
 import {
   WORKSHOP_FORM_DESCRIPTION_MAX_LENGTH,
   WORKSHOP_FORM_DRAFT_STORAGE_KEY,
+  WORKSHOP_FORM_HOST_DESCRIPTION_MAX_LENGTH,
   WORKSHOP_FORM_LOGO_ACCEPTED_MIME_TYPES,
   WORKSHOP_FORM_LOGO_MAX_BYTES,
   WORKSHOP_FORM_LOGO_MAX_DIMENSION
@@ -117,6 +118,14 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
 
   const updateDescription = (value: string) => {
     setValue('description', value.slice(0, WORKSHOP_FORM_DESCRIPTION_MAX_LENGTH), {
+      shouldDirty: true,
+      shouldValidate: true
+    });
+    markFormAsIncompleteAndClearSubmitError();
+  };
+
+  const updateHostDescription = (value: string) => {
+    setValue('hostDescription', value.slice(0, WORKSHOP_FORM_HOST_DESCRIPTION_MAX_LENGTH), {
       shouldDirty: true,
       shouldValidate: true
     });
@@ -245,6 +254,7 @@ export const useWorkshopForm = (): WorkshopFormViewProps => {
       setNumberFieldValue,
       submitWorkshopForm,
       updateDescription,
+      updateHostDescription,
       updateLogoFile
     },
     formBindings: {
