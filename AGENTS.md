@@ -120,7 +120,7 @@ ship or report as done.
   styles by hand in a scratch HTML file, does not count as verification — the global styles, the webfonts
   (`Questrial`, `Love Ya Like A Sister`), `createGlobalStyle` in `App.tsx` and `all: unset` on shared
   components all change the result. If the page is behind auth, bundle the real component into a throwaway
-  harness with the project's esbuild, serve it with the same font links and global rules, screenshot it in
+  harness with the project's Vite config, serve it with the same font links and global rules, screenshot it in
   a headless browser and zoom in on what you changed.
 - **Measure, do not eyeball.** Before claiming something is aligned or centred, read
   `getBoundingClientRect()` for every element involved and compare the numbers: controls sitting in one row
@@ -149,7 +149,8 @@ tabular-nums`.
 
 ## Local Development
 
-- Dev server: `npm run start` (esbuild) serves on **port 8090**. Run only one instance. `EADDRINUSE` means one is already running — reuse it, or stop it first with `pkill -f esbuild.serve.mjs`.
+- Dev server: `npm run start` (Vite) serves on **port 8090**. Run only one instance. `Found another Vite dev process for this project` (or `Port 8090 is already in use`) means one is already running — reuse it, or stop it first with `pkill -f node_modules/.bin/vite`.
+- Production build: `npm run bundle` (`vite build`) writes to `dist/`; `npm run preview` serves that build on port 8090.
 - A service worker (`src/service-worker.ts`) can cache and serve a **stale bundle**, hiding your changes. If edits don't appear in the browser, suspect the service worker / browser cache before assuming a code bug — unregister it via DevTools → Application → Service Workers and hard-reload.
 - Do not leave background dev servers you started running after a task; stop them when done.
 

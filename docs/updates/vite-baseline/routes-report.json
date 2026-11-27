@@ -1,0 +1,161 @@
+[
+  {
+    "vp": "desktop",
+    "route": "/home",
+    "finalUrl": "/home",
+    "height": 7072,
+    "brokenImgs": 0,
+    "errors": [
+      "Access to fetch at 'https://yarnmark-api.com/api/vendors/assigned-stands' from origin 'http://localhost:8091' has been b",
+      "Failed to load resource: net::ERR_FAILED",
+      "Assigned stand vendors could not be loaded TypeError: Failed to fetch\n    at fn (http://localhost:8091/index.js:738:7121"
+    ]
+  },
+  {
+    "vp": "desktop",
+    "route": "/info-for-vendors",
+    "finalUrl": "/info-for-vendors",
+    "height": 4382,
+    "brokenImgs": 0,
+    "errors": []
+  },
+  {
+    "vp": "desktop",
+    "route": "/statutes",
+    "finalUrl": "/statutes",
+    "height": 2154,
+    "brokenImgs": 0,
+    "errors": []
+  },
+  {
+    "vp": "desktop",
+    "route": "/hall",
+    "finalUrl": "/hall",
+    "height": 2280,
+    "brokenImgs": 0,
+    "errors": [
+      "Access to fetch at 'https://yarnmark-api.com/api/vendors/assigned-stands' from origin 'http://localhost:8091' has been b",
+      "Failed to load resource: net::ERR_FAILED",
+      "Assigned stand vendors could not be loaded TypeError: Failed to fetch\n    at fn (http://localhost:8091/index.js:738:7121"
+    ]
+  },
+  {
+    "vp": "desktop",
+    "route": "/vendor/statute",
+    "finalUrl": "/vendor/statute",
+    "height": 1996,
+    "brokenImgs": 0,
+    "errors": []
+  },
+  {
+    "vp": "desktop",
+    "route": "/vendor/apply",
+    "finalUrl": "/vendor/apply",
+    "height": 5029,
+    "brokenImgs": 0,
+    "errors": [
+      "Access to fetch at 'https://yarnmark-api.com/api/vendors/stands-demand' from origin 'http://localhost:8091' has been blo",
+      "Failed to load resource: net::ERR_FAILED"
+    ]
+  },
+  {
+    "vp": "desktop",
+    "route": "/workshops/apply",
+    "finalUrl": "/workshops/apply",
+    "height": 4067,
+    "brokenImgs": 0,
+    "errors": []
+  },
+  {
+    "vp": "desktop",
+    "route": "/admin",
+    "finalUrl": "/admin",
+    "height": 1254,
+    "brokenImgs": 0,
+    "errors": [
+      "Failed to load resource: the server responded with a status of 403 ()",
+      "[GSI_LOGGER]: The given origin is not allowed for the given client ID.",
+      "Provider's accounts list is empty.",
+      "[GSI_LOGGER]: FedCM get() rejects with NetworkError: Error retrieving a token."
+    ]
+  },
+  {
+    "vp": "mobile",
+    "route": "/home",
+    "finalUrl": "/home",
+    "height": 6575,
+    "brokenImgs": 0,
+    "errors": [
+      "Access to fetch at 'https://yarnmark-api.com/api/vendors/assigned-stands' from origin 'http://localhost:8091' has been b",
+      "Failed to load resource: net::ERR_FAILED",
+      "Assigned stand vendors could not be loaded TypeError: Failed to fetch\n    at fn (http://localhost:8091/index.js:738:7121"
+    ]
+  },
+  {
+    "vp": "mobile",
+    "route": "/info-for-vendors",
+    "finalUrl": "/info-for-vendors",
+    "height": 4082,
+    "brokenImgs": 0,
+    "errors": []
+  },
+  {
+    "vp": "mobile",
+    "route": "/statutes",
+    "finalUrl": "/statutes",
+    "height": 5569,
+    "brokenImgs": 0,
+    "errors": []
+  },
+  {
+    "vp": "mobile",
+    "route": "/hall",
+    "finalUrl": "/hall",
+    "height": 1337,
+    "brokenImgs": 0,
+    "errors": [
+      "Access to fetch at 'https://yarnmark-api.com/api/vendors/assigned-stands' from origin 'http://localhost:8091' has been b",
+      "Failed to load resource: net::ERR_FAILED",
+      "Assigned stand vendors could not be loaded TypeError: Failed to fetch\n    at fn (http://localhost:8091/index.js:738:7121"
+    ]
+  },
+  {
+    "vp": "mobile",
+    "route": "/vendor/statute",
+    "finalUrl": "/vendor/statute",
+    "height": 4643,
+    "brokenImgs": 0,
+    "errors": []
+  },
+  {
+    "vp": "mobile",
+    "route": "/vendor/apply",
+    "finalUrl": "/vendor/apply",
+    "height": 5664,
+    "brokenImgs": 0,
+    "errors": [
+      "Access to fetch at 'https://yarnmark-api.com/api/vendors/stands-demand' from origin 'http://localhost:8091' has been blo",
+      "Failed to load resource: net::ERR_FAILED"
+    ]
+  },
+  {
+    "vp": "mobile",
+    "route": "/workshops/apply",
+    "finalUrl": "/workshops/apply",
+    "height": 4134,
+    "brokenImgs": 0,
+    "errors": []
+  },
+  {
+    "vp": "mobile",
+    "route": "/admin",
+    "finalUrl": "/admin",
+    "height": 1198,
+    "brokenImgs": 0,
+    "errors": [
+      "Failed to load resource: the server responded with a status of 403 ()",
+      "[GSI_LOGGER]: The given origin is not allowed for the given client ID.",
+      "Provider's accounts list is empty."
+    ]
+  }
+]
