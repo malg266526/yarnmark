@@ -33,15 +33,19 @@ const asyncStat = async (filename: string) =>
   });
 
 const extensionRegex = /(.*)(\.[^\.]*)$/;
+const viteContentHashRegex = /-[A-Za-z0-9_-]{8}(?=\.[^./]+$)/;
+
+const removeContentHash = (filename: string) => filename.replace(viteContentHashRegex, '');
 
 const getFilesDataFromDir = async ({ path, extensions }: { path: string; extensions: string[] }): Promise<Metadata> => {
-  const directory = fs.readdirSync(path, { encoding: 'utf8' }) as string[];
+  const directory = fs.readdirSync(path, { encoding: 'utf8', recursive: true });
   const metadata = {} as Record<string, number>;
 
   for await (const filename of directory) {
     if (extensions.includes(filename.replace(extensionRegex, '$2'))) {
       const { size } = await asyncStat(`${path}/${filename}`);
-      metadata[filename] = size;
+      const name = removeContentHash(filename);
+      metadata[name] = (metadata[name] ?? 0) + size;
     }
   }
 

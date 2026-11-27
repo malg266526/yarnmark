@@ -1,0 +1,263 @@
+# Migracja z esbuild na Vite — plan kroków
+
+Rozwinięcie kroku 2 (Bundler) z `docs/updates/update-context.md`. Każdy krok to osobna zmiana. Po każdym:
+`npm run format`, `npm run typecheck`, `npm run lint`, `npm test` bez błędów, a od kroku 4 także przeklikanie strony.
+Wersje przypięte bez `^`/`~`.
+
+## Stan wyjściowy
+
+- **Konfiguracja:** `esbuild.config.mjs` (wspólna), `esbuild.serve.mjs` (`npm run start`, `esbuild-server` na porcie
+  8090 z live reload i `historyApiFallback`), `esbuild.bundle.mjs` (`npm run bundle`, minifikacja, bez sourcemap;
+  opcja `--metafile`, której nic nie używa).
+- **Wejścia:** `src/index.tsx`, `src/service-worker.ts`, `src/service-worker-loader.ts`, wszystkie wychodzą bez hasha
+  (`entryNames: '[name]'`) w roocie `dist/`; `target: 'es2019'`.
+- **Pluginy:**
+  - `esbuild-plugin-copy` kopiuje `public/*` do `dist/` (`_headers`, `_redirects`, `robots.txt`, `sitemap.xml`,
+    `manifest.json`, ikony, `favicon.ico`, ale też `index.html`);
+  - `@craftamap/esbuild-plugin-html` buduje `dist/index.html` z szablonu `public/index.html` i wstawia
+    `<script src="/index.js">`;
+  - `esbuild-plugin-manifest` generuje `dist/output-info.json` (`files` i `assets`), który czyta service worker.
+- **Obrazki i fonty:** loader `file` → `dist/assets/[name]-[hash].[ext]`, import zwraca URL (typy w `src/types.d.ts`).
+  W kodzie: 52 × svg, 39 × webp, 33 × avif, 22 × jpg, 8 × jfif, 6 × png, 2 × jpeg. Nic nie jest wstawiane inline.
+- **Bundle:** jeden plik `dist/index.js` (~1,46 MB, ~394 KB po gzip; szczegóły w V0).
+- **Service worker nie jest obecnie rejestrowany:** `<script src="./service-worker-loader.js?…">` w
+  `public/index.html` jest zakomentowany, a `htmlPlugin` celowo pomija oba wejścia service workera. Pliki
+  `service-worker.js` i `service-worker-loader.js` są budowane, ale strona ich nie ładuje.
+- **Brak `process.env` i `import.meta`** w `src/` — nie ma zmiennych środowiskowych do przeniesienia.
+- **Testy:** `node --test` na plikach `*.test.ts` z importami względnymi — nie zależą od bundlera.
+- **CI:**
+  - `pull-request.yml` i `deploy.yml` wołają `yarn bundle` i używają `dist/`;
+  - `bundle-metadata.yml` → `yarn stats --dir=dist --extensions=".js,.html,.css"`: `getDirMetadata.ts` czyta
+    **tylko pliki z roota `dist/`** (bez podkatalogów), a `compareMetadata.ts` porównuje master i branch **po nazwie
+    pliku**;
+  - `transpile-workflow-files` używa CLI esbuilda do transpilacji `workflow-helpers/*.ts`.
+- **Docelowe wersje** (stan na 2026-11-26): `vite` 8.4.0, `@vitejs/plugin-react` 6.3.0 (obie wymagają Node
+  `^20.19.0 || >=22.12.0`; CI jest na 24). Vite 8 ma w peer dependencies `@types/node` `^20.19.0 || >=22.12.0` —
+  projekt ma 20.6.1.
+
+## Kroki
+
+### Krok V0. Punkt odniesienia — ✅ zrobione
+
+- Zbudować obecną wersję (`yarn bundle`) i zapisać: listę plików w `dist/` (z podkatalogami), rozmiar `index.js`
+  surowy i po gzip, zawartość `dist/index.html`.
+- Zrobić zrzuty ekranu kluczowych tras (`/home`, `/info-for-vendors`, `/hall`, `/vendor/apply`, `/workshops/apply`,
+  `/admin`) — do porównania po migracji.
+- Bez zmian w kodzie.
+
+Wynik (2026-11-26, commit `67dad78`, build w czystej kopii repozytorium — lokalny `dist/` zawiera stare pliki z
+dev servera, np. `index.js.map`). Pliki w `docs/updates/vite-baseline/`:
+
+- **Czas builda:** ~1,6 s (`node ./esbuild.bundle.mjs`).
+- **`dist/`:** 161 plików, ~90,3 MB, z czego `assets/` 148 plików, ~88,5 MB (32 avif, 7 jfif, 2 jpeg, 22 jpg, 6 png,
+  41 svg, 38 webp). Pełna lista: `dist-files.txt`.
+- **Root `dist/`** (13 plików): `index.html` 3 004 B, `index.js` 1 455 412 B (~1,46 MB; gzip -9: 393 808 B, gzip
+  -6: 395 313 B), `service-worker.js` 2 394 B, `service-worker-loader.js` 147 B, `output-info.json` 5 898 B (`files`:
+  tylko `./index.js`; `assets`: 148 ścieżek), z `public/`: `_headers`, `_redirects`, `robots.txt`, `sitemap.xml`,
+  `manifest.json`, `favicon.ico`, `icon512_maskable.png`, `icon512_rounded.png`. Brak plików CSS.
+- **Metadane jak w CI** (`yarn stats --extensions=".js,.html,.css"`): `ci-metadata.json` — `index.html`, `index.js`,
+  `service-worker.js`, `service-worker-loader.js`.
+- **`index.html` po buildzie:** `index.html` (sformatowany Prettierem; jedyny wstawiony skrypt to
+  `<script src="/index.js">`, loader service workera w komentarzu).
+- **Trasy:** 8 tras × 2 widoki (desktop 1440 × 900, mobile 390 × 844), zrzuty całych stron w `screenshots/`, raport
+  w `routes-report.json` (końcowy URL, wysokość strony, zepsute obrazki, błędy konsoli). Wszystkie trasy się
+  renderują, przekierowań brak, zepsutych obrazków 0. Błędy konsoli to znany szum środowiska testowego: CORS do
+  `yarnmark-api.com` z `localhost` (`/home`, `/hall`, `/vendor/apply`) i logowanie Google na `/admin`. Treść pasma
+  zespołu na `/home` jest losowa — różnice w tym pasmie nie są regresją.
+- **Powtórzenie po migracji:** `screenshots.mjs <adres> <katalog>` (wymaga Playwrighta, ścieżka w zmiennej `PW`) na
+  buildzie Vite (`vite preview`), potem porównanie zrzutów i raportu.
+
+### Krok V1. `@types/node` zgodne z Vite — ✅ zrobione
+
+- `@types/node` 20.6.1 → wersja z linii 24 (zgodna z Node w CI i z peer dependency Vite).
+- Osobno, przed Vite, żeby ewentualne nowe błędy typów nie mieszały się z migracją.
+- Sprawdzenie: `yarn typecheck` (API Node używają pliki `workflow-helpers/*.ts`; `esbuild.*.mjs` nie są objęte
+  typecheckiem).
+
+Wynik: `@types/node` 20.6.1 → 24.19.4 (najnowsza z linii 24; doszła zależność `undici-types` 7.24.6). Bez zmian w
+kodzie. Typecheck, lint, `format:check`, testy (378/378), `yarn bundle` i `yarn transpile-workflow-files` bez błędów.
+
+### Krok V2. Instalacja Vite obok esbuilda — ✅ zrobione
+
+- Dodać `vite` 8.4.0 i `@vitejs/plugin-react` 6.3.0 (devDependencies).
+- Nowy `vite.config.mts` z ustawieniami odpowiadającymi obecnym:
+  - `plugins: [react()]`;
+  - `resolve.alias`: `@` → `src` (zamiast `paths` z `tsconfig.json`, które czyta esbuild);
+  - `server.port: 8090`, `server.strictPort: true`, `server.open: true`;
+  - `build.outDir: 'dist'`, `build.target: 'es2019'`, `build.sourcemap: false`;
+  - `build.assetsInlineLimit: 0` — Vite domyślnie wstawia pliki < 4 KB jako `data:` URL; dziś każdy obrazek jest
+    osobnym plikiem.
+- Stare skrypty `start` i `bundle` zostają, Vite uruchamiany na próbę: `npx vite`, `npx vite build`.
+
+Wynik: `vite` 8.4.0 i `@vitejs/plugin-react` 6.3.0 w devDependencies (bez nowych ostrzeżeń o peer dependencies;
+`esbuild` jest dla Vite 8 opcjonalny, więc 0.19.2 nie koliduje). Konfiguracja w `vite.config.mts`, nie `.ts` — bez
+`"type": "module"` w `package.json` Vite wczytywał `.ts` jako CommonJS i ostrzegał, że ten tryb przestanie być
+obsługiwany; `.mts` jest zawsze modułem ES. Plik jest objęty typecheckiem (`tsconfig.json` nie ma `include`).
+Sprawdzone na próbnym serwerze (`npx vite --port 8092`, bo 8090 zajmuje dev server esbuilda): `src/index.tsx`
+i zależności się transformują, alias `@/` rozwiązuje się do `/src/…`, importy obrazków (svg, jfif, avif, webp)
+zwracają URL jak dotąd. `/` zwraca 404 i `npx vite build` nie ma jeszcze punktu wejścia — oba wymagają `index.html`
+w roocie (krok V3). Typecheck, lint, `format:check`, testy (378/378) i `yarn bundle` bez błędów.
+
+### Krok V3. `index.html` w roocie projektu — ✅ zrobione (razem z V4)
+
+- Vite traktuje `index.html` jako punkt wejścia i oczekuje go w roocie projektu, a cały `public/` kopiuje 1:1 do
+  `dist/`. Dlatego `public/index.html` → `index.html` (przeniesienie, nie kopia — inaczej Vite skopiuje też stary
+  szablon).
+- Dodać `<script type="module" src="/src/index.tsx"></script>` (dziś wstawia go `htmlPlugin`).
+- Zakomentowany loader service workera używa składni szablonu esbuilda (`<%- define.hash %>`) — Vite jej nie zna.
+  Decyzja: usunąć tę linię albo zostawić komentarz bez `define.hash` (krok V6 decyduje o service workerze).
+- `esbuild-plugin-copy` przestaje być potrzebny — `_headers`, `_redirects`, `robots.txt`, `sitemap.xml`,
+  `manifest.json`, ikony i `favicon.ico` kopiuje Vite z `public/`.
+- Uwaga: po przeniesieniu stary `npm run bundle` przestanie działać (szablon `htmlPlugin` wskazuje
+  `public/index.html`) — V3 i V4 robić razem albo w V3 zaktualizować ścieżkę w `esbuild.config.mjs`.
+
+### Krok V4. Skrypty `start` i `bundle` na Vite — ✅ zrobione (razem z V3)
+
+- `start` → `vite`, `bundle` → `vite build`; dodać `preview` → `vite preview --port 8090` (podgląd builda).
+- SPA fallback (`historyApiFallback`) Vite ma domyślnie w dev i w `preview`.
+- Typy: dodać `vite/client` (np. `"types": ["vite/client"]` w `tsconfig.json`); deklaracje obrazków w
+  `src/types.d.ts` (`*.jpg`, `*.png`, `*.svg`, `*.webp`, `*.avif`, `*.jfif`, `*.jpeg`) dublują typy Vite — do
+  decyzji, czy je usunąć.
+- **Uwaga dla AGENTS.md:** sekcja „Local Development” opisuje `esbuild.serve.mjs` (`pkill -f esbuild.serve.mjs`) —
+  wymaga aktualizacji.
+- Sprawdzenie:
+  - dev: wszystkie trasy, obrazki (wszystkie formaty), fonty Google, przełączanie języka, formularze, HMR po edycji
+    komponentu;
+  - build: porównanie z punktem odniesienia z V0 — pliki z `public/` są w `dist/`, `dist/index.html` ma te same
+    meta tagi, skrypt gtag, JSON-LD i linki do fontów; trasy działają w `vite preview`; rozmiar bundla.
+
+Wynik V3 + V4 (decyzje: V3 i V4 razem, zakomentowany loader service workera usunięty):
+
+- `public/index.html` → `index.html` (`git mv`), usunięta linia z loaderem, na końcu `<body>` dodany
+  `<script type="module" src="/src/index.tsx"></script>`. Skrypty: `start` → `vite`, `bundle` → `vite build`, nowy
+  `preview` → `vite preview --port 8090 --strictPort`. Pliki `esbuild.*.mjs` zostają do V7, ale nic ich już nie
+  uruchamia — działający dev server esbuilda po przeniesieniu szablonu serwuje pustą stronę i trzeba go zatrzymać.
+- Typy `vite/client` **nie zostały dodane**: kod nie używa `import.meta.env` ani importów z sufiksem (`?url`,
+  `?raw`), a obrazki mają już typy w `src/types.d.ts`. `"types": ["vite/client"]` w `tsconfig.json` wyłączyłby przy
+  tym automatyczne `@types/node`, potrzebne `workflow-helpers/`. Do decyzji, czy dodać je przez
+  `/// <reference types="vite/client" />` — dopiero gdy będą potrzebne.
+- **Build** (`vite build`, ~1,8 s): 158 plików. Wszystkie pliki z `public/` są w roocie `dist/`, wszystkie 148
+  obrazków w `assets/` (te same nazwy, inny hash). JS: `assets/index-[hash].js` 1 048 KB (gzip 314 KB) zamiast
+  `index.js` 1 455 KB (gzip 394 KB) — w obu React produkcyjny, różnica z minifikacji i tree-shakingu Rolldowna.
+  Ostrzeżenie Vite o chunku > 500 KB (dotyczy code splittingu, krok 4 planu). Brakuje — zgodnie z planem —
+  `index.js` w roocie (V5) oraz `service-worker.js`, `service-worker-loader.js` i `output-info.json` (V6).
+- **`dist/index.html`:** te same meta tagi, gtag, JSON-LD i fonty co w V0. Zmiany: brak zakomentowanego loadera,
+  a zamiast `<script src="/index.js" defer>` na końcu `<body>` Vite wstawia
+  `<script type="module" crossorigin src="/assets/index-[hash].js">` w `<head>` (moduł jest odroczony jak `defer`).
+- **Trasy w `vite preview`** (`screenshots.mjs`, 8 tras × 2 widoki): te same URL-e, wysokości stron co do piksela
+  i błędy konsoli co w V0, zepsutych obrazków 0. Porównanie pikseli: 15 z 16 zrzutów identycznych; `mobile_admin`
+  różni się 217 px w przycisku „Zaloguj się przez Google” (iframe Google, nie nasz kod). SPA fallback działa
+  (`/admin/settings`, nieistniejąca trasa → `index.html`). Przełączanie języka pl ↔ en (tekst, link w `Trans`,
+  `localStorage`, `<html lang>`, po przeładowaniu) bez zmian.
+- **Dev (`vite`)**: te same trasy i wysokości co w V0; jedyny błąd to ten sam nieudany fetch (CORS) — Vite 8
+  przekazuje błędy z konsoli przeglądarki do terminala, ze stosem wywołań. HMR: zmiana pliku komponentu → `hmr
+update`, strona bez przeładowania.
+- **Nie zrobione:** `AGENTS.md` (sekcja „Local Development”) nadal opisuje `esbuild.serve.mjs` — do V7. Workflowy
+  CI wołają `yarn bundle`, więc budują już Vite, ale porównanie rozmiaru w PR nie zobaczy JS w `assets/` (V5).
+
+### Krok V5. Nazwy plików i metadane w CI — ✅ zrobione
+
+- Vite domyślnie zapisuje JS i CSS jako `dist/assets/index-[hash].js`. Psuje to dwa workflowy:
+  - `getDirMetadata.ts` czyta tylko root `dist/`, więc w metadanych zostałby sam `index.html`;
+  - `compareMetadata.ts` porównuje po nazwie, więc hash w nazwie zrobi z każdego pliku „usunięty” + „nowy”.
+- Do wyboru:
+  - **Bez hashy, jak dziś:** `build.rollupOptions.output.entryFileNames: '[name].js'` (i analogicznie
+    `chunkFileNames`) w roocie `dist/` — workflowy bez zmian. Minus: przeglądarka może trzymać stary `index.js`
+    z cache.
+  - **Hashe (domyślne Vite):** `getDirMetadata.ts` rekurencyjnie + usuwanie hasha z nazwy przed porównaniem. Lepsze
+    cache'owanie, zwłaszcza po code splittingu w kroku 4 planu.
+- Sprawdzenie: lokalnie `yarn bundle`, `yarn transpile-workflow-files`, `yarn stats` i `yarn compare-stats` na dwóch
+  buildach — tabela musi pokazywać te same pliki po obu stronach.
+
+Wynik (decyzja: hashe + zmiana CI). Zmieniony tylko `workflow-helpers/getDirMetadata.ts`; konfiguracja Vite,
+workflowy i `compareMetadata.ts` bez zmian:
+
+- `fs.readdirSync(…, { recursive: true })` — czyta też podkatalogi; kluczem jest ścieżka względem `dist/`
+  (np. `assets/index.js`).
+- Hash Vite (`-` + 8 znaków `[A-Za-z0-9_-]` tuż przed rozszerzeniem) jest usuwany z nazwy, więc ten sam plik ma ten
+  sam klucz w każdym buildzie: `assets/index-D-XEHeN-.js` → `assets/index.js`. Nazwy bez hasha
+  (`service-worker-loader.js`, `my-component.js`) zostają bez zmian. Fałszywe trafienie jest możliwe tylko dla pliku
+  bez hasha, którego ostatni człon po `-` ma dokładnie 8 znaków — Vite nie tworzy takich plików w `assets/`.
+- Jeśli po usunięciu hasha dwa pliki mają ten sam klucz (np. dwa chunki `index` po code splittingu), ich rozmiary
+  są sumowane, żeby suma całkowita się zgadzała.
+- Sprawdzone lokalnie łańcuchem z CI (transpilacja → `stats` → `compare-stats`) na buildzie esbuild z V0 jako
+  „master” i buildzie Vite z V4 jako „branch”: metadane Vite to `index.html` i `assets/index.js` (wcześniej sam
+  `index.html`).
+- **Pierwszy PR z migracją** pokaże w tabeli `index.js` i oba pliki service workera jako usunięte, a
+  `assets/index.js` jako nowy (`Infinity%`), bo metadane mastera powstają jeszcze z builda esbuild. Suma: 1,39 MB →
+  1 MB (−28%). Od kolejnego PR klucze po obu stronach będą te same.
+- Bez testu jednostkowego: `transpile-workflow-files` transpiluje pliki osobno, bez rozwiązywania importów, więc
+  funkcji nie da się wydzielić do osobnego modułu z testem (helpery importują między sobą tylko typy). `yarn test`
+  obejmuje tylko `src/`.
+- Przy okazji: ESLint na `getDirMetadata.ts` zgłasza wcześniejszy błąd `no-useless-escape` w `extensionRegex`
+  (linia 35, `\.` w klasie znaków) — `yarn lint` nie obejmuje `workflow-helpers/`, nie poprawiony.
+
+### Krok V6. Service worker — ⏸ odłożony
+
+Decyzja (2026-11-26): service worker na razie zostaje bez zmian, temat do podjęcia później. Stan po migracji:
+`src/service-worker.ts` i `src/service-worker-loader.ts` zostają w repozytorium, ale build Vite ich nie buduje — w
+`dist/` nie ma `service-worker.js`, `service-worker-loader.js` ani `output-info.json`. Strona i tak ich nie ładowała
+(loader był zakomentowany, w V3 usunięty), więc działanie strony się nie zmienia. Netlify (`_redirects`: `/*
+/index.html 200`) odpowie na `/service-worker.js` stroną `index.html`.
+
+- Dziś nie jest rejestrowany (patrz stan wyjściowy), ale jest budowany i oczekuje `./output-info.json` z listą
+  plików. Vite nie zbuduje go sam: potrzebne osobne wejście z nazwą bez hasha (`/service-worker.js` w roocie).
+- Do wyboru:
+  - **Parzystość:** dodatkowe wejścia w `build.rollupOptions.input` z `entryFileNames` bez hasha dla service
+    workera + mały plugin Vite generujący `output-info.json` w tym samym kształcie (`files`, `assets`), np. z
+    `build.manifest`.
+  - **`vite-plugin-pwa` (2.0.0, tryb `injectManifest`):** lista plików do precache wstrzykiwana do service workera
+    przy buildzie, bez `output-info.json`. Większa zmiana — wymaga przepisania `fetchOutputInfoData`.
+  - **Usunięcie:** skoro nie jest rejestrowany — usunąć `service-worker.ts`, `service-worker-loader.ts`
+    i `output-info.json` (decyzja produktowa, nie techniczna).
+- Filtr `!event.request.url.includes('esbuild-livereload')` w `service-worker.ts` dotyczy tylko esbuild-servera —
+  do usunięcia albo zamiany na ścieżki Vite (`/@vite/`, `/@react-refresh`).
+
+### Krok V7. Sprzątanie — ✅ zrobione
+
+- Usunąć `esbuild.config.mjs`, `esbuild.serve.mjs`, `esbuild.bundle.mjs`.
+- Usunąć zależności: `esbuild-server`, `@craftamap/esbuild-plugin-html`, `esbuild-plugin-copy`,
+  `esbuild-plugin-manifest` (generował tylko `output-info.json` dla service workera; przy powrocie do V6 Vite ma
+  własny `build.manifest`).
+- `esbuild` nadal używa `transpile-workflow-files`. Do wyboru: podbić `esbuild` do 0.28.2 (zgodne z peer dependency
+  Vite) albo przejść w `workflow-helpers` na `node --experimental-transform-types`, jak już robi `edition:check`, i
+  usunąć `esbuild` z zależności.
+- `argv` zostaje (używają go `workflow-helpers`).
+- Zaktualizować `AGENTS.md` (dev server, harness „with the project's esbuild”), `README.md`, `eslint.config.mjs`
+  (`globals.node` dla `vite.config.mts`, jeśli lint ma go obejmować) i `docs/updates/update-context.md`.
+- Sprawdzenie: `npm run check:unused` (knip) — brak osieroconych plików i zależności po esbuildzie.
+
+Wynik (decyzja: `esbuild` 0.28.2):
+
+- Usunięte `esbuild.config.mjs`, `esbuild.serve.mjs`, `esbuild.bundle.mjs` oraz `esbuild-server`,
+  `@craftamap/esbuild-plugin-html`, `esbuild-plugin-copy`, `esbuild-plugin-manifest`. `esbuild` 0.19.2 → 0.28.2
+  (tylko dla `transpile-workflow-files`). Build Vite po sprzątaniu identyczny (ten sam hash `index-D-XEHeN-.js`).
+- `transpile-workflow-files` na 0.28.2 działa; łańcuch z CI (`stats` → `compare-stats`) sprawdzony na nowym
+  buildzie.
+- `AGENTS.md`: dev server to Vite (komunikat przy drugiej instancji: `Found another Vite dev process for this
+project`, zatrzymanie: `pkill -f node_modules/.bin/vite`), dodane `bundle`/`preview`, harness „with the project's
+  Vite config”. Uwaga o service workerze zostaje (V6 odłożony).
+- `docs/updates/update-context.md`: stos technologiczny, krok 2 oznaczony jako zrobiony z odnośnikiem do tego
+  dokumentu, wiersz `esbuild` usunięty z tabeli przestarzałych zależności (0.28.2 to najnowsza).
+- Bez zmian: `README.md` (nie wspomina o bundlerze), `eslint.config.mjs` (`yarn lint` obejmuje tylko `src/`, więc
+  `vite.config.mts` nie jest lintowany — `globals.node` niepotrzebne). Lokalne `.claude/settings.local.json` ma
+  uprawnienia `pkill -f esbuild.serve.mjs` — nieaktualne, plik użytkownika, nieruszany.
+- knip: brak nieużywanych devDependencies i brakujących pakietów. Nowe pozycje w „Unused files” względem kroku 0:
+  `src/service-worker.ts` i `src/service-worker-loader.ts` (były wejściami esbuilda, V6 odłożony) oraz
+  `docs/updates/vite-baseline/screenshots.mjs` (samodzielne narzędzie). Pozostałe zgłoszenia — jak w kroku 0.
+- Typecheck, lint, `format:check`, testy (378/378) i `yarn bundle` bez błędów.
+
+## Poza zakresem migracji (kolejne kroki planu)
+
+- Code splitting tras (`React.lazy`, krok 4 planu) — w Vite działa bez dodatkowej konfiguracji (moduły ES i chunki);
+  od tej decyzji zależy wybór w V5.
+- Vitest zamiast `node --test` (krok 6 planu) — po Vite naturalny, ale osobny krok.
+- React Compiler (krok 4 planu) — w Vite przez `babel-plugin-react-compiler` w `@vitejs/plugin-react`.
+
+## Otwarte decyzje
+
+- V3: usunąć zakomentowany loader service workera z `index.html` czy go zostawić.
+- V4: usunąć deklaracje obrazków z `src/types.d.ts` czy zostawić.
+- V5: nazwy plików bez hashy (bez zmian w CI) czy hashe (zmiany w `getDirMetadata.ts` i `compareMetadata.ts`).
+- V6 (odłożone): service worker — parzystość, `vite-plugin-pwa` czy usunięcie.
+- V7: `esbuild` 0.28.2 dla `workflow-helpers` czy `node --experimental-transform-types`.
