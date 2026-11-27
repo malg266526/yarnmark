@@ -35,7 +35,7 @@
     "@types/react-modal": "3.16.3",
     "argv": "0.0.3",
     "bytes": "3.1.2",
-    "esbuild": "0.19.2",
+    "esbuild": "0.28.1",
     "esbuild-plugin-copy": "2.1.1",
     "esbuild-plugin-manifest": "1.0.5",
     "esbuild-server": "0.3.0",
