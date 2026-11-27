@@ -9,7 +9,7 @@ export const BandsToggles = {
   hallMapEnabled: true,
   ticketEnabled: true,
   cruiseEnabled: false,
-  workshopsEnabled: true,
+  workshopsEnabled: false,
   workshopsScheduleEnabled: false,
   vendorsEnabled: true,
   afterEnabled: false,
